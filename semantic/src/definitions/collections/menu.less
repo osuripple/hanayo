@@ -29,7 +29,7 @@
 
 .ui.menu {
   display: flex;
-  margin: @margin;
+  /*margin: @margin; removed because we got the huge heading*/
   font-family: @fontFamily;
   background: @background;
   font-weight: @fontWeight;
@@ -1921,8 +1921,8 @@ Floated Menu / Item
 }
 
 /*** hanayo ***/
-.ui.dropped.menu {
-  box-shadow: 0 -2px 15px 0 #BBB;
+.ui.menu.dropped, .dropped {
+  box-shadow: 0 5px 10px 0 #eaeaea;
 }
 .ui.fixed-height.menu {
   min-height: 60px;

@@ -19434,7 +19434,7 @@ ol.ui.horizontal.list li:before,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1rem 0em;
+  /*margin: @margin; removed because we got the huge heading*/
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   font-weight: normal;
@@ -21592,8 +21592,9 @@ Floated Menu / Item
 
 /*** hanayo ***/
 
-.ui.dropped.menu {
-  box-shadow: 0 -2px 15px 0 #BBB;
+.ui.menu.dropped,
+.dropped {
+  box-shadow: 0 5px 10px 0 #eaeaea;
 }
 
 .ui.fixed-height.menu {

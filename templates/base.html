@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 
-		<title>{{ if .TitleBar }}{{ .TitleBar }}{{ else }}Ripple{{ end }}</title>
+		<title>{{ if .TitleBar }}{{ .TitleBar }} - {{ end }}Ripple</title>
 		
 		<link rel="stylesheet" type="text/css" href="static/semantic.min.css">
 		<link rel="stylesheet" type="text/css" href="static/ripple.css">
@@ -13,6 +13,10 @@
 	<body >
 		<div class="ui full height">
 			{{ template "navbar" }}
+			<div class="huge heading dropped"
+				style="background-image: url('{{ if .KyutGrill }}{{ .KyutGrill }}{{ else }}http://y.zxq.co/pkrgim.jpg{{ end }}');'">
+				<h1>{{ .TitleBar }}</h1>
+			</div>
 		
 			<div class="h-container">
 				{{ template "tpl" }}

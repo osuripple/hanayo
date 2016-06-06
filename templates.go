@@ -68,8 +68,9 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 }
 
 type baseTemplateData struct {
-	TitleBar string
-	Scripts  []string
+	TitleBar  string
+	Scripts   []string
+	KyutGrill string
 }
 
 func reloader() error {
