@@ -1,5 +1,22 @@
 {{ define "tpl" }}
 <div class="ui container">
+	{{/* Not logged in block */}}
+	{{ if not .Context.User.Username }}
+	<div class="ui raised segment">
+		<h1 class="ui header">Welcome to Ripple.</h1>
+		<p>
+			You look new here. Allow us to introduce you to what Ripple is.
+		</p>
+		<p>
+			Ripple is a private osu! server, featuring multiplayer, PP, a very active community
+			and a development team going strong implementing new features and squashing bugs. We
+			currently have <b>1,337</b> users, of which <b>137</b> online this very moment!
+		</p>
+		<h3 class="ui header center aligned">What are you waiting for? Join Ripple! It's risk-free:
+			you won't get your account banned if you play on Ripple.<br />You can also switch anytime
+			between the official osu! server and Ripple!</h3>
+	</div>
+	{{ end }}
 	<div class="ui raised segment">
 		<h1 class="ui center aligned icon header">
 			<i class="circular icon pointing right"></i>
