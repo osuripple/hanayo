@@ -26,7 +26,7 @@ func main() {
 
 	r.Static("/static", "static")
 
-	r.GET("/", testHandler)
+	r.GET("/", homePage)
 
 	r.Run(":45221")
 }
