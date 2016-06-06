@@ -3,9 +3,9 @@ package main
 // user represents the user a logged in visitor could be.
 // I can't really find any better explanation.
 type user struct {
-	ID int
+	ID       int
 	Username string
 	Password string
-	Allowed int
+	Allowed  int
 	APIToken string
 }
