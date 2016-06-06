@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
+	"path"
 
 	"gopkg.in/fsnotify.v1"
 
@@ -34,7 +35,7 @@ func loadTemplates() {
 		// do not compile base templates on their own
 		var c bool
 		for _, j := range baseTemplates {
-			if i.Name() == j {
+			if i.Name() == path.Base(j) {
 				c = true
 				break
 			}
