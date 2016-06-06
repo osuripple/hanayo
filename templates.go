@@ -1,9 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 
+	"gopkg.in/fsnotify.v1"
+
+	"git.zxq.co/ripple/schiavolib"
 	"github.com/gin-gonic/gin"
 )
 
@@ -59,9 +63,37 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 	err := t.ExecuteTemplate(c.Writer, "base", data)
 	if err != nil {
 		c.Writer.WriteString("What on earth? Please tell this to a dev!")
+		schiavo.Bunker.Send(err.Error())
 	}
 }
 
 type baseTemplateData struct {
 	TitleBar string
+	Scripts  []string
+}
+
+func reloader() error {
+	w, err := fsnotify.NewWatcher()
+	if err != nil {
+		return err
+	}
+	err = w.Add("templates")
+	if err != nil {
+		w.Close()
+		return err
+	}
+	go func() {
+		for {
+			select {
+			case ev := <-w.Events:
+				if ev.Op&fsnotify.Write == fsnotify.Write {
+					fmt.Println("Change detected! Refreshing templates")
+					loadTemplates()
+				}
+			case err := <-w.Errors:
+				fmt.Println(err)
+			}
+		}
+	}()
+	return nil
 }

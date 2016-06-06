@@ -1,0 +1,6 @@
+/*
+ * This file contains Ripple's CSS, that little that is needed for ripple's custom elements.
+ */
+.ripple-title > a {
+	color: inherit;
+}

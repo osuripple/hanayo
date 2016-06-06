@@ -21593,7 +21593,7 @@ Floated Menu / Item
 /*** hanayo ***/
 
 .ui.dropped.menu {
-  box-shadow: 0 5px 15px 0 #BBB;
+  box-shadow: 0 -2px 15px 0 #BBB;
 }
 
 .ui.fixed-height.menu {
