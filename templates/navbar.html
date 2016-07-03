@@ -20,9 +20,18 @@
 					<i class="search link icon"></i>
 				</div>
 			</div>
-			<a class="ui item">
+			{{ if .Context.User.Username }}
+			<a class="item">
 				Logout
 			</a>
+			{{ else }}
+			<a class="item">
+				Sign in
+			</a>
+			<a class="item">
+				Register
+			</a>
+			{{ end }}
 		</div>
 	</div>
 </div>
