@@ -44,10 +44,16 @@ func loadTemplates() {
 			continue
 		}
 
+		fm := template.FuncMap{
+			"html": func(value interface{}) template.HTML {
+				return template.HTML(fmt.Sprint(value))
+			},
+		}
+
 		// add new template to template slice
 		templates[i.Name()] = template.Must(template.ParseFiles(
 			append(baseTemplates[:], "templates/"+i.Name())...,
-		))
+		)).Funcs(fm)
 	}
 }
 

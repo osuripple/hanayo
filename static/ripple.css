@@ -36,3 +36,15 @@
 .main.wrapper {
 	margin-bottom: 30px;
 }
+
+img {
+    max-width: 100%;
+}
+
+a.inherit {
+	color: inherit;
+	opacity: 0.9;
+}
+a.inherit:hover {
+	opacity: 1;
+}

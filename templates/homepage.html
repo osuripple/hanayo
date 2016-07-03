@@ -23,5 +23,19 @@
 			Ripple
 		</h1>
 	</div>
+	{{ range $i, $v := .Posts }}
+		<div class="ui raised segment">
+			<h1 class="ui header">
+				<a href="/blog/posts/{{ $v.Slug }}" class="inherit">{{ html $v.Title }}</a>
+				<div class="sub header">by <a href="/u/{{ $v.CreatorID }}">{{ $v.CreatorName }}</a></div>
+			</h1>
+			{{ html $v.HTML }}
+		</div>
+	{{ end }}
+	{{ if ne (len .Posts) 0 }}
+		<h1 class="ui center aligned header">
+			<a href="/blog" class="inherit">See more on the blog...</a>
+		</h1>
+	{{ end }}
 </div>
 {{ end }}

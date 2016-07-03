@@ -2,8 +2,17 @@ package main
 
 import "github.com/gin-gonic/gin"
 
+type homePageData struct {
+	baseTemplateData
+	Posts []BlogPost
+}
+
 func homePage(c *gin.Context) {
-	resp(c, 200, "homepage.html", baseTemplateData{
-		TitleBar: "Home Page",
+	posts := getBlogPosts(5)
+	resp(c, 200, "homepage.html", homePageData{
+		baseTemplateData: baseTemplateData{
+			TitleBar: "Home Page",
+		},
+		Posts: posts,
 	})
 }
