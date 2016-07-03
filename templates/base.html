@@ -14,7 +14,7 @@
 		<div class="ui full height main wrapper">
 			{{ template "navbar" }}
 			<div class="huge heading dropped"
-				style="background-image: url('{{ if .KyutGrill }}{{ .KyutGrill }}{{ else }}/static/headers/default.jpg{{ end }}');'">
+				style="background-image: url('{{ if .KyutGrill }}/static/headers/{{ .KyutGrill }}{{ else }}/static/headers/default.jpg{{ end }}');'">
 				<h1>{{ .TitleBar }}</h1>
 			</div>
 		

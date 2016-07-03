@@ -11,7 +11,8 @@ func homePage(c *gin.Context) {
 	posts := getBlogPosts(5)
 	resp(c, 200, "homepage.html", homePageData{
 		baseTemplateData: baseTemplateData{
-			TitleBar: "Home Page",
+			TitleBar:  "Home Page",
+			KyutGrill: "homepage.jpg",
 		},
 		Posts: posts,
 	})
