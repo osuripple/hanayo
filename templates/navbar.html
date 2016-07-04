@@ -4,7 +4,7 @@
 		<div class="item">
 			<b class="ripple-title"><a href="/">Ripple</a></b>
 		</div>
-		<a class="{{ if eq .Path "/" }}active {{ end }}item">
+		<a class="{{ if eq .Path "/" }}active {{ end }}item" href="/">
 			Home
 		</a>
 		<a class="item">
@@ -14,23 +14,23 @@
 			Friends
 		</a>
 		<div class="right menu">
-			<div class="item">
-				<div class="ui icon input">
-					<input type="text" placeholder="Looking for someone?">
-					<i class="search link icon"></i>
-				</div>
-			</div>
 			{{ if .Context.User.Username }}
-			<a class="item">
-				Logout
-			</a>
+				<div class="item">
+					<div class="ui icon input">
+						<input type="text" placeholder="Looking for someone?">
+						<i class="search link icon"></i>
+					</div>
+				</div>
+				<a class="item">
+					Logout
+				</a>
 			{{ else }}
-			<a class="item" href="/login">
-				Sign in
-			</a>
-			<a class="item" href="/register">
-				Register
-			</a>
+				<a class="{{ if eq .Path "/login" }}active {{ end }}item" href="/login">
+					Log in
+				</a>
+				<a class="{{ if eq .Path "/register" }}active {{ end }}item" href="/register">
+					Register
+				</a>
 			{{ end }}
 		</div>
 	</div>

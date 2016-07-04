@@ -1,0 +1,29 @@
+{{ define "tpl" }}
+<div class="ui container">
+	{{/* Not logged in block */}}
+	{{ if .Context.User.Username }}
+		<div class="ui raised segment">
+			You are already logged in!
+		</div>
+	{{ else }}
+		<div class="ui raised segments" style="margin: 0 auto; width: 75%;">
+			<div class="ui segment">
+				<form id="login-form" class="ui form" method="post" action="/login">
+					<div class="field">
+						<label>Username (or email)</label>
+						<input type="text" name="username" placeholder="Username">
+					</div>
+					<div class="field">
+						<label>Password</label>
+						<input type="password" name="password" placeholder="Password">
+					</div>
+					<input type="submit" id="login-form-submit" hidden>
+				</form>
+			</div>
+			<div class="ui right aligned segment">
+				<button class="ui primary button" type="submit" form="login-form">Submit</button>
+			</div>
+		</div>
+	{{ end }}
+</div>
+{{ end }}

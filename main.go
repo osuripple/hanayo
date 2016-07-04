@@ -119,6 +119,7 @@ func main() {
 	r.GET("/test", func(c *gin.Context) {
 		addMessage(c, errorMessage{"test"})
 	})
+	r.GET("/login", login)
 
 	r.NoRoute(notFound)
 
