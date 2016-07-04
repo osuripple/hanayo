@@ -4,7 +4,7 @@
 		<div class="item">
 			<b class="ripple-title"><a href="/">Ripple</a></b>
 		</div>
-		<a class="active item">
+		<a class="{{ if eq .Path "/" }}active {{ end }}item">
 			Home
 		</a>
 		<a class="item">
@@ -25,10 +25,10 @@
 				Logout
 			</a>
 			{{ else }}
-			<a class="item">
+			<a class="item" href="/login">
 				Sign in
 			</a>
-			<a class="item">
+			<a class="item" href="/register">
 				Register
 			</a>
 			{{ end }}

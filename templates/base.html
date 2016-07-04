@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="ui full height main wrapper">
-			{{ template "navbar" }}
+			{{ template "navbar" . }}
 			<div class="huge heading dropped"
 				style="background-image: url('{{ if .KyutGrill }}/static/headers/{{ .KyutGrill }}{{ else }}/static/headers/default.jpg{{ end }}');'">
 				<h1>{{ .TitleBar }}</h1>

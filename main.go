@@ -57,7 +57,8 @@ func main() {
 		}
 	}
 
-	schiavo.Bunker.Send(fmt.Sprintf("**hanayo** STARTUATO, mode: %s", gin.Mode()))
+	schiavo.Prefix = "hanayo"
+	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
 
 	fmt.Println("Starting session system...")
 	var store sessions.Store
@@ -89,6 +90,8 @@ func main() {
 	r.Static("/static", "static")
 
 	r.GET("/", homePage)
+
+	r.NoRoute(notFound)
 
 	conf.Export(c, "hanayo.conf")
 

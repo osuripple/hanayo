@@ -79,6 +79,7 @@ type baseTemplateData struct {
 	Scripts   []string
 	KyutGrill string
 	Context   context
+	Path      string
 }
 
 func reloader() error {

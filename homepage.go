@@ -13,6 +13,7 @@ func homePage(c *gin.Context) {
 		baseTemplateData: baseTemplateData{
 			TitleBar:  "Home Page",
 			KyutGrill: "homepage.jpg",
+			Path:      c.Request.URL.Path,
 		},
 		Posts: posts,
 	})
