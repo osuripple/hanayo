@@ -33,14 +33,14 @@ func loadTemplates() {
 		}
 
 		// do not compile base templates on their own
-		var c bool
+		var comp bool
 		for _, j := range baseTemplates {
 			if i.Name() == path.Base(j) {
-				c = true
+				comp = true
 				break
 			}
 		}
-		if c {
+		if comp {
 			continue
 		}
 
@@ -48,12 +48,22 @@ func loadTemplates() {
 			"html": func(value interface{}) template.HTML {
 				return template.HTML(fmt.Sprint(value))
 			},
+			"avatars": func() string {
+				return c.AvatarURL
+			},
+			"navbarItem": func(currentPath, name, path string) template.HTML {
+				var act string
+				if path == currentPath {
+					act = "active "
+				}
+				return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
+			},
 		}
 
 		// add new template to template slice
-		templates[i.Name()] = template.Must(template.ParseFiles(
+		templates[i.Name()] = template.Must(template.New(i.Name()).Funcs(fm).ParseFiles(
 			append(baseTemplates[:], "templates/"+i.Name())...,
-		)).Funcs(fm)
+		))
 	}
 }
 

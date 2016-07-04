@@ -1,12 +1,10 @@
 {{ define "navbar" }}
-<div class="ui secondary dropped fixed-height menu">
+<div class="ui secondary dropped fixed-height stackable menu">
 	<div class="ui container">
 		<div class="item">
 			<b class="ripple-title"><a href="/">Ripple</a></b>
 		</div>
-		<a class="{{ if eq .Path "/" }}active {{ end }}item" href="/">
-			Home
-		</a>
+		{{ navbarItem .Path "Home" "/"}}
 		<a class="item">
 			Messages
 		</a>
@@ -21,9 +19,24 @@
 						<i class="search link icon"></i>
 					</div>
 				</div>
-				<a class="item">
-					{{ .Context.User.Username }}
-				</a>
+				<div class="ui dropdown item">
+					<img class="ui avatar image" src="{{ avatars }}/{{ .Context.User.ID }}">
+					<span>{{ .Context.User.Username }}</span>
+					<div class="menu">
+						<a class="item" href="/u/{{ .Context.User.ID }}">
+							Profile
+						</a>
+						<a class="item" href="/settings">
+							Settings
+						</a>
+						<a class="item" href="/settings/avatar">
+							Avatar
+						</a>
+						<a class="item" href="/logout">
+							Log out
+						</a>
+					</div>
+				</div>
 			{{ else }}
 				<a class="{{ if eq .Path "/login" }}active {{ end }}item" href="/login">
 					Log in

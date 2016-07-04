@@ -20,6 +20,10 @@ func login(c *gin.Context) {
 }
 
 func loginSubmit(c *gin.Context) {
+	if c.MustGet("context").(context).User.ID != 0 {
+		loginSubmitReplyError(c, "You are already logged in!")
+	}
+
 	if c.PostForm("username") == "" || c.PostForm("password") == "" {
 		loginSubmitReplyError(c, "Username or password not set.")
 		return

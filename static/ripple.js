@@ -22,16 +22,18 @@ var singlePageSnippets = {
 };
 
 $(document).ready(function(){
-  $('.message .close')
-    .on('click', closeClosestMessage);
+  /* semantic stuff */
+  $('.message .close').on('click', closeClosestMessage);
 
-  $('.ui.checkbox')
-    .checkbox();
+  $('.ui.checkbox').checkbox();
   
   $('.ui.form').submit(function() {
     $(this).addClass("loading");
   });
   
+  $('.ui.dropdown').dropdown();
+  
+  /* ripple stuff */
   var f = singlePageSnippets[window.location.pathname];
   if (typeof f === 'function') {
     f();
