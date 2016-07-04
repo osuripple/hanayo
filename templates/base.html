@@ -7,8 +7,8 @@
 
 		<title>{{ if .TitleBar }}{{ .TitleBar }} - {{ end }}Ripple</title>
 		
-		<link rel="stylesheet" type="text/css" href="static/semantic.min.css">
-		<link rel="stylesheet" type="text/css" href="static/ripple.css">
+		<link rel="stylesheet" type="text/css" href="/static/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/ripple.css">
 	</head>
 	<body>
 		<div class="ui full height main wrapper">
@@ -38,8 +38,8 @@
 			© 2015-{{ curryear }} The Ripple Team. <a href="/developers">Developers</a> | <a href="https://github.com/osuripple">GitHub</a> | <a href="https://twitter.com/_ripple">@_ripple</a>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
-		<script src="static/semantic.min.js"></script>
-		<script src="static/ripple.js"></script>
+		<script src="/static/semantic.min.js"></script>
+		<script src="/static/ripple.js"></script>
 		{{/* If we got some more scripts to print, print'em */}}
 		{{ if .Scripts }}
 			{{ range .Scripts }}

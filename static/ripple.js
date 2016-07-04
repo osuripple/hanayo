@@ -8,12 +8,13 @@ var singlePageSnippets = {
       var fix = function(errorMessage) {
         $("button").removeClass("disabled");
         $(".ui.form").removeClass("loading");
-        var newEl = $('<div class="ui error message"><i class="close icon"></i>' + errorMessage + '</div>');
+        var newEl = $('<div class="ui error message hidden"><i class="close icon"></i>' + errorMessage + '</div>');
         newEl.find(".close.icon").click(closeClosestMessage);
         $("#messages-container").append(newEl);
+        newEl.transition("slide down");
       };
       
-      if (!/^[a-zA-Z0-9 \[\]\@\.-\+]+$/.test($("input[name='username']").val())) {
+      if (!/^[a-zA-Z0-9 \[\]\@\.\+-]+$/.test($("input[name='username']").val())) {
         fix("Invalid username.");
         return false;
       }
