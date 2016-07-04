@@ -5,6 +5,8 @@ import (
 	"html/template"
 	"io/ioutil"
 	"path"
+	"strconv"
+	"time"
 
 	"gopkg.in/fsnotify.v1"
 
@@ -57,6 +59,9 @@ func loadTemplates() {
 					act = "active "
 				}
 				return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
+			},
+			"curryear": func() string {
+				return strconv.Itoa(time.Now().Year())
 			},
 		}
 
