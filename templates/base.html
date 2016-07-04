@@ -19,16 +19,16 @@
 			</div>
 		
 			<div class="h-container">
+				<div class="ui margined container" id="messages-container">
 				{{ if .Messages }}
-					<div class="ui padded margined container">
 						{{ range $i, $v := .Messages }}
 							<div class="ui {{ $v.Type }} message">
 								<i class="close icon"></i>
 								{{ $v.Content }}
 							</div>
 						{{ end }}
-					</div>
 				{{ end }}
+				</div>
 				{{ template "tpl" . }}
 			</div>
 	

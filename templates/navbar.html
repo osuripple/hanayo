@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<a class="item">
-					Logout
+					{{ .Context.User.Username }}
 				</a>
 			{{ else }}
 				<a class="{{ if eq .Path "/login" }}active {{ end }}item" href="/login">

@@ -116,10 +116,8 @@ func main() {
 	r.Static("/static", "static")
 
 	r.GET("/", homePage)
-	r.GET("/test", func(c *gin.Context) {
-		addMessage(c, errorMessage{"test"})
-	})
 	r.GET("/login", login)
+	r.POST("/login", loginSubmit)
 
 	r.NoRoute(notFound)
 

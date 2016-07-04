@@ -1,11 +1,110 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"crypto/md5"
+	"database/sql"
+	"fmt"
+	"strings"
+
+	"git.zxq.co/ripple/rippleapi/common"
+	"github.com/gin-gonic/contrib/sessions"
+	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
+)
 
 func login(c *gin.Context) {
 	resp(c, 200, "login.html", &baseTemplateData{
 		TitleBar:  "Log in",
 		KyutGrill: "login.png",
-		Path:      c.Request.URL.Path,
+	})
+}
+
+func loginSubmit(c *gin.Context) {
+	if c.PostForm("username") == "" || c.PostForm("password") == "" {
+		loginSubmitReplyError(c, "Username or password not set.")
+		return
+	}
+
+	param := "username"
+	if strings.Contains(c.PostForm("username"), "@") {
+		param = "email"
+	}
+
+	var data struct {
+		ID              int
+		Username        string
+		Password        string
+		PasswordVersion int
+		Country         string
+		Privileges      int64
+	}
+	err := db.QueryRow(`
+	SELECT 
+		u.id, u.password_md5,
+		u.username, u.password_version,
+		s.country, u.privileges
+	FROM users u
+	LEFT JOIN users_stats s ON s.id = u.id
+	WHERE u.`+param+` = ? LIMIT 1`, strings.TrimSpace(c.PostForm("username"))).Scan(
+		&data.ID, &data.Password,
+		&data.Username, &data.PasswordVersion,
+		&data.Country, &data.Privileges,
+	)
+
+	switch {
+	case err == sql.ErrNoRows:
+		loginSubmitReplyError(c, "No user with such "+param+"!")
+		return
+	case err != nil:
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	if data.PasswordVersion == 1 {
+		addMessage(c, warningMessage{"Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?"})
+		c.Redirect(302, "/forgot_password")
+		return
+	}
+
+	if err := bcrypt.CompareHashAndPassword([]byte(data.Password), []byte(fmt.Sprintf("%x", md5.Sum([]byte(c.PostForm("password")))))); err != nil {
+		loginSubmitReplyError(c, "Wrong password."+err.Error())
+		return
+	}
+
+	if data.Privileges&common.UserPrivilegeNormal == 0 {
+		loginSubmitReplyError(c, "You are not allowed to login. This means your account is either banned or disabled.")
+		return
+	}
+
+	// TODO: Add stay logged in
+
+	tok := common.RandomString(32)
+	_, err = db.Exec(
+		`INSERT INTO tokens(user, privileges, description, token, private)
+					VALUES (   ?,        '0',           ?,     ?, '1');`,
+		data.ID, c.Request.Header.Get("X-Real-IP"), fmt.Sprintf("%s", md5.Sum([]byte(tok))))
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	sess := c.MustGet("session").(sessions.Session)
+	sess.Set("userid", data.ID)
+	sess.Set("token", tok)
+
+	addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", c.PostForm("username"))})
+	c.Redirect(302, "/")
+	return
+}
+
+func loginSubmitReplyError(c *gin.Context, msg string) {
+	resp(c, 200, "login.html", &baseTemplateData{
+		TitleBar:  "Log in",
+		KyutGrill: "login.png",
+		Messages: []message{
+			errorMessage{msg},
+		},
 	})
 }

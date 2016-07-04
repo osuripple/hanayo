@@ -11,16 +11,26 @@
 				<form id="login-form" class="ui form" method="post" action="/login">
 					<div class="field">
 						<label>Username (or email)</label>
-						<input type="text" name="username" placeholder="Username">
+						<input 
+							type="text"
+							name="username"
+							placeholder="Username"
+							value="{{ .FormData.username }}"
+							required>
 					</div>
 					<div class="field">
-						<label>Password</label>
-						<input type="password" name="password" placeholder="Password">
+						<label>Password <a href="/forgot_password">(forgot?)</a></label>
+						<input
+							type="password"
+							name="password"
+							placeholder="Password"
+							value="{{ .FormData.password }}"
+							required>
 					</div>
 					<div class="field">
-						<div class="ui checkbox">
-							<input type="checkbox" tabindex="0" class="hidden">
-							<label>I agree to the Terms and Conditions</label>
+						<div class="ui checkbox{{ if .FormData.keeplogged }} checked{{ end }}">
+							<input type="checkbox" tabindex="0" class="hidden" name="keeplogged">
+							<label>Stay logged in</label>
 						</div>
 					</div>
 				</form>

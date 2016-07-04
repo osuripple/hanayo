@@ -66,9 +66,10 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		c.String(500, "Template not found! Please tell this to a dev!")
 		return
 	}
-	// dirty hack to allow SetMessages to work if needed
-	if corrected, ok := data.(messageSetter); ok {
+	if corrected, ok := data.(page); ok {
 		corrected.SetMessages(getMessages(c))
+		corrected.SetPath(c.Request.URL.Path)
+		corrected.SetContext(c.MustGet("context").(context))
 	}
 	c.Status(statusCode)
 	err := t.ExecuteTemplate(c.Writer, "base", data)
@@ -86,14 +87,23 @@ type baseTemplateData struct {
 	Context   context
 	Path      string
 	Messages  []message
+	FormData  map[string]string
 }
 
 func (b *baseTemplateData) SetMessages(m []message) {
-	b.Messages = m
+	b.Messages = append(b.Messages, m...)
+}
+func (b *baseTemplateData) SetPath(path string) {
+	b.Path = path
+}
+func (b *baseTemplateData) SetContext(c context) {
+	b.Context = c
 }
 
-type messageSetter interface {
-	SetMessages(m []message)
+type page interface {
+	SetMessages([]message)
+	SetPath(string)
+	SetContext(context)
 }
 
 func reloader() error {

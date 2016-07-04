@@ -19,6 +19,10 @@ func sessionInitializer() func(c *gin.Context) {
 			ctx.User.ID = userid
 			db.QueryRow("SELECT username FROM users WHERE id = ?", userid).Scan(&ctx.User.Username)
 		}
+
+		// TODO: Add stay logged in
+		// TODO: log out if banned
+
 		c.Set("context", ctx)
 		c.Set("session", sess)
 
