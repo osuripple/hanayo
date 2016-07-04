@@ -48,3 +48,17 @@ a.inherit {
 a.inherit:hover {
 	opacity: 1;
 }
+
+.autopad {
+	margin: 1rem 0;
+}
+.autopad:first-child {
+	margin-top: 0;
+}
+.autopad:last-child {
+	margin-bottom: 0;
+}
+
+.margined.container {
+	margin: 1rem;
+}

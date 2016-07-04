@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/gob"
 	"fmt"
 
 	"git.zxq.co/ripple/schiavolib"
@@ -14,13 +15,18 @@ import (
 
 var (
 	c struct {
-		DSN                 string
-		CookieSecret        string
+		DSN string
+
+		CookieSecret string
+
 		RedisEnable         bool
 		RedisMaxConnections int
 		RedisNetwork        string
 		RedisAddress        string
 		RedisPassword       string
+
+		AvatarURL string
+		BaseURL   string
 	}
 	db *sql.DB
 )
@@ -42,6 +48,12 @@ func main() {
 
 	if c.CookieSecret == "" {
 		c.CookieSecret = rs.String(46)
+	}
+	if c.AvatarURL == "" {
+		c.AvatarURL = "https://a.ripple.moe"
+	}
+	if c.BaseURL == "" {
+		c.BaseURL = "https://ripple.moe"
 	}
 
 	db, err = sql.Open("mysql", c.DSN)
@@ -77,6 +89,17 @@ func main() {
 	} else {
 		store = sessions.NewCookieStore([]byte(c.CookieSecret))
 	}
+	gobRegisters := []interface{}{
+		[]message{},
+		errorMessage{},
+		infoMessage{},
+		neutralMessage{},
+		warningMessage{},
+		successMessage{},
+	}
+	for _, el := range gobRegisters {
+		gob.Register(el)
+	}
 
 	fmt.Println("Importing templates...")
 	loadTemplates()
@@ -85,11 +108,17 @@ func main() {
 
 	r := gin.Default()
 
-	r.Use(sessions.Sessions("session", store))
+	r.Use(
+		sessions.Sessions("session", store),
+		sessionInitializer(),
+	)
 
 	r.Static("/static", "static")
 
 	r.GET("/", homePage)
+	r.GET("/test", func(c *gin.Context) {
+		addMessage(c, errorMessage{"test"})
+	})
 
 	r.NoRoute(notFound)
 

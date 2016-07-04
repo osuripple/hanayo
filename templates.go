@@ -66,10 +66,15 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		c.String(500, "Template not found! Please tell this to a dev!")
 		return
 	}
+	// dirty hack to allow SetMessages to work if needed
+	if corrected, ok := data.(messageSetter); ok {
+		corrected.SetMessages(getMessages(c))
+	}
 	c.Status(statusCode)
 	err := t.ExecuteTemplate(c.Writer, "base", data)
 	if err != nil {
 		c.Writer.WriteString("What on earth? Please tell this to a dev!")
+		fmt.Println(err)
 		schiavo.Bunker.Send(err.Error())
 	}
 }
@@ -80,6 +85,15 @@ type baseTemplateData struct {
 	KyutGrill string
 	Context   context
 	Path      string
+	Messages  []message
+}
+
+func (b *baseTemplateData) SetMessages(m []message) {
+	b.Messages = m
+}
+
+type messageSetter interface {
+	SetMessages(m []message)
 }
 
 func reloader() error {

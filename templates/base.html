@@ -19,12 +19,23 @@
 			</div>
 		
 			<div class="h-container">
+				{{ if .Messages }}
+					<div class="ui padded margined container">
+						{{ range $i, $v := .Messages }}
+							<div class="ui {{ $v.Type }} message">
+								<i class="close icon"></i>
+								{{ $v.Content }}
+							</div>
+						{{ end }}
+					</div>
+				{{ end }}
 				{{ template "tpl" . }}
 			</div>
 	
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
 		<script src="static/semantic.min.js"></script>
+		<script src="static/ripple.js"></script>
 		{{/* If we got some more scripts to print, print'em */}}
 		{{ if .Scripts }}
 			{{ range .Scripts }}

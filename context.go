@@ -1,6 +1,10 @@
 package main
 
 type context struct {
-	User struct{ Username string }
+	User  sessionUser
 	Token string
+}
+type sessionUser struct {
+	ID       int
+	Username string
 }
