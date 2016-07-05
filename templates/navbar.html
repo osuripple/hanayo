@@ -5,12 +5,6 @@
 			<b class="ripple-title"><a href="/">Ripple</a></b>
 		</div>
 		{{ navbarItem .Path "Home" "/"}}
-		<a class="item">
-			Messages
-		</a>
-		<a class="item">
-			Friends
-		</a>
 		<div class="right menu">
 			{{ if .Context.User.Username }}
 				<div class="item">
@@ -23,27 +17,15 @@
 					<img class="ui avatar image" src="{{ avatars }}/{{ .Context.User.ID }}">
 					<span>{{ .Context.User.Username }}</span>
 					<div class="menu">
-						<a class="item" href="/u/{{ .Context.User.ID }}">
-							Profile
-						</a>
-						<a class="item" href="/settings">
-							Settings
-						</a>
-						<a class="item" href="/settings/avatar">
-							Avatar
-						</a>
-						<a class="item" href="/logout">
-							Log out
-						</a>
+						{{ navbarItem .Path "Profile" (printf "/u/%d" .Context.User.ID) }}
+						{{ navbarItem .Path "Settings" "/settings" }}
+						{{ navbarItem .Path "Avatar" "/settings/avatar" }}
+						{{ navbarItem .Path "Log out" "/logout" }}
 					</div>
 				</div>
 			{{ else }}
-				<a class="{{ if eq .Path "/login" }}active {{ end }}item" href="/login">
-					Log in
-				</a>
-				<a class="{{ if eq .Path "/register" }}active {{ end }}item" href="/register">
-					Register
-				</a>
+				{{ navbarItem .Path "Log in" "/login" }}
+				{{ navbarItem .Path "Register" "/register" }}
 			{{ end }}
 		</div>
 	</div>

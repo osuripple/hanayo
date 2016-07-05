@@ -87,7 +87,7 @@ func loginSubmit(c *gin.Context) {
 	_, err = db.Exec(
 		`INSERT INTO tokens(user, privileges, description, token, private)
 					VALUES (   ?,        '0',           ?,     ?, '1');`,
-		data.ID, c.Request.Header.Get("X-Real-IP"), fmt.Sprintf("%s", md5.Sum([]byte(tok))))
+		data.ID, c.Request.Header.Get("X-Real-IP"), fmt.Sprintf("%x", md5.Sum([]byte(tok))))
 	if err != nil {
 		c.Error(err)
 		resp500(c)
