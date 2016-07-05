@@ -28,8 +28,8 @@
 							required>
 					</div>
 					<div class="field">
-						<div class="ui checkbox{{ if .FormData.keeplogged }} checked{{ end }}">
-							<input type="checkbox" tabindex="0" class="hidden" name="keeplogged">
+						<div class="ui checkbox">
+							<input type="checkbox" tabindex="0" class="hidden" name="keeplogged"{{ if .FormData.keeplogged }} checked{{ end }}>
 							<label>Stay logged in</label>
 						</div>
 					</div>

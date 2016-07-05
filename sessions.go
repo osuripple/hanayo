@@ -31,7 +31,6 @@ func sessionInitializer() func(c *gin.Context) {
 		}
 
 		// TODO: Add stay logged in
-		// TODO: log out if banned
 
 		c.Set("context", ctx)
 		c.Set("session", sess)
