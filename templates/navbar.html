@@ -1,21 +1,32 @@
 {{ define "navbar" }}
-<div class="ui secondary dropped fixed-height stackable menu{{ if and (isRAP .Path) (hasAdmin .Context.User.Privileges) }} inverted{{ end }}">
+{{ $isRAP   := and (hasAdmin .Context.User.Privileges) (isRAP .Path) }}
+{{ $isAdmin := hasAdmin .Context.User.Privileges }}
+<div class="ui secondary dropped fixed-height stackable menu{{ if $isRAP }} inverted{{ end }}">
 	<div class="ui container">
 		<div class="item">
 			<b class="ripple-title"><a href="/">Ripple</a></b>
 		</div>
-		{{ navbarItem .Path "Home" "/" }}
-		{{ if and (hasAdmin .Context.User.Privileges) (not (isRAP .Path)) }}
-			{{ navbarItem .Path "<b>RAP</b>" "/admin" }}
+		{{ if $isRAP }}
+			{{/*
+			Note:
+				RAP navbar will be completely different from standard navbar,
+				meaning it will have the buttons and all the stuff that are in
+				the current RAP's sidebar.
+			*/}}
+		{{ else }}
+			{{ navbarItem .Path "Home" "/" }}
+			{{ if $isAdmin }}{{ navbarItem .Path "<b>RAP</b>" "/admin" }}{{ end }}
 		{{ end }}
 		<div class="right menu">
 			{{ if .Context.User.Username }}
-				<div class="item">
-					<div class="ui icon input">
-						<input type="text" placeholder="Looking for someone?">
-						<i class="search link icon"></i>
+				{{ if not $isRAP }}
+					<div class="item">
+						<div class="ui icon input">
+							<input type="text" placeholder="Looking for someone?">
+							<i class="search link icon"></i>
+						</div>
 					</div>
-				</div>
+				{{ end }}
 				<div class="ui dropdown item">
 					<img class="ui avatar image" src="{{ avatars }}/{{ .Context.User.ID }}">
 					<span>{{ .Context.User.Username }}</span>
