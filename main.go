@@ -116,8 +116,10 @@ func main() {
 	r.Static("/static", "static")
 
 	r.GET("/", homePage)
+
 	r.GET("/login", login)
 	r.POST("/login", loginSubmit)
+	r.GET("/logout", logout)
 
 	r.NoRoute(notFound)
 
