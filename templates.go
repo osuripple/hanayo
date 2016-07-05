@@ -6,10 +6,12 @@ import (
 	"io/ioutil"
 	"path"
 	"strconv"
+	"strings"
 	"time"
 
 	"gopkg.in/fsnotify.v1"
 
+	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/ripple/schiavolib"
 	"github.com/gin-gonic/gin"
 )
@@ -62,6 +64,13 @@ func loadTemplates() {
 			},
 			"curryear": func() string {
 				return strconv.Itoa(time.Now().Year())
+			},
+			"hasAdmin": func(privs int64) bool {
+				return privs&common.AdminPrivilegeAccessRAP > 0
+			},
+			"isRAP": func(p string) bool {
+				parts := strings.Split(p, "/")
+				return len(parts) > 1 && parts[1] == "admin"
 			},
 		}
 

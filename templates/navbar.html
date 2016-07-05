@@ -1,10 +1,13 @@
 {{ define "navbar" }}
-<div class="ui secondary dropped fixed-height stackable menu">
+<div class="ui secondary dropped fixed-height stackable menu{{ if and (isRAP .Path) (hasAdmin .Context.User.Privileges) }} inverted{{ end }}">
 	<div class="ui container">
 		<div class="item">
 			<b class="ripple-title"><a href="/">Ripple</a></b>
 		</div>
-		{{ navbarItem .Path "Home" "/"}}
+		{{ navbarItem .Path "Home" "/" }}
+		{{ if and (hasAdmin .Context.User.Privileges) (not (isRAP .Path)) }}
+			{{ navbarItem .Path "<b>RAP</b>" "/admin" }}
+		{{ end }}
 		<div class="right menu">
 			{{ if .Context.User.Username }}
 				<div class="item">
