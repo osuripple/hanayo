@@ -5,6 +5,7 @@ type context struct {
 	Token string
 }
 type sessionUser struct {
-	ID       int
-	Username string
+	ID         int
+	Username   string
+	Privileges int64
 }

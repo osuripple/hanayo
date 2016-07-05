@@ -1,6 +1,7 @@
 package main
 
 import (
+	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
@@ -17,7 +18,16 @@ func sessionInitializer() func(c *gin.Context) {
 		userid := sess.Get("userid")
 		if userid, ok := userid.(int); ok {
 			ctx.User.ID = userid
-			db.QueryRow("SELECT username FROM users WHERE id = ?", userid).Scan(&ctx.User.Username)
+			db.QueryRow("SELECT username, privileges FROM users WHERE id = ?", userid).
+				Scan(&ctx.User.Username, &ctx.User.Privileges)
+		}
+
+		var addBannedMessage bool
+		if ctx.User.ID != 0 && (ctx.User.Privileges&common.UserPrivilegeNormal == 0) {
+			ctx = context{}
+			sess.Clear()
+			sess.Save()
+			addBannedMessage = true
 		}
 
 		// TODO: Add stay logged in
@@ -25,6 +35,10 @@ func sessionInitializer() func(c *gin.Context) {
 
 		c.Set("context", ctx)
 		c.Set("session", sess)
+
+		if addBannedMessage {
+			addMessage(c, warningMessage{"You have been automatically logged out of your account because your account has either been banned or disabled. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."})
+		}
 
 		c.Next()
 	}
