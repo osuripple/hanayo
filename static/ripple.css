@@ -76,7 +76,5 @@ a.inherit:hover {
 
 .footer {
 	border-top: 1px solid #bbb;
-	height: 35px;
-	line-height: 35px;
-	padding: 0 20px;
+	padding: 10px 20px;
 }
