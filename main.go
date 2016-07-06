@@ -104,6 +104,9 @@ func main() {
 	fmt.Println("Importing templates...")
 	loadTemplates()
 
+	fmt.Println("Setting up rate limiter...")
+	setUpLimiter()
+
 	fmt.Println("Starting webserver...")
 
 	r := gin.Default()
@@ -111,6 +114,7 @@ func main() {
 	r.Use(
 		sessions.Sessions("session", store),
 		sessionInitializer(),
+		rateLimiter(false),
 	)
 
 	r.Static("/static", "static")
@@ -120,6 +124,7 @@ func main() {
 	r.GET("/login", login)
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
+	r.GET("/u/:user", userProfile)
 
 	r.NoRoute(notFound)
 

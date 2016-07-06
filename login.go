@@ -72,7 +72,7 @@ func loginSubmit(c *gin.Context) {
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(data.Password), []byte(fmt.Sprintf("%x", md5.Sum([]byte(c.PostForm("password")))))); err != nil {
-		loginSubmitReplyError(c, "Wrong password."+err.Error())
+		loginSubmitReplyError(c, "Wrong password.")
 		return
 	}
 
