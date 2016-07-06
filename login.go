@@ -111,9 +111,8 @@ func loginSubmitReplyError(c *gin.Context, msg string) {
 			errorMessage{msg},
 		},
 		FormData: map[string]string{
-			"username":   c.PostForm("username"),
-			"password":   c.PostForm("password"),
-			"keeplogged": c.PostForm("keeplogged"),
+			"username": c.PostForm("username"),
+			"password": c.PostForm("password"),
 		},
 	})
 }

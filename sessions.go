@@ -30,8 +30,6 @@ func sessionInitializer() func(c *gin.Context) {
 			addBannedMessage = true
 		}
 
-		// TODO: Add stay logged in
-
 		c.Set("context", ctx)
 		c.Set("session", sess)
 
