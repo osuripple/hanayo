@@ -45,7 +45,7 @@
 }
 
 img {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 a.inherit {
@@ -77,4 +77,31 @@ a.inherit:hover {
 .footer {
 	border-top: 1px solid #bbb;
 	padding: 10px 20px;
+}
+
+.huge.heading .user.profile.heading {
+	display: table;
+}
+.huge.heading .user.profile.heading img.avatar {
+	border-radius: 64px;
+	background: #FFF;
+	height: 80px;
+}
+.huge.heading .user.profile.heading span {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 10px;
+}
+
+@media (min-width: 700px) {
+	.huge.heading .user.profile.heading img.avatar {
+		border: 4px solid #FFF;
+		height: 80px;
+	}
+}
+@media (max-width: 700px) {
+	.huge.heading .user.profile.heading img.avatar {
+		border: 3px solid #FFF;
+		height: 50px;
+	}
 }

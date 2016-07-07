@@ -53,7 +53,7 @@ func loadTemplates() {
 				return template.HTML(fmt.Sprint(value))
 			},
 			"avatars": func() string {
-				return c.AvatarURL
+				return config.AvatarURL
 			},
 			"navbarItem": func(currentPath, name, path string) template.HTML {
 				var act string
@@ -105,13 +105,14 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 }
 
 type baseTemplateData struct {
-	TitleBar  string
-	Scripts   []string
-	KyutGrill string
-	Context   context
-	Path      string
-	Messages  []message
-	FormData  map[string]string
+	TitleBar     string
+	HeadingTitle string
+	Scripts      []string
+	KyutGrill    string
+	Context      context
+	Path         string
+	Messages     []message
+	FormData     map[string]string
 }
 
 func (b *baseTemplateData) SetMessages(m []message) {

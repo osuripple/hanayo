@@ -15,7 +15,7 @@
 			{{ template "navbar" . }}
 			<div class="huge heading dropped"
 				style="background-image: url('{{ if .KyutGrill }}/static/headers/{{ .KyutGrill }}{{ else }}/static/headers/default.jpg{{ end }}');'">
-				<h1>{{ .TitleBar }}</h1>
+				<h1>{{ if .HeadingTitle }}{{ html .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
 			</div>
 		
 			<div class="h-container">

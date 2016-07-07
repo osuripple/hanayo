@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	c struct {
+	config struct {
 		DSN string
 
 		CookieSecret string
@@ -34,29 +34,29 @@ var (
 func main() {
 	fmt.Println("hanayo v0.0.1")
 
-	err := conf.Load(&c, "hanayo.conf")
+	err := conf.Load(&config, "hanayo.conf")
 	switch err {
 	case nil:
 		// carry on
 	case conf.ErrNoFile:
-		conf.Export(c, "hanayo.conf")
+		conf.Export(config, "hanayo.conf")
 		fmt.Println("The configuration file was not found. We created one for you.")
 		return
 	default:
 		panic(err)
 	}
 
-	if c.CookieSecret == "" {
-		c.CookieSecret = rs.String(46)
+	if config.CookieSecret == "" {
+		config.CookieSecret = rs.String(46)
 	}
-	if c.AvatarURL == "" {
-		c.AvatarURL = "https://a.ripple.moe"
+	if config.AvatarURL == "" {
+		config.AvatarURL = "https://a.ripple.moe"
 	}
-	if c.BaseURL == "" {
-		c.BaseURL = "https://ripple.moe"
+	if config.BaseURL == "" {
+		config.BaseURL = "https://ripple.moe"
 	}
 
-	db, err = sql.Open("mysql", c.DSN)
+	db, err = sql.Open("mysql", config.DSN)
 	if err != nil {
 		panic(err)
 	}
@@ -74,20 +74,20 @@ func main() {
 
 	fmt.Println("Starting session system...")
 	var store sessions.Store
-	if c.RedisMaxConnections != 0 {
+	if config.RedisMaxConnections != 0 {
 		store, err = sessions.NewRedisStore(
-			c.RedisMaxConnections,
-			c.RedisNetwork,
-			c.RedisAddress,
-			c.RedisPassword,
-			[]byte(c.CookieSecret),
+			config.RedisMaxConnections,
+			config.RedisNetwork,
+			config.RedisAddress,
+			config.RedisPassword,
+			[]byte(config.CookieSecret),
 		)
 		if err != nil {
 			fmt.Println(err)
-			store = sessions.NewCookieStore([]byte(c.CookieSecret))
+			store = sessions.NewCookieStore([]byte(config.CookieSecret))
 		}
 	} else {
-		store = sessions.NewCookieStore([]byte(c.CookieSecret))
+		store = sessions.NewCookieStore([]byte(config.CookieSecret))
 	}
 	gobRegisters := []interface{}{
 		[]message{},
@@ -128,7 +128,7 @@ func main() {
 
 	r.NoRoute(notFound)
 
-	conf.Export(c, "hanayo.conf")
+	conf.Export(config, "hanayo.conf")
 
 	r.Run(":45221")
 }
