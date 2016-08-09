@@ -27,6 +27,9 @@ var (
 
 		AvatarURL string
 		BaseURL   string
+
+		API       string
+		APISecret string
 	}
 	db *sql.DB
 )
@@ -46,14 +49,17 @@ func main() {
 		panic(err)
 	}
 
-	if config.CookieSecret == "" {
-		config.CookieSecret = rs.String(46)
+	var configDefaults = map[*string]string{
+		&config.CookieSecret: rs.String(46),
+		&config.AvatarURL:    "https://a.ripple.moe",
+		&config.BaseURL:      "https://ripple.moe",
+		&config.API:          "http://localhost:40001/api/v1/",
+		&config.APISecret:    "Potato",
 	}
-	if config.AvatarURL == "" {
-		config.AvatarURL = "https://a.ripple.moe"
-	}
-	if config.BaseURL == "" {
-		config.BaseURL = "https://ripple.moe"
+	for key, value := range configDefaults {
+		if *key == "" {
+			*key = value
+		}
 	}
 
 	db, err = sql.Open("mysql", config.DSN)
