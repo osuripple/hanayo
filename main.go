@@ -5,6 +5,7 @@ import (
 	"encoding/gob"
 	"fmt"
 
+	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/schiavolib"
 	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/contrib/sessions"
@@ -113,6 +114,9 @@ func main() {
 	fmt.Println("Setting up rate limiter...")
 	setUpLimiter()
 
+	apiclient.Key = config.APISecret
+	apiclient.APIBase = config.API
+
 	fmt.Println("Starting webserver...")
 
 	r := gin.Default()
@@ -125,12 +129,11 @@ func main() {
 
 	r.Static("/static", "static")
 
-	r.GET("/", homePage)
-
-	r.GET("/login", login)
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
 	r.GET("/u/:user", userProfile)
+
+	loadSimplePages(r)
 
 	r.NoRoute(notFound)
 

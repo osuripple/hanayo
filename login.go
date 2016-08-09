@@ -12,13 +12,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func login(c *gin.Context) {
-	resp(c, 200, "login.html", &baseTemplateData{
-		TitleBar:  "Log in",
-		KyutGrill: "login.png",
-	})
-}
-
 func loginSubmit(c *gin.Context) {
 	if c.MustGet("context").(context).User.ID != 0 {
 		loginSubmitReplyError(c, "You are already logged in!")
@@ -115,4 +108,17 @@ func loginSubmitReplyError(c *gin.Context, msg string) {
 			"password": c.PostForm("password"),
 		},
 	})
+}
+
+func logout(c *gin.Context) {
+	ctx := c.MustGet("context").(context)
+	if ctx.User.ID == 0 {
+		resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Log out", Messages: []message{warningMessage{"You're already logged out!"}}})
+		return
+	}
+	sess := c.MustGet("session").(sessions.Session)
+	sess.Clear()
+	sess.Save()
+	addMessage(c, successMessage{"Successfully logged out."})
+	c.Redirect(302, "/")
 }

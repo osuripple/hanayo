@@ -11,6 +11,7 @@ import (
 
 	"gopkg.in/fsnotify.v1"
 
+	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/ripple/schiavolib"
 	"github.com/gin-gonic/gin"
@@ -72,6 +73,7 @@ func loadTemplates() {
 				parts := strings.Split(p, "/")
 				return len(parts) > 1 && parts[1] == "admin"
 			},
+			"get": apiclient.Get,
 		}
 
 		// add new template to template slice

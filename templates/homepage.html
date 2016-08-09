@@ -17,24 +17,25 @@
 			between the official osu! server and Ripple!</h3>
 	</div>
 	{{ end }}
-	<div class="ui raised segment">
-		<h1 class="ui center aligned header">
-			Latest news
-		</h1>
-	</div>
-	{{ range $i, $v := .Posts }}
+	{{ with (get "blog/posts?l=10") }}
 		<div class="ui raised segment">
-			<h1 class="ui header">
-				<a href="/blog/posts/{{ $v.Slug }}" class="inherit">{{ html $v.Title }}</a>
-				<div class="sub header">by <a href="/u/{{ $v.CreatorID }}">{{ $v.CreatorName }}</a></div>
+			<h1 class="ui center aligned header">
+				Latest news
 			</h1>
-			{{ html $v.HTML }}
 		</div>
-	{{ end }}
-	{{ if ne (len .Posts) 0 }}
-		<h1 class="ui center aligned header">
-			<a href="/blog" class="inherit">See more on the blog...</a>
-		</h1>
+		{{ range $i, $v := .posts }}
+			<div class="ui raised segment">
+				<h1 class="ui header">
+					<a href="/blog/posts/{{ $v.slug }}" class="inherit">{{ html $v.title }}</a>
+					<div class="sub header">by <a href="/u/{{ $v.author.id }}">{{ $v.author.username }}</a></div>
+				</h1>
+			</div>
+		{{ end }}
+		{{ if ne (len .posts) 0 }}
+			<h1 class="ui center aligned header">
+				<a href="/blog" class="inherit">See more on the blog...</a>
+			</h1>
+		{{ end }}
 	{{ end }}
 </div>
 {{ end }}

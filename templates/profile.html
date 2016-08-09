@@ -2,6 +2,9 @@
 <div class="ui container">
 	<div class="ui raised segment">
 		Meme, {{ .Username }}, {{ .UserID }}, {{ .Email }}
+		{{ with (get "users?id=%d" .UserID) }}
+			{{ .country }} - {{ .registered_on }}
+		{{ end }}
 	</div>
 </div>
 {{ end }}
