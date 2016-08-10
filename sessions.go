@@ -1,6 +1,9 @@
 package main
 
 import (
+	"net/http"
+	"time"
+
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -14,6 +17,13 @@ func sessionInitializer() func(c *gin.Context) {
 		tok := sess.Get("token")
 		if tok, ok := tok.(string); ok {
 			ctx.Token = tok
+		}
+		if x, _ := c.Cookie("rt"); x == "" {
+			http.SetCookie(c.Writer, &http.Cookie{
+				Name:    "rt",
+				Value:   ctx.Token,
+				Expires: time.Now().Add(time.Hour * 24 * 30 * 1),
+			})
 		}
 		userid := sess.Get("userid")
 		if userid, ok := userid.(int); ok {
