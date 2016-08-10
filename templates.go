@@ -14,6 +14,7 @@ import (
 	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/ripple/schiavolib"
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -97,6 +98,8 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		corrected.SetPath(c.Request.URL.Path)
 		corrected.SetContext(c.MustGet("context").(context))
 	}
+	sess := c.MustGet("session").(sessions.Session)
+	sess.Save()
 	c.Status(statusCode)
 	err := t.ExecuteTemplate(c.Writer, "base", data)
 	if err != nil {

@@ -4,7 +4,9 @@ import (
 	"crypto/md5"
 	"database/sql"
 	"fmt"
+	"net/http"
 	"strings"
+	"time"
 
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/contrib/sessions"
@@ -90,6 +92,7 @@ func loginSubmit(c *gin.Context) {
 	sess := c.MustGet("session").(sessions.Session)
 	sess.Set("userid", data.ID)
 	sess.Set("token", tok)
+	sess.Save()
 
 	addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", c.PostForm("username"))})
 	c.Redirect(302, "/")
@@ -118,7 +121,12 @@ func logout(c *gin.Context) {
 	}
 	sess := c.MustGet("session").(sessions.Session)
 	sess.Clear()
-	sess.Save()
+	http.SetCookie(c.Writer, &http.Cookie{
+		Name:    "rt",
+		Value:   "",
+		Expires: time.Unix(1, 0),
+	})
 	addMessage(c, successMessage{"Successfully logged out."})
+	sess.Save()
 	c.Redirect(302, "/")
 }

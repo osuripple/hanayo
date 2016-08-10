@@ -36,7 +36,6 @@ func sessionInitializer() func(c *gin.Context) {
 		if ctx.User.ID != 0 && (ctx.User.Privileges&common.UserPrivilegeNormal == 0) {
 			ctx = context{}
 			sess.Clear()
-			sess.Save()
 			addBannedMessage = true
 		}
 
@@ -60,7 +59,6 @@ func addMessage(c *gin.Context, m message) {
 	}
 	messages = append(messages, m)
 	sess.Set("messages", messages)
-	sess.Save()
 }
 
 func getMessages(c *gin.Context) []message {
@@ -70,6 +68,5 @@ func getMessages(c *gin.Context) []message {
 		return nil
 	}
 	sess.Delete("messages")
-	sess.Save()
 	return messagesRaw.([]message)
 }
