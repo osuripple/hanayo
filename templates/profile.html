@@ -1,10 +1,14 @@
 {{ define "tpl" }}
 <div class="ui container">
-	<div class="ui raised segment">
-		Meme, {{ .Username }}, {{ .UserID }}, {{ .Email }}
-		{{ with (get "users?id=%d" .UserID) }}
-			{{ .country }} - {{ .registered_on }}
+	{{ if .UserID }}
+		{{ with (get "users/full?id=%d" .UserID) }}
+			<div class="ui four item raised menu" id="mode-menu">
+				<a class="{{ favMode .favourite_mode 0 }}item" data-mode="std">osu! standard</a>
+				<a class="{{ favMode .favourite_mode 1 }}item" data-mode="taiko">Taiko</a>
+				<a class="{{ favMode .favourite_mode 2 }}item" data-mode="ctb">Catch the Beat</a>
+				<a class="{{ favMode .favourite_mode 3 }}item" data-mode="mania">osu!mania</a>
+			</div>
 		{{ end }}
-	</div>
+	{{ end }}
 </div>
 {{ end }}

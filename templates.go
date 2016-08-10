@@ -46,6 +46,12 @@ var funcMap = template.FuncMap{
 		parts := strings.Split(p, "/")
 		return len(parts) > 1 && parts[1] == "admin"
 	},
+	"favMode": func(favMode, current float64) string {
+		if favMode == current {
+			return "active "
+		}
+		return ""
+	},
 	"get": apiclient.Get,
 }
 
@@ -81,7 +87,7 @@ func loadTemplates(subdir string) {
 
 		// add new template to template slice
 		templates[inName+i.Name()] = template.Must(template.New(i.Name()).Funcs(funcMap).ParseFiles(
-			append(baseTemplates[:], "templates"+subdir+"/"+i.Name())...,
+			append([]string{"templates" + subdir + "/" + i.Name()}, baseTemplates[:]...)...,
 		))
 	}
 }
