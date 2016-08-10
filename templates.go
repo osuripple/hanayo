@@ -76,11 +76,11 @@ func loadTemplates(subdir string) {
 
 		var inName string
 		if subdir != "" && subdir[0] == '/' {
-			inName = subdir[1:]
+			inName = subdir[1:] + "/"
 		}
 
 		// add new template to template slice
-		templates[inName+"/"+i.Name()] = template.Must(template.New(i.Name()).Funcs(funcMap).ParseFiles(
+		templates[inName+i.Name()] = template.Must(template.New(i.Name()).Funcs(funcMap).ParseFiles(
 			append(baseTemplates[:], "templates"+subdir+"/"+i.Name())...,
 		))
 	}

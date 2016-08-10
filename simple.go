@@ -12,6 +12,10 @@ var simplePages = [...]simplePage{
 	{"/settings/avatar", "settings/avatar.html", "Change avatar", ""},
 }
 
+var additionalJS = map[string][]string{
+	"/settings/avatar": []string{"/static/croppie.min.js"},
+}
+
 func loadSimplePages(r *gin.Engine) {
 	for _, el := range simplePages {
 		r.GET(el.Handler, simplePageFunc(el))
@@ -23,6 +27,7 @@ func simplePageFunc(p simplePage) gin.HandlerFunc {
 		resp(c, 200, p.Template, &baseTemplateData{
 			TitleBar:  p.TitleBar,
 			KyutGrill: p.KyutGrill,
+			Scripts:   additionalJS[p.Handler],
 		})
 	}
 }

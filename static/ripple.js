@@ -1,6 +1,7 @@
 // Ripple custom JS that goes on all pages
 
 var singlePageSnippets = {
+
   "/login": function() {
     $("#login-form").submit(function(e) {
       $("button").addClass("disabled");
@@ -17,6 +18,7 @@ var singlePageSnippets = {
       }
     });
   },
+
   "/": function() {
     $(".expand-icon").popup().click(function() {
       var addTo = $(this).closest(".raised.segment");
@@ -37,6 +39,22 @@ var singlePageSnippets = {
           addTo.append(el);
           el.slideDown();
         });
+      }
+    });
+  },
+
+  "/settings/avatar": function() {
+    // TODO
+    // https://foliotek.github.io/Croppie/demo/demo.js
+    $uploadCrop = $('#croppie-thing').croppie({
+      enableExif: true,
+      viewport: {
+        width: 128,
+        height: 128
+      },
+      boundary: {
+        width: 300,
+        height: 300
       }
     });
   },
