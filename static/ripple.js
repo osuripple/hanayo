@@ -8,10 +8,7 @@ var singlePageSnippets = {
       var fix = function(errorMessage) {
         $("button").removeClass("disabled");
         $(".ui.form").removeClass("loading");
-        var newEl = $('<div class="ui error message hidden"><i class="close icon"></i>' + errorMessage + '</div>');
-        newEl.find(".close.icon").click(closeClosestMessage);
-        $("#messages-container").append(newEl);
-        newEl.transition("slide down");
+        showMessage("error", errorMessage);
       };
       
       if (!/^[a-zA-Z0-9 \[\]\@\.\+-]+$/.test($("input[name='username']").val())) {
@@ -19,7 +16,28 @@ var singlePageSnippets = {
         return false;
       }
     });
-  }
+  },
+  "/": function() {
+    $(".expand-icon").popup().click(function() {
+      var addTo = $(this).closest(".raised.segment");
+      if (addTo.attr("data-expanded") == "true") {
+        addTo.removeAttr("data-expanded")
+        addTo.children(".post-content").slideUp();
+        $(this).attr("data-content", "Load post inline")
+        $(this).removeClass("up").addClass("down");
+      } else {
+        addTo.attr("data-expanded", "true");
+        $(this).removeClass("down").addClass("up");
+        $(this).attr("data-content", "Reduce")
+        api("blog/posts/content", {
+          id: addTo.data("post-id"),
+          html: "",
+        }, function(data) {
+          addTo.append($("<div class='post-content' />").append(data.content));
+        });
+      }
+    });
+  },
 };
 
 $(document).ready(function(){
@@ -45,4 +63,38 @@ var closeClosestMessage = function() {
   $(this)
     .closest('.message')
     .transition('fade');
+};
+
+var showMessage = function(type, message) {
+  var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + message + '</div>');
+  newEl.find(".close.icon").click(closeClosestMessage);
+  $("#messages-container").append(newEl);
+  newEl.transition("slide down");
+};
+
+// function for all api calls
+var api = function(endpoint, data, success) {
+  if (typeof data == "function") {
+    success = data;
+    data = null;
+  }
+  
+  var errorMessage = "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
+
+  $.ajax({
+    dataType: "json",
+    url:      "/api/v1/" + endpoint,
+    data:     data,
+    success:  function(data) {
+      if (data.code != 200) {
+        console.warn(data);
+        showMessage("error", errorMessage);
+      }
+      success(data);
+    },
+    error:    function(jqXHR, textStatus, errorThrown) {
+      console.warn(jqXHR, textStatus, errorThrown);
+      showMessage("error", errorMessage);
+    },
+  });
 };
