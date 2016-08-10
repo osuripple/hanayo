@@ -33,7 +33,9 @@ var singlePageSnippets = {
           id: addTo.data("post-id"),
           html: "",
         }, function(data) {
-          addTo.append($("<div class='post-content' />").append(data.content));
+          var el = $("<div class='post-content' />").hide().append(data.content)
+          addTo.append(el);
+          el.slideDown();
         });
       }
     });
