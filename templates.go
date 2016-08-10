@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
-	"path"
 	"strconv"
 	"strings"
 	"time"
@@ -18,30 +17,55 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var templates map[string]*template.Template
+var templates = make(map[string]*template.Template)
 var baseTemplates = [...]string{
 	"templates/base.html",
 	"templates/navbar.html",
 }
+var funcMap = template.FuncMap{
+	"html": func(value interface{}) template.HTML {
+		return template.HTML(fmt.Sprint(value))
+	},
+	"avatars": func() string {
+		return config.AvatarURL
+	},
+	"navbarItem": func(currentPath, name, path string) template.HTML {
+		var act string
+		if path == currentPath {
+			act = "active "
+		}
+		return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
+	},
+	"curryear": func() string {
+		return strconv.Itoa(time.Now().Year())
+	},
+	"hasAdmin": func(privs int64) bool {
+		return privs&common.AdminPrivilegeAccessRAP > 0
+	},
+	"isRAP": func(p string) bool {
+		parts := strings.Split(p, "/")
+		return len(parts) > 1 && parts[1] == "admin"
+	},
+	"get": apiclient.Get,
+}
 
-func loadTemplates() {
-	ts, err := ioutil.ReadDir("templates")
+func loadTemplates(subdir string) {
+	ts, err := ioutil.ReadDir("templates" + subdir)
 	if err != nil {
 		panic(err)
 	}
 
-	templates = make(map[string]*template.Template, len(ts)-len(baseTemplates))
-
 	for _, i := range ts {
-		// make sure it's not a directory
-		if i.IsDir() {
+		// if it's a directory, load recursively
+		if i.IsDir() && i.Name() != ".." && i.Name() != "." {
+			loadTemplates(subdir + "/" + i.Name())
 			continue
 		}
 
 		// do not compile base templates on their own
 		var comp bool
 		for _, j := range baseTemplates {
-			if i.Name() == path.Base(j) {
+			if "templates"+subdir+"/"+i.Name() == j {
 				comp = true
 				break
 			}
@@ -50,36 +74,14 @@ func loadTemplates() {
 			continue
 		}
 
-		fm := template.FuncMap{
-			"html": func(value interface{}) template.HTML {
-				return template.HTML(fmt.Sprint(value))
-			},
-			"avatars": func() string {
-				return config.AvatarURL
-			},
-			"navbarItem": func(currentPath, name, path string) template.HTML {
-				var act string
-				if path == currentPath {
-					act = "active "
-				}
-				return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
-			},
-			"curryear": func() string {
-				return strconv.Itoa(time.Now().Year())
-			},
-			"hasAdmin": func(privs int64) bool {
-				return privs&common.AdminPrivilegeAccessRAP > 0
-			},
-			"isRAP": func(p string) bool {
-				parts := strings.Split(p, "/")
-				return len(parts) > 1 && parts[1] == "admin"
-			},
-			"get": apiclient.Get,
+		var inName string
+		if subdir != "" && subdir[0] == '/' {
+			inName = subdir[1:]
 		}
 
 		// add new template to template slice
-		templates[i.Name()] = template.Must(template.New(i.Name()).Funcs(fm).ParseFiles(
-			append(baseTemplates[:], "templates/"+i.Name())...,
+		templates[inName+"/"+i.Name()] = template.Must(template.New(i.Name()).Funcs(funcMap).ParseFiles(
+			append(baseTemplates[:], "templates"+subdir+"/"+i.Name())...,
 		))
 	}
 }
@@ -152,7 +154,7 @@ func reloader() error {
 			case ev := <-w.Events:
 				if ev.Op&fsnotify.Write == fsnotify.Write {
 					fmt.Println("Change detected! Refreshing templates")
-					loadTemplates()
+					loadTemplates("")
 				}
 			case err := <-w.Errors:
 				fmt.Println(err)

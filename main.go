@@ -109,7 +109,7 @@ func main() {
 	}
 
 	fmt.Println("Importing templates...")
-	loadTemplates()
+	loadTemplates("")
 
 	fmt.Println("Setting up rate limiter...")
 	setUpLimiter()
