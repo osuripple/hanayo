@@ -4,7 +4,8 @@
 		{{ with (get "users/userpage?id=%d" .UserID) }}
 			{{ if .userpage }}
 				<div class="ui segment">
-					{{ .userpage }}
+					<h3 class="ui header">About</h3>
+					{{ .userpage }}{{/* TODO: Parse BBCode */}}
 				</div>
 			{{ end }}
 		{{ end }}
