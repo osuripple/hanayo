@@ -81,16 +81,19 @@ a.inherit:hover {
 
 .huge.heading .user.profile.heading {
 	display: table;
+	margin-bottom: 10px;
 }
 .huge.heading .user.profile.heading img.avatar {
 	border-radius: 64px;
 	background: #FFF;
 	height: 80px;
+	display: table-cell;
+	vertical-align: middle;
 }
 .huge.heading .user.profile.heading span {
 	display: table-cell;
 	vertical-align: middle;
-	padding-left: 10px;
+	padding-left: 13px;
 }
 
 @media (min-width: 700px) {

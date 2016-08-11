@@ -51,5 +51,5 @@ func userProfile(c *gin.Context) {
 	}
 
 	data.TitleBar = username + "'s profile"
-	data.HeadingTitle = fmt.Sprintf("<div class='user profile heading'><img src='%s/%d' class='avatar'><span>%s</span>", config.AvatarURL, userID, username)
+	data.HeadingTitle = fmt.Sprintf("<div class='user profile heading'><img src='%s/%d' class='avatar'><span>%s</span></div>", config.AvatarURL, userID, username)
 }
