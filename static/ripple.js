@@ -2,23 +2,6 @@
 
 var singlePageSnippets = {
 
-  "/login": function() {
-    $("#login-form").submit(function(e) {
-      $("button").addClass("disabled");
-      
-      var fix = function(errorMessage) {
-        $("button").removeClass("disabled");
-        $(".ui.form").removeClass("loading");
-        showMessage("error", errorMessage);
-      };
-      
-      if (!/^[a-zA-Z0-9 \[\]\@\.\+-]+$/.test($("input[name='username']").val())) {
-        fix("Invalid username.");
-        return false;
-      }
-    });
-  },
-
   "/": function() {
     $(".expand-icon").popup().click(function() {
       var addTo = $(this).closest(".raised.segment");
@@ -43,6 +26,23 @@ var singlePageSnippets = {
     });
   },
 
+  "/login": function() {
+    $("#login-form").submit(function(e) {
+      $("button").addClass("disabled");
+      
+      var fix = function(errorMessage) {
+        $("button").removeClass("disabled");
+        $(".ui.form").removeClass("loading");
+        showMessage("error", errorMessage);
+      };
+      
+      if (!/^[a-zA-Z0-9 \[\]\@\.\+-]+$/.test($("input[name='username']").val())) {
+        fix("Invalid username.");
+        return false;
+      }
+    });
+  },
+
   "/settings/avatar": function() {
     // TODO
     // https://foliotek.github.io/Croppie/demo/demo.js
@@ -57,7 +57,7 @@ var singlePageSnippets = {
         height: 300
       }
     });
-  },
+  }
 };
 
 $(document).ready(function(){
@@ -74,9 +74,11 @@ $(document).ready(function(){
   
   /* ripple stuff */
   var f = singlePageSnippets[window.location.pathname];
-  if (typeof f === 'function') {
+  if (typeof f === 'function')
     f();
-  }
+
+  if (window.location.pathname.substr(0, 3) == "/u/")
+    userProfile();
 });
 
 var closeClosestMessage = function() {
@@ -116,5 +118,16 @@ var api = function(endpoint, data, success) {
       console.warn(jqXHR, textStatus, errorThrown);
       showMessage("error", errorMessage);
     },
+  });
+};
+
+var userProfile = function() {
+  $("#mode-menu>.item").click(function() {
+    if ($(this).hasClass("active"))
+      return;
+    $(".mode-container:not([hidden])").attr("hidden", "");
+    $(".mode-container[data-mode=" + $(this).data("mode") + "]").removeAttr("hidden");
+    $("#mode-menu>.active.item").removeClass("active");
+    $(this).addClass("active");
   });
 };

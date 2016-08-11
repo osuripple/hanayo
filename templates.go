@@ -52,6 +52,12 @@ var funcMap = template.FuncMap{
 		}
 		return ""
 	},
+	"slice": func(els ...interface{}) []interface{} {
+		return els
+	},
+	"int": func(f float64) int {
+		return int(f)
+	},
 	"get": apiclient.Get,
 }
 

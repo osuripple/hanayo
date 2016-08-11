@@ -1,13 +1,28 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ if .UserID }}
+		{{ with (get "users/userpage?id=%d" .UserID) }}
+			{{ if .userpage }}
+				<div class="ui segment">
+					{{ .userpage }}
+				</div>
+			{{ end }}
+		{{ end }}
 		{{ with (get "users/full?id=%d" .UserID) }}
-			<div class="ui four item raised menu" id="mode-menu">
-				<a class="{{ favMode .favourite_mode 0 }}item" data-mode="std">osu! standard</a>
-				<a class="{{ favMode .favourite_mode 1 }}item" data-mode="taiko">Taiko</a>
-				<a class="{{ favMode .favourite_mode 2 }}item" data-mode="ctb">Catch the Beat</a>
-				<a class="{{ favMode .favourite_mode 3 }}item" data-mode="mania">osu!mania</a>
+			<div class="ui four item menu" id="mode-menu">
+				<a class="{{ favMode .favourite_mode 0 }}item" data-mode="0">osu! standard</a>
+				<a class="{{ favMode .favourite_mode 1 }}item" data-mode="1">Taiko</a>
+				<a class="{{ favMode .favourite_mode 2 }}item" data-mode="2">Catch the Beat</a>
+				<a class="{{ favMode .favourite_mode 3 }}item" data-mode="3">osu!mania</a>
 			</div>
+			{{ $user := . }}
+			{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
+				<div class="mode-container" data-mode="{{ $k }}"{{ if ne $k (int $user.favourite_mode) }} hidden{{ end }}>
+					<div class="ui segment">
+						#{{ .global_leaderboard_rank }}
+					</div>
+				</div>
+			{{ end }}
 		{{ end }}
 	{{ end }}
 </div>
