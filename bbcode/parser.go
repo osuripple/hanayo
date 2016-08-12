@@ -20,16 +20,7 @@ func Parse(raw string) (BBCode, error) {
 
 	invalidClosingTag := func(ch rune) {
 		status = writing
-		c := *current
-		setToParent(&current).removeLast()
-		str := "[" + current.Name
-		if current.Attribute != "" {
-			str += "=" + current.Attribute
-		}
-		str += "]"
-		current.addString(str)
-		current.Content = append(current.Content, c.Content...)
-		str = "[/" + closingTagName + string(ch)
+		str := "[/" + closingTagName + string(ch)
 		current.addString(str)
 		closingTagName = ""
 	}
@@ -70,6 +61,7 @@ func Parse(raw string) (BBCode, error) {
 					continue
 				}
 				status = givingAttribute
+				continue
 			}
 			if ch == ']' && current.Name != "" {
 				status = writing
