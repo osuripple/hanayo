@@ -4,7 +4,7 @@ var singlePageSnippets = {
 
   "/": function() {
     $(".expand-icon").popup().click(function() {
-      var addTo = $(this).closest(".raised.segment");
+      var addTo = $(this).closest(".segment");
       if (addTo.attr("data-expanded") == "true") {
         addTo.removeAttr("data-expanded")
         addTo.children(".post-content").slideUp();
@@ -13,7 +13,7 @@ var singlePageSnippets = {
       } else {
         addTo.attr("data-expanded", "true");
         $(this).removeClass("down").addClass("up");
-        $(this).attr("data-content", "Reduce")
+        $(this).attr("data-content", "Reduce");
         api("blog/posts/content", {
           id: addTo.data("post-id"),
           html: "",
