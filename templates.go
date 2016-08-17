@@ -60,7 +60,7 @@ var funcMap = template.FuncMap{
 		return int(f)
 	},
 	"parseUserpage": func(s string) template.HTML {
-
+		return template.HTML(compileBBCode(s))
 	},
 	"get": apiclient.Get,
 }

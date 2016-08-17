@@ -5,7 +5,7 @@
 			{{ if .userpage }}
 				<div class="ui segment">
 					<h3 class="ui header">About</h3>
-					{{ .userpage }}{{/* TODO: Parse BBCode */}}
+					{{ html (parseUserpage .userpage) }}
 				</div>
 			{{ end }}
 		{{ end }}

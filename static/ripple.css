@@ -133,3 +133,19 @@ a.inherit:hover {
 .mode-container {
 	margin: 1rem 0;
 }
+
+.youtube.video.container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.youtube.video.container iframe {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
