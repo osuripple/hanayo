@@ -21,6 +21,7 @@ var Key = "Potato"
 var APIBase = "http://localhost:40001/api/v1/"
 
 // Get retrieves data in a GET request to the Ripple API.
+// TODO: Move this into a template's context and log into gin.Context's errors any error happened.
 func Get(s string, params ...interface{}) (map[string]interface{}, error) {
 	s = fmt.Sprintf(s, params...)
 	req, err := http.NewRequest("GET", APIBase+s, nil)

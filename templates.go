@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"html/template"
+	"io"
 	"io/ioutil"
 	"strconv"
 	"strings"
@@ -12,7 +14,6 @@ import (
 
 	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/rippleapi/common"
-	"git.zxq.co/ripple/schiavolib"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
@@ -57,6 +58,9 @@ var funcMap = template.FuncMap{
 	},
 	"int": func(f float64) int {
 		return int(f)
+	},
+	"parseUserpage": func(s string) template.HTML {
+
 	},
 	"get": apiclient.Get,
 }
@@ -114,12 +118,21 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 	}
 	sess := c.MustGet("session").(sessions.Session)
 	sess.Save()
-	c.Status(statusCode)
-	err := t.ExecuteTemplate(c.Writer, "base", data)
+	buf := &bytes.Buffer{}
+	err := t.ExecuteTemplate(buf, "base", data)
 	if err != nil {
-		c.Writer.WriteString("What on earth? Please tell this to a dev!")
-		fmt.Println(err)
-		schiavo.Bunker.Send(err.Error())
+		c.Writer.WriteString("oooops! A monkey stumbled upon a banana while trying to process your request. " +
+			"This doesn't make much sense, but in a few words: we fucked up something while processing your " +
+			"request. We are sorry for this, but don't worry: we have been notified and are on it!")
+		c.Error(err)
+		return
+	}
+	c.Status(statusCode)
+	_, err = io.Copy(c.Writer, buf)
+	if err != nil {
+		c.Writer.WriteString("We don't know what's happening now.")
+		c.Error(err)
+		return
 	}
 }
 
