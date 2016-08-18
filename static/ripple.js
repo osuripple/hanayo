@@ -18,7 +18,7 @@ var singlePageSnippets = {
           id: addTo.data("post-id"),
           html: "",
         }, function(data) {
-          var el = $("<div class='post-content' />").hide().append(data.content)
+          var el = $("<div class='post-content' />").hide().append(data.content);
           addTo.append(el);
           el.slideDown();
         });
@@ -61,7 +61,7 @@ var singlePageSnippets = {
 };
 
 $(document).ready(function(){
-  /* semantic stuff */
+  // semantic stuff
   $('.message .close').on('click', closeClosestMessage);
 
   $('.ui.checkbox').checkbox();
@@ -72,13 +72,15 @@ $(document).ready(function(){
   
   $('.ui.dropdown').dropdown();
   
-  /* ripple stuff */
+  // ripple stuff
   var f = singlePageSnippets[window.location.pathname];
   if (typeof f === 'function')
     f();
 
   if (window.location.pathname.substr(0, 3) == "/u/")
     userProfile();
+  
+  $("time.timeago").timeago();
 });
 
 var closeClosestMessage = function() {

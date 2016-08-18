@@ -17,6 +17,18 @@
 				<a class="{{ favMode .favourite_mode 3 }}item" data-mode="3">osu!mania</a>
 			</div>
 			{{ $user := . }}
+			<div class="ui three column divided segment grid">
+				<div class="row">
+					<div class="column">
+						<b>{{ .username }}</b> {{ with .username_aka }}(aka <b>{{ . }}</b>){{ end }}
+						is a Ripple player{{ with countryReadable .country }} from <b>{{ . }}</b>{{ end }}. 
+						They signed up on Ripple {{ time $user.registered_on }}.
+						Last seen {{ time $user.latest_activity }}.
+					</div>
+					<div class="column">Here will be badges in the future.</div>
+					<div class="column">Here will be mode stats in the future.</div>
+				</div>
+			</div>
 			{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
 				<div class="mode-container" data-mode="{{ $k }}"{{ if ne $k (int $user.favourite_mode) }} hidden{{ end }}>
 					<div class="ui segment">

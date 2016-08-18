@@ -16,6 +16,7 @@ import (
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"github.com/pariz/gountries"
 )
 
 var templates = make(map[string]*template.Template)
@@ -62,8 +63,31 @@ var funcMap = template.FuncMap{
 	"parseUserpage": func(s string) template.HTML {
 		return template.HTML(compileBBCode(s))
 	},
+	"time": func(s string) template.HTML {
+		t, _ := time.Parse(time.RFC3339, s)
+		return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
+	},
+	// band = Bitwise AND
+	"band": func(i1 int, i ...int) int {
+		for _, el := range i {
+			i1 &= el
+		}
+		return i1
+	},
+	"countryReadable": func(s string) string {
+		if s == "XX" || s == "" {
+			return ""
+		}
+		reg, err := gdb.FindCountryByAlpha(s)
+		if err != nil {
+			return ""
+		}
+		return reg.Name.Common
+	},
 	"get": apiclient.Get,
 }
+
+var gdb = gountries.New()
 
 func loadTemplates(subdir string) {
 	ts, err := ioutil.ReadDir("templates" + subdir)
