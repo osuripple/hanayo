@@ -41,7 +41,7 @@
 }
 
 .main.wrapper {
-	margin-bottom: 30px;
+	padding-bottom: 30px;
 }
 
 img {
@@ -79,36 +79,6 @@ a.inherit:hover {
 	padding: 10px 20px;
 }
 
-.huge.heading .user.profile.heading {
-	display: table;
-	margin-bottom: 10px;
-}
-.huge.heading .user.profile.heading img.avatar {
-	border-radius: 64px;
-	background: #FFF;
-	height: 80px;
-	display: table-cell;
-	vertical-align: middle;
-}
-.huge.heading .user.profile.heading span {
-	display: table-cell;
-	vertical-align: middle;
-	padding-left: 13px;
-}
-
-@media (min-width: 700px) {
-	.huge.heading .user.profile.heading img.avatar {
-		border: 4px solid #FFF;
-		height: 80px;
-	}
-}
-@media (max-width: 700px) {
-	.huge.heading .user.profile.heading img.avatar {
-		border: 3px solid #FFF;
-		height: 50px;
-	}
-}
-
 .top.right.icon {
     cursor: pointer;
     position: absolute;
@@ -141,11 +111,34 @@ a.inherit:hover {
 	height:0;
 	overflow:hidden;
 }
-
 .youtube.video.container iframe {
 	position:absolute;
 	top:0;
 	left:0;
 	width:100%;
 	height:100%;
+}
+
+.smallpadd {
+	margin: 0 .2em !important;
+}
+
+.white.background {
+	background-color: #FFF !important;
+}
+
+.user.avatar {
+	height: 80px;
+	float: left;
+	overflow: auto;
+	padding-right: 10px;
+}
+
+.ui.attached.segment {
+	margin: 0 auto !important;
+}
+
+.ui.attached.menu, .ui.attached.segment {
+	width: 100%;
+	max-width: 100%;
 }

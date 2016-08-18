@@ -1,36 +1,43 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ if .UserID }}
-		{{ with (get "users/userpage?id=%d" .UserID) }}
-			{{ if .userpage }}
-				<div class="ui segment">
-					<h3 class="ui header">About</h3>
-					{{ html (parseUserpage .userpage) }}
-				</div>
-			{{ end }}
-		{{ end }}
+		{{ $gqm := atoi (.Gin.Query "mode") }}
 		{{ with (get "users/full?id=%d" .UserID) }}
-			<div class="ui four item menu" id="mode-menu">
-				<a class="{{ favMode .favourite_mode 0 }}item" data-mode="0">osu! standard</a>
-				<a class="{{ favMode .favourite_mode 1 }}item" data-mode="1">Taiko</a>
-				<a class="{{ favMode .favourite_mode 2 }}item" data-mode="2">Catch the Beat</a>
-				<a class="{{ favMode .favourite_mode 3 }}item" data-mode="3">osu!mania</a>
+			{{ $favouritemode := or $gqm .favourite_mode }}
+			<script>window.favouriteMode = {{ $favouritemode }};</script>
+			<div class="ui top attached segment" style="overflow: auto;">
+				<img src="{{ avatars }}/{{ .id }}" alt="avatar" class="user avatar">
+				<h1>Meme</h1>
 			</div>
+			<div class="ui four item bottom attached menu" id="mode-menu">
+				<a class="{{ favMode $favouritemode 0 }}item" data-mode="0">osu! standard</a>
+				<a class="{{ favMode $favouritemode 1 }}item" data-mode="1">Taiko</a>
+				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2">Catch the Beat</a>
+				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3">osu!mania</a>
+			</div>
+			{{ with (get "users/userpage?id=%d" .UserID) }}
+				{{ if .userpage }}
+					<div class="ui segment">
+						<h3 class="ui header">About</h3>
+						{{ html (parseUserpage .userpage) }}
+					</div>
+				{{ end }}
+			{{ end }}
 			{{ $user := . }}
 			<div class="ui three column divided segment grid">
 				<div class="row">
 					<div class="column">
 						<b>{{ .username }}</b> {{ with .username_aka }}(aka <b>{{ . }}</b>){{ end }}
-						is a Ripple player{{ with countryReadable .country }} from <b>{{ . }}</b>{{ end }}. 
+						is a Ripple player{{ with country .country }} from <b>{{ . }}</b>{{ end }}. 
 						They signed up on Ripple {{ time $user.registered_on }}.
-						Last seen {{ time $user.latest_activity }}.
+						Last seen: {{ time $user.latest_activity }}.
 					</div>
 					<div class="column">Here will be badges in the future.</div>
 					<div class="column">Here will be mode stats in the future.</div>
 				</div>
 			</div>
 			{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
-				<div class="mode-container" data-mode="{{ $k }}"{{ if ne $k (int $user.favourite_mode) }} hidden{{ end }}>
+				<div class="mode-container" data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>
 					<div class="ui segment">
 						#{{ .global_leaderboard_rank }}
 					</div>

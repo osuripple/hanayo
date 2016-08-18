@@ -60,6 +60,13 @@ var funcMap = template.FuncMap{
 	"int": func(f float64) int {
 		return int(f)
 	},
+	"atoi": func(s string) interface{} {
+		i, err := strconv.Atoi(s)
+		if err != nil {
+			return nil
+		}
+		return float64(i)
+	},
 	"parseUserpage": func(s string) template.HTML {
 		return template.HTML(compileBBCode(s))
 	},
@@ -74,20 +81,29 @@ var funcMap = template.FuncMap{
 		}
 		return i1
 	},
-	"countryReadable": func(s string) string {
-		if s == "XX" || s == "" {
+	"countryReadable": countryReadable,
+	"country": func(s string) template.HTML {
+		c := countryReadable(s)
+		if c == "" {
 			return ""
 		}
-		reg, err := gdb.FindCountryByAlpha(s)
-		if err != nil {
-			return ""
-		}
-		return reg.Name.Common
+		return template.HTML(fmt.Sprintf(`<i class="%s flag smallpadd"></i> %s`, strings.ToLower(s), c))
 	},
 	"get": apiclient.Get,
 }
 
 var gdb = gountries.New()
+
+func countryReadable(s string) string {
+	if s == "XX" || s == "" {
+		return ""
+	}
+	reg, err := gdb.FindCountryByAlpha(s)
+	if err != nil {
+		return ""
+	}
+	return reg.Name.Common
+}
 
 func loadTemplates(subdir string) {
 	ts, err := ioutil.ReadDir("templates" + subdir)
@@ -139,15 +155,18 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		corrected.SetMessages(getMessages(c))
 		corrected.SetPath(c.Request.URL.Path)
 		corrected.SetContext(c.MustGet("context").(context))
+		corrected.SetGinContext(c)
 	}
 	sess := c.MustGet("session").(sessions.Session)
 	sess.Save()
 	buf := &bytes.Buffer{}
 	err := t.ExecuteTemplate(buf, "base", data)
 	if err != nil {
-		c.Writer.WriteString("oooops! A monkey stumbled upon a banana while trying to process your request. " +
-			"This doesn't make much sense, but in a few words: we fucked up something while processing your " +
-			"request. We are sorry for this, but don't worry: we have been notified and are on it!")
+		c.Writer.WriteString(
+			"oooops! A brit monkey stumbled upon a banana while trying to process your request. " +
+				"This doesn't make much sense, but in a few words: we fucked up something while processing your " +
+				"request. We are sorry for this, but don't worry: we have been notified and are on it!",
+		)
 		c.Error(err)
 		return
 	}
@@ -165,10 +184,12 @@ type baseTemplateData struct {
 	HeadingTitle string
 	Scripts      []string
 	KyutGrill    string
+	DisableHH    bool // HH = Huge Heading
 	Context      context
 	Path         string
 	Messages     []message
 	FormData     map[string]string
+	Gin          *gin.Context
 }
 
 func (b *baseTemplateData) SetMessages(m []message) {
@@ -180,11 +201,15 @@ func (b *baseTemplateData) SetPath(path string) {
 func (b *baseTemplateData) SetContext(c context) {
 	b.Context = c
 }
+func (b *baseTemplateData) SetGinContext(c *gin.Context) {
+	b.Gin = c
+}
 
 type page interface {
 	SetMessages([]message)
 	SetPath(string)
 	SetContext(context)
+	SetGinContext(*gin.Context)
 }
 
 func reloader() error {

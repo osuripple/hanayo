@@ -124,12 +124,16 @@ var api = function(endpoint, data, success) {
 };
 
 var userProfile = function() {
+  var wl = window.location;
+  if (wl.search.indexOf("mode=") === -1)
+    window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + wl.hash);
   $("#mode-menu>.item").click(function() {
     if ($(this).hasClass("active"))
       return;
-    $(".mode-container:not([hidden])").attr("hidden", "");
-    $(".mode-container[data-mode=" + $(this).data("mode") + "]").removeAttr("hidden");
+    $("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
+    $("[data-mode=" + $(this).data("mode") + "]:not(.item)").removeAttr("hidden");
     $("#mode-menu>.active.item").removeClass("active");
     $(this).addClass("active");
+    window.history.pushState('', document.title, wl.pathname + "?mode=" + $(this).data("mode") + wl.hash);    
   });
 };

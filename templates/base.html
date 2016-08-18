@@ -1,4 +1,7 @@
 {{ define "base" }}
+{{/* or returns the first non-empty argument. So if KyutGrill is set, then return KyutGrill, else return default.jpg.
+Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
+{{ $KyutGrill := or .KyutGrill "default.jpg" }}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,12 +14,14 @@
 		<link rel="stylesheet" type="text/css" href="/static/ripple.css">
 	</head>
 	<body>
-		<div class="ui full height main wrapper">
+		<div class="ui full height main wrapper" {{ if .DisableHH }}style="background-image: url('/static/headers/{{ $KyutGrill }}');"{{ end }}>
 			{{ template "navbar" . }}
-			<div class="huge heading dropped"
-				style="background-image: url('/static/headers/{{ if .KyutGrill }}{{ .KyutGrill }}{{ else }}default.jpg{{ end }}');'">
-				<h1>{{ if .HeadingTitle }}{{ html .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
-			</div>
+			{{ if not .DisableHH }}
+				<div class="huge heading dropped"
+					style="background-image: url('/static/headers/{{ $KyutGrill }}');">
+					<h1>{{ if .HeadingTitle }}{{ html .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
+				</div>
+			{{ end }}
 		
 			<div class="h-container">
 				<div class="ui margined container" id="messages-container">
