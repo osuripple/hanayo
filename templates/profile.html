@@ -11,7 +11,8 @@
 						<img src="{{ avatars }}/{{ .id }}" alt="avatar" class="user avatar">
 					</div>
 					<div class="table element">
-						<h1>Meme</h1>
+						<h1>{{ .username }}</h1>
+						{{ if .username_aka }}<div class="subtitle">(aka <b>{{ .username_aka }}</b>)</div>{{ end }}
 					</div>
 					<div class="table last element">
 						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}

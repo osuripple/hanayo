@@ -151,11 +151,7 @@ a.inherit:hover {
 	display: table-cell;
 	vertical-align: middle;
 }
-.table.last.element {
-	width: 90%;
-	text-align: right;
-}
-.table.last.element h1 {
+.table.element h1 {
 	padding: 0;
 	margin: 0;
 }
@@ -163,4 +159,11 @@ a.inherit:hover {
 	overflow: auto;
 	display: table;
 	width: auto;
+	display: inline-table;
+}
+.subtitle {
+	color: rgba(0,0,0,.6);
+}
+.subtitle b {
+	color: rgba(0,0,0,.87);
 }
