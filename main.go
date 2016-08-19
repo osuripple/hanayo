@@ -1,7 +1,6 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/gob"
 	"fmt"
 
@@ -12,12 +11,19 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 	"github.com/thehowl/conf"
 )
 
+// version is the version of hanayo
+const version = "0.1.0"
+
 var (
 	config struct {
-		DSN string
+		ListenTo string `description:"ip:port from which to take requests."`
+		Unix     bool   `description:"Whether ListenTo is an unix socket."`
+
+		DSN string `description:"MySQL server DSN"`
 
 		CookieSecret string
 
@@ -33,11 +39,11 @@ var (
 		API       string
 		APISecret string
 	}
-	db *sql.DB
+	db *sqlx.DB
 )
 
 func main() {
-	fmt.Println("hanayo v0.0.1")
+	fmt.Println("hanayo " + version)
 
 	err := conf.Load(&config, "hanayo.conf")
 	switch err {
@@ -52,6 +58,7 @@ func main() {
 	}
 
 	var configDefaults = map[*string]string{
+		&config.ListenTo:     ":45221",
 		&config.CookieSecret: rs.String(46),
 		&config.AvatarURL:    "https://a.ripple.moe",
 		&config.BaseURL:      "https://ripple.moe",
@@ -64,7 +71,7 @@ func main() {
 		}
 	}
 
-	db, err = sql.Open("mysql", config.DSN)
+	db, err = sqlx.Open("mysql", config.DSN)
 	if err != nil {
 		panic(err)
 	}
@@ -141,5 +148,9 @@ func main() {
 
 	conf.Export(config, "hanayo.conf")
 
-	r.Run(":45221")
+	if config.Unix {
+		panic(r.RunUnix(config.ListenTo))
+	} else {
+		panic(r.Run(config.ListenTo))
+	}
 }
