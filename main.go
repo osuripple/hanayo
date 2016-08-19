@@ -8,6 +8,7 @@ import (
 	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/schiavolib"
 	"git.zxq.co/x/rs"
+	"github.com/gin-gonic/contrib/gzip"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -122,6 +123,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(
+		gzip.Gzip(gzip.DefaultCompression),
 		sessions.Sessions("session", store),
 		sessionInitializer(),
 		rateLimiter(false),

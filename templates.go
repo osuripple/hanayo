@@ -170,6 +170,7 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		c.Error(err)
 		return
 	}
+	c.Header("Content-Type", "text/html; charset=utf-8")
 	c.Status(statusCode)
 	_, err = io.Copy(c.Writer, buf)
 	if err != nil {
