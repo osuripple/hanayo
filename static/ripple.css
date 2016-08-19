@@ -71,7 +71,7 @@ a.inherit:hover {
 }
 
 .main.wrapper {
-	min-height: calc(100vh - 73px);
+	min-height: calc(100vh - 43px);
 }
 
 .footer {
@@ -128,10 +128,14 @@ a.inherit:hover {
 }
 
 .user.avatar {
-	height: 80px;
 	float: left;
 	overflow: auto;
 	padding-right: 10px;
+	display: block;
+	max-height: 80px;
+	max-width: 160px;
+	width: auto;
+	height: auto;
 }
 
 .ui.attached.segment {
@@ -141,4 +145,22 @@ a.inherit:hover {
 .ui.attached.menu, .ui.attached.segment {
 	width: 100%;
 	max-width: 100%;
+}
+
+.table.element {
+	display: table-cell;
+	vertical-align: middle;
+}
+.table.last.element {
+	width: 90%;
+	text-align: right;
+}
+.table.last.element h1 {
+	padding: 0;
+	margin: 0;
+}
+.magic.table {
+	overflow: auto;
+	display: table;
+	width: auto;
 }
