@@ -72,6 +72,8 @@ $(document).ready(function(){
   
   $('.ui.dropdown').dropdown();
   
+  $('.ui.progress').progress();
+  
   // ripple stuff
   var f = singlePageSnippets[window.location.pathname];
   if (typeof f === 'function')

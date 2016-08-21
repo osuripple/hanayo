@@ -5,7 +5,7 @@
 		{{ with (get "users/full?id=%d" .UserID) }}
 			{{ $favouritemode := or $gqm .favourite_mode }}
 			<script>window.favouriteMode = {{ $favouritemode }};</script>
-			<div class="ui top attached segment">
+			<div class="ui top attached segment overflow auto">
 				<div class="magic table">
 					<div class="table element">
 						<img src="{{ avatars }}/{{ .id }}" alt="avatar" class="user avatar">
@@ -14,7 +14,9 @@
 						<h1>{{ .username }}</h1>
 						{{ if .username_aka }}<div class="subtitle">(aka <b>{{ .username_aka }}</b>)</div>{{ end }}
 					</div>
-					<div class="table last element">
+				</div>
+				<div class="magic table floating right">
+					<div class="table element">
 						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
 							<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>#{{ .global_leaderboard_rank }}</h1>
 						{{ end }}
@@ -39,22 +41,56 @@
 			<div class="ui three column divided segment grid">
 				<div class="row">
 					<div class="column">
-						<b>{{ .username }}</b> {{ with .username_aka }}(aka <b>{{ . }}</b>){{ end }}
-						is a Ripple player{{ with country .country }} from <b>{{ . }}</b>{{ end }}. 
+						<b>{{ .username }}</b> is a Ripple player{{ with country .country }} from <b>{{ . }}</b>{{ end }}. 
 						They signed up on Ripple {{ time $user.registered_on }}.
 						Last seen: {{ time $user.latest_activity }}.
 					</div>
 					<div class="column">Here will be badges in the future.</div>
-					<div class="column">Here will be mode stats in the future.</div>
-				</div>
-			</div>
-			{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
-				<div class="mode-container" data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>
-					<div class="ui segment">
-						#{{ .global_leaderboard_rank }}
+					<div class="column">
+						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
+							<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
+								<table class="ui very basic two column table nopad">
+									<tbody>
+										<tr>
+											<td><b>PP</b></td>
+											<td>{{ humanize .pp }}</td>
+										</tr>
+										<tr>
+											<td><b>Ranked score</b></td>
+											<td>{{ humanize .ranked_score }}</td>
+										</tr>
+										<tr>
+											<td><b>Total score</b></td>
+											<td>{{ humanize .total_score }}</td>
+										</tr>
+										<tr>
+											<td><b>Playcount</b></td>
+											<td>{{ humanize .playcount }}</td>
+										</tr>
+										<tr>
+											<td><b>Replays watched</b></td>
+											<td>{{ humanize .replays_watched }}</td>
+										</tr>
+										<tr>
+											<td><b>Total hits</b></td>
+											<td>{{ humanize .total_hits }}</td>
+										</tr>									<tr>
+											<td><b>Accuracy</b></td>
+											<td>{{ printf "%.2f" .accuracy }}%</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="ui blue progress little margin top" data-percent="{{ levelPercent .level }}">
+									<div class="bar">
+										<div class="progress">{{ levelPercent .level }}%</div>
+									</div>
+									<div class="label">Level {{ level .level }}</div>
+								</div>
+							</div>
+						{{ end }}
 					</div>
 				</div>
-			{{ end }}
+			</div>
 		{{ end }}
 	{{ end }}
 </div>

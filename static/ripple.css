@@ -132,10 +132,7 @@ a.inherit:hover {
 	overflow: auto;
 	padding-right: 10px;
 	display: block;
-	max-height: 80px;
-	max-width: 160px;
-	width: auto;
-	height: auto;
+	height: 80px;
 }
 
 .ui.attached.segment {
@@ -151,19 +148,36 @@ a.inherit:hover {
 	display: table-cell;
 	vertical-align: middle;
 }
-.table.element h1 {
-	padding: 0;
-	margin: 0;
+.table.element h1, .nopad {
+	padding: 0 !important;
+	margin: 0 !important;
 }
 .magic.table {
 	overflow: auto;
 	display: table;
 	width: auto;
 	display: inline-table;
+	height: 80px;
 }
+.overflow.auto {
+	overflow: auto;
+}
+
+.magic.table.floating.right {
+	float: right;
+}
+
 .subtitle {
 	color: rgba(0,0,0,.6);
 }
 .subtitle b {
 	color: rgba(0,0,0,.87);
+}
+
+.little.margin.top {
+	margin-top: 8px;
+}
+
+.two.column.table td {
+	width: 50%;
 }

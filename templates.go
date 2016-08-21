@@ -9,11 +9,13 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"math"
 
 	"gopkg.in/fsnotify.v1"
 
 	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/rippleapi/common"
+	"github.com/dustin/go-humanize"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/pariz/gountries"
@@ -88,6 +90,18 @@ var funcMap = template.FuncMap{
 			return ""
 		}
 		return template.HTML(fmt.Sprintf(`<i class="%s flag smallpadd"></i> %s`, strings.ToLower(s), c))
+	},
+	"humanize": func(f float64) string {
+		return humanize.Commaf(f)
+	},
+	"levelPercent": func(l float64) string {
+		_, f := math.Modf(l)
+		f *= 100
+		return fmt.Sprintf("%.0f", f)
+	},
+	"level": func(l float64) string {
+		i, _ := math.Modf(l)
+		return fmt.Sprintf("%.0f", i)
 	},
 	"get": apiclient.Get,
 }
