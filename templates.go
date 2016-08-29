@@ -6,16 +6,9 @@ import (
 	"html/template"
 	"io"
 	"io/ioutil"
-	"strconv"
-	"strings"
-	"time"
-	"math"
 
 	"gopkg.in/fsnotify.v1"
 
-	"git.zxq.co/ripple/hanayo/apiclient"
-	"git.zxq.co/ripple/rippleapi/common"
-	"github.com/dustin/go-humanize"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/pariz/gountries"
@@ -25,85 +18,6 @@ var templates = make(map[string]*template.Template)
 var baseTemplates = [...]string{
 	"templates/base.html",
 	"templates/navbar.html",
-}
-var funcMap = template.FuncMap{
-	"html": func(value interface{}) template.HTML {
-		return template.HTML(fmt.Sprint(value))
-	},
-	"avatars": func() string {
-		return config.AvatarURL
-	},
-	"navbarItem": func(currentPath, name, path string) template.HTML {
-		var act string
-		if path == currentPath {
-			act = "active "
-		}
-		return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
-	},
-	"curryear": func() string {
-		return strconv.Itoa(time.Now().Year())
-	},
-	"hasAdmin": func(privs common.UserPrivileges) bool {
-		return privs&common.AdminPrivilegeAccessRAP > 0
-	},
-	"isRAP": func(p string) bool {
-		parts := strings.Split(p, "/")
-		return len(parts) > 1 && parts[1] == "admin"
-	},
-	"favMode": func(favMode, current float64) string {
-		if favMode == current {
-			return "active "
-		}
-		return ""
-	},
-	"slice": func(els ...interface{}) []interface{} {
-		return els
-	},
-	"int": func(f float64) int {
-		return int(f)
-	},
-	"atoi": func(s string) interface{} {
-		i, err := strconv.Atoi(s)
-		if err != nil {
-			return nil
-		}
-		return float64(i)
-	},
-	"parseUserpage": func(s string) template.HTML {
-		return template.HTML(compileBBCode(s))
-	},
-	"time": func(s string) template.HTML {
-		t, _ := time.Parse(time.RFC3339, s)
-		return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
-	},
-	// band = Bitwise AND
-	"band": func(i1 int, i ...int) int {
-		for _, el := range i {
-			i1 &= el
-		}
-		return i1
-	},
-	"countryReadable": countryReadable,
-	"country": func(s string) template.HTML {
-		c := countryReadable(s)
-		if c == "" {
-			return ""
-		}
-		return template.HTML(fmt.Sprintf(`<i class="%s flag smallpadd"></i> %s`, strings.ToLower(s), c))
-	},
-	"humanize": func(f float64) string {
-		return humanize.Commaf(f)
-	},
-	"levelPercent": func(l float64) string {
-		_, f := math.Modf(l)
-		f *= 100
-		return fmt.Sprintf("%.0f", f)
-	},
-	"level": func(l float64) string {
-		i, _ := math.Modf(l)
-		return fmt.Sprintf("%.0f", i)
-	},
-	"get": apiclient.Get,
 }
 
 var gdb = gountries.New()
