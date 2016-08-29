@@ -28,8 +28,13 @@ func sessionInitializer() func(c *gin.Context) {
 		userid := sess.Get("userid")
 		if userid, ok := userid.(int); ok {
 			ctx.User.ID = userid
-			db.QueryRow("SELECT username, privileges FROM users WHERE id = ?", userid).
-				Scan(&ctx.User.Username, &ctx.User.Privileges)
+			var pRaw int64
+			err := db.QueryRow("SELECT username, privileges FROM users WHERE id = ?", userid).
+				Scan(&ctx.User.Username, &pRaw)
+			if err != nil {
+				c.Error(err)
+			}
+			ctx.User.Privileges = common.UserPrivileges(pRaw)
 			db.Exec("UPDATE users SET latest_activity = ? WHERE id = ?", time.Now().Unix(), userid)
 		}
 

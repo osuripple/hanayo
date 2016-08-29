@@ -1,5 +1,7 @@
 package main
 
+import "git.zxq.co/ripple/rippleapi/common"
+
 type context struct {
 	User  sessionUser
 	Token string
@@ -7,5 +9,5 @@ type context struct {
 type sessionUser struct {
 	ID         int
 	Username   string
-	Privileges int64
+	Privileges common.UserPrivileges
 }

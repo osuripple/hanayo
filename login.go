@@ -35,7 +35,8 @@ func loginSubmit(c *gin.Context) {
 		Password        string
 		PasswordVersion int
 		Country         string
-		Privileges      int64
+		pRaw            int64
+		Privileges      common.UserPrivileges
 	}
 	err := db.QueryRow(`
 	SELECT 
@@ -47,8 +48,9 @@ func loginSubmit(c *gin.Context) {
 	WHERE u.`+param+` = ? LIMIT 1`, strings.TrimSpace(c.PostForm("username"))).Scan(
 		&data.ID, &data.Password,
 		&data.Username, &data.PasswordVersion,
-		&data.Country, &data.Privileges,
+		&data.Country, &data.pRaw,
 	)
+	data.Privileges = common.UserPrivileges(data.pRaw)
 
 	switch {
 	case err == sql.ErrNoRows:

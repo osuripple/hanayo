@@ -43,7 +43,7 @@ var funcMap = template.FuncMap{
 	"curryear": func() string {
 		return strconv.Itoa(time.Now().Year())
 	},
-	"hasAdmin": func(privs int64) bool {
+	"hasAdmin": func(privs common.UserPrivileges) bool {
 		return privs&common.AdminPrivilegeAccessRAP > 0
 	},
 	"isRAP": func(p string) bool {
