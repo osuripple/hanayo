@@ -89,6 +89,10 @@ $(document).ready(function(){
 
   // setup user search
   $("#user-search").search({
+    onSelect: (val) => {
+      window.location.href = val.url;
+      return false;
+    },
     apiSettings: {
       url: "/api/v1/users/lookup?name={query}",
       onResponse: (resp) => {
