@@ -170,10 +170,10 @@ var bbcodeCompiler = func() bbcode.Compiler {
 		out := bbcode.NewHTMLTag("")
 		out.Name = "span"
 		if size, err := strconv.Atoi(node.GetOpeningTag().Value); err == nil && size > 0 {
-			if size > 10 {
-				size = 10
+			if size > 15 {
+				size = 15
 			}
-			out.Attrs["style"] = fmt.Sprintf("font-size: %dpt; line-height: %[1]dpt;", size*12)
+			out.Attrs["style"] = fmt.Sprintf("font-size: %dpt; line-height: %[1]dpt;", size*6)
 		}
 		return out, true
 	})
@@ -202,5 +202,6 @@ var emojiReplacer = func() *strings.Replacer {
 
 func compileBBCode(s string) string {
 	s = emojiReplacer.Replace(s)
+	s = strings.TrimSpace(s)
 	return bbcodeCompiler.Compile(s)
 }

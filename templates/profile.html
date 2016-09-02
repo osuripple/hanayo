@@ -29,7 +29,7 @@
 				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2">Catch the Beat</a>
 				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3">osu!mania</a>
 			</div>
-			{{ with (get "users/userpage?id=%d" .UserID) }}
+			{{ with (get "users/userpage?id=%.0f" .id) }}
 				{{ if .userpage }}
 					<div class="ui segment">
 						<h3 class="ui header">About</h3>
