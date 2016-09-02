@@ -82,6 +82,7 @@ $(document).ready(function(){
   if (window.location.pathname.substr(0, 3) == "/u/")
     userProfile();
   
+  $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
 });
 
