@@ -8,7 +8,6 @@ import (
 	"strings"
 	"time"
 
-	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
 )
@@ -64,9 +63,24 @@ var funcMap = template.FuncMap{
 	"slice": func(els ...interface{}) []interface{} {
 		return els
 	},
-	// int converts a float to an int.
-	"int": func(f float64) int {
-		return int(f)
+	// int converts a float/int to an int.
+	"int": func(f interface{}) int {
+		if f == nil {
+			return 0
+		}
+		switch f := f.(type) {
+		case int:
+			return f
+		case float64:
+			return int(f)
+		case float32:
+			return int(f)
+		}
+		return 0
+	},
+	// float converts an int to a float.
+	"float": func(i int) float64 {
+		return float64(i)
 	},
 	// atoi converts a string to an int and then a float64.
 	// If s is not an actual int, it returns nil.
@@ -122,6 +136,6 @@ var funcMap = template.FuncMap{
 	// trimPrefix returns s without the provided leading prefix string.
 	// If s doesn't start with prefix, s is returned unchanged.
 	"trimPrefix": strings.TrimPrefix,
-	// get is the function to get data from the Ripple API.
-	"get": apiclient.Get,
+	// log fmt.Printf's something
+	"log": fmt.Printf,
 }

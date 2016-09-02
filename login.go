@@ -126,7 +126,7 @@ func logout(c *gin.Context) {
 	http.SetCookie(c.Writer, &http.Cookie{
 		Name:    "rt",
 		Value:   "",
-		Expires: time.Unix(1, 0),
+		Expires: time.Now().Add(-time.Hour),
 	})
 	addMessage(c, successMessage{"Successfully logged out."})
 	sess.Save()

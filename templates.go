@@ -2,10 +2,12 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"io"
 	"io/ioutil"
+	"net/http"
 
 	"github.com/rjeczalik/notify"
 
@@ -134,12 +136,42 @@ func (b *baseTemplateData) SetContext(c context) {
 func (b *baseTemplateData) SetGinContext(c *gin.Context) {
 	b.Gin = c
 }
+func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interface{} {
+	s = fmt.Sprintf(s, params...)
+	req, err := http.NewRequest("GET", config.API+s, nil)
+	if err != nil {
+		b.Gin.Error(err)
+		return nil
+	}
+	req.Header.Set("User-Agent", "hanayo")
+	req.Header.Set("H-Key", config.APISecret)
+	req.Header.Set("X-Ripple-Token", b.Context.Token)
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		b.Gin.Error(err)
+		return nil
+	}
+	data, err := ioutil.ReadAll(resp.Body)
+	defer resp.Body.Close()
+	if err != nil {
+		b.Gin.Error(err)
+		return nil
+	}
+	x := make(map[string]interface{})
+	err = json.Unmarshal(data, &x)
+	if err != nil {
+		b.Gin.Error(err)
+		return nil
+	}
+	return x
+}
 
 type page interface {
 	SetMessages([]message)
 	SetPath(string)
 	SetContext(context)
 	SetGinContext(*gin.Context)
+	Get(s string, params ...interface{}) map[string]interface{}
 }
 
 func reloader() error {

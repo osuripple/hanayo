@@ -2,7 +2,8 @@
 <div class="ui container">
 	{{ if .UserID }}
 		{{ $gqm := atoi (.Gin.Query "mode") }}
-		{{ with (get "users/full?id=%d" .UserID) }}
+		{{ $global := . }}
+		{{ with (.Get "users/full?id=%d" .UserID) }}
 			{{ $favouritemode := or $gqm .favourite_mode }}
 			<script>
 				window.favouriteMode = {{ $favouritemode }};
@@ -20,8 +21,12 @@
 				</div>
 				<div class="magic table floating right">
 					<div class="table element">
-						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
-							<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>#{{ .global_leaderboard_rank }}</h1>
+						{{ if .std.global_leaderboard_rank }}
+							{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
+								<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>#{{ .global_leaderboard_rank }}</h1>
+							{{ end }}
+						{{ else }}
+								<h1>Unknown</h1>							
 						{{ end }}
 					</div>
 				</div>
@@ -32,7 +37,7 @@
 				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2">Catch the Beat</a>
 				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3">osu!mania</a>
 			</div>
-			{{ with (get "users/userpage?id=%.0f" .id) }}
+			{{ with $global.Get "users/userpage?id=%.0f" .id }}
 				{{ if .userpage }}
 					<div class="ui segment">
 						<h3 class="ui header">About</h3>

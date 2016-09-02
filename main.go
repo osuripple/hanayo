@@ -4,7 +4,6 @@ import (
 	"encoding/gob"
 	"fmt"
 
-	"git.zxq.co/ripple/hanayo/apiclient"
 	"git.zxq.co/ripple/schiavolib"
 	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/contrib/gzip"
@@ -121,9 +120,6 @@ func main() {
 
 	fmt.Println("Setting up rate limiter...")
 	setUpLimiter()
-
-	apiclient.Key = config.APISecret
-	apiclient.APIBase = config.API
 
 	fmt.Println("Starting webserver...")
 

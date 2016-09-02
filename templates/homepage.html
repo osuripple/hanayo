@@ -17,7 +17,7 @@
 			between the official osu! server and Ripple!</h3>
 	</div>
 	{{ end }}
-	{{ with (get "blog/posts?l=5") }}
+	{{ with (.Get "blog/posts?l=5") }}
 		<div class="ui raised segment">
 			<h1 class="ui center aligned header">
 				Latest news
