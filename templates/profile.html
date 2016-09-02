@@ -4,7 +4,10 @@
 		{{ $gqm := atoi (.Gin.Query "mode") }}
 		{{ with (get "users/full?id=%d" .UserID) }}
 			{{ $favouritemode := or $gqm .favourite_mode }}
-			<script>window.favouriteMode = {{ $favouritemode }};</script>
+			<script>
+				window.favouriteMode = {{ $favouritemode }};
+				window.userID = '{{ .id }}';
+			</script>
 			<div class="ui top attached segment overflow auto">
 				<div class="magic table">
 					<div class="table element">

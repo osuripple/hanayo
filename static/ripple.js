@@ -161,9 +161,16 @@ var api = function(endpoint, data, success) {
 // code that is executed on every user profile
 var userProfile = function() {
   var wl = window.location;
+  var newPathName = wl.pathname;
+  // userID is defined in profile.html
+  if (newPathName.split("/")[2] != userID) {
+    newPathName = "/u/" + userID;
+  }
   // if there's no mode parameter in the querystring, add it
   if (wl.search.indexOf("mode=") === -1)
-    window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + wl.hash);
+    window.history.pushState('', document.title, newPathName + "?mode=" + favouriteMode + wl.hash);
+  else if (wl.pathname != newPathName)
+    window.history.pushState('', document.title, newPathName + wl.search + wl.hash);
   // when an item in the mode menu is clicked, it means we should change the mode.
   $("#mode-menu>.item").click(function() {
     if ($(this).hasClass("active"))
