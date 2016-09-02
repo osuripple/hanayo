@@ -109,16 +109,17 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 }
 
 type baseTemplateData struct {
-	TitleBar     string
-	HeadingTitle string
-	Scripts      []string
-	KyutGrill    string
-	DisableHH    bool // HH = Huge Heading
-	Context      context
-	Path         string
-	Messages     []message
-	FormData     map[string]string
-	Gin          *gin.Context
+	TitleBar       string
+	HeadingTitle   string
+	HeadingOnRight bool
+	Scripts        []string
+	KyutGrill      string
+	DisableHH      bool // HH = Huge Heading
+	Context        context
+	Path           string
+	Messages       []message
+	FormData       map[string]string
+	Gin            *gin.Context
 }
 
 func (b *baseTemplateData) SetMessages(m []message) {

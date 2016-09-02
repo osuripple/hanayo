@@ -22,6 +22,10 @@
 		bottom: 10px;
 		left: 20px;
 	}
+	.huge.heading.right h1 {
+		left: auto;
+		right: 40px;
+	}
 }
 @media (min-width: 700px) {
 	.huge.heading {
@@ -31,6 +35,10 @@
 		font-size: 40pt;
 		bottom: 15px;
 		left: 40px;
+	}
+	.huge.heading.right h1 {
+		right: 40px;
+		left: auto;
 	}
 }
 
