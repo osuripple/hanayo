@@ -1,5 +1,7 @@
 // Ripple custom JS that goes on all pages
 
+// this object contains tiny snippets that were deemed too small to be worth
+// their own file.
 var singlePageSnippets = {
 
   "/": function() {
@@ -84,7 +86,34 @@ $(document).ready(function(){
 
   if (window.location.pathname.substr(0, 3) == "/u/")
     userProfile();
+
+  // setup user search
+  $("#user-search").search({
+    apiSettings: {
+      url: "/api/v1/users/lookup?name={query}",
+      onResponse: (resp) => {
+        var r = {
+          results: [],
+        };
+        $.each(resp.users, (index, item) => {
+          r.results.push({
+            title: item.username,
+            url  : "/u/" + item.id,
+            // TODO: Un-hardcode
+            image: "https://a.ripple.moe/" + item.id,
+          });
+        });
+        return r;
+      },
+    },
+  });
+  $("#user-search-input").keypress(function (e) {
+    if (e.which == 13) {
+      window.location.pathname = "/u/" + $(this).val();
+    }
+  });
   
+  // setup timeago
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
 });
@@ -129,10 +158,13 @@ var api = function(endpoint, data, success) {
   });
 };
 
+// code that is executed on every user profile
 var userProfile = function() {
   var wl = window.location;
+  // if there's no mode parameter in the querystring, add it
   if (wl.search.indexOf("mode=") === -1)
     window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + wl.hash);
+  // when an item in the mode menu is clicked, it means we should change the mode.
   $("#mode-menu>.item").click(function() {
     if ($(this).hasClass("active"))
       return;

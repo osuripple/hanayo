@@ -21,9 +21,11 @@
 			{{ if .Context.User.Username }}
 				{{ if not $isRAP }}
 					<div class="item">
-						<div class="ui icon input">
-							<input type="text" placeholder="Looking for someone?">
-							<i class="search link icon"></i>
+						<div class="ui search" id="user-search">
+							<div class="ui icon input">
+								<input class="prompt" type="text" placeholder="Looking for someone?" id="user-search-input">
+								<i class="search link icon"></i>
+							</div>
 						</div>
 					</div>
 				{{ end }}
