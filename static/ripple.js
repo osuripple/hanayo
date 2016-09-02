@@ -7,13 +7,16 @@ var singlePageSnippets = {
       var addTo = $(this).closest(".segment");
       if (addTo.attr("data-expanded") == "true") {
         addTo.removeAttr("data-expanded")
-        addTo.children(".post-content").slideUp();
-        $(this).attr("data-content", "Load post inline")
+        var ch = addTo.children(".post-content");
+        ch.slideUp(() => {
+          ch.remove();
+        });
+        $(this).attr("data-content", "Expand")
         $(this).removeClass("up").addClass("down");
       } else {
         addTo.attr("data-expanded", "true");
         $(this).removeClass("down").addClass("up");
-        $(this).attr("data-content", "Reduce");
+        $(this).attr("data-content", "Collapse");
         api("blog/posts/content", {
           id: addTo.data("post-id"),
           html: "",
