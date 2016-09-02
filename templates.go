@@ -7,7 +7,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"gopkg.in/fsnotify.v1"
+	"github.com/rjeczalik/notify"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -143,27 +143,16 @@ type page interface {
 }
 
 func reloader() error {
-	w, err := fsnotify.NewWatcher()
-	if err != nil {
-		return err
-	}
-	err = w.Add("templates")
-	if err != nil {
-		w.Close()
+	c := make(chan notify.EventInfo, 1)
+	if err := notify.Watch("./templates/...", c, notify.All); err != nil {
 		return err
 	}
 	go func() {
-		for {
-			select {
-			case ev := <-w.Events:
-				if ev.Op&fsnotify.Write == fsnotify.Write {
-					fmt.Println("Change detected! Refreshing templates")
-					loadTemplates("")
-				}
-			case err := <-w.Errors:
-				fmt.Println(err)
-			}
+		for range c {
+			fmt.Println("Change detected! Refreshing templates")
+			loadTemplates("")
 		}
+		defer notify.Stop(c)
 	}()
 	return nil
 }
