@@ -165,13 +165,15 @@ func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interf
 	}
 	return x
 }
+func (b baseTemplateData) Has(privs uint64) bool {
+	return uint64(b.Context.User.Privileges)&privs == privs
+}
 
 type page interface {
 	SetMessages([]message)
 	SetPath(string)
 	SetContext(context)
 	SetGinContext(*gin.Context)
-	Get(s string, params ...interface{}) map[string]interface{}
 }
 
 func reloader() error {

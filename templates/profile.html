@@ -9,6 +9,17 @@
 				window.favouriteMode = {{ $favouritemode }};
 				window.userID = '{{ .id }}';
 			</script>
+			{{ if hasAdmin $global.Context.User.Privileges }}
+				{{ $restr := not (has .privileges 1) }}
+				{{ $disab := not (has .privileges 2) }}
+				{{ if and $disab $restr }}
+					<div class="ui negative centered message">User is <b>banned</b>.</div>
+				{{ else if $restr }}
+					<div class="ui negative centered message">User is <b>restricted</b>.</div>
+				{{ else if $disab }}
+					<div class="ui negative centered message">User is <b>disabled</b>.</div>									
+				{{ end }}
+			{{ end }}
 			<div class="ui top attached segment overflow auto">
 				<div class="magic table">
 					<div class="table element">

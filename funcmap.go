@@ -138,4 +138,8 @@ var funcMap = template.FuncMap{
 	"trimPrefix": strings.TrimPrefix,
 	// log fmt.Printf's something
 	"log": fmt.Printf,
+	// has returns whether priv1 has all 1 bits of priv2, aka priv1 & priv2 == priv2
+	"has": func (priv1, priv2 float64) bool {
+		return uint64(priv1) & uint64(priv2) == uint64(priv2)
+	},
 }
