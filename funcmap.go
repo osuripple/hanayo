@@ -119,6 +119,9 @@ var funcMap = template.FuncMap{
 		i, _ := math.Modf(l)
 		return fmt.Sprintf("%.0f", i)
 	},
+	// trimPrefix returns s without the provided leading prefix string.
+	// If s doesn't start with prefix, s is returned unchanged.
+	"trimPrefix": strings.TrimPrefix,
 	// get is the function to get data from the Ripple API.
 	"get": apiclient.Get,
 }

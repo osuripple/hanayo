@@ -181,3 +181,7 @@ a.inherit:hover {
 .two.column.table td {
 	width: 50%;
 }
+
+.centered.column {
+	text-align: center;
+}
