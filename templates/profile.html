@@ -68,7 +68,7 @@
 					<div class="column">
 						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
 							<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
-								<table class="ui very basic two column table nopad">
+								<table class="ui very basic two column compact table nopad">
 									<tbody>
 										<tr>
 											<td><b>PP</b></td>
