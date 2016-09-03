@@ -20,6 +20,13 @@
 					<div class="ui negative centered message">User is <b>disabled</b>.</div>									
 				{{ end }}
 			{{ end }}
+			{{ with $global.Get "users/userpage?id=%.0f" .id }}
+				{{ if .userpage }}
+					<div class="ui segment">
+						{{ html (parseUserpage .userpage) }}
+					</div>
+				{{ end }}
+			{{ end }}
 			<div class="ui top attached segment overflow auto">
 				<div class="magic table">
 					<div class="table element">
@@ -48,14 +55,6 @@
 				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2" href="/u/{{ .id }}?mode=2">Catch the Beat</a>
 				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3" href="/u/{{ .id }}?mode=3">osu!mania</a>
 			</div>
-			{{ with $global.Get "users/userpage?id=%.0f" .id }}
-				{{ if .userpage }}
-					<div class="ui segment">
-						<h3 class="ui header">About</h3>
-						{{ html (parseUserpage .userpage) }}
-					</div>
-				{{ end }}
-			{{ end }}
 			{{ $user := . }}
 			<div class="ui three column divided segment grid">
 				<div class="row">
