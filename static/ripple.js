@@ -10,7 +10,7 @@ var singlePageSnippets = {
       if (addTo.attr("data-expanded") == "true") {
         addTo.removeAttr("data-expanded")
         var ch = addTo.children(".post-content");
-        ch.slideUp(() => {
+        ch.slideUp(function() {
           ch.remove();
         });
         $(this).attr("data-content", "Expand")
@@ -89,17 +89,17 @@ $(document).ready(function(){
 
   // setup user search
   $("#user-search").search({
-    onSelect: (val) => {
+    onSelect: function(val) {
       window.location.href = val.url;
       return false;
     },
     apiSettings: {
       url: "/api/v1/users/lookup?name={query}",
-      onResponse: (resp) => {
+      onResponse: function(resp) {
         var r = {
           results: [],
         };
-        $.each(resp.users, (index, item) => {
+        $.each(resp.users, function(index, item) {
           r.results.push({
             title: item.username,
             url  : "/u/" + item.id,
@@ -176,7 +176,8 @@ var userProfile = function() {
   else if (wl.pathname != newPathName)
     window.history.pushState('', document.title, newPathName + wl.search + wl.hash);
   // when an item in the mode menu is clicked, it means we should change the mode.
-  $("#mode-menu>.item").click(function() {
+  $("#mode-menu>.item").click(function(e) {
+    e.preventDefault();
     if ($(this).hasClass("active"))
       return;
     $("[data-mode]:not(.item):not([hidden])").attr("hidden", "");

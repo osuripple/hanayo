@@ -43,10 +43,10 @@
 				</div>
 			</div>
 			<div class="ui four item bottom attached menu" id="mode-menu">
-				<a class="{{ favMode $favouritemode 0 }}item" data-mode="0">osu! standard</a>
-				<a class="{{ favMode $favouritemode 1 }}item" data-mode="1">Taiko</a>
-				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2">Catch the Beat</a>
-				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3">osu!mania</a>
+				<a class="{{ favMode $favouritemode 0 }}item" data-mode="0" href="/u/{{ .id }}?mode=0">osu! standard</a>
+				<a class="{{ favMode $favouritemode 1 }}item" data-mode="1" href="/u/{{ .id }}?mode=1">Taiko</a>
+				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2" href="/u/{{ .id }}?mode=2">Catch the Beat</a>
+				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3" href="/u/{{ .id }}?mode=3">osu!mania</a>
 			</div>
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
 				{{ if .userpage }}
