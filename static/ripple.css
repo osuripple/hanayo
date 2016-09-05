@@ -1,8 +1,8 @@
 /*
  * This file contains Ripple's CSS, that little that is needed for ripple's custom elements.
  */
-.ripple-title > a {
-	color: inherit;
+.ripple.logo {
+	padding-top: 4px;
 }
 
 .huge.heading {
@@ -192,4 +192,19 @@ a.inherit:hover {
 
 .centered {
 	text-align: center;
+}
+
+.ui.secondary.inverted.main.menu {
+	background-color: #1B1C1D;
+}
+
+.ui.inverted.input > input {
+	background: #444;
+	color: #FFF;
+}
+.ui.inverted.input > input::selection {
+	background-color: rgba(255,255,255,.5);
+}
+.ui.inverted.input {
+	color: #FFF;
 }
