@@ -140,6 +140,7 @@ func main() {
 	)
 
 	r.Static("/static", "static")
+	r.StaticFile("/favicon.ico", "static/favicon.ico")
 
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
