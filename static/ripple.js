@@ -68,7 +68,7 @@ var singlePageSnippets = {
     $('#telegram-code').on('input', function() {
       if ($(this).val().length >= 8) {
         $.get("/2fa_gateway/verify", {
-          token: $(this).val(),
+          token: $(this).val().trim().substr(0, 8),
         }, function(resp) {
           switch (resp) {
           case "0":
