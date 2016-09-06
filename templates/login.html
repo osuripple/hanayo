@@ -2,35 +2,39 @@
 <div class="ui container">
 	{{/* Not logged in block */}}
 	{{ if .Context.User.Username }}
-		<div class="ui raised segment">
+		<div class="ui segment">
 			You are already logged in!
 		</div>
 	{{ else }}
-		<div class="ui raised segments" style="margin: 0 auto; width: 75%;">
-			<div class="ui segment">
-				<form id="login-form" class="ui form" method="post" action="/login">
-					<div class="field">
-						<label>Username (or email)</label>
-						<input 
-							type="text"
-							name="username"
-							placeholder="Username"
-							value="{{ .FormData.username }}"
-							required>
+		<div class="ui centered grid">
+			<div class="ten wide column">
+				<div class="ui raised segments">
+					<div class="ui segment">
+						<form id="login-form" class="ui form" method="post" action="/login">
+							<div class="field">
+								<label>Username (or email)</label>
+								<input 
+									type="text"
+									name="username"
+									placeholder="Username"
+									value="{{ .FormData.username }}"
+									required>
+							</div>
+							<div class="field">
+								<label>Password <a href="/forgot_password">(forgot?)</a></label>
+								<input
+									type="password"
+									name="password"
+									placeholder="Password"
+									value="{{ .FormData.password }}"
+									required>
+							</div>
+						</form>
 					</div>
-					<div class="field">
-						<label>Password <a href="/forgot_password">(forgot?)</a></label>
-						<input
-							type="password"
-							name="password"
-							placeholder="Password"
-							value="{{ .FormData.password }}"
-							required>
+					<div class="ui right aligned segment">
+						<button class="ui primary button" type="submit" form="login-form">Submit</button>
 					</div>
-				</form>
-			</div>
-			<div class="ui right aligned segment">
-				<button class="ui primary button" type="submit" form="login-form">Submit</button>
+				</div>
 			</div>
 		</div>
 	{{ end }}

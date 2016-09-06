@@ -18,7 +18,7 @@ func sessionInitializer() func(c *gin.Context) {
 		if tok, ok := tok.(string); ok {
 			ctx.Token = tok
 		}
-		if x, _ := c.Cookie("rt"); x == "" {
+		if x, _ := c.Cookie("rt"); x == "" && ctx.Token != "" {
 			http.SetCookie(c.Writer, &http.Cookie{
 				Name:    "rt",
 				Value:   ctx.Token,

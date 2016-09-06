@@ -6,11 +6,14 @@ import (
 
 	"git.zxq.co/ripple/schiavolib"
 	"git.zxq.co/x/rs"
-	"github.com/gin-gonic/contrib/gzip"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
+	// johnniedoe's fork fixes a critical issue for which .String resulted in
+	// an ERR_DECODING_FAILED. This is an actual pull request on the contrib
+	// repo, but apparently, gin is dead.
+	"github.com/johnniedoe/contrib/gzip"
 	"github.com/thehowl/conf"
 )
 
@@ -37,6 +40,8 @@ var (
 
 		API       string
 		APISecret string
+
+		IP_API string
 	}
 	db *sqlx.DB
 )
@@ -63,6 +68,7 @@ func main() {
 		&config.BaseURL:      "https://ripple.moe",
 		&config.API:          "http://localhost:40001/api/v1/",
 		&config.APISecret:    "Potato",
+		&config.IP_API:       "https://ip.zxq.co",
 	}
 	for key, value := range configDefaults {
 		if *key == "" {
@@ -130,6 +136,7 @@ func main() {
 		sessions.Sessions("session", store),
 		sessionInitializer(),
 		rateLimiter(false),
+		twoFALock,
 	)
 
 	r.Static("/static", "static")
@@ -137,6 +144,10 @@ func main() {
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
 	r.GET("/u/:user", userProfile)
+
+	r.GET("/2fa_gateway", tfaGateway)
+	r.GET("/2fa_gateway/clear", clear2fa)
+	r.GET("/2fa_gateway/verify", verify2fa)
 
 	loadSimplePages(r)
 

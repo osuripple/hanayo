@@ -2,7 +2,6 @@ package main
 
 import (
 	"crypto/md5"
-	"crypto/sha256"
 	"database/sql"
 	"fmt"
 	"net/http"
@@ -10,7 +9,6 @@ import (
 	"time"
 
 	"git.zxq.co/ripple/rippleapi/common"
-	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
@@ -80,6 +78,7 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
+	// 2fa should get this AFTER verification
 	tok := common.RandomString(32)
 	_, err = db.Exec(
 		`INSERT INTO tokens(user, privileges, description, token, private)
@@ -91,15 +90,31 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
-	sess := c.MustGet("session").(sessions.Session)
-	sess.Set("userid", data.ID)
-	sess.Set("token", tok)
-	sess.Save()
+	if data.Country == "XX" {
+		setCountry(c, data.ID)
+	}
 
 	setYCookie(data.ID, c)
 
-	addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", c.PostForm("username"))})
-	c.Redirect(302, "/")
+	tfaEnabled := is2faEnabled(data.ID)
+	if !tfaEnabled {
+		logIP(c, data.ID)
+	}
+
+	sess := c.MustGet("session").(sessions.Session)
+	sess.Set("userid", data.ID)
+	sess.Set("token", tok)
+	if tfaEnabled {
+		sess.Set("2fa_must_validate", true)
+	}
+	sess.Save()
+
+	if tfaEnabled {
+		c.Redirect(302, "/2fa_gateway/generate")
+	} else {
+		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", c.PostForm("username"))})
+		c.Redirect(302, "/")
+	}
 	return
 }
 
@@ -133,31 +148,4 @@ func logout(c *gin.Context) {
 	addMessage(c, successMessage{"Successfully logged out."})
 	sess.Save()
 	c.Redirect(302, "/")
-}
-
-func setYCookie(userID int, c *gin.Context) {
-	var token string
-	err := db.QueryRow("SELECT token FROM identity_tokens WHERE userid = ? LIMIT 1", userID).Scan(&token)
-	if err != nil && err != sql.ErrNoRows {
-		c.Error(err)
-		return
-	}
-	if token != "" {
-		addY(c, token)
-		return
-	}
-	for {
-		token = fmt.Sprintf("%x", sha256.Sum256([]byte(rs.String(32))))
-		if db.QueryRow("SELECT 1 FROM identity_tokens WHERE token = ? LIMIT 1", token).Scan(new(int)) == sql.ErrNoRows {
-			break
-		}
-	}
-	addY(c, token)
-}
-func addY(c *gin.Context, y string) {
-	http.SetCookie(c.Writer, &http.Cookie{
-		Name:    "y",
-		Value:   y,
-		Expires: time.Now().Add(time.Hour * 24 * 30 * 6),
-	})
 }

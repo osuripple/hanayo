@@ -81,13 +81,14 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		c.String(500, "Template not found! Please tell this to a dev!")
 		return
 	}
+	sess := c.MustGet("session").(sessions.Session)
 	if corrected, ok := data.(page); ok {
 		corrected.SetMessages(getMessages(c))
 		corrected.SetPath(c.Request.URL.Path)
 		corrected.SetContext(c.MustGet("context").(context))
 		corrected.SetGinContext(c)
+		corrected.SetSession(sess)
 	}
-	sess := c.MustGet("session").(sessions.Session)
 	sess.Save()
 	buf := &bytes.Buffer{}
 	err := t.ExecuteTemplate(buf, "base", data)
@@ -122,6 +123,7 @@ type baseTemplateData struct {
 	Messages       []message
 	FormData       map[string]string
 	Gin            *gin.Context
+	Session        sessions.Session
 }
 
 func (b *baseTemplateData) SetMessages(m []message) {
@@ -135,6 +137,9 @@ func (b *baseTemplateData) SetContext(c context) {
 }
 func (b *baseTemplateData) SetGinContext(c *gin.Context) {
 	b.Gin = c
+}
+func (b *baseTemplateData) SetSession(sess sessions.Session) {
+	b.Session = sess
 }
 func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interface{} {
 	s = fmt.Sprintf(s, params...)
@@ -174,6 +179,7 @@ type page interface {
 	SetPath(string)
 	SetContext(context)
 	SetGinContext(*gin.Context)
+	SetSession(sessions.Session)
 }
 
 func reloader() error {

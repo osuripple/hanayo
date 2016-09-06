@@ -62,7 +62,29 @@ var singlePageSnippets = {
         height: 300
       }
     });
-  }
+  },
+
+  "/2fa_gateway": function() {
+    $('#telegram-code').on('input', function() {
+      if ($(this).val().length >= 8) {
+        $.get("/2fa_gateway/verify", {
+          token: $(this).val(),
+        }, function(resp) {
+          switch (resp) {
+          case "0":
+            $("#telegram-code").closest(".field").addClass("success");
+            window.location.href = "/";
+            break;
+          case "1":
+            $("#telegram-code").closest(".field").addClass("error");
+            break;
+          }
+        });
+      } else {
+        $("#telegram-code").closest(".field").removeClass("error");
+      }
+    });
+  },
 };
 
 $(document).ready(function(){
