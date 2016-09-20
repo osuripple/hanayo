@@ -42,6 +42,8 @@ var (
 		APISecret string
 
 		IP_API string
+
+		Offline bool `json:"If this is true, files will be served from the local server instead of the CDN."`
 	}
 	db *sqlx.DB
 )

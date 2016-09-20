@@ -173,6 +173,9 @@ func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interf
 func (b baseTemplateData) Has(privs uint64) bool {
 	return uint64(b.Context.User.Privileges)&privs == privs
 }
+func (b baseTemplateData) Conf() interface{} {
+	return config
+}
 
 type page interface {
 	SetMessages([]message)
