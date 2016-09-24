@@ -12,6 +12,7 @@ var simplePages = [...]simplePage{
 	{"/settings/avatar", "settings/avatar.html", "Change avatar", ""},
 	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.png"},
 	{"/beatmaps/rank_request", "beatmaps/rank_request.html", "Request beatmap ranking", ""},
+	{"/donate", "support.html", "Support Ripple", ""},
 }
 
 // indexes of pages in simplePages that have huge heading on the right
