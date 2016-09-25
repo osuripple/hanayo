@@ -127,6 +127,12 @@
 						{{ end }}
 					</div>
 				</div>
+			</div> <!-- end grid segment -->
+			<div id="scores-zone">
+				{{ range _range 4 }}
+					<div data-mode="{{ . }}" {{ if ne . (int $favouritemode) }} hidden{{ end }} data-loaded="0">
+					</div>
+				{{ end }}
 			</div>
 		{{ end }}
 	{{ end }}

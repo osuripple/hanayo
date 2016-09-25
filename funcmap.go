@@ -1,9 +1,11 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"html/template"
 	"math"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -139,7 +141,45 @@ var funcMap = template.FuncMap{
 	// log fmt.Printf's something
 	"log": fmt.Printf,
 	// has returns whether priv1 has all 1 bits of priv2, aka priv1 & priv2 == priv2
-	"has": func (priv1, priv2 float64) bool {
-		return uint64(priv1) & uint64(priv2) == uint64(priv2)
+	"has": func(priv1, priv2 float64) bool {
+		return uint64(priv1)&uint64(priv2) == uint64(priv2)
 	},
+	// _range is like python range's.
+	// If it is given 1 argument, it returns a []int containing numbers from 0
+	// to x.
+	// If it is given 2 arguments, it returns a []int containing numers from x
+	// to y if x < y, from y to x if y < x.
+	"_range": func(x int, y ...int) ([]int, error) {
+		switch len(y) {
+		case 0:
+			r := make([]int, x)
+			for i := range r {
+				r[i] = i
+			}
+			return r, nil
+		case 1:
+			nums, up := pos(y[0] - x)
+			r := make([]int, nums)
+			for i := range r {
+				if up {
+					r[i] = i + x + 1
+				} else {
+					r[i] = i + y[0]
+				}
+			}
+			if !up {
+				// reverse r
+				sort.Sort(sort.Reverse(sort.IntSlice(r)))
+			}
+			return r, nil
+		}
+		return nil, errors.New("y must be at maximum 1 parameter")
+	},
+}
+
+func pos(x int) (int, bool) {
+	if x > 0 {
+		return x, true
+	}
+	return x * -1, false
 }

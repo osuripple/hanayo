@@ -54,4 +54,5 @@ func userProfile(c *gin.Context) {
 
 	data.TitleBar = username + "'s profile"
 	data.DisableHH = true
+	data.Scripts = append(data.Scripts, "/static/profile.js")
 }

@@ -106,9 +106,6 @@ $(document).ready(function(){
   if (typeof f === 'function')
     f();
 
-  if (window.location.pathname.substr(0, 3) == "/u/")
-    userProfile();
-
   // setup user search
   $("#user-search").search({
     onSelect: function(val) {
@@ -181,31 +178,5 @@ var api = function(endpoint, data, success) {
       console.warn(jqXHR, textStatus, errorThrown);
       showMessage("error", errorMessage);
     },
-  });
-};
-
-// code that is executed on every user profile
-var userProfile = function() {
-  var wl = window.location;
-  var newPathName = wl.pathname;
-  // userID is defined in profile.html
-  if (newPathName.split("/")[2] != userID) {
-    newPathName = "/u/" + userID;
-  }
-  // if there's no mode parameter in the querystring, add it
-  if (wl.search.indexOf("mode=") === -1)
-    window.history.pushState('', document.title, newPathName + "?mode=" + favouriteMode + wl.hash);
-  else if (wl.pathname != newPathName)
-    window.history.pushState('', document.title, newPathName + wl.search + wl.hash);
-  // when an item in the mode menu is clicked, it means we should change the mode.
-  $("#mode-menu>.item").click(function(e) {
-    e.preventDefault();
-    if ($(this).hasClass("active"))
-      return;
-    $("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
-    $("[data-mode=" + $(this).data("mode") + "]:not(.item)").removeAttr("hidden");
-    $("#mode-menu>.active.item").removeClass("active");
-    $(this).addClass("active");
-    window.history.pushState('', document.title, wl.pathname + "?mode=" + $(this).data("mode") + wl.hash);    
   });
 };

@@ -212,3 +212,11 @@ a.inherit:hover {
 	-webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,.21) !important;
 	box-shadow: 0 4px 10px 0 rgba(0,0,0,.21) !important;
 }
+
+.score-table th:not([colspan]):nth-child(1) {
+	width: 8%;
+}
+
+.score-table th:not([colspan]):nth-child(3) {
+	width: 20%;
+}
