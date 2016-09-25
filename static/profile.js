@@ -26,9 +26,54 @@ $(document).ready(function() {
     $(this).addClass("active");
     window.history.pushState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
   });
+  initialiseFriends();
   // load scores page for the current favourite mode
   initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "]"), favouriteMode);
 });
+
+function initialiseFriends() {
+  var b = $("#add-friend-button");
+  if (!b) return;
+  api('friends/with', {id: userID}, setFriendOnResponse);
+  b.click(friendClick);
+}
+function setFriendOnResponse(r) {
+  var x = 0;
+  if (r.friend) x++;
+  if (r.mutual) x++;
+  setFriend(x);
+}
+function setFriend(i) {
+  var b = $("#add-friend-button");
+  b.removeClass("loading");
+  switch (i) {
+  case 0:
+    b
+      .css("background-color", "#0082e4")
+      .attr("title", "Add friend")
+      .html("<i class='plus icon'></i>");
+    break;
+  case 1:
+    b
+      .css("background-color", "#09ce00")
+      .attr("title", "Remove friend")
+      .html("<i class='minus icon'></i>");
+    break;
+  case 2:
+    b
+      .css("background-color", "#f30909")
+      .attr("title", "Unmutual friend")
+      .html("<i class='heart icon'></i>");
+    break;
+  }
+  b.attr("data-friends", i > 0 ? 1 : 0)
+}
+function friendClick() {
+  var t = $(this);
+  if (t.hasClass("loading")) return;
+  t.addClass("loading");
+  api("friends/" + (t.attr("data-friends") == 1 ? "del" : "add"), {id: userID}, setFriendOnResponse);
+}
 
 var defaultScoreTable = $("<table class='ui table score-table' />")
   .append(

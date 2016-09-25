@@ -221,3 +221,14 @@ a.inherit:hover {
 	max-height: 500px;
 	overflow: auto;
 }
+
+#profile-actions {
+	text-align: right;
+	padding-top: 2px;
+}
+#profile-actions button {
+	font-size: .7rem;
+}
+#add-friend-button {
+	color: #fff;
+}
