@@ -160,7 +160,7 @@ function viewScoreInfo() {
   $.each(data, function(key, value) {
     els.push(
       $("<tr />").append(
-        $("<td><b>" + key + "</b></td>"),
+        $("<td>" + key + "</td>"),
         $("<td>" + value + "</td>")
       )
     );
