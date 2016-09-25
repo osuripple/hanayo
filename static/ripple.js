@@ -180,3 +180,30 @@ var api = function(endpoint, data, success) {
     },
   });
 };
+
+var modes = {
+  0: "osu! standard",
+  1: "Taiko",
+  2: "Catch the Beat",
+  3: "osu!mania",
+};
+var modesShort = {
+  0: "std",
+  1: "taiko",
+  2: "ctb",
+  3: "mania",
+};
+
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;',
+};
+function escapeHTML(str) {
+  return String(str).replace(/[&<>"'\/]/g, function(s) {
+    return entityMap[s];
+  });
+}

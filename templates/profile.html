@@ -22,7 +22,7 @@
 			{{ end }}
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
 				{{ if .userpage }}
-					<div class="ui segment">
+					<div class="ui raised segment">
 						{{ html (parseUserpage .userpage) }}
 					</div>
 				{{ end }}
@@ -133,6 +133,16 @@
 					<div data-mode="{{ . }}" {{ if ne . (int $favouritemode) }} hidden{{ end }} data-loaded="0">
 					</div>
 				{{ end }}
+			</div>
+			<div class="ui modal">
+				<i class="close icon"></i>
+				<div class="header">
+					View score
+				</div>
+				<div class="content">
+					<table class="ui very basic table" id="score-data-table">
+					</table>
+				</div>
 			</div>
 		{{ end }}
 	{{ end }}
