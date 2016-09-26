@@ -122,8 +122,7 @@ $(document).ready(function(){
           r.results.push({
             title: item.username,
             url  : "/u/" + item.id,
-            // TODO: Un-hardcode
-            image: "https://a.ripple.moe/" + item.id,
+            image: hanayoConf.avatars + "/" + item.id,
           });
         });
         return r;
