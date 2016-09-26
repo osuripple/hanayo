@@ -15,6 +15,13 @@
 			*/}}
 		{{ else }}
 			{{ navbarItem .Path "Home" "/" }}
+				<div class="ui dropdown item">
+					<span>Help</span>
+					<div class="menu">
+						{{ navbarItem .Path "Rules" "/doc/rules" }}
+						{{ navbarItem .Path "Documentation" "/doc" }}
+					</div>
+				</div>
 			{{ navbarItem .Path "<i class=\"red heart icon\"></i>Donate" "/donate" }}
 			{{ if $isAdmin }}{{ navbarItem .Path "<b>RAP</b>" "/admin" }}{{ end }}
 		{{ end }}

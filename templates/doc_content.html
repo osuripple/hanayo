@@ -1,0 +1,27 @@
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui segments">
+		{{ $url := i  (eq (.Gin.Param "id") "rules") "doc/rules"  (printf "doc/content?id=%s" (urlquery (.Gin.Param "id"))) }}
+		{{ with .Get $url }}
+			{{ if not .title }}
+				<div class="ui segment">
+					Documentation file not found!
+				</div>
+			{{ else }}		
+				<div class="ui segment">
+					<h1 class="ui header">{{ .title }}</h1>
+				</div>
+				<div class="ui segment">
+					{{ blackfriday .content }}
+				</div>
+			{{ end }}
+		{{ end }}
+		<div class="ui right aligned segment">
+			<a class="ui labeled icon button" href="/doc">
+				<i class="left arrow icon"></i>
+				View all docs
+			</a>
+		</div>
+	</div>
+</div>
+{{ end }}

@@ -12,6 +12,7 @@ import (
 
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
+	"github.com/russross/blackfriday"
 )
 
 // funcMap contains useful functions for the various templates.
@@ -174,6 +175,18 @@ var funcMap = template.FuncMap{
 			return r, nil
 		}
 		return nil, errors.New("y must be at maximum 1 parameter")
+	},
+	// blackfriday passes some markdown through blackfriday.
+	"blackfriday": func(m string) template.HTML {
+		return template.HTML(blackfriday.MarkdownCommon([]byte(m)))
+	},
+	// i is an inline if.
+	// i (cond) (true) (false)
+	"i": func(a bool, x, y interface{}) interface{} {
+		if a {
+			return x
+		}
+		return y
 	},
 }
 
