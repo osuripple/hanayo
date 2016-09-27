@@ -140,7 +140,6 @@ func main() {
 		sessions.Sessions("session", store),
 		sessionInitializer(),
 		rateLimiter(false),
-		alwaysRespond,
 		twoFALock,
 	)
 
@@ -171,13 +170,3 @@ func main() {
 const alwaysRespondText = `Ooops! Looks like something went really wrong while trying to process your request.
 Perhaps report this to a Ripple developer?
 Retrying doing again what you were trying to do might work, too.`
-
-// alwaysRespond makes sure a response always is given, in all circumstances.
-func alwaysRespond(c *gin.Context) {
-	defer func() {
-		if !c.Writer.Written() {
-			c.String(500, alwaysRespondText)
-		}
-	}()
-	c.Next()
-}

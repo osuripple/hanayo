@@ -17,6 +17,7 @@ import (
 func loginSubmit(c *gin.Context) {
 	if c.MustGet("context").(context).User.ID != 0 {
 		loginSubmitReplyError(c, "You are already logged in!")
+		return
 	}
 
 	if c.PostForm("username") == "" || c.PostForm("password") == "" {
