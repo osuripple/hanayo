@@ -15,6 +15,7 @@ var simplePages = [...]simplePage{
 	{"/donate", "support.html", "Support Ripple", ""},
 	{"/doc", "doc.html", "Documentation", ""},
 	{"/doc/:id", "doc_content.html", "View document", ""},
+	{"/help", "help.html", "Contact support", ""},
 }
 
 // indexes of pages in simplePages that have huge heading on the right

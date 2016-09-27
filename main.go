@@ -35,8 +35,9 @@ var (
 		RedisAddress        string
 		RedisPassword       string
 
-		AvatarURL string
-		BaseURL   string
+		AvatarURL     string
+		BaseURL       string
+		DiscordServer string
 
 		API       string
 		APISecret string
@@ -64,13 +65,14 @@ func main() {
 	}
 
 	var configDefaults = map[*string]string{
-		&config.ListenTo:     ":45221",
-		&config.CookieSecret: rs.String(46),
-		&config.AvatarURL:    "https://a.ripple.moe",
-		&config.BaseURL:      "https://ripple.moe",
-		&config.API:          "http://localhost:40001/api/v1/",
-		&config.APISecret:    "Potato",
-		&config.IP_API:       "https://ip.zxq.co",
+		&config.ListenTo:      ":45221",
+		&config.CookieSecret:  rs.String(46),
+		&config.AvatarURL:     "https://a.ripple.moe",
+		&config.BaseURL:       "https://ripple.moe",
+		&config.API:           "http://localhost:40001/api/v1/",
+		&config.APISecret:     "Potato",
+		&config.IP_API:        "https://ip.zxq.co",
+		&config.DiscordServer: "#", // TODO: put server url when i get back online
 	}
 	for key, value := range configDefaults {
 		if *key == "" {

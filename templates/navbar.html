@@ -20,6 +20,9 @@
 					<div class="menu">
 						{{ navbarItem .Path "Rules" "/doc/rules" }}
 						{{ navbarItem .Path "Documentation" "/doc" }}
+						<div class="divider"></div>
+						{{ navbarItem .Path "Chat (Discord)" .Conf.DiscordServer }}
+						{{ navbarItem .Path "Contact support" "/help" }}
 					</div>
 				</div>
 			{{ navbarItem .Path "<i class=\"red heart icon\"></i>Donate" "/donate" }}
