@@ -20,6 +20,7 @@ var templates = make(map[string]*template.Template)
 var baseTemplates = [...]string{
 	"templates/base.html",
 	"templates/navbar.html",
+	"templates/simplepag.html",
 }
 
 var gdb = gountries.New()
@@ -95,8 +96,8 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 	if err != nil {
 		c.String(
 			200,
-			"oooops! A brit monkey stumbled upon a banana while trying to process your request. " +
-				"This doesn't make much sense, but in a few words: we fucked up something while processing your " +
+			"oooops! A brit monkey stumbled upon a banana while trying to process your request. "+
+				"This doesn't make much sense, but in a few words: we fucked up something while processing your "+
 				"request. We are sorry for this, but don't worry: we have been notified and are on it!",
 		)
 		c.Error(err)

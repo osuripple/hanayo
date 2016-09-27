@@ -104,7 +104,7 @@ a.inherit:hover {
 	margin-bottom: 0;
 }
 
-#mode-menu > .item.active {
+.menu:not(.secondary) > .item.active {
 	font-weight: bold;
 }
 

@@ -85,6 +85,12 @@ var singlePageSnippets = {
       }
     });
   },
+
+  "/leaderboard": function() {
+    var wl = window.location;
+    if (window.location.search.indexOf("mode=") === -1)
+      window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + wl.hash);
+  },
 };
 
 $(document).ready(function(){

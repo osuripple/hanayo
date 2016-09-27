@@ -1,0 +1,32 @@
+{{ define "tpl" }}
+<div class="ui container">
+	{{ $favModeRaw := .Get "users/self/favourite_mode" }}
+	{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode }}
+	<script>
+		var favouriteMode = {{ $favMode }};
+		var page = {{ atoint (.Gin.Query "p") }};
+	</script>
+	<div class="ui four item menu" id="mode-menu">
+		{{ range $k, $v := modes }}
+			<a class="{{ favMode $favMode $k }}item" data-mode="{{ $k }}" href="/leaderboard?mode={{ $k }}">{{ $v }}</a>
+		{{ end }}
+	</div>
+	<table class="ui table">
+		<thead>
+			{{ template "simplepag" 5 }}
+			<tr>
+				<th>Rank</th>
+				<th>Player</th>
+				<th>PP/Score</th>
+				<th>Accuracy</th>
+				<th>Playcount</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+		<tfoot>
+			{{ template "simplepag" 5 }}
+		</tfoot>
+	</table>
+</div>
+{{ end }}

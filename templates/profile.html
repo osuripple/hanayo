@@ -4,7 +4,7 @@
 		{{ $gqm := atoi (.Gin.Query "mode") }}
 		{{ $global := . }}
 		{{ with (.Get "users/full?id=%d" .UserID) }}
-			{{ $favouritemode := or $gqm .favourite_mode }}
+			{{ $favouritemode := _or $gqm .favourite_mode }}
 			<script>
 				window.favouriteMode = {{ $favouritemode }};
 				window.userID = '{{ .id }}';
@@ -56,13 +56,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="ui four item bottom attached menu" id="mode-menu">
-				<a class="{{ favMode $favouritemode 0 }}item" data-mode="0" href="/u/{{ .id }}?mode=0">osu! standard</a>
-				<a class="{{ favMode $favouritemode 1 }}item" data-mode="1" href="/u/{{ .id }}?mode=1">Taiko</a>
-				<a class="{{ favMode $favouritemode 2 }}item" data-mode="2" href="/u/{{ .id }}?mode=2">Catch the Beat</a>
-				<a class="{{ favMode $favouritemode 3 }}item" data-mode="3" href="/u/{{ .id }}?mode=3">osu!mania</a>
-			</div>
 			{{ $user := . }}
+			<div class="ui four item bottom attached menu" id="mode-menu">
+				{{ range $k, $v := modes }}
+					<a class="{{ favMode $favouritemode $k }}item" data-mode="{{ $k }}" href="/u/{{ $user.id }}?mode={{ $k }}">{{ $v }}</a>
+				{{ end }}
+			</div>
 			<div class="ui three column divided segment grid">
 				<div class="row">
 					<div class="column">

@@ -51,11 +51,11 @@ var funcMap = template.FuncMap{
 		return len(parts) > 1 && parts[1] == "admin"
 	},
 	// favMode is just a helper function for user profiles. Basically checks
-	// whether two floats are equal, and if they are it will return "active ",
+	// whether a float and an int are ==, and if they are it will return "active ",
 	// so that the element in the mode menu of a user profile can be marked as
 	// the current active element.
-	"favMode": func(favMode, current float64) string {
-		if favMode == current {
+	"favMode": func(favMode float64, current int) string {
+		if int(favMode) == current {
 			return "active "
 		}
 		return ""
@@ -93,6 +93,11 @@ var funcMap = template.FuncMap{
 			return nil
 		}
 		return float64(i)
+	},
+	// atoint is like atoi but returns always an int.
+	"atoint": func(s string) int {
+		i, _ := strconv.Atoi(s)
+		return i
 	},
 	// parseUserpage compiles BBCode to HTML.
 	"parseUserpage": func(s string) template.HTML {
@@ -187,6 +192,24 @@ var funcMap = template.FuncMap{
 			return x
 		}
 		return y
+	},
+	// modes returns an array containing all the modes (in their string representation).
+	"modes": func() []string {
+		return []string{
+			"osu! standard",
+			"Taiko",
+			"Catch the Beat",
+			"osu!mania",
+		}
+	},
+	// _or is like or, but has only false and nil as its "falsey" values
+	"_or": func(args ...interface{}) interface{} {
+		for _, a := range args {
+			if a != nil && a != false {
+				return a
+			}
+		}
+		return nil
 	},
 }
 
