@@ -35,7 +35,7 @@ var singlePageSnippets = {
     $("#login-form").submit(function(e) {
       $("button").addClass("disabled");
       
-      var fix = function(errorMessage) {
+      function fix(errorMessage) {
         $("button").removeClass("disabled");
         $(".ui.form").removeClass("loading");
         showMessage("error", errorMessage);
@@ -96,16 +96,12 @@ var singlePageSnippets = {
 $(document).ready(function(){
   // semantic stuff
   $('.message .close').on('click', closeClosestMessage);
-
   $('.ui.checkbox').checkbox();
-  
+  $('.ui.dropdown').dropdown();
+  $('.ui.progress').progress();
   $('.ui.form').submit(function() {
     $(this).addClass("loading");
   });
-  
-  $('.ui.dropdown').dropdown();
-  
-  $('.ui.progress').progress();
   
   // ripple stuff
   var f = singlePageSnippets[window.location.pathname];
@@ -146,13 +142,13 @@ $(document).ready(function(){
   $("time.timeago").timeago();
 });
 
-var closeClosestMessage = function() {
+function closeClosestMessage() {
   $(this)
     .closest('.message')
     .transition('fade');
 };
 
-var showMessage = function(type, message) {
+ function showMessage(type, message) {
   var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + message + '</div>');
   newEl.find(".close.icon").click(closeClosestMessage);
   $("#messages-container").append(newEl);
@@ -160,7 +156,7 @@ var showMessage = function(type, message) {
 };
 
 // function for all api calls
-var api = function(endpoint, data, success) {
+ function api(endpoint, data, success) {
   if (typeof data == "function") {
     success = data;
     data = null;

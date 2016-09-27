@@ -98,7 +98,7 @@ var defaultScoreTable = $("<table class='ui table score-table' />")
       )
     )
   );
-var initialiseScores = function(el, mode) {
+function initialiseScores(el, mode) {
   el.attr("data-loaded", "1");
   var best = defaultScoreTable.clone(true).addClass("orange");
   var recent = defaultScoreTable.clone(true).addClass("blue");
@@ -112,8 +112,6 @@ var initialiseScores = function(el, mode) {
   loadScoresPage("best", mode);
   loadScoresPage("recent", mode);
 };
-// declaring with function x rather than var x = function because
-// we are using this function before it is defined, so this is needed.
 function loadMoreClick() {
   var t = $(this);
   if (t.hasClass("disabled"))
