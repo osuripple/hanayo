@@ -91,7 +91,7 @@ var singlePageSnippets = {
     
     function loadLeaderboard() {
       var wl = window.location;      
-      window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + "&p=" + page + wl.hash);
+      window.history.replaceState('', document.title, wl.pathname + "?mode=" + favouriteMode + "&p=" + page + wl.hash);
       api("leaderboard", {
         mode: favouriteMode,
         p: page,

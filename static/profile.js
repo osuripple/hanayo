@@ -8,9 +8,9 @@ $(document).ready(function() {
   }
   // if there's no mode parameter in the querystring, add it
   if (wl.search.indexOf("mode=") === -1)
-    window.history.pushState('', document.title, newPathName + "?mode=" + favouriteMode + wl.hash);
+    window.history.replaceState('', document.title, newPathName + "?mode=" + favouriteMode + wl.hash);
   else if (wl.pathname != newPathName)
-    window.history.pushState('', document.title, newPathName + wl.search + wl.hash);
+    window.history.replaceState('', document.title, newPathName + wl.search + wl.hash);
   // when an item in the mode menu is clicked, it means we should change the mode.
   $("#mode-menu>.item").click(function(e) {
     e.preventDefault();
@@ -24,7 +24,7 @@ $(document).ready(function() {
     if (needsLoad.length > 0)
       initialiseScores(needsLoad, m);
     $(this).addClass("active");
-    window.history.pushState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
+    window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
   });
   initialiseFriends();
   // load scores page for the current favourite mode
