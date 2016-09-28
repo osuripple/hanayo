@@ -320,19 +320,6 @@ var Key1 = 67108864;
 var Key3 = 134217728;
 var Key2 = 268435456;
 
-// thank mr stackoverflow
-function addCommas(nStr) {
-	nStr += '';
-	x = nStr.split('.');
-	x1 = x[0];
-	x2 = x.length > 1 ? '.' + x[1] : '';
-	var rgx = /(\d+)(\d{3})/;
-	while (rgx.test(x1)) {
-		x1 = x1.replace(rgx, '$1' + ',' + '$2');
-	}
-	return x1 + x2;
-}
-
 function getRank(gameMode, mods, acc, c300, c100, c50, cmiss) {
 	var total = c300+c100+c50+cmiss;
 

@@ -87,9 +87,53 @@ var singlePageSnippets = {
   },
 
   "/leaderboard": function() {
-    var wl = window.location;
-    if (window.location.search.indexOf("mode=") === -1)
-      window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + wl.hash);
+    page = page === 0 ? 1 : page;
+    
+    function loadLeaderboard() {
+      var wl = window.location;      
+      window.history.pushState('', document.title, wl.pathname + "?mode=" + favouriteMode + "&p=" + page + wl.hash);
+      api("leaderboard", {
+        mode: favouriteMode,
+        p: page,
+        l: 50,
+      }, function(data) {
+        var tb = $(".ui.table tbody");
+        tb.find("tr").remove();
+        if (!data.users)
+          disableSimplepagButtons(true);
+        var i = 0;
+        data.users.forEach(function(v) {
+          tb.append(
+            $("<tr />").append(
+              $("<td />").text("#" + ((page-1) * 50 + (++i))),
+              $("<td />").html("<a href='/u/" + v.id + "' title='View profile'><i class='" + 
+                v.country.toLowerCase() + " flag'></i>" + escapeHTML(v.username) + "</a>"),
+              $("<td />").html(scoreOrPP(v.chosen_mode.ranked_score, v.chosen_mode.pp)),
+              $("<td />").text(v.chosen_mode.accuracy.toFixed(2) + "%"),
+              // bonus points if you get the undertale joke
+              $("<td />").html(v.chosen_mode.playcount + " <i title='Why, LOVE, of course!'>(lv. " + v.chosen_mode.level + ")</i>")
+            )
+          );
+        });
+        disableSimplepagButtons(data.users.length < 50);
+      });
+    }
+    function scoreOrPP(s, pp) {
+      if (pp === 0)
+        return "<b>" + addCommas(s) + "</b>";
+      return "<b>" + addCommas(pp) + "pp</b> (" + addCommas(s) + ")"
+    }
+
+    loadLeaderboard();
+    setupSimplepag(loadLeaderboard);
+    $("#mode-menu .item").click(function(e) {
+      e.preventDefault();
+      $("#mode-menu .active.item").removeClass("active");
+      $(this).addClass("active");
+      favouriteMode = $(this).data("mode");
+      page = 1;
+      loadLeaderboard();
+    });
   },
 };
 
@@ -207,4 +251,46 @@ function escapeHTML(str) {
   return String(str).replace(/[&<>"'\/]/g, function(s) {
     return entityMap[s];
   });
+}
+
+function setupSimplepag(callback) {
+  var el = $(".simplepag");
+  el.find(".left.floated .item").click(function() {
+    if ($(this).hasClass("disabled"))
+      return false;
+    page--;
+    callback();
+  });
+  el.find(".right.floated .item").click(function() {
+    if ($(this).hasClass("disabled"))
+      return false;
+    page++;
+    callback();
+  });
+}
+function disableSimplepagButtons(right) {
+  var el = $(".simplepag");
+  
+  if (page <= 1)
+    el.find(".left.floated .item").addClass("disabled");
+  else
+    el.find(".left.floated .item").removeClass("disabled");
+
+  if (right)
+    el.find(".right.floated .item").addClass("disabled");
+  else
+    el.find(".right.floated .item").removeClass("disabled");
+}
+
+// thank mr stackoverflow
+function addCommas(nStr) {
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
 }
