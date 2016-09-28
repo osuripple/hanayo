@@ -111,7 +111,8 @@ var singlePageSnippets = {
               $("<td />").html(scoreOrPP(v.chosen_mode.ranked_score, v.chosen_mode.pp)),
               $("<td />").text(v.chosen_mode.accuracy.toFixed(2) + "%"),
               // bonus points if you get the undertale joke
-              $("<td />").html(v.chosen_mode.playcount + " <i title='Why, LOVE, of course!'>(lv. " + v.chosen_mode.level + ")</i>")
+              $("<td />").html(addCommas(v.chosen_mode.playcount) +
+                " <i title='Why, LOVE, of course!'>(lv. " + v.chosen_mode.level.toFixed(0) + ")</i>")
             )
           );
         });
