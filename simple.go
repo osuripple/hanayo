@@ -9,14 +9,14 @@ type simplePage struct {
 var simplePages = [...]simplePage{
 	{"/", "homepage.html", "Home Page", "homepage.jpg"},
 	{"/login", "login.html", "Log in", "login.png"},
-	{"/settings/avatar", "settings/avatar.html", "Change avatar", ""},
+	{"/settings/avatar", "settings/avatar.html", "Change avatar", "settings.png"},
 	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.png"},
-	{"/beatmaps/rank_request", "beatmaps/rank_request.html", "Request beatmap ranking", ""},
-	{"/donate", "support.html", "Support Ripple", ""},
-	{"/doc", "doc.html", "Documentation", ""},
-	{"/doc/:id", "doc_content.html", "View document", ""},
-	{"/help", "help.html", "Contact support", ""},
-	{"/leaderboard", "leaderboard.html", "Leaderboard", ""},
+	{"/beatmaps/rank_request", "beatmaps/rank_request.html", "Request beatmap ranking", "request_beatmap_ranking.jpg"},
+	{"/donate", "support.html", "Support Ripple", "donate.jpg"},
+	{"/doc", "doc.html", "Documentation", "documentation.jpg"},
+	{"/doc/:id", "doc_content.html", "View document", "documentation.jpg"},
+	{"/help", "help.html", "Contact support", "help.jpg"},
+	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard.jpg"},
 }
 
 // indexes of pages in simplePages that have huge heading on the right
