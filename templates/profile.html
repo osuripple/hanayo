@@ -17,7 +17,7 @@
 				{{ else if $restr }}
 					<div class="ui negative centered message">User is <b>restricted</b>.</div>
 				{{ else if $disab }}
-					<div class="ui negative centered message">User is <b>disabled</b>.</div>									
+					<div class="ui negative centered message">User is <b>locked</b>.</div>									
 				{{ end }}
 			{{ end }}
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}

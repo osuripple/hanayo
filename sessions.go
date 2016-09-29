@@ -49,7 +49,7 @@ func sessionInitializer() func(c *gin.Context) {
 		c.Set("session", sess)
 
 		if addBannedMessage {
-			addMessage(c, warningMessage{"You have been automatically logged out of your account because your account has either been banned or disabled. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."})
+			addMessage(c, warningMessage{"You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."})
 		}
 
 		c.Next()

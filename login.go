@@ -75,7 +75,7 @@ func loginSubmit(c *gin.Context) {
 	}
 
 	if data.Privileges&common.UserPrivilegeNormal == 0 {
-		loginSubmitReplyError(c, "You are not allowed to login. This means your account is either banned or disabled.")
+		loginSubmitReplyError(c, "You are not allowed to login. This means your account is either banned or locked.")
 		return
 	}
 
