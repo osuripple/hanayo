@@ -1,7 +1,7 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ $favModeRaw := .Get "users/self/favourite_mode" }}
-	{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode }}
+	{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
 	<script>
 		var favouriteMode = {{ $favMode }};
 		var page = {{ atoint (.Gin.Query "p") }};
