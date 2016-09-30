@@ -211,7 +211,12 @@ var funcMap = template.FuncMap{
 		}
 		return nil
 	},
+	// unixNano returns the UNIX timestamp of when hanayo was started in nanoseconds.
+	"unixNano": func() string {
+		return strconv.FormatInt(hanayoStarted, 10)
+	},
 }
+var hanayoStarted = time.Now().UnixNano()
 
 func pos(x int) (int, bool) {
 	if x > 0 {
