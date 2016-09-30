@@ -160,11 +160,7 @@ func main() {
 
 	conf.Export(config, "hanayo.conf")
 
-	if config.Unix {
-		panic(r.RunUnix(config.ListenTo))
-	} else {
-		panic(r.Run(config.ListenTo))
-	}
+	startuato(r)
 }
 
 const alwaysRespondText = `Ooops! Looks like something went really wrong while trying to process your request.
