@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 function initialiseFriends() {
   var b = $("#add-friend-button");
-  if (!b) return;
+  if (b.length == 0) return;
   api('friends/with', {id: userID}, setFriendOnResponse);
   b.click(friendClick);
 }

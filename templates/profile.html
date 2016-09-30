@@ -47,7 +47,7 @@
 								<h1>Unknown</h1>							
 						{{ end }}
 						<div id="profile-actions">
-							{{ if ne $global.Context.User.ID $global.UserID }}
+							{{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
 								<button class="ui circular mini icon loading button" id="add-friend-button">
 									<i class="horizontal ellipsis icon"></i>
 								</button>
