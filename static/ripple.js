@@ -31,23 +31,6 @@ var singlePageSnippets = {
     });
   },
 
-  "/login": function() {
-    $("#login-form").submit(function(e) {
-      $("button").addClass("disabled");
-      
-      function fix(errorMessage) {
-        $("button").removeClass("disabled");
-        $(".ui.form").removeClass("loading");
-        showMessage("error", errorMessage);
-      };
-      
-      if (!/^[a-zA-Z0-9 \[\]\@\.\+-]+$/.test($("input[name='username']").val())) {
-        fix("Invalid username.");
-        return false;
-      }
-    });
-  },
-
   "/settings/avatar": function() {
     // TODO
     // https://foliotek.github.io/Croppie/demo/demo.js
