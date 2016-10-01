@@ -38,7 +38,7 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 							</div>
 						{{ end }}
 				{{ end }}
-				{{ if not (has .Context.User.Privileges 1) }}
+				{{ if and .Context.User.Username (not (has .Context.User.Privileges 1)) }}
 					<div class="ui warning message">
 						Your account is currently in restricted mode. You will
 						not be able to do certain actions, and your profile
