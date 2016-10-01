@@ -38,6 +38,17 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 							</div>
 						{{ end }}
 				{{ end }}
+				{{ if not (has .Context.User.Privileges 1) }}
+					<div class="ui warning message">
+						Your account is currently in restricted mode. You will
+						not be able to do certain actions, and your profile
+						can only be seen by you and by Ripple's staff.
+						If you believe we have mistaken putting you in
+						restricted mode, or a month has passed since you first
+						saw this, then you can send an appeal at
+						<a href="mailto:support@ripple.moe">support@ripple.moe</a>.
+					</div>
+				{{ end }}
 				</div>
 				{{ template "tpl" . }}
 			</div>
