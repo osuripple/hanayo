@@ -127,7 +127,7 @@ var currentPage = {
   1: {best: 0, recent: 0},
   2: {best: 0, recent: 0},
   3: {best: 0, recent: 0},
-}
+};
 var scoreStore = {};
 function loadScoresPage(type, mode) {
   var table = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
