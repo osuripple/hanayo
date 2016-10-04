@@ -45,23 +45,23 @@ function setFriendOnResponse(r) {
 }
 function setFriend(i) {
   var b = $("#add-friend-button");
-  b.removeClass("loading");
+  b.removeClass("loading green blue red");
   switch (i) {
   case 0:
     b
-      .css("background-color", "#0082e4")
+      .addClass("blue")
       .attr("title", "Add friend")
       .html("<i class='plus icon'></i>");
     break;
   case 1:
     b
-      .css("background-color", "#09ce00")
+      .addClass("green")
       .attr("title", "Remove friend")
       .html("<i class='minus icon'></i>");
     break;
   case 2:
     b
-      .css("background-color", "#f30909")
+      .addClass("red")
       .attr("title", "Unmutual friend")
       .html("<i class='heart icon'></i>");
     break;

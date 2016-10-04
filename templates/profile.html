@@ -21,10 +21,12 @@
 				{{ end }}
 			{{ end }}
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
-				{{ with parseUserpage .userpage }}
-					<div class="ui raised segment twemoji" id="userpage-content">
-						{{ html . }}
-					</div>
+				{{ if .userpage }}
+					{{ with parseUserpage .userpage }}
+						<div class="ui raised segment twemoji" id="userpage-content">
+							{{ html . }}
+						</div>
+					{{ end }}
 				{{ end }}
 			{{ end }}
 			<div class="ui top attached segment overflow auto">
