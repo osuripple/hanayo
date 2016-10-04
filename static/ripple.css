@@ -226,10 +226,13 @@ a.inherit:hover {
 	text-align: right;
 	padding-top: 2px;
 }
-#profile-actions button {
+#profile-actions button, .smalltext.button {
 	font-size: .7rem;
 }
 
 .emoji {
 	width: 1rem;
 }
+
+.right.aligned { text-align: right; }
+.left.aligned  { text-align: left; }

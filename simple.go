@@ -17,6 +17,7 @@ var simplePages = [...]simplePage{
 	{"/doc/:id", "doc_content.html", "View document", "documentation.jpg"},
 	{"/help", "help.html", "Contact support", "help.jpg"},
 	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard.jpg"},
+	{"/friends", "friends.html", "Friends", ""},
 }
 
 // indexes of pages in simplePages that have huge heading on the right

@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
+	"git.zxq.co/ripple/playstyle"
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
 	"github.com/russross/blackfriday"
-	"git.zxq.co/ripple/playstyle"
 )
 
 // funcMap contains useful functions for the various templates.
@@ -228,6 +228,27 @@ var funcMap = template.FuncMap{
 	// playstyle returns the string representation of a playstyle.
 	"playstyle": func(i float64) string {
 		return playstyle.PlayStyle(i).String()
+	},
+	// arithmetic plus/minus
+	"plus": func(i ...float64) float64 {
+		var sum float64
+		for _, i := range i {
+			sum += i
+		}
+		return sum
+	},
+	"minus": func(i1 float64, i ...float64) float64 {
+		for _, i := range i {
+			i1 -= i
+		}
+		return i1
+	},
+	// rsin - Return Slice If Nil
+	"rsin": func(i interface{}) interface{} {
+		if i == nil {
+			return []struct{}{}
+		}
+		return i
 	},
 }
 var hanayoStarted = time.Now().UnixNano()

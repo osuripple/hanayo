@@ -1,0 +1,51 @@
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui segments">
+		<div class="ui segment">
+			On this page you can see all of your friends, and unfriend them as you see fit.
+		</div>
+		<div class="ui segment">
+			{{ $page := or (atoint (.Gin.Query "p")) 1 }}
+			{{ $friends := .Get "friends?p=%d&l=40" $page }}
+			{{ with $friends }}
+				<div class="ui grid">
+					{{ range .friends }}
+						<div class="four wide column">
+							<h4 class="ui image header">
+								<img src="{{ avatars }}/{{ .id }}" class="ui mini rounded image">
+								<div class="content">
+									<a href="/u/{{ .id }}">{{ .username }}</a>
+									<div class="sub header">
+										<div class="ui compact circular smalltext icon labeled {{ if .is_mutual }}red{{ else }}green{{ end }} button">
+											<i class="{{ if .is_mutual }}heart{{ else }}minus{{ end }} icon"></i>
+											{{ if .is_mutual }}Mutual{{ else }}Remove{{ end }}
+										</div>
+									</div>
+								</div>
+							</h4>
+						</div>
+					{{ end }}
+				</div>
+			{{ end }}
+		</div>
+		{{ $left := gt $page 1 }}
+		{{ $right := eq (len (rsin $friends.friends)) 40 }}
+		{{ if or $left $right }}
+			<div class="ui right aligned segment">
+				<div class="ui pagination menu">
+					{{ if $left }}
+						<a class="icon item" href="/friends?p={{ minus (float $page) 1 }}">
+							<i class="left chevron icon"></i>
+						</a>
+					{{ end }}
+					{{ if $right }}
+						<a class="icon item" href="/friends?p={{ plus (float $page) 1 }}">
+							<i class="right chevron icon"></i>
+						</a>
+					{{ end }}
+				</div>
+			</div>
+		{{ end }}
+	</div>
+</div>
+{{ end }}
