@@ -13,6 +13,7 @@ import (
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
 	"github.com/russross/blackfriday"
+	"git.zxq.co/ripple/playstyle"
 )
 
 // funcMap contains useful functions for the various templates.
@@ -223,6 +224,10 @@ var funcMap = template.FuncMap{
 	// unixNano returns the UNIX timestamp of when hanayo was started in nanoseconds.
 	"unixNano": func() string {
 		return strconv.FormatInt(hanayoStarted, 10)
+	},
+	// playstyle returns the string representation of a playstyle.
+	"playstyle": func(i float64) string {
+		return playstyle.PlayStyle(i).String()
 	},
 }
 var hanayoStarted = time.Now().UnixNano()

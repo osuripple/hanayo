@@ -23,7 +23,6 @@
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
 				{{ if .userpage }}
 					<div class="ui raised segment twemoji" id="userpage-content">
-						😺 😸 😹 😻 😼 😽 🙀 😿 😾
 						{{ html (parseUserpage .userpage) }}
 					</div>
 				{{ end }}
@@ -69,6 +68,7 @@
 						<b>{{ .username }}</b> is a Ripple player{{ with country .country }} from <b>{{ . }}</b>{{ end }}. 
 						They signed up on Ripple {{ time $user.registered_on }}.
 						Last seen: {{ time $user.latest_activity }}.
+						{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}
 					</div>
 					<div class="column">
 						{{ if and (not .badges) (not .custom_badge) }}
