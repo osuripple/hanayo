@@ -130,6 +130,13 @@ $(document).ready(function(){
   $('.ui.form').submit(function() {
     $(this).addClass("loading");
   });
+
+  // emojis!
+  if (typeof twemoji !== "undefined") {
+    $(".twemoji").each(function(k, v) {
+      twemoji.parse(v);
+    });
+  }
   
   // ripple stuff
   var f = singlePageSnippets[window.location.pathname];

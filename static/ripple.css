@@ -232,3 +232,7 @@ a.inherit:hover {
 #add-friend-button {
 	color: #fff;
 }
+
+.emoji {
+	width: 1rem;
+}
