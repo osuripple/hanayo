@@ -16,9 +16,10 @@
 								<div class="content">
 									<a href="/u/{{ .id }}">{{ .username }}</a>
 									<div class="sub header">
-										<div class="ui compact circular smalltext icon labeled {{ if .is_mutual }}red{{ else }}green{{ end }} button">
+										<div class="ui compact circular smalltext icon labeled {{ if .is_mutual }}red{{ else }}green{{ end }} button"
+											data-userid="{{ .id }}">
 											<i class="{{ if .is_mutual }}heart{{ else }}minus{{ end }} icon"></i>
-											{{ if .is_mutual }}Mutual{{ else }}Remove{{ end }}
+											<span>{{ if .is_mutual }}Mutual{{ else }}Remove{{ end }}</span>
 										</div>
 									</div>
 								</div>

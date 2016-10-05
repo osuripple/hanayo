@@ -119,6 +119,25 @@ var singlePageSnippets = {
       loadLeaderboard();
     });
   },
+  "/friends": function() {
+    $(".smalltext.button").click(function() {
+      var t = $(this);
+      var delAdd = t.data("deleted") == "1" ? "add" : "del";
+      console.log(delAdd);
+      t.addClass("disabled");
+      api("friends/" + delAdd, {
+        id: t.data("userid")
+      }, function(data) {
+        t.removeClass("disabled");
+        t.attr("data-deleted", data.friend ? "0" : "1");
+        t.removeClass("green red blue");
+        t.addClass(data.friend ? (data.mutual ? "red" : "green") : "blue");
+        t.find(".icon").removeClass("minus plus heart").
+          addClass(data.friend ? (data.mutual ? "heart" : "minus") : "plus");
+        t.find("span").text(data.friend ? (data.mutual ? "Mutual" : "Remove") : "Add");
+      });
+    });
+  },
 };
 
 $(document).ready(function(){
