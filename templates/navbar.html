@@ -43,6 +43,7 @@
 					<span>{{ .Context.User.Username }}</span>
 					<div class="menu">
 						{{ navbarItem .Path "Profile" (printf "/u/%d" .Context.User.ID) }}
+						{{ navbarItem .Path "Friends" "/friends" }}
 						{{ navbarItem .Path "Settings" "/settings" }}
 						{{ navbarItem .Path "Avatar" "/settings/avatar" }}
 						{{ navbarItem .Path "Log out" "/logout" }}
