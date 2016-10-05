@@ -1,23 +1,27 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"git.zxq.co/ripple/rippleapi/common"
+	"github.com/gin-gonic/gin"
+)
 
 type simplePage struct {
 	Handler, Template, TitleBar, KyutGrill string
+	MinPrivileges                          common.UserPrivileges
 }
 
 var simplePages = [...]simplePage{
-	{"/", "homepage.html", "Home Page", "homepage.jpg"},
-	{"/login", "login.html", "Log in", "login.png"},
-	{"/settings/avatar", "settings/avatar.html", "Change avatar", "settings.png"},
-	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.png"},
-	{"/beatmaps/rank_request", "beatmaps/rank_request.html", "Request beatmap ranking", "request_beatmap_ranking.jpg"},
-	{"/donate", "support.html", "Support Ripple", "donate.jpg"},
-	{"/doc", "doc.html", "Documentation", "documentation.jpg"},
-	{"/doc/:id", "doc_content.html", "View document", "documentation.jpg"},
-	{"/help", "help.html", "Contact support", "help.jpg"},
-	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard.jpg"},
-	{"/friends", "friends.html", "Friends", ""},
+	{"/", "homepage.html", "Home Page", "homepage.jpg", 0},
+	{"/login", "login.html", "Log in", "login.png", 0},
+	{"/settings/avatar", "settings/avatar.html", "Change avatar", "settings.png", 2},
+	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.png", 2},
+	{"/beatmaps/rank_request", "beatmaps/rank_request.html", "Request beatmap ranking", "request_beatmap_ranking.jpg", 2},
+	{"/donate", "support.html", "Support Ripple", "donate.jpg", 0},
+	{"/doc", "doc.html", "Documentation", "documentation.jpg", 0},
+	{"/doc/:id", "doc_content.html", "View document", "documentation.jpg", 0},
+	{"/help", "help.html", "Contact support", "help.jpg", 0},
+	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard.jpg", 0},
+	{"/friends", "friends.html", "Friends", "", 2},
 }
 
 // indexes of pages in simplePages that have huge heading on the right
@@ -45,6 +49,11 @@ func loadSimplePages(r *gin.Engine) {
 
 func simplePageFunc(p simplePage, hhr bool) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		s := c.MustGet("context").(context)
+		if s.User.Privileges&p.MinPrivileges != p.MinPrivileges {
+			resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Forbidden", Messages: []message{warningMessage{"You should not be 'round here."}}})
+			return
+		}
 		resp(c, 200, p.Template, &baseTemplateData{
 			TitleBar:       p.TitleBar,
 			KyutGrill:      p.KyutGrill,
