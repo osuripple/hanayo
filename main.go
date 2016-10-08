@@ -44,7 +44,8 @@ var (
 
 		IP_API string
 
-		Offline bool `json:"If this is true, files will be served from the local server instead of the CDN."`
+		Offline          bool   `json:"If this is true, files will be served from the local server instead of the CDN."`
+		MainRippleFolder string `json:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system."`
 	}
 	db *sqlx.DB
 )
@@ -65,14 +66,15 @@ func main() {
 	}
 
 	var configDefaults = map[*string]string{
-		&config.ListenTo:      ":45221",
-		&config.CookieSecret:  rs.String(46),
-		&config.AvatarURL:     "https://a.ripple.moe",
-		&config.BaseURL:       "https://ripple.moe",
-		&config.API:           "http://localhost:40001/api/v1/",
-		&config.APISecret:     "Potato",
-		&config.IP_API:        "https://ip.zxq.co",
-		&config.DiscordServer: "#", // TODO: put server url when i get back online
+		&config.ListenTo:         ":45221",
+		&config.CookieSecret:     rs.String(46),
+		&config.AvatarURL:        "https://a.ripple.moe",
+		&config.BaseURL:          "https://ripple.moe",
+		&config.API:              "http://localhost:40001/api/v1/",
+		&config.APISecret:        "Potato",
+		&config.IP_API:           "https://ip.zxq.co",
+		&config.DiscordServer:    "#", // TODO: put server url when i get back online
+		&config.MainRippleFolder: "/home/ripple/ripple",
 	}
 	for key, value := range configDefaults {
 		if *key == "" {

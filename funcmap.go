@@ -1,9 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"html/template"
+	"io/ioutil"
 	"math"
 	"sort"
 	"strconv"
@@ -107,7 +109,11 @@ var funcMap = template.FuncMap{
 	// time converts a RFC3339 timestamp to the HTML element <time>.
 	"time": func(s string) template.HTML {
 		t, _ := time.Parse(time.RFC3339, s)
-		return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
+		return _time(s, t)
+	},
+	// time generates a time from a native Go time.Time
+	"timeFromTime": func(t time.Time) template.HTML {
+		return _time(t.Format(time.RFC3339), t)
 	},
 	// band is a bitwise AND.
 	"band": func(i1 int, i ...int) int {
@@ -250,6 +256,21 @@ var funcMap = template.FuncMap{
 		}
 		return i
 	},
+	// loadjson loads a json file.
+	"loadjson": func(jsonfile string) interface{} {
+		f, err := ioutil.ReadFile(jsonfile)
+		if err != nil {
+			return nil
+		}
+		var x interface{}
+		err = json.Unmarshal(f, &x)
+		if err != nil {
+			return nil
+		}
+		return x
+	},
+	// loadChangelog loads the changelog.
+	"loadChangelog": loadChangelog,
 }
 var hanayoStarted = time.Now().UnixNano()
 
@@ -258,4 +279,7 @@ func pos(x int) (int, bool) {
 		return x, true
 	}
 	return x * -1, false
+}
+func _time(s string, t time.Time) template.HTML {
+	return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
 }

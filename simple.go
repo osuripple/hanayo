@@ -22,6 +22,7 @@ var simplePages = [...]simplePage{
 	{"/help", "help.html", "Contact support", "help.jpg", 0},
 	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard.jpg", 0},
 	{"/friends", "friends.html", "Friends", "", 2},
+	{"/changelog", "changelog.html", "Changelog", "", 0},
 }
 
 // indexes of pages in simplePages that have huge heading on the right
