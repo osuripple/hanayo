@@ -30,14 +30,6 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 			<div class="h-container">
 				<div class="ui margined container" id="messages-container">
 				<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
-				{{ if .Messages }}
-						{{ range $i, $v := .Messages }}
-							<div class="ui {{ $v.Type }} message">
-								<i class="close icon"></i>
-								{{ $v.Content }}
-							</div>
-						{{ end }}
-				{{ end }}
 				{{ if and .Context.User.Username (not (has .Context.User.Privileges 1)) }}
 					<div class="ui warning message">
 						Your account is currently in restricted mode. You will
@@ -48,6 +40,14 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 						saw this, then you can send an appeal at
 						<a href="mailto:support@ripple.moe">support@ripple.moe</a>.
 					</div>
+				{{ end }}
+				{{ if .Messages }}
+						{{ range $i, $v := .Messages }}
+							<div class="ui {{ $v.Type }} message">
+								<i class="close icon"></i>
+								{{ $v.Content }}
+							</div>
+						{{ end }}
 				{{ end }}
 				</div>
 				{{ template "tpl" . }}
