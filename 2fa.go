@@ -112,6 +112,13 @@ func verify2fa(c *gin.Context) {
 		http.Get("http://127.0.0.1:8888/update")
 		return
 	}
+	s, err := generateToken(i, c)
+	if err != nil {
+		resp500(c)
+		c.Error(err)
+		return
+	}
+	sess.Set("token", s)
 	logIP(c, i)
 	addMessage(c, successMessage{"You've been successfully logged in."})
 	sess.Delete("2fa_must_validate")

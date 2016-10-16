@@ -79,35 +79,28 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
-	// 2fa should get this AFTER verification
-	tok := common.RandomString(32)
-	_, err = db.Exec(
-		`INSERT INTO tokens(user, privileges, description, token, private)
-					VALUES (   ?,        '0',           ?,     ?, '1');`,
-		data.ID, c.Request.Header.Get("X-Real-IP"), fmt.Sprintf("%x", md5.Sum([]byte(tok))))
-	if err != nil {
-		c.Error(err)
-		resp500(c)
-		return
-	}
-
 	if data.Country == "XX" {
-		setCountry(c, data.ID)
 	}
 
 	setYCookie(data.ID, c)
 
-	tfaEnabled := is2faEnabled(data.ID)
-	if !tfaEnabled {
-		logIP(c, data.ID)
-	}
-
 	sess := c.MustGet("session").(sessions.Session)
 	sess.Set("userid", data.ID)
-	sess.Set("token", tok)
-	if tfaEnabled {
+
+	tfaEnabled := is2faEnabled(data.ID)
+	if !tfaEnabled {
+		s, err := generateToken(data.ID, c)
+		if err != nil {
+			resp500(c)
+			c.Error(err)
+			return
+		}
+		sess.Set("token", s)
+		logIP(c, data.ID)
+	} else {
 		sess.Set("2fa_must_validate", true)
 	}
+
 	sess.Save()
 
 	if tfaEnabled {
@@ -149,4 +142,16 @@ func logout(c *gin.Context) {
 	addMessage(c, successMessage{"Successfully logged out."})
 	sess.Save()
 	c.Redirect(302, "/")
+}
+
+func generateToken(id int, c *gin.Context) (string, error) {
+	tok := common.RandomString(32)
+	_, err := db.Exec(
+		`INSERT INTO tokens(user, privileges, description, token, private)
+					VALUES (   ?,        '0',           ?,     ?,     '1');`,
+		id, c.Request.Header.Get("X-Real-IP"), fmt.Sprintf("%x", md5.Sum([]byte(tok))))
+	if err != nil {
+		return "", err
+	}
+	return tok, nil
 }
