@@ -18,21 +18,20 @@ func userProfile(c *gin.Context) {
 		username string
 	)
 
-	// Todo: Check user privileges
-	// if they have AdminManageUsers, let them see all users
-	// else, the user they're looking for must be UserPublic or themselves.
+	ctx := c.MustGet("context").(context)
+
 	u := c.Param("user")
 	if _, err := strconv.Atoi(u); err != nil {
-		err := db.QueryRow("SELECT id, username FROM users WHERE username = ? LIMIT 1", u).Scan(&userID, &username)
+		err := db.QueryRow("SELECT id, username FROM users WHERE username = ? AND "+ctx.OnlyUserPublic()+" LIMIT 1", u).Scan(&userID, &username)
 		if err != nil && err != sql.ErrNoRows {
 			c.Error(err)
 		}
 	} else {
-		err := db.QueryRow(`SELECT id, username FROM users WHERE id = ? LIMIT 1`, u).Scan(&userID, &username)
+		err := db.QueryRow(`SELECT id, username FROM users WHERE id = ? AND `+ctx.OnlyUserPublic()+` LIMIT 1`, u).Scan(&userID, &username)
 		switch {
 		case err == nil:
 		case err == sql.ErrNoRows:
-			err := db.QueryRow(`SELECT id, username FROM users WHERE username = ? LIMIT 1`, u).Scan(&userID, &username)
+			err := db.QueryRow(`SELECT id, username FROM users WHERE username = ? AND `+ctx.OnlyUserPublic()+` LIMIT 1`, u).Scan(&userID, &username)
 			if err != nil && err != sql.ErrNoRows {
 				c.Error(err)
 			}

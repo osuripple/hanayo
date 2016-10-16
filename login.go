@@ -80,6 +80,7 @@ func loginSubmit(c *gin.Context) {
 	}
 
 	if data.Country == "XX" {
+		// TODO
 	}
 
 	setYCookie(data.ID, c)
