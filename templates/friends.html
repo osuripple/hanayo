@@ -6,7 +6,7 @@
 		</div>
 		<div class="ui segment">
 			{{ $page := or (atoint (.Gin.Query "p")) 1 }}
-			{{ $friends := .Get "friends?p=%d&l=40" $page }}
+			{{ $friends := .Get "friends?p=%d&l=40&sort=username,asc" $page }}
 			{{ with $friends }}
 				<div class="ui grid">
 					{{ range .friends }}
