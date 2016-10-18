@@ -44,6 +44,12 @@ func loadChangelog(page int) []commit {
 	}
 	r := bufio.NewScanner(f)
 
+	if page < 0 {
+		page = 0
+	} else if page > 50000 {
+		page = 50000
+	}
+
 	times := (page - 1) * 50
 	if times < 0 {
 		times = 0
