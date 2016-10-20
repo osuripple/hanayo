@@ -3,7 +3,7 @@ NoCompile=true
 */}}
 {{ define "userGroup" }}
 {{ with . }}
-	<div class="ui five column grid">
+	<div class="ui five column center aligned grid">
 		{{ $teamJSON := teamJSON }}
 		{{ range .users }}
 			{{/* ignore fokabot */}}
