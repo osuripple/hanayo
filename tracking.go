@@ -42,11 +42,11 @@ func addY(c *gin.Context, y string) {
 
 func logIP(c *gin.Context, user int) {
 	db.Exec(`INSERT INTO ip_user (userid, ip, occurencies) VALUES (?, ?, '1')
-						ON DUPLICATE KEY UPDATE occurencies = occurencies + 1`, user, c.ClientIP())
+						ON DUPLICATE KEY UPDATE occurencies = occurencies + 1`, user, clientIP(c))
 }
 
 func setCountry(c *gin.Context, user int) error {
-	raw, err := http.Get(config.IP_API + "/" + c.ClientIP() + "/country")
+	raw, err := http.Get(config.IP_API + "/" + clientIP(c) + "/country")
 	if err != nil {
 		return err
 	}

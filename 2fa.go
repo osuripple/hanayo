@@ -66,10 +66,10 @@ func tfaGateway(c *gin.Context) {
 	}
 	// check previous 2fa thing is still valid
 	err := db.QueryRow("SELECT 1 FROM 2fa WHERE userid = ? AND ip = ? AND expire > ?",
-		i, c.ClientIP(), time.Now().Unix()).Scan(new(int))
+		i, clientIP(c), time.Now().Unix()).Scan(new(int))
 	if err != nil {
 		db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
-			i, strings.ToUpper(rs.String(8)), c.ClientIP(), time.Now().Add(time.Hour).Unix())
+			i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
 		http.Get("http://127.0.0.1:8888/update")
 	}
 
@@ -79,6 +79,14 @@ func tfaGateway(c *gin.Context) {
 	})
 }
 
+func clientIP(c *gin.Context) string {
+	ff := c.Request.Header.Get("X-Forwarded-For")
+	if ff != "" {
+		return ff
+	}
+	return c.ClientIP()
+}
+
 func clear2fa(c *gin.Context) {
 	// basically deletes from db 2fa tokens, so that it gets regenerated when user hits gateway page
 	sess := c.MustGet("session").(sessions.Session)
@@ -86,7 +94,7 @@ func clear2fa(c *gin.Context) {
 	if i == 0 {
 		c.Redirect(302, "/")
 	}
-	db.Exec("DELETE FROM 2fa WHERE userid = ? AND ip = ?", i, c.ClientIP())
+	db.Exec("DELETE FROM 2fa WHERE userid = ? AND ip = ?", i, clientIP(c))
 	addMessage(c, successMessage{"A new code has been generated and sent to you through Telegram."})
 	sess.Save()
 	c.Redirect(302, "/2fa_gateway")
@@ -100,7 +108,7 @@ func verify2fa(c *gin.Context) {
 	}
 	var id int
 	var expire common.UnixTimestamp
-	err := db.QueryRow("SELECT id, expire FROM 2fa WHERE userid = ? AND ip = ? AND token = ?", i, c.ClientIP(), strings.ToUpper(c.Query("token"))).Scan(&id, &expire)
+	err := db.QueryRow("SELECT id, expire FROM 2fa WHERE userid = ? AND ip = ? AND token = ?", i, clientIP(c), strings.ToUpper(c.Query("token"))).Scan(&id, &expire)
 	if err == sql.ErrNoRows {
 		c.String(200, "1")
 		return
@@ -108,7 +116,7 @@ func verify2fa(c *gin.Context) {
 	if time.Now().After(time.Time(expire)) {
 		c.String(200, "1")
 		db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
-			i, strings.ToUpper(rs.String(8)), c.ClientIP(), time.Now().Add(time.Hour).Unix())
+			i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
 		http.Get("http://127.0.0.1:8888/update")
 		return
 	}
