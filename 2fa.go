@@ -80,7 +80,7 @@ func tfaGateway(c *gin.Context) {
 }
 
 func clientIP(c *gin.Context) string {
-	ff := c.Request.Header.Get("X-Forwarded-For")
+	ff := c.Request.Header.Get("CF-Connecting-IP")
 	if ff != "" {
 		return ff
 	}
