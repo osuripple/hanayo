@@ -9,6 +9,7 @@
 				window.favouriteMode = {{ $favouritemode }};
 				window.userID = '{{ .id }}';
 			</script>
+			<!-- TODO: user silenced -->
 			{{ if hasAdmin $global.Context.User.Privileges }}
 				{{ $restr := not (has .privileges 1) }}
 				{{ $disab := not (has .privileges 2) }}

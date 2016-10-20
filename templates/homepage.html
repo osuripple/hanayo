@@ -1,5 +1,8 @@
 {{ define "tpl" }}
 <div class="ui container">
+	<div class="ui center aligned segment">
+		<img src="/static/logos/logo-{{ randomLogoColour }}.svg">
+	</div>
 	{{/* Not logged in block */}}
 	{{ if not .Context.User.Username }}
 		<div class="ui segment">

@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"io/ioutil"
 	"math"
+	"math/rand"
 	"sort"
 	"strconv"
 	"strings"
@@ -293,8 +294,15 @@ var funcMap = template.FuncMap{
 		}
 		return false
 	},
-	"capitalise":    strings.Title,
+	"capitalise": strings.Title,
+	// servicePrefix gets the prefix of a service, like github.
 	"servicePrefix": func(s string) string { return servicePrefixes[s] },
+	"randomLogoColour": func() string {
+		if rand.Int()%4 == 0 {
+			return logoColours[rand.Int()%len(logoColours)]
+		}
+		return "pink"
+	},
 }
 var hanayoStarted = time.Now().UnixNano()
 
@@ -302,6 +310,13 @@ var servicePrefixes = map[string]string{
 	"github":  "https://github.com/",
 	"twitter": "https://twitter.com/",
 	"mail":    "mailto:",
+}
+
+var logoColours = [...]string{
+	"blue",
+	"green",
+	"orange",
+	"red",
 }
 
 func pos(x int) (int, bool) {
@@ -312,4 +327,8 @@ func pos(x int) (int, bool) {
 }
 func _time(s string, t time.Time) template.HTML {
 	return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
+}
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
 }
