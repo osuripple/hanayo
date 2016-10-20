@@ -67,7 +67,7 @@
 			<div class="ui three column divided segment grid">
 				<div class="row">
 					<div class="column">
-						<b>{{ .username }}</b> is a Ripple player{{ with country .country }} from <b>{{ . }}</b>{{ end }}. 
+						<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}. 
 						They signed up on Ripple {{ time $user.registered_on }}.
 						Last seen: {{ time $user.latest_activity }}.
 						{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}

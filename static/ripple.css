@@ -236,3 +236,5 @@ a.inherit:hover {
 
 .right.aligned { text-align: right; }
 .left.aligned  { text-align: left; }
+
+.clickable { cursor: pointer; }

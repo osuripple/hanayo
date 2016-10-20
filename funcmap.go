@@ -124,12 +124,15 @@ var funcMap = template.FuncMap{
 	},
 	// countryReadable converts a country's ISO name to its full name.
 	"countryReadable": countryReadable,
-	"country": func(s string) template.HTML {
-		c := countryReadable(s)
-		if c == "" {
-			return ""
+	"country": func(s string, name bool) template.HTML {
+		var c string
+		if name {
+			c = countryReadable(s)
+			if c == "" {
+				return ""
+			}
 		}
-		return template.HTML(fmt.Sprintf(`<i class="%s flag smallpadd"></i> %s`, strings.ToLower(s), c))
+		return template.HTML(fmt.Sprintf(`<i class="%s flag"></i>%s`, strings.ToLower(s), c))
 	},
 	// humanize pretty-prints a float, e.g.
 	//     humanize(1000) == "1,000"
@@ -271,8 +274,35 @@ var funcMap = template.FuncMap{
 	},
 	// loadChangelog loads the changelog.
 	"loadChangelog": loadChangelog,
+	// teamJSON returns the data of team.json
+	"teamJSON": func() map[string]interface{} {
+		f, err := ioutil.ReadFile("team.json")
+		if err != nil {
+			return nil
+		}
+		var m map[string]interface{}
+		json.Unmarshal(f, &m)
+		return m
+	},
+	// in returns whether the first argument is in one of the following
+	"in": func(a1 interface{}, as ...interface{}) bool {
+		for _, a := range as {
+			if a == a1 {
+				return true
+			}
+		}
+		return false
+	},
+	"capitalise":    strings.Title,
+	"servicePrefix": func(s string) string { return servicePrefixes[s] },
 }
 var hanayoStarted = time.Now().UnixNano()
+
+var servicePrefixes = map[string]string{
+	"github":  "https://github.com/",
+	"twitter": "https://twitter.com/",
+	"mail":    "mailto:",
+}
 
 func pos(x int) (int, bool) {
 	if x > 0 {

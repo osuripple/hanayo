@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -8,12 +9,15 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"os"
+	"strings"
 
 	"github.com/rjeczalik/notify"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/pariz/gountries"
+	"github.com/thehowl/conf"
 )
 
 var templates = make(map[string]*template.Template)
@@ -49,10 +53,23 @@ func loadTemplates(subdir string) {
 			continue
 		}
 
+		fullName := "templates" + subdir + "/" + i.Name()
+		_c := parseConfig(fullName)
+		var c templateConfig
+		if _c != nil {
+			c = *_c
+		}
+		if c.NoCompile {
+			continue
+		}
+
+		var files = c.inc("templates" + subdir + "/")
+		files = append(files, fullName)
+
 		// do not compile base templates on their own
 		var comp bool
 		for _, j := range baseTemplates {
-			if "templates"+subdir+"/"+i.Name() == j {
+			if fullName == j {
 				comp = true
 				break
 			}
@@ -68,7 +85,7 @@ func loadTemplates(subdir string) {
 
 		// add new template to template slice
 		templates[inName+i.Name()] = template.Must(template.New(i.Name()).Funcs(funcMap).ParseFiles(
-			append([]string{"templates" + subdir + "/" + i.Name()}, baseTemplates[:]...)...,
+			append(files, baseTemplates[:]...)...,
 		))
 	}
 }
@@ -199,5 +216,51 @@ func reloader() error {
 		}
 		defer notify.Stop(c)
 	}()
+	return nil
+}
+
+type templateConfig struct {
+	NoCompile bool
+	Include   string
+}
+
+func (t templateConfig) inc(prefix string) []string {
+	if t.Include == "" {
+		return nil
+	}
+	a := strings.Split(t.Include, ",")
+	for i, s := range a {
+		a[i] = prefix + s
+	}
+	return a
+}
+
+func parseConfig(s string) *templateConfig {
+	f, err := os.Open(s)
+	defer f.Close()
+	if err != nil {
+		return nil
+	}
+	i := bufio.NewScanner(f)
+	var inConfig bool
+	var buff string
+	var t templateConfig
+	for i.Scan() {
+		u := i.Text()
+		switch u {
+		case "{{/*###":
+			inConfig = true
+		case "*/}}":
+			if !inConfig {
+				continue
+			}
+			conf.LoadRaw(&t, []byte(buff))
+			return &t
+		}
+		if !inConfig {
+			continue
+		}
+		buff += u + "\n"
+	}
 	return nil
 }

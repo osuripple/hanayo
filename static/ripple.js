@@ -138,6 +138,11 @@ var singlePageSnippets = {
       });
     });
   },
+  "/team": function() {
+    $("#everyone").click(function() {
+      $(".ui.modal").modal("show");
+    });
+  },
 };
 
 $(document).ready(function(){
