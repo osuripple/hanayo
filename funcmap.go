@@ -152,9 +152,16 @@ var funcMap = template.FuncMap{
 		i, _ := math.Modf(l)
 		return fmt.Sprintf("%.0f", i)
 	},
-	// trimPrefix returns s without the provided leading prefix string.
-	// If s doesn't start with prefix, s is returned unchanged.
-	"trimPrefix": strings.TrimPrefix,
+	// faIcon converts a fontawesome icon to a semantic ui icon.
+	"faIcon": func(i string) string {
+		classes := strings.Split(i, " ")
+		for i, class := range classes {
+			if v, ok := faToSemanticMappings[class]; ok {
+				classes[i] = v
+			}
+		}
+		return strings.Join(classes, " ")
+	},
 	// log fmt.Printf's something
 	"log": fmt.Printf,
 	// has returns whether priv1 has all 1 bits of priv2, aka priv1 & priv2 == priv2
@@ -338,3 +345,5 @@ func _time(s string, t time.Time) template.HTML {
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
+
+//go:generate go run scripts/generate_mappings.go -g

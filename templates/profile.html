@@ -82,13 +82,13 @@
 							<div class="ui grid">
 								{{ range .badges }}
 									<div class="eight wide centered column">
-										<i class="circular {{trimPrefix .icon "fa-"}} big icon"></i><br>
+										<i class="circular {{ faIcon .icon }} big icon"></i><br>
 										<b>{{ .name }}</b>
 									</div>
 								{{ end }}
 								{{ with .custom_badge }}
 									<div class="eight wide centered column">
-										<i class="circular {{trimPrefix .icon "fa-"}} big icon"></i><br>
+										<i class="circular {{ faIcon .icon }} big icon"></i><br>
 										<b><i>{{ .name }}</i></b>
 									</div>
 								{{ end }}
