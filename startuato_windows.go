@@ -3,8 +3,8 @@
 package main
 
 import (
-	"net"
 	"log"
+	"net"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -12,7 +12,7 @@ import (
 
 func startuato(engine *gin.Engine) {
 	var (
-		l net.Listener
+		l   net.Listener
 		err error
 	)
 	// Listen on a TCP or a UNIX domain socket (TCP here).
