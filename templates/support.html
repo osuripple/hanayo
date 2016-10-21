@@ -11,111 +11,121 @@
 				</div>
 			</div>
 		{{ end }}
-		<div class="ui segment">
-			<h2 class="ui header">
-				Did you know?
-			</h2>
-			<div class="ui divider"></div>
-			<h3 class="ui header no top margin">
-				<i class="money icon"></i><div class="content">Ripple is not cheap to run.</div>
-			</h3>
-			<blockquote>
-				While we provide this service for free, we
-				still have to pay for it, and if we always took the money out
-				of our own pockets, 1. we would be broke, 2. we wouldn't be
-				able to upgrade our hardware to accomodate our users. While we
-				do have loads of software optimisations that allow us to have
-				Ripple run crazy fast while still being on not so high-end
-				hardware, the more users we have, the higher-end our hardware
-				needs to be. So we are asking you for help on this :).
-			</blockquote>
-			<h3 class="ui header">
-				<i class="book icon"></i><div class="content">We are still students.</div>
-			</h3>
-			<blockquote>
-				Ripple developers, and also most of the Ripple staff, is still
-				not working. This means that we get most of our income as
-				students from doing small jobs as "freelancers" every so often,
-				or, you know, allowance.
-			</blockquote>
-			<h3 class="ui header">
-				<i class="mouse pointer icon"></i><div class="content">We do not have ads. And never will.</div>
-			</h3>
-			<blockquote>
-				You may have adblock enabled and have not noticed, but we don't
-				have ads anywhere on our website. We believe ads are bad, as
-				they can be very annoying to you.
-			</blockquote>
-			<h3 class="ui header">
-				<i class="wizard icon"></i><div class="content">We love picking random icons from our icon library.</div>
-			</h3>
+		<div class="ui segments">
+			<div class="ui segment">
+				<h2 class="ui header">
+					Did you know?
+					<div class="sub header">
+						(Probably{{ if not .has_donor }} not{{ end }}.)
+					</div>
+				</h2>
+			</div>
+			<div class="ui segment">
+				<h3 class="ui header no top margin">
+					<i class="money icon"></i><div class="content">Ripple is not cheap to run.</div>
+				</h3>
+				<blockquote>
+					While we provide this service for free, we
+					still have to pay for it, and if we always took the money out
+					of our own pockets, 1. we would be broke, 2. we wouldn't be
+					able to upgrade our hardware to accomodate our users. While we
+					do have loads of software optimisations that allow us to have
+					Ripple run crazy fast while still being on not so high-end
+					hardware, the more users we have, the higher-end our hardware
+					needs to be. So we are asking you for help on this :).
+				</blockquote>
+				<h3 class="ui header">
+					<i class="book icon"></i><div class="content">We are still students.</div>
+				</h3>
+				<blockquote>
+					Ripple developers, and also most of the Ripple staff, is still
+					not working. This means that we get most of our income as
+					students from doing small jobs as "freelancers" every so often,
+					or, you know, allowance.
+				</blockquote>
+				<h3 class="ui header">
+					<i class="mouse pointer icon"></i><div class="content">We do not have ads. And never will.</div>
+				</h3>
+				<blockquote>
+					You may have adblock enabled and have not noticed, but we don't
+					have ads anywhere on our website. We believe ads are bad, as
+					they can be very annoying to you.
+				</blockquote>
+				<h3 class="ui header">
+					<i class="wizard icon"></i><div class="content">We love picking random icons from our icon library.</div>
+				</h3>
+			</div>
 		</div>
-		<div class="ui segment">
-			<h1 class="ui center aligned header">
-				So what can you do?
-				<div class="sub header">
-					Well, you can give us {{ if .has_donor }}even more{{ end }} money.
-				</div>
-			</h1>
-			<div class="ui divider"></div>
-			<h2 class="ui center aligned header no top margin">
-				Here's what you get:
-			</h2>
-			<br>
-			<div class="ui internally celled grid">
-				<div class="row">
-					<div class="four wide column">
-						<h3 class="ui header">Yellow username</h3>
-						Just like in osu!, you get a <b>shiny yellow username</b>
-						in the in-game chat to show everyone you're a really cool
-						dude who has helped us pay the server bills.
+		<div class="ui segments">
+			<div class="ui segment">
+				<h1 class="ui center aligned header">
+					So what can you do?
+					<div class="sub header">
+						Well, you can give us {{ if .has_donor }}even more{{ end }} money.
 					</div>
-					<div class="four wide column">
-						<h3 class="ui header">Donor badge</h3>
-						Again, just like in osu!, you will get a <b>donor badge</b>
-						on your profile, to show everyone you're supporting us.
+				</h1>
+			</div>
+			<div class="ui segment">
+				<h2 class="ui center aligned header no top margin">
+					Here's what you get:
+				</h2>
+				<br>
+				<div class="ui internally celled grid">
+					<div class="row">
+						<div class="four wide column">
+							<h3 class="ui header">Yellow username</h3>
+							Just like in osu!, you get a <b>shiny yellow username</b>
+							in the in-game chat to show everyone you're a really cool
+							dude who has helped us pay the server bills.
+						</div>
+						<div class="four wide column">
+							<h3 class="ui header">Donor badge</h3>
+							Again, just like in osu!, you will get a <b>donor badge</b>
+							on your profile, to show everyone you're supporting us.
+						</div>
+						<div class="four wide column">
+							<h3 class="ui header">Custom badge editor</h3>
+							You get to be able to create your <b>own personal badge</b>,
+							with custom text and icon, to show off on your profile!
+							Let the world know you're an anchor. Or prank
+							people showing a spinnin' wheel with "Loading..."! Up to you. 
+						</div>
+						<div class="four wide column">
+							<h3 class="ui header">Friends ranking</h3>
+							<b>Competing with friends</b> is really cool, you can play on
+							the leaderboard with someone more or less on your level,
+							without getting crippling depression and RSI for not beating
+							that pro!
+						</div>
 					</div>
-					<div class="four wide column">
-						<h3 class="ui header">Custom badge editor</h3>
-						You get to be able to create your <b>own personal badge</b>,
-						with custom text and icon, to show off on your profile!
-						Let the world know you're an anchor. Or prank
-						people showing a spinnin' wheel with "Loading..."! Up to you. 
-					</div>
-					<div class="four wide column">
-						<h3 class="ui header">Friends ranking</h3>
-						<b>Competing with friends</b> is really cool, you can play on
-						the leaderboard with someone more or less on your level,
-						without getting crippling depression and RSI for not beating
-						that pro!
-					</div>
-				</div>
-				<div class="row">
-					<div class="four wide column">
-						<h3 class="ui header">Discord privileges</h3>
-						You'll get exclusive access to the <b>"#donators"</b>
-						text and voice channels, you'll be able to change your
-						discord nickname and you'll get a custom role with
-						custom username color!
-					</div>
-					<div class="four wide column">
-						<h3 class="ui header">More to come!</h3>
-						<b>Who knows</b> what we could implement next? You could
-						be able to do even <i>more</i> stuff for donors
-						once we implement it.
+					<div class="row">
+						<div class="four wide column">
+							<h3 class="ui header">Discord privileges</h3>
+							You'll get exclusive access to the <b>"#donators"</b>
+							text and voice channels, you'll be able to change your
+							discord nickname and you'll get a custom role with
+							custom username color!
+						</div>
+						<div class="four wide column">
+							<h3 class="ui header">More to come!</h3>
+							<b>Who knows</b> what we could implement next? You could
+							be able to do even <i>more</i> stuff for donors
+							once we implement it.
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="ui divider"></div>
-			<h2 class="ui center aligned header no top margin">
-				And this is how you pay
-			</h2>
-			<p>
-				You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>.
-				Use the slider below to choose the amount of months you'd like to have the donor benefits,
-				and the cost will be instantly calculated. Remember that if, for instance, you choose to
-				donate € 4 instead of € 3.51, you will only be given one donor month.
-			</p>
+			<div class="ui segment">
+				<h2 class="ui center aligned header no top margin">
+					And this is how you pay
+				</h2>
+				<p>
+					You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>.
+					Use the slider below to choose the amount of months you'd like to have the donor benefits,
+					and the cost will be instantly calculated. Remember that if, for instance, you choose to
+					donate € 4 instead of € 3.51, you will only be given one donor month.
+				</p>
+			</div>
 		</div>
 	{{ end }}
 </div>
