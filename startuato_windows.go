@@ -22,7 +22,7 @@ func startuato(engine *gin.Engine) {
 	} else {
 		l, err = net.Listen("tcp", config.ListenTo)
 	}
-	if nil != err {
+	if err != nil {
 		log.Fatalln(err)
 	}
 
