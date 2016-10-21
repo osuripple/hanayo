@@ -297,11 +297,17 @@ var funcMap = template.FuncMap{
 	"capitalise": strings.Title,
 	// servicePrefix gets the prefix of a service, like github.
 	"servicePrefix": func(s string) string { return servicePrefixes[s] },
+	// randomLogoColour picks a "random" colour for ripple's logo.
 	"randomLogoColour": func() string {
 		if rand.Int()%4 == 0 {
 			return logoColours[rand.Int()%len(logoColours)]
 		}
 		return "pink"
+	},
+	// after checks whether a certain time is after time.Now()
+	"after": func(s string) bool {
+		t, _ := time.Parse(time.RFC3339, s)
+		return t.After(time.Now())
 	},
 }
 var hanayoStarted = time.Now().UnixNano()

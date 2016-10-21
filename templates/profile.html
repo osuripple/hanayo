@@ -9,7 +9,9 @@
 				window.favouriteMode = {{ $favouritemode }};
 				window.userID = '{{ .id }}';
 			</script>
-			<!-- TODO: user silenced -->
+			{{ if after .silence_info.end }}
+				<div class="ui negative centered message">User is <b>silenced</b> for {{ .silence_info.reason }}, expires {{ time .silence_info.end }}.</div>
+			{{ end }}
 			{{ if hasAdmin $global.Context.User.Privileges }}
 				{{ $restr := not (has .privileges 1) }}
 				{{ $disab := not (has .privileges 2) }}
