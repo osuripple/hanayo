@@ -15,6 +15,7 @@ func startuato(engine *gin.Engine) {
 		l   net.Listener
 		err error
 	)
+
 	// Listen on a TCP or a UNIX domain socket (TCP here).
 	if config.Unix {
 		l, err = net.Listen("unix", config.ListenTo)
