@@ -1,6 +1,9 @@
 package main
 
 import (
+	"errors"
+	"net/url"
+
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
 )
@@ -64,4 +67,34 @@ func simplePageFunc(p simplePage, hhr bool) gin.HandlerFunc {
 			HeadingOnRight: hhr,
 		})
 	}
+}
+
+func simpleReply(c *gin.Context, errs ...message) error {
+	var chosen simplePage
+	for _, s := range simplePages {
+		if s.Handler == c.Request.URL.Path {
+			chosen = s
+		}
+	}
+	if chosen.Handler == "" {
+		return errors.New("simpleReply: simplepage not found")
+	}
+	resp(c, 200, chosen.Template, &baseTemplateData{
+		TitleBar:  chosen.TitleBar,
+		KyutGrill: chosen.KyutGrill,
+		Scripts:   additionalJS[chosen.Handler],
+		FormData:  normaliseURLValues(c.Request.PostForm),
+		Messages:  errs,
+	})
+	return nil
+}
+
+func normaliseURLValues(uv url.Values) map[string]string {
+	m := make(map[string]string, len(uv))
+	for k, v := range uv {
+		if len(v) > 0 {
+			m[k] = v[0]
+		}
+	}
+	return m
 }

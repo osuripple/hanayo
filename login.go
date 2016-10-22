@@ -16,12 +16,12 @@ import (
 
 func loginSubmit(c *gin.Context) {
 	if c.MustGet("context").(context).User.ID != 0 {
-		loginSubmitReplyError(c, "You are already logged in!")
+		simpleReply(c, errorMessage{"You are already logged in!"})
 		return
 	}
 
 	if c.PostForm("username") == "" || c.PostForm("password") == "" {
-		loginSubmitReplyError(c, "Username or password not set.")
+		simpleReply(c, errorMessage{"Username or password not set."})
 		return
 	}
 
@@ -55,7 +55,7 @@ func loginSubmit(c *gin.Context) {
 
 	switch {
 	case err == sql.ErrNoRows:
-		loginSubmitReplyError(c, "No user with such "+param+"!")
+		simpleReply(c, errorMessage{"No user with such " + param + "!"})
 		return
 	case err != nil:
 		c.Error(err)
@@ -65,17 +65,17 @@ func loginSubmit(c *gin.Context) {
 
 	if data.PasswordVersion == 1 {
 		addMessage(c, warningMessage{"Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?"})
-		c.Redirect(302, "/forgot_password")
+		c.Redirect(302, "/pwreset")
 		return
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(data.Password), []byte(fmt.Sprintf("%x", md5.Sum([]byte(c.PostForm("password")))))); err != nil {
-		loginSubmitReplyError(c, "Wrong password.")
+		simpleReply(c, errorMessage{"Wrong password."})
 		return
 	}
 
 	if data.Privileges&common.UserPrivilegeNormal == 0 {
-		loginSubmitReplyError(c, "You are not allowed to login. This means your account is either banned or locked.")
+		simpleReply(c, errorMessage{"You are not allowed to login. This means your account is either banned or locked."})
 		return
 	}
 
@@ -111,20 +111,6 @@ func loginSubmit(c *gin.Context) {
 		c.Redirect(302, "/")
 	}
 	return
-}
-
-func loginSubmitReplyError(c *gin.Context, msg string) {
-	resp(c, 200, "login.html", &baseTemplateData{
-		TitleBar:  "Log in",
-		KyutGrill: "login.png",
-		Messages: []message{
-			errorMessage{msg},
-		},
-		FormData: map[string]string{
-			"username": c.PostForm("username"),
-			"password": c.PostForm("password"),
-		},
-	})
 }
 
 func logout(c *gin.Context) {
