@@ -103,7 +103,7 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 	if corrected, ok := data.(page); ok {
 		corrected.SetMessages(getMessages(c))
 		corrected.SetPath(c.Request.URL.Path)
-		corrected.SetContext(c.MustGet("context").(context))
+		corrected.SetContext(getContext(c))
 		corrected.SetGinContext(c)
 		corrected.SetSession(sess)
 	}

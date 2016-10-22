@@ -26,7 +26,7 @@ func setUpLimiter() {
 func rateLimiter(onAnonymousOnly bool) func(c *gin.Context) {
 	return func(c *gin.Context) {
 		if onAnonymousOnly {
-			ctx := c.MustGet("context").(context)
+			ctx := getContext(c)
 			if ctx.User.ID == 0 {
 				<-limiter
 			}

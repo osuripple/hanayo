@@ -18,7 +18,7 @@ func userProfile(c *gin.Context) {
 		username string
 	)
 
-	ctx := c.MustGet("context").(context)
+	ctx := getContext(c)
 
 	u := c.Param("user")
 	if _, err := strconv.Atoi(u); err != nil {

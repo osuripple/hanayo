@@ -15,7 +15,7 @@ import (
 )
 
 func loginSubmit(c *gin.Context) {
-	if c.MustGet("context").(context).User.ID != 0 {
+	if getContext(c).User.ID != 0 {
 		simpleReply(c, errorMessage{"You are already logged in!"})
 		return
 	}
@@ -114,7 +114,7 @@ func loginSubmit(c *gin.Context) {
 }
 
 func logout(c *gin.Context) {
-	ctx := c.MustGet("context").(context)
+	ctx := getContext(c)
 	if ctx.User.ID == 0 {
 		resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Log out", Messages: []message{warningMessage{"You're already logged out!"}}})
 		return

@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/gin-gonic/gin"
+
 	"git.zxq.co/ripple/rippleapi/common"
 )
 
@@ -24,4 +26,8 @@ func (ctx context) OnlyUserPublic() string {
 	}
 	// It's safe to use sprintf directly even if it's a query, because UserID is an int.
 	return fmt.Sprintf("(users.privileges & 1 = 1 OR users.id = '%d')", ctx.User.ID)
+}
+
+func getContext(c *gin.Context) context {
+	return c.MustGet("context").(context)
 }

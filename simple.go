@@ -55,7 +55,7 @@ func loadSimplePages(r *gin.Engine) {
 
 func simplePageFunc(p simplePage, hhr bool) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		s := c.MustGet("context").(context)
+		s := getContext(c)
 		if s.User.Privileges&p.MinPrivileges != p.MinPrivileges {
 			resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Forbidden", Messages: []message{warningMessage{"You should not be 'round here."}}})
 			return
