@@ -15,6 +15,7 @@ import (
 	// repo, but apparently, gin is dead.
 	"github.com/johnniedoe/contrib/gzip"
 	"github.com/thehowl/conf"
+	"gopkg.in/mailgun/mailgun-go.v1"
 )
 
 // version is the version of hanayo
@@ -46,8 +47,14 @@ var (
 
 		Offline          bool   `json:"If this is true, files will be served from the local server instead of the CDN."`
 		MainRippleFolder string `json:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system."`
+
+		MailgunDomain        string
+		MailgunPrivateAPIKey string
+		MailgunPublicAPIKey  string
+		MailgunFrom          string
 	}
 	db *sqlx.DB
+	mg mailgun.Mailgun
 )
 
 func main() {
@@ -73,8 +80,9 @@ func main() {
 		&config.API:              "http://localhost:40001/api/v1/",
 		&config.APISecret:        "Potato",
 		&config.IP_API:           "https://ip.zxq.co",
-		&config.DiscordServer:    "#", // TODO: put server url when i get back online
+		&config.DiscordServer:    "#",
 		&config.MainRippleFolder: "/home/ripple/ripple",
+		&config.MailgunFrom:      `"Ripple" <noreply@ripple.moe>`,
 	}
 	for key, value := range configDefaults {
 		if *key == "" {
@@ -82,10 +90,18 @@ func main() {
 		}
 	}
 
+	// initialise db
 	db, err = sqlx.Open("mysql", config.DSN)
 	if err != nil {
 		panic(err)
 	}
+
+	// initialise mailgun
+	mg = mailgun.NewMailgun(
+		config.MailgunDomain,
+		config.MailgunPrivateAPIKey,
+		config.MailgunPublicAPIKey,
+	)
 
 	if gin.Mode() == gin.DebugMode {
 		fmt.Println("Development environment detected. Starting fsnotify on template folder...")
@@ -151,6 +167,7 @@ func main() {
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
 	r.GET("/u/:user", userProfile)
+	r.POST("/pwreset", passwordReset)
 
 	r.GET("/2fa_gateway", tfaGateway)
 	r.GET("/2fa_gateway/clear", clear2fa)

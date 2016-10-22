@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"git.zxq.co/ripple/rippleapi/common"
-	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -85,7 +84,7 @@ func loginSubmit(c *gin.Context) {
 
 	setYCookie(data.ID, c)
 
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	sess.Set("userid", data.ID)
 
 	tfaEnabled := is2faEnabled(data.ID)
@@ -102,12 +101,12 @@ func loginSubmit(c *gin.Context) {
 		sess.Set("2fa_must_validate", true)
 	}
 
-	sess.Save()
-
 	if tfaEnabled {
+		sess.Save()
 		c.Redirect(302, "/2fa_gateway/generate")
 	} else {
 		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", c.PostForm("username"))})
+		sess.Save()
 		c.Redirect(302, "/")
 	}
 	return
@@ -119,7 +118,7 @@ func logout(c *gin.Context) {
 		resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Log out", Messages: []message{warningMessage{"You're already logged out!"}}})
 		return
 	}
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	sess.Clear()
 	http.SetCookie(c.Writer, &http.Cookie{
 		Name:    "rt",

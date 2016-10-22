@@ -9,7 +9,6 @@ import (
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/x/rs"
 
-	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,7 +21,7 @@ var allowedPaths = [...]string{
 
 // middleware to deny all requests to non-allowed pages
 func twoFALock(c *gin.Context) {
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	if v, _ := sess.Get("2fa_must_validate").(bool); !v {
 		c.Next()
 		return
@@ -52,7 +51,7 @@ func is2faEnabled(user int) bool {
 }
 
 func tfaGateway(c *gin.Context) {
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 
 	// check 2fa hasn't been disabled
 	i, _ := sess.Get("userid").(int)
@@ -89,7 +88,7 @@ func clientIP(c *gin.Context) string {
 
 func clear2fa(c *gin.Context) {
 	// basically deletes from db 2fa tokens, so that it gets regenerated when user hits gateway page
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	i, _ := sess.Get("userid").(int)
 	if i == 0 {
 		c.Redirect(302, "/")
@@ -101,7 +100,7 @@ func clear2fa(c *gin.Context) {
 }
 
 func verify2fa(c *gin.Context) {
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	i, _ := sess.Get("userid").(int)
 	if i == 0 {
 		c.Redirect(302, "/")

@@ -57,7 +57,7 @@ func sessionInitializer() func(c *gin.Context) {
 }
 
 func addMessage(c *gin.Context, m message) {
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	var messages []message
 	messagesRaw := sess.Get("messages")
 	if messagesRaw != nil {
@@ -68,11 +68,15 @@ func addMessage(c *gin.Context, m message) {
 }
 
 func getMessages(c *gin.Context) []message {
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	messagesRaw := sess.Get("messages")
 	if messagesRaw == nil {
 		return nil
 	}
 	sess.Delete("messages")
 	return messagesRaw.([]message)
+}
+
+func getSession(c *gin.Context) sessions.Session {
+	return c.MustGet("session").(sessions.Session)
 }

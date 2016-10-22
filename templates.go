@@ -99,7 +99,7 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 		c.String(500, "Template not found! Please tell this to a dev!")
 		return
 	}
-	sess := c.MustGet("session").(sessions.Session)
+	sess := getSession(c)
 	if corrected, ok := data.(page); ok {
 		corrected.SetMessages(getMessages(c))
 		corrected.SetPath(c.Request.URL.Path)
