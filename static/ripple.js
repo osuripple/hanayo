@@ -151,8 +151,15 @@ $(document).ready(function(){
   $('.ui.checkbox').checkbox();
   $('.ui.dropdown').dropdown();
   $('.ui.progress').progress();
-  $('.ui.form').submit(function() {
-    $(this).addClass("loading");
+  $('.ui.form').submit(function(e) {
+    var t = $(this);
+    if (t.hasClass("loading") || t.hasClass("disabled")) {
+      e.preventDefault();
+      return false;
+    }
+    t.addClass("loading");
+    var f = t.attr("id");
+    $("[form='" + f + "']").addClass("loading");
   });
 
   // emojis!
