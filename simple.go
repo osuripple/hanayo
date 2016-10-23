@@ -23,7 +23,7 @@ var simplePages = [...]simplePage{
 	{"/doc", "doc.html", "Documentation", "documentation.jpg", 0},
 	{"/doc/:id", "doc_content.html", "View document", "documentation.jpg", 0},
 	{"/help", "help.html", "Contact support", "help.jpg", 0},
-	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard.jpg", 0},
+	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard2.jpg", 0},
 	{"/friends", "friends.html", "Friends", "", 2},
 	{"/changelog", "changelog.html", "Changelog", "", 0},
 	{"/team", "team.html", "Team", "", 0},
