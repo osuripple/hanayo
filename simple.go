@@ -33,6 +33,8 @@ var simplePages = [...]simplePage{
 // indexes of pages in simplePages that have huge heading on the right
 var hugeHeadingRight = [...]int{
 	3,
+	6,
+	7,
 }
 
 var additionalJS = map[string][]string{
