@@ -14,7 +14,7 @@ type simplePage struct {
 }
 
 var simplePages = [...]simplePage{
-	{"/", "homepage.html", "Home Page", "homepage.jpg", 0},
+	{"/", "homepage.html", "Home Page", "homepage2.jpg", 0},
 	{"/login", "login.html", "Log in", "login.png", 0},
 	{"/settings/avatar", "settings/avatar.html", "Change avatar", "settings2.png", 2},
 	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.png", 2},
