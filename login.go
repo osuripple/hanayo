@@ -115,7 +115,7 @@ func loginSubmit(c *gin.Context) {
 func logout(c *gin.Context) {
 	ctx := getContext(c)
 	if ctx.User.ID == 0 {
-		resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Log out", Messages: []message{warningMessage{"You're already logged out!"}}})
+		respEmpty(c, "Log out", warningMessage{"You're already logged out!"})
 		return
 	}
 	sess := getSession(c)

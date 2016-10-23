@@ -168,6 +168,7 @@ func main() {
 	r.GET("/logout", logout)
 	r.GET("/u/:user", userProfile)
 	r.POST("/pwreset", passwordReset)
+	r.GET("/pwreset/continue", passwordResetContinue)
 
 	r.GET("/2fa_gateway", tfaGateway)
 	r.GET("/2fa_gateway/clear", clear2fa)

@@ -56,7 +56,7 @@ func passwordReset(c *gin.Context) {
 	key := rs.String(50)
 
 	// TODO: WHY THE FUCK DOES THIS USE USERNAME AND NOT ID PLEASE WRITE MIGRATION
-	_, err = db.Exec("INSERT INTO password_recovery(k, u) VALUES (?, ?)", key, id)
+	_, err = db.Exec("INSERT INTO password_recovery(k, u) VALUES (?, ?)", key, username)
 
 	if err != nil {
 		c.Error(err)
@@ -89,4 +89,41 @@ func passwordReset(c *gin.Context) {
 	addMessage(c, successMessage{"Done! You should shortly receive an email from us at the email you used to sign up on Ripple."})
 	getSession(c).Save()
 	c.Redirect(302, "/")
+}
+
+type passwordResetContinueTData struct {
+	baseTemplateData
+	Username string
+	Key      string
+}
+
+func passwordResetContinue(c *gin.Context) {
+	k := c.Query("k")
+
+	if k == "" {
+		respEmpty(c, "Password reset", errorMessage{"Nope."})
+		return
+	}
+
+	var username string
+	switch err := db.QueryRow("SELECT u FROM password_recovery WHERE k = ? LIMIT 1", k).
+		Scan(&username); err {
+	case nil:
+		// move on
+	case sql.ErrNoRows:
+		respEmpty(c, "Reset password", errorMessage{"That key could not be found. Perhaps it expired?"})
+		return
+	default:
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	resp(c, 200, "pwreset/continue.html", &passwordResetContinueTData{
+		Username: username,
+		Key:      k,
+		baseTemplateData: baseTemplateData{
+			TitleBar: "Reset password",
+		},
+	})
 }

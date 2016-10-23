@@ -131,18 +131,20 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 }
 
 type baseTemplateData struct {
-	TitleBar       string
+	TitleBar       string // required
 	HeadingTitle   string
 	HeadingOnRight bool
 	Scripts        []string
 	KyutGrill      string
 	DisableHH      bool // HH = Huge Heading
-	Context        context
-	Path           string
 	Messages       []message
-	FormData       map[string]string
-	Gin            *gin.Context
-	Session        sessions.Session
+
+	// ignore, they're set by resp()
+	Context  context
+	Path     string
+	FormData map[string]string
+	Gin      *gin.Context
+	Session  sessions.Session
 }
 
 func (b *baseTemplateData) SetMessages(m []message) {
@@ -263,4 +265,8 @@ func parseConfig(s string) *templateConfig {
 		buff += u + "\n"
 	}
 	return nil
+}
+
+func respEmpty(c *gin.Context, title string, messages ...message) {
+	resp(c, 200, "empty.html", &baseTemplateData{TitleBar: title, Messages: messages})
 }
