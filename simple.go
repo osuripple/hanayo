@@ -25,7 +25,7 @@ var simplePages = [...]simplePage{
 	{"/help", "help.html", "Contact support", "help.jpg", 0},
 	{"/leaderboard", "leaderboard.html", "Leaderboard", "leaderboard2.jpg", 0},
 	{"/friends", "friends.html", "Friends", "", 2},
-	{"/changelog", "changelog.html", "Changelog", "", 0},
+	{"/changelog", "changelog.html", "Changelog", "changelog.jpg", 0},
 	{"/team", "team.html", "Team", "", 0},
 	{"/pwreset", "pwreset.html", "Reset password", "", 0},
 }
