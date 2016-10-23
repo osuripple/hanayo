@@ -19,7 +19,7 @@ import (
 )
 
 // version is the version of hanayo
-const version = "0.3.1b"
+const version = "0.4.0b"
 
 var (
 	config struct {
@@ -58,7 +58,7 @@ var (
 )
 
 func main() {
-	fmt.Println("hanayo " + version)
+	fmt.Println("hanayo v" + version)
 
 	err := conf.Load(&config, "hanayo.conf")
 	switch err {
