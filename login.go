@@ -1,7 +1,6 @@
 package main
 
 import (
-	"crypto/md5"
 	"database/sql"
 	"fmt"
 	"net/http"
@@ -68,10 +67,16 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
-	if err := bcrypt.CompareHashAndPassword([]byte(data.Password), []byte(fmt.Sprintf("%x", md5.Sum([]byte(c.PostForm("password")))))); err != nil {
+	if err := bcrypt.CompareHashAndPassword(
+		[]byte(data.Password),
+		[]byte(cmd5(c.PostForm("password"))),
+	); err != nil {
 		simpleReply(c, errorMessage{"Wrong password."})
 		return
 	}
+
+	// TODO: if bcrypt.Cost < bcrypt.DefaultCost, regenerate password with
+	// default cost.
 
 	if data.Privileges&common.UserPrivilegeNormal == 0 {
 		simpleReply(c, errorMessage{"You are not allowed to login. This means your account is either banned or locked."})
@@ -135,7 +140,7 @@ func generateToken(id int, c *gin.Context) (string, error) {
 	_, err := db.Exec(
 		`INSERT INTO tokens(user, privileges, description, token, private)
 					VALUES (   ?,        '0',           ?,     ?,     '1');`,
-		id, c.Request.Header.Get("X-Real-IP"), fmt.Sprintf("%x", md5.Sum([]byte(tok))))
+		id, c.Request.Header.Get("X-Real-IP"), cmd5(tok))
 	if err != nil {
 		return "", err
 	}

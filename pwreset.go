@@ -8,6 +8,7 @@ import (
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mailgun/mailgun-go.v1"
 )
 
@@ -119,11 +120,65 @@ func passwordResetContinue(c *gin.Context) {
 		return
 	}
 
+	renderResetPassword(c, username, k)
+}
+
+func passwordResetContinueSubmit(c *gin.Context) {
+	var username string
+	switch err := db.QueryRow("SELECT u FROM password_recovery WHERE k = ? LIMIT 1", c.PostForm("k")).
+		Scan(&username); err {
+	case nil:
+		// move on
+	case sql.ErrNoRows:
+		respEmpty(c, "Reset password", errorMessage{"That key could not be found. Perhaps it expired?"})
+		return
+	default:
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	p := c.PostForm("password")
+
+	if s := validatePassword(p); s != "" {
+		renderResetPassword(c, username, c.PostForm("k"), errorMessage{s})
+		return
+	}
+
+	pass, err := bcrypt.GenerateFromPassword([]byte(cmd5(p)), bcrypt.DefaultCost)
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	_, err = db.Exec("UPDATE users SET password_md5 = ?, salt = '', password_version = '2' WHERE username = ?",
+		string(pass), username)
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	_, err = db.Exec("DELETE FROM password_recovery WHERE k = ? LIMIT 1", c.PostForm("k"))
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	addMessage(c, successMessage{"All right, we have changed your password and you should now be able to login! Have fun!"})
+	getSession(c).Save()
+	c.Redirect(302, "/login")
+}
+
+func renderResetPassword(c *gin.Context, username, k string, messages ...message) {
 	resp(c, 200, "pwreset/continue.html", &passwordResetContinueTData{
 		Username: username,
 		Key:      k,
 		baseTemplateData: baseTemplateData{
 			TitleBar: "Reset password",
+			Messages: messages,
 		},
 	})
 }

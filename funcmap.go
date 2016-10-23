@@ -345,5 +345,3 @@ func _time(s string, t time.Time) template.HTML {
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
-
-//go:generate go run scripts/generate_mappings.go -g

@@ -43,6 +43,7 @@ func main() {
 		}
 		f.Write([]byte(fileHeader))
 		fmt.Fprintf(f, "var faToSemanticMappings = %#v\n", classMappings)
+		fmt.Println("generate: mappings.go")
 	} else {
 		fmt.Println(string(b))
 	}
