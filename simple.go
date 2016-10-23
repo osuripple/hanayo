@@ -17,7 +17,7 @@ var simplePages = [...]simplePage{
 	{"/", "homepage.html", "Home Page", "homepage2.jpg", 0},
 	{"/login", "login.html", "Log in", "login2.jpg", 0},
 	{"/settings/avatar", "settings/avatar.html", "Change avatar", "settings2.png", 2},
-	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.png", 2},
+	{"/dev/tokens", "dev/tokens.html", "Your API tokens", "dev.jpg", 2},
 	{"/beatmaps/rank_request", "beatmaps/rank_request.html", "Request beatmap ranking", "request_beatmap_ranking.jpg", 2},
 	{"/donate", "support.html", "Support Ripple", "donate2.png", 0},
 	{"/doc", "doc.html", "Documentation", "documentation.jpg", 0},
