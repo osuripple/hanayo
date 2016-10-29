@@ -12,7 +12,7 @@
 					{{ range .friends }}
 						<div class="four wide column">
 							<h4 class="ui image header">
-								<img src="{{ avatars }}/{{ .id }}" class="ui mini rounded image">
+								<img src="{{ config "AvatarURL" }}/{{ .id }}" class="ui mini rounded image">
 								<div class="content">
 									<a href="/u/{{ .id }}">{{ .username }}</a>
 									<div class="sub header">

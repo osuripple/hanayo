@@ -13,6 +13,8 @@ import (
 	// johnniedoe's fork fixes a critical issue for which .String resulted in
 	// an ERR_DECODING_FAILED. This is an actual pull request on the contrib
 	// repo, but apparently, gin is dead.
+	"github.com/dpapathanasiou/go-recaptcha"
+	"github.com/fatih/structs"
 	"github.com/johnniedoe/contrib/gzip"
 	"github.com/thehowl/conf"
 	"gopkg.in/mailgun/mailgun-go.v1"
@@ -52,9 +54,13 @@ var (
 		MailgunPrivateAPIKey string
 		MailgunPublicAPIKey  string
 		MailgunFrom          string
+
+		RecaptchaSite    string
+		RecaptchaPrivate string
 	}
-	db *sqlx.DB
-	mg mailgun.Mailgun
+	configMap map[string]interface{}
+	db        *sqlx.DB
+	mg        mailgun.Mailgun
 )
 
 func main() {
@@ -90,6 +96,8 @@ func main() {
 		}
 	}
 
+	configMap = structs.Map(config)
+
 	// initialise db
 	db, err = sqlx.Open("mysql", config.DSN)
 	if err != nil {
@@ -102,6 +110,9 @@ func main() {
 		config.MailgunPrivateAPIKey,
 		config.MailgunPublicAPIKey,
 	)
+
+	// initialise recaptcha
+	recaptcha.Init(config.RecaptchaPrivate)
 
 	if gin.Mode() == gin.DebugMode {
 		fmt.Println("Development environment detected. Starting fsnotify on template folder...")

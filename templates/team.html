@@ -65,7 +65,7 @@ Include=user_group.html
 					{{ range .users }}
 						<div class="column">
 							<h4 class="ui image header">
-								<img src="{{ avatars }}/{{ .id }}" class="ui micro rounded image">
+								<img src="{{ config "AvatarURL" }}/{{ .id }}" class="ui micro rounded image">
 								<div class="content">
 									<a href="/u/{{ .id }}">{{ .username }}</a>
 								</div>

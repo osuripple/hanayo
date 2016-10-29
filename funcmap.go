@@ -27,8 +27,8 @@ var funcMap = template.FuncMap{
 	},
 	// avatars is a function returning the configuration constant AvatarURL
 	// TODO: Replace with config function returning something from config.
-	"avatars": func() string {
-		return config.AvatarURL
+	"config": func(key string) interface{} {
+		return configMap[key]
 	},
 	// navbarItem is a function to generate an item in the navbar.
 	// The reason why this exists is that I wanted to have the currently
