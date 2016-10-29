@@ -1,0 +1,46 @@
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui raised segments">
+		<div class="ui segment">
+			<img src="/static/jack_black.jpg" class="ui small right floated image" alt="Jack black">
+
+			<p>We see that you're trying to sign up while having already signed up as {{ .Username }}! Please note that multiaccounting is punishable, and can lead to a one month restriction!</p>
+
+			<ul>
+				<li>
+					If you're {{ .Username }}, keep in mind that multiaccounting
+					= ban.
+				</li>
+				<li>
+					If you're not {{ .Username }}, but you're using 
+					{{ .Username }}'s computer, please sign up on Ripple from
+					your own computer.
+				</li>
+				<li>
+					If you live with {{ .Username }} and you don't have your own
+					computer from which to sign up on Ripple, then please contact
+					support@ripple.moe, and we'll deal with your specific case.
+				</li>
+			</ul>
+			
+			<p style="margin-bottom:50px;">
+				This warning may pop up also if you're using another computer
+				on the same network of {{ .Username }}. As long as you're not
+				using the same computer, you should be all good.
+			</p>
+		</div>
+		<div class="ui right aligned segment">
+			<div class="ui buttons">
+				<a class="ui labeled blue icon button" href="/">
+					<i class="left chevron icon"></i>
+					Bring me back to safety!
+				</a>
+				<a class="ui right labeled red icon button" href="/register?stopsign=1">
+					<i class="right chevron icon"></i>
+					Don't stop me now!
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}

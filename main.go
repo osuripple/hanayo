@@ -166,7 +166,10 @@ func main() {
 
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
+	r.GET("/register", register)
+
 	r.GET("/u/:user", userProfile)
+
 	r.POST("/pwreset", passwordReset)
 	r.GET("/pwreset/continue", passwordResetContinue)
 	r.POST("/pwreset/continue", passwordResetContinueSubmit)
