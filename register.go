@@ -8,7 +8,7 @@ func register(c *gin.Context) {
 	if c.Query("stopsign") != "1" {
 		u := tryBotnets(c)
 		if u != "" {
-			resp(c, 200, "elmo.html", passwordResetContinueTData{
+			resp(c, 200, "elmo.html", &passwordResetContinueTData{
 				Username: u,
 				baseTemplateData: baseTemplateData{
 					TitleBar:       "Elmo! Stop!",
@@ -20,6 +20,9 @@ func register(c *gin.Context) {
 			return
 		}
 	}
+	resp(c, 200, "register.html", &baseTemplateData{
+		TitleBar: "Register",
+	})
 }
 
 func tryBotnets(c *gin.Context) string {
