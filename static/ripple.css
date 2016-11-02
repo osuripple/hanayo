@@ -175,7 +175,7 @@ a.inherit:hover {
 	float: right;
 }
 
-.subtitle {
+.subtitle, .about.title {
 	color: rgba(0,0,0,.6);
 }
 .subtitle b {
@@ -255,4 +255,18 @@ code {
 
 .big.text {
 	font-size: 2rem;
+}
+
+.about.subtitle {
+	margin-top: 10px;
+	font-size: 1.35rem;
+}
+
+.about.title {
+	margin-top: 15px;
+	font-size: 1.5rem;
+}
+
+.nopadding.segment {
+	padding: 0;
 }
