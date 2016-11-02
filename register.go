@@ -20,7 +20,7 @@ func register(c *gin.Context) {
 	if c.Query("stopsign") != "1" {
 		u, _ := tryBotnets(c)
 		if u != "" {
-			resp(c, 200, "elmo.html", &passwordResetContinueTData{
+			resp(c, 200, "register/elmo.html", &passwordResetContinueTData{
 				Username: u,
 				baseTemplateData: baseTemplateData{
 					TitleBar:       "Elmo! Stop!",
@@ -136,7 +136,7 @@ func registerSubmit(c *gin.Context) {
 }
 
 func registerResp(c *gin.Context, messages ...message) {
-	resp(c, 200, "register.html", &baseTemplateData{
+	resp(c, 200, "register/register.html", &baseTemplateData{
 		TitleBar: "Register",
 		Scripts:  []string{"https://www.google.com/recaptcha/api.js"},
 		Messages: messages,
@@ -160,7 +160,7 @@ func verifyAccount(c *gin.Context) {
 		return
 	}
 
-	resp(c, 200, "verify.html", &baseTemplateData{
+	resp(c, 200, "register/verify.html", &baseTemplateData{
 		TitleBar: "Verify account",
 	})
 }
@@ -184,7 +184,7 @@ func welcome(c *gin.Context) {
 		t = "Welcome back!"
 	}
 
-	resp(c, 200, "welcome.html", &baseTemplateData{
+	resp(c, 200, "register/welcome.html", &baseTemplateData{
 		TitleBar: t,
 	})
 }
