@@ -30,6 +30,7 @@ func setYCookie(userID int, c *gin.Context) {
 			break
 		}
 	}
+	db.Exec("INSERT INTO identity_tokens(userid, token) VALUES (?, ?)", userID, token)
 	addY(c, token)
 }
 func addY(c *gin.Context, y string) {
