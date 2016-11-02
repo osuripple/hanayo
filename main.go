@@ -184,6 +184,7 @@ func main() {
 	r.GET("/register", register)
 	r.POST("/register", registerSubmit)
 	r.GET("/register/verify", verifyAccount)
+	r.GET("/register/welcome", welcome)
 
 	r.GET("/u/:user", userProfile)
 

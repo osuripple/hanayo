@@ -145,18 +145,12 @@ func registerResp(c *gin.Context, messages ...message) {
 }
 
 func verifyAccount(c *gin.Context) {
-	sess := getSession(c)
-
-	i, _ := strconv.Atoi(c.Query("u"))
-	y, _ := c.Cookie("y")
-	err := db.QueryRow("SELECT 1 FROM identity_tokens WHERE token = ? AND userid = ?", y, i).Scan(new(int))
-	if err == sql.ErrNoRows {
-		addMessage(c, warningMessage{"Nope."})
-		sess.Save()
-		c.Redirect(302, "/")
+	i, ret := checkUInQS(c)
+	if ret {
 		return
 	}
 
+	sess := getSession(c)
 	var rPrivileges uint64
 	db.Get(&rPrivileges, "SELECT privileges FROM users WHERE id = ?", i)
 	if common.UserPrivileges(rPrivileges)&common.UserPrivilegePendingVerification == 0 {
@@ -169,6 +163,46 @@ func verifyAccount(c *gin.Context) {
 	resp(c, 200, "verify.html", &baseTemplateData{
 		TitleBar: "Verify account",
 	})
+}
+
+func welcome(c *gin.Context) {
+	i, ret := checkUInQS(c)
+	if ret {
+		return
+	}
+
+	var rPrivileges uint64
+	db.Get(&rPrivileges, "SELECT privileges FROM users WHERE id = ?", i)
+	if common.UserPrivileges(rPrivileges)&common.UserPrivilegePendingVerification > 0 {
+		c.Redirect(302, "/register/verify?u="+c.Query("u"))
+		return
+	}
+
+	t := "Welcome!"
+	if common.UserPrivileges(rPrivileges)&common.UserPrivilegeNormal == 0 {
+		// if the user has no UserNormal, it means they're banned = they multiaccounted
+		t = "Welcome back!"
+	}
+
+	resp(c, 200, "welcome.html", &baseTemplateData{
+		TitleBar: t,
+	})
+}
+
+// Check User In Query Is Same As User In Y Cookie
+func checkUInQS(c *gin.Context) (int, bool) {
+	sess := getSession(c)
+
+	i, _ := strconv.Atoi(c.Query("u"))
+	y, _ := c.Cookie("y")
+	err := db.QueryRow("SELECT 1 FROM identity_tokens WHERE token = ? AND userid = ?", y, i).Scan(new(int))
+	if err == sql.ErrNoRows {
+		addMessage(c, warningMessage{"Nope."})
+		sess.Save()
+		c.Redirect(302, "/")
+		return 0, true
+	}
+	return i, false
 }
 
 func tryBotnets(c *gin.Context) (string, string) {
