@@ -45,7 +45,7 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 						{{ range $i, $v := .Messages }}
 							<div class="ui {{ $v.Type }} message">
 								<i class="close icon"></i>
-								{{ $v.Content }}
+								{{ html $v.Content }}
 							</div>
 						{{ end }}
 				{{ end }}
@@ -72,7 +72,8 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 		<script src="/static/semantic.min.js?{{ unixNano }}"></script>
 		<script>
 			var hanayoConf = {
-				avatars: {{ .Conf.AvatarURL }}
+				avatars:   {{ .Conf.AvatarURL }},
+				banchoAPI: {{ .Conf.BanchoAPI }}
 			};
 		</script>
 		<script src="/static/ripple.js?{{ unixNano }}"></script>

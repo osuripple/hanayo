@@ -17,6 +17,7 @@ import (
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
 	"github.com/russross/blackfriday"
+	"github.com/thehowl/qsql"
 )
 
 // funcMap contains useful functions for the various templates.
@@ -315,6 +316,18 @@ var funcMap = template.FuncMap{
 	"after": func(s string) bool {
 		t, _ := time.Parse(time.RFC3339, s)
 		return t.After(time.Now())
+	},
+	"qb": func(q string, p ...interface{}) map[string]qsql.String {
+		r, _ := qb.QueryRow(q, p...)
+		return r
+	},
+	"qba": func(q string, p ...interface{}) []map[string]qsql.String {
+		r, _ := qb.Query(q, p...)
+		return r
+	},
+	"qbe": func(q string, p ...interface{}) int {
+		i, _, _ := qb.Exec(q, p...)
+		return i
 	},
 }
 var hanayoStarted = time.Now().UnixNano()

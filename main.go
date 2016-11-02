@@ -13,10 +13,10 @@ import (
 	// johnniedoe's fork fixes a critical issue for which .String resulted in
 	// an ERR_DECODING_FAILED. This is an actual pull request on the contrib
 	// repo, but apparently, gin is dead.
-	"github.com/dpapathanasiou/go-recaptcha"
 	"github.com/fatih/structs"
 	"github.com/johnniedoe/contrib/gzip"
 	"github.com/thehowl/conf"
+	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 )
 
@@ -43,6 +43,7 @@ var (
 		DiscordServer string
 
 		API       string
+		BanchoAPI string
 		APISecret string
 
 		IP_API string
@@ -60,6 +61,7 @@ var (
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
+	qb        *qsql.DB
 	mg        mailgun.Mailgun
 )
 
@@ -83,6 +85,7 @@ func main() {
 		&config.CookieSecret:     rs.String(46),
 		&config.AvatarURL:        "https://a.ripple.moe",
 		&config.BaseURL:          "https://ripple.moe",
+		&config.BanchoAPI:        "https://c.ripple.moe",
 		&config.API:              "http://localhost:40001/api/v1/",
 		&config.APISecret:        "Potato",
 		&config.IP_API:           "https://ip.zxq.co",
@@ -103,6 +106,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	qb = qsql.New(db.DB)
+	if err != nil {
+		panic(err)
+	}
 
 	// initialise mailgun
 	mg = mailgun.NewMailgun(
@@ -110,9 +117,6 @@ func main() {
 		config.MailgunPrivateAPIKey,
 		config.MailgunPublicAPIKey,
 	)
-
-	// initialise recaptcha
-	recaptcha.Init(config.RecaptchaPrivate)
 
 	if gin.Mode() == gin.DebugMode {
 		fmt.Println("Development environment detected. Starting fsnotify on template folder...")
@@ -178,6 +182,7 @@ func main() {
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
 	r.GET("/register", register)
+	r.POST("/register", registerSubmit)
 
 	r.GET("/u/:user", userProfile)
 

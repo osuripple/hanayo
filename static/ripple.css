@@ -248,3 +248,7 @@ code {
     border-radius: 4px;
 	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
+
+.g-recaptcha > div {
+	margin: 0 auto;
+}

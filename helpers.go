@@ -2,7 +2,14 @@ package main
 
 import (
 	"crypto/md5"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 //go:generate go run scripts/generate_mappings.go -g
@@ -24,4 +31,35 @@ func validatePassword(p string) string {
 	}
 
 	return ""
+}
+
+func recaptchaCheck(c *gin.Context) bool {
+	f := make(url.Values)
+	f.Add("secret", config.RecaptchaPrivate)
+	f.Add("response", c.PostForm("g-recaptcha-response"))
+	f.Add("remoteip", clientIP(c))
+
+	req, err := http.Post("https://www.google.com/recaptcha/api/siteverify",
+		"application/x-www-form-urlencoded", strings.NewReader(f.Encode()))
+	if err != nil {
+		c.Error(err)
+		return false
+	}
+
+	data, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		c.Error(err)
+		return false
+	}
+
+	var e struct {
+		Success bool `json:"success"`
+	}
+	err = json.Unmarshal(data, &e)
+	if err != nil {
+		c.Error(err)
+		return false
+	}
+
+	return e.Success
 }

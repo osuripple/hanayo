@@ -145,7 +145,7 @@ func passwordResetContinueSubmit(c *gin.Context) {
 		return
 	}
 
-	pass, err := bcrypt.GenerateFromPassword([]byte(cmd5(p)), bcrypt.DefaultCost)
+	pass, err := generatePassword(p)
 	if err != nil {
 		c.Error(err)
 		resp500(c)
@@ -153,7 +153,7 @@ func passwordResetContinueSubmit(c *gin.Context) {
 	}
 
 	_, err = db.Exec("UPDATE users SET password_md5 = ?, salt = '', password_version = '2' WHERE username = ?",
-		string(pass), username)
+		pass, username)
 	if err != nil {
 		c.Error(err)
 		resp500(c)
@@ -181,4 +181,9 @@ func renderResetPassword(c *gin.Context, username, k string, messages ...message
 			Messages: messages,
 		},
 	})
+}
+
+func generatePassword(p string) (string, error) {
+	s, err := bcrypt.GenerateFromPassword([]byte(cmd5(p)), bcrypt.DefaultCost)
+	return string(s), err
 }

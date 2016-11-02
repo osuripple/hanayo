@@ -1,8 +1,13 @@
 {{ define "tpl" }}
 <div class="ui container">
+	{{ $regEnabled := qb "SELECT value_int FROM system_settings WHERE name = 'registrations_enabled'" }}
 	{{ if .Context.User.ID }}
 		<div class="ui segment">
 			You're already logged in!
+		</div>
+	{{ else if not ($regEnabled.value_int.Bool) }}
+		<div class="ui error message">
+			Sorry, it's not possible to register at the moment. Please try again later.
 		</div>
 	{{ else }}
 		{{ if eq (.Gin.Query "stopsign") "1" }}
@@ -27,6 +32,11 @@
 								<label>Email</label>
 								<input type="email" name="email" placeholder="Email" value="{{ .FormData.email }}" required>
 							</div>
+							{{ with config "RecaptchaSite" }}
+								<div class="field">
+									<div class="g-recaptcha" data-sitekey="{{ . }}"></div>
+								</div>
+							{{ end }}
 						</form>
 					</div>
 					<div class="ui right aligned segment">

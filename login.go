@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"html/template"
 	"net/http"
 	"strings"
 	"time"
@@ -23,9 +24,12 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
-	param := "username"
-	if strings.Contains(c.PostForm("username"), "@") {
+	param := "username_safe"
+	u := c.PostForm("username")
+	if strings.Contains(u, "@") {
 		param = "email"
+	} else {
+		u = safeUsername(u)
 	}
 
 	var data struct {
@@ -44,7 +48,7 @@ func loginSubmit(c *gin.Context) {
 		s.country, u.privileges
 	FROM users u
 	LEFT JOIN users_stats s ON s.id = u.id
-	WHERE u.`+param+` = ? LIMIT 1`, strings.TrimSpace(c.PostForm("username"))).Scan(
+	WHERE u.`+param+` = ? LIMIT 1`, strings.TrimSpace(u)).Scan(
 		&data.ID, &data.Password,
 		&data.Username, &data.PasswordVersion,
 		&data.Country, &data.pRaw,
@@ -110,11 +114,15 @@ func loginSubmit(c *gin.Context) {
 		sess.Save()
 		c.Redirect(302, "/2fa_gateway/generate")
 	} else {
-		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", c.PostForm("username"))})
+		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
 		sess.Save()
 		c.Redirect(302, "/")
 	}
 	return
+}
+
+func safeUsername(u string) string {
+	return strings.TrimSpace(strings.Replace(strings.ToLower(u), " ", "_", -1))
 }
 
 func logout(c *gin.Context) {
@@ -140,9 +148,18 @@ func generateToken(id int, c *gin.Context) (string, error) {
 	_, err := db.Exec(
 		`INSERT INTO tokens(user, privileges, description, token, private)
 					VALUES (   ?,        '0',           ?,     ?,     '1');`,
-		id, c.Request.Header.Get("X-Real-IP"), cmd5(tok))
+		id, clientIP(c), cmd5(tok))
 	if err != nil {
 		return "", err
 	}
 	return tok, nil
+}
+
+func checkToken(s string, id int, c *gin.Context) (string, error) {
+	if err := db.QueryRow("SELECT 1 FROM tokens WHERE token = ?", cmd5(s)).Scan(new(int)); err == sql.ErrNoRows {
+		return generateToken(id, c)
+	} else if err != nil {
+		return "", err
+	}
+	return s, nil
 }
