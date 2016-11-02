@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strconv"
 	"strings"
 	"time"
 
@@ -82,6 +83,16 @@ func loginSubmit(c *gin.Context) {
 	// TODO: if bcrypt.Cost < bcrypt.DefaultCost, regenerate password with
 	// default cost.
 
+	sess := getSession(c)
+
+	if data.Privileges&common.UserPrivilegePendingVerification > 0 {
+		setYCookie(data.ID, c)
+		addMessage(c, warningMessage{"You will need to verify your account first."})
+		sess.Save()
+		c.Redirect(302, "/register/verify?u="+strconv.Itoa(data.ID))
+		return
+	}
+
 	if data.Privileges&common.UserPrivilegeNormal == 0 {
 		simpleReply(c, errorMessage{"You are not allowed to login. This means your account is either banned or locked."})
 		return
@@ -93,7 +104,6 @@ func loginSubmit(c *gin.Context) {
 
 	setYCookie(data.ID, c)
 
-	sess := getSession(c)
 	sess.Set("userid", data.ID)
 
 	tfaEnabled := is2faEnabled(data.ID)

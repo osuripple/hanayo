@@ -145,7 +145,30 @@ func registerResp(c *gin.Context, messages ...message) {
 }
 
 func verifyAccount(c *gin.Context) {
-	respEmpty(c, "Verify account")
+	sess := getSession(c)
+
+	i, _ := strconv.Atoi(c.Query("u"))
+	y, _ := c.Cookie("y")
+	err := db.QueryRow("SELECT 1 FROM identity_tokens WHERE token = ? AND userid = ?", y, i).Scan(new(int))
+	if err == sql.ErrNoRows {
+		addMessage(c, warningMessage{"Nope."})
+		sess.Save()
+		c.Redirect(302, "/")
+		return
+	}
+
+	var rPrivileges uint64
+	db.Get(&rPrivileges, "SELECT privileges FROM users WHERE id = ?", i)
+	if common.UserPrivileges(rPrivileges)&common.UserPrivilegePendingVerification == 0 {
+		addMessage(c, warningMessage{"Nope."})
+		sess.Save()
+		c.Redirect(302, "/")
+		return
+	}
+
+	resp(c, 200, "verify.html", &baseTemplateData{
+		TitleBar: "Verify account",
+	})
 }
 
 func tryBotnets(c *gin.Context) (string, string) {

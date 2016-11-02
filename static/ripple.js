@@ -119,6 +119,7 @@ var singlePageSnippets = {
       loadLeaderboard();
     });
   },
+
   "/friends": function() {
     $(".smalltext.button").click(function() {
       var t = $(this);
@@ -138,11 +139,23 @@ var singlePageSnippets = {
       });
     });
   },
+
   "/team": function() {
     $("#everyone").click(function() {
       $(".ui.modal").modal("show");
     });
   },
+
+  "/register/verify": function() {
+    var qu = query("u");
+    setInterval(function() {
+      $.getJSON(hanayoConf.banchoAPI + "/api/v1/verifiedStatus?u=" + qu, function(data) {
+        if (data.result >= 0) {
+          window.location.href = "/register/welcome?u=" + qu;
+        }
+      })
+    }, 5000)
+  }
 };
 
 $(document).ready(function(){
@@ -315,4 +328,17 @@ function addCommas(nStr) {
 		x1 = x1.replace(rgx, '$1' + ',' + '$2');
 	}
 	return x1 + x2;
+}
+
+// http://stackoverflow.com/a/901144/5328069
+function query(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }

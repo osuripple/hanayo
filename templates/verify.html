@@ -1,0 +1,17 @@
+{{ define "tpl" }}
+<div class="ui container">
+	 <div class="ui segment">
+		 Your account has been created, however it still <b>needs to be verified!</b>
+		 Please log in into <b><u>Bancho</u></b> using your account. If you're having
+		 trouble, <a href="/doc/1">follow this guide</a>.
+	 </div>
+	 <div class="ui centered error  message">
+		 <b class="big text">Do not let anyone except yourself log into your Ripple account!</b><br>
+		 Get on our <a href="{{ config "DiscordServer" }}">Discord server's</a> #help channel instead so that we can help you out if you have trouble connecting.
+	 </div>
+	 <div class="ui center aligned segment">
+		 <h1 class="ui heading">Waiting for verification</h1>
+		 <i class="circle notched huge loading icon"></i>
+	 </div>
+</div>
+{{ end }}

@@ -183,6 +183,7 @@ func main() {
 	r.GET("/logout", logout)
 	r.GET("/register", register)
 	r.POST("/register", registerSubmit)
+	r.GET("/register/verify", verifyAccount)
 
 	r.GET("/u/:user", userProfile)
 

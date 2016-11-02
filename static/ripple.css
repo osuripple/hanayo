@@ -252,3 +252,7 @@ code {
 .g-recaptcha > div {
 	margin: 0 auto;
 }
+
+.big.text {
+	font-size: 2rem;
+}
