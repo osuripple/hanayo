@@ -24,7 +24,7 @@ func startuato(engine *gin.Engine) {
 
 	// Inherit a net.Listener from our parent process or listen anew.
 	l, err := goagain.Listener()
-	if nil != err {
+	if err != nil {
 
 		// Listen on a TCP or a UNIX domain socket (TCP here).
 		if config.Unix {
@@ -32,7 +32,7 @@ func startuato(engine *gin.Engine) {
 		} else {
 			l, err = net.Listen("tcp", config.ListenTo)
 		}
-		if nil != err {
+		if err != nil {
 			schiavo.Bunker.Send(err.Error())
 			log.Fatalln(err)
 		}
@@ -49,7 +49,7 @@ func startuato(engine *gin.Engine) {
 		go http.Serve(l, engine)
 
 		// Kill the parent, now that the child has started successfully.
-		if err := goagain.Kill(); nil != err {
+		if err := goagain.Kill(); err != nil {
 			schiavo.Bunker.Send(err.Error())
 			log.Fatalln(err)
 		}
@@ -57,7 +57,7 @@ func startuato(engine *gin.Engine) {
 	}
 
 	// Block the main goroutine awaiting signals.
-	if _, err := goagain.Wait(l); nil != err {
+	if _, err := goagain.Wait(l); err != nil {
 		schiavo.Bunker.Send(err.Error())
 		log.Fatalln(err)
 	}
@@ -66,7 +66,7 @@ func startuato(engine *gin.Engine) {
 	// goroutines to terminate or a channel to become closed.
 	//
 	// In this case, we'll simply stop listening and wait one second.
-	if err := l.Close(); nil != err {
+	if err := l.Close(); err != nil {
 		schiavo.Bunker.Send(err.Error())
 		log.Fatalln(err)
 	}
