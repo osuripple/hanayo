@@ -11,14 +11,13 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"git.zxq.co/ripple/rippleapi/common"
-
-	"github.com/rjeczalik/notify"
-
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/pariz/gountries"
+	"github.com/rjeczalik/notify"
 	"github.com/thehowl/conf"
 )
 
@@ -219,10 +218,16 @@ func reloader() error {
 		return err
 	}
 	go func() {
+		var last time.Time
 		for range c {
+			if time.Since(last) < time.Second*3 {
+				continue
+			}
 			fmt.Println("Change detected! Refreshing templates")
 			simplePages = []templateConfig{}
 			loadTemplates("")
+			l.Close()
+			last = time.Now()
 		}
 		defer notify.Stop(c)
 	}()

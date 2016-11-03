@@ -12,8 +12,10 @@ Include=user_group.html
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">Community Managers</h1>
 			<p>
-				Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community.<br>
-				They are take care of our Discord server and reply to emails sent to <a href="mailto:support@ripple.moe">support@ripple.moe</a>. Community Managers have a red name in the in-game chat.
+				Community Managers deal with bans, silences, name changes and
+				pretty much everything that has to do with the community.<br>
+				They are take care of our Discord server and reply to emails
+				sent to <a href="mailto:support@ripple.moe">support@ripple.moe</a>. Community Managers have a red name in the in-game chat.
 			</p>
 			{{ template "userGroup" (.Get "users?sort=username,asc&privilege_group=%s" "community%20manager") }}
 		</div>

@@ -126,26 +126,13 @@ func main() {
 		}
 	}
 
+	// even if it's not release, we say that it's release
+	// so that gin doesn't spam
+	gin.SetMode(gin.ReleaseMode)
+
 	schiavo.Prefix = "hanayo"
 	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
 
-	fmt.Println("Starting session system...")
-	var store sessions.Store
-	if config.RedisMaxConnections != 0 {
-		store, err = sessions.NewRedisStore(
-			config.RedisMaxConnections,
-			config.RedisNetwork,
-			config.RedisAddress,
-			config.RedisPassword,
-			[]byte(config.CookieSecret),
-		)
-		if err != nil {
-			fmt.Println(err)
-			store = sessions.NewCookieStore([]byte(config.CookieSecret))
-		}
-	} else {
-		store = sessions.NewCookieStore([]byte(config.CookieSecret))
-	}
 	gobRegisters := []interface{}{
 		[]message{},
 		errorMessage{},
@@ -164,7 +151,42 @@ func main() {
 	fmt.Println("Setting up rate limiter...")
 	setUpLimiter()
 
-	fmt.Println("Starting webserver...")
+	fmt.Println("Exporting configuration...")
+
+	conf.Export(config, "hanayo.conf")
+
+	httpLoop()
+}
+
+func httpLoop() {
+	for {
+		e := generateEngine()
+		fmt.Println("Starting webserver...")
+		if !startuato(e) {
+			break
+		}
+	}
+}
+
+func generateEngine() *gin.Engine {
+	fmt.Println("Starting session system...")
+	var store sessions.Store
+	if config.RedisMaxConnections != 0 {
+		var err error
+		store, err = sessions.NewRedisStore(
+			config.RedisMaxConnections,
+			config.RedisNetwork,
+			config.RedisAddress,
+			config.RedisPassword,
+			[]byte(config.CookieSecret),
+		)
+		if err != nil {
+			fmt.Println(err)
+			store = sessions.NewCookieStore([]byte(config.CookieSecret))
+		}
+	} else {
+		store = sessions.NewCookieStore([]byte(config.CookieSecret))
+	}
 
 	r := gin.Default()
 
@@ -200,9 +222,7 @@ func main() {
 
 	r.NoRoute(notFound)
 
-	conf.Export(config, "hanayo.conf")
-
-	startuato(r)
+	return r
 }
 
 const alwaysRespondText = `Ooops! Looks like something went really wrong while trying to process your request.

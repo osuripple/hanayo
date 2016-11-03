@@ -10,11 +10,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var l net.Listener
+
 func startuato(engine *gin.Engine) {
-	var (
-		l   net.Listener
-		err error
-	)
+	var err error
 
 	// Listen on a TCP or a UNIX domain socket (TCP here).
 	if config.Unix {
