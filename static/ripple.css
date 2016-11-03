@@ -10,8 +10,8 @@
 	margin-bottom: 20px;
 	position: relative;
 	background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: cover;
+	background-position: center bottom;
+	background-size: cover;
 }
 @media (max-width: 700px) {
 	.huge.heading {
@@ -88,14 +88,14 @@ a.inherit:hover {
 }
 
 .top.right.icon {
-    cursor: pointer;
-    position: absolute;
-    margin: 0;
-    top: .78575em;
-    right: .5em;
-    opacity: .7;
-    -webkit-transition: opacity .1s ease;
-    transition: opacity .1s ease;
+	cursor: pointer;
+	position: absolute;
+	margin: 0;
+	top: .78575em;
+	right: .5em;
+	opacity: .7;
+	-webkit-transition: opacity .1s ease;
+	transition: opacity .1s ease;
 }
 .no.top.margin {
 	margin-top: 0;
@@ -242,10 +242,10 @@ a.inherit:hover {
 /* thanks bootstrap */
 code {
 	padding: 2px 4px;
-    font-size: 90%;
-    color: #c7254e;
-    background-color: #f9f2f4;
-    border-radius: 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
 	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
 
@@ -269,4 +269,13 @@ code {
 
 .nopadding.segment {
 	padding: 0;
+}
+
+@media (min-width: 768px) {
+	.firetrucking-right-menu {
+		display: flex;
+		margin-left: auto!important;
+		display: -webkit-box;
+		display: -ms-flexbox;
+	}
 }
