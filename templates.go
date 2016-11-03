@@ -12,6 +12,8 @@ import (
 	"os"
 	"strings"
 
+	"git.zxq.co/ripple/rippleapi/common"
+
 	"github.com/rjeczalik/notify"
 
 	"github.com/gin-gonic/contrib/sessions"
@@ -26,6 +28,7 @@ var baseTemplates = [...]string{
 	"templates/navbar.html",
 	"templates/simplepag.html",
 }
+var simplePages []templateConfig
 
 var gdb = gountries.New()
 
@@ -87,6 +90,10 @@ func loadTemplates(subdir string) {
 		templates[inName+i.Name()] = template.Must(template.New(i.Name()).Funcs(funcMap).ParseFiles(
 			append(files, baseTemplates[:]...)...,
 		))
+
+		if _c != nil {
+			simplePages = append(simplePages, *_c)
+		}
 	}
 }
 
@@ -214,6 +221,7 @@ func reloader() error {
 	go func() {
 		for range c {
 			fmt.Println("Change detected! Refreshing templates")
+			simplePages = []templateConfig{}
 			loadTemplates("")
 		}
 		defer notify.Stop(c)
@@ -224,6 +232,15 @@ func reloader() error {
 type templateConfig struct {
 	NoCompile bool
 	Include   string
+	Template  string
+
+	// Stuff that used to be in simpleTemplate
+	Handler          string
+	TitleBar         string
+	KyutGrill        string
+	MinPrivileges    uint64
+	HugeHeadingRight bool
+	AdditionalJS     string
 }
 
 func (t templateConfig) inc(prefix string) []string {
@@ -235,6 +252,14 @@ func (t templateConfig) inc(prefix string) []string {
 		a[i] = prefix + s
 	}
 	return a
+}
+
+func (t templateConfig) mp() common.UserPrivileges {
+	return common.UserPrivileges(t.MinPrivileges)
+}
+
+func (t templateConfig) additionalJS() []string {
+	return strings.Split(t.AdditionalJS, ",")
 }
 
 func parseConfig(s string) *templateConfig {
@@ -257,6 +282,7 @@ func parseConfig(s string) *templateConfig {
 				continue
 			}
 			conf.LoadRaw(&t, []byte(buff))
+			t.Template = strings.TrimPrefix(s, "templates/")
 			return &t
 		}
 		if !inConfig {
