@@ -23,7 +23,6 @@ func ircGenToken(c *gin.Context) {
 	for {
 		s = common.RandomString(32)
 		m = cmd5(s)
-		fmt.Println(s, m)
 		if db.QueryRow("SELECT 1 FROM irc_tokens WHERE token = ? LIMIT 1", m).
 			Scan(new(int)) == sql.ErrNoRows {
 			break
