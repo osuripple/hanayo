@@ -1,19 +1,21 @@
 package main
 
+// about using johnniedoe/contrib/gzip:
+// johnniedoe's fork fixes a critical issue for which .String resulted in
+// an ERR_DECODING_FAILED. This is an actual pull request on the contrib
+// repo, but apparently, gin is dead.
+
 import (
 	"encoding/gob"
 	"fmt"
 
 	"git.zxq.co/ripple/schiavolib"
 	"git.zxq.co/x/rs"
+	"github.com/fatih/structs"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
-	// johnniedoe's fork fixes a critical issue for which .String resulted in
-	// an ERR_DECODING_FAILED. This is an actual pull request on the contrib
-	// repo, but apparently, gin is dead.
-	"github.com/fatih/structs"
 	"github.com/johnniedoe/contrib/gzip"
 	"github.com/thehowl/conf"
 	"github.com/thehowl/qsql"
@@ -126,12 +128,12 @@ func main() {
 		}
 	}
 
+	schiavo.Prefix = "hanayo"
+	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
+
 	// even if it's not release, we say that it's release
 	// so that gin doesn't spam
 	gin.SetMode(gin.ReleaseMode)
-
-	schiavo.Prefix = "hanayo"
-	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
 
 	gobRegisters := []interface{}{
 		[]message{},
@@ -203,6 +205,7 @@ func generateEngine() *gin.Engine {
 
 	r.POST("/login", loginSubmit)
 	r.GET("/logout", logout)
+
 	r.GET("/register", register)
 	r.POST("/register", registerSubmit)
 	r.GET("/register/verify", verifyAccount)
@@ -217,6 +220,8 @@ func generateEngine() *gin.Engine {
 	r.GET("/2fa_gateway", tfaGateway)
 	r.GET("/2fa_gateway/clear", clear2fa)
 	r.GET("/2fa_gateway/verify", verify2fa)
+
+	r.GET("/irc/generate", ircGenToken)
 
 	loadSimplePages(r)
 
