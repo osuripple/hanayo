@@ -264,7 +264,11 @@ func (t templateConfig) mp() common.UserPrivileges {
 }
 
 func (t templateConfig) additionalJS() []string {
-	return strings.Split(t.AdditionalJS, ",")
+	parts := strings.Split(t.AdditionalJS, ",")
+	if len(parts) > 0 && parts[len(parts)-1] == "" {
+		parts = parts[:len(parts)-1]
+	}
+	return parts
 }
 
 func parseConfig(s string) *templateConfig {
