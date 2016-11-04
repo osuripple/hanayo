@@ -20,34 +20,37 @@ func simplePageFunc(p templateConfig) gin.HandlerFunc {
 			resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Forbidden", Messages: []message{warningMessage{"You should not be 'round here."}}})
 			return
 		}
-		resp(c, 200, p.Template, &baseTemplateData{
-			TitleBar:       p.TitleBar,
-			KyutGrill:      p.KyutGrill,
-			Scripts:        p.additionalJS(),
-			HeadingOnRight: p.HugeHeadingRight,
-		})
+		simple(c, p, nil)
 	}
 }
 
 func simpleReply(c *gin.Context, errs ...message) error {
-	var chosen templateConfig
-	for _, s := range simplePages {
-		if s.Handler == c.Request.URL.Path {
-			chosen = s
-		}
-	}
-	if chosen.Handler == "" {
+	t := getSimple(c.Request.URL.Path)
+	if t.Handler == "" {
 		return errors.New("simpleReply: simplepage not found")
 	}
-	resp(c, 200, chosen.Template, &baseTemplateData{
-		TitleBar:       chosen.TitleBar,
-		KyutGrill:      chosen.KyutGrill,
-		Scripts:        chosen.additionalJS(),
-		HeadingOnRight: chosen.HugeHeadingRight,
+	simple(c, t, errs)
+	return nil
+}
+
+func getSimple(h string) templateConfig {
+	for _, s := range simplePages {
+		if s.Handler == h {
+			return s
+		}
+	}
+	return templateConfig{}
+}
+
+func simple(c *gin.Context, p templateConfig, errs []message) {
+	resp(c, 200, p.Template, &baseTemplateData{
+		TitleBar:       p.TitleBar,
+		KyutGrill:      p.KyutGrill,
+		Scripts:        p.additionalJS(),
+		HeadingOnRight: p.HugeHeadingRight,
 		FormData:       normaliseURLValues(c.Request.PostForm),
 		Messages:       errs,
 	})
-	return nil
 }
 
 func normaliseURLValues(uv url.Values) map[string]string {
