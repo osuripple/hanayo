@@ -156,7 +156,7 @@ function loadScoresPage(type, mode) {
           escapeHTML(v.beatmap.song_name) + " <b>" + getScoreMods(v.mods) + "</b> <i>(" + v.accuracy.toFixed(2) + "%)</i><br />" +
           "<div class='subtitle'><time class='new timeago' datetime='" + v.time + "'>" + v.time + "</time></div></td>"
         ),
-        $("<td><b>" + ppOrScore(v.pp, v.score) + "</b></td>")
+        $("<td><b>" + ppOrScore(v.pp, v.score) + "</b>" + (v.completed == 3 ? "<br>" + downloadStar(v.id) : "") +  "</td>")
       ));
     });
     $(".new.timeago").timeago().removeClass("new");
@@ -166,7 +166,10 @@ function loadScoresPage(type, mode) {
       enable = false;
     disableLoadMoreButton(type, mode, enable);
   });
-};
+}
+function downloadStar(id) {
+  return "<a href='/web/replays/" + id + "'><i class='star icon'></i>Download</a>";
+}
 function disableLoadMoreButton(type, mode, enable) {
   var button = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] .load-more-button");
   if (enable) button.removeClass("disabled");
