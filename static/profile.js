@@ -191,16 +191,27 @@ function viewScoreInfo() {
                       + (s.full_combo ? " (full combo)" : ""),
     "Difficulty":   s.beatmap.difficulty2[modesShort[s.play_mode]] + " stars",
     "Mods":         getScoreMods(s.mods, true),
-    "300s":         addCommas(s.count_300),
-    "100s":         addCommas(s.count_100),
-    "50s":          addCommas(s.count_50),
-    "Gekis":        addCommas(s.count_geki),
-    "Katus":        addCommas(s.count_katu),
-    "Misses":       addCommas(s.count_miss),
+  };
+
+  // hits data
+  var hd = {};
+  var trans = modeTranslations[s.play_mode];
+  [
+    s.count_300,
+    s.count_100,
+    s.count_50,
+    s.count_geki,
+    s.count_katu,
+    s.count_miss,
+  ].forEach(function(val, i) {
+    hd[trans[i]] = val;
+  });
+
+  data = $.extend(data, hd, {
     "Ranked?":      s.completed == 3 ? "Yes" : "No",
     "Achieved":     s.time,
     "Mode":         modes[s.play_mode],
-  };
+  });
 
   var els = [];
   $.each(data, function(key, value) {
@@ -216,6 +227,41 @@ function viewScoreInfo() {
   $("#score-data-table").append(els);
   $(".ui.modal").modal("show");
 }
+
+var modeTranslations = [
+  [
+    "300s",
+    "100s",
+    "50s",
+    "Gekis",
+    "Katus",
+    "Misses"
+  ],
+  [
+    "GREATs",
+    "GOODs",
+    "50s",
+    "GREATs (Gekis)",
+    "GOODs (Katus)",
+    "Misses"
+  ],
+  [
+    "Fruits (300s)",
+    "Ticks (100s)",
+    "Droplets",
+    "Gekis",
+    "Droplet misses",
+    "Misses"
+  ],
+  [
+    "300s",
+    "200s",
+    "50s",
+    "Max 300s",
+    "100s",
+    "Misses"
+  ]
+];
 
 // helper functions copied from user.js in old-frontend
 function getScoreMods(m, noplus) {
