@@ -273,10 +273,13 @@ code {
 
 @media (min-width: 768px) {
 	.firetrucking-right-menu {
-		display: flex;
 		margin-left: auto!important;
-		display: -webkit-box;
+		display: flex;
 		display: -ms-flexbox;
+		-ms-flex-align: inherit;
+		align-items: inherit;
+		-ms-flex-direction: inherit;
+		flex-direction: inherit;
 	}
 }
 
