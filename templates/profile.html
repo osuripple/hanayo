@@ -67,76 +67,78 @@
 					<a class="{{ favMode $favouritemode $k }}item" data-mode="{{ $k }}" href="/u/{{ $user.id }}?mode={{ $k }}">{{ $v }}</a>
 				{{ end }}
 			</div>
-			<div class="ui three column divided segment grid">
-				<div class="row">
-					<div class="column">
-						<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}. 
-						They signed up on Ripple {{ time $user.registered_on }}.
-						Last seen: {{ time $user.latest_activity }}.
-						{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}
-					</div>
-					<div class="column">
-						{{ if and (not .badges) (not .custom_badge) }}
-							This user hasn't got any badges!
-						{{ else }}
-							<div class="ui grid">
-								{{ range .badges }}
-									<div class="eight wide centered column">
-										<i class="circular {{ faIcon .icon }} big icon"></i><br>
-										<b>{{ .name }}</b>
-									</div>
-								{{ end }}
-								{{ with .custom_badge }}
-									<div class="eight wide centered column">
-										<i class="circular {{ faIcon .icon }} big icon"></i><br>
-										<b><i>{{ .name }}</i></b>
-									</div>
-								{{ end }}
-							</div>
-						{{ end }}
-					</div>
-					<div class="column">
-						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
-							<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
-								<table class="ui very basic two column compact table nopad">
-									<tbody>
-										<tr>
-											<td><b>PP</b></td>
-											<td>{{ humanize .pp }}</td>
-										</tr>
-										<tr>
-											<td><b>Ranked score</b></td>
-											<td>{{ humanize .ranked_score }}</td>
-										</tr>
-										<tr>
-											<td><b>Total score</b></td>
-											<td>{{ humanize .total_score }}</td>
-										</tr>
-										<tr>
-											<td><b>Playcount</b></td>
-											<td>{{ humanize .playcount }}</td>
-										</tr>
-										<tr>
-											<td><b>Replays watched</b></td>
-											<td>{{ humanize .replays_watched }}</td>
-										</tr>
-										<tr>
-											<td><b>Total hits</b></td>
-											<td>{{ humanize .total_hits }}</td>
-										</tr>									<tr>
-											<td><b>Accuracy</b></td>
-											<td>{{ printf "%.2f" .accuracy }}%</td>
-										</tr>
-									</tbody>
-								</table>
-								<div class="ui blue progress little margin top" data-percent="{{ levelPercent .level }}">
-									<div class="bar">
-										<div class="progress">{{ levelPercent .level }}%</div>
-									</div>
-									<div class="label">Level {{ level .level }}</div>
+			<div class="ui segment">
+				<div class="ui three column divided stackable grid">
+					<div class="row">
+						<div class="column">
+							<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}. 
+							They signed up on Ripple {{ time $user.registered_on }}.
+							Last seen: {{ time $user.latest_activity }}.
+							{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}
+						</div>
+						<div class="column">
+							{{ if and (not .badges) (not .custom_badge) }}
+								This user hasn't got any badges!
+							{{ else }}
+								<div class="ui grid">
+									{{ range .badges }}
+										<div class="eight wide centered column">
+											<i class="circular {{ faIcon .icon }} big icon"></i><br>
+											<b>{{ .name }}</b>
+										</div>
+									{{ end }}
+									{{ with .custom_badge }}
+										<div class="eight wide centered column">
+											<i class="circular {{ faIcon .icon }} big icon"></i><br>
+											<b><i>{{ .name }}</i></b>
+										</div>
+									{{ end }}
 								</div>
-							</div>
-						{{ end }}
+							{{ end }}
+						</div>
+						<div class="column">
+							{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
+								<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
+									<table class="ui very basic two column compact table nopad">
+										<tbody>
+											<tr>
+												<td><b>PP</b></td>
+												<td>{{ humanize .pp }}</td>
+											</tr>
+											<tr>
+												<td><b>Ranked score</b></td>
+												<td>{{ humanize .ranked_score }}</td>
+											</tr>
+											<tr>
+												<td><b>Total score</b></td>
+												<td>{{ humanize .total_score }}</td>
+											</tr>
+											<tr>
+												<td><b>Playcount</b></td>
+												<td>{{ humanize .playcount }}</td>
+											</tr>
+											<tr>
+												<td><b>Replays watched</b></td>
+												<td>{{ humanize .replays_watched }}</td>
+											</tr>
+											<tr>
+												<td><b>Total hits</b></td>
+												<td>{{ humanize .total_hits }}</td>
+											</tr>									<tr>
+												<td><b>Accuracy</b></td>
+												<td>{{ printf "%.2f" .accuracy }}%</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="ui blue progress little margin top" data-percent="{{ levelPercent .level }}">
+										<div class="bar">
+											<div class="progress">{{ levelPercent .level }}%</div>
+										</div>
+										<div class="label">Level {{ level .level }}</div>
+									</div>
+								</div>
+							{{ end }}
+						</div>
 					</div>
 				</div>
 			</div> <!-- end grid segment -->
