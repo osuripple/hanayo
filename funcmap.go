@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"math"
 	"math/rand"
+	"net/http"
 	"sort"
 	"strconv"
 	"strings"
@@ -317,6 +318,8 @@ var funcMap = template.FuncMap{
 		t, _ := time.Parse(time.RFC3339, s)
 		return t.After(time.Now())
 	},
+
+	// qsql functions
 	"qb": func(q string, p ...interface{}) map[string]qsql.String {
 		r, _ := qb.QueryRow(q, p...)
 		return r
@@ -328,6 +331,19 @@ var funcMap = template.FuncMap{
 	"qbe": func(q string, p ...interface{}) int {
 		i, _, _ := qb.Exec(q, p...)
 		return i
+	},
+
+	// bget makes a request to the bancho api
+	// https://docs.ripple.moe/docs/banchoapi/v1
+	"bget": func(ept string, qs ...interface{}) map[string]interface{} {
+		d, err := http.Get(fmt.Sprintf(config.BanchoAPI+"/api/v1/"+ept, qs...))
+		if err != nil {
+			return nil
+		}
+		x := make(map[string]interface{})
+		data, _ := ioutil.ReadAll(d.Body)
+		json.Unmarshal(data, &x)
+		return x
 	},
 }
 var hanayoStarted = time.Now().UnixNano()

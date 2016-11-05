@@ -17,8 +17,10 @@ KyutGrill=homepage2.jpg
 			</p>
 			<p>
 				Ripple is a private osu! server, featuring multiplayer, PP, a very active community
-				and a development team going strong implementing new features and squashing bugs. We
-				currently have <b>1,337</b> users, of which <b>137</b> online this very moment!
+				and a development team going strong implementing new features and squashing bugs.
+				It has also a very friendly community, and it's
+				<a href="https://git.zxq.co/ripple/ripple">open source!</a>
+				{{ with bget "onlineUsers" }} Just so you know, <b>we currently have {{ .result }} users online!</b>{{ end }}
 			</p>
 			<h3 class="ui header center aligned">What are you waiting for? Join Ripple! It's risk-free:
 				you won't get your account banned if you play on Ripple.<br />You can also switch anytime
