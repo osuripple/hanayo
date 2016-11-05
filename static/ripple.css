@@ -283,6 +283,22 @@ code {
 	}
 }
 
+.firetrucking-right-menu .item {
+	margin-left: 0;
+}
+
 .score.rank {
 	height: 1.2rem;
 }
+
+/* quick dirty partially-working menu fixes for mobile */
+@media (max-width: 911px) {
+	#navbar .item {
+		margin: 0 !important;
+	}
+	#navbar {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+

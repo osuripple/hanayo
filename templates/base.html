@@ -21,7 +21,7 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 		<div class="ui full height main wrapper"{{ if and .DisableHH .KyutGrill }} style="background-image: url('/static/headers/{{ .KyutGrill }}');"{{ end }}>
 			{{ template "navbar" . }}
 			{{ if not .DisableHH }}
-				<div class="huge heading {{ and .HeadingOnRight "right" }} dropped"
+				<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped"
 					style="background-image: url('/static/headers/{{ or .KyutGrill "default.jpg" }}');">
 					<h1>{{ if .HeadingTitle }}{{ html .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
 				</div>
