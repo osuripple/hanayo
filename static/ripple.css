@@ -279,3 +279,7 @@ code {
 		display: -ms-flexbox;
 	}
 }
+
+.score.rank {
+	height: 1.2rem;
+}

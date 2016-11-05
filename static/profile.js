@@ -152,7 +152,7 @@ function loadScoresPage(type, mode) {
       var scoreRank = getRank(mode, v.mods, v.accuracy, v.count_300, v.count_100, v.count_50, v.count_miss);
       table.append($("<tr class='new score-row' data-scoreid='" + v.id + "' />").append(
         $(
-          "<td><img src='/static/ranking-icons/" + scoreRank + ".png' alt='" + scoreRank.toUpperCase() + "'> " +
+          "<td><img src='/static/ranking-icons/" + scoreRank + ".svg' class='score rank' alt='" + scoreRank + "'> " +
           escapeHTML(v.beatmap.song_name) + " <b>" + getScoreMods(v.mods) + "</b> <i>(" + v.accuracy.toFixed(2) + "%)</i><br />" +
           "<div class='subtitle'><time class='new timeago' datetime='" + v.time + "'>" + v.time + "</time></div></td>"
         ),
@@ -374,8 +374,8 @@ function getRank(gameMode, mods, acc, c300, c100, c50, cmiss) {
 
 	var hdfl = (mods & (Hidden | Flashlight | FadeIn)) > 0;
 
-	var ss = hdfl ? "sshd" : "ss";
-	var s = hdfl ? "shd" : "s";
+	var ss = hdfl ? "SSHD" : "SS";
+	var s = hdfl ? "SHD" : "S";
 
 	switch(gameMode) {
 		case 0:
@@ -390,15 +390,15 @@ function getRank(gameMode, mods, acc, c300, c100, c50, cmiss) {
 				return s;
 
 			if ((ratio300 > 0.8 && cmiss == 0) || (ratio300 > 0.9))
-				return "a";
+				return "A";
 
 			if ((ratio300 > 0.7 && cmiss == 0) || (ratio300 > 0.8))
-				return "b";
+				return "B";
 
 			if (ratio300 > 0.6)
-				return "c";
+				return "C";
 
-			return "d";
+			return "D";
 
 		case 2:
 			if (acc == 100)
@@ -408,15 +408,15 @@ function getRank(gameMode, mods, acc, c300, c100, c50, cmiss) {
 				return s;
 
 			if (acc > 94)
-				return "a";
+				return "A";
 
 			if (acc > 90)
-				return "b";
+				return "B";
 
 			if (acc > 85)
-				return "c";
+				return "C";
 
-			return "d";
+			return "D";
 
 		case 3:
 			if (acc == 100)
@@ -426,15 +426,15 @@ function getRank(gameMode, mods, acc, c300, c100, c50, cmiss) {
 				return s;
 
 			if (acc > 90)
-				return "a";
+				return "A";
 
 			if (acc > 80)
-				return "b";
+				return "B";
 
 			if (acc > 70)
-				return "c";
+				return "C";
 
-			return "d";
+			return "D";
 	}
 }
 
