@@ -11,34 +11,22 @@ KyutGrill=login2.jpg
 			You are already logged in!
 		</div>
 	{{ else }}
-		<div class="ui centered grid">
-			<div class="ten wide column">
-				<div class="ui raised segments">
-					<div class="ui segment">
-						<form id="login-form" class="ui form" method="post" action="/login">
-							<div class="field">
-								<label>Username (or email)</label>
-								<input 
-									type="text"
-									name="username"
-									placeholder="Username"
-									value="{{ .FormData.username }}"
-									required>
-							</div>
-							<div class="field">
-								<label>Password <a href="/pwreset">(forgot?)</a></label>
-								<input
-									type="password"
-									name="password"
-									placeholder="Password"
-									value="{{ .FormData.password }}"
-									required>
-							</div>
-						</form>
-					</div>
-					<div class="ui right aligned segment">
-						<button class="ui primary button" type="submit" form="login-form">Submit</button>
-					</div>
+		<div class="tiny container">
+			<div class="ui raised segments">
+				<div class="ui segment">
+					<form id="login-form" class="ui form" method="post" action="/login">
+						<div class="field">
+							<label>Username (or email)</label>
+							<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required>
+						</div>
+						<div class="field">
+							<label>Password <a href="/pwreset">(forgot?)</a></label>
+							<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
+						</div>
+					</form>
+				</div>
+				<div class="ui right aligned segment">
+					<button class="ui primary button" type="submit" form="login-form">Submit</button>
 				</div>
 			</div>
 		</div>

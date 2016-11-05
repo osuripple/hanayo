@@ -1,18 +1,18 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ if .Session.Get "2fa_must_validate" }}
-		<div class="ui centered grid">
-			<div class="ten wide column">
-				<div class="ui raised segments">
-					<div class="ui segment">
-						Hey, {{ .Context.User.Username }}. Before proceding any further on Ripple, we require you to use the message you just received on telegram to log in to your account.
-					</div>
-					<div class="ui segment">
-						<div class="ui form">
-							<div class="field">
-								<label>Telegram code <a href="/2fa_gateway/clear">(send again?)</a></label>
-								<input type="text" placeholder="e.g. AWYXZ13Y" id="telegram-code">
-							</div>
+		<div class="tiny container">
+			<div class="ui raised segments">
+				<div class="ui segment">
+					Hey, {{ .Context.User.Username }}. Before proceding any
+					further on Ripple, we require you to use the message you
+					just received on telegram to log in to your account.
+				</div>
+				<div class="ui segment">
+					<div class="ui form">
+						<div class="field">
+							<label>Telegram code <a href="/2fa_gateway/clear">(send again?)</a></label>
+							<input type="text" placeholder="e.g. AWYXZ13Y" id="telegram-code">
 						</div>
 					</div>
 				</div>

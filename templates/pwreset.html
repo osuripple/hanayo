@@ -10,27 +10,25 @@ TitleBar=Reset password
 		</div>
 	{{ else }}
 		<!-- TODO: captcha -->
-		<div class="ui centered grid">
-			<div class="ten wide column">
-				<div class="ui raised segments">
-					<div class="ui segment">
-						Forgot your password? Worry not! Here you can reset it.
-						Just tell us your username or email address, and we'll take
-						care of it. You will receive an email at the email address
-						you used to sign up on Ripple. To continue the password
-						reset procedure, click the link on that email.
-					</div>
-					<div class="ui segment">
-						<form id="pw-reset-form" class="ui form" method="post" action="/pwreset">
-							<div class="field">
-								<label>Username (or email)</label>
-								<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required>
-							</div>
-						</form>
-					</div>
-					<div class="ui right aligned segment">
-						<button class="ui primary button" type="submit" form="pw-reset-form">Submit</button>
-					</div>
+		<div class="tiny container">
+			<div class="ui raised segments">
+				<div class="ui segment">
+					Forgot your password? Worry not! Here you can reset it.
+					Just tell us your username or email address, and we'll take
+					care of it. You will receive an email at the email address
+					you used to sign up on Ripple. To continue the password
+					reset procedure, click the link on that email.
+				</div>
+				<div class="ui segment">
+					<form id="pw-reset-form" class="ui form" method="post" action="/pwreset">
+						<div class="field">
+							<label>Username (or email)</label>
+							<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required>
+						</div>
+					</form>
+				</div>
+				<div class="ui right aligned segment">
+					<button class="ui primary button" type="submit" form="pw-reset-form">Submit</button>
 				</div>
 			</div>
 		</div>

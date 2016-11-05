@@ -1,24 +1,21 @@
 {{ define "tpl" }}
 <div class="ui container">
-	<div class="ui centered grid">
-		<div class="ten wide column">
-			<div class="ui raised segments">
-				<div class="ui segment">
-					Glad to have you back here, {{ .Username }}! To finish the
-					password recovery, type in a new password:
-				</div>
-				<div class="ui segment">
-					<form id="pw-reset-form" class="ui form" method="post" action="/pwreset/continue">
-						<div class="field">
-							<label>Password</label>
-							<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
-						</div>
-						<input type="hidden" name="k" value="{{ .Key }}">
-					</form>
-				</div>
-				<div class="ui right aligned segment">
-					<button class="ui primary button" type="submit" form="pw-reset-form">Submit</button>
-				</div>
+	<div class="tiny container">
+		<div class="ui raised segments">
+			<div class="ui segment">
+				Glad to have you back here, {{ .Username }}! To finish the password recovery, type in a new password:
+			</div>
+			<div class="ui segment">
+				<form id="pw-reset-form" class="ui form" method="post" action="/pwreset/continue">
+					<div class="field">
+						<label>Password</label>
+						<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
+					</div>
+					<input type="hidden" name="k" value="{{ .Key }}">
+				</form>
+			</div>
+			<div class="ui right aligned segment">
+				<button class="ui primary button" type="submit" form="pw-reset-form">Submit</button>
 			</div>
 		</div>
 	</div>

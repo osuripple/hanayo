@@ -302,3 +302,16 @@ code {
 	}
 }
 
+.tiny.container {
+	margin: 0 auto;	
+}
+@media (max-width: 720px) {
+	.tiny.container {
+		width: auto;
+	}
+}
+@media (min-width: 720px) {
+	.tiny.container {
+		width: 720px;
+	}
+}

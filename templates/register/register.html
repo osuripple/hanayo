@@ -15,33 +15,31 @@
 				Remember: this seems like it's your second account! Do not multiaccount, or you're likely to get restricted!
 			</div>
 		{{ end }}
-		<div class="ui centered grid">
-			<div class="ten wide column">
-				<div class="ui raised segments">
-					<div class="ui segment">
-						<form id="register-form" class="ui form" method="post" action="/register">
-							<div class="field">
-								<label>Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)</label>
-								<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required pattern="^[A-Za-z0-9 _\[\]-]{2,15}$">
-							</div>
-							<div class="field">
-								<label>Password (at least 8 characters)</label>
-								<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required pattern="^.{8,}$">
-							</div>
-							<div class="field">
-								<label>Email</label>
-								<input type="email" name="email" placeholder="Email" value="{{ .FormData.email }}" required>
-							</div>
-							{{ with config "RecaptchaSite" }}
-								<div class="field">
-									<div class="g-recaptcha" data-sitekey="{{ . }}"></div>
-								</div>
-							{{ end }}
-						</form>
-					</div>
-					<div class="ui right aligned segment">
-						<button class="ui primary button" type="submit" form="register-form">Submit</button>
-					</div>
+		<div class="tiny container">
+			<div class="ui raised segments">
+				<div class="ui segment">
+					<form id="register-form" class="ui form" method="post" action="/register">
+						<div class="field">
+							<label>Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)</label>
+							<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required pattern="^[A-Za-z0-9 _\[\]-]{2,15}$">
+						</div>
+						<div class="field">
+							<label>Password (at least 8 characters)</label>
+							<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required pattern="^.{8,}$">
+						</div>
+						<div class="field">
+							<label>Email</label>
+							<input type="email" name="email" placeholder="Email" value="{{ .FormData.email }}" required>
+						</div>
+						{{ with config "RecaptchaSite" }}
+						<div class="field">
+							<div class="g-recaptcha" data-sitekey="{{ . }}"></div>
+						</div>
+						{{ end }}
+					</form>
+				</div>
+				<div class="ui right aligned segment">
+					<button class="ui primary button" type="submit" form="register-form">Submit</button>
 				</div>
 			</div>
 		</div>
