@@ -175,7 +175,11 @@ var singlePageSnippets = {
         }
       });
       obj.play_style = ps;
-      console.log(obj);
+      var f = $(this);
+      api("users/self/settings", obj, function(data) {
+        showMessage("success", "Your new settings have been saved.");
+        f.removeClass("loading");
+      }, true);
       // todo: make it interact with the api
       return false;
     });
@@ -251,7 +255,7 @@ function closeClosestMessage() {
     .transition('fade');
 };
 
- function showMessage(type, message) {
+function showMessage(type, message) {
   var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + message + '</div>');
   newEl.find(".close.icon").click(closeClosestMessage);
   $("#messages-container").append(newEl);
@@ -259,7 +263,7 @@ function closeClosestMessage() {
 };
 
 // function for all api calls
- function api(endpoint, data, success) {
+function api(endpoint, data, success, post) {
   if (typeof data == "function") {
     success = data;
     data = null;
@@ -268,9 +272,11 @@ function closeClosestMessage() {
   var errorMessage = "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
 
   $.ajax({
+    method:   (post ? "POST" : "GET"),
     dataType: "json",
     url:      "/api/v1/" + endpoint,
-    data:     data,
+    data:     (post ? JSON.stringify(data) : data),
+    contentType: (post ? "application/json; charset=utf-8" : ""),
     success:  function(data) {
       if (data.code != 200) {
         console.warn(data);

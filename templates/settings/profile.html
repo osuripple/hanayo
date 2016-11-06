@@ -12,15 +12,7 @@ MinPrivileges=2
 		<div class="twelve wide column">
 			<div class="ui segment">
 				<form class="ui form" action="post">
-					{{ $d := qb `
-SELECT
-	u.email, s.username_aka, s.favourite_mode as fm,
-	s.show_custom_badge as scb, s.custom_badge_icon as icon,
-	s.custom_badge_name as name, s.can_custom_badge as ccb,
-	s.play_style as ps
-FROM users u
-LEFT JOIN users_stats s ON u.id = s.id
-WHERE u.id = ?` .Context.User.ID }}
+					{{ $d := .Get "users/self/settings" }}
 					<h3 class="ui header">General</h3>
 					<div class="field">
 						<label><a href="/help">Username</a></label>
@@ -38,11 +30,11 @@ WHERE u.id = ?` .Context.User.ID }}
 						<label>Favourite mode</label>
 						<select class="ui dropdown" name="favourite_mode">
 							{{ range $k, $v := modes }}
-								<option value="{{ $k }}" {{ if eq $d.fm.Int $k }}selected{{ end }}>{{ $v }}</a>
+								<option value="{{ $k }}" {{ if eq (int $d.favourite_mode) $k }}selected{{ end }}>{{ $v }}</a>
 							{{ end }}
 						</select>
 					</div>
-					{{ if and (has .Context.User.Privileges 4) $d.ccb.Bool }}
+					{{ if has .Context.User.Privileges 4 }}
 						<h3 class="ui header">Custom badge</h3>
 						<div class="ui warning message">
 							<b>Do not use offensive badges and do not pretend to
@@ -51,18 +43,18 @@ WHERE u.id = ?` .Context.User.ID }}
 							be able to edit your custom badge anymore.
 						</div>
 						<div class="ui toggle checkbox">
-							<input type="checkbox" name="custom_badge.show" {{ if $d.scb.Bool }}checked{{ end }}>
+							<input type="checkbox" name="custom_badge.show" {{ if $d.custom_badge.show }}checked{{ end }}>
 							<label>Enable</label>
 						</div>
 						<p><a href="http://semantic-ui.com/elements/icon.html">Icon reference</a></p>
 						<div class="ui two column center aligned grid" style="margin-top: 0">
 							<div class="column">
-								<i class="circular {{ faIcon $d.icon.String }} big icon" id="badge-icon"></i><br>
-								<b id="badge-name">{{ $d.name }}</b>
+								<i class="circular {{ faIcon $d.custom_badge.icon }} big icon" id="badge-icon"></i><br>
+								<b id="badge-name">{{ $d.custom_badge.name }}</b>
 							</div>
 							<div class="column">
-								<p><input type="text" name="custom_badge.icon" placeholder="plane, left chevron, hand spock..." value="{{ $d.icon.String}}"></p>
-								<p><input type="text" name="custom_badge.name" placeholder="Dinosaur, oompa-loompa, cool guy..." value="{{ $d.name }}"></p>
+								<p><input type="text" name="custom_badge.icon" placeholder="plane, left chevron, hand spock..." value="{{ $d.custom_badge.icon }}"></p>
+								<p><input type="text" name="custom_badge.name" placeholder="Dinosaur, oompa-loompa, cool guy..." value="{{ $d.custom_badge.name }}"></p>
 							</div>
 						</div>
 					{{ end }}
@@ -70,7 +62,7 @@ WHERE u.id = ?` .Context.User.ID }}
 					<div class="ui three column grid" id="checkbox-grid">
 						{{ range $k, $v := styles }}
 							<div class="column">
-								{{ $checked := band $d.ps.Int (shift 1 $k) }}
+								{{ $checked := band (int $d.play_style) (shift 1 $k) }}
 								<div class="ui checkbox">
 									<input type="checkbox" data-sv="{{ shift 1 $k }}" {{ if $checked }}checked{{ end }}>
 									<label>{{ $v }}</label>
