@@ -105,6 +105,7 @@ func loginSubmit(c *gin.Context) {
 	setYCookie(data.ID, c)
 
 	sess.Set("userid", data.ID)
+	sess.Set("pw", cmd5(data.Password))
 
 	tfaEnabled := is2faEnabled(data.ID)
 	if !tfaEnabled {
@@ -122,7 +123,7 @@ func loginSubmit(c *gin.Context) {
 
 	if tfaEnabled {
 		sess.Save()
-		c.Redirect(302, "/2fa_gateway/generate")
+		c.Redirect(302, "/2fa_gateway")
 	} else {
 		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
 		sess.Save()

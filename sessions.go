@@ -26,17 +26,26 @@ func sessionInitializer() func(c *gin.Context) {
 				Expires: time.Now().Add(time.Hour * 24 * 30 * 1),
 			})
 		}
+		var passwordChanged bool
 		userid := sess.Get("userid")
 		if userid, ok := userid.(int); ok {
 			ctx.User.ID = userid
-			var pRaw int64
-			err := db.QueryRow("SELECT username, privileges FROM users WHERE id = ?", userid).
-				Scan(&ctx.User.Username, &pRaw)
+			var (
+				pRaw     int64
+				password string
+			)
+			err := db.QueryRow("SELECT username, privileges, password_md5 FROM users WHERE id = ?", userid).
+				Scan(&ctx.User.Username, &pRaw, &password)
 			if err != nil {
 				c.Error(err)
 			}
 			ctx.User.Privileges = common.UserPrivileges(pRaw)
 			db.Exec("UPDATE users SET latest_activity = ? WHERE id = ?", time.Now().Unix(), userid)
+			if s, ok := sess.Get("pw").(string); !ok || cmd5(password) != s {
+				ctx = context{}
+				sess.Clear()
+				passwordChanged = true
+			}
 		}
 
 		var addBannedMessage bool
@@ -51,6 +60,9 @@ func sessionInitializer() func(c *gin.Context) {
 
 		if addBannedMessage {
 			addMessage(c, warningMessage{"You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."})
+		}
+		if passwordChanged {
+			addMessage(c, warningMessage{"You have been automatically logged out for security reasons. Please <a href='/login'>log back in</a>."})
 		}
 
 		c.Next()
