@@ -57,8 +57,8 @@ WHERE u.id = ?` .Context.User.ID }}
 						<p><a href="http://semantic-ui.com/elements/icon.html">Icon reference</a></p>
 						<div class="ui two column center aligned grid" style="margin-top: 0">
 							<div class="column">
-								<i class="circular {{ faIcon $d.icon.String }} big icon"></i><br>
-								<b>{{ $d.name }}</b>
+								<i class="circular {{ faIcon $d.icon.String }} big icon" id="badge-icon"></i><br>
+								<b id="badge-name">{{ $d.name }}</b>
 							</div>
 							<div class="column">
 								<p><input type="text" name="custom_badge.icon" placeholder="plane, left chevron, hand spock..." value="{{ $d.icon.String}}"></p>

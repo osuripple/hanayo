@@ -158,6 +158,12 @@ var singlePageSnippets = {
   },
 
   "/settings": function() {
+    $("input[name='custom_badge.icon']").on("input", function() {
+      $("#badge-icon").attr("class", "circular big icon " + escapeHTML($(this).val()));
+    });
+    $("input[name='custom_badge.name']").on("input", function() {
+      $("#badge-name").html(escapeHTML($(this).val()));
+    });
     $("form").submit(function(e) {
       e.preventDefault();
       var obj = formToObject($(this));
