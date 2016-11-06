@@ -155,7 +155,25 @@ var singlePageSnippets = {
         }
       })
     }, 5000)
-  }
+  },
+
+  "/settings": function() {
+    $("form").submit(function(e) {
+      e.preventDefault();
+      var obj = formToObject($(this));
+      var ps = 0;
+      $(this).find("input[data-sv]").each(function(_, el) {
+        el = $(el);
+        if (el.is(":checked")) {
+          ps |= el.data("sv");
+        }
+      });
+      obj.play_style = ps;
+      console.log(obj);
+      // todo: make it interact with the api
+      return false;
+    });
+  },
 };
 
 $(document).ready(function(){
@@ -341,4 +359,41 @@ function query(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// Useful for forms contacting the Ripple API
+function formToObject(form) {
+  var inputs = form.find("input");
+  var obj = {};
+  inputs.each(function(_, el) {
+    el = $(el);
+    if (el.attr("name") === undefined) {
+      return;
+    }
+    var parts = el.attr("name").split(".");
+    var value;
+    switch (el.attr("type")) {
+    case "checkbox":
+      value = el.is(":checked");
+      break;
+    default:
+      value = el.val();
+      break;
+    }
+    obj = modifyObjectDynamically(obj, parts, value);
+  });
+  return obj;
+}
+
+// > modifyObjectDynamically({}, ["nice", "meme", "dude"], "lol")
+// { nice: { meme: { dude: 'lol' } } }
+function modifyObjectDynamically(obj, inds, set) {
+  if (inds.length === 1) {
+    obj[inds[0]] = set;
+  } else if (inds.length > 1) {
+    if (typeof obj[inds[0]] !== "object")
+      obj[inds[0]] = {};
+    obj[inds[0]] = modifyObjectDynamically(obj[inds[0]], inds.slice(1), set);
+  }
+  return obj;
 }

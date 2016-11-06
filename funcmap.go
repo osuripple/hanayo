@@ -321,15 +321,24 @@ var funcMap = template.FuncMap{
 
 	// qsql functions
 	"qb": func(q string, p ...interface{}) map[string]qsql.String {
-		r, _ := qb.QueryRow(q, p...)
+		r, err := qb.QueryRow(q, p...)
+		if err != nil {
+			fmt.Println(err)
+		}
 		return r
 	},
 	"qba": func(q string, p ...interface{}) []map[string]qsql.String {
-		r, _ := qb.Query(q, p...)
+		r, err := qb.Query(q, p...)
+		if err != nil {
+			fmt.Println(err)
+		}
 		return r
 	},
 	"qbe": func(q string, p ...interface{}) int {
-		i, _, _ := qb.Exec(q, p...)
+		i, _, err := qb.Exec(q, p...)
+		if err != nil {
+			fmt.Println(err)
+		}
 		return i
 	},
 
@@ -344,6 +353,14 @@ var funcMap = template.FuncMap{
 		data, _ := ioutil.ReadAll(d.Body)
 		json.Unmarshal(data, &x)
 		return x
+	},
+	// styles returns playstyle.Styles
+	"styles": func() []string {
+		return playstyle.Styles[:]
+	},
+	// shift shifts n1 by n2
+	"shift": func(n1, n2 int) int {
+		return n1 << uint(n2)
 	},
 }
 var hanayoStarted = time.Now().UnixNano()

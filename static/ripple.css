@@ -315,3 +315,7 @@ code {
 		width: 720px;
 	}
 }
+
+.ui.form .error.message, .ui.form .success.message, .ui.form .warning.message {
+	display: block !important;
+}
