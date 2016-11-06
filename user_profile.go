@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// TODO: replace with simple ResponseInfo containing userid
 type profileData struct {
 	baseTemplateData
 	UserID int

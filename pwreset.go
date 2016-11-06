@@ -92,12 +92,6 @@ func passwordReset(c *gin.Context) {
 	c.Redirect(302, "/")
 }
 
-type passwordResetContinueTData struct {
-	baseTemplateData
-	Username string
-	Key      string
-}
-
 func passwordResetContinue(c *gin.Context) {
 	k := c.Query("k")
 
@@ -173,13 +167,9 @@ func passwordResetContinueSubmit(c *gin.Context) {
 }
 
 func renderResetPassword(c *gin.Context, username, k string, messages ...message) {
-	resp(c, 200, "pwreset/continue.html", &passwordResetContinueTData{
-		Username: username,
-		Key:      k,
-		baseTemplateData: baseTemplateData{
-			TitleBar: "Reset password",
-			Messages: messages,
-		},
+	simple(c, getSimpleByFilename("pwreset/continue.html"), messages, map[string]interface{}{
+		"Username": username,
+		"Key":      k,
 	})
 }
 

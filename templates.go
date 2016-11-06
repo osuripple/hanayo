@@ -144,6 +144,7 @@ type baseTemplateData struct {
 	KyutGrill      string
 	DisableHH      bool // HH = Huge Heading
 	Messages       []message
+	RequestInfo    map[string]interface{}
 
 	// ignore, they're set by resp()
 	Context  context

@@ -20,14 +20,8 @@ func register(c *gin.Context) {
 	if c.Query("stopsign") != "1" {
 		u, _ := tryBotnets(c)
 		if u != "" {
-			resp(c, 200, "register/elmo.html", &passwordResetContinueTData{
-				Username: u,
-				baseTemplateData: baseTemplateData{
-					TitleBar:       "Elmo! Stop!",
-					HeadingTitle:   "Stop!",
-					KyutGrill:      "stop_sign.png",
-					HeadingOnRight: true,
-				},
+			simple(c, getSimpleByFilename("register/elmo.html"), nil, map[string]interface{}{
+				"Username": u,
 			})
 			return
 		}

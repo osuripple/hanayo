@@ -34,5 +34,5 @@ func ircGenToken(c *gin.Context) {
 		fmt.Sprintf("Your new IRC token is <code>%s</code>. The old IRC token is not valid anymore."+
 			"<br>Keep it safe, don't show it around, and store it now! "+
 			"We won't show it to you again.", s),
-	}})
+	}}, nil)
 }

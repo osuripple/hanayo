@@ -1,23 +1,30 @@
+{{/*###
+TitleBar=Elmo! Stop!
+HeadingTitle=Stop!
+KyutGrill=stop_sign.png
+HeadingOnRight=true
+*/}}
 {{ define "tpl" }}
 <div class="ui container">
 	<div class="ui raised segments">
 		<div class="ui segment">
+			{{ $username := .RequestInfo.Username }}
 			<img src="/static/jack_black.jpg" class="ui small right floated image" alt="Jack black">
 
-			<p>We see that you're trying to sign up while having already signed up as {{ .Username }}! Please note that multiaccounting is punishable, and can lead to a one month restriction!</p>
+			<p>We see that you're trying to sign up while having already signed up as {{ $username }}! Please note that multiaccounting is punishable, and can lead to a one month restriction!</p>
 
 			<ul>
 				<li>
-					If you're {{ .Username }}, keep in mind that multiaccounting
+					If you're {{ $username }}, keep in mind that multiaccounting
 					= ban.
 				</li>
 				<li>
-					If you're not {{ .Username }}, but you're using 
-					{{ .Username }}'s computer, please sign up on Ripple from
+					If you're not {{ $username }}, but you're using 
+					{{ $username }}'s computer, please sign up on Ripple from
 					your own computer.
 				</li>
 				<li>
-					If you live with {{ .Username }} and you don't have your own
+					If you live with {{ $username }} and you don't have your own
 					computer from which to sign up on Ripple, then please contact
 					support@ripple.moe, and we'll deal with your specific case.
 				</li>
@@ -25,7 +32,7 @@
 			
 			<p style="margin-bottom:50px;">
 				This warning may pop up also if you're using another computer
-				on the same network of {{ .Username }}. As long as you're not
+				on the same network of {{ $username }}. As long as you're not
 				using the same computer, you should be all good.
 			</p>
 		</div>
