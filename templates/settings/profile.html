@@ -11,7 +11,7 @@ MinPrivileges=2
 		{{ template "settingsSidebar" . }}
 		<div class="twelve wide column">
 			<div class="ui segment">
-				<form class="ui form" action="post">
+				<form class="ui form" method="post">
 					{{ $d := .Get "users/self/settings" }}
 					<h3 class="ui header">General</h3>
 					<div class="field">

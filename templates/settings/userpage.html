@@ -1,0 +1,30 @@
+{{/*###
+Handler=/settings/userpage
+TitleBar=Userpage
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui stackable grid">
+		{{ template "settingsSidebar" . }}
+		<div class="twelve wide column">
+			<div class="ui segment">
+				{{ with .Get "users/userpage?id=%d" .Context.User.ID }}
+					<form class="ui form" method="post">
+						<textarea class="monospace" name="data">{{ .userpage }}</textarea>
+						<div class="ui divider"></div>
+						<div class="ui segment twemoji" id="userpage-content">{{ parseUserpage .userpage | html }}</div>
+						<div class="ui green button" id="load-preview">Refresh preview</div>
+						<div class="ui divider"></div>
+						<div style="text-align: right">
+							<button type="submit" class="ui blue button">Save</button>
+						</div>
+					</form>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}

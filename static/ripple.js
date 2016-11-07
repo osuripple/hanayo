@@ -180,10 +180,31 @@ var singlePageSnippets = {
         showMessage("success", "Your new settings have been saved.");
         f.removeClass("loading");
       }, true);
-      // todo: make it interact with the api
       return false;
     });
   },
+
+  "/settings/userpage": function() {
+    $("#load-preview").click(function() {
+      $("#userpage-content").addClass("loading");
+      $.post("/settings/userpage/parse", $("textarea[name='data']").val(), function(data) {
+        var e = $("#userpage-content").removeClass("loading").html(data);
+        if (typeof twemoji !== "undefined") {
+          twemoji.parse(e[0]);
+        }
+      }, "text");
+    });
+    $("form").submit(function(e) {
+      e.preventDefault();
+      var obj = formToObject($(this));
+      var f = $(this);
+      api("users/self/userpage", obj, function(data) {
+        showMessage("success", "Your userpage have been saved.");
+        f.removeClass("loading");
+      }, true);
+      return false;
+    });
+  }
 };
 
 $(document).ready(function(){
@@ -375,7 +396,7 @@ function query(name, url) {
 
 // Useful for forms contacting the Ripple API
 function formToObject(form) {
-  var inputs = form.find("input");
+  var inputs = form.find("input, textarea");
   var obj = {};
   inputs.each(function(_, el) {
     el = $(el);

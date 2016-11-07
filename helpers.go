@@ -63,3 +63,14 @@ func recaptchaCheck(c *gin.Context) bool {
 
 	return e.Success
 }
+
+func parseBBCode(c *gin.Context) {
+	body, err := ioutil.ReadAll(c.Request.Body)
+	if err != nil {
+		c.Error(err)
+		c.String(200, "Error")
+		return
+	}
+	d := bbcodeCompiler.Compile(string(body))
+	c.String(200, d)
+}

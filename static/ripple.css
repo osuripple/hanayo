@@ -319,3 +319,8 @@ code {
 .ui.form .error.message, .ui.form .success.message, .ui.form .warning.message {
 	display: block !important;
 }
+
+textarea.monospace {
+	height: 320px;
+	font-family: "Consolas", monospace;
+}

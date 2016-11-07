@@ -223,6 +223,8 @@ func generateEngine() *gin.Engine {
 
 	r.GET("/irc/generate", ircGenToken)
 
+	r.POST("/settings/userpage/parse", parseBBCode)
+
 	loadSimplePages(r)
 
 	r.NoRoute(notFound)
