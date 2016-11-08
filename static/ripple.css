@@ -231,7 +231,7 @@ a.inherit:hover {
 }
 
 .emoji {
-	width: 1rem;
+	width: 1em;
 }
 
 .right.aligned { text-align: right; }
