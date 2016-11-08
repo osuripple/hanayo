@@ -8,6 +8,7 @@ NoCompile=true
 		{{ navbarItem .Path "Userpage" "/settings/userpage" }}
 		{{ navbarItem .Path "Avatar" "/settings/avatar" }}
 		{{ navbarItem .Path "Password" "/settings/password" }}
+		{{ navbarItem .Path "Two Factor Authentication" "/settings/2fa" }}
 		{{/* Stuff for donators */}}
 		{{ if has .Context.User.Privileges 4 }}
 			{{ navbarItem .Path "Discord donor" "/settings/discord" }}
