@@ -57,6 +57,11 @@
 									<i class="horizontal ellipsis icon"></i>
 								</button>
 							{{ end }}
+							{{ if eq $global.Context.User.ID $global.UserID }}
+								<a href="/settings" class="ui circular mini teal icon button">
+									<i class="edit icon"></i>
+								</a>
+							{{ end }}
 						</div>
 					</div>
 				</div>
