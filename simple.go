@@ -21,11 +21,15 @@ func simplePageFunc(p templateConfig) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		s := getContext(c)
 		if s.User.Privileges&p.mp() != p.mp() {
-			resp(c, 200, "empty.html", &baseTemplateData{TitleBar: "Forbidden", Messages: []message{warningMessage{"You should not be 'round here."}}})
+			resp403(c)
 			return
 		}
 		simple(c, p, nil, nil)
 	}
+}
+
+func resp403(c *gin.Context) {
+	respEmpty(c, "Forbidden", warningMessage{"You should not be 'round here."})
 }
 
 func simpleReply(c *gin.Context, errs ...message) error {

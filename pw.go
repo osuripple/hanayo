@@ -95,6 +95,7 @@ func passwordReset(c *gin.Context) {
 func passwordResetContinue(c *gin.Context) {
 	k := c.Query("k")
 
+	// todo: check logged in
 	if k == "" {
 		respEmpty(c, "Password reset", errorMessage{"Nope."})
 		return
@@ -118,6 +119,7 @@ func passwordResetContinue(c *gin.Context) {
 }
 
 func passwordResetContinueSubmit(c *gin.Context) {
+	// todo: check logged in
 	var username string
 	switch err := db.QueryRow("SELECT u FROM password_recovery WHERE k = ? LIMIT 1", c.PostForm("k")).
 		Scan(&username); err {
@@ -176,4 +178,68 @@ func renderResetPassword(c *gin.Context, username, k string, messages ...message
 func generatePassword(p string) (string, error) {
 	s, err := bcrypt.GenerateFromPassword([]byte(cmd5(p)), bcrypt.DefaultCost)
 	return string(s), err
+}
+
+func changePassword(c *gin.Context) {
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+	}
+	s, err := qb.QueryRow("SELECT email FROM users WHERE id = ?", ctx.User.ID)
+	if err != nil {
+		c.Error(err)
+	}
+	simple(c, getSimpleByFilename("settings/password.html"), nil, map[string]interface{}{
+		"email": s["email"],
+	})
+}
+
+func changePasswordSubmit(c *gin.Context) {
+	var messages []message
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+	}
+	defer func() {
+		s, err := qb.QueryRow("SELECT email FROM users WHERE id = ?", ctx.User.ID)
+		if err != nil {
+			c.Error(err)
+		}
+		simple(c, getSimpleByFilename("settings/password.html"), messages, map[string]interface{}{
+			"email": s["email"],
+		})
+	}()
+
+	var password string
+	db.Get(&password, "SELECT password_md5 FROM users WHERE id = ? LIMIT 1", ctx.User.ID)
+
+	if err := bcrypt.CompareHashAndPassword(
+		[]byte(password),
+		[]byte(cmd5(c.PostForm("currentpassword"))),
+	); err != nil {
+		messages = append(messages, errorMessage{"Wrong password."})
+		return
+	}
+
+	uq := new(common.UpdateQuery)
+	uq.Add("email", c.PostForm("email"))
+	if c.PostForm("newpassword") != "" {
+		if s := validatePassword(c.PostForm("newpassword")); s != "" {
+			messages = append(messages, errorMessage{s})
+			return
+		}
+		pw, err := generatePassword(c.PostForm("newpassword"))
+		if err == nil {
+			uq.Add("password_md5", pw)
+		}
+		sess := getSession(c)
+		sess.Set("pw", cmd5(pw))
+		sess.Save()
+	}
+	_, err := db.Exec("UPDATE users SET "+uq.Fields()+" WHERE id = ? LIMIT 1", append(uq.Parameters, ctx.User.ID)...)
+	if err != nil {
+		c.Error(err)
+	}
+
+	messages = append(messages, successMessage{"Your settings have been saved."})
 }

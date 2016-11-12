@@ -19,8 +19,8 @@ MinPrivileges=2
 						<input type="text" value="{{ .Context.User.Username }}" disabled>
 					</div>
 					<div class="field">
-						<label>Email address</label>
-						<input type="email" name="email" value="{{ $d.email }}" placeholder="Email address" required>
+						<label><a href="/settings/password">Email address</a></label>
+						<input type="email" value="{{ $d.email }}" placeholder="Email address" required disabled>
 					</div>
 					<div class="field">
 						<label>Alternative username (cannot be used for login)</label>

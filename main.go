@@ -223,6 +223,8 @@ func generateEngine() *gin.Engine {
 
 	r.GET("/irc/generate", ircGenToken)
 
+	r.GET("/settings/password", changePassword)
+	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
 
 	loadSimplePages(r)
