@@ -16,6 +16,10 @@ import (
 )
 
 func register(c *gin.Context) {
+	if getContext(c).User.ID != 0 {
+		resp403(c)
+		return
+	}
 	// todo: check registrations disabled
 	if c.Query("stopsign") != "1" {
 		u, _ := tryBotnets(c)
@@ -30,6 +34,10 @@ func register(c *gin.Context) {
 }
 
 func registerSubmit(c *gin.Context) {
+	if getContext(c).User.ID != 0 {
+		resp403(c)
+		return
+	}
 	// check registrations are enabled
 	var enabled bool
 	db.QueryRow("SELECT value_int FROM system_settings WHERE name = 'registrations_enabled'").Scan(&enabled)
@@ -139,6 +147,11 @@ func registerResp(c *gin.Context, messages ...message) {
 }
 
 func verifyAccount(c *gin.Context) {
+	if getContext(c).User.ID != 0 {
+		resp403(c)
+		return
+	}
+
 	i, ret := checkUInQS(c)
 	if ret {
 		return
@@ -160,6 +173,11 @@ func verifyAccount(c *gin.Context) {
 }
 
 func welcome(c *gin.Context) {
+	if getContext(c).User.ID != 0 {
+		resp403(c)
+		return
+	}
+
 	i, ret := checkUInQS(c)
 	if ret {
 		return
