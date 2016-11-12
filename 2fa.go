@@ -21,26 +21,50 @@ var allowedPaths = [...]string{
 
 // middleware to deny all requests to non-allowed pages
 func twoFALock(c *gin.Context) {
-	sess := getSession(c)
-	if v, _ := sess.Get("2fa_must_validate").(bool); !v {
-		c.Next()
-		return
-	}
-
 	// check it's not a static file
 	if len(c.Request.URL.Path) >= 8 && c.Request.URL.Path[:8] == "/static/" {
 		c.Next()
 		return
 	}
 
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		c.Next()
+		return
+	}
+
+	sess := getSession(c)
+	if v, _ := sess.Get("2fa_must_validate").(bool); !v {
+		// * check 2fa is enabled.
+		//   if it is,
+		//   * check whether the current ip is found in the database.
+		//     if it is, move on and show the page.
+		//     if it isn't, set 2fa_must_validate
+		//   if it isn't, move on.
+		enabled := is2faEnabled(ctx.User.ID)
+		if enabled {
+			err := db.QueryRow("SELECT 1 FROM ip_user WHERE userid = ? AND ip = ? LIMIT 1", ctx.User.ID, clientIP(c)).Scan(new(int))
+			if err != sql.ErrNoRows {
+				c.Next()
+				return
+			}
+			sess.Set("2fa_must_validate", true)
+		} else {
+			c.Next()
+			return
+		}
+	}
+
 	// check it's one of the few approved paths
 	for _, a := range allowedPaths {
 		if a == c.Request.URL.Path {
+			sess.Save()
 			c.Next()
 			return
 		}
 	}
 	addMessage(c, warningMessage{"You need to complete the 2fa challenge first."})
+	sess.Save()
 	c.Redirect(302, "/2fa_gateway")
 	c.Abort()
 }
