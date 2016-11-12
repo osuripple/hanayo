@@ -77,13 +77,13 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 				banchoAPI: {{ .Conf.BanchoAPI }}
 			};
 		</script>
-		<script src="/static/ripple.js?{{ unixNano }}"></script>
 		{{/* If we got some more scripts to print, print'em */}}
 		{{ if .Scripts }}
 			{{ range .Scripts }}
 				<script src="{{ . }}?{{ unixNano }}"></script>
 			{{ end }}
 		{{ end }}
+		<script src="/static/ripple.js?{{ unixNano }}"></script>
 	</body>
 </html>
 {{ end }}

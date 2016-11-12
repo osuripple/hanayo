@@ -204,6 +204,36 @@ var singlePageSnippets = {
       }, true);
       return false;
     });
+  },
+
+  "/donate": function() {
+    var sl = $("#months-slider")[0];
+    noUiSlider.create(sl, {
+      start: [1],
+      step: 1,
+      connect: [true, false],
+      range: {
+        min: [1],
+        max: [24],
+      }
+    });
+    var us = sl.noUiSlider;
+    var rates;
+    $.getJSON("http://api.coindesk.com/v1/bpi/currentprice.json", function(data) {
+      rates = data.bpi;
+      us.on('update', function() {
+        var months = us.get();
+        var priceEUR = Math.pow(months * 30 * 0.2, 0.70);
+        var priceBTC = priceEUR / rates.EUR.rate_float;
+        // dirty hack to get EUR to USD conversion. might replace with call to
+        // another proper api eventually
+        var priceUSD = priceBTC * rates.USD.rate_float;
+        $("#cost").html("<b>" + (+months).toFixed(0) + "</b> month" + (months == 1 ? "" : "s") +
+          " = <b>€ " + priceEUR.toFixed(2) + "</b><br><i>($ " + priceUSD.toFixed(2) + " / BTC " + priceBTC.toFixed(6) + ")</i>");
+        $("input[name='os0']").attr("value", (+months).toFixed(0) + " month" + (months == 1 ? "" : "s"));
+        $("#bitcoin-amt").text(priceBTC.toFixed(6));
+      });
+    });
   }
 };
 
