@@ -35,7 +35,13 @@
 			<div class="ui top attached segment overflow auto">
 				<div class="magic table">
 					<div class="table element">
-						<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="user avatar">
+						{{ if eq $global.UserID $global.Context.User.ID }}
+							<a href="/settings/avatar">
+						{{ end }}
+								<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="user avatar">
+						{{ if eq $global.UserID $global.Context.User.ID }}
+							</a>
+						{{ end }}							
 					</div>
 					<div class="table element">
 						<h1>{{ .username }}</h1>

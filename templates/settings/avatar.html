@@ -1,15 +1,34 @@
 {{/*###
 Handler=/settings/avatar
-TitleBar=Change avatar
+TitleBar=Avatar
 KyutGrill=settings2.jpg
+Include=menu.html
 MinPrivileges=2
 */}}
 {{ define "tpl" }}
 <div class="ui container">
-	<div class="ui segment">
-		<div id="croppie-thing">
+	<div class="ui stackable grid">
+		{{ template "settingsSidebar" . }}
+		<div class="twelve wide column">
+			<div class="ui center aligned segment">
+				<div class="ui compact segment" style="margin: 0 auto;">
+					<img src="{{ config "AvatarURL" }}/{{ .Context.User.ID }}" alt="Avatar" id="avatar-img" style="max-width: 400px;">
+				</div>
+				<form action="/settings/avatar" method="post" enctype="multipart/form-data" class="little top margin">
+				<div class="ui buttons">
+					<label for="file" class="ui green labeled icon button">
+						<i class="file icon"></i>
+						Open File
+					</label>
+					<button type="submit" class="ui right labeled blue icon button">
+						<i class="save icon"></i>
+						Save					
+					</button>
+				</div>
+				<input type="file" id="file" style="display:none" required accept="image/*" name="avatar">
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
-<link rel="stylesheet" href="/static/croppie.css" />
 {{ end }}

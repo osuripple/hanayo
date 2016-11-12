@@ -50,8 +50,9 @@ var (
 
 		IP_API string
 
-		Offline          bool   `json:"If this is true, files will be served from the local server instead of the CDN."`
-		MainRippleFolder string `json:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system."`
+		Offline          bool   `description:"If this is true, files will be served from the local server instead of the CDN."`
+		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system."`
+		AvatarsFolder    string `description:"location folder of avatars"`
 
 		MailgunDomain        string
 		MailgunPrivateAPIKey string
@@ -226,6 +227,7 @@ func generateEngine() *gin.Engine {
 	r.GET("/settings/password", changePassword)
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
+	r.POST("/settings/avatar", avatarSubmit)
 
 	loadSimplePages(r)
 

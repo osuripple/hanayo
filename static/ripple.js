@@ -234,6 +234,21 @@ var singlePageSnippets = {
         $("#bitcoin-amt").text(priceBTC.toFixed(6));
       });
     });
+  },
+  
+  "/settings/avatar": function() {
+    $("#file").change(function(e) {
+      var f = e.target.files;
+      if (f.length < 1) {
+        return;
+      }
+      var u = window.URL.createObjectURL(f[0]);
+      var i = $("#avatar-img")[0];
+      i.src = u;
+      i.onload = function() {
+        window.URL.revokeObjectURL(this.src);
+      };
+    });
   }
 };
 
@@ -397,6 +412,8 @@ function disableSimplepagButtons(right) {
   else
     el.find(".right.floated .item").removeClass("disabled");
 }
+
+window.URL = window.URL || window.webkitURL;
 
 // thank mr stackoverflow
 function addCommas(nStr) {
