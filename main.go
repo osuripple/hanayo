@@ -195,6 +195,7 @@ func generateEngine() *gin.Engine {
 
 	r.Use(
 		gzip.Gzip(gzip.DefaultCompression),
+		checkRedirect,
 		sessions.Sessions("session", store),
 		sessionInitializer(),
 		rateLimiter(false),
