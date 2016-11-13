@@ -147,7 +147,7 @@ function loadScoresPage(type, mode) {
       disableLoadMoreButton(type, mode);
       return;
     }
-    r.scores.forEach(function(v){
+    r.scores.forEach(function(v, idx){
       scoreStore[v.id] = v;
       var scoreRank = getRank(mode, v.mods, v.accuracy, v.count_300, v.count_100, v.count_50, v.count_miss);
       table.append($("<tr class='new score-row' data-scoreid='" + v.id + "' />").append(
@@ -156,7 +156,7 @@ function loadScoresPage(type, mode) {
           escapeHTML(v.beatmap.song_name) + " <b>" + getScoreMods(v.mods) + "</b> <i>(" + v.accuracy.toFixed(2) + "%)</i><br />" +
           "<div class='subtitle'><time class='new timeago' datetime='" + v.time + "'>" + v.time + "</time></div></td>"
         ),
-        $("<td><b>" + ppOrScore(v.pp, v.score) + "</b>" + (v.completed == 3 ? "<br>" + downloadStar(v.id) : "") +  "</td>")
+        $("<td><b>" + ppOrScore(v.pp, v.score) + "</b> " + weightedPP(type, page, idx, v.pp) +  (v.completed == 3 ? "<br>" + downloadStar(v.id) : "") +  "</td>")
       ));
     });
     $(".new.timeago").timeago().removeClass("new");
@@ -169,6 +169,13 @@ function loadScoresPage(type, mode) {
 }
 function downloadStar(id) {
   return "<a href='/web/replays/" + id + "'><i class='star icon'></i>Download</a>";
+}
+function weightedPP(type, page, idx, pp) {
+  if (type != "best" || pp == 0)
+    return "";
+  var perc = Math.pow(0.95, ((page - 1) * 20) + idx);
+  var wpp = pp * perc;
+  return "<i title='Weighted PP, " + Math.round(perc*100) + "%'>(" + wpp.toFixed(2) + "pp)</i>";
 }
 function disableLoadMoreButton(type, mode, enable) {
   var button = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] .load-more-button");
