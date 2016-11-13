@@ -31,22 +31,6 @@ var singlePageSnippets = {
     });
   },
 
-  "/settings/avatar": function() {
-    // TODO
-    // https://foliotek.github.io/Croppie/demo/demo.js
-    $uploadCrop = $('#croppie-thing').croppie({
-      enableExif: true,
-      viewport: {
-        width: 128,
-        height: 128
-      },
-      boundary: {
-        width: 300,
-        height: 300
-      }
-    });
-  },
-
   "/2fa_gateway": function() {
     $('#telegram-code').on('input', function() {
       if ($(this).val().length >= 8) {

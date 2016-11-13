@@ -28,7 +28,6 @@ var funcMap = template.FuncMap{
 		return template.HTML(fmt.Sprint(value))
 	},
 	// avatars is a function returning the configuration constant AvatarURL
-	// TODO: Replace with config function returning something from config.
 	"config": func(key string) interface{} {
 		return configMap[key]
 	},

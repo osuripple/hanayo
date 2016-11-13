@@ -20,7 +20,6 @@ func register(c *gin.Context) {
 		resp403(c)
 		return
 	}
-	// todo: check registrations disabled
 	if c.Query("stopsign") != "1" {
 		u, _ := tryBotnets(c)
 		if u != "" {
@@ -39,9 +38,7 @@ func registerSubmit(c *gin.Context) {
 		return
 	}
 	// check registrations are enabled
-	var enabled bool
-	db.QueryRow("SELECT value_int FROM system_settings WHERE name = 'registrations_enabled'").Scan(&enabled)
-	if !enabled {
+	if !registrationsEnabled() {
 		registerResp(c, errorMessage{"Sorry, it's not possible to register at the moment. Please try again later."})
 		return
 	}
@@ -144,6 +141,12 @@ func registerResp(c *gin.Context, messages ...message) {
 		Messages: messages,
 		FormData: normaliseURLValues(c.Request.PostForm),
 	})
+}
+
+func registrationsEnabled() bool {
+	var enabled bool
+	db.QueryRow("SELECT value_int FROM system_settings WHERE name = 'registrations_enabled'").Scan(&enabled)
+	return enabled
 }
 
 func verifyAccount(c *gin.Context) {

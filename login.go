@@ -99,7 +99,7 @@ func loginSubmit(c *gin.Context) {
 	}
 
 	if data.Country == "XX" {
-		// TODO
+		setCountry(c, data.ID)
 	}
 
 	setYCookie(data.ID, c)
