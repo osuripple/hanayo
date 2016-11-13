@@ -98,10 +98,6 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
-	if data.Country == "XX" {
-		setCountry(c, data.ID)
-	}
-
 	setYCookie(data.ID, c)
 
 	sess.Set("userid", data.ID)
@@ -116,6 +112,9 @@ func loginSubmit(c *gin.Context) {
 			return
 		}
 		sess.Set("token", s)
+		if data.Country == "XX" {
+			setCountry(c, data.ID)
+		}
 		logIP(c, data.ID)
 	} else {
 		sess.Set("2fa_must_validate", true)

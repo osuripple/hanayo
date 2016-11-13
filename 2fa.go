@@ -151,6 +151,13 @@ func verify2fa(c *gin.Context) {
 	}
 	sess.Set("token", s)
 	logIP(c, i)
+
+	var country string
+	db.Get(&country, "SELECT country FROM users_stats WHERE id = ?", i)
+	if country == "XX" {
+		setCountry(c, i)
+	}
+
 	addMessage(c, successMessage{"You've been successfully logged in."})
 	sess.Delete("2fa_must_validate")
 	sess.Save()
