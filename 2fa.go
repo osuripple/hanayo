@@ -164,3 +164,42 @@ func verify2fa(c *gin.Context) {
 	db.Exec("DELETE FROM 2fa WHERE id = ?", id)
 	c.String(200, "0")
 }
+
+// deletes expired 2fa confirmation tokens. gets current confirmation token.
+// if it does not exist, generates one.
+func get2faConfirmationToken(user int) (token string) {
+	db.Exec("DELETE FROM 2fa_confirmation WHERE expire < ?", time.Now().Unix())
+	db.Get(&token, "SELECT token FROM 2fa_confirmation WHERE userid = ? LIMIT 1", user)
+	if token != "" {
+		return
+	}
+	token = rs.String(32)
+	db.Exec("INSERT INTO 2fa_confirmation (userid, token, expire) VALUES (?, ?, ?)",
+		user, token, time.Now().Add(time.Hour).Unix())
+	return
+}
+
+func disable2fa(c *gin.Context) {
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+		return
+	}
+
+	s := getSession(c)
+	var m message
+	defer func() {
+		addMessage(c, m)
+		s.Save()
+		c.Redirect(302, "/settings/2fa")
+	}()
+
+	exist := csrfExist(ctx.User.ID, c.PostForm("csrf"))
+	if !exist {
+		m = errorMessage{"Your session has expired. Please try redoing what you were trying to do."}
+		return
+	}
+
+	db.Exec("DELETE FROM 2fa_telegram WHERE userid = ?", ctx.User.ID)
+	m = successMessage{"2fa disabled successfully."}
+}

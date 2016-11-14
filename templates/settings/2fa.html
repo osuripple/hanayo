@@ -1,0 +1,57 @@
+{{/*###
+Handler=/settings/2fa
+TitleBar=Two Factor Authentication
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui stackable grid">
+		{{ template "settingsSidebar" . }}
+		<div class="twelve wide column">
+			<div class="ui aligned segment">
+				{{ if is2faEnabled .Context.User.ID }}
+					<div class="ui success message">
+						Two factor authentication is enabled on your account.
+					</div>
+					<p>Should you wish to disable it (highly discouraged for your account security), please click here:</p>
+					<form action="/settings/2fa/disable" method="POST" class="centered">
+						{{ csrfGenerate .Context.User.ID }}
+						<button type="submit" class="ui red labeled icon button">
+							<i class="ban icon"></i>
+							Disable Telegram 2FA
+						</button>
+					</form>
+				{{ else }}
+					<div class="ui warning message">
+						Two factor authentication is not enabled on your account.
+					</div>
+					{{ $token := get2faConfirmationToken .Context.User.ID }}
+					<p>To enable Telegram Two Factor Authentication, click this button, then click "start" on Telegram:</p>
+					<p class="centered">
+						<a class="ui blue labeled icon button" href="http://telegram.me/ripple2fabot?start={{ $token }}">
+							<i class="send icon"></i>
+							Enable Telegram 2FA
+						</a>
+					</p>
+					<p>If you don't have Telegram on the current device, you can either open this page from a device on which you have it, or scan this QR code:</p>
+					<div class="ui compact segment" style="margin: 0 auto;">
+						<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://telegram.me/ripple2fabot?start={{ $token }}&chld=L|1">
+					</div>
+					<p>
+						In case you don't have a way to scan QR codes or you
+						simply can't be bothered to download an app that scans
+						them, you can also open Telegram, start a conversation
+						with <a href="http://telegram.me/ripple2fabot"><b>@ripple2fabot</b></a>
+						and send this message:
+					</p>
+					<p class="centered">
+						<code>/start {{ $token }}</code>
+					</p>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}

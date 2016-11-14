@@ -365,6 +365,11 @@ var funcMap = template.FuncMap{
 	"calculateDonorPrice": func(a float64) string {
 		return fmt.Sprintf("%.2f", math.Pow(a*30*0.2, 0.7))
 	},
+	"is2faEnabled":            is2faEnabled,
+	"get2faConfirmationToken": get2faConfirmationToken,
+	"csrfGenerate": func(u int) template.HTML {
+		return template.HTML(`<input type="hidden" name="csrf" value="` + csrfGenerate(u) + `">`)
+	},
 }
 var hanayoStarted = time.Now().UnixNano()
 

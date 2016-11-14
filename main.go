@@ -229,6 +229,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
+	r.POST("/settings/2fa/disable", disable2fa)
 
 	loadSimplePages(r)
 

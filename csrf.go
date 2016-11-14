@@ -26,5 +26,8 @@ func csrfGenerate(u int) string {
 }
 func csrfExist(u int, token string) bool {
 	_, e := cStore.GetWithExist(strconv.Itoa(u) + token)
+	if e {
+		cStore.Delete(strconv.Itoa(u) + token)
+	}
 	return e
 }
