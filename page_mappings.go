@@ -71,7 +71,9 @@ func checkRedirect(c *gin.Context) {
 	} else if i, _ := strconv.Atoi(c.Query("p")); i != 0 {
 		mapped := pageMappings[i]
 		if mapped == nil {
-			c.Next()
+			u := c.Request.URL
+			u.Host = "old.ripple.moe"
+			c.Redirect(302, u.String())
 			return
 		}
 		if str, ok := mapped.(string); ok {
