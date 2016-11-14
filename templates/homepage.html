@@ -8,6 +8,12 @@ KyutGrill=homepage2.jpg
 	<div class="ui center aligned segment">
 		<img src="/static/logos/logo-{{ randomLogoColour }}.svg">
 	</div>
+	{{ $set := systemSettings "website_home_alert" }}
+	{{ with $set.website_home_alert.String }}
+		<div class="ui warning message">
+			{{ . }}
+		</div>
+	{{ end }}
 	{{/* Not logged in block */}}
 	{{ if not .Context.User.Username }}
 		<div class="ui segment">

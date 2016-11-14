@@ -49,6 +49,22 @@ Or, in "if" terms: if .KyutGrill then .KyutGrill else "default.jpg". */}}
 							</div>
 						{{ end }}
 				{{ end }}
+				{{ $settings := systemSettings "website_maintenance" "game_maintenance" "website_global_alert" }}
+				{{ with $settings.website_global_alert.String }}
+					<div class="ui warning message">
+						{{ . }}
+					</div>
+				{{ end }}
+				{{ with $settings.game_maintenance.Int }}
+					<div class="ui warning message">
+						Ripple's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being.						
+					</div>
+				{{ end }}
+				{{ with $settings.website_maintenance.Int }}
+					<div class="ui warning message">
+						The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website.
+					</div>
+				{{ end }}
 				</div>
 				{{ template "tpl" . }}
 			</div>

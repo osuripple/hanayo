@@ -17,6 +17,7 @@ import (
 	"git.zxq.co/ripple/playstyle"
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
+	"github.com/jmoiron/sqlx"
 	"github.com/russross/blackfriday"
 	"github.com/thehowl/qsql"
 )
@@ -370,6 +371,7 @@ var funcMap = template.FuncMap{
 	"csrfGenerate": func(u int) template.HTML {
 		return template.HTML(`<input type="hidden" name="csrf" value="` + csrfGenerate(u) + `">`)
 	},
+	"systemSettings": systemSettings,
 }
 var hanayoStarted = time.Now().UnixNano()
 
@@ -394,6 +396,27 @@ func pos(x int) (int, bool) {
 }
 func _time(s string, t time.Time) template.HTML {
 	return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
+}
+
+type systemSetting struct {
+	Name   string
+	Int    int
+	String string
+}
+
+func systemSettings(names ...string) map[string]systemSetting {
+	var settingsRaw []systemSetting
+	q, p, _ := sqlx.In("SELECT name, value_int as `int`, value_string as `string` FROM system_settings WHERE name IN (?)", names)
+	err := db.Select(&settingsRaw, q, p...)
+	if err != nil {
+		fmt.Println(err)
+		return nil
+	}
+	settings := make(map[string]systemSetting, len(names))
+	for _, s := range settingsRaw {
+		settings[s.Name] = s
+	}
+	return settings
 }
 
 func init() {
