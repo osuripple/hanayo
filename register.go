@@ -171,7 +171,9 @@ func verifyAccount(c *gin.Context) {
 	}
 
 	resp(c, 200, "register/verify.html", &baseTemplateData{
-		TitleBar: "Verify account",
+		TitleBar:       "Verify account",
+		HeadingOnRight: true,
+		KyutGrill:      "welcome.jpg",
 	})
 }
 
@@ -200,7 +202,9 @@ func welcome(c *gin.Context) {
 	}
 
 	resp(c, 200, "register/welcome.html", &baseTemplateData{
-		TitleBar: t,
+		TitleBar:       t,
+		HeadingOnRight: true,
+		KyutGrill:      "welcome.jpg",
 	})
 }
 
