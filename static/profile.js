@@ -273,6 +273,12 @@ var modeTranslations = [
 // helper functions copied from user.js in old-frontend
 function getScoreMods(m, noplus) {
 	var r = [];
+  // has nc => remove dt
+  if ((m & 512) == 512)
+    m = m & ~64;
+  // has pf => remove sd
+  if ((m & 16384) == 16384)
+    m = m & ~32;
   modsString.forEach(function(v, idx) {
     var val = 1 << idx;
     if ((m & val) > 0)
