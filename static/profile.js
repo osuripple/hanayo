@@ -72,7 +72,7 @@ function friendClick() {
   var t = $(this);
   if (t.hasClass("loading")) return;
   t.addClass("loading");
-  api("friends/" + (t.attr("data-friends") == 1 ? "del" : "add"), {id: userID}, setFriendOnResponse);
+  api("friends/" + (t.attr("data-friends") == 1 ? "del" : "add"), {user: +userID}, setFriendOnResponse, true);
 }
 
 var defaultScoreTable = $("<table class='ui table score-table' />")

@@ -111,7 +111,7 @@ var singlePageSnippets = {
       console.log(delAdd);
       t.addClass("disabled");
       api("friends/" + delAdd, {
-        id: t.data("userid")
+        id: +t.data("userid")
       }, function(data) {
         t.removeClass("disabled");
         t.data("deleted", data.friend ? "0" : "1");
@@ -120,7 +120,7 @@ var singlePageSnippets = {
         t.find(".icon").removeClass("minus plus heart").
           addClass(data.friend ? (data.mutual ? "heart" : "minus") : "plus");
         t.find("span").text(data.friend ? (data.mutual ? "Mutual" : "Remove") : "Add");
-      });
+      }, true);
     });
   },
 
