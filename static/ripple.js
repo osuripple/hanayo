@@ -183,7 +183,7 @@ var singlePageSnippets = {
       var obj = formToObject($(this));
       var f = $(this);
       api("users/self/userpage", obj, function(data) {
-        showMessage("success", "Your userpage have been saved.");
+        showMessage("success", "Your userpage has been saved.");
         f.removeClass("loading");
       }, true);
       return false;
