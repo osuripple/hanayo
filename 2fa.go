@@ -17,6 +17,7 @@ var allowedPaths = [...]string{
 	"/2fa_gateway",
 	"/2fa_gateway/verify",
 	"/2fa_gateway/clear",
+	"/favicon.ico",
 }
 
 // middleware to deny all requests to non-allowed pages
