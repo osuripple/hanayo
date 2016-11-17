@@ -1,0 +1,56 @@
+{{/*###
+Handler=/settings/discord
+TitleBar=Discord donor
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=6
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui stackable grid">
+		{{ template "settingsSidebar" . }}
+		<div class="twelve wide column">
+			<div class="ui segment">
+				{{ $q := qb "SELECT discordid FROM discord_roles WHERE userid = ? LIMIT 1" .Context.User.ID }}
+				{{ if $q.discordid }}
+					<p>
+						Your discord account has been <b>linked</b> to this Ripple account.
+						<b>Welcome to the donors club and thank you for supporting us!</b>
+						You have now access to the <b>#donators</b> text and voice
+						channels on our official Discord server! You can also set a
+						<b>custom role</b> name and username <b>color</b> and change
+						your <b>nickname</b> on Discord. If you want to change your
+						nickname, you can use the <code>/nick</code> command.
+						To set or edit your <b>custom role</b> name and color, use
+						the command <code>!role HEX_COLOR ROLE_NAME</code>.
+						You can pick your HEX color
+						<a href="http://www.colorpicker.com/" target="_blank">here</a>,
+						it's the one that starts with '#'.
+						You can change your role name and color <b>whenever you want!</b>
+					</p>
+					<h2 class="ui centered header">Thank you for supporting us and have fun on Ripple!</h2>
+				{{ else }}
+					<p><b>Donors get special privileges on our Discord server too!</b></p>
+					<p>
+						Discord is a chatroom with text and voice channels, bots and lots of other cool features.
+						You can <b>download Discord for free <a href="http://discord.gg/" target="_blank">here</a></b>
+						and you can <b>join our official Discord server
+						<a href="{{ config "DiscordServer" }}" target="_blank">here</a></b>.
+					</p>
+					<p>Here's what you get if you link your Discord account:</p>
+					<ul class="ui list">
+						<li>Access to /nick command, to change your Discord nickname</li>
+						<li>Access to #donators text and voice channels</li>
+						<li>Username on donors list</li>
+						<li>Custom role with custom username</li>
+					</ul>
+					<p>To get these perks, first of all <a href="{{ config "DiscordServer" }}" target="_blank">join our Discord server</a>, then click this fancy button:</p>
+					<p class="centered">
+						<a class="ui red labeled icon button" href="{{ authCodeURL .Context.User.ID }}"><i class="heart icon"></i> Get Discord donor privileges</a>
+					</p>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}

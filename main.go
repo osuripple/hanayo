@@ -61,6 +61,11 @@ var (
 
 		RecaptchaSite    string
 		RecaptchaPrivate string
+
+		DiscordOAuthID     string
+		DiscordOAuthSecret string
+		DonorBotURL        string
+		DonorBotSecret     string
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
@@ -230,6 +235,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/2fa/disable", disable2fa)
+	r.GET("/settings/discord/finish", discordFinish)
 
 	loadSimplePages(r)
 

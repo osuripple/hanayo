@@ -9,6 +9,9 @@ import (
 	"net/url"
 	"strings"
 
+	"bytes"
+
+	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
 )
 
@@ -73,4 +76,73 @@ func parseBBCode(c *gin.Context) {
 	}
 	d := bbcodeCompiler.Compile(string(body))
 	c.String(200, d)
+}
+
+func discordFinish(c *gin.Context) {
+	sess := getSession(c)
+	defer func() {
+		sess.Save()
+		c.Redirect(302, "/settings/discord")
+	}()
+
+	ctx := getContext(c)
+	if !csrfExist(ctx.User.ID, c.Query("state")) {
+		addMessage(c, errorMessage{"CSRF token is invalid. Please retry linking your account."})
+		return
+	}
+
+	if ctx.User.Privileges&common.UserPrivilegeDonor == 0 {
+		addMessage(c, errorMessage{"You're not a donor!"})
+		return
+	}
+
+	tok, err := getDiscord().Exchange(nil, c.Query("code"))
+	if err != nil {
+		c.Error(err)
+		addMessage(c, errorMessage{"An error occurred."})
+		return
+	}
+
+	// Yoloest error handling ever
+	// Here we're getting the user ID of our user on discord
+	req, _ := http.NewRequest("GET", "https://discordapp.com/api/users/@me", nil)
+	req.Header.Set("Authorization", "Bearer "+tok.AccessToken)
+	resp, _ := http.DefaultClient.Do(req)
+	rawData, _ := ioutil.ReadAll(resp.Body)
+	var x struct {
+		ID string `json:"id"`
+	}
+	err = json.Unmarshal(rawData, &x)
+	if err != nil {
+		c.Error(err)
+		addMessage(c, errorMessage{"An error occurred."})
+		return
+	}
+
+	// Here, instead, we're telling donorbot about the user.
+	var data = map[string]string{
+		"discord_id": x.ID,
+		"secret":     config.DonorBotSecret,
+	}
+	je, _ := json.Marshal(data)
+	resp, err = http.Post(config.DonorBotURL+"/api/v1/give_donor", "application/json", bytes.NewReader(je))
+	if err != nil {
+		c.Error(err)
+		addMessage(c, errorMessage{"An error occurred."})
+		return
+	}
+	switch resp.StatusCode {
+	case 200:
+		// move on
+	case 404:
+		addMessage(c, errorMessage{"You've not joined the discord server! Links to it are below on the page. Please join the server before attempting to connect your account to Discord."})
+	default:
+		c.Error(fmt.Errorf("donorbot: %d", resp.StatusCode))
+		addMessage(c, errorMessage{"An error occurred."})
+		return
+	}
+
+	db.Exec("INSERT INTO discord_roles (id, userid, discordid, roleid) VALUES (NULL, ?, ?, 0)", ctx.User.ID, x.ID)
+
+	addMessage(c, successMessage{"Your account has been linked successfully!"})
 }

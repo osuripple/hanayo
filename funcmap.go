@@ -14,12 +14,14 @@ import (
 	"strings"
 	"time"
 
+	"git.zxq.co/ripple/go-discord-oauth"
 	"git.zxq.co/ripple/playstyle"
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
 	"github.com/jmoiron/sqlx"
 	"github.com/russross/blackfriday"
 	"github.com/thehowl/qsql"
+	"golang.org/x/oauth2"
 )
 
 // funcMap contains useful functions for the various templates.
@@ -366,12 +368,20 @@ var funcMap = template.FuncMap{
 	"calculateDonorPrice": func(a float64) string {
 		return fmt.Sprintf("%.2f", math.Pow(a*30*0.2, 0.7))
 	},
-	"is2faEnabled":            is2faEnabled,
+	// is2faEnabled checks 2fa is enabled for an user
+	"is2faEnabled": is2faEnabled,
+	// get2faConfirmationToken retrieves the current confirmation token for a certain user.
 	"get2faConfirmationToken": get2faConfirmationToken,
+	// csrfGenerate creates a csrf token input
 	"csrfGenerate": func(u int) template.HTML {
 		return template.HTML(`<input type="hidden" name="csrf" value="` + csrfGenerate(u) + `">`)
 	},
+	// systemSetting retrieves some information from the table system_settings
 	"systemSettings": systemSettings,
+	// authCodeURL gets the auth code for discord
+	"authCodeURL": func(u int) string {
+		return getDiscord().AuthCodeURL(csrfGenerate(u))
+	},
 }
 var hanayoStarted = time.Now().UnixNano()
 
@@ -417,6 +427,16 @@ func systemSettings(names ...string) map[string]systemSetting {
 		settings[s.Name] = s
 	}
 	return settings
+}
+
+func getDiscord() *oauth2.Config {
+	return &oauth2.Config{
+		ClientID:     config.DiscordOAuthID,
+		ClientSecret: config.DiscordOAuthSecret,
+		RedirectURL:  config.BaseURL + "/settings/discord/finish",
+		Endpoint:     discordoauth.Endpoint,
+		Scopes:       []string{"identify"},
+	}
 }
 
 func init() {
