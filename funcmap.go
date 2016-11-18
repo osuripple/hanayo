@@ -382,6 +382,10 @@ var funcMap = template.FuncMap{
 	"authCodeURL": func(u int) string {
 		return getDiscord().AuthCodeURL(csrfGenerate(u))
 	},
+	// perc returns a percentage
+	"perc": func(i, total float64) string {
+		return fmt.Sprintf("%.0f", i/total*100)
+	},
 }
 var hanayoStarted = time.Now().UnixNano()
 

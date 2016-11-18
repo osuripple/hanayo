@@ -8,31 +8,39 @@ MinPrivileges=2
 <div class="ui container">
 	<div class="ui raised segment center aligned">
 		<h4>Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!</h4>
-		<h4 class="ui horizontal divider header">
-			<i class="wait icon"></i>
-			Queue status
-		</h4>
-		<h2 style="display: inline; font-weight: normal;">10/20</h2><br>
-		<h3 style="display: inline; font-weight: normal;">Requests submitted</h3><br>
-		<h4 style="display: inline; font-weight: normal;">In the past 24 hours</h4><br>
-		<div class="ui container" style="width: 50%; margin-top: 8px; margin-bottom: 8px;">
-			<div class="ui green progress" data-percent="50">
-				<div class="bar">
-					<div class="progress">50%</div>
+		{{ with .Get "beatmaps/rank_requests/status" }}
+			<h4 class="ui horizontal divider header">
+				<i class="wait icon"></i>
+				Queue status
+			</h4>
+			<h2 style="display: inline; font-weight: normal;">{{ .submitted }}/{{ .queue_size }}{{ with .submitted_by_user }} <i>({{ . }} by you)</i>{{ end }}</h2><br>
+			<h3 style="display: inline; font-weight: normal;">Requests submitted</h3><br>
+			<h4 style="display: inline; font-weight: normal;">In the past 24 hours</h4><br>
+			{{ $perc := perc .submitted .queue_size }}
+			<div class="ui container" style="width: 50%; margin-top: 8px; margin-bottom: 8px;">
+				<div class="ui green progress" data-percent="{{ $perc }}">
+					<div class="bar">
+						<div class="progress">{{ $perc }}%</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<h4 class="ui horizontal divider header">
-			<i class="music icon"></i>
-			Request a beatmap
-		</h4>
-		<div class="ui fluid action input">
-			<input type="text" placeholder="http://osu.ppy.sh/s/xxxx">
-			<button class="ui right labeled icon green button">
-				<i class="right arrow icon"></i>
-				Submit
-			</button>
-		</div>
+			<h4 class="ui horizontal divider header">
+				<i class="music icon"></i>
+				Request a beatmap
+			</h4>
+			{{ if .can_submit }}
+				<div class="ui fluid action input">
+					<input type="text" placeholder="http://osu.ppy.sh/s/xxxx">
+					<button class="ui right labeled icon green button">
+						<i class="right arrow icon"></i>
+						Submit
+					</button>
+				</div>
+			{{ else }}
+				<h3 class="ui header">You cannot currently request beatmaps!</h3>
+				{{ with .next_expiration }}<p>Please try again <b>{{ time . }}</b></p>{{ end }}
+			{{ end }}
+		{{ end }}
 	</div>
 </div>
 {{ end }}
