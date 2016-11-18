@@ -9,9 +9,11 @@ import (
 	"encoding/gob"
 	"fmt"
 
+	"git.zxq.co/ripple/rippleapi/app"
 	"git.zxq.co/ripple/schiavolib"
 	"git.zxq.co/x/rs"
 	"github.com/fatih/structs"
+	"github.com/getsentry/raven-go"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -66,6 +68,8 @@ var (
 		DiscordOAuthSecret string
 		DonorBotURL        string
 		DonorBotSecret     string
+
+		SentryDSN string
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
@@ -197,6 +201,16 @@ func generateEngine() *gin.Engine {
 	}
 
 	r := gin.Default()
+
+	// sentry
+	if config.SentryDSN != "" {
+		ravenClient, err := raven.New(config.SentryDSN)
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			r.Use(app.Recovery(ravenClient, false))
+		}
+	}
 
 	r.Use(
 		gzip.Gzip(gzip.DefaultCompression),
