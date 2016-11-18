@@ -148,6 +148,12 @@ var singlePageSnippets = {
     $("input[name='custom_badge.name']").on("input", function() {
       $("#badge-name").html(escapeHTML($(this).val()));
     });
+    $("input[name='custom_badge.show']").change(function() {
+      if ($(this).is(":checked"))
+        $("#custom-badge-fields").slideDown();
+      else
+        $("#custom-badge-fields").slideUp();        
+    });
     $("form").submit(function(e) {
       e.preventDefault();
       var obj = formToObject($(this));
