@@ -111,7 +111,7 @@ var singlePageSnippets = {
       console.log(delAdd);
       t.addClass("disabled");
       api("friends/" + delAdd, {
-        id: +t.data("userid")
+        user: +t.data("userid")
       }, function(data) {
         t.removeClass("disabled");
         t.data("deleted", data.friend ? "0" : "1");

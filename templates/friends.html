@@ -14,9 +14,9 @@ KyutGrill=friends.jpg
 			{{ $page := or (atoint (.Gin.Query "p")) 1 }}
 			{{ $friends := .Get "friends?p=%d&l=40&sort=username,asc" $page }}
 			{{ with $friends }}
-				<div class="ui grid">
+				<div class="ui four column stackable grid">
 					{{ range .friends }}
-						<div class="four wide column">
+						<div class="wide">
 							<h4 class="ui image header">
 								<img src="{{ config "AvatarURL" }}/{{ .id }}" class="ui mini rounded image">
 								<div class="content">
