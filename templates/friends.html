@@ -16,7 +16,7 @@ KyutGrill=friends.jpg
 			{{ with $friends }}
 				<div class="ui four column stackable grid">
 					{{ range .friends }}
-						<div class="wide">
+						<div class="ui column">
 							<h4 class="ui image header">
 								<img src="{{ config "AvatarURL" }}/{{ .id }}" class="ui mini rounded image">
 								<div class="content">
