@@ -239,7 +239,50 @@ var singlePageSnippets = {
         window.URL.revokeObjectURL(this.src);
       };
     });
-  }
+  },
+
+  "/beatmaps/rank_request": function() {
+    function updateRankRequestPage(data) {
+      $("#queue-info").html(data.submitted + "/" + data.queue_size +
+        (data.submitted_by_user > 0 ? " <i>(" + data.submitted_by_user + "/" + data.max_per_user + " by you)</i>" : ""));
+      var perc = (data.submitted / data.queue_size * 100).toFixed(0);
+      $("#progressbar .progress").text(perc + "%");
+      $("#progressbar").progress({
+        percent: perc,
+      });
+      if (data.can_submit)
+        $("#b-form .input, #b-form .button").removeClass("disabled");
+      else
+        $("#b-form .input, #b-form .button").addClass("disabled");
+    }
+    setInterval(function() {
+      api("beatmaps/rank_requests/status", {}, updateRankRequestPage);
+    }, 10000);
+    var re = /^https?:\/\/osu.ppy.sh\/(s|b)\/(\d+)$/gi;
+    $("#b-form").submit(function(e) {
+      e.preventDefault();
+      var v = $("#beatmap").val();
+      var reData = re.exec(v);
+      if (reData === null) {
+        showMessage("error", "Please provide a valid link, in the form " +
+          "of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;.");
+        $(this).removeClass("loading");
+        return false;
+      }
+      var postData = {};
+      if (reData[1] == "s")
+        postData.set_id = +reData[2];
+      else
+        postData.id = +reData[2];
+      var t = $(this);     
+      api("beatmaps/rank_requests", postData, function(data) {
+        t.removeClass("loading");
+        showMessage("success", "Beatmap rank request has been submitted.");
+        updateRankRequestPage(data);
+      }, true)
+      return false;
+    });
+  },
 };
 
 $(document).ready(function(){

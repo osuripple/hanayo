@@ -120,6 +120,12 @@ var funcMap = template.FuncMap{
 	"timeFromTime": func(t time.Time) template.HTML {
 		return _time(t.Format(time.RFC3339), t)
 	},
+	// timeAddDay is basically time but adds a day.
+	"timeAddDay": func(s string) template.HTML {
+		t, _ := time.Parse(time.RFC3339, s)
+		t = t.Add(time.Hour * 24)
+		return _time(t.Format(time.RFC3339), t)
+	},
 	// band is a bitwise AND.
 	"band": func(i1 int, i ...int) int {
 		for _, el := range i {

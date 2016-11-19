@@ -13,12 +13,12 @@ MinPrivileges=2
 				<i class="wait icon"></i>
 				Queue status
 			</h4>
-			<h2 style="display: inline; font-weight: normal;">{{ .submitted }}/{{ .queue_size }}{{ with .submitted_by_user }} <i>({{ . }} by you)</i>{{ end }}</h2><br>
+			<h2 style="display: inline; font-weight: normal;" id="queue-info">{{ .submitted }}/{{ .queue_size }}{{ if .submitted_by_user }} <i>({{ .submitted_by_user }}/{{ .max_per_user }} by you)</i>{{ end }}</h2><br>
 			<h3 style="display: inline; font-weight: normal;">Requests submitted</h3><br>
 			<h4 style="display: inline; font-weight: normal;">In the past 24 hours</h4><br>
 			{{ $perc := perc .submitted .queue_size }}
 			<div class="ui container" style="width: 50%; margin-top: 8px; margin-bottom: 8px;">
-				<div class="ui green progress" data-percent="{{ $perc }}">
+				<div class="ui green progress" data-percent="{{ $perc }}" id="progressbar">
 					<div class="bar">
 						<div class="progress">{{ $perc }}%</div>
 					</div>
@@ -29,16 +29,18 @@ MinPrivileges=2
 				Request a beatmap
 			</h4>
 			{{ if .can_submit }}
-				<div class="ui fluid action input">
-					<input type="text" placeholder="http://osu.ppy.sh/s/xxxx">
-					<button class="ui right labeled icon green button">
-						<i class="right arrow icon"></i>
-						Submit
-					</button>
-				</div>
+				<form class="ui form" id="b-form">
+					<div class="ui fluid action input">
+						<input type="text" placeholder="https://osu.ppy.sh/s/xxxx" id="beatmap">
+						<button class="ui right labeled icon green button">
+							<i class="right arrow icon"></i>
+							Submit
+						</button>
+					</div>
+				</form>
 			{{ else }}
 				<h3 class="ui header">You cannot currently request beatmaps!</h3>
-				{{ with .next_expiration }}<p>Please try again <b>{{ time . }}</b></p>{{ end }}
+				{{ with .next_expiration }}<p>Please try again <b>{{ timeAddDay . }}</b></p>{{ end }}
 			{{ end }}
 		{{ end }}
 	</div>
