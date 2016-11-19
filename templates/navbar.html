@@ -26,6 +26,14 @@
 					{{ navbarItem .Path "Contact support" "/help" }}
 				</div>
 			</div>
+			{{ if .Context.User.Username }}
+			<div class="ui dropdown item">
+				<span>Beatmaps</span>
+				<div class="menu">
+					{{ navbarItem .Path "Request beatmap ranking" "/beatmaps/rank_request" }}
+				</div>
+			</div>
+			{{ end }}
 			{{ navbarItem .Path "<i class=\"red heart icon\"></i>Donate" "/donate" }}
 			{{ if $isAdmin }}{{ navbarItem .Path "<b>RAP</b>" "/admin" }}{{ end }}
 		{{ end }}
