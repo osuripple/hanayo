@@ -78,7 +78,7 @@ var (
 )
 
 func main() {
-	fmt.Println("hanayo v" + version)
+	fmt.Println("hanayo " + version)
 
 	err := conf.Load(&config, "hanayo.conf")
 	switch err {
