@@ -1,4 +1,5 @@
 {{/*###
+Handler=/settings/profbackground
 TitleBar=Profile background
 KyutGrill=settings2.jpg
 Include=menu.html
@@ -10,8 +11,12 @@ MinPrivileges=6
 		{{ template "settingsSidebar" . }}
 		<div class="twelve wide column">
 			<div class="ui center aligned segment">
-				<div class="ui compact segment" style="margin: 0 auto;">
-					<img src="{{ config "AvatarURL" }}/{{ .Context.User.ID }}" alt="Avatar" id="avatar-img" style="max-width: 400px;">
+				{{ $d := qb "SELECT type, value FROM profile_backgrounds WHERE uid = ? LIMIT 1" .Context.User.ID }}
+				<div class="ui compact segment" style="margin: 0 auto;" data-type="0"{{ if ne $d.type.Int 0 }} hidden{{ end }}>
+					{{ if eq $d.type.Int 0 }}
+						<img src="/static/profbackgrounds/{{ $ }}"
+					{{ else }}
+					{{ end }}
 				</div>
 				<p class="little top margin">
 					<select class="ui dropdown" id="background_type">
