@@ -25,14 +25,16 @@
 				{{ else if $restr }}
 					<div class="ui error centered message">User is <b>restricted</b>.</div>
 				{{ else if $disab }}
-					<div class="ui error centered message">User is <b>locked</b>.</div>									
+					<div class="ui error centered message">User is <b>locked</b>.</div>
 				{{ end }}
 			{{ end }}
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
 				{{ if .userpage }}
 					{{ with parseUserpage .userpage }}
-						<div class="ui raised segment twemoji" id="userpage-content">
-							{{ html . }}
+						<div class="ui raised segment twemoji nano" id="userpage-content">
+							<div class="nano-content">
+								{{ html . }}
+							</div>
 						</div>
 					{{ end }}
 				{{ end }}
@@ -46,7 +48,7 @@
 								<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="user avatar">
 						{{ if eq $global.UserID $global.Context.User.ID }}
 							</a>
-						{{ end }}							
+						{{ end }}
 					</div>
 					<div class="table element">
 						<h1>{{ .username }}</h1>
@@ -60,7 +62,7 @@
 								<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>#{{ .global_leaderboard_rank }}</h1>
 							{{ end }}
 						{{ else }}
-								<h1>Unknown</h1>							
+								<h1>Unknown</h1>
 						{{ end }}
 						<div id="profile-actions">
 							{{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
@@ -87,7 +89,7 @@
 				<div class="ui three column divided stackable grid">
 					<div class="row">
 						<div class="column">
-							<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}. 
+							<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}.
 							They signed up on Ripple {{ time $user.registered_on }}.
 							Last seen: {{ time $user.latest_activity }}.
 							{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}

@@ -1,5 +1,9 @@
 // code that is executed on every user profile
 $(document).ready(function() {
+  // fakescroll
+  $(".nano").nanoScroller({
+    disableResize: true,
+  });
   var wl = window.location;
   var newPathName = wl.pathname;
   // userID is defined in profile.html
@@ -401,5 +405,5 @@ function ppOrScore(pp, score) {
 function beatmapLink(type, id) {
   if (type == "s")
     return "<a href='/s/" + id + "'>" + id + '</a>';
-  return "<a href='/b/" + id + "'>" + id + '</a>';  
+  return "<a href='/b/" + id + "'>" + id + '</a>';
 }
