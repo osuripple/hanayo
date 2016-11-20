@@ -271,7 +271,7 @@ var singlePageSnippets = {
     var re = /^https?:\/\/osu.ppy.sh\/(s|b)\/(\d+)$/gi;
     $("#b-form").submit(function(e) {
       e.preventDefault();
-      var v = $("#beatmap").val();
+      var v = $("#beatmap").val().trim();
       var reData = re.exec(v);
       if (reData === null) {
         showMessage("error", "Please provide a valid link, in the form " +
