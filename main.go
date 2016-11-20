@@ -251,6 +251,8 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/2fa/disable", disable2fa)
 	r.GET("/settings/discord/finish", discordFinish)
 
+	r.GET("/donate/rates", getRates)
+
 	loadSimplePages(r)
 
 	r.NoRoute(notFound)
