@@ -9,7 +9,7 @@ KyutGrill=leaderboard2.jpg
 	{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
 	<script>
 		var favouriteMode = {{ $favMode }};
-		var page = {{ atoint (.Gin.Query "p") }};
+		var page = {{ .Gin.Query "p" | atoint | atLeastOne }};
 	</script>
 	<div class="ui four item menu" id="mode-menu">
 		{{ range $k, $v := modes }}

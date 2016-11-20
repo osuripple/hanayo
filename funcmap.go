@@ -392,6 +392,13 @@ var funcMap = template.FuncMap{
 	"perc": func(i, total float64) string {
 		return fmt.Sprintf("%.0f", i/total*100)
 	},
+	// atLeastOne returns 1 if i < 1, or i otherwise.
+	"atLeastOne": func(i int) int {
+		if i < 1 {
+			i = 1
+		}
+		return i
+	},
 }
 var hanayoStarted = time.Now().UnixNano()
 
