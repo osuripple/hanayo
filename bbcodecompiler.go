@@ -210,6 +210,8 @@ func compileBBCode(s string) string {
 var policy = func() *bluemonday.Policy {
 	p := bluemonday.UGCPolicy()
 	p.AllowAttrs("style", "class").Globally()
+	p.AllowElements("iframe")
+	p.AllowAttrs("style", "src", "frameborder", "allowfullscreen").OnElements("iframe")
 	return p
 }()
 
