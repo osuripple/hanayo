@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/frustra/bbcode"
+	"github.com/microcosm-cc/bluemonday"
 )
 
 var bbcodeCompiler = func() bbcode.Compiler {
@@ -203,5 +204,15 @@ var emojiReplacer = func() *strings.Replacer {
 func compileBBCode(s string) string {
 	s = emojiReplacer.Replace(s)
 	s = strings.TrimSpace(s)
-	return bbcodeCompiler.Compile(s)
+	return mondaySanitise(bbcodeCompiler.Compile(s))
+}
+
+var policy = func() *bluemonday.Policy {
+	p := bluemonday.UGCPolicy()
+	p.AllowAttrs("style", "class").Globally()
+	return p
+}()
+
+func mondaySanitise(source string) string {
+	return policy.Sanitize(source)
 }

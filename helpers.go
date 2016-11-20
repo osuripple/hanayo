@@ -74,7 +74,7 @@ func parseBBCode(c *gin.Context) {
 		c.String(200, "Error")
 		return
 	}
-	d := bbcodeCompiler.Compile(string(body))
+	d := compileBBCode(string(body))
 	c.String(200, d)
 }
 
