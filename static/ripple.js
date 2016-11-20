@@ -477,7 +477,7 @@ function query(name, url) {
 
 // Useful for forms contacting the Ripple API
 function formToObject(form) {
-  var inputs = form.find("input, textarea");
+  var inputs = form.find("input, textarea, select");
   var obj = {};
   inputs.each(function(_, el) {
     el = $(el);
@@ -491,7 +491,14 @@ function formToObject(form) {
       value = el.is(":checked");
       break;
     default:
-      value = el.val();
+      switch (el.data("cast")) {
+      case "int":
+        value = +el.val();
+        break;
+      default:
+        value = el.val();
+        break;        
+      }
       break;
     }
     obj = modifyObjectDynamically(obj, parts, value);

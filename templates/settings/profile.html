@@ -28,7 +28,7 @@ MinPrivileges=2
 					</div>
 					<div class="field">
 						<label>Favourite mode</label>
-						<select class="ui dropdown" name="favourite_mode">
+						<select class="ui dropdown" name="favourite_mode" data-cast="int">
 							{{ range $k, $v := modes }}
 								<option value="{{ $k }}" {{ if eq (int $d.favourite_mode) $k }}selected{{ end }}>{{ $v }}</a>
 							{{ end }}
