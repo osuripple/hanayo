@@ -2,3 +2,5 @@ node_modules
 hanayo
 hanayo.conf
 team.json
+static/profbackgrounds/*
+!static/profbackgrounds/.keep

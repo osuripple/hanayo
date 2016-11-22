@@ -50,6 +50,7 @@
 
 .main.wrapper {
 	padding-bottom: 30px;
+	background-attachment: fixed;
 }
 
 img {
@@ -323,4 +324,8 @@ code {
 textarea.monospace {
 	height: 320px;
 	font-family: "Consolas", monospace;
+}
+
+.segment[hidden] {
+	display: none !important;
 }

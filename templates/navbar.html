@@ -1,7 +1,7 @@
 {{ define "navbar" }}
 {{ $isRAP   := and (hasAdmin .Context.User.Privileges) (isRAP .Path) }}
 {{ $isAdmin := hasAdmin .Context.User.Privileges }}
-<div class="ui secondary fixed-height stackable {{ if $isRAP }}inverted{{ else }}white background{{ end }} main menu no margin bottom{{ if and .DisableHH (not .KyutGrill) }} dropped{{ end }}" id="navbar">
+<div class="ui secondary fixed-height stackable {{ if $isRAP }}inverted{{ else }}white background{{ end }} main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
 	<div class="ui container">
 		<div class="item">
 			<b><a href="/" title="Home page"><img class="ripple logo" src="/static/logos/text-{{ if $isRAP }}white{{ else }}black{{ end }}.png" alt="Ripple"></a></b>

@@ -52,6 +52,19 @@ func userProfile(c *gin.Context) {
 		return
 	}
 
+	var profileBackground struct {
+		Type  int
+		Value string
+	}
+	db.Get(&profileBackground, "SELECT type, value FROM profile_backgrounds WHERE uid = ?", data.UserID)
+	switch profileBackground.Type {
+	case 1:
+		data.KyutGrill = "/static/profbackgrounds/" + profileBackground.Value
+		data.KyutGrillAbsolute = true
+	case 2:
+		data.SolidColour = profileBackground.Value
+	}
+
 	data.TitleBar = username + "'s profile"
 	data.DisableHH = true
 	data.Scripts = append(data.Scripts, "/static/profile.js")

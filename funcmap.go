@@ -333,6 +333,9 @@ var funcMap = template.FuncMap{
 		if err != nil {
 			fmt.Println(err)
 		}
+		if r == nil {
+			return make(map[string]qsql.String, 0)
+		}
 		return r
 	},
 	"qba": func(q string, p ...interface{}) []map[string]qsql.String {

@@ -284,6 +284,29 @@ var singlePageSnippets = {
       return false;
     });
   },
+
+  "/settings/profbackground": function() {
+    $("#colorpicker").minicolors({
+      inline: true,
+    });
+    $("#background-type").change(function() {
+      $("[data-type]:not([hidden])").attr("hidden", "hidden");
+      $("[data-type=" + $(this).val() + "]").removeAttr("hidden");
+    });
+    $("#file").change(function(e) {
+      var f = e.target.files;
+      if (f.length < 1) {
+        return;
+      }
+      var u = window.URL.createObjectURL(f[0]);
+      var i = document.createElement("img");
+      i.src = u;
+      i.onload = function() {
+        window.URL.revokeObjectURL(this.src);
+      };
+      $("#image-background").empty().append(i);
+    });
+  }
 };
 
 $(document).ready(function(){
