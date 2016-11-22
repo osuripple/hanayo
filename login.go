@@ -60,6 +60,9 @@ func loginSubmit(c *gin.Context) {
 
 	switch {
 	case err == sql.ErrNoRows:
+		if param == "username_safe" {
+			param = "username"
+		}
 		simpleReply(c, errorMessage{"No user with such " + param + "!"})
 		return
 	case err != nil:
