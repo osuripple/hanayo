@@ -70,6 +70,8 @@ var (
 		DonorBotSecret     string
 
 		SentryDSN string
+
+		AnalyticsID string
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
