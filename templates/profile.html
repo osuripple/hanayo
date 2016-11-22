@@ -49,8 +49,20 @@
 						{{ end }}							
 					</div>
 					<div class="table element">
-						<h1>{{ .username }}</h1>
-						{{ if .username_aka }}<div class="subtitle">(aka <b>{{ .username_aka }}</b>)</div>{{ end }}
+						<h1 class="ui header">
+							{{ .username }}
+						</h1>
+						{{ if .username_aka }}
+							<div class="subtitle">
+								(aka <b>{{ .username_aka }}</b>)
+							</div>
+						{{ end }}
+						{{ with bget "isOnline?id=%.0f" .id }}
+							<div class="subtitle">
+								<i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
+								{{ if .result }}Online{{ else }}Offline{{ end }}
+							</div>
+						{{ end }}
 					</div>
 				</div>
 				<div class="magic table floating right">
