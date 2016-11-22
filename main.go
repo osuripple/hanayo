@@ -250,6 +250,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/2fa/disable", disable2fa)
 	r.GET("/settings/discord/finish", discordFinish)
+	r.POST("/settings/profbackground/:type", profBackground)
 
 	r.GET("/donate/rates", getRates)
 

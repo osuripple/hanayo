@@ -324,3 +324,7 @@ textarea.monospace {
 	height: 320px;
 	font-family: "Consolas", monospace;
 }
+
+.segment[hidden] {
+	display: none !important;
+}
