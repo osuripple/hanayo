@@ -29,6 +29,11 @@ func simplePageFunc(p templateConfig) gin.HandlerFunc {
 }
 
 func resp403(c *gin.Context) {
+	if getContext(c).User.ID == 0 {
+		ru := c.Request.URL
+		c.Redirect(302, "/login?redir="+url.QueryEscape(ru.Path+"?"+ru.RawQuery))
+		return
+	}
 	respEmpty(c, "Forbidden", warningMessage{"You should not be 'round here."})
 }
 

@@ -23,6 +23,7 @@ KyutGrill=login2.jpg
 							<label>Password <a href="/pwreset">(forgot?)</a></label>
 							<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
 						</div>
+						<input type="hidden" name="redir" value="{{ .Gin.Query "redir" }}">
 					</form>
 				</div>
 				<div class="ui right aligned segment">

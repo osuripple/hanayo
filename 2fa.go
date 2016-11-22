@@ -9,6 +9,8 @@ import (
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/x/rs"
 
+	"net/url"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -66,7 +68,7 @@ func twoFALock(c *gin.Context) {
 	}
 	addMessage(c, warningMessage{"You need to complete the 2fa challenge first."})
 	sess.Save()
-	c.Redirect(302, "/2fa_gateway")
+	c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(c.Request.URL.Path))
 	c.Abort()
 }
 
@@ -78,14 +80,22 @@ func is2faEnabled(user int) bool {
 func tfaGateway(c *gin.Context) {
 	sess := getSession(c)
 
+	redir := c.Query("redir")
+	switch {
+	case redir == "":
+		redir = "/"
+	case redir[0] != '/':
+		redir = "/"
+	}
+
 	// check 2fa hasn't been disabled
 	i, _ := sess.Get("userid").(int)
 	if i == 0 {
-		c.Redirect(302, "/")
+		c.Redirect(302, redir)
 	}
 	if !is2faEnabled(i) {
 		sess.Delete("2fa_must_validate")
-		c.Redirect(302, "/")
+		c.Redirect(302, redir)
 		return
 	}
 	// check previous 2fa thing is still valid
@@ -100,6 +110,9 @@ func tfaGateway(c *gin.Context) {
 	resp(c, 200, "2fa_gateway.html", &baseTemplateData{
 		TitleBar:  "Two Factor Authentication",
 		KyutGrill: "2fa.jpg",
+		RequestInfo: map[string]interface{}{
+			"redir": redir,
+		},
 	})
 }
 

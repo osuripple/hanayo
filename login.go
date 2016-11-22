@@ -9,6 +9,8 @@ import (
 	"strings"
 	"time"
 
+	"net/url"
+
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
@@ -120,13 +122,21 @@ func loginSubmit(c *gin.Context) {
 		sess.Set("2fa_must_validate", true)
 	}
 
+	redir := c.PostForm("redir")
+	if len(redir) > 0 && redir[0] != '/' {
+		redir = ""
+	}
+
 	if tfaEnabled {
 		sess.Save()
-		c.Redirect(302, "/2fa_gateway")
+		c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(redir))
 	} else {
 		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
 		sess.Save()
-		c.Redirect(302, "/")
+		if redir == "" {
+			redir = "/"
+		}
+		c.Redirect(302, redir)
 	}
 	return
 }

@@ -13,7 +13,7 @@ func ircGenToken(c *gin.Context) {
 	if ctx.User.ID == 0 {
 		addMessage(c, errorMessage{"You need to be logged in!"})
 		getSession(c).Save()
-		c.Redirect(302, "/login")
+		c.Redirect(302, "/login?redir=%2Firc")
 		return
 	}
 
