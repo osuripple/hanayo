@@ -137,14 +137,16 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 }
 
 type baseTemplateData struct {
-	TitleBar       string // required
-	HeadingTitle   string
-	HeadingOnRight bool
-	Scripts        []string
-	KyutGrill      string
-	DisableHH      bool // HH = Huge Heading
-	Messages       []message
-	RequestInfo    map[string]interface{}
+	TitleBar          string // required
+	HeadingTitle      string
+	HeadingOnRight    bool
+	Scripts           []string
+	KyutGrill         string
+	KyutGrillAbsolute bool
+	SolidColour       string
+	DisableHH         bool // HH = Huge Heading
+	Messages          []message
+	RequestInfo       map[string]interface{}
 
 	// ignore, they're set by resp()
 	Context  context

@@ -50,6 +50,7 @@
 
 .main.wrapper {
 	padding-bottom: 30px;
+	background-attachment: fixed;
 }
 
 img {
