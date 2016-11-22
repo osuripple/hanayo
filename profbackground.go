@@ -13,7 +13,7 @@ import (
 	"github.com/nfnt/resize"
 )
 
-var hexColorRegex = regexp.MustCompile("^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$")
+var hexColourRegex = regexp.MustCompile("^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$")
 
 func profBackground(c *gin.Context) {
 	ctx := getContext(c)
@@ -68,7 +68,7 @@ func profBackground(c *gin.Context) {
 		// solid colour
 		col := strings.ToLower(c.PostForm("value"))
 		// verify it's valid
-		if !hexColorRegex.MatchString(col) {
+		if !hexColourRegex.MatchString(col) {
 			m = errorMessage{"Colour is invalid"}
 			return
 		}
