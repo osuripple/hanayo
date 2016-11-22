@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"strconv"
 
+	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,24 +16,25 @@ type profileData struct {
 
 func userProfile(c *gin.Context) {
 	var (
-		userID   int
-		username string
+		userID     int
+		username   string
+		privileges uint64
 	)
 
 	ctx := getContext(c)
 
 	u := c.Param("user")
 	if _, err := strconv.Atoi(u); err != nil {
-		err := db.QueryRow("SELECT id, username FROM users WHERE username = ? AND "+ctx.OnlyUserPublic()+" LIMIT 1", u).Scan(&userID, &username)
+		err := db.QueryRow("SELECT id, username, privileges FROM users WHERE username = ? AND "+ctx.OnlyUserPublic()+" LIMIT 1", u).Scan(&userID, &username, &privileges)
 		if err != nil && err != sql.ErrNoRows {
 			c.Error(err)
 		}
 	} else {
-		err := db.QueryRow(`SELECT id, username FROM users WHERE id = ? AND `+ctx.OnlyUserPublic()+` LIMIT 1`, u).Scan(&userID, &username)
+		err := db.QueryRow(`SELECT id, username, privileges FROM users WHERE id = ? AND `+ctx.OnlyUserPublic()+` LIMIT 1`, u).Scan(&userID, &username, &privileges)
 		switch {
 		case err == nil:
 		case err == sql.ErrNoRows:
-			err := db.QueryRow(`SELECT id, username FROM users WHERE username = ? AND `+ctx.OnlyUserPublic()+` LIMIT 1`, u).Scan(&userID, &username)
+			err := db.QueryRow(`SELECT id, username, privileges FROM users WHERE username = ? AND `+ctx.OnlyUserPublic()+` LIMIT 1`, u).Scan(&userID, &username, &privileges)
 			if err != nil && err != sql.ErrNoRows {
 				c.Error(err)
 			}
@@ -52,17 +54,19 @@ func userProfile(c *gin.Context) {
 		return
 	}
 
-	var profileBackground struct {
-		Type  int
-		Value string
-	}
-	db.Get(&profileBackground, "SELECT type, value FROM profile_backgrounds WHERE uid = ?", data.UserID)
-	switch profileBackground.Type {
-	case 1:
-		data.KyutGrill = "/static/profbackgrounds/" + profileBackground.Value
-		data.KyutGrillAbsolute = true
-	case 2:
-		data.SolidColour = profileBackground.Value
+	if common.UserPrivileges(privileges)&common.UserPrivilegeDonor > 0 {
+		var profileBackground struct {
+			Type  int
+			Value string
+		}
+		db.Get(&profileBackground, "SELECT type, value FROM profile_backgrounds WHERE uid = ?", data.UserID)
+		switch profileBackground.Type {
+		case 1:
+			data.KyutGrill = "/static/profbackgrounds/" + profileBackground.Value
+			data.KyutGrillAbsolute = true
+		case 2:
+			data.SolidColour = profileBackground.Value
+		}
 	}
 
 	data.TitleBar = username + "'s profile"
