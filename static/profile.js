@@ -161,6 +161,9 @@ function loadScoresPage(type, mode) {
     });
     $(".new.timeago").timeago().removeClass("new");
     $(".new.score-row").click(viewScoreInfo).removeClass("new");
+    $(".new.downloadstar").click(function(e) {
+      e.stopPropagation();
+    }).removeClass("new");
     var enable = true;
     if (r.scores.length != 20)
       enable = false;
@@ -168,7 +171,7 @@ function loadScoresPage(type, mode) {
   });
 }
 function downloadStar(id) {
-  return "<a href='/web/replays/" + id + "'><i class='star icon'></i>Download</a>";
+  return "<a href='/web/replays/" + id + "' class='new downloadstar'><i class='star icon'></i>Download</a>";
 }
 function weightedPP(type, page, idx, pp) {
   if (type != "best" || pp == 0)
