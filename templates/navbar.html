@@ -54,7 +54,7 @@
 						{{ navbarItem .Path "Profile" (printf "/u/%d" .Context.User.ID) }}
 						{{ navbarItem .Path "Friends" "/friends" }}
 						{{ navbarItem .Path "Settings" "/settings" }}
-						{{ navbarItem .Path "Log out" "/logout" }}
+						{{ navbarItem .Path "Log out" (printf "/logout?k=%s" (.Session.Get "logout")) }}
 					</div>
 				</div>
 			{{ else }}

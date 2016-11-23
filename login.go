@@ -12,6 +12,7 @@ import (
 	"net/url"
 
 	"git.zxq.co/ripple/rippleapi/common"
+	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -114,6 +115,7 @@ func loginSubmit(c *gin.Context) {
 
 	sess.Set("userid", data.ID)
 	sess.Set("pw", cmd5(data.Password))
+	sess.Set("logout", rs.String(15))
 
 	tfaEnabled := is2faEnabled(data.ID)
 	if !tfaEnabled {
@@ -162,6 +164,12 @@ func logout(c *gin.Context) {
 		return
 	}
 	sess := getSession(c)
+	s, _ := sess.Get("logout").(string)
+	if s != c.Query("k") {
+		// todo: return "are you sure you want to log out?" page
+		respEmpty(c, "Log out", warningMessage{"Invalid token"})
+		return
+	}
 	sess.Clear()
 	http.SetCookie(c.Writer, &http.Cookie{
 		Name:    "rt",

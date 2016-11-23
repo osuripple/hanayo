@@ -7,6 +7,7 @@ import (
 	"net/url"
 
 	"git.zxq.co/ripple/rippleapi/common"
+	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
@@ -40,6 +41,9 @@ func sessionInitializer() func(c *gin.Context) {
 				Scan(&ctx.User.Username, &pRaw, &password)
 			if err != nil {
 				c.Error(err)
+			}
+			if sess.Get("logout") == nil {
+				sess.Set("logout", rs.String(15))
 			}
 			ctx.User.Privileges = common.UserPrivileges(pRaw)
 			db.Exec("UPDATE users SET latest_activity = ? WHERE id = ?", time.Now().Unix(), userid)
