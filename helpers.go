@@ -120,18 +120,24 @@ func discordFinish(c *gin.Context) {
 	}
 
 	// Here, instead, we're telling donorbot about the user.
-	var data = map[string]string{
-		"discord_id": x.ID,
-		"secret":     config.DonorBotSecret,
-	}
-	je, _ := json.Marshal(data)
-	resp, err = http.Post(config.DonorBotURL+"/api/v1/give_donor", "application/json", bytes.NewReader(je))
+	// setup post data
+	vals := make(url.Values, 2)
+	vals.Set("discord_id", x.ID)
+	vals.Set("secret", config.DonorBotSecret)
+	// send request
+	resp, err = http.Post(config.DonorBotURL+"/api/v1/give_donor", "application/x-www-form-urlencoded", bytes.NewReader([]byte(vals.Encode())))
 	if err != nil {
 		c.Error(err)
 		addMessage(c, errorMessage{"An error occurred."})
 		return
 	}
-	switch resp.StatusCode {
+
+	var o struct {
+		Status int `json:"status"`
+	}
+	json.NewDecoder(resp.Body).Decode(&o)
+
+	switch o.Status {
 	case 200:
 		// move on
 	case 404:
