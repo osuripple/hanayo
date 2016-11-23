@@ -31,6 +31,8 @@ func simplePageFunc(p templateConfig) gin.HandlerFunc {
 func resp403(c *gin.Context) {
 	if getContext(c).User.ID == 0 {
 		ru := c.Request.URL
+		addMessage(c, warningMessage{"You need to login first."})
+		getSession(c).Save()
 		c.Redirect(302, "/login?redir="+url.QueryEscape(ru.Path+"?"+ru.RawQuery))
 		return
 	}
