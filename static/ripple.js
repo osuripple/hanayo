@@ -40,7 +40,8 @@ var singlePageSnippets = {
           switch (resp) {
           case "0":
             $("#telegram-code").closest(".field").addClass("success");
-            window.location.href = "/";
+            redir = redir ? redir : "/"; 
+            window.location.href = redir;
             break;
           case "1":
             $("#telegram-code").closest(".field").addClass("error");
