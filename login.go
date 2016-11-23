@@ -85,8 +85,15 @@ func loginSubmit(c *gin.Context) {
 		return
 	}
 
-	// TODO: if bcrypt.Cost < bcrypt.DefaultCost, regenerate password with
-	// default cost.
+	// update password if cost is < bcrypt.DefaultCost
+	if i, err := bcrypt.Cost([]byte(data.Password)); err == nil && i < bcrypt.DefaultCost {
+		pass, err := bcrypt.GenerateFromPassword([]byte(cmd5(c.PostForm("password"))), bcrypt.DefaultCost)
+		if err == nil {
+			if _, err := db.Exec("UPDATE users SET password_md5 = ? WHERE id = ?", string(pass), data.ID); err == nil {
+				data.Password = string(pass)
+			}
+		}
+	}
 
 	sess := getSession(c)
 
