@@ -147,6 +147,9 @@ var bbcodeCompiler = func() bbcode.Compiler {
 		if args["compact"] != "" {
 			out.Attrs["class"] += "compact-container "
 		}
+		if args["center"] != "" {
+			out.Attrs["style"] += "margin: 0 auto;"
+		}
 		return out, true
 	})
 
