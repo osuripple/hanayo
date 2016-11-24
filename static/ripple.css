@@ -329,3 +329,8 @@ textarea.monospace {
 .segment[hidden] {
 	display: none !important;
 }
+
+.compact-container {
+	font-size: 0;
+    line-height: 0;
+}

@@ -140,8 +140,12 @@ var bbcodeCompiler = func() bbcode.Compiler {
 		out := bbcode.NewHTMLTag("")
 		out.Name = "div"
 		out.Attrs["style"] = ""
+		out.Attrs["class"] = ""
 		if _, err := strconv.Atoi(args["width"]); err == nil {
 			out.Attrs["style"] += "width: " + args["width"] + "px;"
+		}
+		if args["compact"] != "" {
+			out.Attrs["class"] += "compact-container "
 		}
 		return out, true
 	})
