@@ -176,14 +176,21 @@ var singlePageSnippets = {
   },
 
   "/settings/userpage": function() {
-    $("#load-preview").click(function() {
-      $("#userpage-content").addClass("loading");
-      $.post("/settings/userpage/parse", $("textarea[name='data']").val(), function(data) {
-        var e = $("#userpage-content").removeClass("loading").html(data);
-        if (typeof twemoji !== "undefined") {
-          twemoji.parse(e[0]);
-        }
-      }, "text");
+    var lastTimeout = null;
+    $("textarea[name='data']").on('input', function() {
+      if (lastTimeout !== null) {
+        clearTimeout(lastTimeout);
+      }
+      var v = $(this).val();
+      lastTimeout = setTimeout(function() {
+        $("#userpage-content").addClass("loading");
+        $.post("/settings/userpage/parse", $("textarea[name='data']").val(), function(data) {
+          var e = $("#userpage-content").removeClass("loading").html(data);
+          if (typeof twemoji !== "undefined") {
+            twemoji.parse(e[0]);
+          }
+        }, "text");
+      }, 800);
     });
     $("form").submit(function(e) {
       e.preventDefault();

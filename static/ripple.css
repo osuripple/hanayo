@@ -334,3 +334,8 @@ textarea.monospace {
 	font-size: 0;
     line-height: 0;
 }
+
+#userpage-content {
+	-webkit-transition: all 500ms;
+	transition: all 500ms;
+}
