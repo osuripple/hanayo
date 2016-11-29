@@ -154,7 +154,7 @@ func loginSubmit(c *gin.Context) {
 }
 
 func safeUsername(u string) string {
-	return strings.TrimSpace(strings.Replace(strings.ToLower(u), " ", "_", -1))
+	return strings.Replace(strings.TrimSpace(strings.ToLower(u)), " ", "_", -1)
 }
 
 func logout(c *gin.Context) {
