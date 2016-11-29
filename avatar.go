@@ -29,13 +29,11 @@ func avatarSubmit(c *gin.Context) {
 	file, _, err := c.Request.FormFile("avatar")
 	if err != nil {
 		m = errorMessage{"An error occurred."}
-		c.Error(err)
 		return
 	}
 	img, _, err := image.Decode(file)
 	if err != nil {
 		m = errorMessage{"An error occurred."}
-		c.Error(err)
 		return
 	}
 	img = resize.Thumbnail(256, 256, img, resize.Bilinear)
