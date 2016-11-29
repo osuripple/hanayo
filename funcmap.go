@@ -18,6 +18,7 @@ import (
 	"git.zxq.co/ripple/playstyle"
 	"git.zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
+	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 	"github.com/russross/blackfriday"
 	"github.com/thehowl/qsql"
@@ -402,7 +403,15 @@ var funcMap = template.FuncMap{
 		}
 		return i
 	},
+	// ieForm fixes forms in IE/Trident being immensely fucked up. I hate microsoft.
+	"ieForm": func(c *gin.Context) template.HTML {
+		if !isIE(c.Request.UserAgent()) {
+			return ""
+		}
+		return ieUnfucker
+	},
 }
+
 var hanayoStarted = time.Now().UnixNano()
 
 var servicePrefixes = map[string]string{
@@ -418,6 +427,16 @@ var logoColours = [...]string{
 	"red",
 }
 
+// we still haven't got jquery when the script is here, so well shit.
+const ieUnfucker = `<input type="submit" class="ie" name="submit" value="submit">
+<script>
+var deferredToPageLoad = function() {
+	$("button[form]").click(function() {
+		$("form#" + $(this).attr("form") + " input.ie").click();
+	});
+};
+</script>`
+
 func pos(x int) (int, bool) {
 	if x > 0 {
 		return x, true
@@ -426,6 +445,22 @@ func pos(x int) (int, bool) {
 }
 func _time(s string, t time.Time) template.HTML {
 	return template.HTML(fmt.Sprintf(`<time class="timeago" datetime="%s">%v</time>`, s, t))
+}
+
+// Fantastic IEs And Where To Find Them
+var ieUserAgentsContain = []string{
+	"MSIE ",
+	"Trident/",
+	"Edge/",
+}
+
+func isIE(s string) bool {
+	for _, v := range ieUserAgentsContain {
+		if strings.Contains(s, v) {
+			return true
+		}
+	}
+	return false
 }
 
 type systemSetting struct {

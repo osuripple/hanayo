@@ -339,3 +339,15 @@ textarea.monospace {
 	-webkit-transition: all 500ms;
 	transition: all 500ms;
 }
+
+/* FUCK INTERNET EXPLORER */
+input[type="submit"].ie {
+	height: 0;
+	width: 0;
+	font-size: 0;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	/* Don't ask. Simply don't. I just tried random display values and this was what worked best */
+	display: flex;
+}

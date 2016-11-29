@@ -18,6 +18,7 @@ MinPrivileges=2
 					<p>Should you wish to disable it (highly discouraged for your account security), please click here:</p>
 					<form action="/settings/2fa/disable" method="POST" class="centered">
 						{{ csrfGenerate .Context.User.ID }}
+						{{ ieForm .Gin }}
 						<button type="submit" class="ui red labeled icon button">
 							<i class="ban icon"></i>
 							Disable Telegram 2FA

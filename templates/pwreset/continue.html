@@ -15,6 +15,7 @@ TitleBar=Reset password
 						<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
 					</div>
 					<input type="hidden" name="k" value="{{ .RequestInfo.Key }}">
+					{{ ieForm .Gin }}
 				</form>
 			</div>
 			<div class="ui right aligned segment">

@@ -7,6 +7,7 @@ MinPrivileges=2
 {{ define "tpl" }}
 <div class="ui container">
 	<div class="ui raised segment center aligned">
+		{{ $f := ieForm .Gin }}
 		<h4>Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!</h4>
 		{{ with .Get "beatmaps/rank_requests/status" }}
 			<h4 class="ui horizontal divider header">
@@ -32,6 +33,7 @@ MinPrivileges=2
 				<form class="ui form" id="b-form">
 					<div class="ui fluid action input">
 						<input type="text" placeholder="https://osu.ppy.sh/s/xxxx" id="beatmap">
+						{{ $f }}
 						<button class="ui right labeled icon green button">
 							<i class="right arrow icon"></i>
 							Submit

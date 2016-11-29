@@ -21,6 +21,7 @@ TitleBar=Reset password
 				</div>
 				<div class="ui segment">
 					<form id="pw-reset-form" class="ui form" method="post" action="/pwreset">
+						{{ ieForm .Gin }}
 						<div class="field">
 							<label>Username (or email)</label>
 							<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required>

@@ -345,6 +345,7 @@ $(document).ready(function(){
   var f = singlePageSnippets[window.location.pathname];
   if (typeof f === 'function')
     f();
+  if (typeof deferredToPageLoad === "function") deferredToPageLoad();
 
   // setup user search
   $("#user-search").search({

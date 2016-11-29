@@ -33,6 +33,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 				{{ $csrf := csrfGenerate .Context.User.ID }}
 				<form action="/settings/profbackground/0" method="post" class="little top margin ui form" data-type="0"{{ if and (ne $type 0) }} hidden{{ end }}>
 					{{ $csrf }}
+					{{ ieForm .Gin }}
 					<button type="submit" class="ui right labeled blue icon button">
 						<i class="save icon"></i>
 						Save					
@@ -45,6 +46,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 							<i class="file icon"></i>
 							Open File
 						</label>
+						{{ ieForm .Gin }}
 						<button type="submit" class="ui right labeled blue icon button">
 							<i class="save icon"></i>
 							Save					
@@ -58,6 +60,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 						<input type="text"{{ if and (eq $type 2) $value }} value="{{ $value }}"{{ end }} id="colorpicker" name="value">
 					</div>
 					<p class="little top margin">
+						{{ ieForm .Gin }}
 						<button type="submit" class="ui right labeled blue icon button">
 							<i class="save icon"></i>
 							Save					

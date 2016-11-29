@@ -24,6 +24,7 @@ KyutGrill=login2.jpg
 							<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
 						</div>
 						<input type="hidden" name="redir" value="{{ or (.Gin.Query "redir") .FormData.redir }}">
+						{{ ieForm .Gin }}
 					</form>
 				</div>
 				<div class="ui right aligned segment">

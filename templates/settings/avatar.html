@@ -15,6 +15,7 @@ MinPrivileges=2
 					<img src="{{ config "AvatarURL" }}/{{ .Context.User.ID }}" alt="Avatar" id="avatar-img" style="max-width: 400px;">
 				</div>
 				<form action="/settings/avatar" method="post" enctype="multipart/form-data" class="little top margin">
+					{{ ieForm .Gin }}
 					<div class="ui buttons">
 						<label for="file" class="ui green labeled icon button">
 							<i class="file icon"></i>
