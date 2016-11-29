@@ -232,7 +232,7 @@ func checkUInQS(c *gin.Context) (int, bool) {
 func tryBotnets(c *gin.Context) (string, string) {
 	var username string
 
-	err := db.QueryRow("SELECT u.username FROM ip_user i LEFT JOIN users u ON u.id = i.userid WHERE i.ip = ?", clientIP(c)).Scan(&username)
+	err := db.QueryRow("SELECT u.username FROM ip_user i INNER JOIN users u ON u.id = i.userid WHERE i.ip = ?", clientIP(c)).Scan(&username)
 	if err != nil {
 		if err != sql.ErrNoRows {
 			c.Error(err)
@@ -244,7 +244,7 @@ func tryBotnets(c *gin.Context) (string, string) {
 	}
 
 	cook, _ := c.Cookie("y")
-	err = db.QueryRow("SELECT u.username FROM identity_tokens i LEFT JOIN users u ON u.id = i.userid WHERE i.token = ?",
+	err = db.QueryRow("SELECT u.username FROM identity_tokens i INNER JOIN users u ON u.id = i.userid WHERE i.token = ?",
 		cook).Scan(&username)
 	if err != nil {
 		if err != sql.ErrNoRows {
