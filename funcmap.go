@@ -414,6 +414,7 @@ var funcMap = template.FuncMap{
 	"version": func() string {
 		return version
 	},
+	"generateKey": generateKey,
 }
 
 var hanayoStarted = time.Now().UnixNano()

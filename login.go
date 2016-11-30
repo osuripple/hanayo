@@ -118,7 +118,7 @@ func loginSubmit(c *gin.Context) {
 	sess.Set("logout", rs.String(15))
 
 	tfaEnabled := is2faEnabled(data.ID)
-	if !tfaEnabled {
+	if tfaEnabled == 0 {
 		s, err := generateToken(data.ID, c)
 		if err != nil {
 			resp500(c)
@@ -139,7 +139,7 @@ func loginSubmit(c *gin.Context) {
 		redir = ""
 	}
 
-	if tfaEnabled {
+	if tfaEnabled > 0 {
 		sess.Save()
 		c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(redir))
 	} else {

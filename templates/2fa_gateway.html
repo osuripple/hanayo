@@ -1,18 +1,26 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ if .Session.Get "2fa_must_validate" }}
+		{{ $e := is2faEnabled .Context.User.ID }}
 		<div class="tiny container">
 			<div class="ui raised segments">
 				<div class="ui segment">
-					Hey, {{ .Context.User.Username }}. Before proceding any
-					further on Ripple, we require you to use the message you
-					just received on telegram to log in to your account.
+					Hey, {{ .Context.User.Username }}.
+					{{ if eq $e 1 }}
+						Before proceding any
+						further on Ripple, we require you to use the message you
+						just received on telegram to log in to your account.
+					{{ else }}
+						Before proceding further on Ripple, we require you
+						to use your Google Authenticator App to use the code
+						for Ripple, so that we can log you in.
+					{{ end }}
 				</div>
 				<div class="ui segment">
 					<div class="ui form">
 						<div class="field">
-							<label>Telegram code <a href="/2fa_gateway/clear">(send again?)</a></label>
-							<input type="text" placeholder="e.g. AWYXZ13Y" id="telegram-code">
+							<label>{{ if eq $e 1 }}Telegram code <a href="/2fa_gateway/clear">(send again?)</a>{{ else }}Google Authenticator passcode{{ end }}</label>
+							<input type="text" placeholder="{{ if eq $e 1 }}AWYXZ13Y{{ else }}612 511{{ end }}" id="telegram-code">
 						</div>
 					</div>
 				</div>

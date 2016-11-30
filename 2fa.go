@@ -2,16 +2,18 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
+	"fmt"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/x/rs"
-
-	"net/url"
-
 	"github.com/gin-gonic/gin"
+	"github.com/pquerna/otp"
+	"github.com/pquerna/otp/totp"
 )
 
 var allowedPaths = [...]string{
@@ -44,8 +46,7 @@ func twoFALock(c *gin.Context) {
 		//     if it is, move on and show the page.
 		//     if it isn't, set 2fa_must_validate
 		//   if it isn't, move on.
-		enabled := is2faEnabled(ctx.User.ID)
-		if enabled {
+		if is2faEnabled(ctx.User.ID) > 0 {
 			err := db.QueryRow("SELECT 1 FROM ip_user WHERE userid = ? AND ip = ? LIMIT 1", ctx.User.ID, clientIP(c)).Scan(new(int))
 			if err != sql.ErrNoRows {
 				c.Next()
@@ -72,9 +73,17 @@ func twoFALock(c *gin.Context) {
 	c.Abort()
 }
 
+const (
+	tfaEnabledTelegram = 1 << iota
+	tfaEnabledTOTP
+)
+
 // is2faEnabled checks 2fa is enabled for an user.
-func is2faEnabled(user int) bool {
-	return db.QueryRow("SELECT 1 FROM 2fa_telegram WHERE userid = ?", user).Scan(new(int)) != sql.ErrNoRows
+func is2faEnabled(user int) int {
+	var enabled int
+	db.QueryRow("SELECT IFNULL((SELECT 1 FROM 2fa_telegram WHERE userid = ?), 0) | IFNULL((SELECT 2 FROM 2fa_totp WHERE userid = ? AND enabled = 1), 0) as x", user, user).
+		Scan(&enabled)
+	return enabled
 }
 
 func tfaGateway(c *gin.Context) {
@@ -93,8 +102,9 @@ func tfaGateway(c *gin.Context) {
 	if i == 0 {
 		c.Redirect(302, redir)
 	}
-	if !is2faEnabled(i) {
+	if is2faEnabled(i) == 0 {
 		sess.Delete("2fa_must_validate")
+		sess.Save()
 		c.Redirect(302, redir)
 		return
 	}
@@ -143,19 +153,30 @@ func verify2fa(c *gin.Context) {
 	if i == 0 {
 		c.Redirect(302, "/")
 	}
-	var id int
-	var expire common.UnixTimestamp
-	err := db.QueryRow("SELECT id, expire FROM 2fa WHERE userid = ? AND ip = ? AND token = ?", i, clientIP(c), strings.ToUpper(c.Query("token"))).Scan(&id, &expire)
-	if err == sql.ErrNoRows {
-		c.String(200, "1")
-		return
-	}
-	if time.Now().After(time.Time(expire)) {
-		c.String(200, "1")
-		db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
-			i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
-		http.Get("http://127.0.0.1:8888/update")
-		return
+	e := is2faEnabled(i)
+	switch e {
+	case 1:
+		var id int
+		var expire common.UnixTimestamp
+		err := db.QueryRow("SELECT id, expire FROM 2fa WHERE userid = ? AND ip = ? AND token = ?", i, clientIP(c), strings.ToUpper(c.Query("token"))).Scan(&id, &expire)
+		if err == sql.ErrNoRows {
+			c.String(200, "1")
+			return
+		}
+		if time.Now().After(time.Time(expire)) {
+			c.String(200, "1")
+			db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
+				i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
+			http.Get("http://127.0.0.1:8888/update")
+			return
+		}
+	case 2:
+		var secret string
+		db.Get(&secret, "SELECT secret FROM 2fa_totp WHERE userid = ?", i)
+		if !totp.Validate(strings.Replace(c.Query("token"), " ", "", -1), secret) {
+			c.String(200, "1")
+			return
+		}
 	}
 	s, err := generateToken(i, c)
 	if err != nil {
@@ -175,7 +196,7 @@ func verify2fa(c *gin.Context) {
 	addMessage(c, successMessage{"You've been successfully logged in."})
 	sess.Delete("2fa_must_validate")
 	sess.Save()
-	db.Exec("DELETE FROM 2fa WHERE id = ?", id)
+	db.Exec("DELETE FROM 2fa WHERE id = ?", i)
 	c.String(200, "0")
 }
 
@@ -215,5 +236,71 @@ func disable2fa(c *gin.Context) {
 	}
 
 	db.Exec("DELETE FROM 2fa_telegram WHERE userid = ?", ctx.User.ID)
-	m = successMessage{"2fa disabled successfully."}
+	db.Exec("DELETE FROM 2fa_totp WHERE userid = ?", ctx.User.ID)
+	m = successMessage{"2FA disabled successfully."}
+}
+
+func totpSetup(c *gin.Context) {
+	ctx := getContext(c)
+	sess := getSession(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+		return
+	}
+	defer c.Redirect(302, "/settings/2fa")
+	defer sess.Save()
+
+	if !csrfExist(ctx.User.ID, c.PostForm("csrf")) {
+		addMessage(c, errorMessage{"Invalid CSRF token. Please try again"})
+		return
+	}
+
+	switch is2faEnabled(ctx.User.ID) {
+	case 1:
+		addMessage(c, errorMessage{"You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA."})
+		return
+	case 2:
+		addMessage(c, errorMessage{"TOTP-based 2FA is already enabled!"})
+		return
+	}
+
+	pc := strings.Replace(c.PostForm("passcode"), " ", "", -1)
+
+	var secret string
+	db.Get(&secret, "SELECT secret FROM 2fa_totp WHERE userid = ?", ctx.User.ID)
+	if secret == "" || pc == "" {
+		addMessage(c, errorMessage{"No passcode/secret was given. Please try again"})
+		return
+	}
+
+	fmt.Println(pc, secret)
+	if !totp.Validate(pc, secret) {
+		addMessage(c, errorMessage{"Passcode is invalid. Perhaps it expired?"})
+		return
+	}
+
+	codes, _ := json.Marshal(generateRecoveryCodes())
+	db.Exec("UPDATE 2fa_totp SET recovery = ?, enabled = 1 WHERE userid = ?", string(codes), ctx.User.ID)
+
+	addMessage(c, successMessage{"TOTP-based 2FA has been enabled on your account."})
+}
+
+func generateRecoveryCodes() []string {
+	x := make([]string, 8)
+	for i := range x {
+		x[i] = rs.StringFromChars(6, "QWERTYUIOPASDFGHJKLZXCVBNM1234567890")
+	}
+	return x
+}
+
+func generateKey(ctx context) *otp.Key {
+	k, err := totp.Generate(totp.GenerateOpts{
+		Issuer:      "Ripple",
+		AccountName: ctx.User.Username,
+	})
+	if err != nil {
+		return nil
+	}
+	db.Exec("INSERT INTO 2fa_totp(userid, secret) VALUES (?, ?) ON DUPLICATE KEY UPDATE secret = VALUES(secret)", ctx.User.ID, k.Secret())
+	return k
 }

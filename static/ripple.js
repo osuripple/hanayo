@@ -33,7 +33,7 @@ var singlePageSnippets = {
 
   "/2fa_gateway": function() {
     $('#telegram-code').on('input', function() {
-      if ($(this).val().length >= 8) {
+      if ($(this).val().length >= 6) {
         $.get("/2fa_gateway/verify", {
           token: $(this).val().trim().substr(0, 8),
         }, function(resp) {
