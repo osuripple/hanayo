@@ -244,7 +244,7 @@ func generateEngine() *gin.Engine {
 	r.GET("/2fa_gateway/clear", clear2fa)
 	r.GET("/2fa_gateway/verify", verify2fa)
 
-	r.GET("/irc/generate", ircGenToken)
+	r.POST("/irc/generate", ircGenToken)
 
 	r.GET("/settings/password", changePassword)
 	r.POST("/settings/password", changePasswordSubmit)

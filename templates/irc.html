@@ -14,9 +14,12 @@ MinPrivileges=2
 			want to check out <a href="/doc/11">this</a>.
 		</div>
 		<div class="ui right aligned segment">
-			<a class="ui right blue button" href="/irc/generate">
-				Generate a new token!
-			</a>
+			<form action="/irc/generate" method="POST">
+				{{ ieForm .Gin }}
+				<button type="submit" class="ui right blue button">
+					Generate a new token!
+				</button>
+			</form>
 		</div>
 	</div>
 </div>
