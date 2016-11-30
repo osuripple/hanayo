@@ -272,6 +272,8 @@ var singlePageSnippets = {
       e.preventDefault();
       var v = $("#beatmap").val().trim();
       var reData = re.exec(v);
+      re.exec(); // apparently this is always null, idk
+      console.log(v, reData);
       if (reData === null) {
         showMessage("error", "Please provide a valid link, in the form " +
           "of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;.");
@@ -288,7 +290,11 @@ var singlePageSnippets = {
         t.removeClass("loading");
         showMessage("success", "Beatmap rank request has been submitted.");
         updateRankRequestPage(data);
-      }, true)
+      }, function(data) {
+        t.removeClass("loading");
+        if (data.code == 406)
+          showMessage("warning", "That beatmap is already ranked!");
+      }, true);
       return false;
     });
   },
@@ -395,10 +401,14 @@ function showMessage(type, message) {
 };
 
 // function for all api calls
-function api(endpoint, data, success, post) {
+function api(endpoint, data, success, failure, post) {
   if (typeof data == "function") {
     success = data;
     data = null;
+  }
+  if (typeof failure == "boolean") {
+    post = failure;
+    failure = undefined;
   }
   
   var errorMessage = "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
@@ -409,14 +419,22 @@ function api(endpoint, data, success, post) {
     url:      "/api/v1/" + endpoint,
     data:     (post ? JSON.stringify(data) : data),
     contentType: (post ? "application/json; charset=utf-8" : ""),
-    success:  function(data) {
+    success: function(data) {
       if (data.code != 200) {
+        if ((data.code >= 400 && data.code < 500) && typeof failure == "function") {
+          failure(data);
+          return;
+        }
         console.warn(data);
         showMessage("error", errorMessage);
       }
       success(data);
     },
-    error:    function(jqXHR, textStatus, errorThrown) {
+    error: function(jqXHR, textStatus, errorThrown) {
+      if ((jqXHR.status >= 400 && jqXHR.status < 500) && typeof failure == "function") {
+        failure(jqXHR.responseJSON);
+        return;
+      }
       console.warn(jqXHR, textStatus, errorThrown);
       showMessage("error", errorMessage);
     },
