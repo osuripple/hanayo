@@ -410,6 +410,10 @@ var funcMap = template.FuncMap{
 		}
 		return ieUnfucker
 	},
+	// version gets what's the current Hanayo version.
+	"version": func() string {
+		return version
+	},
 }
 
 var hanayoStarted = time.Now().UnixNano()
