@@ -415,6 +415,14 @@ var funcMap = template.FuncMap{
 		return version
 	},
 	"generateKey": generateKey,
+	// getKeys gets the recovery 2fa keys for an user
+	"getKeys": func(id int) []string {
+		var keyRaw string
+		db.Get(&keyRaw, "SELECT recovery FROM 2fa_totp WHERE userid = ?", id)
+		s := make([]string, 0, 8)
+		json.Unmarshal([]byte(keyRaw), &s)
+		return s
+	},
 }
 
 var hanayoStarted = time.Now().UnixNano()

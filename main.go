@@ -243,6 +243,8 @@ func generateEngine() *gin.Engine {
 	r.GET("/2fa_gateway", tfaGateway)
 	r.GET("/2fa_gateway/clear", clear2fa)
 	r.GET("/2fa_gateway/verify", verify2fa)
+	r.GET("/2fa_gateway/recover", recover2fa)
+	r.POST("/2fa_gateway/recover", recover2faSubmit)
 
 	r.POST("/irc/generate", ircGenToken)
 

@@ -24,6 +24,11 @@
 						</div>
 					</div>
 				</div>
+				{{ if eq $e 2 }}
+					<div class="ui segment">
+						<b>Lost your phone, or can't access Google Authenticator?</b> <a href="/2fa_gateway/recover">Click here to use a recovery code.</a>
+					</div>
+				{{ end }}
 			</div>
 		</div>
 		<script>

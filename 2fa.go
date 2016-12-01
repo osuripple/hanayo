@@ -21,6 +21,7 @@ var allowedPaths = [...]string{
 	"/2fa_gateway",
 	"/2fa_gateway/verify",
 	"/2fa_gateway/clear",
+	"/2fa_gateway/recover",
 	"/favicon.ico",
 }
 
@@ -97,24 +98,29 @@ func tfaGateway(c *gin.Context) {
 		redir = "/"
 	}
 
-	// check 2fa hasn't been disabled
 	i, _ := sess.Get("userid").(int)
 	if i == 0 {
 		c.Redirect(302, redir)
 	}
-	if is2faEnabled(i) == 0 {
+
+	// check 2fa hasn't been disabled
+	e := is2faEnabled(i)
+	if e == 0 {
 		sess.Delete("2fa_must_validate")
 		sess.Save()
 		c.Redirect(302, redir)
 		return
 	}
-	// check previous 2fa thing is still valid
-	err := db.QueryRow("SELECT 1 FROM 2fa WHERE userid = ? AND ip = ? AND expire > ?",
-		i, clientIP(c), time.Now().Unix()).Scan(new(int))
-	if err != nil {
-		db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
-			i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
-		http.Get("http://127.0.0.1:8888/update")
+
+	if e == 1 {
+		// check previous 2fa thing is still valid
+		err := db.QueryRow("SELECT 1 FROM 2fa WHERE userid = ? AND ip = ? AND expire > ?",
+			i, clientIP(c), time.Now().Unix()).Scan(new(int))
+		if err != nil {
+			db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
+				i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
+			http.Get("http://127.0.0.1:8888/update")
+		}
 	}
 
 	resp(c, 200, "2fa_gateway.html", &baseTemplateData{
@@ -178,6 +184,15 @@ func verify2fa(c *gin.Context) {
 			return
 		}
 	}
+
+	loginUser(c, i)
+
+	db.Exec("DELETE FROM 2fa WHERE id = ?", i)
+	c.String(200, "0")
+}
+
+func loginUser(c *gin.Context, i int) {
+	sess := getSession(c)
 	s, err := generateToken(i, c)
 	if err != nil {
 		resp500(c)
@@ -196,8 +211,59 @@ func verify2fa(c *gin.Context) {
 	addMessage(c, successMessage{"You've been successfully logged in."})
 	sess.Delete("2fa_must_validate")
 	sess.Save()
-	db.Exec("DELETE FROM 2fa WHERE id = ?", i)
-	c.String(200, "0")
+}
+
+func recover2fa(c *gin.Context) {
+	sess := getSession(c)
+	i, _ := sess.Get("userid").(int)
+	if i == 0 {
+		c.Redirect(302, "/")
+	}
+	e := is2faEnabled(i)
+	if e != 2 {
+		respEmpty(c, "Recover account", warningMessage{"Oh no you don't."})
+		return
+	}
+	resp(c, 200, "2fa_gateway_recover.html", &baseTemplateData{
+		TitleBar:  "Recover account",
+		KyutGrill: "2fa.jpg",
+	})
+}
+
+func recover2faSubmit(c *gin.Context) {
+	sess := getSession(c)
+	i, _ := sess.Get("userid").(int)
+	if i == 0 {
+		c.Redirect(302, "/")
+	}
+	if is2faEnabled(i) != 2 {
+		respEmpty(c, "Recover account", warningMessage{"Get out."})
+		return
+	}
+
+	var codesRaw string
+	db.Get(&codesRaw, "SELECT recovery FROM 2fa_totp WHERE userid = ?", i)
+	var codes []string
+	json.Unmarshal([]byte(codesRaw), &codes)
+
+	for k, v := range codes {
+		if v == c.PostForm("recovery_code") {
+			codes[k] = codes[len(codes)-1]
+			codes = codes[:len(codes)-1]
+			b, _ := json.Marshal(codes)
+			db.Exec("UPDATE 2fa_totp SET recovery = ? WHERE userid = ?", string(b), i)
+
+			loginUser(c, i)
+			c.Redirect(302, "/")
+			return
+		}
+	}
+
+	resp(c, 200, "2fa_gateway_recover.html", &baseTemplateData{
+		TitleBar:  "Recover account",
+		KyutGrill: "2fa.jpg",
+		Messages:  []message{errorMessage{"Recovery code is invalid."}},
+	})
 }
 
 // deletes expired 2fa confirmation tokens. gets current confirmation token.
