@@ -194,6 +194,9 @@ func generateToken(id int, c *gin.Context) (string, error) {
 }
 
 func checkToken(s string, id int, c *gin.Context) (string, error) {
+	if s == "" {
+		return generateToken(id, c)
+	}
 	if err := db.QueryRow("SELECT 1 FROM tokens WHERE token = ?", cmd5(s)).Scan(new(int)); err == sql.ErrNoRows {
 		return generateToken(id, c)
 	} else if err != nil {
