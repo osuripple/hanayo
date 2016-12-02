@@ -50,7 +50,11 @@ func sessionInitializer() func(c *gin.Context) {
 			}
 			oldToken := ctx.Token
 			ctx.Token, _ = checkToken(ctx.Token, ctx.User.ID, c)
-			if x, _ := c.Cookie("rt"); (x == "" && ctx.Token != "") || oldToken != ctx.Token {
+			// Set rt cookie in case:
+			// - User has not got a token in rt
+			// - Token has been updated with checkToken
+			// - user still has old token in rt
+			if x, _ := c.Cookie("rt"); oldToken != ctx.Token || x != ctx.Token {
 				http.SetCookie(c.Writer, &http.Cookie{
 					Name:    "rt",
 					Value:   ctx.Token,
