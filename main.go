@@ -46,9 +46,10 @@ var (
 		BaseURL       string
 		DiscordServer string
 
-		API       string
-		BanchoAPI string
-		APISecret string
+		API           string
+		BanchoAPI     string
+		APISecret     string
+		BaseAPIPublic string
 
 		IP_API string
 

@@ -93,7 +93,8 @@
 		<script>
 			var hanayoConf = {
 				avatars:   {{ .Conf.AvatarURL }},
-				banchoAPI: {{ .Conf.BanchoAPI }}
+				banchoAPI: {{ .Conf.BanchoAPI }},
+				baseAPI:   {{ .Conf.BaseAPIPublic }}
 			};
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
