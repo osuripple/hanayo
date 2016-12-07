@@ -171,7 +171,7 @@ func (b *baseTemplateData) SetGinContext(c *gin.Context) {
 func (b *baseTemplateData) SetSession(sess sessions.Session) {
 	b.Session = sess
 }
-func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interface{} {
+func (b baseTemplateData) get(s string, params ...interface{}) []byte {
 	s = fmt.Sprintf(s, params...)
 	req, err := http.NewRequest("GET", config.API+s, nil)
 	if err != nil {
@@ -187,18 +187,29 @@ func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interf
 		return nil
 	}
 	data, err := ioutil.ReadAll(resp.Body)
-	defer resp.Body.Close()
 	if err != nil {
 		b.Gin.Error(err)
 		return nil
 	}
+	return data
+}
+func (b baseTemplateData) Get(s string, params ...interface{}) map[string]interface{} {
+	data := b.get(s, params...)
 	x := make(map[string]interface{})
-	err = json.Unmarshal(data, &x)
+	err := json.Unmarshal(data, &x)
 	if err != nil {
 		b.Gin.Error(err)
 		return nil
 	}
 	return x
+}
+func (b baseTemplateData) Vue(s string, params ...interface{}) template.JS {
+	d := b.get(s, params...)
+	// minimal json verification
+	if len(d) > 2 && d[0] == '{' && d[len(d)-1] == '}' {
+		return template.JS(d)
+	}
+	return ""
 }
 func (b baseTemplateData) Has(privs uint64) bool {
 	return uint64(b.Context.User.Privileges)&privs == privs

@@ -105,7 +105,7 @@ var singlePageSnippets = {
     });
   },
 
-  "/friends": function() {
+  "/friendsasfasfafa": function() {
     $(".smalltext.button").click(function() {
       var t = $(this);
       var delAdd = t.data("deleted") === "1" ? "add" : "del";
@@ -323,6 +323,8 @@ var singlePageSnippets = {
   }
 };
 
+var vm;
+
 $(document).ready(function(){
   // semantic stuff
   $('.message .close').on('click', closeClosestMessage);
@@ -385,6 +387,34 @@ $(document).ready(function(){
   // setup timeago
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
+
+  Vue.component('ripple-friend', {
+    props: ["isMutual", "user", "username", "privileges"],
+    template: '<h4 class="ui image header">' +
+                '<img v-bind:src="avatars(user)" class="ui mini rounded image" v-bind:style="{opacity: privileges >= 3 ? 1 : 0.5}">' +
+                '<div class="content">' +
+                  '<a v-bind:href="avatars(user)" v-bind:style="{opacity: privileges >= 3 ? 1 : 0.5}">[[ username ]]</a>' +
+                  '<div class="sub header">' +
+                    '<div v-bind:class="isMutual ? \'red\' : \'green\'" class="ui compact circular smalltext icon labeled button" v-bind:data-userid="user">' +
+                      '<i v-bind:class="[isMutual ? \'heart\' : \'minus\', \'icon\']"></i>' +
+                      '<span v-if="isMutual">Mutual</span><span v-else>Remove</span>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+              '</h4>',
+    methods: {
+      avatars: function(v) {
+        return hanayoConf.avatars + "/" + v;
+      }
+    },
+    delimiters: ["[[", "]]"]
+  });
+
+  vm = new Vue({
+    el: "#mwrp",
+    delimiters: ["[[", "]]"],
+    data: typeof vueData !== "undefined" ? vueData : null,
+  });
 });
 
 function closeClosestMessage() {
