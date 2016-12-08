@@ -388,26 +388,77 @@ $(document).ready(function(){
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
 
-  Vue.component('ripple-friend', {
+  Vue.component("ripple-friend", {
     props: ["isMutual", "user", "username", "privileges"],
     template: '<h4 class="ui image header">' +
-                '<img v-bind:src="avatars(user)" class="ui mini rounded image" v-bind:style="{opacity: privileges >= 3 ? 1 : 0.5}">' +
+                '<img v-bind:src="avatarURL" class="ui mini rounded image" ' +
+                  'v-bind:style="{opacity: privileges >= 3 ? 1 : 0.5}">' +
                 '<div class="content">' +
-                  '<a v-bind:href="avatars(user)" v-bind:style="{opacity: privileges >= 3 ? 1 : 0.5}">[[ username ]]</a>' +
+                  '<a v-bind:href="userURL" ' +
+                    'v-bind:style="{opacity: privileges >= 3 ? 1 : 0.5}">' +
+                    '{{ username }}' +
+                  '</a>' +
                   '<div class="sub header">' +
-                    '<div v-bind:class="isMutual ? \'red\' : \'green\'" class="ui compact circular smalltext icon labeled button" v-bind:data-userid="user">' +
-                      '<i v-bind:class="[isMutual ? \'heart\' : \'minus\', \'icon\']"></i>' +
-                      '<span v-if="isMutual">Mutual</span><span v-else>Remove</span>' +
+                    '<div v-bind:class="isMutual ? \'red\' : friends ? \'green\' : \'blue\'" ' +
+                      'class="ui compact circular smalltext icon labeled button"' + 
+                      'v-on:click="addDelFriend">' +
+                        '<i v-bind:class="[isMutual ? \'heart\' : friends ? \'minus\': \'plus\', \'icon\']"></i>' +
+                        '<span>{{ isMutual ? "Mutual" : friends ? "Remove" : "Add" }}</span>' +
                     '</div>' +
                   '</div>' +
                 '</div>' +
               '</h4>',
     methods: {
-      avatars: function(v) {
-        return hanayoConf.avatars + "/" + v;
+      addDelFriend: function() {
+        var vm = this;
+        api("friends/" + (vm.friends ? "del" : "add"), {
+          user: vm.user,
+        }, function(data) {
+          vm.friends = data.friend;
+          vm.isMutual = data.mutual;
+        }, true);
       }
     },
-    delimiters: ["[[", "]]"]
+    data: function() {
+      // ripple-friend implies that we are friends with this user. so if we
+      // click the button, we should delete the friendship
+      return {
+        friends: true,
+      };
+    },
+    computed: {
+      userURL: function() {
+        return "/u/" + this.user;
+      },
+      avatarURL: function() {
+        return hanayoConf.avatars + "/" + this.user;
+      }
+    }
+  });
+
+  Vue.component("pagination-menu", {
+    props: ["after"],
+    template: '<div class="ui right aligned segment" v-if="before || after">' +
+                '<div class="ui pagination menu">' +
+                  '<a class="icon item" v-bind:href="friendPage(page-1)" v-if="before"><i class="left chevron icon"></i></a>' +
+                  '<a class="icon item" v-bind:href="friendPage(page+1)" v-if="after"><i class="right chevron icon"></i></a>' +
+                '</div>' +
+              '</div>',
+    computed: {
+      before: function() {
+        return this.page > 1;
+      }
+    },
+    methods: {
+      friendPage: function(x) {
+        return "/friends?p=" + x
+      }
+    },
+    data: function() {
+      return {
+        page: Math.max(+query("p"), 1),
+      };
+    }
   });
 
   vm = new Vue({

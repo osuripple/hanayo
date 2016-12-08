@@ -22,24 +22,7 @@ KyutGrill=friends.jpg
 				</div>
 			</div>
 		</div>
-		{{ $left := gt $page 1 }}
-		{{ $right := false }}
-		{{ if or $left $right }}
-			<div class="ui right aligned segment">
-				<div class="ui pagination menu">
-					{{ if $left }}
-						<a class="icon item" href="/friends?p={{ minus (float $page) 1 }}">
-							<i class="left chevron icon"></i>
-						</a>
-					{{ end }}
-					{{ if $right }}
-						<a class="icon item" href="/friends?p={{ plus (float $page) 1 }}">
-							<i class="right chevron icon"></i>
-						</a>
-					{{ end }}
-				</div>
-			</div>
-		{{ end }}
+		<pagination-menu v-bind:after="friends.length >= 40" v-if="friends"></pagination-menu>
 	</div>
 </div>
 <script>
