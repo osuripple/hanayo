@@ -86,10 +86,6 @@
 			<a href="https://reddit.com/r/osuripple" title="Share irrelevant opinions on reddit!"><i class="reddit square icon"></i></a>
 		</div>
 		{{ $conf := .Conf }}
-		<script src="{{ if $conf.Offline }}/static/{{ else }}https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/{{ end }}jquery.min.js?{{ unixNano }}"></script>
-		<script src="{{ if $conf.Offline }}/static/{{ else }}https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.3/{{ end }}jquery.timeago.min.js?{{ unixNano }}"></script>
-		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
-		<script src="/static/semantic.min.js?{{ unixNano }}"></script>
 		<script>
 			var hanayoConf = {
 				avatars:   {{ .Conf.AvatarURL }},
@@ -103,7 +99,8 @@
 				<script src="{{ . }}?{{ unixNano }}"></script>
 			{{ end }}
 		{{ end }}
-		<script src="/static/ripple.js?{{ unixNano }}"></script>
+		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
+		<script src="/static/dist.min.js"></script>
 		{{ if and .Conf.AnalyticsID (ne (.Gin.Request.Header.Get "dnt") "1") }}
 			<script>
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
