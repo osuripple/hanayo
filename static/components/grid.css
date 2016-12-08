@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Grid
+ * # Semantic UI 2.2.6 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1208,6 +1208,7 @@
           flex-direction: column;
   vertical-align: middle;
   -ms-flex-item-align: center !important;
+      -ms-grid-row-align: center !important;
       align-self: center !important;
 }
 
@@ -1265,6 +1266,7 @@
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
   -ms-flex-item-align: inherit;
+      -ms-grid-row-align: inherit;
       align-self: inherit;
 }
 
@@ -1276,6 +1278,7 @@
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
   -ms-flex-item-align: inherit;
+      -ms-grid-row-align: inherit;
       align-self: inherit;
 }
 .ui[class*="center aligned"].grid {
@@ -1292,6 +1295,7 @@
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
   -ms-flex-item-align: inherit;
+      -ms-grid-row-align: inherit;
       align-self: inherit;
 }
 

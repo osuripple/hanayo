@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Step
+ * # Semantic UI 2.2.6 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -163,6 +163,7 @@
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   -ms-flex-item-align: middle;
+      -ms-grid-row-align: middle;
       align-self: middle;
 }
 .ui.steps .step > .icon ~ .content {
@@ -201,6 +202,7 @@
   text-align: center;
   content: counters(ordered, ".");
   -ms-flex-item-align: middle;
+      -ms-grid-row-align: middle;
       align-self: middle;
   margin-right: 1rem;
   font-size: 2.5em;
@@ -211,6 +213,7 @@
 .ui.ordered.steps .step > * {
   display: block;
   -ms-flex-item-align: middle;
+      -ms-grid-row-align: middle;
       align-self: middle;
 }
 
