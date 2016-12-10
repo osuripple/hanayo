@@ -393,14 +393,16 @@ $(document).ready(function(){
     },
   });
   $("#user-search-input").keypress(function (e) {
-    if (e.which == 13) {
+    if (e.which == 13)
       window.location.pathname = "/u/" + $(this).val();
-    }
   });
   
   // setup timeago
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
+
+  // it's christmas!
+  $(".huge.heading").snowfall({flakeCount: 100, maxSpeed: 3, minSize: 4, round: true, shadow: true});
 });
 
 function closeClosestMessage() {
