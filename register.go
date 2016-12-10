@@ -133,6 +133,8 @@ func registerSubmit(c *gin.Context) {
 	setYCookie(int(lid), c)
 	logIP(c, int(lid))
 
+	rd.Incr("ripple:registered_users")
+
 	addMessage(c, successMessage{"You have been successfully registered on Ripple! You now need to verify your account."})
 	getSession(c).Save()
 	c.Redirect(302, "/register/verify?u="+strconv.Itoa(int(lid)))

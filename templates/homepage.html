@@ -15,7 +15,7 @@ KyutGrill=christmas_homepage.jpg
 		</div>
 	{{ end }}
 	{{/* Not logged in block */}}
-	{{ if not .Context.User.Username }}
+	{{ if not .Context.User.ID }}
 		<div class="ui segment">
 			<h1 class="ui header">Welcome to Ripple.</h1>
 			<p>
@@ -27,11 +27,23 @@ KyutGrill=christmas_homepage.jpg
 				<a href="/about">You can check out even more features here.</a>
 				It has also a very friendly community, and it's
 				<a href="https://git.zxq.co/ripple/ripple">open source!</a>
-				{{ with rediget "ripple:online_users" }} Just so you know, <b>we currently have {{ . }} users online!</b>{{ end }}
+				Just so you know,
+				<b>we currently have {{ rediget "ripple:online_users" }} users
+				online and {{ rediget "ripple:registered_users" }} registered users!</b>
 			</p>
 			<h3 class="ui header center aligned">What are you waiting for? Join Ripple! It's risk-free:
 				you won't get your account banned if you play on Ripple.<br />You can also switch anytime
 				between the official osu! server and Ripple!</h3>
+		</div>
+	{{ else }}
+		<div class="ui segment">
+			<h1 class="ui header">Howdy, {{ .Context.User.Username }}!</h1>
+			<p>
+				Welcome back to Ripple. We currently have
+				<b>{{ rediget "ripple:online_users" }} online users and 
+				{{ rediget "ripple:registered_users" }} total registed users.</b>
+				Nice day to farm a few maps, isn't it?
+			</p>
 		</div>
 	{{ end }}
 	{{ with (.Get "blog/posts?l=5") }}
