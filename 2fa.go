@@ -9,6 +9,8 @@ import (
 	"strings"
 	"time"
 
+	"golang.org/x/crypto/bcrypt"
+
 	"git.zxq.co/ripple/rippleapi/common"
 	"git.zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
@@ -298,6 +300,16 @@ func disable2fa(c *gin.Context) {
 	exist := csrfExist(ctx.User.ID, c.PostForm("csrf"))
 	if !exist {
 		m = errorMessage{"Your session has expired. Please try redoing what you were trying to do."}
+		return
+	}
+
+	var pass string
+	db.Get(&pass, "SELECT password_md5 FROM users WHERE id = ?", ctx.User.ID)
+	if err := bcrypt.CompareHashAndPassword(
+		[]byte(pass),
+		[]byte(cmd5(c.PostForm("password"))),
+	); err != nil {
+		m = errorMessage{"Wrong password."}
 		return
 	}
 

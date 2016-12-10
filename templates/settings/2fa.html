@@ -82,10 +82,13 @@ MinPrivileges=2
 						<form action="/settings/2fa/disable" method="POST" class="centered">
 							{{ csrfGenerate .Context.User.ID }}
 							{{ ieForm .Gin }}
-							<button type="submit" class="ui red labeled icon button">
-								<i class="ban icon"></i>
-								Disable {{ if eq $e 1 }}Telegram{{ else }}TOTP-based{{ end }} 2FA
-							</button>
+							<div class="ui fluid action input">
+								<input name="password" type="password" placeholder="Password">
+								<button type="submit" class="ui red right labeled icon button">
+									<i class="ban icon"></i>
+									Disable {{ if eq $e 1 }}Telegram{{ else }}TOTP-based{{ end }} 2FA
+								</button>
+							</div>
 						</form>
 					</div>
 					{{ if eq $e 2 }}
