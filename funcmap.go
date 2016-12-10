@@ -429,6 +429,9 @@ var funcMap = template.FuncMap{
 		if x == nil {
 			return ""
 		}
+		if err := x.Err(); err != nil {
+			fmt.Println(err)
+		}
 		return x.Val()
 	},
 }
