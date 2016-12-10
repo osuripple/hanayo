@@ -27,7 +27,7 @@ KyutGrill=christmas_homepage.jpg
 				<a href="/about">You can check out even more features here.</a>
 				It has also a very friendly community, and it's
 				<a href="https://git.zxq.co/ripple/ripple">open source!</a>
-				{{ with bget "onlineUsers" }} Just so you know, <b>we currently have {{ .result }} users online!</b>{{ end }}
+				{{ with rediget "ripple:online_users" }} Just so you know, <b>we currently have {{ . }} users online!</b>{{ end }}
 			</p>
 			<h3 class="ui header center aligned">What are you waiting for? Join Ripple! It's risk-free:
 				you won't get your account banned if you play on Ripple.<br />You can also switch anytime

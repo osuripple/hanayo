@@ -423,6 +423,14 @@ var funcMap = template.FuncMap{
 		json.Unmarshal([]byte(keyRaw), &s)
 		return s
 	},
+	// rediget retrieves a value from redis.
+	"rediget": func(k string) string {
+		x := rd.Get(k)
+		if x == nil {
+			return ""
+		}
+		return x.Val()
+	},
 }
 
 var hanayoStarted = time.Now().UnixNano()

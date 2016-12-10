@@ -22,6 +22,7 @@ import (
 	"github.com/thehowl/conf"
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
+	"gopkg.in/redis.v5"
 )
 
 // version is the version of hanayo
@@ -78,6 +79,7 @@ var (
 	db        *sqlx.DB
 	qb        *qsql.DB
 	mg        mailgun.Mailgun
+	rd        *redis.Client
 )
 
 func main() {
@@ -141,6 +143,13 @@ func main() {
 		}
 	}
 
+	// initialise redis
+	rd = redis.NewClient(&redis.Options{
+		Addr:     config.RedisAddress,
+		Password: config.RedisPassword,
+	})
+
+	// initialise schiavo
 	schiavo.Prefix = "hanayo"
 	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
 
