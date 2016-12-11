@@ -12,7 +12,7 @@ gulp.task("build", [
 ])
 
 gulp.task("watch", function() {
-	gulp.watch("static/*.js", ["minify-js"])
+	gulp.watch(["static/*.js", "!static/dist.min.js"], ["minify-js"])
 	gulp.watch("semantic/src/**/*", ["build-semantic"])
 })
 
