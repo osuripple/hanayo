@@ -95,7 +95,7 @@
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
-		<script src="/static/dist.min.js"></script>
+		<script src="/static/dist.min.js?{{ unixNano }}"></script>
 		{{ if .Scripts }}
 			{{ range .Scripts }}
 				<script src="{{ . }}?{{ unixNano }}"></script>

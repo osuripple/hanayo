@@ -402,7 +402,7 @@ $(document).ready(function(){
   $("time.timeago").timeago();
 
   // it's christmas!
-  $(".huge.heading").snowfall({flakeCount: 100, maxSpeed: 3, minSize: 4, round: true, shadow: true});
+  $(".huge.heading").snowfall({flakeCount: 50, maxSpeed: 1, minSpeed: 1, minSize: 6, round: true, shadow: true});
 });
 
 function closeClosestMessage() {
