@@ -194,23 +194,17 @@ func verify2fa(c *gin.Context) {
 }
 
 func loginUser(c *gin.Context, i int) {
-	sess := getSession(c)
-	s, err := generateToken(i, c)
-	if err != nil {
-		resp500(c)
-		c.Error(err)
-		return
+	var d struct {
+		Country string
+		Flags   uint
 	}
-	sess.Set("token", s)
-	logIP(c, i)
+	db.Get(&d, "SELECT country, flags FROM users_stats WHERE id = ?", i)
 
-	var country string
-	db.Get(&country, "SELECT country FROM users_stats WHERE id = ?", i)
-	if country == "XX" {
-		setCountry(c, i)
-	}
+	afterLogin(c, i, d.Country, d.Flags)
 
 	addMessage(c, successMessage{"You've been successfully logged in."})
+
+	sess := getSession(c)
 	sess.Delete("2fa_must_validate")
 	sess.Save()
 }
