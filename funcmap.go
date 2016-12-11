@@ -386,6 +386,10 @@ var funcMap = template.FuncMap{
 	"csrfGenerate": func(u int) template.HTML {
 		return template.HTML(`<input type="hidden" name="csrf" value="` + csrfGenerate(u) + `">`)
 	},
+	// csrfURL creates a CSRF token for GET requests.
+	"csrfURL": func(u int) string {
+		return "csrf=" + csrfGenerate(u)
+	},
 	// systemSetting retrieves some information from the table system_settings
 	"systemSettings": systemSettings,
 	// authCodeURL gets the auth code for discord
