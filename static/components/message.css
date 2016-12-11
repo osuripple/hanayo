@@ -20,7 +20,7 @@
   background: #F8F8F9;
   padding: 1em 1.5em;
   line-height: 1.4285em;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(255, 255, 255, 0.93);
   -webkit-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   border-radius: 0.28571429rem;
@@ -254,7 +254,7 @@
 
 .ui.black.message {
   background-color: #1B1C1D;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.85);
 }
 
 /*--------------
@@ -344,7 +344,7 @@
 .ui.inverted.message,
 .ui.black.message {
   background-color: #1B1C1D;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.red.message {
   background-color: #FFE8E6;

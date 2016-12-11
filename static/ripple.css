@@ -137,6 +137,9 @@ a.inherit:hover {
 .white.background {
 	background-color: #FFF !important;
 }
+body.ds .white.background {
+	background-color: #454545 !important;
+}
 
 .user.avatar {
 	float: left;
@@ -183,6 +186,14 @@ a.inherit:hover {
 }
 .subtitle b {
 	color: rgba(0,0,0,.87);
+}
+
+/* ds = Dark Site */
+body.ds .subtitle, body.ds .about.title {
+	color: rgba(255,255,255,.8);
+}
+body.ds .subtitle b {
+	color: rgba(255,255,255,.94);	
 }
 
 .little.margin.top {
