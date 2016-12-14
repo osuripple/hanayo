@@ -267,6 +267,8 @@ func generateEngine() *gin.Engine {
 	r.GET("/settings/discord/finish", discordFinish)
 	r.POST("/settings/profbackground/:type", profBackground)
 
+	r.GET("/email_verify/start", startEmailVerification)
+
 	r.GET("/donate/rates", getRates)
 
 	loadSimplePages(r)
