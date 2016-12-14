@@ -31,7 +31,7 @@
           flex-direction: column;
   width: 290px;
   min-height: 0px;
-  background: #4C4C4C;
+  background: #5a5a5a;
   padding: 0em;
   border: none;
   border-radius: 0.28571429rem;
@@ -305,7 +305,7 @@
 }
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: #77bbff;
+  color: #51a0f0;
 }
 
 /* Meta */
@@ -417,7 +417,7 @@
 }
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: #77bbff;
+  color: #51a0f0;
 }
 
 

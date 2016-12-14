@@ -186,7 +186,7 @@
 
 /* Inverted */
 @invertedBorderSize: 2px;
-@invertedTextColor: @white;
+@invertedTextColor: #FFF;
 @invertedTextHoverColor: @hoverColor;
 @invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;

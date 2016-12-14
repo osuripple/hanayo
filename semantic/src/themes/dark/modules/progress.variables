@@ -40,7 +40,7 @@
 @progressLeft: auto;
 @progressBottom: auto;
 @progressOffset: -0.5em;
-@progressColor: @invertedLightTextColor;
+@progressColor: @lightTextColor;
 @progressTextShadow: none;
 @progressFontWeight: bold;
 @progressTextAlign: left;

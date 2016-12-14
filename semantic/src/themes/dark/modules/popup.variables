@@ -13,7 +13,7 @@
 @borderColor: @solidBorderColor;
 @borderWidth: 1px;
 @boxShadow: @floatingShadow;
-@color: @textColor;
+@color: #FFF;
 
 @verticalPadding: 0.833em;
 @horizontalPadding: 1em;

@@ -630,7 +630,7 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.block.header {
-  background: #666666;
+  background: #333333;
   padding: 0.78571429rem 1rem;
   box-shadow: none;
   border: 1px solid #3A3A39;
@@ -665,7 +665,7 @@ a.ui.inverted.grey.header:hover {
   border: 1px solid #3A3A39;
 }
 .ui.attached.block.header {
-  background: #666666;
+  background: #333333;
 }
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;

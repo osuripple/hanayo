@@ -99,7 +99,7 @@
   font-size: 1em;
   line-height: 1.4;
   padding: 1.5rem;
-  background: #FFFFFF;
+  background: #4C4C4C;
 }
 .ui.modal > .image.content {
   display: -webkit-box;
@@ -172,7 +172,7 @@
 ---------------*/
 
 .ui.modal > .actions {
-  background: #6C7175;
+  background: #424242;
   padding: 1rem 1rem;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   text-align: right;

@@ -336,7 +336,7 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: #6C7175;
+  background: #424242;
   color: #ffffff;
 }
 
@@ -345,20 +345,20 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: #666666;
+  background: #333333;
   color: #ffffff;
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #666666;
+  background: #333333;
 }
 .ui.steps .step.active:after {
-  background: #666666;
+  background: #333333;
 }
 .ui.steps .step.active .title {
-  color: #46a3ff;
+  color: #68adf2;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {

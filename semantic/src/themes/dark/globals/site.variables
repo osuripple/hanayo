@@ -134,9 +134,9 @@
        Links
 --------------------*/
 
-@linkColor           : #46a3ff;
+@linkColor           : #68adf2;
 @linkUnderline       : none;
-@linkHoverColor      : lighten(saturate(@linkColor, 20), 15, relative);
+@linkHoverColor      : darken(@linkColor, 5%);
 @linkHoverUnderline  : @linkUnderline;
 
 /*-------------------
@@ -222,8 +222,8 @@
 
 /*---   Neutrals  ---*/
 @fullBlack        : #E6E6E6;
-@offWhite         : #6C7175;
-@darkWhite        : lighten(@white, 10%);
+@offWhite         : #424242;
+@darkWhite        : darken(@white, 10%);
 @midWhite         : #F9FAFB;
 @white            : #4C4C4C;
 
