@@ -26,7 +26,7 @@ import (
 )
 
 // version is the version of hanayo
-const version = "v1.2.1"
+const version = "v1.2.2"
 
 var (
 	config struct {
@@ -266,6 +266,9 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/2fa/totp", totpSetup)
 	r.GET("/settings/discord/finish", discordFinish)
 	r.POST("/settings/profbackground/:type", profBackground)
+
+	r.GET("/email_verify/start", startEmailVerification)
+	r.GET("/email_verify/finish", finishEmailVerification)
 
 	r.GET("/donate/rates", getRates)
 

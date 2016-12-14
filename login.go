@@ -156,6 +156,16 @@ func afterLogin(c *gin.Context, id int, country string, flags uint) {
 		setCountry(c, id)
 	}
 	logIP(c, id)
+	if flags&common.FlagEmailVerified == 0 {
+		addMessage(c, warningMessage{
+			"Hey! Hate to bother you, but we noticed you have not verified " +
+				"your email address. Now, if you don't mind, could you please " +
+				"<a href='/email_verify/start?csrf=" + csrfGenerate(id) +
+				"' target='_blank'>verify it?</a> If you verify your account, you will have a " +
+				"chance to get your account back even if evil hackers manage to " +
+				"get your password.",
+		})
+	}
 }
 
 func safeUsername(u string) string {
