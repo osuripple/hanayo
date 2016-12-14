@@ -319,31 +319,31 @@
 
 /* Positive */
 @positiveColor           : @green;
-@positiveBackgroundColor : #FCFFF5;
-@positiveBorderColor     : #A3C293;
-@positiveHeaderColor     : #1A531B;
-@positiveTextColor       : #2C662D;
+@positiveBackgroundColor : #2C662D;
+@positiveBorderColor     : #668a53;
+@positiveHeaderColor     : darken(@positiveTextColor, 10%);
+@positiveTextColor       : #FCFFF5;
 
 /* Negative */
 @negativeColor           : @red;
-@negativeBackgroundColor : #FFF6F6;
-@negativeBorderColor     : #E0B4B4;
-@negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #9F3A38;
+@negativeBackgroundColor : #6b201f;
+@negativeBorderColor     : #9a4d4d;
+@negativeHeaderColor     : darken(@negativeTextColor, 10%);
+@negativeTextColor       : #FFF6F6;
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #F8FFFF;
-@infoBorderColor        : #A9D5DE;
-@infoHeaderColor        : #0E566C;
-@infoTextColor          : #276F86;
+@infoBackgroundColor    : #194f61;
+@infoBorderColor        : #3491a5;
+@infoHeaderColor        : darken(@infoTextColor, 10%);
+@infoTextColor          : #F8FFFF;
 
 /* Warning */
 @warningColor           : #F2C037;
-@warningBorderColor     : #C9BA9B;
-@warningBackgroundColor : #FFFAF3;
-@warningHeaderColor     : #794B02;
-@warningTextColor       : #573A08;
+@warningBackgroundColor : #573A08;
+@warningBorderColor     : #695b40;
+@warningHeaderColor     : darken(@warningTextColor, 10%);
+@warningTextColor       : #FFFAF3;
 
 /*-------------------
         Paths
@@ -691,8 +691,8 @@
 --------------------*/
 
 @disabledOpacity: 0.45;
-@disabledTextColor: rgba(40, 40, 40, 0.3);
-@invertedDisabledTextColor: rgba(225, 225, 225, 0.3);
+@disabledTextColor: rgba(225, 225, 225, 0.3);
+@invertedDisabledTextColor: rgba(40, 40, 40, 0.3);
 
 /*-------------------
         Hover

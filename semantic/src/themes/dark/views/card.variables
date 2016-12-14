@@ -105,7 +105,7 @@
 
 /* Description */
 @descriptionDistance: 0.5em;
-@descriptionColor: rgba(0, 0, 0, 0.68);
+@descriptionColor: rgba(200, 200, 200, 0.68);
 
 /* Content Image */
 @contentImageWidth: '';

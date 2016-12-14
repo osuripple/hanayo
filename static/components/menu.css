@@ -452,7 +452,7 @@
 .ui.menu .item.disabled:hover {
   cursor: default;
   background-color: transparent !important;
-  color: rgba(40, 40, 40, 0.3);
+  color: rgba(225, 225, 225, 0.3);
 }
 
 
@@ -501,7 +501,7 @@ Floated Menu / Item
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #FFFFFF;
+  background: #4C4C4C;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
 
@@ -1381,7 +1381,7 @@ Floated Menu / Item
 /* Disabled */
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
-  color: rgba(225, 225, 225, 0.3);
+  color: rgba(40, 40, 40, 0.3);
 }
 
 /*--- Hover ---*/

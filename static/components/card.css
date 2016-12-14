@@ -242,7 +242,7 @@
 .ui.cards > .card > .content > .description,
 .ui.card > .content > .description {
   clear: both;
-  color: rgba(0, 0, 0, 0.68);
+  color: rgba(200, 200, 200, 0.68);
 }
 
 /*--------------
