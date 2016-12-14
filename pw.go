@@ -241,5 +241,7 @@ func changePasswordSubmit(c *gin.Context) {
 		c.Error(err)
 	}
 
+	db.Exec("UPDATE users SET flags = flags & ~3 WHERE id = ? LIMIT 1", ctx.User.ID)
+
 	messages = append(messages, successMessage{"Your settings have been saved."})
 }
