@@ -268,6 +268,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/profbackground/:type", profBackground)
 
 	r.GET("/email_verify/start", startEmailVerification)
+	r.GET("/email_verify/finish", finishEmailVerification)
 
 	r.GET("/donate/rates", getRates)
 

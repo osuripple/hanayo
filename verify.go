@@ -66,3 +66,36 @@ In case it was you indeed, <a href="%s">click on this link.</a>`,
 	getSession(c).Save()
 	c.Redirect(302, "/")
 }
+
+func finishEmailVerification(c *gin.Context) {
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+		return
+	}
+
+	if ctx.User.Flags&common.FlagEmailVerified > 0 {
+		respEmpty(c, "Verify email", errorMessage{"Your account has already been verified once!"})
+		return
+	}
+
+	k := c.Query("k")
+	var u int
+	db.Get(
+		&u,
+		"SELECT user FROM verification_emails WHERE `key` = ? AND user = ? AND `time` > ?",
+		k, ctx.User.ID, time.Now().Add(-time.Hour*24).Unix(),
+	)
+
+	if u != ctx.User.ID {
+		respEmpty(c, "Verify email", errorMessage{"The email verification you were looking for could not be found. Perhaps it's another user's, or it expired?"})
+		return
+	}
+
+	db.Exec("DELETE FROM verification_emails WHERE user = ?", ctx.User.ID)
+	db.Exec("UPDATE users SET flags = flags | 3 WHERE id = ?", ctx.User.ID)
+
+	addMessage(c, successMessage{"Your email has been verified. Thanks!"})
+	getSession(c).Save()
+	c.Redirect(302, "/")
+}
