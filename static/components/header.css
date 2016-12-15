@@ -23,7 +23,7 @@
   font-weight: bold;
   line-height: 1.2857em;
   text-transform: none;
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.header:first-child {
   margin-top: -0.14285em;
@@ -43,7 +43,7 @@
   margin: 0em;
   font-size: 1rem;
   line-height: 1.2em;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /*--------------
@@ -295,20 +295,20 @@ h5.ui.header .sub.header {
 --------------------*/
 
 .ui.inverted.header {
-  color: #4C4C4C;
+  color: #FFFFFF;
 }
 .ui.inverted.header .sub.header {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.8);
 }
 .ui.inverted.attached.header {
-  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
-  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
   border-color: transparent;
 }
 .ui.inverted.block.header {
-  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
-  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
 }
 .ui.inverted.block.header {
@@ -630,10 +630,10 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.block.header {
-  background: #333333;
+  background: #F3F4F5;
   padding: 0.78571429rem 1rem;
   box-shadow: none;
-  border: 1px solid #3A3A39;
+  border: 1px solid #D4D4D5;
   border-radius: 0.28571429rem;
 }
 .ui.tiny.block.header {
@@ -657,15 +657,15 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.attached.header {
-  background: #4C4C4C;
+  background: #FFFFFF;
   padding: 0.78571429rem 1rem;
   margin-left: -1px;
   margin-right: -1px;
   box-shadow: none;
-  border: 1px solid #3A3A39;
+  border: 1px solid #D4D4D5;
 }
 .ui.attached.block.header {
-  background: #333333;
+  background: #F3F4F5;
 }
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;

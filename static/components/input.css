@@ -25,7 +25,7 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.input input {
   margin: 0em;
@@ -39,9 +39,9 @@
   line-height: 1.2142em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.67861429em 1em;
-  background: #333333;
+  background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
   -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
   transition: box-shadow 0.1s ease, border-color 0.1s ease;
@@ -55,13 +55,13 @@
 
 /* browsers require these rules separate */
 .ui.input input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(191, 191, 191, 0.87);
 }
 .ui.input input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(191, 191, 191, 0.87);
 }
 .ui.input input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(191, 191, 191, 0.87);
 }
 
 
@@ -91,7 +91,7 @@
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
   background: #FAFAFA;
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
 }
 
@@ -136,21 +136,21 @@
 .ui.input.focus input,
 .ui.input input:focus {
   border-color: #85B7D9;
-  background: #333333;
-  color: #ffffff;
+  background: #FFFFFF;
+  color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
 .ui.input.focus input::-webkit-input-placeholder,
 .ui.input input:focus::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(115, 115, 115, 0.87);
 }
 .ui.input.focus input::-moz-placeholder,
 .ui.input input:focus::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(115, 115, 115, 0.87);
 }
 .ui.input.focus input:-ms-input-placeholder,
 .ui.input input:focus:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(115, 115, 115, 0.87);
 }
 
 /*--------------------
@@ -158,32 +158,32 @@
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #6b201f;
-  border-color: #9a4d4d;
-  color: #FFF6F6;
+  background-color: #FFF6F6;
+  border-color: #E0B4B4;
+  color: #9F3A38;
   box-shadow: none;
 }
 
 /* Error Placeholder */
 .ui.input.error input::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #e7bdbc;
 }
 .ui.input.error input::-moz-placeholder {
-  color: #ffffff;
+  color: #e7bdbc;
 }
 .ui.input.error input:-ms-input-placeholder {
-  color: #ffffff !important;
+  color: #e7bdbc !important;
 }
 
 /* Focused Error Placeholder */
 .ui.input.error input:focus::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #da9796;
 }
 .ui.input.error input:focus::-moz-placeholder {
-  color: #ffffff;
+  color: #da9796;
 }
 .ui.input.error input:focus:-ms-input-placeholder {
-  color: #ffffff !important;
+  color: #da9796 !important;
 }
 
 
@@ -218,19 +218,19 @@
 
 /* Transparent Inverted */
 .ui.transparent.inverted.input {
-  color: #4C4C4C;
+  color: #FFFFFF;
 }
 .ui.transparent.inverted.input input {
   color: inherit;
 }
 .ui.transparent.inverted.input input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 .ui.transparent.inverted.input input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 .ui.transparent.inverted.input input:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /*--------------------

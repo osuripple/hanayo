@@ -18,59 +18,59 @@
 */
 
 /* Global */
-@site       : 'default';
-@reset      : 'default';
+@site       : 'dark';
+@reset      : 'dark';
 
 /* Elements */
-@button     : 'default';
-@container  : 'default';
-@divider    : 'default';
-@flag       : 'default';
-@header     : 'default';
-@icon       : 'default';
-@image      : 'default';
-@input      : 'default';
-@label      : 'default';
-@list       : 'default';
-@loader     : 'default';
-@rail       : 'default';
-@reveal     : 'default';
-@segment    : 'default';
-@step       : 'default';
+@button     : 'dark';
+@container  : 'dark';
+@divider    : 'dark';
+@flag       : 'dark';
+@header     : 'dark';
+@icon       : 'dark';
+@image      : 'dark';
+@input      : 'dark';
+@label      : 'dark';
+@list       : 'dark';
+@loader     : 'dark';
+@rail       : 'dark';
+@reveal     : 'dark';
+@segment    : 'dark';
+@step       : 'dark';
 
 /* Collections */
-@breadcrumb : 'default';
-@form       : 'default';
-@grid       : 'default';
-@menu       : 'default';
-@message    : 'default';
-@table      : 'default';
+@breadcrumb : 'dark';
+@form       : 'dark';
+@grid       : 'dark';
+@menu       : 'dark';
+@message    : 'dark';
+@table      : 'dark';
 
 /* Modules */
-@accordion  : 'default';
-@checkbox   : 'default';
-@dimmer     : 'default';
-@dropdown   : 'default';
-@embed      : 'default';
-@modal      : 'default';
-@nag        : 'default';
-@popup      : 'default';
-@progress   : 'default';
-@rating     : 'default';
-@search     : 'default';
-@shape      : 'default';
-@sidebar    : 'default';
-@sticky     : 'default';
-@tab        : 'default';
-@transition : 'default';
+@accordion  : 'dark';
+@checkbox   : 'dark';
+@dimmer     : 'dark';
+@dropdown   : 'dark';
+@embed      : 'dark';
+@modal      : 'dark';
+@nag        : 'dark';
+@popup      : 'dark';
+@progress   : 'dark';
+@rating     : 'dark';
+@search     : 'dark';
+@shape      : 'dark';
+@sidebar    : 'dark';
+@sticky     : 'dark';
+@tab        : 'dark';
+@transition : 'dark';
 
 /* Views */
-@ad         : 'default';
-@card       : 'default';
-@comment    : 'default';
-@feed       : 'default';
-@item       : 'default';
-@statistic  : 'default';
+@ad         : 'dark';
+@card       : 'dark';
+@comment    : 'dark';
+@feed       : 'dark';
+@item       : 'dark';
+@statistic  : 'dark';
 
 /*******************************
             Folders
