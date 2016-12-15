@@ -301,14 +301,14 @@ h5.ui.header .sub.header {
   color: rgba(0, 0, 0, 0.6);
 }
 .ui.inverted.attached.header {
-  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   box-shadow: none;
   border-color: transparent;
 }
 .ui.inverted.block.header {
-  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   box-shadow: none;
 }
 .ui.inverted.block.header {

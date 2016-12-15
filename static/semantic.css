@@ -1496,7 +1496,7 @@ input::selection {
 
 .ui.basic.buttons .active.button,
 .ui.basic.active.button {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.13) !important;
   box-shadow: '' !important;
   color: #ffffff;
   box-shadow: rgba(34, 36, 38, 0.35);
@@ -1504,7 +1504,7 @@ input::selection {
 
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 /* Vertical */
@@ -6645,15 +6645,15 @@ h5.ui.header .sub.header {
 }
 
 .ui.inverted.attached.header {
-  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   box-shadow: none;
   border-color: transparent;
 }
 
 .ui.inverted.block.header {
-  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: #545454 -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #545454 linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   box-shadow: none;
 }
 
@@ -12239,7 +12239,7 @@ a.ui.label {
 }
 
 .ui.image.label .detail {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.18);
   margin: -0.5833em -0.833em -0.5833em 0.5em;
   padding: 0.5833em 0.833em;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
@@ -13996,19 +13996,19 @@ ol.ui.list ol li,
 
 .ui.selection.list.list > .item:hover,
 .ui.selection.list > .item:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
@@ -15606,7 +15606,7 @@ ol.ui.horizontal.list li:before,
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   width: 100%;
   height: 6px;
   visibility: visible;
@@ -15631,7 +15631,7 @@ ol.ui.horizontal.list li:before,
 .ui.stacked.inverted.segments:after,
 .ui.stacked.inverted.segment:before,
 .ui.stacked.inverted.segment:after {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.1);
   border-top: 1px solid rgba(34, 36, 38, 0.35);
 }
 
@@ -15861,7 +15861,7 @@ ol.ui.horizontal.list li:before,
   content: '';
   top: 0%;
   left: 0%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   width: 100%;
   height: 100%;
   border-radius: 0.28571429rem;
@@ -17756,7 +17756,7 @@ ol.ui.horizontal.list li:before,
   content: '';
   top: 0%;
   left: 0%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   width: 100%;
   height: 100%;
   z-index: 100;
@@ -20795,17 +20795,17 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.menu .ui.dropdown .menu > .item:hover {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.13) !important;
   color: #ffffff !important;
 }
 
 .ui.menu .ui.dropdown .menu > .selected.item {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.13) !important;
   color: #ffffff !important;
 }
 
 .ui.menu .ui.dropdown .menu > .active.item {
-  background: rgba(255, 255, 255, 0.03) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
   font-weight: bold !important;
   color: #ffffff !important;
 }
@@ -20971,7 +20971,7 @@ ol.ui.horizontal.list li:before,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
@@ -20982,7 +20982,7 @@ ol.ui.horizontal.list li:before,
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
@@ -20991,7 +20991,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.menu .active.item {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
   font-weight: normal;
   box-shadow: none;
@@ -21007,7 +21007,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.menu .active.item:hover,
 .ui.vertical.menu .active.item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
@@ -21150,7 +21150,7 @@ Floated Menu / Item
 /* Vertical Active */
 
 .ui.vertical.menu .active.item {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   border-radius: 0em;
   box-shadow: none;
 }
@@ -21371,7 +21371,7 @@ Floated Menu / Item
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.92857143em;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.13);
   color: #ffffff;
   box-shadow: none;
 }
@@ -21430,7 +21430,7 @@ Floated Menu / Item
 .ui.secondary.menu .dropdown.item:hover,
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
@@ -21438,7 +21438,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .active.item {
   box-shadow: none;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
   border-radius: 0.28571429rem;
 }
@@ -21447,7 +21447,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .active.item:hover {
   box-shadow: none;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
@@ -22153,7 +22153,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.red.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Orange */
@@ -22168,7 +22168,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.orange.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Yellow */
@@ -22183,7 +22183,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.yellow.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Olive */
@@ -22198,7 +22198,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.olive.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Green */
@@ -22213,7 +22213,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.green.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Teal */
@@ -22228,7 +22228,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.teal.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Blue */
@@ -22243,7 +22243,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.blue.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Violet */
@@ -22258,7 +22258,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.violet.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Purple */
@@ -22273,7 +22273,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.purple.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Pink */
@@ -22288,7 +22288,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.pink.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Brown */
@@ -22303,7 +22303,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.brown.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Grey */
@@ -22318,7 +22318,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.grey.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /*--------------
@@ -23614,7 +23614,7 @@ Floated Menu / Item
 
 .ui.definition.table tr td:first-child:not(.ignored),
 .ui.definition.table tr td.definition {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   font-weight: bold;
   color: #ffffff;
   text-transform: '';
@@ -23849,7 +23849,7 @@ Floated Menu / Item
 
 .ui.selectable.table tbody tr:hover,
 .ui.table tbody tr td.selectable:hover {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.13) !important;
   color: #ffffff !important;
 }
 
@@ -24348,14 +24348,14 @@ Floated Menu / Item
 }
 
 .ui.sortable.table thead th:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
 /* Sorted */
 
 .ui.sortable.table thead th.sorted {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
@@ -24366,21 +24366,21 @@ Floated Menu / Item
 /* Sorted Hover */
 
 .ui.sortable.table thead th.sorted:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 
 /* Inverted */
 
 .ui.inverted.sortable.table thead th.sorted {
-  background: rgba(0, 0, 0, 0.15) -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: rgba(0, 0, 0, 0.15) linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: rgba(0, 0, 0, 0.15) -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: rgba(0, 0, 0, 0.15) linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   color: rgba(0, 0, 0, 0.95);
 }
 
 .ui.inverted.sortable.table thead th:hover {
-  background: rgba(0, 0, 0, 0.08) -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: rgba(0, 0, 0, 0.08) linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: rgba(0, 0, 0, 0.08) -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: rgba(0, 0, 0, 0.08) linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -24402,7 +24402,7 @@ Floated Menu / Item
 }
 
 .ui.inverted.table th {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.1) !important;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -24468,7 +24468,7 @@ Floated Menu / Item
 }
 
 .ui.basic.striped.table tbody tr:nth-child(2n) {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.13) !important;
 }
 
 /* Very Basic */
@@ -25004,7 +25004,7 @@ Floated Menu / Item
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   padding: 0em;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
 }
 
 .ui.cards > .card > .image > img,
@@ -28356,7 +28356,7 @@ a.ui.card:hover,
   left: 0em;
   z-index: 1;
   top: 0.4rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.13);
   width: 3.5rem;
   height: 0.21428571rem;
   -webkit-transform: none;
@@ -28370,8 +28370,8 @@ a.ui.card:hover,
 
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
-  background: #4C4C4C -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: #4C4C4C linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: #4C4C4C -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #4C4C4C linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   position: absolute;
   content: '' !important;
   opacity: 1;
@@ -28393,7 +28393,7 @@ a.ui.card:hover,
 
 .ui.slider.checkbox input:focus ~ .box:before,
 .ui.slider.checkbox input:focus ~ label:before {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.25);
   border: none;
 }
 
@@ -28406,7 +28406,7 @@ a.ui.card:hover,
 
 .ui.slider.checkbox .box:hover::before,
 .ui.slider.checkbox label:hover::before {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* Active */
@@ -28478,7 +28478,7 @@ a.ui.card:hover,
   transform: none;
   border: none;
   top: 0rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   box-shadow: none;
   width: 3.5rem;
   height: 1.5rem;
@@ -28489,8 +28489,8 @@ a.ui.card:hover,
 
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-  background: #4C4C4C -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  background: #4C4C4C linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  background: #4C4C4C -webkit-linear-gradient(transparent, rgba(255, 255, 255, 0.13));
+  background: #4C4C4C linear-gradient(transparent, rgba(255, 255, 255, 0.13));
   position: absolute;
   content: '' !important;
   opacity: 1;
@@ -28516,7 +28516,7 @@ a.ui.card:hover,
 
 .ui.toggle.checkbox input:focus ~ .box:before,
 .ui.toggle.checkbox input:focus ~ label:before {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.25);
   border: none;
 }
 
@@ -28524,7 +28524,7 @@ a.ui.card:hover,
 
 .ui.toggle.checkbox .box:hover::before,
 .ui.toggle.checkbox label:hover::before {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.25);
   border: none;
 }
 
@@ -28873,7 +28873,7 @@ body.dimmable > .dimmer {
   min-width: max-content;
   margin: 0em;
   padding: 0em 0em;
-  background: #666;
+  background: #3A3A3A;
   font-size: 1em;
   text-shadow: none;
   text-align: left;
@@ -29299,7 +29299,7 @@ select.ui.dropdown {
 /* Menu Item */
 
 .ui.selection.dropdown .menu > .item {
-  border-top: 1px solid #FAFAFA;
+  border-top: 1px solid #666666;
   padding: 0.78571429rem 1.14285714rem !important;
   white-space: normal;
   word-wrap: normal;
@@ -29643,7 +29643,7 @@ select.ui.dropdown {
 /* Menu Item Hover */
 
 .ui.dropdown .menu > .item:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
   z-index: 13;
 }
@@ -29758,7 +29758,7 @@ select.ui.dropdown {
 
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
@@ -32069,7 +32069,7 @@ a.ui.nag {
   border: none;
   margin: 1em 0em 2.5em;
   box-shadow: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.18);
   padding: 0em;
   border-radius: 0.28571429rem;
 }

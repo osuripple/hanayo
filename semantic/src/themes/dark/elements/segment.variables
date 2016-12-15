@@ -49,7 +49,7 @@
 *******************************/
 
 /* Loading Dimmer */
-@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerColor: rgba(0, 0, 0 , 0.85);
 @loaderDimmerZIndex: 100;
 
 /* Loading Spinner */

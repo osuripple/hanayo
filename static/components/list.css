@@ -461,17 +461,17 @@ ol.ui.list ol li,
 }
 .ui.selection.list.list > .item:hover,
 .ui.selection.list > .item:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
 }
 

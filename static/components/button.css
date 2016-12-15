@@ -754,14 +754,14 @@
 }
 .ui.basic.buttons .active.button,
 .ui.basic.active.button {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.13) !important;
   box-shadow: '' !important;
   color: #ffffff;
   box-shadow: rgba(34, 36, 38, 0.35);
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 /* Vertical */

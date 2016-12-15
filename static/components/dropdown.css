@@ -45,7 +45,7 @@
   min-width: max-content;
   margin: 0em;
   padding: 0em 0em;
-  background: #666;
+  background: #3A3A3A;
   font-size: 1em;
   text-shadow: none;
   text-align: left;
@@ -446,7 +446,7 @@ select.ui.dropdown {
 
 /* Menu Item */
 .ui.selection.dropdown .menu > .item {
-  border-top: 1px solid #FAFAFA;
+  border-top: 1px solid #666666;
   padding: 0.78571429rem 1.14285714rem !important;
   white-space: normal;
   word-wrap: normal;
@@ -753,7 +753,7 @@ select.ui.dropdown {
 
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.13);
   color: #ffffff;
   z-index: 13;
 }
@@ -859,7 +859,7 @@ select.ui.dropdown {
 /* Selected Item */
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
