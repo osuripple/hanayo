@@ -24,7 +24,7 @@ type UserService struct {
 func (s *UserService) init() error {
 	if s.DB == nil {
 		if DB == nil {
-			return fail.ErrDBIsNil
+			return fail.FailDBIsNil
 		}
 		s.DB = DB
 	}

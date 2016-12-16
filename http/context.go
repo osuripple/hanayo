@@ -8,8 +8,8 @@ import (
 
 // Context is the information about the request that is passed to all handlers.
 type Context struct {
-	http.Request
-	Writer http.ResponseWriter
+	Request *http.Request
+	Writer  http.ResponseWriter
 
 	User   *hanayo.User
 	Token  string
@@ -23,4 +23,9 @@ type Context struct {
 // (if enabled)
 func (c *Context) Err(err error) {
 	c.Errors = append(c.Errors, err)
+}
+
+// Write is a shorthand for c.Writer.Write
+func (c *Context) Write(b []byte) (int, error) {
+	return c.Writer.Write(b)
 }
