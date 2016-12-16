@@ -403,6 +403,15 @@ $(document).ready(function(){
 
   // it's christmas!
   $(".huge.heading").snowfall({flakeCount: 50, maxSpeed: 1, minSpeed: 1, minSize: 6, round: true, shadow: true});
+
+  // dark site
+  new Konami(function() {
+    var cflags = document.cookie.replace(/(?:(?:^|.*;\s*)cflags\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    // toggle 1 (dark theme)
+    cflags = (+cflags) ^ 1;
+    document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
+    window.location.reload();
+  });
 });
 
 function closeClosestMessage() {

@@ -1,11 +1,11 @@
 {{ define "navbar" }}
 {{ $isRAP   := and (hasAdmin .Context.User.Privileges) (isRAP .Path) }}
 {{ $isAdmin := hasAdmin .Context.User.Privileges }}
-<div class="ui secondary fixed-height stackable {{ if $isRAP }}inverted{{ else }}white background{{ end }} main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
+{{ $ds      := band .ClientFlags 1 }}
+<div class="ui secondary fixed-height stackable white background main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
 	<div class="ui container">
 		<div class="item">
-			<!-- {{ if $isRAP }}white{{ else }}black{{ end }} -->
-			<b><a href="/" title="Home page"><img class="ripple logo" src="/static/logos/text-white.png" alt="Ripple"></a></b>
+			<b><a href="/" title="Home page"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Ripple"></a></b>
 		</div>
 		{{ if $isRAP }}
 			{{/*
@@ -41,7 +41,7 @@
 		<div class="firetrucking-right-menu">
 			<div class="item">
 				<div class="ui search" id="user-search">
-					<div class="ui {{ if $isRAP }}inverted{{ end }} icon input">
+					<div class="ui icon input">
 						<input class="prompt" type="text" placeholder="Looking for someone?" id="user-search-input">
 						<i class="search link icon"></i>
 					</div>

@@ -207,6 +207,16 @@ func (b baseTemplateData) Conf() interface{} {
 	return config
 }
 
+// list of client flags
+const (
+	CFDarkSite = 1 << iota
+)
+
+func (b baseTemplateData) ClientFlags() int {
+	s, _ := b.Gin.Cookie("cflags")
+	return common.Int(s)
+}
+
 type page interface {
 	SetMessages([]message)
 	SetPath(string)
