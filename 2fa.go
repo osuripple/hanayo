@@ -198,7 +198,11 @@ func loginUser(c *gin.Context, i int) {
 		Country string
 		Flags   uint
 	}
-	db.Get(&d, "SELECT country, flags FROM users_stats WHERE id = ?", i)
+	err := db.Get(&d, "SELECT users_stats.country, users.flags FROM users_stats "+
+		"LEFT JOIN users ON users.id = users_stats.id WHERE users_stats.id = ?", i)
+	if err != nil {
+		c.Error(err)
+	}
 
 	afterLogin(c, i, d.Country, d.Flags)
 
