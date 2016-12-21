@@ -39,7 +39,7 @@ func main() {
 // Web starts the Hanayo HTTP server.
 func Web(ctx *cli.Context) error {
 	srv := &http.Server{}
-	err := srv.SetUpRoutes()
+	err := srv.SetUpSimplePages()
 	if err != nil {
 		return err
 	}
