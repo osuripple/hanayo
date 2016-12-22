@@ -32,7 +32,7 @@
 				{{ if .userpage }}
 					{{ with parseUserpage .userpage }}
 						<div class="ui raised segment twemoji" id="userpage-content">
-							{{ html . }}
+							{{ HTML . }}
 						</div>
 					{{ end }}
 				{{ end }}

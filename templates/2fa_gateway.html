@@ -1,7 +1,7 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ if .Session.Get "2fa_must_validate" }}
-		{{ $e := is2faEnabled .Context.User.ID }}
+		{{ $e := IsTFAEnabled .Context.User.ID }}
 		<div class="tiny container">
 			<div class="ui raised segments">
 				<div class="ui segment">

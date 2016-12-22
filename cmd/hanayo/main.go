@@ -8,6 +8,8 @@ import (
 	"git.zxq.co/ripple/hanayo"
 	"git.zxq.co/ripple/hanayo/helpers/conf"
 	"git.zxq.co/ripple/hanayo/http"
+	"git.zxq.co/ripple/hanayo/mysql"
+	"github.com/jmoiron/sqlx"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -38,8 +40,17 @@ func main() {
 
 // Web starts the Hanayo HTTP server.
 func Web(ctx *cli.Context) error {
-	srv := &http.Server{}
-	err := srv.SetUpSimplePages()
+	db, err := sqlx.Open("mysql", conf.Conf.DSN)
+	if err != nil {
+		return err
+	}
+	mysql.DB = db
+
+	srv := &http.Server{
+		UserService: &mysql.UserService{},
+		TFAService:  &mysql.TFAService{},
+	}
+	err = srv.SetUpSimplePages()
 	if err != nil {
 		return err
 	}

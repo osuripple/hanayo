@@ -28,7 +28,7 @@
 			{{ if not .DisableHH }}
 				<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped"
 					style="background-image: url('/static/headers/{{ or .KyutGrill "default.jpg" }}');">
-					<h1>{{ if .HeadingTitle }}{{ html .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
+					<h1>{{ if .HeadingTitle }}{{ HTML .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
 				</div>
 			{{ end }}
 		
@@ -50,7 +50,7 @@
 						{{ range $i, $v := .Messages }}
 							<div class="ui {{ $v.Type }} message">
 								<i class="close icon"></i>
-								{{ html $v.Content }}
+								{{ HTML $v.Content }}
 							</div>
 						{{ end }}
 				{{ end }}

@@ -4,6 +4,7 @@ import (
 	"html/template"
 
 	"git.zxq.co/ripple/hanayo/tpl"
+	"git.zxq.co/ripple/hanayo/tpl/funcmap"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -22,4 +23,11 @@ func (s *Server) SetUpSimplePages() error {
 	var err error
 	Templates, SimplePages, err = tpl.LoadTemplates()
 	return err
+}
+
+// SetUpFuncMap changes funcmap's services so that they're those of this HTTP
+// server.
+func (s *Server) SetUpFuncMap() {
+	funcmap.UserService = s.UserService
+	funcmap.TFAService = s.TFAService
 }

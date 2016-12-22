@@ -56,7 +56,7 @@ KyutGrill=christmas_homepage.jpg
 			<div class="ui segment" data-post-id="{{ $v.id }}">
 				<i class="angle down big icon link expand-icon top right" data-content="Load post inline"></i>
 				<h1 class="ui header no top margin">
-					<a href="https://old.ripple.moe/blog/posts/{{ $v.slug }}" class="inherit">{{ html $v.title }}</a>
+					<a href="https://old.ripple.moe/blog/posts/{{ $v.slug }}" class="inherit">{{ HTML $v.title }}</a>
 					<div class="sub header">by <a href="/u/{{ $v.author.id }}">{{ $v.author.username }}</a> {{ time $v.created }}</div>
 				</h1>
 			</div>

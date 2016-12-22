@@ -13,6 +13,7 @@ import (
 // Server is an HTTP server on Hanayo.
 type Server struct {
 	UserService hanayo.UserService
+	TFAService  hanayo.TFAService
 	Router      *httprouter.Router
 }
 

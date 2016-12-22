@@ -6,5 +6,6 @@ package funcmap
 // FuncMap is the actual function map, where the key is the name of the
 // functions, and the functions are those contained in this package.
 var FuncMap = map[string]interface{}{
+	"IsTFAEnabled": IsTFAEnabled,
 	"HTML": HTML,
 }

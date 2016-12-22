@@ -17,7 +17,7 @@ MinPrivileges=2
 						<textarea class="monospace" name="data">{{ .userpage }}</textarea>
 						<p><a href="https://docs.ripple.moe/docs/misc/hanayo_bbcode" target="_blank">BBCode syntax reference</a></p>
 						<div class="ui divider"></div>
-						<div class="ui segment twemoji" id="userpage-content">{{ parseUserpage .userpage | html }}</div>
+						<div class="ui segment twemoji" id="userpage-content">{{ parseUserpage .userpage | HTML }}</div>
 						<div class="ui divider"></div>
 						<div style="text-align: right">
 							<button type="submit" class="ui blue button">Save</button>
