@@ -30,4 +30,5 @@ func (s *Server) SetUpSimplePages() error {
 func (s *Server) SetUpFuncMap() {
 	funcmap.UserService = s.UserService
 	funcmap.TFAService = s.TFAService
+	funcmap.SystemSettingService = s.SystemSettingService
 }

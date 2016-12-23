@@ -4,6 +4,7 @@ import (
 	"fmt"
 	nhttp "net/http"
 	"os"
+	"time"
 
 	"git.zxq.co/ripple/hanayo"
 	"git.zxq.co/ripple/hanayo/helpers/conf"
@@ -12,6 +13,8 @@ import (
 	"github.com/jmoiron/sqlx"
 	"gopkg.in/urfave/cli.v2"
 )
+
+var start = time.Now()
 
 func main() {
 	hc := os.Getenv("HANAYO_CONFIG")
@@ -44,15 +47,18 @@ func Web(ctx *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	mysql.DB = db
+	sp := &mysql.ServiceProvider{db}
 
 	srv := &http.Server{
-		UserService: &mysql.UserService{},
-		TFAService:  &mysql.TFAService{},
+		UserService: sp,
+		TFAService:  sp,
 	}
 	err = srv.SetUpSimplePages()
 	if err != nil {
 		return err
 	}
+	srv.SetUpFuncMap()
+	fmt.Println("Starting listening on", conf.Conf.ListenTo, "- startup took",
+		time.Since(start))
 	return nhttp.ListenAndServe(conf.Conf.ListenTo, srv)
 }

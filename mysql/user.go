@@ -1,4 +1,3 @@
-// Package mysql implements hanayo's domain types with MySQL and sqlx.
 package mysql
 
 import (
@@ -6,30 +5,9 @@ import (
 	"time"
 
 	"git.zxq.co/ripple/hanayo"
-	"git.zxq.co/ripple/hanayo/fail"
 	// Go away golint.
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jmoiron/sqlx"
 )
-
-// DB is the default database that will be used unless it's passed in the
-// service.
-var DB *sqlx.DB
-
-// UserService implements the UserService as specified by hanayo.UserService.
-type UserService struct {
-	DB *sqlx.DB
-}
-
-func (s *UserService) init() error {
-	if s.DB == nil {
-		if DB == nil {
-			return fail.FailDBIsNil
-		}
-		s.DB = DB
-	}
-	return nil
-}
 
 const userFields = `
 id, username, username_safe, password_md5, password_version, email,
@@ -37,11 +15,7 @@ privileges, register_datetime as registered, latest_activity, flags
 `
 
 // User retrieves an user knowing their ID.
-func (s *UserService) User(id int) (*hanayo.User, error) {
-	if err := s.init(); err != nil {
-		return nil, err
-	}
-
+func (s *ServiceProvider) User(id int) (*hanayo.User, error) {
 	var u hanayo.User
 	err := s.DB.Get(&u, "SELECT "+userFields+" FROM users WHERE id = ?", id)
 	switch err {
@@ -55,11 +29,7 @@ func (s *UserService) User(id int) (*hanayo.User, error) {
 }
 
 // UserByEmail retrieves an user knowing their email address.
-func (s *UserService) UserByEmail(email string) (*hanayo.User, error) {
-	if err := s.init(); err != nil {
-		return nil, err
-	}
-
+func (s *ServiceProvider) UserByEmail(email string) (*hanayo.User, error) {
 	var u hanayo.User
 	err := s.DB.Get(&u, "SELECT "+userFields+
 		" FROM users WHERE email = ?", email)
@@ -74,11 +44,7 @@ func (s *UserService) UserByEmail(email string) (*hanayo.User, error) {
 }
 
 // RegisterUser creates a new user in the tables users and users_stats.
-func (s *UserService) RegisterUser(u hanayo.User) error {
-	if err := s.init(); err != nil {
-		return err
-	}
-
+func (s *ServiceProvider) RegisterUser(u hanayo.User) error {
 	n := time.Now().Unix()
 	res, err := s.DB.Exec(
 		`INSERT INTO users(
@@ -109,11 +75,7 @@ func (s *UserService) RegisterUser(u hanayo.User) error {
 }
 
 // GetCountry retrieves an user's country.
-func (s *UserService) GetCountry(id int) (*string, error) {
-	if err := s.init(); err != nil {
-		return nil, err
-	}
-
+func (s *ServiceProvider) GetCountry(id int) (*string, error) {
 	var c string
 	err := s.DB.Get(&c, "SELECT country FROM users_stats WHERE id = ?", id)
 	switch err {
@@ -127,11 +89,7 @@ func (s *UserService) GetCountry(id int) (*string, error) {
 }
 
 // SetCountry sets an user's country.
-func (s *UserService) SetCountry(id int, country string) error {
-	if err := s.init(); err != nil {
-		return err
-	}
-
+func (s *ServiceProvider) SetCountry(id int, country string) error {
 	_, err := s.DB.Exec("UPDATE users_stats SET country = ? WHERE id = ?",
 		country, id)
 	return err

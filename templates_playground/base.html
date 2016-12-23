@@ -1,0 +1,119 @@
+{{ define "base" }}
+{{ $cf := .ClientFlags }}
+{{ $ds := BAnd $cf 1 }}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+
+		<title>{{ if .TitleBar }}{{ .TitleBar }} - {{ end }}Ripple</title>
+		
+		<link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}semantic.min.css?{{ UnixNano }}">
+		<link rel="stylesheet" type="text/css" href="/static/ripple.css?{{ UnixNano }}">
+	</head>
+	<body {{ if $ds }} class="ds"{{ end }}>
+		{{/* 
+			If we're asked to disable the hugeheading, but a KyutGrill is set, it will become the background of the page.
+			This is mainly used in user profiles, allowing users to set their profile background.
+			If we're asked to disable the hugeheading, and a KyutGrill is not set, navbar has the `dropped` class.
+		*/}}
+		<div class="ui full height main wrapper"
+			{{ if and .DisableHH .KyutGrill }}
+				style="background-image: url('{{ if .KyutGrillAbsolute }}{{ .KyutGrill }}{{ else }}/static/headers/{{ .KyutGrill }}{{ end }}');"
+			{{ else if .SolidColour }}
+				style="background-color: {{ .SolidColour }}"
+			{{ end }}>
+			{{ template "navbar" . }}
+			{{ if not .DisableHH }}
+				<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped"
+					style="background-image: url('/static/headers/{{ or .KyutGrill "default.jpg" }}');">
+					<h1>{{ if .HeadingTitle }}{{ HTML .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
+				</div>
+			{{ end }}
+		
+			<div class="h-container">
+				<div class="ui margined container" id="messages-container">
+				<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
+				{{ if and .Context.User.Username (not (Has .Context.User.Privileges 1)) }}
+					<div class="ui warning message">
+						Your account is currently in restricted mode. You will
+						not be able to do certain actions, and your profile
+						can only be seen by you and by Ripple's staff.
+						If you believe we have mistaken putting you in
+						restricted mode, or a month has passed since you first
+						saw this, then you can send an appeal at
+						<a href="mailto:support@ripple.moe">support@ripple.moe</a>.
+					</div>
+				{{ end }}
+				{{ if .Messages }}
+						{{ range $i, $v := .Messages }}
+							<div class="ui {{ $v.Type }} message">
+								<i class="close icon"></i>
+								{{ HTML $v.Content }}
+							</div>
+						{{ end }}
+				{{ end }}
+				{{ $settings := SystemSettings "website_maintenance" "game_maintenance" "website_global_alert" }}
+				{{ with $settings.website_global_alert.String }}
+					<div class="ui warning message">
+						{{ . }}
+					</div>
+				{{ end }}
+				{{ with $settings.game_maintenance.Int }}
+					<div class="ui warning message">
+						Ripple's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being.						
+					</div>
+				{{ end }}
+				{{ with $settings.website_maintenance.Int }}
+					<div class="ui warning message">
+						The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website.
+					</div>
+				{{ end }}
+				</div>
+				{{ template "tpl" . }}
+			</div>
+	
+		</div>
+	
+		<div class="footer">
+			© 2015-{{ CurrYear }} Ripple, using Hanayo {{ Version }}.
+			<a href="/team" title="Who's working on this thing?"><i class="users icon"></i>Team</a> | 
+			<a href="https://docs.ripple.moe" title="59 6f 75 27 72 65 20 73 6f 20 31 33 33 37 2e"><i class="wrench icon"></i>Developer docs</a> | 
+			<a href="/changelog" title="See what's changed!"><i class="bug icon"></i>Changelog</a> | 
+			<a href="/blog/"><i class="anchor icon"></i>Blog</a> |
+			<a href="http://status.ripple.moe"><i class="signal icon"></i>Status</a> |
+			<a href="https://git.zxq.co/ripple" title="What's going on under the hood?"><i class="git square icon"></i></a>
+			<a href="https://twitter.com/_ripple" title="Follow us on twitter!"><i class="twitter icon"></i></a>
+			<a href="https://reddit.com/r/osuripple" title="Share irrelevant opinions on reddit!"><i class="reddit square icon"></i></a>
+		</div>
+		{{ $conf := .Conf }}
+		<script>
+			var hanayoConf = {
+				avatars:   {{ .Conf.AvatarURL }},
+				banchoAPI: {{ .Conf.BanchoAPI }},
+				baseAPI:   {{ .Conf.BaseAPIPublic }}
+			};
+		</script>
+		{{/* If we got some more scripts to print, print'em */}}
+		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
+		<script src="/static/dist.min.js?{{ UnixNano }}"></script>
+		{{ if .Scripts }}
+			{{ range .Scripts }}
+				<script src="{{ . }}?{{ UnixNano }}"></script>
+			{{ end }}
+		{{ end }}
+		{{ if and .Conf.AnalyticsID (ne (.Gin.Request.Header.Get "dnt") "1") }}
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+				ga('create', {{ .Conf.AnalyticsID }}, 'auto');
+				ga('send', 'pageview');
+			</script>
+		{{ end }}
+	</body>
+</html>
+{{ end }}

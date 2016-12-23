@@ -7,31 +7,11 @@ import (
 	"git.zxq.co/ripple/hanayo"
 	"git.zxq.co/ripple/hanayo/fail"
 	"git.zxq.co/ripple/rippleapi/common"
-	"github.com/jmoiron/sqlx"
 )
-
-// TFAService implements the TFAService as specified by hanayo.TFAService.
-type TFAService struct {
-	DB *sqlx.DB
-}
-
-func (s *TFAService) init() error {
-	if s.DB == nil {
-		if DB == nil {
-			return fail.FailDBIsNil
-		}
-		s.DB = DB
-	}
-	return nil
-}
 
 // Enabled returns whether two factor authentication is enabled for a certain
 // user.
-func (s *TFAService) Enabled(id int) (int, error) {
-	if err := s.init(); err != nil {
-		return 0, err
-	}
-
+func (s *ServiceProvider) Enabled(id int) (int, error) {
 	var u int
 	err := s.DB.Get(
 		&u,
@@ -43,11 +23,7 @@ func (s *TFAService) Enabled(id int) (int, error) {
 }
 
 // TelegramVerify checks the token the user provided is valid.
-func (s *TFAService) TelegramVerify(u int, ip string, token string) error {
-	if err := s.init(); err != nil {
-		return err
-	}
-
+func (s *ServiceProvider) TelegramVerify(u int, ip string, token string) error {
 	var t common.UnixTimestamp
 	err := s.DB.Get(&t,
 		"SELECT expire FROM 2fa WHERE userid = ? AND ip = ? AND token = ?",
@@ -56,7 +32,7 @@ func (s *TFAService) TelegramVerify(u int, ip string, token string) error {
 
 	switch err {
 	case nil:
-	// move on
+		// move on
 	case sql.ErrNoRows:
 		return fail.ErrTFATelegramVerificationFailed
 	default:
@@ -72,11 +48,7 @@ func (s *TFAService) TelegramVerify(u int, ip string, token string) error {
 
 // TelegramCreate inserts a new token in the 2fa table containing the Telegram
 // token.
-func (s *TFAService) TelegramCreate(u int, ip string, token string) error {
-	if err := s.init(); err != nil {
-		return err
-	}
-
+func (s *ServiceProvider) TelegramCreate(u int, ip string, token string) error {
 	_, err := s.DB.Exec(
 		"INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
 		u, token, ip, time.Now().Add(time.Hour).Unix(),
@@ -85,11 +57,7 @@ func (s *TFAService) TelegramCreate(u int, ip string, token string) error {
 }
 
 // TOTPInfo retrieves information about TOTP setup.
-func (s *TFAService) TOTPInfo(u int) (*hanayo.TOTPInfo, error) {
-	if err := s.init(); err != nil {
-		return nil, err
-	}
-
+func (s *ServiceProvider) TOTPInfo(u int) (*hanayo.TOTPInfo, error) {
 	var ti hanayo.TOTPInfo
 	err := s.DB.Get(&ti, "SELECT userid, secret, recovery, enabled FROM 2fa_totp WHERE userid = ?", u)
 	switch err {

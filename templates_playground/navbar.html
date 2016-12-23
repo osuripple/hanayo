@@ -1,0 +1,68 @@
+{{ define "navbar" }}
+{{ $isRAP   := and (hasAdmin .Context.User.Privileges) (isRAP .Path) }}
+{{ $isAdmin := hasAdmin .Context.User.Privileges }}
+{{ $ds      := BAnd .ClientFlags 1 }}
+<div class="ui secondary fixed-height stackable white background main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
+	<div class="ui container">
+		<div class="item">
+			<b><a href="/" title="Home page"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Ripple"></a></b>
+		</div>
+		{{ if $isRAP }}
+			{{/*
+			Note:
+				RAP navbar will be completely different from standard navbar,
+				meaning it will have the buttons and all the stuff that are in
+				the current RAP's sidebar.
+			*/}}
+		{{ else }}
+			{{ navbarItem .Path "Leaderboard" "/leaderboard" }}
+			<div class="ui dropdown item">
+				<span>Help</span>
+				<div class="menu">
+					{{ navbarItem .Path "About" "/about" }}
+					{{ navbarItem .Path "Rules" "/doc/rules" }}
+					{{ navbarItem .Path "Documentation" "/doc" }}
+					<div class="divider"></div>
+					{{ navbarItem .Path "Chat (Discord)" .Conf.DiscordServer }}
+					{{ navbarItem .Path "Contact support" "/help" }}
+				</div>
+			</div>
+			{{ if .Context.User.Username }}
+			<div class="ui dropdown item">
+				<span>Beatmaps</span>
+				<div class="menu">
+					{{ navbarItem .Path "Request beatmap ranking" "/beatmaps/rank_request" }}
+				</div>
+			</div>
+			{{ end }}
+			{{ navbarItem .Path "<i class=\"red heart icon\"></i>Donate" "/donate" }}
+			{{ if $isAdmin }}{{ navbarItem .Path "<b>RAP</b>" "https://old.ripple.moe/index.php?p=100" }}{{ end }}
+		{{ end }}
+		<div class="firetrucking-right-menu">
+			<div class="item">
+				<div class="ui search" id="user-search">
+					<div class="ui icon input">
+						<input class="prompt" type="text" placeholder="Looking for someone?" id="user-search-input">
+						<i class="search link icon"></i>
+					</div>
+				</div>
+			</div>
+			{{ if .Context.User.Username }}
+				<div class="ui dropdown item">
+					<img class="ui avatar image" src="{{ config "AvatarURL" }}/{{ .Context.User.ID }}">
+					<span>{{ .Context.User.Username }}</span>
+					<div class="menu">
+						{{ navbarItem .Path "Profile" (printf "/u/%d" .Context.User.ID) }}
+						{{ navbarItem .Path "Friends" "/friends" }}
+						{{ navbarItem .Path "Settings" "/settings" }}
+						{{ navbarItem .Path "Log out" (printf "/logout?k=%s" (.Session.Get "logout")) }}
+					</div>
+				</div>
+			{{ else }}
+				{{ navbarItem .Path "Log in" "/login" }}
+				{{ navbarItem .Path "Register" "/register" }}
+			{{ end }}
+		</div>
+	</div>
+</div>
+{{ end }}

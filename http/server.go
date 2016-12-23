@@ -12,9 +12,10 @@ import (
 
 // Server is an HTTP server on Hanayo.
 type Server struct {
-	UserService hanayo.UserService
-	TFAService  hanayo.TFAService
-	Router      *httprouter.Router
+	UserService          hanayo.UserService
+	TFAService           hanayo.TFAService
+	SystemSettingService hanayo.SystemSettingService
+	Router               *httprouter.Router
 }
 
 // ServeHTTP hands over the request to the router, after logging the request

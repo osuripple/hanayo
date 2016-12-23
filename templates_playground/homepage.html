@@ -1,0 +1,71 @@
+{{/*###
+Handler=/
+TitleBar=Home Page
+KyutGrill=christmas_homepage.jpg
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui center aligned segment">
+		<img src="/static/logos/logo-{{ randomLogoColour }}.svg">
+	</div>
+	{{ $set := systemSettings "website_home_alert" }}
+	{{ with $set.website_home_alert.String }}
+		<div class="ui warning message">
+			{{ . }}
+		</div>
+	{{ end }}
+	{{/* Not logged in block */}}
+	{{ if not .Context.User.ID }}
+		<div class="ui segment">
+			<h1 class="ui header">Welcome to Ripple.</h1>
+			<p>
+				You look new here. Allow us to introduce you to what Ripple is.
+			</p>
+			<p>
+				Ripple is a private osu! server, featuring multiplayer, PP, a very active community
+				and a development team going strong implementing new features and squashing bugs.
+				<a href="/about">You can check out even more features here.</a>
+				It has also a very friendly community, and it's
+				<a href="https://git.zxq.co/ripple/ripple">open source!</a>
+				Just so you know,
+				<b>we currently have {{ rediget "ripple:online_users" }} users
+				online and {{ rediget "ripple:registered_users" }} registered users!</b>
+			</p>
+			<h3 class="ui header center aligned">What are you waiting for? Join Ripple! It's risk-free:
+				you won't get your account banned if you play on Ripple.<br />You can also switch anytime
+				between the official osu! server and Ripple!</h3>
+		</div>
+	{{ else }}
+		<div class="ui segment">
+			<h1 class="ui header">Howdy, {{ .Context.User.Username }}!</h1>
+			<p>
+				Welcome back to Ripple. We currently have
+				<b>{{ rediget "ripple:online_users" }} online users and 
+				{{ rediget "ripple:registered_users" }} total registed users.</b>
+				Nice day to farm a few maps, isn't it?
+			</p>
+		</div>
+	{{ end }}
+	{{ with (.Get "blog/posts?l=5") }}
+		<div class="ui raised segment">
+			<h1 class="ui center aligned header">
+				Latest news
+			</h1>
+		</div>
+		{{ range $i, $v := .posts }}
+			<div class="ui segment" data-post-id="{{ $v.id }}">
+				<i class="angle down big icon link expand-icon top right" data-content="Load post inline"></i>
+				<h1 class="ui header no top margin">
+					<a href="https://old.ripple.moe/blog/posts/{{ $v.slug }}" class="inherit">{{ HTML $v.title }}</a>
+					<div class="sub header">by <a href="/u/{{ $v.author.id }}">{{ $v.author.username }}</a> {{ time $v.created }}</div>
+				</h1>
+			</div>
+		{{ end }}
+		{{ if not .posts }}
+			<h1 class="ui center aligned header">
+				<a href="/blog" class="inherit">See more on the blog...</a>
+			</h1>
+		{{ end }}
+	{{ end }}
+</div>
+{{ end }}

@@ -13,12 +13,12 @@ import (
 // LoadTemplates loads all the templates, and returns simplepages.
 func LoadTemplates() (map[string]*template.Template, []TemplateConfig, error) {
 	l := &templateLoader{
-		folderBase: "templates",
+		folderBase: "templates_playground",
 		templates:  make(map[string]*template.Template),
 		baseTemplates: []string{
-			"templates/base.html",
+			"templates_playground/base.html",
 			"templates/simplepag.html",
-			"templates/navbar.html",
+			"templates_playground/navbar.html",
 		},
 	}
 	err := l.loadTemplates("/.")
