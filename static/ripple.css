@@ -364,3 +364,7 @@ input[type="submit"].ie {
 	/* Don't ask. Simply don't. I just tried random display values and this was what worked best */
 	display: flex;
 }
+
+.dropdown.item .menu {
+	z-index: 1985619861968176819;
+}
