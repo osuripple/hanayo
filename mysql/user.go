@@ -44,7 +44,7 @@ func (s *ServiceProvider) UserByEmail(email string) (*hanayo.User, error) {
 }
 
 // RegisterUser creates a new user in the tables users and users_stats.
-func (s *ServiceProvider) RegisterUser(u hanayo.User) error {
+func (s *ServiceProvider) RegisterUser(u hanayo.User) (int, error) {
 	n := time.Now().Unix()
 	res, err := s.DB.Exec(
 		`INSERT INTO users(
@@ -58,12 +58,12 @@ func (s *ServiceProvider) RegisterUser(u hanayo.User) error {
 		n, u.Privileges, n,
 	)
 	if err != nil {
-		return err
+		return 0, err
 	}
 
 	lid, err := res.LastInsertId()
 	if err != nil {
-		return err
+		return 0, err
 	}
 
 	_, err = s.DB.Exec(
@@ -71,7 +71,7 @@ func (s *ServiceProvider) RegisterUser(u hanayo.User) error {
 		VALUES (?, ?, 'black');`, lid, u.Username,
 	)
 
-	return err
+	return int(lid), err
 }
 
 // GetCountry retrieves an user's country.

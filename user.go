@@ -22,7 +22,7 @@ type User struct {
 type UserService interface {
 	User(id int) (*User, error)
 	UserByEmail(email string) (*User, error)
-	RegisterUser(u User) error
+	RegisterUser(u User) (int, error) // returns user id
 	GetCountry(id int) (*string, error)
 	SetCountry(id int, country string) error
 }

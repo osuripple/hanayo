@@ -47,6 +47,8 @@ func Web(ctx *cli.Context) error {
 	if err != nil {
 		return err
 	}
+	db.MapperFunc(mysql.MapperFunc)
+
 	sp := &mysql.ServiceProvider{db}
 
 	srv := &http.Server{
