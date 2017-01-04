@@ -26,7 +26,7 @@ import (
 )
 
 // version is the version of hanayo
-const version = "v1.3.2"
+const version = "v1.3.3"
 
 var (
 	config struct {
