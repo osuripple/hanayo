@@ -53,6 +53,7 @@
 .main.wrapper {
 	padding-bottom: 30px;
 	background-attachment: fixed;
+	background-size: cover;
 }
 
 img {
