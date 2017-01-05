@@ -100,9 +100,9 @@
 					<div class="row">
 						<div class="column">
 							<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}. 
-							They signed up on Ripple {{ time $user.registered_on }}.
-							Last seen: {{ time $user.latest_activity }}.
-							{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}
+							<br>They signed up on Ripple {{ time $user.registered_on }}.
+							<br>Last seen: {{ time $user.latest_activity }}.
+							<br>{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}
 						</div>
 						<div class="column">
 							{{ if and (not .badges) (not .custom_badge) }}
