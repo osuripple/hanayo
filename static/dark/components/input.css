@@ -55,13 +55,13 @@
 
 /* browsers require these rules separate */
 .ui.input input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(153, 153, 153, 0.93);
 }
 .ui.input input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(153, 153, 153, 0.93);
 }
 .ui.input input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(153, 153, 153, 0.93);
 }
 
 
@@ -142,15 +142,15 @@
 }
 .ui.input.focus input::-webkit-input-placeholder,
 .ui.input input:focus::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(217, 217, 217, 0.93);
 }
 .ui.input.focus input::-moz-placeholder,
 .ui.input input:focus::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(217, 217, 217, 0.93);
 }
 .ui.input.focus input:-ms-input-placeholder,
 .ui.input input:focus:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(217, 217, 217, 0.93);
 }
 
 /*--------------------
