@@ -393,16 +393,14 @@ $(document).ready(function(){
     },
   });
   $("#user-search-input").keypress(function (e) {
-    if (e.which == 13)
+    if (e.which == 13) {
       window.location.pathname = "/u/" + $(this).val();
+    }
   });
   
   // setup timeago
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
-
-  // it's christmas!
-  $(".huge.heading").snowfall({flakeCount: 50, maxSpeed: 1, minSpeed: 1, minSize: 6, round: true, shadow: true});
 
   // dark site
   new Konami(function() {
