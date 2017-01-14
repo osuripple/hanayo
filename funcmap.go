@@ -14,9 +14,9 @@ import (
 	"strings"
 	"time"
 
-	"git.zxq.co/ripple/go-discord-oauth"
-	"git.zxq.co/ripple/playstyle"
-	"git.zxq.co/ripple/rippleapi/common"
+	"zxq.co/ripple/go-discord-oauth"
+	"zxq.co/ripple/playstyle"
+	"zxq.co/ripple/rippleapi/common"
 	"github.com/dustin/go-humanize"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"

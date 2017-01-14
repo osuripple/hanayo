@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"git.zxq.co/ripple/rippleapi/common"
-	"git.zxq.co/ripple/schiavolib"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/ripple/schiavolib"
 	"github.com/asaskevich/govalidator"
 	"github.com/gin-gonic/gin"
 )

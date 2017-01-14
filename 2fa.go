@@ -11,8 +11,8 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"git.zxq.co/ripple/rippleapi/common"
-	"git.zxq.co/x/rs"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
 	"github.com/pquerna/otp"
 	"github.com/pquerna/otp/totp"

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"git.zxq.co/x/rs"
+	"zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
 )
 

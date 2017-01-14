@@ -13,7 +13,7 @@ import (
 	"os/exec"
 	"syscall"
 
-	"git.zxq.co/ripple/schiavolib"
+	"zxq.co/ripple/schiavolib"
 	"github.com/gin-gonic/gin"
 	"github.com/rcrowley/goagain"
 )

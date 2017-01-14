@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"git.zxq.co/x/rs"
+	"zxq.co/x/rs"
 	"github.com/thehowl/cieca"
 )
 

@@ -9,9 +9,9 @@ import (
 	"encoding/gob"
 	"fmt"
 
-	"git.zxq.co/ripple/rippleapi/app"
-	"git.zxq.co/ripple/schiavolib"
-	"git.zxq.co/x/rs"
+	"zxq.co/ripple/rippleapi/app"
+	"zxq.co/ripple/schiavolib"
+	"zxq.co/x/rs"
 	"github.com/fatih/structs"
 	"github.com/getsentry/raven-go"
 	"github.com/gin-gonic/contrib/sessions"

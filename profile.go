@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"strconv"
 
-	"git.zxq.co/ripple/rippleapi/common"
+	"zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
 )
 

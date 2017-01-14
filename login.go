@@ -11,8 +11,8 @@ import (
 
 	"net/url"
 
-	"git.zxq.co/ripple/rippleapi/common"
-	"git.zxq.co/x/rs"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )
