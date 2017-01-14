@@ -57,7 +57,7 @@
 				{{ $settings := systemSettings "website_maintenance" "game_maintenance" "website_global_alert" }}
 				{{ with $settings.website_global_alert.String }}
 					<div class="ui warning message">
-						{{ . }}
+						{{ . | html }}
 					</div>
 				{{ end }}
 				{{ with $settings.game_maintenance.Int }}

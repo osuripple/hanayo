@@ -11,7 +11,7 @@ KyutGrill=homepage2.jpg
 	{{ $set := systemSettings "website_home_alert" }}
 	{{ with $set.website_home_alert.String }}
 		<div class="ui warning message">
-			{{ . }}
+			{{ . | html }}
 		</div>
 	{{ end }}
 	{{/* Not logged in block */}}
