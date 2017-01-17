@@ -9,9 +9,6 @@ import (
 	"encoding/gob"
 	"fmt"
 
-	"zxq.co/ripple/rippleapi/app"
-	"zxq.co/ripple/schiavolib"
-	"zxq.co/x/rs"
 	"github.com/fatih/structs"
 	"github.com/getsentry/raven-go"
 	"github.com/gin-gonic/contrib/sessions"
@@ -23,6 +20,9 @@ import (
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
+	"zxq.co/ripple/rippleapi/app"
+	"zxq.co/ripple/schiavolib"
+	"zxq.co/x/rs"
 )
 
 // version is the version of hanayo
@@ -30,33 +30,33 @@ const version = "v1.3.5"
 
 var (
 	config struct {
-		ListenTo string `description:"ip:port from which to take requests."`
-		Unix     bool   `description:"Whether ListenTo is an unix socket."`
+		// Essential configuration that must be always checked for every environment.
+		ListenTo    string `description:"ip:port from which to take requests."`
+		Unix        bool   `description:"Whether ListenTo is an unix socket."`
+		DSN         string `description:"MySQL server DSN"`
+		RedisEnable bool
+		AvatarURL   string
+		BaseURL     string
+		API         string
+		BanchoAPI   string
+		APISecret   string
+		Offline     bool `description:"If this is true, files will be served from the local server instead of the CDN."`
 
-		DSN string `description:"MySQL server DSN"`
+		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
+		AvatarsFolder    string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
 
 		CookieSecret string
 
-		RedisEnable         bool
 		RedisMaxConnections int
 		RedisNetwork        string
 		RedisAddress        string
 		RedisPassword       string
 
-		AvatarURL     string
-		BaseURL       string
 		DiscordServer string
 
-		API           string
-		BanchoAPI     string
-		APISecret     string
 		BaseAPIPublic string
 
-		IP_API string
-
-		Offline          bool   `description:"If this is true, files will be served from the local server instead of the CDN."`
-		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system."`
-		AvatarsFolder    string `description:"location folder of avatars"`
+		Production int `description:"This is a fake configuration value. All of the following from now on should only really be set in a production environment."`
 
 		MailgunDomain        string
 		MailgunPrivateAPIKey string
@@ -72,6 +72,8 @@ var (
 		DonorBotSecret     string
 
 		SentryDSN string
+
+		IP_API string
 
 		AnalyticsID string
 	}
