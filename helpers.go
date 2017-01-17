@@ -13,6 +13,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"zxq.co/ripple/hanayo/modules/bbcode"
+	tp "zxq.co/ripple/hanayo/modules/top-passwords"
 	"zxq.co/ripple/rippleapi/common"
 )
 
@@ -28,7 +29,7 @@ func validatePassword(p string) string {
 		return "Your password is too short! It must be at least 8 characters long."
 	}
 
-	for _, k := range topPasswords {
+	for _, k := range tp.TopPasswords {
 		if k == p {
 			return "Your password is one of the most common passwords on the entire internet. No way we're letting you use that!"
 		}
