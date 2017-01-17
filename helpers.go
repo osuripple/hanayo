@@ -11,8 +11,9 @@ import (
 
 	"bytes"
 
-	"zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/hanayo/modules/bbcode"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 //go:generate go run scripts/generate_mappings.go -g
@@ -74,7 +75,7 @@ func parseBBCode(c *gin.Context) {
 		c.String(200, "Error")
 		return
 	}
-	d := compileBBCode(string(body))
+	d := bbcode.Compile(string(body))
 	c.String(200, d)
 }
 

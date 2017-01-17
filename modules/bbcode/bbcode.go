@@ -1,4 +1,5 @@
-package main
+// Package bbcode implements BBCode compiling for Hanayo.
+package bbcode
 
 import (
 	"fmt"
@@ -208,7 +209,8 @@ var emojiReplacer = func() *strings.Replacer {
 	return strings.NewReplacer(list...)
 }()
 
-func compileBBCode(s string) string {
+// Compile takes some BBCode and converts it into safe HTML output.
+func Compile(s string) string {
 	s = emojiReplacer.Replace(s)
 	s = strings.TrimSpace(s)
 	return mondaySanitise(bbcodeCompiler.Compile(s))
