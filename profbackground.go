@@ -27,7 +27,7 @@ func profBackground(c *gin.Context) {
 		getSession(c).Save()
 		c.Redirect(302, "/settings/profbackground")
 	}()
-	if !csrfExist(ctx.User.ID, c.PostForm("csrf")) {
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
 		m = errorMessage{"CSRF token has expired. Please try again."}
 		return
 	}

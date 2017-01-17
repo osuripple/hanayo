@@ -11,11 +11,11 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
 	"github.com/pquerna/otp"
 	"github.com/pquerna/otp/totp"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/x/rs"
 )
 
 var allowedPaths = [...]string{
@@ -295,8 +295,7 @@ func disable2fa(c *gin.Context) {
 		c.Redirect(302, "/settings/2fa")
 	}()
 
-	exist := csrfExist(ctx.User.ID, c.PostForm("csrf"))
-	if !exist {
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
 		m = errorMessage{"Your session has expired. Please try redoing what you were trying to do."}
 		return
 	}
@@ -326,7 +325,7 @@ func totpSetup(c *gin.Context) {
 	defer c.Redirect(302, "/settings/2fa")
 	defer sess.Save()
 
-	if !csrfExist(ctx.User.ID, c.PostForm("csrf")) {
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
 		addMessage(c, errorMessage{"Invalid CSRF token. Please try again"})
 		return
 	}

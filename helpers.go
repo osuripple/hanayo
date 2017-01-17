@@ -88,7 +88,7 @@ func discordFinish(c *gin.Context) {
 	}()
 
 	ctx := getContext(c)
-	if !csrfExist(ctx.User.ID, c.Query("state")) {
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
 		addMessage(c, errorMessage{"CSRF token is invalid. Please retry linking your account."})
 		return
 	}
@@ -153,4 +153,12 @@ func discordFinish(c *gin.Context) {
 	db.Exec("INSERT INTO discord_roles (id, userid, discordid, roleid) VALUES (NULL, ?, ?, 0)", ctx.User.ID, x.ID)
 
 	addMessage(c, successMessage{"Your account has been linked successfully!"})
+}
+
+func mustCSRFGenerate(u int) string {
+	v, err := CSRF.Generate(u)
+	if err != nil {
+		panic(err)
+	}
+	return v
 }

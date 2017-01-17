@@ -20,6 +20,8 @@ import (
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
+	"zxq.co/ripple/hanayo/services"
+	"zxq.co/ripple/hanayo/services/cieca"
 	"zxq.co/ripple/rippleapi/app"
 	"zxq.co/ripple/schiavolib"
 	"zxq.co/x/rs"
@@ -84,6 +86,11 @@ var (
 	rd        *redis.Client
 )
 
+// Services etc
+var (
+	CSRF services.CSRF
+)
+
 func main() {
 	fmt.Println("hanayo " + version)
 
@@ -136,6 +143,9 @@ func main() {
 		config.MailgunPrivateAPIKey,
 		config.MailgunPublicAPIKey,
 	)
+
+	// initialise CSRF service
+	CSRF = cieca.NewCSRF()
 
 	if gin.Mode() == gin.DebugMode {
 		fmt.Println("Development environment detected. Starting fsnotify on template folder...")

@@ -386,17 +386,17 @@ var funcMap = template.FuncMap{
 	"get2faConfirmationToken": get2faConfirmationToken,
 	// csrfGenerate creates a csrf token input
 	"csrfGenerate": func(u int) template.HTML {
-		return template.HTML(`<input type="hidden" name="csrf" value="` + csrfGenerate(u) + `">`)
+		return template.HTML(`<input type="hidden" name="csrf" value="` + mustCSRFGenerate(u) + `">`)
 	},
 	// csrfURL creates a CSRF token for GET requests.
 	"csrfURL": func(u int) template.URL {
-		return template.URL("csrf=" + csrfGenerate(u))
+		return template.URL("csrf=" + mustCSRFGenerate(u))
 	},
 	// systemSetting retrieves some information from the table system_settings
 	"systemSettings": systemSettings,
 	// authCodeURL gets the auth code for discord
 	"authCodeURL": func(u int) string {
-		return getDiscord().AuthCodeURL(csrfGenerate(u))
+		return getDiscord().AuthCodeURL(mustCSRFGenerate(u))
 	},
 	// perc returns a percentage
 	"perc": func(i, total float64) string {

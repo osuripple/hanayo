@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"zxq.co/ripple/rippleapi/common"
 	"zxq.co/x/rs"
-	"github.com/gin-gonic/gin"
 )
 
 func startEmailVerification(c *gin.Context) {
@@ -23,7 +23,7 @@ func startEmailVerification(c *gin.Context) {
 		}
 	}()
 
-	if !csrfExist(ctx.User.ID, c.Query("csrf")) {
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.Query("csrf")); !ok {
 		m = errorMessage{"CSRF token expired. Please try again."}
 		return
 	}
