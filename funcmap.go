@@ -22,6 +22,7 @@ import (
 	"golang.org/x/oauth2"
 	"zxq.co/ripple/go-discord-oauth"
 	"zxq.co/ripple/hanayo/modules/bbcode"
+	"zxq.co/ripple/hanayo/modules/fa-semantic-mappings"
 	"zxq.co/ripple/playstyle"
 	"zxq.co/ripple/rippleapi/common"
 )
@@ -168,7 +169,7 @@ var funcMap = template.FuncMap{
 	"faIcon": func(i string) string {
 		classes := strings.Split(i, " ")
 		for i, class := range classes {
-			if v, ok := faToSemanticMappings[class]; ok {
+			if v, ok := fasuimappings.Mappings[class]; ok {
 				classes[i] = v
 			}
 		}
