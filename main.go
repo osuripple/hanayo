@@ -8,6 +8,7 @@ package main
 import (
 	"encoding/gob"
 	"fmt"
+	"time"
 
 	"github.com/fatih/structs"
 	"github.com/getsentry/raven-go"
@@ -29,6 +30,8 @@ import (
 
 // version is the version of hanayo
 const version = "v1.3.5"
+
+var startTime = time.Now()
 
 var (
 	config struct {
@@ -190,6 +193,8 @@ func main() {
 	fmt.Println("Exporting configuration...")
 
 	conf.Export(config, "hanayo.conf")
+
+	fmt.Println("Intialisation:", time.Since(startTime))
 
 	httpLoop()
 }
