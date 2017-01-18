@@ -28,9 +28,6 @@ import (
 	"zxq.co/x/rs"
 )
 
-// version is the version of hanayo
-const version = "v1.3.5"
-
 var startTime = time.Now()
 
 var (
