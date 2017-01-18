@@ -197,7 +197,7 @@ func main() {
 func httpLoop() {
 	for {
 		e := generateEngine()
-		fmt.Println("Starting webserver...")
+		fmt.Println("Listening on", config.ListenTo)
 		if !startuato(e) {
 			break
 		}
