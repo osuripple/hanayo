@@ -21,6 +21,7 @@ import (
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
+	"zxq.co/ripple/hanayo/modules/btcaddress"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
 	"zxq.co/ripple/rippleapi/app"
@@ -72,6 +73,9 @@ var (
 		DiscordOAuthSecret string
 		DonorBotURL        string
 		DonorBotSecret     string
+
+		CoinbaseAPIKey    string
+		CoinbaseAPISecret string
 
 		SentryDSN string
 
@@ -160,6 +164,11 @@ func main() {
 		Addr:     config.RedisAddress,
 		Password: config.RedisPassword,
 	})
+
+	// initialise btcaddress
+	btcaddress.Redis = rd
+	btcaddress.APIKey = config.CoinbaseAPIKey
+	btcaddress.APISecret = config.CoinbaseAPISecret
 
 	// initialise schiavo
 	schiavo.Prefix = "hanayo"
