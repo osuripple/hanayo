@@ -88,7 +88,7 @@ func discordFinish(c *gin.Context) {
 	}()
 
 	ctx := getContext(c)
-	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.Query("state")); !ok {
 		addMessage(c, errorMessage{"CSRF token is invalid. Please retry linking your account."})
 		return
 	}
