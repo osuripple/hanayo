@@ -295,6 +295,8 @@ func generateEngine() *gin.Engine {
 
 	r.GET("/donate/rates", getRates)
 
+	r.Any("/blog/*url", blogRedirect)
+
 	loadSimplePages(r)
 
 	r.NoRoute(notFound)
