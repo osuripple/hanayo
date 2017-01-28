@@ -185,7 +185,6 @@ var blogRedirectMap = map[string]string{
 
 func blogRedirect(c *gin.Context) {
 	a := c.Param("url")
-	fmt.Println(a)
 	red := blogRedirectMap[a]
 	if red == "" {
 		red = "https://blog.ripple.moe"
