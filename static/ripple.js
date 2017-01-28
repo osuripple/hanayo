@@ -19,34 +19,6 @@
 // this object contains tiny snippets that were deemed too small to be worth
 // their own file.
 var singlePageSnippets = {
-
-  "/": function() {
-    $(".expand-icon").popup().click(function() {
-      var addTo = $(this).closest(".segment");
-      if (addTo.attr("data-expanded") == "true") {
-        addTo.removeAttr("data-expanded")
-        var ch = addTo.children(".post-content");
-        ch.slideUp(function() {
-          ch.remove();
-        });
-        $(this).attr("data-content", "Expand")
-        $(this).removeClass("up").addClass("down");
-      } else {
-        addTo.attr("data-expanded", "true");
-        $(this).removeClass("down").addClass("up");
-        $(this).attr("data-content", "Collapse");
-        api("blog/posts/content", {
-          id: addTo.data("post-id"),
-          html: "",
-        }, function(data) {
-          var el = $("<div class='post-content' />").hide().append(data.content);
-          addTo.append(el);
-          el.slideDown();
-        });
-      }
-    });
-  },
-
   "/2fa_gateway": function() {
     $('#telegram-code').on('input', function() {
       if ($(this).val().length >= 6) {
