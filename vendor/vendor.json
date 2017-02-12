@@ -46,13 +46,6 @@
 			"revisionTime": "2016-12-26T21:19:16Z"
 		},
 		{
-			"checksumSHA1": "oRe30fSZIP2Z0G+eNUgu/Km0uOU=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/github.com/buaazp/fasthttprouter",
-			"path": "github.com/buaazp/fasthttprouter",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
 			"checksumSHA1": "D8gUHzS23ynNPS4imXcAqGnfTck=",
 			"path": "github.com/certifi/gocertifi",
 			"revision": "a61bf5eafa3aee233ec8043e9da052447e5463dd",
@@ -274,13 +267,6 @@
 			"revisionTime": "2016-10-03T16:27:22Z"
 		},
 		{
-			"checksumSHA1": "2pomhK12VRaro+l83VqZ6C3zoSw=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/github.com/serenize/snaker",
-			"path": "github.com/serenize/snaker",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
 			"checksumSHA1": "kbgJvKG3NRoqU91rYnXGnyR+8HQ=",
 			"path": "github.com/shurcooL/sanitized_anchor_name",
 			"revision": "1dba4b3954bc059efc3991ec364f9f9a35f597d2",
@@ -297,13 +283,6 @@
 			"path": "github.com/thehowl/conf",
 			"revision": "bdfc17531a7482dc9e141141b94d9fbae1d066a3",
 			"revisionTime": "2016-10-10T15:00:23Z"
-		},
-		{
-			"checksumSHA1": "kUH66xItMsO3QDibGHCWZHa9B3o=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/github.com/thehowl/go-osuapi",
-			"path": "github.com/thehowl/go-osuapi",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
 		},
 		{
 			"checksumSHA1": "i07SR5ntqnMfUjGWVwn6p3nGems=",
@@ -478,13 +457,6 @@
 			"revisionTime": "2017-01-13T11:52:40Z"
 		},
 		{
-			"checksumSHA1": "IVLVpxH6lCjsiVVIl/qf8ftjXbg=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/gopkg.in/thehowl/go-osuapi.v1",
-			"path": "gopkg.in/thehowl/go-osuapi.v1",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
 			"checksumSHA1": "12GqsW8PiRPnezDDy0v4brZrndM=",
 			"path": "gopkg.in/yaml.v2",
 			"revision": "a5b47d31c556af34a302ce5d659e6fea44d90de0",
@@ -497,41 +469,10 @@
 			"revisionTime": "2016-11-17T21:10:55Z"
 		},
 		{
-			"checksumSHA1": "SI9tgNMlnMhxP7t6cAGuDjvoAHg=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/zxq.co/ripple/ocl",
-			"path": "zxq.co/ripple/ocl",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
 			"checksumSHA1": "3U6/crKc6VfYeG8Nt5lAI+UvD80=",
 			"path": "zxq.co/ripple/playstyle",
 			"revision": "198984a13cb6fccba0cdf9c08b3c624548f840eb",
 			"revisionTime": "2016-11-06T14:42:35Z"
-		},
-		{
-			"checksumSHA1": "5CBLbe5TqYDiyk39X2WP6ccF3hU=",
-			"path": "zxq.co/ripple/rippleapi/app",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
-			"checksumSHA1": "tXqtC76/ccIXBX5Br0AuyCwa9u4=",
-			"path": "zxq.co/ripple/rippleapi/app/internals",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
-			"checksumSHA1": "0cjOrvWCqevukQiffGZUCBUtMj0=",
-			"path": "zxq.co/ripple/rippleapi/app/peppy",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
-			"checksumSHA1": "qBHSC8t8xua8NQPc5275G5kTcyE=",
-			"path": "zxq.co/ripple/rippleapi/app/v1",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
 		},
 		{
 			"checksumSHA1": "/OVYcYKOyvJlJTZnpPgEBcgPtM4=",
@@ -540,30 +481,10 @@
 			"revisionTime": "2017-02-02T14:16:01Z"
 		},
 		{
-			"checksumSHA1": "qP9K8mHPOFIyLTPeaoC0L7OeEfU=",
-			"path": "zxq.co/ripple/rippleapi/limit",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
 			"checksumSHA1": "+6t1fYk62F/7QAol2NrKdVfQIkE=",
 			"path": "zxq.co/ripple/schiavolib",
 			"revision": "9cdc674dad0700ec79618de4ab558db6ad1de372",
 			"revisionTime": "2016-11-09T21:02:50Z"
-		},
-		{
-			"checksumSHA1": "LflfmgveoAndDoPYavJaQ9XhzGk=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/zxq.co/ripple/semantic-icons-ugc",
-			"path": "zxq.co/ripple/semantic-icons-ugc",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
-		},
-		{
-			"checksumSHA1": "ItsAqvnH+Qa+ewmWbnSxT6EzSBk=",
-			"origin": "zxq.co/ripple/rippleapi/vendor/zxq.co/x/getrank",
-			"path": "zxq.co/x/getrank",
-			"revision": "021e76cab72dface34ba139baca3d82db4e27303",
-			"revisionTime": "2017-02-02T14:16:01Z"
 		},
 		{
 			"checksumSHA1": "j1e4HKzfnOkLPeDhl8Z9vhqyMY4=",

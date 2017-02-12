@@ -24,7 +24,6 @@ import (
 	"zxq.co/ripple/hanayo/modules/btcaddress"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
-	"zxq.co/ripple/rippleapi/app"
 	"zxq.co/ripple/schiavolib"
 	"zxq.co/x/rs"
 )
@@ -243,7 +242,7 @@ func generateEngine() *gin.Engine {
 		if err != nil {
 			fmt.Println(err)
 		} else {
-			r.Use(app.Recovery(ravenClient, false))
+			r.Use(Recovery(ravenClient, false))
 		}
 	}
 
