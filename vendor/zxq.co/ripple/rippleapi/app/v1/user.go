@@ -5,9 +5,9 @@ import (
 	"database/sql"
 	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/jmoiron/sqlx"
-
 	"zxq.co/ripple/ocl"
 	"zxq.co/ripple/rippleapi/common"
 )
@@ -71,8 +71,7 @@ type userPutsMultiUserData struct {
 }
 
 func userPutsMulti(md common.MethodData) common.CodeMessager {
-	q := md.C.Request.URL.Query()
-
+	pm := md.Ctx.Request.URI().QueryArgs().PeekMulti
 	// query composition
 	wh := common.
 		Where("users.username_safe = ?", common.SafeUsername(md.Query("nname"))).
@@ -83,10 +82,10 @@ func userPutsMulti(md common.MethodData) common.CodeMessager {
 		Where("users_stats.country = ?", md.Query("country")).
 		Where("users_stats.username_aka = ?", md.Query("name_aka")).
 		Where("privileges_groups.name = ?", md.Query("privilege_group")).
-		In("users.id", q["ids"]...).
-		In("users.username_safe", safeUsernameBulk(q["names"])...).
-		In("users_stats.username_aka", q["names_aka"]...).
-		In("users_stats.country", q["countries"]...)
+		In("users.id", pm("ids")...).
+		In("users.username_safe", safeUsernameBulk(pm("names"))...).
+		In("users_stats.username_aka", pm("names_aka")...).
+		In("users_stats.country", pm("countries")...)
 
 	var extraJoin string
 	if md.Query("privilege_group") != "" {
@@ -130,13 +129,19 @@ func userPutsMulti(md common.MethodData) common.CodeMessager {
 
 // UserSelfGET is a shortcut for /users/id/self. (/users/self)
 func UserSelfGET(md common.MethodData) common.CodeMessager {
-	md.C.Request.URL.RawQuery = "id=self&" + md.C.Request.URL.RawQuery
+	md.Ctx.Request.URI().SetQueryString("id=self")
 	return UsersGET(md)
 }
 
-func safeUsernameBulk(us []string) []string {
-	for i, u := range us {
-		us[i] = common.SafeUsername(u)
+func safeUsernameBulk(us [][]byte) [][]byte {
+	for _, u := range us {
+		for idx, v := range u {
+			if v == ' ' {
+				u[idx] = '_'
+				continue
+			}
+			u[idx] = byte(unicode.ToLower(rune(v)))
+		}
 	}
 	return us
 }
@@ -341,7 +346,7 @@ func UserSelfUserpagePOST(md common.MethodData) common.CodeMessager {
 	var d struct {
 		Data *string `json:"data"`
 	}
-	md.RequestData.Unmarshal(&d)
+	md.Unmarshal(&d)
 	if d.Data == nil {
 		return ErrMissingField("data")
 	}
@@ -350,7 +355,7 @@ func UserSelfUserpagePOST(md common.MethodData) common.CodeMessager {
 	if err != nil {
 		md.Err(err)
 	}
-	md.C.Request.URL.RawQuery += "&id=" + strconv.Itoa(md.ID())
+	md.Ctx.URI().SetQueryString("id=self")
 	return UserUserpageGET(md)
 }
 

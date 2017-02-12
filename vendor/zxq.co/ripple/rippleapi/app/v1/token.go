@@ -8,10 +8,10 @@ import (
 
 	"github.com/jmoiron/sqlx"
 
+	"golang.org/x/crypto/bcrypt"
 	"zxq.co/ripple/rippleapi/common"
 	"zxq.co/ripple/rippleapi/limit"
 	"zxq.co/ripple/schiavolib"
-	"golang.org/x/crypto/bcrypt"
 )
 
 type tokenNewInData struct {
@@ -37,7 +37,7 @@ type tokenNewResponse struct {
 func TokenNewPOST(md common.MethodData) common.CodeMessager {
 	var r tokenNewResponse
 	data := tokenNewInData{}
-	err := md.RequestData.Unmarshal(&data)
+	err := md.Unmarshal(&data)
 	if err != nil {
 		return ErrBadJSON
 	}
@@ -80,7 +80,7 @@ func TokenNewPOST(md common.MethodData) common.CodeMessager {
 	}
 	privileges := common.UserPrivileges(privilegesRaw)
 
-	if !limit.NonBlockingRequest(fmt.Sprintf("loginattempt:%d:%s", r.ID, md.C.ClientIP()), 5) {
+	if !limit.NonBlockingRequest(fmt.Sprintf("loginattempt:%d:%s", r.ID, md.ClientIP()), 5) {
 		return common.SimpleResponse(429, "You've made too many login attempts. Try again later.")
 	}
 

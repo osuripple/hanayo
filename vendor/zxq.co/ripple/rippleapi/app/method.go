@@ -1,54 +1,44 @@
 package app
 
 import (
-	"crypto/md5"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net"
+	"reflect"
 	"regexp"
-	"strings"
+	"unsafe"
 
+	"github.com/valyala/fasthttp"
 	"zxq.co/ripple/rippleapi/common"
-	"github.com/gin-gonic/gin"
 )
 
 // Method wraps an API method to a HandlerFunc.
-func Method(f func(md common.MethodData) common.CodeMessager, privilegesNeeded ...int) gin.HandlerFunc {
-	return func(c *gin.Context) {
+func Method(f func(md common.MethodData) common.CodeMessager, privilegesNeeded ...int) fasthttp.RequestHandler {
+	return func(c *fasthttp.RequestCtx) {
 		initialCaretaker(c, f, privilegesNeeded...)
 	}
 }
 
-func initialCaretaker(c *gin.Context, f func(md common.MethodData) common.CodeMessager, privilegesNeeded ...int) {
-	rateLimiter()
-
+func initialCaretaker(c *fasthttp.RequestCtx, f func(md common.MethodData) common.CodeMessager, privilegesNeeded ...int) {
 	var doggoTags []string
 
-	data, err := ioutil.ReadAll(c.Request.Body)
-	if err != nil {
-		c.Error(err)
-	}
-
-	token := ""
+	qa := c.Request.URI().QueryArgs()
+	var token string
 	switch {
-	case c.Request.Header.Get("X-Ripple-Token") != "":
-		token = c.Request.Header.Get("X-Ripple-Token")
-	case c.Query("token") != "":
-		token = c.Query("token")
-	case c.Query("k") != "":
-		token = c.Query("k")
+	case len(c.Request.Header.Peek("X-Ripple-Token")) > 0:
+		token = string(c.Request.Header.Peek("X-Ripple-Token"))
+	case len(qa.Peek("token")) > 0:
+		token = string(qa.Peek("token"))
+	case len(qa.Peek("k")) > 0:
+		token = string(qa.Peek("k"))
 	default:
-		token, _ = c.Cookie("rt")
+		token = string(c.Request.Header.Cookie("rt"))
 	}
-	c.Set("token", fmt.Sprintf("%x", md5.Sum([]byte(token))))
 
 	md := common.MethodData{
-		DB:          db,
-		RequestData: data,
-		C:           c,
-		Doggo:       doggo,
-		R:           red,
+		DB:    db,
+		Ctx:   c,
+		Doggo: doggo,
+		R:     red,
 	}
 	if token != "" {
 		tokenReal, exists := GetTokenFull(token, db)
@@ -58,25 +48,8 @@ func initialCaretaker(c *gin.Context, f func(md common.MethodData) common.CodeMe
 		}
 	}
 
-	var ip string
-	if requestIP, _, err := net.SplitHostPort(strings.TrimSpace(c.Request.RemoteAddr)); err != nil {
-		panic(err)
-	} else {
-		// if requestIP is not 127.0.0.1, means no reverse proxy is being used => direct request.
-		if requestIP != "127.0.0.1" {
-			ip = requestIP
-		}
-	}
-
-	// means we're using reverse-proxy, so X-Real-IP
-	if ip == "" {
-		ip = c.ClientIP()
-	}
-
-	// requests from hanayo should not be rate limited.
-	if !(c.Request.Header.Get("H-Key") == cf.HanayoKey && c.Request.UserAgent() == "hanayo") {
-		perUserRequestLimiter(md.ID(), c.ClientIP())
-	} else {
+	// log into datadog that this is an hanayo request
+	if b2s(c.Request.Header.Peek("H-Key")) == cf.HanayoKey && b2s(c.UserAgent()) == "hanayo" {
 		doggoTags = append(doggoTags, "hanayo")
 	}
 
@@ -89,21 +62,22 @@ func initialCaretaker(c *gin.Context, f func(md common.MethodData) common.CodeMe
 		}
 	}
 	if missingPrivileges != 0 {
-		c.IndentedJSON(401, common.SimpleResponse(401, "You don't have the privilege(s): "+common.Privileges(missingPrivileges).String()+"."))
+		c.SetStatusCode(401)
+		mkjson(c, common.SimpleResponse(401, "You don't have the privilege(s): "+common.Privileges(missingPrivileges).String()+"."))
 		return
 	}
 
 	resp := f(md)
 	if md.HasQuery("pls200") {
-		c.Writer.WriteHeader(200)
+		c.SetStatusCode(200)
 	} else {
-		c.Writer.WriteHeader(resp.GetCode())
+		c.SetStatusCode(resp.GetCode())
 	}
 
 	if md.HasQuery("callback") {
-		c.Header("Content-Type", "application/javascript; charset=utf-8")
+		c.Response.Header.Add("Content-Type", "application/javascript; charset=utf-8")
 	} else {
-		c.Header("Content-Type", "application/json; charset=utf-8")
+		c.Response.Header.Add("Content-Type", "application/json; charset=utf-8")
 	}
 
 	mkjson(c, resp)
@@ -113,22 +87,45 @@ func initialCaretaker(c *gin.Context, f func(md common.MethodData) common.CodeMe
 var callbackJSONP = regexp.MustCompile(`^[a-zA-Z_\$][a-zA-Z0-9_\$]*$`)
 
 // mkjson auto indents json, and wraps json into a jsonp callback if specified by the request.
-// then writes to the gin.Context the data.
-func mkjson(c *gin.Context, data interface{}) {
+// then writes to the RequestCtx the data.
+func mkjson(c *fasthttp.RequestCtx, data interface{}) {
 	exported, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
-		c.Error(err)
+		fmt.Println(err)
 		exported = []byte(`{ "code": 500, "message": "something has gone really really really really really really wrong." }`)
 	}
-	cb := c.Query("callback")
+	cb := string(c.URI().QueryArgs().Peek("callback"))
 	willcb := cb != "" &&
 		len(cb) < 100 &&
 		callbackJSONP.MatchString(cb)
 	if willcb {
-		c.Writer.Write([]byte("/**/ typeof " + cb + " === 'function' && " + cb + "("))
+		c.Write([]byte("/**/ typeof " + cb + " === 'function' && " + cb + "("))
 	}
-	c.Writer.Write(exported)
+	c.Write(exported)
 	if willcb {
-		c.Writer.Write([]byte(");"))
+		c.Write([]byte(");"))
 	}
+}
+
+// b2s converts byte slice to a string without memory allocation.
+// See https://groups.google.com/forum/#!msg/Golang-Nuts/ENgbUzYvCuU/90yGx7GUAgAJ .
+//
+// Note it may break if string and/or slice header will change
+// in the future go versions.
+func b2s(b []byte) string {
+	return *(*string)(unsafe.Pointer(&b))
+}
+
+// s2b converts string to a byte slice without memory allocation.
+//
+// Note it may break if string and/or slice header will change
+// in the future go versions.
+func s2b(s string) []byte {
+	sh := (*reflect.StringHeader)(unsafe.Pointer(&s))
+	bh := reflect.SliceHeader{
+		Data: sh.Data,
+		Len:  sh.Len,
+		Cap:  sh.Len,
+	}
+	return *(*[]byte)(unsafe.Pointer(&bh))
 }

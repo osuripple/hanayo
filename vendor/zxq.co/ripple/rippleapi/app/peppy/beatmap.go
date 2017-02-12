@@ -4,32 +4,32 @@ import (
 	"strconv"
 	"strings"
 
-	"zxq.co/ripple/rippleapi/common"
-	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 	"github.com/thehowl/go-osuapi"
+	"github.com/valyala/fasthttp"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 // GetBeatmap retrieves general beatmap information.
-func GetBeatmap(c *gin.Context, db *sqlx.DB) {
+func GetBeatmap(c *fasthttp.RequestCtx, db *sqlx.DB) {
 	var whereClauses []string
 	var params []interface{}
-	limit := strconv.Itoa(common.InString(1, c.Query("limit"), 500, 500))
+	limit := strconv.Itoa(common.InString(1, query(c, "limit"), 500, 500))
 
 	// since value is not stored, silently ignore
-	if c.Query("s") != "" {
+	if query(c, "s") != "" {
 		whereClauses = append(whereClauses, "beatmaps.beatmapset_id = ?")
-		params = append(params, c.Query("s"))
+		params = append(params, query(c, "s"))
 	}
-	if c.Query("b") != "" {
+	if query(c, "b") != "" {
 		whereClauses = append(whereClauses, "beatmaps.beatmap_id = ?")
-		params = append(params, c.Query("b"))
+		params = append(params, query(c, "b"))
 		// b is unique, so change limit to 1
 		limit = "1"
 	}
 	// creator is not stored, silently ignore u and type
-	if c.Query("m") != "" {
-		m := genmode(c.Query("m"))
+	if query(c, "m") != "" {
+		m := genmode(query(c, "m"))
 		if m == "std" {
 			// Since STD beatmaps are converted, all of the diffs must be != 0
 			for _, i := range modes {
@@ -37,14 +37,14 @@ func GetBeatmap(c *gin.Context, db *sqlx.DB) {
 			}
 		} else {
 			whereClauses = append(whereClauses, "beatmaps.difficulty_"+m+" != 0")
-			if c.Query("a") == "1" {
+			if query(c, "a") == "1" {
 				whereClauses = append(whereClauses, "beatmaps.difficulty_std = 0")
 			}
 		}
 	}
-	if c.Query("h") != "" {
+	if query(c, "h") != "" {
 		whereClauses = append(whereClauses, "beatmaps.beatmap_md5 = ?")
-		params = append(params, c.Query("h"))
+		params = append(params, query(c, "h"))
 	}
 
 	where := strings.Join(whereClauses, " AND ")
@@ -61,8 +61,8 @@ func GetBeatmap(c *gin.Context, db *sqlx.DB) {
 FROM beatmaps `+where+" ORDER BY id DESC LIMIT "+limit,
 		params...)
 	if err != nil {
-		c.Error(err)
-		c.JSON(200, defaultResponse)
+		common.Err(c, err)
+		json(c, 200, defaultResponse)
 		return
 	}
 
@@ -82,7 +82,7 @@ FROM beatmaps `+where+" ORDER BY id DESC LIMIT "+limit,
 			&rawLastUpdate,
 		)
 		if err != nil {
-			c.Error(err)
+			common.Err(c, err)
 			continue
 		}
 		bm.TotalLength = bm.HitLength
@@ -103,7 +103,7 @@ FROM beatmaps `+where+" ORDER BY id DESC LIMIT "+limit,
 		bms = append(bms, bm)
 	}
 
-	c.JSON(200, bms)
+	json(c, 200, bms)
 }
 
 var rippleToOsuRankedStatus = map[int]osuapi.ApprovedStatus{

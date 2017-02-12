@@ -4,32 +4,32 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/jmoiron/sqlx"
+	"github.com/valyala/fasthttp"
+	"gopkg.in/thehowl/go-osuapi.v1"
 	"zxq.co/ripple/rippleapi/common"
 	"zxq.co/x/getrank"
-	"github.com/gin-gonic/gin"
-	"github.com/jmoiron/sqlx"
-	"gopkg.in/thehowl/go-osuapi.v1"
 )
 
 // GetUserRecent retrieves an user's recent scores.
-func GetUserRecent(c *gin.Context, db *sqlx.DB) {
-	getUserX(c, db, "ORDER BY scores.time DESC", common.InString(1, c.Query("limit"), 50, 10))
+func GetUserRecent(c *fasthttp.RequestCtx, db *sqlx.DB) {
+	getUserX(c, db, "ORDER BY scores.time DESC", common.InString(1, query(c, "limit"), 50, 10))
 }
 
 // GetUserBest retrieves an user's best scores.
-func GetUserBest(c *gin.Context, db *sqlx.DB) {
+func GetUserBest(c *fasthttp.RequestCtx, db *sqlx.DB) {
 	var sb string
-	if rankable(c.Query("m")) {
+	if rankable(query(c, "m")) {
 		sb = "scores.pp"
 	} else {
 		sb = "scores.score"
 	}
-	getUserX(c, db, "AND completed = '3' ORDER BY "+sb+" DESC", common.InString(1, c.Query("limit"), 100, 10))
+	getUserX(c, db, "AND completed = '3' ORDER BY "+sb+" DESC", common.InString(1, query(c, "limit"), 100, 10))
 }
 
-func getUserX(c *gin.Context, db *sqlx.DB, orderBy string, limit int) {
+func getUserX(c *fasthttp.RequestCtx, db *sqlx.DB, orderBy string, limit int) {
 	whereClause, p := genUser(c, db)
-	query := fmt.Sprintf(
+	sqlQuery := fmt.Sprintf(
 		`SELECT
 			beatmaps.beatmap_id, scores.score, scores.max_combo,
 			scores.300_count, scores.100_count, scores.50_count,
@@ -44,11 +44,11 @@ func getUserX(c *gin.Context, db *sqlx.DB, orderBy string, limit int) {
 		LIMIT %d`, whereClause, orderBy, limit,
 	)
 	scores := make([]osuapi.GUSScore, 0, limit)
-	m := genmodei(c.Query("m"))
-	rows, err := db.Query(query, p, m)
+	m := genmodei(query(c, "m"))
+	rows, err := db.Query(sqlQuery, p, m)
 	if err != nil {
-		c.JSON(200, defaultResponse)
-		c.Error(err)
+		json(c, 200, defaultResponse)
+		common.Err(c, err)
 		return
 	}
 	for rows.Next() {
@@ -68,8 +68,8 @@ func getUserX(c *gin.Context, db *sqlx.DB, orderBy string, limit int) {
 			&curscore.PP, &acc,
 		)
 		if err != nil {
-			c.JSON(200, defaultResponse)
-			c.Error(err)
+			json(c, 200, defaultResponse)
+			common.Err(c, err)
 			return
 		}
 		if bid == nil {
@@ -91,5 +91,5 @@ func getUserX(c *gin.Context, db *sqlx.DB, orderBy string, limit int) {
 		))
 		scores = append(scores, curscore)
 	}
-	c.JSON(200, scores)
+	json(c, 200, scores)
 }

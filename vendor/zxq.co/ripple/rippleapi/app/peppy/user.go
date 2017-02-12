@@ -5,23 +5,24 @@ import (
 	"database/sql"
 	"fmt"
 
-	"zxq.co/ripple/ocl"
-	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 	"github.com/thehowl/go-osuapi"
+	"github.com/valyala/fasthttp"
+	"zxq.co/ripple/ocl"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 // GetUser retrieves general user information.
-func GetUser(c *gin.Context, db *sqlx.DB) {
-	if c.Query("u") == "" {
-		c.JSON(200, defaultResponse)
+func GetUser(c *fasthttp.RequestCtx, db *sqlx.DB) {
+	if query(c, "u") == "" {
+		json(c, 200, defaultResponse)
 		return
 	}
 	var user osuapi.User
 	whereClause, p := genUser(c, db)
 	whereClause = "WHERE " + whereClause
 
-	mode := genmode(c.Query("m"))
+	mode := genmode(query(c, "m"))
 
 	var lbpos *int
 	err := db.QueryRow(fmt.Sprintf(
@@ -43,9 +44,9 @@ func GetUser(c *gin.Context, db *sqlx.DB) {
 		&user.Country,
 	)
 	if err != nil {
-		c.JSON(200, defaultResponse)
+		json(c, 200, defaultResponse)
 		if err != sql.ErrNoRows {
-			c.Error(err)
+			common.Err(c, err)
 		}
 		return
 	}
@@ -54,5 +55,5 @@ func GetUser(c *gin.Context, db *sqlx.DB) {
 	}
 	user.Level = ocl.GetLevelPrecise(user.TotalScore)
 
-	c.JSON(200, []osuapi.User{user})
+	json(c, 200, []osuapi.User{user})
 }

@@ -2,11 +2,11 @@
 package peppy
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
+	"github.com/valyala/fasthttp"
 )
 
 // GetMatch retrieves general match information.
-func GetMatch(c *gin.Context, db *sqlx.DB) {
-	c.JSON(200, defaultResponse)
+func GetMatch(c *fasthttp.RequestCtx, db *sqlx.DB) {
+	json(c, 200, defaultResponse)
 }

@@ -78,7 +78,7 @@ type submitRequestData struct {
 // BeatmapRankRequestsSubmitPOST submits a new beatmap for ranking approval.
 func BeatmapRankRequestsSubmitPOST(md common.MethodData) common.CodeMessager {
 	var d submitRequestData
-	err := md.RequestData.Unmarshal(&d)
+	err := md.Unmarshal(&d)
 	if err != nil {
 		return ErrBadJSON
 	}
@@ -90,9 +90,6 @@ func BeatmapRankRequestsSubmitPOST(md common.MethodData) common.CodeMessager {
 	// you've been rate limited
 	if !limit.NonBlockingRequest("rankrequest:u:"+strconv.Itoa(md.ID()), 5) {
 		return common.SimpleResponse(429, "You may only try to request 5 beatmaps per minute.")
-	}
-	if !limit.NonBlockingRequest("rankrequest:ip:"+md.C.ClientIP(), 8) {
-		return common.SimpleResponse(429, "You may only try to request 8 beatmaps per minute from the same IP.")
 	}
 
 	// find out from BeatmapRankRequestsStatusGET if we can submit beatmaps.

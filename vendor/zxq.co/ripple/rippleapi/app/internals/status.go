@@ -1,17 +1,11 @@
 // Package internals has methods that suit none of the API packages.
 package internals
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "github.com/valyala/fasthttp"
 
-type statusResponse struct {
-	Status int `json:"status"`
-}
+var statusResp = []byte(`{ "status": 1 }`)
 
 // Status is used for checking the API is up by the ripple website, on the status page.
-func Status(c *gin.Context) {
-	c.JSON(200, statusResponse{
-		Status: 1,
-	})
+func Status(c *fasthttp.RequestCtx) {
+	c.Write(statusResp)
 }

@@ -62,7 +62,7 @@ type userSettingsData struct {
 // UsersSelfSettingsPOST allows to modify information about the current user.
 func UsersSelfSettingsPOST(md common.MethodData) common.CodeMessager {
 	var d userSettingsData
-	md.RequestData.Unmarshal(&d)
+	md.Unmarshal(&d)
 
 	// input sanitisation
 	*d.UsernameAKA = common.SanitiseString(*d.UsernameAKA)

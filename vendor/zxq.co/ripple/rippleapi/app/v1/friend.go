@@ -134,7 +134,7 @@ func FriendsAddPOST(md common.MethodData) common.CodeMessager {
 	var u struct {
 		User int `json:"user"`
 	}
-	md.RequestData.Unmarshal(&u)
+	md.Unmarshal(&u)
 	return addFriend(md, u.User)
 }
 
@@ -183,7 +183,7 @@ func FriendsDelPOST(md common.MethodData) common.CodeMessager {
 	var u struct {
 		User int `json:"user"`
 	}
-	md.RequestData.Unmarshal(&u)
+	md.Unmarshal(&u)
 	return delFriend(md, u.User)
 }
 

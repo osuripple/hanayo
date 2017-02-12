@@ -14,7 +14,7 @@ type setAllowedData struct {
 // UserManageSetAllowedPOST allows to set the allowed status of an user.
 func UserManageSetAllowedPOST(md common.MethodData) common.CodeMessager {
 	data := setAllowedData{}
-	if err := md.RequestData.Unmarshal(&data); err != nil {
+	if err := md.Unmarshal(&data); err != nil {
 		return ErrBadJSON
 	}
 	if data.Allowed < 0 || data.Allowed > 2 {

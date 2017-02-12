@@ -51,15 +51,15 @@ func (w *WhereClause) And() *WhereClause {
 // initial is the initial part, e.g. "users.id".
 // Fields are the possible values.
 // Sample output: users.id IN ('1', '2', '3')
-func (w *WhereClause) In(initial string, fields ...string) *WhereClause {
+func (w *WhereClause) In(initial string, fields ...[]byte) *WhereClause {
 	if len(fields) == 0 {
 		return w
 	}
 	w.addWhere()
 	w.Clause += initial + " IN (" + generateQuestionMarks(len(fields)) + ")"
-	fieldsInterfaced := make([]interface{}, 0, len(fields))
-	for _, i := range fields {
-		fieldsInterfaced = append(fieldsInterfaced, interface{}(i))
+	fieldsInterfaced := make([]interface{}, len(fields))
+	for k, f := range fields {
+		fieldsInterfaced[k] = string(f)
 	}
 	w.Params = append(w.Params, fieldsInterfaced...)
 	return w

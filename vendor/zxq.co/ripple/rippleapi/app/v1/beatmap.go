@@ -2,8 +2,6 @@ package v1
 
 import (
 	"database/sql"
-	"fmt"
-	"net/url"
 
 	"zxq.co/ripple/rippleapi/common"
 )
@@ -51,10 +49,10 @@ type beatmapSetStatusData struct {
 // the beatmap ranked status is frozen. Or freezed. Freezed best meme 2k16
 func BeatmapSetStatusPOST(md common.MethodData) common.CodeMessager {
 	var req beatmapSetStatusData
-	md.RequestData.Unmarshal(&req)
+	md.Unmarshal(&req)
 
 	var miss []string
-	if req.BeatmapsetID == 0 && req.BeatmapID == 0 {
+	if req.BeatmapsetID <= 0 && req.BeatmapID <= 0 {
 		miss = append(miss, "beatmapset_id or beatmap_id")
 	}
 	if len(miss) != 0 {
@@ -84,30 +82,12 @@ func BeatmapSetStatusPOST(md common.MethodData) common.CodeMessager {
 		SET ranked = ?, ranked_status_freezed = ?
 		WHERE beatmapset_id = ?`, req.RankedStatus, req.Frozen, param)
 
-	var x = make(map[string]interface{}, 1)
-	if req.BeatmapID != 0 {
-		x["bb"] = req.BeatmapID
+	if req.BeatmapID > 0 {
+		md.Ctx.Request.URI().QueryArgs().SetUint("bb", req.BeatmapID)
 	} else {
-		x["s"] = req.BeatmapsetID
+		md.Ctx.Request.URI().QueryArgs().SetUint("s", req.BeatmapsetID)
 	}
-	md.C.Request.URL = genURL(x)
 	return getMultipleBeatmaps(md)
-}
-
-func genURL(d map[string]interface{}) *url.URL {
-	var s string
-	for k, v := range d {
-		if s != "" {
-			s += "&"
-		}
-		s += k + "=" + url.QueryEscape(fmt.Sprintf("%v", v))
-	}
-	u := new(url.URL)
-	if len(d) == 0 {
-		return u
-	}
-	u.RawQuery = s
-	return u
 }
 
 // BeatmapGET retrieves a beatmap.

@@ -2,12 +2,12 @@ package peppy
 
 import (
 	"database/sql"
+	_json "encoding/json"
 	"strconv"
 
-	"zxq.co/ripple/rippleapi/common"
-
-	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
+	"github.com/valyala/fasthttp"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 var modes = []string{"std", "taiko", "ctb", "mania"}
@@ -30,25 +30,25 @@ func rankable(m string) bool {
 	return x == 0 || x == 3
 }
 
-func genUser(c *gin.Context, db *sqlx.DB) (string, string) {
+func genUser(c *fasthttp.RequestCtx, db *sqlx.DB) (string, string) {
 	var whereClause string
 	var p string
 
 	// used in second case of switch
-	s, err := strconv.Atoi(c.Query("u"))
+	s, err := strconv.Atoi(query(c, "u"))
 
 	switch {
 	// We know for sure that it's an username.
-	case c.Query("type") == "string":
+	case query(c, "type") == "string":
 		whereClause = "users.username_safe = ?"
-		p = common.SafeUsername(c.Query("u"))
+		p = common.SafeUsername(query(c, "u"))
 	// It could be an user ID, so we look for an user with that username first.
 	case err == nil:
 		err = db.QueryRow("SELECT id FROM users WHERE id = ? LIMIT 1", s).Scan(&p)
 		if err == sql.ErrNoRows {
 			// If no user with that userID were found, assume username.
 			whereClause = "users.username_safe = ?"
-			p = common.SafeUsername(c.Query("u"))
+			p = common.SafeUsername(query(c, "u"))
 		} else {
 			// An user with that userID was found. Thus it's an userID.
 			whereClause = "users.id = ?"
@@ -56,7 +56,20 @@ func genUser(c *gin.Context, db *sqlx.DB) (string, string) {
 	// u contains letters, so it's an username.
 	default:
 		whereClause = "users.username_safe = ?"
-		p = common.SafeUsername(c.Query("u"))
+		p = common.SafeUsername(query(c, "u"))
 	}
 	return whereClause, p
+}
+
+func query(c *fasthttp.RequestCtx, s string) string {
+	return string(c.QueryArgs().Peek(s))
+}
+
+func json(c *fasthttp.RequestCtx, code int, data interface{}) {
+	c.SetStatusCode(code)
+	d, err := _json.Marshal(data)
+	if err != nil {
+		panic(err)
+	}
+	c.Write(d)
 }

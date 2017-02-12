@@ -19,8 +19,8 @@ func Sort(md MethodData, config SortConfiguration) string {
 		config.Table += "."
 	}
 	var sortBy string
-	for _, s := range md.C.Request.URL.Query()["sort"] {
-		sortParts := strings.Split(strings.ToLower(s), ",")
+	for _, s := range md.Ctx.Request.URI().QueryArgs().PeekMulti("sort") {
+		sortParts := strings.Split(strings.ToLower(b2s(s)), ",")
 		if contains(config.Allowed, sortParts[0]) {
 			if sortBy != "" {
 				sortBy += ", "

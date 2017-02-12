@@ -82,7 +82,8 @@ var randomSentences = [...]string{
 }
 
 func surpriseMe() string {
-	return randomSentences[rn.Intn(len(randomSentences))] + " " + kaomojis[rn.Intn(len(kaomojis))]
+	n := int(time.Now().UnixNano())
+	return randomSentences[n%len(randomSentences)] + " " + kaomojis[n%len(kaomojis)]
 }
 
 type pingResponse struct {
