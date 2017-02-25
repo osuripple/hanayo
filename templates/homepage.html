@@ -4,9 +4,11 @@ TitleBar=Home Page
 KyutGrill=homepage2.jpg
 */}}
 {{ define "tpl" }}
+{{ $cf := .ClientFlags }}
+{{ $ds := band $cf 1 }}
 <div class="ui container">
 	<div class="ui center aligned segment">
-		<img src="/static/logos/logo-{{ randomLogoColour }}.svg">
+		<img src="/static/logos/logo-{{ randomLogoColour }}{{ if $ds }}-dark{{ end }}.svg">
 	</div>
 	{{ $set := systemSettings "website_home_alert" }}
 	{{ with $set.website_home_alert.String }}
