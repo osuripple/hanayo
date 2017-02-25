@@ -1,9 +1,8 @@
-package main
+package pagemappings
 
 import (
 	"fmt"
 	"net/url"
-
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -57,7 +56,9 @@ var pageMappings = map[int]interface{}{
 	41: "/register", // elmo
 }
 
-func checkRedirect(c *gin.Context) {
+// CheckRedirect checks if the request is to be redirected to another page.
+// This is to avoid broken links because of the old website.
+func CheckRedirect(c *gin.Context) {
 	p := c.Request.URL.Path
 	if p != "/" && p != "/index.php" {
 		c.Next()

@@ -22,6 +22,7 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/hanayo/modules/btcaddress"
+	"zxq.co/ripple/hanayo/routers/pagemappings"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
 	"zxq.co/ripple/schiavolib"
@@ -248,7 +249,7 @@ func generateEngine() *gin.Engine {
 
 	r.Use(
 		gzip.Gzip(gzip.DefaultCompression),
-		checkRedirect,
+		pagemappings.CheckRedirect,
 		sessions.Sessions("session", store),
 		sessionInitializer(),
 		rateLimiter(false),
