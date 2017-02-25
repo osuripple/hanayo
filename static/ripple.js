@@ -211,10 +211,8 @@ var singlePageSnippets = {
       us.on('update', function() {
         var months = us.get();
         var priceEUR = Math.pow(months * 30 * 0.2, 0.70);
-        // 3.22 : 700 = x : 1, where x = priceBTC and 700 is the cost of bitcoin
-        // (3.22 * 1) / 700 = 3.22 / 700
-        var priceBTC = priceEUR / rates.BTC;
-        var priceUSD = priceEUR * rates.USD;
+        var priceBTC = priceEUR / rates.EUR;
+        var priceUSD = priceBTC * rates.USD;
         $("#cost").html("<b>" + (+months).toFixed(0) + "</b> month" + (months == 1 ? "" : "s") +
           " = <b>€ " + priceEUR.toFixed(2) + "</b><br><i>($ " + priceUSD.toFixed(2) + " / BTC " + priceBTC.toFixed(6) + ")</i>");
         $("input[name='os0']").attr("value", (+months).toFixed(0) + " month" + (months == 1 ? "" : "s"));

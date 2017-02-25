@@ -22,6 +22,7 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/hanayo/modules/btcaddress"
+	"zxq.co/ripple/hanayo/modules/btcconversions"
 	"zxq.co/ripple/hanayo/routers/pagemappings"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
@@ -293,7 +294,7 @@ func generateEngine() *gin.Engine {
 	r.GET("/email_verify/start", startEmailVerification)
 	r.GET("/email_verify/finish", finishEmailVerification)
 
-	r.GET("/donate/rates", getRates)
+	r.GET("/donate/rates", btcconversions.GetRates)
 
 	r.Any("/blog/*url", blogRedirect)
 
