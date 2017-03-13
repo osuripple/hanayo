@@ -11,40 +11,33 @@ HeadingOnRight=true
 			{{ $username := .RequestInfo.Username }}
 			<img src="/static/jack_black.jpg" class="ui small right floated image" alt="Jack black">
 
-			<p>We see that you're trying to sign up while having already signed up as {{ $username }}! Please note that multiaccounting is punishable, and can lead to a one month restriction!</p>
+			<p>{{ .T "We see that you're trying to sign up while having already signed up as %s! Please note that multiaccounting is punishable, and can lead to a one month restriction!" $username }}</p>
 
 			<ul>
 				<li>
-					If you're {{ $username }}, keep in mind that multiaccounting
-					= ban.
+					{{ .T "If you're %s, keep in mind that multiaccounting = ban." $username }}
 				</li>
 				<li>
-					If you're not {{ $username }}, but you're using 
-					{{ $username }}'s computer, please sign up on Ripple from
-					your own computer.
+					{{ .T "If you're not %s, but you're using %s's computer, please sign up on Ripple from your own computer." $username $username }}
 				</li>
 				<li>
-					If you live with {{ $username }} and you don't have your own
-					computer from which to sign up on Ripple, then please contact
-					support@ripple.moe, and we'll deal with your specific case.
+					{{ .T "If you live with %s and you don't have your own computer from which to sign up on Ripple, then please contact support@ripple.moe, and we'll deal with your specific case." $username }}
 				</li>
 			</ul>
 			
 			<p style="margin-bottom:50px;">
-				This warning may pop up also if you're using another computer
-				on the same network of {{ $username }}. As long as you're not
-				using the same computer, you should be all good.
+				{{ .T "This warning may pop up also if you're using another computer on the same network of %s. As long as you're not using the same computer, you should be all good." $username }}
 			</p>
 		</div>
 		<div class="ui right aligned segment">
 			<div class="ui buttons">
 				<a class="ui labeled blue icon button" href="/">
 					<i class="left chevron icon"></i>
-					Bring me back to safety!
+					{{ .T "Bring me back to safety!" }}
 				</a>
 				<a class="ui right labeled red icon button" href="/register?stopsign=1">
 					<i class="right chevron icon"></i>
-					Don't stop me now!
+					{{ .T "Don't stop me now!" }}
 				</a>
 			</div>
 		</div>

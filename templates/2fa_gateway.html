@@ -5,28 +5,24 @@
 		<div class="tiny container">
 			<div class="ui raised segments">
 				<div class="ui segment">
-					Hey, {{ .Context.User.Username }}.
+					{{ .T "Hey, %s." .Context.User.Username }}
 					{{ if eq $e 1 }}
-						Before proceding any
-						further on Ripple, we require you to use the message you
-						just received on telegram to log in to your account.
+						{{ .T "Before proceding any further on Ripple, we require you to use the message you just received on telegram to log in to your account." }}
 					{{ else }}
-						Before proceding further on Ripple, we require you
-						to use your Google Authenticator App to use the code
-						for Ripple, so that we can log you in.
+						{{ .T "Before proceding further on Ripple, we require you to use your Google Authenticator App to use the code for Ripple, so that we can log you in." }}
 					{{ end }}
 				</div>
 				<div class="ui segment">
 					<div class="ui form">
 						<div class="field">
-							<label>{{ if eq $e 1 }}Telegram code <a href="/2fa_gateway/clear">(send again?)</a>{{ else }}Google Authenticator passcode{{ end }}</label>
+							<label>{{ if eq $e 1 }}{{ .T "Telegram code" }} <a href="/2fa_gateway/clear">{{ .T "(send again?)" }}</a>{{ else }}Google Authenticator passcode{{ end }}</label>
 							<input type="text" placeholder="{{ if eq $e 1 }}AWYXZ13Y{{ else }}612 511{{ end }}" id="telegram-code">
 						</div>
 					</div>
 				</div>
 				{{ if eq $e 2 }}
 					<div class="ui segment">
-						<b>Lost your phone, or can't access Google Authenticator?</b> <a href="/2fa_gateway/recover">Click here to use a recovery code.</a>
+						<b>{{ .T "Lost your phone, or can't access Google Authenticator?" }}</b> <a href="/2fa_gateway/recover">{{ .T "Click here to use a recovery code." }}</a>
 					</div>
 				{{ end }}
 			</div>
@@ -41,4 +37,3 @@
 	{{ end }}
 </div>
 {{ end }}
-

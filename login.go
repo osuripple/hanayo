@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -19,12 +18,12 @@ import (
 
 func loginSubmit(c *gin.Context) {
 	if getContext(c).User.ID != 0 {
-		simpleReply(c, errorMessage{"You are already logged in!"})
+		simpleReply(c, errorMessage{T(c, "You're already logged in!")})
 		return
 	}
 
 	if c.PostForm("username") == "" || c.PostForm("password") == "" {
-		simpleReply(c, errorMessage{"Username or password not set."})
+		simpleReply(c, errorMessage{T(c, "Username or password not set.")})
 		return
 	}
 
@@ -65,7 +64,7 @@ func loginSubmit(c *gin.Context) {
 		if param == "username_safe" {
 			param = "username"
 		}
-		simpleReply(c, errorMessage{"No user with such " + param + "!"})
+		simpleReply(c, errorMessage{T(c, "No user with such %s!", param)})
 		return
 	case err != nil:
 		c.Error(err)
@@ -74,7 +73,7 @@ func loginSubmit(c *gin.Context) {
 	}
 
 	if data.PasswordVersion == 1 {
-		addMessage(c, warningMessage{"Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?"})
+		addMessage(c, warningMessage{T(c, "Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?")})
 		c.Redirect(302, "/pwreset")
 		return
 	}
@@ -83,7 +82,7 @@ func loginSubmit(c *gin.Context) {
 		[]byte(data.Password),
 		[]byte(cmd5(c.PostForm("password"))),
 	); err != nil {
-		simpleReply(c, errorMessage{"Wrong password."})
+		simpleReply(c, errorMessage{T(c, "Wrong password.")})
 		return
 	}
 
@@ -101,14 +100,14 @@ func loginSubmit(c *gin.Context) {
 
 	if data.Privileges&common.UserPrivilegePendingVerification > 0 {
 		setYCookie(data.ID, c)
-		addMessage(c, warningMessage{"You will need to verify your account first."})
+		addMessage(c, warningMessage{T(c, "You will need to verify your account first.")})
 		sess.Save()
 		c.Redirect(302, "/register/verify?u="+strconv.Itoa(data.ID))
 		return
 	}
 
 	if data.Privileges&common.UserPrivilegeNormal == 0 {
-		simpleReply(c, errorMessage{"You are not allowed to login. This means your account is either banned or locked."})
+		simpleReply(c, errorMessage{T(c, "You are not allowed to login. This means your account is either banned or locked.")})
 		return
 	}
 
@@ -134,7 +133,7 @@ func loginSubmit(c *gin.Context) {
 		sess.Save()
 		c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(redir))
 	} else {
-		addMessage(c, successMessage{fmt.Sprintf("Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
+		addMessage(c, successMessage{T(c, "Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
 		sess.Save()
 		if redir == "" {
 			redir = "/"
@@ -175,14 +174,14 @@ func safeUsername(u string) string {
 func logout(c *gin.Context) {
 	ctx := getContext(c)
 	if ctx.User.ID == 0 {
-		respEmpty(c, "Log out", warningMessage{"You're already logged out!"})
+		respEmpty(c, "Log out", warningMessage{T(c, "You're already logged out!")})
 		return
 	}
 	sess := getSession(c)
 	s, _ := sess.Get("logout").(string)
 	if s != c.Query("k") {
 		// todo: return "are you sure you want to log out?" page
-		respEmpty(c, "Log out", warningMessage{"Invalid token"})
+		respEmpty(c, "Log out", warningMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")})
 		return
 	}
 	sess.Clear()
@@ -191,7 +190,7 @@ func logout(c *gin.Context) {
 		Value:   "",
 		Expires: time.Now().Add(-time.Hour),
 	})
-	addMessage(c, successMessage{"Successfully logged out."})
+	addMessage(c, successMessage{T(c, "Successfully logged out.")})
 	sess.Save()
 	c.Redirect(302, "/")
 }

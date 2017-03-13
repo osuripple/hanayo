@@ -8,7 +8,7 @@ KyutGrill=login2.jpg
 	{{/* Not logged in block */}}
 	{{ if .Context.User.Username }}
 		<div class="ui segment">
-			You are already logged in!
+			{{ .T "You're already logged in!" }}
 		</div>
 	{{ else }}
 		<div class="tiny container">
@@ -16,19 +16,19 @@ KyutGrill=login2.jpg
 				<div class="ui segment">
 					<form id="login-form" class="ui form" method="post" action="/login">
 						<div class="field">
-							<label>Username (or email)</label>
-							<input type="text" name="username" placeholder="Username" value="{{ .FormData.username }}" required>
+							<label>{{ .T "Username (or email)" }}</label>
+							<input type="text" name="username" placeholder="{{ .T "Username" }}" value="{{ .FormData.username }}" required>
 						</div>
 						<div class="field">
-							<label>Password <a href="/pwreset">(forgot?)</a></label>
-							<input type="password" name="password" placeholder="Password" value="{{ .FormData.password }}" required>
+							<label>{{ .T "Password" }} <a href="/pwreset">{{ .T "(forgot?)" }}</a></label>
+							<input type="password" name="password" placeholder="{{ .T "Password" }}" value="{{ .FormData.password }}" required>
 						</div>
 						<input type="hidden" name="redir" value="{{ or (.Gin.Query "redir") .FormData.redir }}">
 						{{ ieForm .Gin }}
 					</form>
 				</div>
 				<div class="ui right aligned segment">
-					<button class="ui primary button" type="submit" form="login-form">Submit</button>
+					<button class="ui primary button" type="submit" form="login-form">{{ .T "Submit" }}</button>
 				</div>
 			</div>
 		</div>

@@ -2,20 +2,19 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"strings"
 
-	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mailgun/mailgun-go.v1"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/x/rs"
 )
 
 func passwordReset(c *gin.Context) {
 	ctx := getContext(c)
 	if ctx.User.ID != 0 {
-		simpleReply(c, errorMessage{"You're already logged in!"})
+		simpleReply(c, errorMessage{T(c, "You're already logged in!")})
 		return
 	}
 
@@ -39,7 +38,7 @@ func passwordReset(c *gin.Context) {
 	case nil:
 		// ignore
 	case sql.ErrNoRows:
-		simpleReply(c, errorMessage{"That user could not be found."})
+		simpleReply(c, errorMessage{T(c, "That user could not be found.")})
 		return
 	default:
 		c.Error(err)
@@ -49,7 +48,7 @@ func passwordReset(c *gin.Context) {
 
 	if common.UserPrivileges(privileges)&
 		(common.UserPrivilegeNormal|common.UserPrivilegePendingVerification) == 0 {
-		simpleReply(c, errorMessage{"You look pretty banned/locked here."})
+		simpleReply(c, errorMessage{T(c, "You look pretty banned/locked here.")})
 		return
 	}
 
@@ -65,16 +64,14 @@ func passwordReset(c *gin.Context) {
 		return
 	}
 
-	content := fmt.Sprintf(
-		"Hey %s! Someone, which we really hope was you, requested a password reset for your account. "+
-			"In case it was you, please <a href='%s'>click here</a> to reset your password on Ripple. "+
-			"Otherwise, silently ignore this email.",
+	content := T(c,
+		"Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Ripple. Otherwise, silently ignore this email.",
 		username,
 		config.BaseURL+"/pwreset/continue?k="+key,
 	)
 	msg := mailgun.NewMessage(
 		config.MailgunFrom,
-		"Ripple password recovery instructions",
+		T(c, "Ripple password recovery instructions"),
 		content,
 		email,
 	)
@@ -87,7 +84,7 @@ func passwordReset(c *gin.Context) {
 		return
 	}
 
-	addMessage(c, successMessage{"Done! You should shortly receive an email from us at the email you used to sign up on Ripple."})
+	addMessage(c, successMessage{T(c, "Done! You should shortly receive an email from us at the email you used to sign up on Ripple.")})
 	getSession(c).Save()
 	c.Redirect(302, "/")
 }
@@ -97,7 +94,7 @@ func passwordResetContinue(c *gin.Context) {
 
 	// todo: check logged in
 	if k == "" {
-		respEmpty(c, "Password reset", errorMessage{"Nope."})
+		respEmpty(c, T(c, "Password reset"), errorMessage{T(c, "Nope.")})
 		return
 	}
 
@@ -107,7 +104,7 @@ func passwordResetContinue(c *gin.Context) {
 	case nil:
 		// move on
 	case sql.ErrNoRows:
-		respEmpty(c, "Reset password", errorMessage{"That key could not be found. Perhaps it expired?"})
+		respEmpty(c, T(c, "Reset password"), errorMessage{T(c, "That key could not be found. Perhaps it expired?")})
 		return
 	default:
 		c.Error(err)
@@ -126,7 +123,7 @@ func passwordResetContinueSubmit(c *gin.Context) {
 	case nil:
 		// move on
 	case sql.ErrNoRows:
-		respEmpty(c, "Reset password", errorMessage{"That key could not be found. Perhaps it expired?"})
+		respEmpty(c, T(c, "Reset password"), errorMessage{T(c, "That key could not be found. Perhaps it expired?")})
 		return
 	default:
 		c.Error(err)
@@ -137,7 +134,7 @@ func passwordResetContinueSubmit(c *gin.Context) {
 	p := c.PostForm("password")
 
 	if s := validatePassword(p); s != "" {
-		renderResetPassword(c, username, c.PostForm("k"), errorMessage{s})
+		renderResetPassword(c, username, c.PostForm("k"), errorMessage{T(c, s)})
 		return
 	}
 
@@ -163,7 +160,7 @@ func passwordResetContinueSubmit(c *gin.Context) {
 		return
 	}
 
-	addMessage(c, successMessage{"All right, we have changed your password and you should now be able to login! Have fun!"})
+	addMessage(c, successMessage{T(c, "All right, we have changed your password and you should now be able to login! Have fun!")})
 	getSession(c).Save()
 	c.Redirect(302, "/login")
 }
@@ -217,7 +214,7 @@ func changePasswordSubmit(c *gin.Context) {
 		[]byte(password),
 		[]byte(cmd5(c.PostForm("currentpassword"))),
 	); err != nil {
-		messages = append(messages, errorMessage{"Wrong password."})
+		messages = append(messages, errorMessage{T(c, "Wrong password.")})
 		return
 	}
 
@@ -225,7 +222,7 @@ func changePasswordSubmit(c *gin.Context) {
 	uq.Add("email", c.PostForm("email"))
 	if c.PostForm("newpassword") != "" {
 		if s := validatePassword(c.PostForm("newpassword")); s != "" {
-			messages = append(messages, errorMessage{s})
+			messages = append(messages, errorMessage{T(c, s)})
 			return
 		}
 		pw, err := generatePassword(c.PostForm("newpassword"))
@@ -243,5 +240,5 @@ func changePasswordSubmit(c *gin.Context) {
 
 	db.Exec("UPDATE users SET flags = flags & ~3 WHERE id = ? LIMIT 1", ctx.User.ID)
 
-	messages = append(messages, successMessage{"Your settings have been saved."})
+	messages = append(messages, successMessage{T(c, "Your settings have been saved.")})
 }

@@ -9,10 +9,10 @@ import (
 	"strings"
 	"time"
 
-	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/ripple/schiavolib"
 	"github.com/asaskevich/govalidator"
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/ripple/schiavolib"
 )
 
 func register(c *gin.Context) {
@@ -39,58 +39,58 @@ func registerSubmit(c *gin.Context) {
 	}
 	// check registrations are enabled
 	if !registrationsEnabled() {
-		registerResp(c, errorMessage{"Sorry, it's not possible to register at the moment. Please try again later."})
+		registerResp(c, errorMessage{T(c, "Sorry, it's not possible to register at the moment. Please try again later.")})
 		return
 	}
 
 	// check username is valid by our criteria
 	username := strings.TrimSpace(c.PostForm("username"))
 	if !usernameRegex.MatchString(username) {
-		registerResp(c, errorMessage{"Your username must contain alphanumerical characters, spaces, or any of <code>_[]-</code>"})
+		registerResp(c, errorMessage{T(c, "Your username must contain alphanumerical characters, spaces, or any of <code>_[]-</code>")})
 		return
 	}
 
 	// check whether an username is e.g. cookiezi, shigetora, peppy, wubwoofwolf, loctav
 	if in(strings.ToLower(username), forbiddenUsernames) {
-		registerResp(c, errorMessage{"You're not allowed to register with that username."})
+		registerResp(c, errorMessage{T(c, "You're not allowed to register with that username.")})
 		return
 	}
 
 	// check email is valid
 	if !govalidator.IsEmail(c.PostForm("email")) {
-		registerResp(c, errorMessage{"Please pass a valid email address."})
+		registerResp(c, errorMessage{T(c, "Please pass a valid email address.")})
 		return
 	}
 
 	// passwords check (too short/too common)
 	if x := validatePassword(c.PostForm("password")); x != "" {
-		registerResp(c, errorMessage{x})
+		registerResp(c, errorMessage{T(c, x)})
 		return
 	}
 
 	// usernames with both _ and spaces are not allowed
 	if strings.Contains(username, "_") && strings.Contains(username, " ") {
-		registerResp(c, errorMessage{"An username can't contain both underscores and spaces."})
+		registerResp(c, errorMessage{T(c, "An username can't contain both underscores and spaces.")})
 		return
 	}
 
 	// check whether username already exists
 	if db.QueryRow("SELECT 1 FROM users WHERE username_safe = ?", safeUsername(username)).
 		Scan(new(int)) != sql.ErrNoRows {
-		registerResp(c, errorMessage{"An user with that username already exists!"})
+		registerResp(c, errorMessage{T(c, "An user with that username already exists!")})
 		return
 	}
 
 	// check whether an user with that email already exists
 	if db.QueryRow("SELECT 1 FROM users WHERE email = ?", c.PostForm("email")).
 		Scan(new(int)) != sql.ErrNoRows {
-		registerResp(c, errorMessage{"An user with that email address already exists!"})
+		registerResp(c, errorMessage{T(c, "An user with that email address already exists!")})
 		return
 	}
 
 	// recaptcha verify
 	if config.RecaptchaPrivate != "" && !recaptchaCheck(c) {
-		registerResp(c, errorMessage{"Captcha is invalid."})
+		registerResp(c, errorMessage{T(c, "Captcha is invalid.")})
 		return
 	}
 
@@ -115,7 +115,7 @@ func registerSubmit(c *gin.Context) {
 							  VALUES (?,        ?,             ?,            '',   ?,     ?,                 ?,          2);`,
 		username, safeUsername(username), pass, c.PostForm("email"), time.Now().Unix(), common.UserPrivilegePendingVerification)
 	if err != nil {
-		registerResp(c, errorMessage{"Whoops, an error slipped in. You might have been registered, though. I don't know."})
+		registerResp(c, errorMessage{T(c, "Whoops, an error slipped in. You might have been registered, though. I don't know.")})
 		return
 	}
 	lid, _ := res.LastInsertId()
@@ -135,14 +135,14 @@ func registerSubmit(c *gin.Context) {
 
 	rd.Incr("ripple:registered_users")
 
-	addMessage(c, successMessage{"You have been successfully registered on Ripple! You now need to verify your account."})
+	addMessage(c, successMessage{T(c, "You have been successfully registered on Ripple! You now need to verify your account.")})
 	getSession(c).Save()
 	c.Redirect(302, "/register/verify?u="+strconv.Itoa(int(lid)))
 }
 
 func registerResp(c *gin.Context, messages ...message) {
 	resp(c, 200, "register/register.html", &baseTemplateData{
-		TitleBar:  "Register",
+		TitleBar:  T(c, "Register"),
 		KyutGrill: "register.jpg",
 		Scripts:   []string{"https://www.google.com/recaptcha/api.js"},
 		Messages:  messages,
@@ -171,14 +171,14 @@ func verifyAccount(c *gin.Context) {
 	var rPrivileges uint64
 	db.Get(&rPrivileges, "SELECT privileges FROM users WHERE id = ?", i)
 	if common.UserPrivileges(rPrivileges)&common.UserPrivilegePendingVerification == 0 {
-		addMessage(c, warningMessage{"Nope."})
+		addMessage(c, warningMessage{T(c, "Nope.")})
 		sess.Save()
 		c.Redirect(302, "/")
 		return
 	}
 
 	resp(c, 200, "register/verify.html", &baseTemplateData{
-		TitleBar:       "Verify account",
+		TitleBar:       T(c, "Verify account"),
 		HeadingOnRight: true,
 		KyutGrill:      "welcome.jpg",
 	})
@@ -202,10 +202,10 @@ func welcome(c *gin.Context) {
 		return
 	}
 
-	t := "Welcome!"
+	t := T(c, "Welcome!")
 	if common.UserPrivileges(rPrivileges)&common.UserPrivilegeNormal == 0 {
 		// if the user has no UserNormal, it means they're banned = they multiaccounted
-		t = "Welcome back!"
+		t = T(c, "Welcome back!")
 	}
 
 	resp(c, 200, "register/welcome.html", &baseTemplateData{
@@ -223,7 +223,7 @@ func checkUInQS(c *gin.Context) (int, bool) {
 	y, _ := c.Cookie("y")
 	err := db.QueryRow("SELECT 1 FROM identity_tokens WHERE token = ? AND userid = ?", y, i).Scan(new(int))
 	if err == sql.ErrNoRows {
-		addMessage(c, warningMessage{"Nope."})
+		addMessage(c, warningMessage{T(c, "Nope.")})
 		sess.Save()
 		c.Redirect(302, "/")
 		return 0, true

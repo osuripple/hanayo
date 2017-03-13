@@ -6,6 +6,7 @@ KyutGrill=homepage2.jpg
 {{ define "tpl" }}
 {{ $cf := .ClientFlags }}
 {{ $ds := band $cf 1 }}
+{{ $   := . }}
 <div class="ui container">
 	<div class="ui center aligned segment">
 		<img src="/static/logos/logo-{{ randomLogoColour }}{{ if $ds }}-dark{{ end }}.svg">
@@ -19,39 +20,27 @@ KyutGrill=homepage2.jpg
 	{{/* Not logged in block */}}
 	{{ if not .Context.User.ID }}
 		<div class="ui segment">
-			<h1 class="ui header">Welcome to Ripple.</h1>
+			<h1 class="ui header">{{ .T "Welcome to Ripple." }}</h1>
 			<p>
-				You look new here. Allow us to introduce you to what Ripple is.
+				{{ .T "You look new here. Allow us to introduce you to what Ripple is." }}
 			</p>
 			<p>
-				Ripple is a private osu! server, featuring multiplayer, PP, a very active community
-				and a development team going strong implementing new features and squashing bugs.
-				<a href="/about">You can check out even more features here.</a>
-				It has also a very friendly community, and it's
-				<a href="https://zxq.co/ripple/ripple">open source!</a>
-				Just so you know,
-				<b>we currently have {{ rediget "ripple:online_users" }} users
-				online and {{ rediget "ripple:registered_users" }} registered users!</b>
+				{{ .T "Ripple is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
 			</p>
-			<h3 class="ui header center aligned">What are you waiting for? Join Ripple! It's risk-free:
-				you won't get your account banned on the official server if you play on Ripple.<br />
-				You can also switch anytime between the official osu! server and Ripple!</h3>
+			<h3 class="ui header center aligned">{{ .T "What are you waiting for? Join Ripple! It's risk-free: you won't get your account banned on the official server if you play on Ripple.<br>You can also switch anytime between the official osu! server and Ripple!" | html }}</h3>
 		</div>
 	{{ else }}
 		<div class="ui segment">
-			<h1 class="ui header">Howdy, {{ .Context.User.Username }}!</h1>
+			<h1 class="ui header">{{ .T "Howdy, %s!" .Context.User.Username }}</h1>
 			<p>
-				Welcome back to Ripple. We currently have
-				<b>{{ rediget "ripple:online_users" }} online users and 
-				{{ rediget "ripple:registered_users" }} total registed users.</b>
-				Nice day to farm a few maps, isn't it?
+				{{ .T "Welcome back to Ripple. We currently have <b>%s online users and %s total registed users.</b> Nice day to farm a few maps, isn't it?" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
 			</p>
 		</div>
 	{{ end }}
 	{{ with (.Get "blog/posts?l=5") }}
 		<div class="ui raised segment">
 			<h1 class="ui center aligned header">
-				Latest news from our <a href="https://blog.ripple.moe">blog</a>
+				{{ $.T "Latest news from our <a href='https://blog.ripple.moe'>blog</a>" | html }}
 			</h1>
 		</div>
 		<div class="ui segments">
@@ -59,7 +48,7 @@ KyutGrill=homepage2.jpg
 				<div class="ui segment">
 					<h1 class="ui header no top margin">
 						<a href="https://blog.ripple.moe/{{ $v.unique_slug }}" class="inherit">{{ html $v.title }}</a>
-						<div class="sub header">by <a href="https://blog.ripple.moe/@{{ $v.creator.username }}">{{ $v.creator.name }}</a> {{ time $v.updated_at }}</div>
+						<div class="sub header"><a href="https://blog.ripple.moe/@{{ $v.creator.username }}">{{ $v.creator.name }}</a>, {{ time $v.updated_at }}</div>
 					</h1>
 					<p>
 						{{ $v.snippet }}

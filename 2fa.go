@@ -70,7 +70,7 @@ func twoFALock(c *gin.Context) {
 			return
 		}
 	}
-	addMessage(c, warningMessage{"You need to complete the 2fa challenge first."})
+	addMessage(c, warningMessage{T(c, "You need to complete the 2fa challenge first.")})
 	sess.Save()
 	c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(c.Request.URL.Path))
 	c.Abort()
@@ -126,7 +126,7 @@ func tfaGateway(c *gin.Context) {
 	}
 
 	resp(c, 200, "2fa_gateway.html", &baseTemplateData{
-		TitleBar:  "Two Factor Authentication",
+		TitleBar:  T(c, "Two Factor Authentication"),
 		KyutGrill: "2fa.jpg",
 		RequestInfo: map[string]interface{}{
 			"redir": redir,
@@ -150,7 +150,7 @@ func clear2fa(c *gin.Context) {
 		c.Redirect(302, "/")
 	}
 	db.Exec("DELETE FROM 2fa WHERE userid = ? AND ip = ?", i, clientIP(c))
-	addMessage(c, successMessage{"A new code has been generated and sent to you through Telegram."})
+	addMessage(c, successMessage{T(c, "A new code has been generated and sent to you through Telegram.")})
 	sess.Save()
 	c.Redirect(302, "/2fa_gateway")
 }
@@ -206,7 +206,7 @@ func loginUser(c *gin.Context, i int) {
 
 	afterLogin(c, i, d.Country, d.Flags)
 
-	addMessage(c, successMessage{"You've been successfully logged in."})
+	addMessage(c, successMessage{T(c, "You've been successfully logged in.")})
 
 	sess := getSession(c)
 	sess.Delete("2fa_must_validate")
@@ -221,11 +221,11 @@ func recover2fa(c *gin.Context) {
 	}
 	e := is2faEnabled(i)
 	if e != 2 {
-		respEmpty(c, "Recover account", warningMessage{"Oh no you don't."})
+		respEmpty(c, "Recover account", warningMessage{T(c, "Oh no you don't.")})
 		return
 	}
 	resp(c, 200, "2fa_gateway_recover.html", &baseTemplateData{
-		TitleBar:  "Recover account",
+		TitleBar:  T(c, "Recover account"),
 		KyutGrill: "2fa.jpg",
 	})
 }
@@ -237,7 +237,7 @@ func recover2faSubmit(c *gin.Context) {
 		c.Redirect(302, "/")
 	}
 	if is2faEnabled(i) != 2 {
-		respEmpty(c, "Recover account", warningMessage{"Get out."})
+		respEmpty(c, T(c, "Recover account"), warningMessage{T(c, "Get out.")})
 		return
 	}
 
@@ -260,9 +260,9 @@ func recover2faSubmit(c *gin.Context) {
 	}
 
 	resp(c, 200, "2fa_gateway_recover.html", &baseTemplateData{
-		TitleBar:  "Recover account",
+		TitleBar:  T(c, "Recover account"),
 		KyutGrill: "2fa.jpg",
-		Messages:  []message{errorMessage{"Recovery code is invalid."}},
+		Messages:  []message{errorMessage{T(c, "Recovery code is invalid.")}},
 	})
 }
 
@@ -296,7 +296,7 @@ func disable2fa(c *gin.Context) {
 	}()
 
 	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
-		m = errorMessage{"Your session has expired. Please try redoing what you were trying to do."}
+		m = errorMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")}
 		return
 	}
 
@@ -326,7 +326,7 @@ func totpSetup(c *gin.Context) {
 	defer sess.Save()
 
 	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
-		addMessage(c, errorMessage{"Invalid CSRF token. Please try again"})
+		addMessage(c, errorMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")})
 		return
 	}
 
