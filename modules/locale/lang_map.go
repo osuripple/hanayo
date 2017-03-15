@@ -4,11 +4,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"strings"
-
-	"github.com/leonelquinteros/gotext"
 )
 
-var languageMap = make(map[string]*gotext.Po, 20)
+var languageMap = make(map[string]*po, 20)
 
 func loadLanguages() {
 	files, err := ioutil.ReadDir("./data/locales")
@@ -21,11 +19,17 @@ func loadLanguages() {
 			continue
 		}
 
-		po := new(gotext.Po)
-		po.ParseFile("./data/locales/" + file.Name())
+		p, err := parseFile("./data/locales/" + file.Name())
+		if err != nil {
+			fmt.Println(file.Name(), ":", err)
+			continue
+		}
+		if p == nil {
+			fmt.Println(file.Name(), ":", "p is nil")
+		}
 
 		langName := strings.TrimPrefix(strings.TrimSuffix(file.Name(), ".po"), "templates-")
-		languageMap[langName] = po
+		languageMap[langName] = p
 	}
 }
 
@@ -37,10 +41,22 @@ func init() {
 func Get(langs []string, str string, vars ...interface{}) string {
 	for _, lang := range langs {
 		l := languageMap[lang]
-		if l != nil {
-			return l.Get(str, vars...)
+
+		if l == nil {
+			continue
+		}
+
+		if el := l.Translations[str]; el != "" {
+			if len(vars) > 0 {
+				return fmt.Sprintf(el, vars...)
+			}
+			return el
 		}
 	}
 
-	return fmt.Sprintf(str, vars...)
+	if len(vars) > 0 {
+		return fmt.Sprintf(str, vars...)
+	}
+
+	return str
 }
