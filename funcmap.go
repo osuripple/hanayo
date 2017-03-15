@@ -49,8 +49,8 @@ var funcMap = template.FuncMap{
 		return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
 	},
 	// curryear returns the current year.
-	"curryear": func() string {
-		return strconv.Itoa(time.Now().Year())
+	"curryear": func() int {
+		return time.Now().Year()
 	},
 	// hasAdmin returns, based on the user's privileges, whether they should be
 	// able to see the RAP button (aka AdminPrivilegeAccessRAP).
