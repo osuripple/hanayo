@@ -442,7 +442,17 @@ var funcMap = template.FuncMap{
 		return x.Val()
 	},
 	"getBitcoinAddress": btcaddress.Get,
+	"getLanguageTimeago": func(c *gin.Context) string {
+		for _, l := range getLang(c) {
+			if in(l, timeagoLanguages) {
+				return l
+			}
+		}
+		return ""
+	},
 }
+
+var timeagoLanguages = []string{"de", "pl", "it", "es", "ru"}
 
 var hanayoStarted = time.Now().UnixNano()
 

@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 
-		<title>{{ if .TitleBar }}{{ .TitleBar }} - {{ end }}Ripple</title>
+		<title>{{ if .TitleBar }}{{ .T .TitleBar }} - {{ end }}Ripple</title>
 		
 		<link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}semantic.min.css?{{ unixNano }}">
 		<link rel="stylesheet" type="text/css" href="/static/ripple.css?{{ unixNano }}">
@@ -86,12 +86,15 @@
 			var hanayoConf = {
 				avatars:   {{ .Conf.AvatarURL }},
 				banchoAPI: {{ .Conf.BanchoAPI }},
-				baseAPI:   {{ .Conf.BaseAPIPublic }}
+				baseAPI:   {{ .Conf.BaseAPIPublic }},
 			};
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
 		<script src="/static/dist.min.js?{{ unixNano }}"></script>
+		{{ with getLanguageTimeago .Gin }}
+			<script src="/static/timeago-locale/jquery.timeago.{{ . }}.js"></script>
+		{{ end }}
 		{{ if .Scripts }}
 			{{ range .Scripts }}
 				<script src="{{ . }}?{{ unixNano }}"></script>
