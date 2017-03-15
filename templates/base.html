@@ -29,7 +29,7 @@
 			{{ if not .DisableHH }}
 				<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped"
 					style="background-image: url('/static/headers/{{ or .KyutGrill "default.jpg" }}');">
-					<h1>{{ if .HeadingTitle }}{{ html .HeadingTitle }}{{ else }}{{ .TitleBar }}{{ end }}</h1>
+					<h1>{{ if .HeadingTitle }}{{ .T .HeadingTitle | html }}{{ else }}{{ .T .TitleBar }}{{ end }}</h1>
 				</div>
 			{{ end }}
 		
@@ -72,7 +72,7 @@
 		</div>
 	
 		<div class="footer">
-			{{ .T "© 2015-%d Ripple, using Hanayo %s." (curryear) (version) | html }}
+			{{ .T "&copy; 2015-%d Ripple, using Hanayo %s." (curryear) (version) | html }}
 			<a href="/team" title="{{ .T "Who is working on this thing?" }}"><i class="users icon"></i>{{ .T "Team" }}</a> | 
 			<a href="https://docs.ripple.moe" title="59 6f 75 27 72 65 20 73 6f 20 31 33 33 37 2e"><i class="wrench icon"></i>{{ .T "Developer docs" }}</a> | 
 			<a href="/changelog" title="{{ .T "See what changed!" }}"><i class="bug icon"></i>{{ .T "Changelog" }}</a> | 
