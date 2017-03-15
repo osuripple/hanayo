@@ -2,180 +2,161 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 17:09+0000\n"
+"POT-Creation-Date: 2017-03-15 17:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: en_GB\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
-"X-Pootle-Path: /en_GB/Hanayo/templates-en_GB.po\n"
-"X-Pootle-Revision: 71\n"
+"X-Pootle-Path: /ko/Hanayo/templates-ko.po\n"
+"X-Pootle-Revision: 1106\n"
 
-# General
 msgid "You're already logged in!"
-msgstr "You're already logged in!"
+msgstr "이미 로그인되어있습니다!"
 
 msgid "Submit"
-msgstr "Submit"
+msgstr "제출"
 
 msgid "Username"
-msgstr "Username"
+msgstr "아이디"
 
 msgid "Password"
-msgstr "Password"
+msgstr "비밀번호"
 
 msgid "Invalid CSRF token"
-msgstr "Invalid CSRF token"
+msgstr "CSRF 토큰이 일치하지 않습니다."
 
 msgid ""
 "Your session has expired. Please try redoing what you were trying to do."
-msgstr ""
-"Your session has expired. Please try redoing what you were trying to do."
+msgstr "세션이 만료되었습니다. 하던 작업을 다시 시도해주세요."
 
 msgid "That user could not be found."
-msgstr "That user could not be found."
+msgstr "존재하지 않는 유저입니다."
 
 msgid "Your settings have been saved."
-msgstr "Your settings have been saved."
+msgstr "변경사항이 저장되었습니다."
 
 # beatmaps/rank_requests.html
 msgid "Request beatmap ranking"
-msgstr "Request beatmap ranking"
+msgstr "비트맵 랭크 신청하기"
 
 msgid ""
 "Want to play an unranked beatmap and get pp? You can submit beatmaps rank "
 "requests here!"
-msgstr ""
-"Want to play an unranked beatmap and get pp? You can submit beatmaps rank "
-"requests here!"
+msgstr "언랭맵을 플레이해서 pp를 얻고 싶으신가요? 여기서 비트맵의 랭크 신청을 하실 수 있습니다!"
 
 msgid "Queue status"
-msgstr "Queue status"
+msgstr ""
 
 msgid "by you"
-msgstr "by you"
+msgstr ""
 
 msgid "Requests submitted"
-msgstr "Requests submitted"
+msgstr "신청이 접수되었습니다"
 
 msgid "In the past 24 hours"
-msgstr "In the past 24 hours"
+msgstr "지난 24시간동안"
 
 msgid "Request a beatmap"
-msgstr "Request a beatmap"
+msgstr "비트맵 신청"
 
 msgid "You cannot currently request beatmaps!"
-msgstr "You cannot currently request beatmaps!"
+msgstr "현재 비트맵 신청을 하실 수 없습니다!"
 
 # After this text there is a date. The date is localised separately.
 msgid "Please try again "
-msgstr "Please try again "
+msgstr "다시 시도해주세요."
 
 # pwreset/continue.html
 msgid "Reset password"
-msgstr "Reset password"
+msgstr "비밀번호 초기화"
 
 msgid ""
 "Glad to have you back here, %s! To finish the password recovery, type in a "
 "new password:"
 msgstr ""
-"Glad to have you back here, %s! To finish the password recovery, type in a "
-"new password:"
 
 msgid "Nope."
-msgstr "Nope."
+msgstr "아니요"
 
 msgid "That key could not be found. Perhaps it expired?"
-msgstr "That key could not be found. Perhaps it expired?"
+msgstr "키를 찾을 수 없습니다. 키가 만료되었을 수도 있습니다."
 
 msgid ""
 "All right, we have changed your password and you should now be able to "
 "login! Have fun!"
-msgstr ""
-"All right, we have changed your password and you should now be able to "
-"login! Have fun!"
+msgstr "비밀번호를 성공적으로 변경하였습니다!"
 
 # register/register.html
 msgid "Register"
-msgstr "Register"
+msgstr "회원가입"
 
 msgid ""
 "Sorry, it's not possible to register at the moment. Please try again later."
-msgstr ""
-"Sorry, it's not possible to register at the moment. Please try again later."
+msgstr "현재 회원가입이 불가능합니다. 나중에 다시 시도해주세요."
 
 msgid ""
 "Remember: this seems like it's your second account! Do not multiaccount, or "
 "you're likely to get restricted!"
 msgstr ""
-"Remember: this seems like it's your second account! Do not multiaccount, or "
-"you're likely to get restricted!"
 
 msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
-msgstr "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
+msgstr "아이디 (영문, 숫자, 띄어쓰기, <code>>[]</code> 포함 2~15자)"
 
 msgid "Password (at least 8 characters)"
-msgstr "Password (at least 8 characters)"
+msgstr "비밀번호 (최소 8자리)"
 
 msgid "Email"
-msgstr "Email"
+msgstr "이메일"
 
 msgid ""
 "You have been successfully registered on Ripple! You now need to verify your "
 "account."
-msgstr ""
-"You have been successfully registered on Ripple! You now need to verify your "
-"account."
+msgstr "성공적으로 리플 서버 회원이 되었습니다! 이제 계정을 인증하세요."
 
 # Register checks
 msgid "Your password is too short! It must be at least 8 characters long."
-msgstr "Your password is too short! It must be at least 8 characters long."
+msgstr ""
 
 msgid ""
 "Your password is one of the most common passwords on the entire internet. No "
 "way we're letting you use that!"
 msgstr ""
-"Your password is one of the most common passwords on the entire internet. No "
-"way we're letting you use that!"
 
 msgid ""
 "Your username must contain alphanumerical characters, spaces, or any of "
 "<code>_[]-</code>"
 msgstr ""
-"Your username must contain alphanumerical characters, spaces, or any of "
-"<code>_[]-</code>"
 
 msgid "You're not allowed to register with that username."
-msgstr "You're not allowed to register with that username."
+msgstr "이 아이디를 사용하실 수 없습니다."
 
 msgid "Please pass a valid email address."
-msgstr "Please pass a valid email address."
+msgstr ""
 
 msgid "An username can't contain both underscores and spaces."
-msgstr "An username can't contain both underscores and spaces."
+msgstr ""
 
 msgid "An user with that username already exists!"
-msgstr "An user with that username already exists!"
+msgstr ""
 
 msgid "An user with that email address already exists!"
-msgstr "An user with that email address already exists!"
+msgstr ""
 
 msgid "Captcha is invalid."
-msgstr "Captcha is invalid."
+msgstr ""
 
 msgid ""
 "Whoops, an error slipped in. You might have been registered, though. I don't "
 "know."
 msgstr ""
-"Whoops, an error slipped in. You might have been registered, though. I don't "
-"know."
 
 # register/verify.html
 msgid "Verify account"
-msgstr "Verify account"
+msgstr "계정 인증"
 
 msgid ""
 "Your account has been created, however it still <b>needs to be verified!</b> "
@@ -184,11 +165,6 @@ msgid ""
 "connect to Ripple from the osu! client!</b> If you're having trouble, <a "
 "href='/doc/1'>follow this guide</a>."
 msgstr ""
-"Your account has been created, however it still <b>needs to be verified!</b> "
-"Please log in into <b><u>osu! (the game)</u></b> using your account. <b>"
-"There is <u>no email confirmation</u> at the moment. All you need to do is "
-"connect to Ripple from the osu! client!</b> If you're having trouble, <a "
-"href='/doc/1'>follow this guide</a>."
 
 msgid ""
 "<b class='big text'>Do not let anyone except yourself log into your Ripple "
@@ -196,38 +172,29 @@ msgid ""
 "instead (after following the steps on this page) so that we can help you out "
 "if you have trouble connecting."
 msgstr ""
-"<b class='big text'>Do not let anyone except yourself log into your Ripple "
-"account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel "
-"instead (after following the steps on this page) so that we can help you out "
-"if you have trouble connecting."
 
 msgid "<a href='/doc/1'>The Guide,</a> tl;dr version"
-msgstr "<a href='/doc/1'>The Guide,</a> tl;dr version"
+msgstr ""
 
 msgid "Download the server switcher"
-msgstr "Download the server switcher"
+msgstr ""
 
 msgid "Extract it, disable your antivirus, execute it <b>as administrator</b>"
-msgstr "Extract it, disable your antivirus, execute it <b>as administrator</b>"
+msgstr ""
 
 msgid "Click on <b>install certificate</b>, then <b>Yes</b>"
-msgstr "Click on <b>install certificate</b>, then <b>Yes</b>"
+msgstr ""
 
 msgid ""
 "Make sure the switcher says you're playing on <b>Ripple</b> server, if not "
 "click <b>On/Off</b>"
 msgstr ""
-"Make sure the switcher says you're playing on <b>Ripple</b> server, if not "
-"click <b>On/Off</b>"
 
 msgid ""
 "If it says something about read-only mode, go to <code>C:\\Windows\\"
 "System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure "
 "it's not set to \"Read only\"."
 msgstr ""
-"If it says something about read-only mode, go to <code>C:\\Windows\\"
-"System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure "
-"it's not set to \"Read only\"."
 
 msgid ""
 "If you're still having trouble, then again, get on our <a href='%s'>Discord "
@@ -235,26 +202,22 @@ msgid ""
 "strawberry\" anywhere in your messages so that we know you have actually "
 "read this."
 msgstr ""
-"If you're still having trouble, then again, get on our <a href='%s'>Discord "
-"server's</a> #help channel. To have a better chance to be answered, say \""
-"strawberry\" anywhere in your messages so that we know you have actually "
-"read this."
 
 msgid "Waiting for verification"
-msgstr "Waiting for verification"
+msgstr "인증을 기다리는 중"
 
 # register/welcome.html
 msgid "Welcome!"
-msgstr "Welcome!"
+msgstr "환영합니다!"
 
 msgid "Welcome back!"
-msgstr "Welcome back!"
+msgstr "다시 돌아오신것을 환영합니다!"
 
 msgid "Congratulations for not reading things!"
-msgstr "Congratulations for not reading things!"
+msgstr "설명을 읽지 않으신것을 축하드립니다!"
 
 msgid "Multiaccounts are not allowed on Ripple"
-msgstr "Multiaccounts are not allowed on Ripple"
+msgstr ""
 
 msgid ""
 "Your new account has been <b>banned</b> and your main account has been "
@@ -262,63 +225,57 @@ msgid ""
 "href='mailto:support@ripple.moe'>support@ripple.moe</a></b>. You better read "
 "the rules next time."
 msgstr ""
-"Your new account has been <b>banned</b> and your main account has been "
-"<b>restricted</b>. You can appeal in a month by sending an email to <b><a "
-"href='mailto:support@ripple.moe'>support@ripple.moe</a></b>. You better read "
-"the rules next time."
 
 msgid "Welcome to Ripple"
-msgstr "Welcome to Ripple"
+msgstr "리플 서버에 오신것을 환영합니다!"
 
 msgid ""
 "We're glad to have you here. <b>Your account is now active.</b> You can now "
 "play on Ripple and <a href='/login'>log in</a> on the website!"
 msgstr ""
-"We're glad to have you here. <b>Your account is now active.</b> You can now "
-"play on Ripple and <a href='/login'>log in</a> on the website!"
 
 msgid "Here's a few things you might want to check out:"
-msgstr "Here's a few things you might want to check out:"
+msgstr ""
 
 msgid "Login"
-msgstr "Login"
+msgstr "로그인"
 
 msgid "Rules"
-msgstr "Rules"
+msgstr "규칙"
 
 msgid "Documentation"
-msgstr "Documentation"
+msgstr ""
 
 msgid "Status"
-msgstr "Status"
+msgstr "상태"
 
 msgid "Discord"
-msgstr "Discord"
+msgstr "디스코드"
 
 msgid "Subreddit"
-msgstr "Subreddit"
+msgstr "서브레딧"
 
 msgid " - in case you don't know where to start"
-msgstr " - in case you don't know where to start"
+msgstr "- 어디서부터 시작해야 할지 모를 때"
 
 msgid " - in case you haven't already read them"
-msgstr " - in case you haven't already read them"
+msgstr "- 아직 읽어보지 않았을 때"
 
 msgid " - in case, well, you need help doing stuff"
-msgstr " - in case, well, you need help doing stuff"
+msgstr "- 도움이 필요할 때"
 
 msgid " - in case you believe Ripple is down"
-msgstr " - in case you believe Ripple is down"
+msgstr ""
 
 msgid " - in case you want to talk with people about Ripple"
-msgstr " - in case you want to talk with people about Ripple"
+msgstr "- 사람들과 이 서버에 관해서 대화를 하고 싶을 때"
 
 msgid " - just in case"
-msgstr " - just in case"
+msgstr ""
 
 # 2fa_gateway_recover.html
 msgid "Recover account"
-msgstr "Recover account"
+msgstr "계정 복구"
 
 msgid ""
 "Can't find a way to get back access to your Ripple account? Fear not! If you "
@@ -327,116 +284,95 @@ msgid ""
 "get in, please disable and then re-enable 2FA, so you won't risk losing your "
 "account again."
 msgstr ""
-"Can't find a way to get back access to your Ripple account? Fear not! If you "
-"have your recovery codes which we recommended you to print you can type one "
-"in here and we'll magically log you in this time. After you've managed to "
-"get in, please disable and then re-enable 2FA, so you won't risk losing your "
-"account again."
 
 msgid "Oh no you don't."
-msgstr "Oh no you don't."
+msgstr ""
 
 msgid "Get out."
-msgstr "Get out."
+msgstr "나가세요."
 
 msgid "Recovery code is invalid."
-msgstr "Recovery code is invalid."
+msgstr ""
 
 # register/elmo.html
 msgid "Elmo! Stop!"
-msgstr "Elmo! Stop!"
+msgstr ""
 
 msgid "Stop!"
-msgstr "Stop!"
+msgstr "정지하세요!"
 
 msgid ""
 "We see that you're trying to sign up while having already signed up as %s! "
 "Please note that multiaccounting is punishable, and can lead to a one month "
 "restriction!"
 msgstr ""
-"We see that you're trying to sign up while having already signed up as %s! "
-"Please note that multiaccounting is punishable, and can lead to a one month "
-"restriction!"
 
 msgid "If you're %s, keep in mind that multiaccounting = ban."
-msgstr "If you're %s, keep in mind that multiaccounting = ban."
+msgstr ""
 
 msgid ""
 "If you're not %s, but you're using %s's computer, please sign up on Ripple "
 "from your own computer."
 msgstr ""
-"If you're not %s, but you're using %s's computer, please sign up on Ripple "
-"from your own computer."
 
 msgid ""
 "If you live with %s and you don't have your own computer from which to sign "
 "up on Ripple, then please contact support@ripple.moe, and we'll deal with "
 "your specific case."
 msgstr ""
-"If you live with %s and you don't have your own computer from which to sign "
-"up on Ripple, then please contact support@ripple.moe, and we'll deal with "
-"your specific case."
 
 msgid ""
 "This warning may pop up also if you're using another computer on the same "
 "network of %s. As long as you're not using the same computer, you should be "
 "all good."
 msgstr ""
-"This warning may pop up also if you're using another computer on the same "
-"network of %s. As long as you're not using the same computer, you should be "
-"all good."
 
 msgid "Don't stop me now!"
-msgstr "Don't stop me now!"
+msgstr ""
 
 msgid "Bring me back to safety!"
-msgstr "Bring me back to safety!"
+msgstr ""
 
-# login.html
 msgid "Log in"
-msgstr "Log in"
+msgstr "로그인"
 
 msgid "Username (or email)"
-msgstr "Username (or email)"
+msgstr ""
 
 # in relationship to a password
 msgid "(forgot?)"
-msgstr "(forgot?)"
+msgstr "(까먹으셨습니까?)"
 
 msgid "Username or password not set."
-msgstr "Username or password not set."
+msgstr ""
 
 msgid "No user with such %s!"
-msgstr "No user with such %s!"
+msgstr ""
 
 msgid ""
 "Your password is sooooooo old, that we don't even know how to deal with it "
 "anymore. Could you please change it?"
 msgstr ""
-"Your password is sooooooo old, that we don't even know how to deal with it "
-"anymore. Could you please change it?"
 
 msgid "Wrong password."
-msgstr "Wrong password."
+msgstr ""
 
 msgid "You will need to verify your account first."
-msgstr "You will need to verify your account first."
+msgstr ""
 
 msgid ""
 "You are not allowed to login. This means your account is either banned or "
 "locked."
 msgstr ""
-"You are not allowed to login. This means your account is either banned or "
-"locked."
 
 msgid "Hey %s! You are now logged in."
-msgstr "Hey %s! You are now logged in."
+msgstr ""
 
 msgid "You're already logged out!"
-msgstr "You're already logged out!"
+msgstr ""
 
 msgid "Successfully logged out."
-msgstr "Successfully logged out."
+msgstr ""
 
 # pwreset.html
 msgid ""
@@ -445,91 +381,81 @@ msgid ""
 "email at the email address you used to sign up on Ripple. To continue the "
 "password reset procedure, click the link on that email."
 msgstr ""
-"Forgot your password? Worry not! Here you can reset it. Just tell us your "
-"username or email address, and we'll take care of it. You will receive an "
-"email at the email address you used to sign up on Ripple. To continue the "
-"password reset procedure, click the link on that email."
 
 msgid "You look pretty banned/locked here."
-msgstr "You look pretty banned/locked here."
+msgstr ""
 
 msgid ""
 "Done! You should shortly receive an email from us at the email you used to "
 "sign up on Ripple."
 msgstr ""
-"Done! You should shortly receive an email from us at the email you used to "
-"sign up on Ripple."
 
 msgid "Ripple password recovery instructions"
-msgstr "Ripple password recovery instructions"
+msgstr ""
 
 msgid ""
 "Hey %s! Someone, which we really hope was you, requested a password reset "
 "for your account. In case it was you, please <a href='%s'>click here</a> to "
 "reset your password on Ripple. Otherwise, silently ignore this email."
 msgstr ""
-"Hey %s! Someone, which we really hope was you, requested a password reset "
-"for your account. In case it was you, please <a href='%s'>click here</a> to "
-"reset your password on Ripple. Otherwise, silently ignore this email."
 
 # not_found.html
 msgid "Not Found"
-msgstr "Not Found"
+msgstr ""
 
 msgid ""
 "We're sorry, but we were unable to find the content you were looking for!"
 msgstr ""
-"We're sorry, but we were unable to find the content you were looking for!"
 
 # navbar.html
 msgid "Home page"
-msgstr "Home page"
+msgstr ""
 
 msgid "Leaderboard"
-msgstr "Leaderboard"
+msgstr ""
 
 msgid "Help"
-msgstr "Help"
+msgstr ""
 
 msgid "About"
-msgstr "About"
+msgstr ""
 
 msgid "Chat (Discord)"
-msgstr "Chat (Discord)"
+msgstr ""
 
 msgid "Contact support"
-msgstr "Contact support"
+msgstr ""
 
 msgid "Beatmaps"
-msgstr "Beatmaps"
+msgstr ""
 
 msgid "Donate"
-msgstr "Donate"
+msgstr ""
 
 msgid "RAP"
-msgstr "RAP"
+msgstr ""
 
 msgid "Profile"
-msgstr "Profile"
+msgstr ""
 
 msgid "Friends"
-msgstr "Friends"
+msgstr ""
 
 msgid "Settings"
-msgstr "Settings"
+msgstr ""
 
 msgid "Log out"
-msgstr "Log out"
+msgstr ""
 
 msgid "Looking for someone?"
-msgstr "Looking for someone?"
+msgstr ""
 
 # homepage.html
 msgid "Home Page"
-msgstr "Home Page"
+msgstr ""
 
 msgid "Welcome to Ripple."
-msgstr "Welcome to Ripple."
+msgstr ""
 
 msgid ""
 "Ripple is a private osu! server, featuring multiplayer, PP, a very active "
@@ -539,49 +465,34 @@ msgid ""
 "href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we "
 "currently have %s users online and %s registered users!</b>"
 msgstr ""
-"Ripple is a private osu! server, featuring multiplayer, PP, a very active "
-"community and a development team going strong implementing new features and "
-"squashing bugs. <a href='/about'>You can check out even more features "
-"here.</a> It has also a very friendly community, and it's <a "
-"href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we "
-"currently have %s users online and %s registered users!</b>"
 
 msgid ""
 "What are you waiting for? Join Ripple! It's risk-free: you won't get your "
 "account banned on the official server if you play on Ripple.<br>You can also "
 "switch anytime between the official osu! server and Ripple!"
 msgstr ""
-"What are you waiting for? Join Ripple! It's risk-free: you won't get your "
-"account banned on the official server if you play on Ripple.<br>You can also "
-"switch anytime between the official osu! server and Ripple!"
 
 msgid "Howdy, %s!"
-msgstr "Howdy, %s!"
+msgstr ""
 
 msgid ""
 "Welcome back to Ripple. We currently have <b>%s online users and %s total "
 "registed users.</b> Nice day to farm a few maps, isn't it?"
 msgstr ""
-"Welcome back to Ripple. We currently have <b>%s online users and %s total "
-"registed users.</b> Nice day to farm a few maps, isn't it?"
 
 msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
-msgstr "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgstr ""
 
 # base.html
 msgid ""
 "Ripple's score submission is currently in maintenance mode. You will not be "
 "allowed to submit scores for the time being."
 msgstr ""
-"Ripple's score submission is currently in maintenance mode. You will not be "
-"allowed to submit scores for the time being."
 
 msgid ""
 "The Ripple website is currently in maintenance mode. Only certain users are "
 "allowed to access the full website."
 msgstr ""
-"The Ripple website is currently in maintenance mode. Only certain users are "
-"allowed to access the full website."
 
 msgid ""
 "Your account is currently in restricted mode. You will not be able to do "
@@ -590,86 +501,77 @@ msgid ""
 "month has passed since you first saw this, then you can send an appeal at <a "
 "href='mailto:support@ripple.moe'>support@ripple.moe</a>."
 msgstr ""
-"Your account is currently in restricted mode. You will not be able to do "
-"certain actions, and your profile can only be seen by you and by Ripple's "
-"staff. If you believe we have mistaken putting you in restricted mode, or a "
-"month has passed since you first saw this, then you can send an appeal at <a "
-"href='mailto:support@ripple.moe'>support@ripple.moe</a>."
 
 msgid "&copy; 2015-%d Ripple, using Hanayo %s."
-msgstr "&copy; 2015-%d Ripple, using Hanayo %s."
+msgstr ""
 
 msgid "Team"
-msgstr "Team"
+msgstr ""
 
 msgid "Who is working on this thing?"
-msgstr "Who is working on this thing?"
+msgstr ""
 
 msgid "Developer docs"
-msgstr "Developer docs"
+msgstr ""
 
 msgid "See what changed!"
-msgstr "See what changed!"
+msgstr ""
 
 msgid "Changelog"
-msgstr "Changelog"
+msgstr ""
 
 msgid "Blog"
-msgstr "Blog"
+msgstr ""
 
 msgid "What's going on under the hood?"
-msgstr "What's going on under the hood?"
+msgstr ""
 
 msgid "Follow us on Twitter!"
-msgstr "Follow us on Twitter!"
+msgstr ""
 
 msgid "Share irrelevant opinions on reddit!"
-msgstr "Share irrelevant opinions on reddit!"
+msgstr ""
 
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
-msgstr "Two Factor Authentication"
+msgstr ""
 
 msgid ""
 "Before proceding further on Ripple, we require you to use your Google "
 "Authenticator App to use the code for Ripple, so that we can log you in."
 msgstr ""
-"Before proceding further on Ripple, we require you to use your Google "
-"Authenticator App to use the code for Ripple, so that we can log you in."
 
 msgid ""
 "Before proceding any further on Ripple, we require you to use the message "
 "you just received on telegram to log in to your account."
 msgstr ""
-"Before proceding any further on Ripple, we require you to use the message "
-"you just received on telegram to log in to your account."
 
 msgid "Lost your phone, or can't access Google Authenticator?"
-msgstr "Lost your phone, or can't access Google Authenticator?"
+msgstr ""
 
 msgid "Click here to use a recovery code."
-msgstr "Click here to use a recovery code."
+msgstr ""
 
 msgid "Telegram code"
-msgstr "Telegram code"
+msgstr ""
 
 msgid "(send again?)"
-msgstr "(send again?)"
+msgstr ""
 
 msgid "Google Authenticator passcode"
-msgstr "Google Authenticator passcode"
+msgstr ""
 
 msgid "Hey, %s."
-msgstr "Hey, %s."
+msgstr ""
 
 msgid "You need to complete the 2fa challenge first."
-msgstr "You need to complete the 2fa challenge first."
+msgstr ""
 
 msgid "A new code has been generated and sent to you through Telegram."
-msgstr "A new code has been generated and sent to you through Telegram."
+msgstr ""
 
 msgid "You've been successfully logged in."
-msgstr "You've been successfully logged in."
+msgstr ""
 
 # help.html
 msgid ""
@@ -678,10 +580,6 @@ msgid ""
 "an email to it by clicking the button at the bottom of this page. <b>Please "
 "read the following</b> though, as it is important."
 msgstr ""
-"If you need to get in touch with our support team (our Community Managers), "
-"you will need to send an email to our support email address. You can compose "
-"an email to it by clicking the button at the bottom of this page. <b>Please "
-"read the following</b> though, as it is important."
 
 msgid ""
 "The support email <b>is not meant for technical support</b>. If you need "
@@ -692,39 +590,28 @@ msgid ""
 "by clicking the envelope icon under their name in the <a href='/team'>Team "
 "page</a>."
 msgstr ""
-"The support email <b>is not meant for technical support</b>. If you need "
-"technical support, then please join our <a href='%s'>Discord Server</a>, and "
-"ask your question on the <b>#help channel</b>. You should also join the "
-"Discord server and ask a CM if you have any informal inquiry that you may "
-"have. If you need to contact a specific staff member, you can contact them "
-"by clicking the envelope icon under their name in the <a href='/team'>Team "
-"page</a>."
 
 msgid "Instead, if you need any of the following:"
-msgstr "Instead, if you need any of the following:"
+msgstr ""
 
 msgid "Username change"
-msgstr "Username change"
+msgstr ""
 
 msgid "Appeal your ban/restriction"
-msgstr "Appeal your ban/restriction"
+msgstr ""
 
 msgid ""
 "Anything else that strictly deals with your account and is not related in "
 "any way to a technical issue of yours."
 msgstr ""
-"Anything else that strictly deals with your account and is not related in "
-"any way to a technical issue of yours."
 
 msgid "Then the support mail is the way to go."
-msgstr "Then the support mail is the way to go."
+msgstr ""
 
 msgid ""
 "When contacting the support mail, please make sure to <b>send the email from "
 "the email address you signed up on Ripple with</b>."
 msgstr ""
-"When contacting the support mail, please make sure to <b>send the email from "
-"the email address you signed up on Ripple with</b>."
 
 msgid ""
 "Last but not least, <b>the support email is not meant for filing bug "
@@ -733,11 +620,6 @@ msgid ""
 "injection, then please contact <a href='mailto:howl@ripple.moe'>Howl</a> or <"
 "a href='mailto:nyo@ripple.moe'>Nyo</a>."
 msgstr ""
-"Last but not least, <b>the support email is not meant for filing bug "
-"reports</b>. If you need to report a bug, then please just ask one of our "
-"developers on Discord. If it's a security bug, for instance XSS or SQL "
-"injection, then please contact <a href='mailto:howl@ripple.moe'>Howl</a> or <"
-"a href='mailto:nyo@ripple.moe'>Nyo</a>."
 
 msgid "I have read and understood everything on this page."
-msgstr "I have read and understood everything on this page."
+msgstr "이 페이지를 모두 읽었으며, 위 약관에 모두 동의합니다."

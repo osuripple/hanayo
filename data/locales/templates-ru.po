@@ -1,0 +1,743 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-14 11:49+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.0.0\n"
+"X-Pootle-Path: /ru/Hanayo/templates-ru.po\n"
+"X-Pootle-Revision: 1065\n"
+
+# General
+msgid "You're already logged in!"
+msgstr "Вы уже вошли!"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Invalid CSRF token"
+msgstr "Неверный CSRF токен"
+
+msgid ""
+"Your session has expired. Please try redoing what you were trying to do."
+msgstr ""
+"Ваша сессия истекла. Пожалуйста, попробуйте сделать еще раз то, что вы "
+"пытались сделать."
+
+msgid "That user could not be found."
+msgstr "Не удалось найти этого пользователя."
+
+msgid "Your settings have been saved."
+msgstr "Ваши настройки были сохранены."
+
+# beatmaps/rank_requests.html
+msgid "Request beatmap ranking"
+msgstr "Запрос карт на ранк"
+
+msgid ""
+"Want to play an unranked beatmap and get pp? You can submit beatmaps rank "
+"requests here!"
+msgstr ""
+"Хотите сыграть на неранкнутой карте и получить PP? Здесь вы можете отправить "
+"карты на проверку!"
+
+msgid "Queue status"
+msgstr "Статус очереди"
+
+msgid "by you"
+msgstr "вами"
+
+msgid "Requests submitted"
+msgstr "Запросов отправлено"
+
+msgid "In the past 24 hours"
+msgstr "За последние 24 часа"
+
+msgid "Request a beatmap"
+msgstr "Предложить карту"
+
+msgid "You cannot currently request beatmaps!"
+msgstr "Вы пока не можете предлагать карты!"
+
+# After this text there is a date. The date is localised separately.
+msgid "Please try again "
+msgstr "Попробуйте еще раз "
+
+# pwreset/continue.html
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+msgid ""
+"Glad to have you back here, %s! To finish the password recovery, type in a "
+"new password:"
+msgstr ""
+"Рады что вы вернулись, %s! Чтобы завершить восстановление пароля, введите "
+"сюда новый пароль:"
+
+msgid "Nope."
+msgstr "Не-а."
+
+msgid "That key could not be found. Perhaps it expired?"
+msgstr "Мы не можем найти этот ключ. Может, он истек?"
+
+msgid ""
+"All right, we have changed your password and you should now be able to "
+"login! Have fun!"
+msgstr "Итак, мы поменяли ваш пароль и теперь вы сможете зайти! Развлекайтесь!"
+
+# register/register.html
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+msgid ""
+"Sorry, it's not possible to register at the moment. Please try again later."
+msgstr "Извини, но сейчас нельзя зарегистрироваться. Попробуй позже."
+
+msgid ""
+"Remember: this seems like it's your second account! Do not multiaccount, or "
+"you're likely to get restricted!"
+msgstr ""
+"Вспомни: выглядит как твой второй аккаунт! Не создавай мультиаккаунты, или "
+"тебя заблокируют!"
+
+msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
+msgstr ""
+"Имя пользователя (от 2 до 15 символов, буквы, цифры, пробелы, а также "
+"<code>_[]-</code>)"
+
+msgid "Password (at least 8 characters)"
+msgstr "Пароль (не менее 8 символов)"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid ""
+"You have been successfully registered on Ripple! You now need to verify your "
+"account."
+msgstr ""
+"Вы успешно зарегистрировались на Ripple! Теперь нужно проверить Ваш аккаунт."
+
+# Register checks
+msgid "Your password is too short! It must be at least 8 characters long."
+msgstr "Ваш пароль слишком маленький! Он должен быть не менее 8 символов."
+
+msgid ""
+"Your password is one of the most common passwords on the entire internet. No "
+"way we're letting you use that!"
+msgstr ""
+"Ваш пароль - один из самых частых паролей во всем интернете. Мы не позволим "
+"Вам использовать его!"
+
+msgid ""
+"Your username must contain alphanumerical characters, spaces, or any of "
+"<code>_[]-</code>"
+msgstr ""
+"Ваше имя пользователя должно содержать буквы, числа, пробелы или "
+"<code>_[]-</code>"
+
+msgid "You're not allowed to register with that username."
+msgstr "Вам не разрешено регистрироваться с этим именем пользователя."
+
+msgid "Please pass a valid email address."
+msgstr "Введите верный адрес электронной почты."
+
+msgid "An username can't contain both underscores and spaces."
+msgstr "В имени пользователя не может быть подчеркиваний и пробелов вместе."
+
+msgid "An user with that username already exists!"
+msgstr "Пользователь с этим именем пользователя уже существует!"
+
+msgid "An user with that email address already exists!"
+msgstr "Пользователь с этим электронным адресом уже существует!"
+
+msgid "Captcha is invalid."
+msgstr "Капча введена неверно."
+
+msgid ""
+"Whoops, an error slipped in. You might have been registered, though. I don't "
+"know."
+msgstr ""
+"У-упс, произошла ошибка. Возможно, вы были зарегистрированы. Я без понятия."
+
+# register/verify.html
+msgid "Verify account"
+msgstr "Проверить аккаунт"
+
+msgid ""
+"Your account has been created, however it still <b>needs to be verified!</b> "
+"Please log in into <b><u>osu! (the game)</u></b> using your account. <b>"
+"There is <u>no email confirmation</u> at the moment. All you need to do is "
+"connect to Ripple from the osu! client!</b> If you're having trouble, <a "
+"href='/doc/1'>follow this guide</a>."
+msgstr ""
+"Ваш аккаунт был создан, но его еще <b>нужно подтвердить!</b> Пожалуйста, "
+"войдите <b><u>osu! (в игру)</u></b> используя ваш аккаунт. <b>У нас <u>"
+"подтверждения по электронной почте</u> на данный момент. Все что вам нужно "
+"сделать, это подключиться к Ripple из клиента osu!</b> Если у вас возникли "
+"сложности, <a href='/doc/1'>используйте это руководство</a>."
+
+msgid ""
+"<b class='big text'>Do not let anyone except yourself log into your Ripple "
+"account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel "
+"instead (after following the steps on this page) so that we can help you out "
+"if you have trouble connecting."
+msgstr ""
+"<b class='big text'>Не позволяйте кому-то кроме вас входить в ваш аккаунт "
+"Ripple!</b><br> Вместо этого, заходите на канал #help на нашем <a href='%s'>"
+"сервере Discord</a> (после того, как вы пройдете шаги, описанные на этой "
+"странице) чтобы вы вам помогли если у вас есть проблемы с подключением."
+
+msgid "<a href='/doc/1'>The Guide,</a> tl;dr version"
+msgstr "<a href='/doc/1'>Руководство,</a> версия tl;dr"
+
+msgid "Download the server switcher"
+msgstr "Загрузите переключатель серверов"
+
+msgid "Extract it, disable your antivirus, execute it <b>as administrator</b>"
+msgstr ""
+"Распакуйте его, отключите ваш антивирус, запустите его <b>от "
+"администратора</b>"
+
+msgid "Click on <b>install certificate</b>, then <b>Yes</b>"
+msgstr "Нажмите на <b>установить сертификат</b>, затем на <b>Да</b>"
+
+msgid ""
+"Make sure the switcher says you're playing on <b>Ripple</b> server, if not "
+"click <b>On/Off</b>"
+msgstr ""
+"Убедитесь в том, что Switcher пишет, что вы играете на сервере <b>Ripple</b>"
+". Если это не так, то нажмите на <b>On/Off</b>"
+
+msgid ""
+"If it says something about read-only mode, go to <code>C:\\Windows\\"
+"System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure "
+"it's not set to \"Read only\"."
+msgstr ""
+"Если Switcher пишет что-то про режим read-only, откройте <code>C:\\Windows\\"
+"System32\\Drivers\\etc</code>, откройте параметры файла 'hosts' и убедитесь "
+"в том, что там не стоит параметр \"Только чтение\"."
+
+msgid ""
+"If you're still having trouble, then again, get on our <a href='%s'>Discord "
+"server's</a> #help channel. To have a better chance to be answered, say \""
+"strawberry\" anywhere in your messages so that we know you have actually "
+"read this."
+msgstr ""
+"Если у вас все еще остались проблемы, то заходите на канал #help нашего <a "
+"href='%s'>сервера Discord</a>. Чтобы повысить шанс на ответ, напишите \""
+"strawberry\" где-нибудь в вашем сообщении, чтобы мы знали, что вы прочитали "
+"это."
+
+msgid "Waiting for verification"
+msgstr "Ожидание верификации"
+
+# register/welcome.html
+msgid "Welcome!"
+msgstr "Добро пожаловать!"
+
+msgid "Welcome back!"
+msgstr "С возвращением!"
+
+msgid "Congratulations for not reading things!"
+msgstr "Поздравляем с тем, что вы ничего не прочитали!"
+
+msgid "Multiaccounts are not allowed on Ripple"
+msgstr "Мультиаккаунты запрещены на Ripple"
+
+msgid ""
+"Your new account has been <b>banned</b> and your main account has been "
+"<b>restricted</b>. You can appeal in a month by sending an email to <b><a "
+"href='mailto:support@ripple.moe'>support@ripple.moe</a></b>. You better read "
+"the rules next time."
+msgstr ""
+"Ваш новый аккаунт был <b>заблокирован</b> и ваш основной аккаунт был "
+"<b>ограничен</b>. Вы можете подать аппеляцию в течении месяца, отправив "
+"письмо <b><a href='mailto:support@ripple.moe'>support@ripple.moe</a></b>. В "
+"следующий раз вам лучше прочитать правила."
+
+msgid "Welcome to Ripple"
+msgstr "Приветствуем в Ripple"
+
+msgid ""
+"We're glad to have you here. <b>Your account is now active.</b> You can now "
+"play on Ripple and <a href='/login'>log in</a> on the website!"
+msgstr ""
+"Мы рады, что вы с нами. <b>Ваш аккаунт теперь активен.</b> Вы можете играть "
+"на Ripple и <a href='/login'>входить</a> на веб-сайте!"
+
+msgid "Here's a few things you might want to check out:"
+msgstr "Пара вещей, которые могли бы вам понравиться:"
+
+msgid "Login"
+msgstr "Войти"
+
+msgid "Rules"
+msgstr "Правила"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Discord"
+msgstr "Discord"
+
+msgid "Subreddit"
+msgstr "Сабреддит"
+
+msgid " - in case you don't know where to start"
+msgstr " - в случае, если вы не знаете с чего начать"
+
+msgid " - in case you haven't already read them"
+msgstr " - в случае, если вы еще не читали их"
+
+msgid " - in case, well, you need help doing stuff"
+msgstr " - на случай, если вам, например, понадобится помощь с чем-нибудь"
+
+msgid " - in case you believe Ripple is down"
+msgstr " - в случае, если вы думаете что Ripple не работает"
+
+msgid " - in case you want to talk with people about Ripple"
+msgstr " - в случае, если вы хотите поговорить с людьми про Ripple"
+
+msgid " - just in case"
+msgstr " - просто на всякий случай"
+
+# 2fa_gateway_recover.html
+msgid "Recover account"
+msgstr "Восстановить аккаунт"
+
+msgid ""
+"Can't find a way to get back access to your Ripple account? Fear not! If you "
+"have your recovery codes which we recommended you to print you can type one "
+"in here and we'll magically log you in this time. After you've managed to "
+"get in, please disable and then re-enable 2FA, so you won't risk losing your "
+"account again."
+msgstr ""
+"Не знаете, как вернуть доступ к вашему аккаунту Ripple? Не бойтесь! Если у "
+"вас есть коды восстановления, которые мы рекомендуем вам распечатать, вы "
+"можете написать один из них сюда и мы магическим образом впустим вас на этот "
+"раз. После того как вы войдете, пожалуйста, отключите и затем включите 2FA, "
+"чтобы вы не потеряли свой аккаунт еще раз."
+
+msgid "Oh no you don't."
+msgstr "О нет, ты не хочешь."
+
+msgid "Get out."
+msgstr "Убирайся."
+
+msgid "Recovery code is invalid."
+msgstr "Код восстановления неверный."
+
+# register/elmo.html
+msgid "Elmo! Stop!"
+msgstr "Элмо! Остановись!"
+
+msgid "Stop!"
+msgstr "Остановись!"
+
+msgid ""
+"We see that you're trying to sign up while having already signed up as %s! "
+"Please note that multiaccounting is punishable, and can lead to a one month "
+"restriction!"
+msgstr ""
+"Мы заметили, что ты пытаешься зарегистрироваться, когда ты уже "
+"зарегистрирован как %s! Мультиаккаунтинг наказуем, и может привести к "
+"ограничению на 1 месяц!"
+
+msgid "If you're %s, keep in mind that multiaccounting = ban."
+msgstr "Если вы - %s, то не забывайте, что мультиаккаунтинг = бан."
+
+msgid ""
+"If you're not %s, but you're using %s's computer, please sign up on Ripple "
+"from your own computer."
+msgstr ""
+"Если вы не %s, но используете компьютер %s, пожалуйста, зарегистрируйтесь в "
+"Ripple со своего собственного компьютера"
+
+msgid ""
+"If you live with %s and you don't have your own computer from which to sign "
+"up on Ripple, then please contact support@ripple.moe, and we'll deal with "
+"your specific case."
+msgstr ""
+"Если вы живете с %s, и у вас нет своего компьютера,чтобы зарегистрироваться "
+"на Ripple, пожалуйста, свяжитесь с support@ripple.moe, и мы разберемся с "
+"вашей проблемой."
+
+msgid ""
+"This warning may pop up also if you're using another computer on the same "
+"network of %s. As long as you're not using the same computer, you should be "
+"all good."
+msgstr ""
+"Также, это предупреждение может появляться если вы используете другой "
+"компьютер в той же сети, что и %s. Пока вы не используете один и тот же пк, "
+"все хорошо."
+
+msgid "Don't stop me now!"
+msgstr "Не останавливай меня сейчас!"
+
+msgid "Bring me back to safety!"
+msgstr "Верни меня в безопасное место!"
+
+# login.html
+msgid "Log in"
+msgstr "Вход"
+
+msgid "Username (or email)"
+msgstr "Имя пользователя (или эл. почта)"
+
+# in relationship to a password
+msgid "(forgot?)"
+msgstr "(забыли?)"
+
+msgid "Username or password not set."
+msgstr "Имя пользователя или пароль не указаны."
+
+msgid "No user with such %s!"
+msgstr "Нет пользователя с %s!"
+
+msgid ""
+"Your password is sooooooo old, that we don't even know how to deal with it "
+"anymore. Could you please change it?"
+msgstr ""
+"Ваш пароль такоооооой старый, что мы даже не знаем как с ним быть. Вы не "
+"могли бы его поменять?"
+
+msgid "Wrong password."
+msgstr "Неверный пароль."
+
+msgid "You will need to verify your account first."
+msgstr "Для начала вам нужно верифицировать свой аккаунт."
+
+msgid ""
+"You are not allowed to login. This means your account is either banned or "
+"locked."
+msgstr ""
+"Вам нельзя войти. Это значит, что ваш аккаунт или заблокирован, или закрыт."
+
+msgid "Hey %s! You are now logged in."
+msgstr "Эй, %s! Теперь вы вошли."
+
+msgid "You're already logged out!"
+msgstr "Вы уже вышли!"
+
+msgid "Successfully logged out."
+msgstr "Успешный выход."
+
+# pwreset.html
+msgid ""
+"Forgot your password? Worry not! Here you can reset it. Just tell us your "
+"username or email address, and we'll take care of it. You will receive an "
+"email at the email address you used to sign up on Ripple. To continue the "
+"password reset procedure, click the link on that email."
+msgstr ""
+"Забыли свой пароль? Не волнуйтесь! Здесь вы можете его сбросить. Просто "
+"скажите нам ваше имя пользователя или эл. почту и мы позаботимся о нем. Вы "
+"получите письмо на эл. почту, которую вы использовали для регистрации на "
+"Ripple. Чтобы продолжить процедуру сброса, нажмите на ссылку в письме."
+
+msgid "You look pretty banned/locked here."
+msgstr "Нам кажется, что вы заблокированы/закрыты."
+
+msgid ""
+"Done! You should shortly receive an email from us at the email you used to "
+"sign up on Ripple."
+msgstr ""
+"Готово! В скором времени вы получите от нас письмо на почту, которую вы "
+"использовали для регистрации на Ripple."
+
+msgid "Ripple password recovery instructions"
+msgstr "Инструкция сброса пароля на Ripple"
+
+msgid ""
+"Hey %s! Someone, which we really hope was you, requested a password reset "
+"for your account. In case it was you, please <a href='%s'>click here</a> to "
+"reset your password on Ripple. Otherwise, silently ignore this email."
+msgstr ""
+"Эй, %s! Кто-то, надеемся вы, запросил сброс пароля для вашего аккаунта. В "
+"случае, если это были вы, <a href='%s'>нажмите сюда</a>, чтобы сбросить ваш "
+"пароль на Ripple. В другом случае, проигнорируйте это письмо."
+
+# not_found.html
+msgid "Not Found"
+msgstr "Не найдено"
+
+msgid ""
+"We're sorry, but we were unable to find the content you were looking for!"
+msgstr "Нам очень жаль, но мы не смогли найти контент, который вы искали!"
+
+# navbar.html
+msgid "Home page"
+msgstr "Домашняя страница"
+
+msgid "Leaderboard"
+msgstr "Таблица лидеров"
+
+msgid "Help"
+msgstr "Справка"
+
+msgid "About"
+msgstr "О нас"
+
+msgid "Chat (Discord)"
+msgstr "Чат (Discord)"
+
+msgid "Contact support"
+msgstr "Связаться с поддержкой"
+
+msgid "Beatmaps"
+msgstr "Карты"
+
+msgid "Donate"
+msgstr "Пожертвовать"
+
+msgid "RAP"
+msgstr "RAP"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Friends"
+msgstr "Друзья"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Log out"
+msgstr "Выйти"
+
+msgid "Looking for someone?"
+msgstr "Ищете кого-то?"
+
+# homepage.html
+msgid "Home Page"
+msgstr "Домашняя страница"
+
+msgid "Welcome to Ripple."
+msgstr "Приветствуем на Ripple."
+
+msgid ""
+"Ripple is a private osu! server, featuring multiplayer, PP, a very active "
+"community and a development team going strong implementing new features and "
+"squashing bugs. <a href='/about'>You can check out even more features "
+"here.</a> It has also a very friendly community, and it's <a "
+"href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we "
+"currently have %s users online and %s registered users!</b>"
+msgstr ""
+"Ripple - частный осу сервер с мультиплеером, PP, активным сообществом и "
+"командой разработчиков, которая добавляет новые функции и исправляет баги. <"
+"a href='/about'>Вы можете почитать обо всех возможностях здесь.</a> У нас "
+"дружелюбное сообщество, и у нас <a href='https://zxq.co/ripple/ripple'>"
+"открытый исходный код!</a> К вашему сведению, <b> в данный момент у нас %s "
+"пользователей в сети и %s зарегистрированных пользователей!</b>"
+
+msgid ""
+"What are you waiting for? Join Ripple! It's risk-free: you won't get your "
+"account banned on the official server if you play on Ripple.<br>You can also "
+"switch anytime between the official osu! server and Ripple!"
+msgstr ""
+"Чего же вы ждете? Присоединяйтесь к нам! Это безопасно: ваш аккаунт на "
+"официальном сервере не будет заблокирован, если вы будете играть на "
+"Ripple.<br> Также, вы можете в любой момент переключаться между официальным "
+"сервером osu! и Ripple!"
+
+msgid "Howdy, %s!"
+msgstr "Как дела, %s!"
+
+msgid ""
+"Welcome back to Ripple. We currently have <b>%s online users and %s total "
+"registed users.</b> Nice day to farm a few maps, isn't it?"
+msgstr ""
+"С возвращением на Ripple. Сейчас у нас <b>%s пользователей онлайн and %s "
+"зарегистрированных пользователей.</b> Хороший день пофармить карт, не так ли?"
+
+msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgstr "Последние новости из нашего <a href='https://blog.ripple.moe'>блога</a>"
+
+# base.html
+msgid ""
+"Ripple's score submission is currently in maintenance mode. You will not be "
+"allowed to submit scores for the time being."
+msgstr ""
+"Система загрузки игр на Ripple находится на техническом обслуживании. Вам "
+"запрещено отправлять игры в это время."
+
+msgid ""
+"The Ripple website is currently in maintenance mode. Only certain users are "
+"allowed to access the full website."
+msgstr ""
+"Веб-сайт Ripple находится на техническом обслуживании. Только определенные "
+"пользователи имеют доступ к полной версии сайта."
+
+msgid ""
+"Your account is currently in restricted mode. You will not be able to do "
+"certain actions, and your profile can only be seen by you and by Ripple's "
+"staff. If you believe we have mistaken putting you in restricted mode, or a "
+"month has passed since you first saw this, then you can send an appeal at <a "
+"href='mailto:support@ripple.moe'>support@ripple.moe</a>."
+msgstr ""
+"Ваш аккаунт находится в ограниченном режиме. Вы не сможете производить "
+"некоторые действия, и ваш профиль могут видеть только вы и сотрудники "
+"Ripple. Если вы считаете, что были ограничены по ошибке, или прошел месяц с "
+"того момента, как вы впервые увидели это сообщение, то вы можете отправить "
+"аппеляцию на <a href='mailto:support@ripple.moe'>support@ripple.moe</a>."
+
+msgid "&copy; 2015-%d Ripple, using Hanayo %s."
+msgstr "&copy; 2015-%d Ripple, используется Hanayo %s."
+
+msgid "Team"
+msgstr "Команда"
+
+msgid "Who is working on this thing?"
+msgstr "Кто разрабатывает это?"
+
+msgid "Developer docs"
+msgstr "Документации для разработчиков"
+
+msgid "See what changed!"
+msgstr "Посмотреть изменения!"
+
+msgid "Changelog"
+msgstr "Журнал изменений"
+
+msgid "Blog"
+msgstr "Блог"
+
+msgid "What's going on under the hood?"
+msgstr "Что же внутри?"
+
+msgid "Follow us on Twitter!"
+msgstr "Подписывайтесь на нас в Twitter!"
+
+msgid "Share irrelevant opinions on reddit!"
+msgstr "Делитесь своими мнениями на Reddit!"
+
+# 2fa_gateway.html
+msgid "Two Factor Authentication"
+msgstr "Двухфакторная аутентификация"
+
+msgid ""
+"Before proceding further on Ripple, we require you to use your Google "
+"Authenticator App to use the code for Ripple, so that we can log you in."
+msgstr ""
+"Перед тем как продолжить использовать Ripple, мы требуем от вас получить код "
+"из приложения Google Authenticator, чтобы мы смогли вас авторизировать."
+
+msgid ""
+"Before proceding any further on Ripple, we require you to use the message "
+"you just received on telegram to log in to your account."
+msgstr ""
+"Перед тем как продолжить использовать Ripple, мы требуем вас использовать "
+"код из сообщения, которые вы только что получили в Telegram, чтобы войти в "
+"ваш аккаунт."
+
+msgid "Lost your phone, or can't access Google Authenticator?"
+msgstr "Потеряли телефон, или не можете зайти в Google Authenticator?"
+
+msgid "Click here to use a recovery code."
+msgstr "Нажмите здесь, чтобы использовать код восстановления."
+
+msgid "Telegram code"
+msgstr "Код из Telegram"
+
+msgid "(send again?)"
+msgstr "(отправить еще раз?)"
+
+msgid "Google Authenticator passcode"
+msgstr "Код из Google Authenticator"
+
+msgid "Hey, %s."
+msgstr "Эй, %s."
+
+msgid "You need to complete the 2fa challenge first."
+msgstr "Для начала вам нужно пройти двухфакторную аутентификацию."
+
+msgid "A new code has been generated and sent to you through Telegram."
+msgstr "Мы сгенерировали новый код и отправили его вам через Telegram."
+
+msgid "You've been successfully logged in."
+msgstr "Вы успешно вошли."
+
+# help.html
+msgid ""
+"If you need to get in touch with our support team (our Community Managers), "
+"you will need to send an email to our support email address. You can compose "
+"an email to it by clicking the button at the bottom of this page. <b>Please "
+"read the following</b> though, as it is important."
+msgstr ""
+"Если вам нужно связаться с нашей командой поддержки (нашими Менеджерами "
+"Сообщества), вы должны написать письмо на нашу электронную почту. Вы можете "
+"отправить его, нажав на кнопку внизу этой страницы. <b>Пожалуйста, "
+"прочитайте информацию ниже</b>. Это важно."
+
+msgid ""
+"The support email <b>is not meant for technical support</b>. If you need "
+"technical support, then please join our <a href='%s'>Discord Server</a>, and "
+"ask your question on the <b>#help channel</b>. You should also join the "
+"Discord server and ask a CM if you have any informal inquiry that you may "
+"have. If you need to contact a specific staff member, you can contact them "
+"by clicking the envelope icon under their name in the <a href='/team'>Team "
+"page</a>."
+msgstr ""
+"Электронная почта поддержки <b>не предназначена для технической поддержки</b>"
+". Если вам нужна техническая помощь, то заходите на наш <a href='%s'>сервер "
+"Discord</a>, и задайте свой вопрос <b>на канале #help</b>. Также вы можете "
+"зайти на Discord и спросить у МС если у вас есть неофициальный запрос. Если "
+"вам нужно связаться с определенным человеком из нашей команды, то вы можете "
+"это сделать нажав на иконку с конвертиком под их именем на <a href='/team'>"
+"странице команды</a>."
+
+msgid "Instead, if you need any of the following:"
+msgstr "Если же вам нужно:"
+
+msgid "Username change"
+msgstr "Смена имени пользователя"
+
+msgid "Appeal your ban/restriction"
+msgstr "Оправдать ваш бан/ограничение"
+
+msgid ""
+"Anything else that strictly deals with your account and is not related in "
+"any way to a technical issue of yours."
+msgstr ""
+"Все, что связано с вашим аккаунтом и не связано с техническими проблемами на "
+"вашей стороне."
+
+msgid "Then the support mail is the way to go."
+msgstr "В таком случае, почта поддержки - то, что нужно."
+
+msgid ""
+"When contacting the support mail, please make sure to <b>send the email from "
+"the email address you signed up on Ripple with</b>."
+msgstr ""
+"Отправляя письмо на адрес электронной почты, <b>обязательно пишите с того "
+"адреса, с помощью которого вы зарегистрировались на Ripple</b>."
+
+msgid ""
+"Last but not least, <b>the support email is not meant for filing bug "
+"reports</b>. If you need to report a bug, then please just ask one of our "
+"developers on Discord. If it's a security bug, for instance XSS or SQL "
+"injection, then please contact <a href='mailto:howl@ripple.moe'>Howl</a> or <"
+"a href='mailto:nyo@ripple.moe'>Nyo</a>."
+msgstr ""
+"И наконец, <b>адрес электронной почты поддержки не предназначен для отправки "
+"отчетов об ошибке</b>. Если вы хотите сообщить об ошибке, то свяжитесь с "
+"одним из разработчиков Ripple в Discord. Если это уязвимость, например, "
+"инъекция XSS или SQL, свяжитесь с <a href='mailto:howl@ripple.moe'>Howl</a> "
+"или <a href='mailto:nyo@ripple.moe'>Nyo</a>."
+
+msgid "I have read and understood everything on this page."
+msgstr "Я прочитал и понял все вышеуказанное."
