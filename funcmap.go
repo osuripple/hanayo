@@ -444,15 +444,26 @@ var funcMap = template.FuncMap{
 	"getBitcoinAddress": btcaddress.Get,
 	"getLanguage": func(c *gin.Context) string {
 		for _, l := range getLang(c) {
-			if in(l, timeagoLanguages) {
+			if in(l, localeLanguages) {
 				return l
 			}
 		}
 		return ""
 	},
+	"languageInformation": func() []langInfo {
+		return languageInformation
+	},
+	"languageInformationByNameShort": func(s string) langInfo {
+		for _, lang := range languageInformation {
+			if lang.NameShort == s {
+				return lang
+			}
+		}
+		return langInfo{}
+	},
 }
 
-var timeagoLanguages = []string{"de", "pl", "it", "es", "ru", "ko"}
+var localeLanguages = []string{"de", "pl", "it", "es", "ru", "ko"}
 
 var hanayoStarted = time.Now().UnixNano()
 
@@ -538,4 +549,18 @@ func getDiscord() *oauth2.Config {
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
+}
+
+type langInfo struct {
+	Name, CountryShort, NameShort string
+}
+
+var languageInformation = []langInfo{
+	{"Deutsch", "de", "de"},
+	{"English (UK)", "gb", "en"},
+	{"Español", "es", "es"},
+	{"Italiano", "it", "it"},
+	{"Polski", "pl", "pl"},
+	{"Русский", "ru", "ru"},
+	{"한국어", "kr", "ko"},
 }

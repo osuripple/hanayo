@@ -80,20 +80,35 @@
 			<a href="http://status.ripple.moe"><i class="signal icon"></i>{{ .T "Status" }}</a> |
 			<a href="https://zxq.co/ripple" title="{{ .T "What's going on under the hood?"}}{{/*'"*/}}"><i class="git square icon"></i></a>
 			<a href="https://twitter.com/_ripple" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a>
-			<a href="https://reddit.com/r/osuripple" title="{{ .T "Share irrelevant opinions on reddit!" }}"><i class="reddit square icon"></i></a>
+			<a href="https://reddit.com/r/osuripple" title="{{ .T "Share irrelevant opinions on reddit!" }}"><i class="reddit square icon"></i></a> |
+			<div class="ui scrolling dropdown" style="margin-left: 5px;" id="language-selector">
+				{{ $lang := getLanguage .Gin }}
+				{{ with $lang }}
+					{{ $info := languageInformationByNameShort . }}
+					<div class="text"><i class="{{ $info.CountryShort }} flag"></i>{{ $info.Name }}</div>
+				{{ else }}
+					<div class="default text">Language</div>
+				{{ end }}
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					{{ range languageInformation }}
+						<div class="{{ if eq .NameShort $lang }}selected {{ end }}item" data-lang="{{ .NameShort }}"><i class="{{ .CountryShort }} flag"></i>{{ .Name }}</div>
+					{{ end }}
+				</div>
+			</div>
 		</div>
 		<script>
 			var hanayoConf = {
 				avatars:   {{ .Conf.AvatarURL }},
 				banchoAPI: {{ .Conf.BanchoAPI }},
 				baseAPI:   {{ .Conf.BaseAPIPublic }},
-				language:  {{ with getLanguage .Gin }}{{ . }}{{ else }}"en"{{ end }},
+				language:  {{ with $lang }}{{ . }}{{ else }}"en"{{ end }},
 			};
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
 		<script src="/static/dist.min.js?{{ unixNano }}"></script>
-		{{ with getLanguage .Gin }}
+		{{ with $lang }}
 			<script src="/static/timeago-locale/jquery.timeago.{{ . }}.js"></script>
 		{{ end }}
 		{{ if .Scripts }}

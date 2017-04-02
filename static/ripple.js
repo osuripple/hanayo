@@ -380,6 +380,12 @@ $(document).ready(function(){
     document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
     window.location.reload();
   });
+
+  $("#language-selector .item").click(function() {
+    var lang = $(this).data("lang");
+    document.cookie = "language=" + lang + ";path=/;max-age=31536000";
+    window.location.reload();
+  });
 });
 
 function closeClosestMessage() {
@@ -570,7 +576,6 @@ i18next
     nsSeparator:  false,
     keySeparator: false,
     fallbackLng:  false,
-    debug:        true,
     lng:          hanayoConf.language,
     whitelist:    ["de", "it", "ko", "es", "ru", "pl"],
     load:         "currentOnly",
