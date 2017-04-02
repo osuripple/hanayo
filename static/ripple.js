@@ -602,6 +602,7 @@ i18next.on("loaded", function() {
 });
 
 function T(s, settings) {
-  // TODO: when using key fallback with plural, keyPlural should be used
+  if (typeof settings !== "undefined" && typeof settings.count !== "undefined" && $.inArray(hanayoConf.language, langWhitelist) === -1 && settings.count !== 1)
+      s = keyPlurals[s];
   return i18next.t(s, settings);
 }
