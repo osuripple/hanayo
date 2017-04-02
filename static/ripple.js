@@ -68,7 +68,7 @@ var singlePageSnippets = {
               $("<td />").text(v.chosen_mode.accuracy.toFixed(2) + "%"),
               // bonus points if you get the undertale joke
               $("<td />").html(addCommas(v.chosen_mode.playcount) +
-                " <i title='Why, LOVE, of course!'>(lv. " + v.chosen_mode.level.toFixed(0) + ")</i>")
+                " <i title='" + T("Why, LOVE, of course!") + "'>(lv. " + v.chosen_mode.level.toFixed(0) + ")</i>")
             )
           );
         });
@@ -213,8 +213,18 @@ var singlePageSnippets = {
         var priceEUR = Math.pow(months * 30 * 0.2, 0.70);
         var priceBTC = priceEUR / rates.EUR;
         var priceUSD = priceBTC * rates.USD;
-        $("#cost").html("<b>" + (+months).toFixed(0) + "</b> month" + (months == 1 ? "" : "s") +
-          " = <b>€ " + priceEUR.toFixed(2) + "</b><br><i>($ " + priceUSD.toFixed(2) + " / BTC " + priceBTC.toFixed(6) + ")</i>");
+        $("#cost").html(
+          T("<b>{{ months }}</b> month = <b>€ {{ eur }}</b>", {
+            count: Math.round(+months),
+            months: (+months).toFixed(0),
+            eur: priceEUR.toFixed(2),
+          }) +
+          "<br>" +
+          T("($ {{ usd }} / BTC {{ btc }})", {
+            usd: priceUSD.toFixed(2),
+            btc: priceBTC.toFixed(10),
+          })
+        );
         $("input[name='os0']").attr("value", (+months).toFixed(0) + " month" + (months == 1 ? "" : "s"));
         $("#bitcoin-amt").text(priceBTC.toFixed(6));
       });
@@ -395,7 +405,7 @@ function closeClosestMessage() {
 };
 
 function showMessage(type, message) {
-  var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + message + '</div>');
+  var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + T(message) + '</div>');
   newEl.find(".close.icon").click(closeClosestMessage);
   $("#messages-container").append(newEl);
   newEl.transition("slide down");
@@ -570,6 +580,7 @@ function modifyObjectDynamically(obj, inds, set) {
   return obj;
 }
 
+var langWhitelist = ["de", "it", "ko", "es", "ru", "pl"];
 i18next
   .use(i18nextXHRBackend)
   .init({
@@ -577,7 +588,7 @@ i18next
     keySeparator: false,
     fallbackLng:  false,
     lng:          hanayoConf.language,
-    whitelist:    ["de", "it", "ko", "es", "ru", "pl"],
+    whitelist:    langWhitelist,
     load:         "currentOnly",
     backend: {
       loadPath: "/static/locale/{{lng}}.json"
@@ -585,6 +596,12 @@ i18next
   })
 ;
 
+var i18nLoaded = $.inArray(hanayoConf.language, langWhitelist) === -1;
+i18next.on("loaded", function() {
+  i18nLoaded = true
+});
+
 function T(s, settings) {
+  // TODO: when using key fallback with plural, keyPlural should be used
   return i18next.t(s, settings);
 }

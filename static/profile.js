@@ -11,6 +11,7 @@ $(document).ready(function() {
     window.history.replaceState('', document.title, newPathName + "?mode=" + favouriteMode + wl.hash);
   else if (wl.pathname != newPathName)
     window.history.replaceState('', document.title, newPathName + wl.search + wl.hash);
+  setDefaultScoreTable();
   // when an item in the mode menu is clicked, it means we should change the mode.
   $("#mode-menu>.item").click(function(e) {
     e.preventDefault();
@@ -28,7 +29,13 @@ $(document).ready(function() {
   });
   initialiseFriends();
   // load scores page for the current favourite mode
-  initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "]"), favouriteMode);
+  var i = function(){initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "]"), favouriteMode)};
+  if (i18nLoaded)
+    i();
+  else
+    i18next.on("loaded", function() {
+      i();
+    });
 });
 
 function initialiseFriends() {
@@ -50,19 +57,19 @@ function setFriend(i) {
   case 0:
     b
       .addClass("blue")
-      .attr("title", "Add friend")
+      .attr("title", T("Add friend"))
       .html("<i class='plus icon'></i>");
     break;
   case 1:
     b
       .addClass("green")
-      .attr("title", "Remove friend")
+      .attr("title", T("Remove friend"))
       .html("<i class='minus icon'></i>");
     break;
   case 2:
     b
       .addClass("red")
-      .attr("title", "Unmutual friend")
+      .attr("title", T("Unmutual friend"))
       .html("<i class='heart icon'></i>");
     break;
   }
@@ -75,29 +82,36 @@ function friendClick() {
   api("friends/" + (t.attr("data-friends") == 1 ? "del" : "add"), {user: +userID}, setFriendOnResponse, true);
 }
 
-var defaultScoreTable = $("<table class='ui table score-table' />")
-  .append(
-    $("<thead />").append(
-      $("<tr />").append(
-        $("<th>General info</th>"),
-        $("<th>Score</th>")
+var defaultScoreTable;
+function setDefaultScoreTable() {
+  defaultScoreTable = $("<table class='ui table score-table' />")
+    .append(
+      $("<thead />").append(
+        $("<tr />").append(
+          $("<th>" + T("General info") + "</th>"),
+          $("<th>"+ T("Score") + "</th>")
+        )
       )
     )
-  )
-  .append(
-    $("<tbody />")
-  )
-  .append(
-    $("<tfoot />").append(
-      $("<tr />").append(
-        $("<th colspan=2 />").append(
-          $("<div class='ui right floated pagination menu' />").append(
-            $("<a class='disabled item load-more-button'>Load more</a>").click(loadMoreClick)
+    .append(
+      $("<tbody />")
+    )
+    .append(
+      $("<tfoot />").append(
+        $("<tr />").append(
+          $("<th colspan=2 />").append(
+            $("<div class='ui right floated pagination menu' />").append(
+              $("<a class='disabled item load-more-button'>" + T("Load more") + "</a>").click(loadMoreClick)
+            )
           )
         )
       )
     )
-  );
+  ;
+}
+i18next.on('loaded', function(loaded) {
+  setDefaultScoreTable();
+});
 function initialiseScores(el, mode) {
   el.attr("data-loaded", "1");
   var best = defaultScoreTable.clone(true).addClass("orange");
@@ -106,8 +120,8 @@ function initialiseScores(el, mode) {
   recent.attr("data-type", "recent");
   recent.addClass("no bottom margin");
   el.append($("<div class='ui segments no bottom margin' />").append(
-    $("<div class='ui segment' />").append("<h2 class='ui header'>Best scores</h2>", best),
-    $("<div class='ui segment' />").append("<h2 class='ui header'>Recent scores</h2>", recent)
+    $("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Best scores") + "</h2>", best),
+    $("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
   ));
   loadScoresPage("best", mode);
   loadScoresPage("recent", mode);
@@ -171,7 +185,7 @@ function loadScoresPage(type, mode) {
   });
 }
 function downloadStar(id) {
-  return "<a href='/web/replays/" + id + "' class='new downloadstar'><i class='star icon'></i>Download</a>";
+  return "<a href='/web/replays/" + id + "' class='new downloadstar'><i class='star icon'></i>" + T("Download") + "</a>";
 }
 function weightedPP(type, page, idx, pp) {
   if (type != "best" || pp == 0)
@@ -198,8 +212,11 @@ function viewScoreInfo() {
     "Beatmap":      "<a href='/b/" + s.beatmap.beatmap_id + "'>" + escapeHTML(s.beatmap.song_name) + "</a>",
     "Accuracy":     s.accuracy + "%",
     "Max combo":    addCommas(s.max_combo) + "/" + addCommas(s.beatmap.max_combo)
-                      + (s.full_combo ? " (full combo)" : ""),
-    "Difficulty":   s.beatmap.difficulty2[modesShort[s.play_mode]] + " stars",
+                      + (s.full_combo ? " " + T("(full combo)") : ""),
+    "Difficulty":   T("{{ stars }} star", {
+      stars: s.beatmap.difficulty2[modesShort[s.play_mode]],
+      count: Math.round(s.beatmap.difficulty2[modesShort[s.play_mode]]),
+   }),
     "Mods":         getScoreMods(s.mods, true),
   };
 
@@ -218,7 +235,7 @@ function viewScoreInfo() {
   });
 
   data = $.extend(data, hd, {
-    "Ranked?":      s.completed == 3 ? "Yes" : "No",
+    "Ranked?":      T(s.completed == 3 ? "Yes" : "No"),
     "Achieved":     s.time,
     "Mode":         modes[s.play_mode],
   });
@@ -227,7 +244,7 @@ function viewScoreInfo() {
   $.each(data, function(key, value) {
     els.push(
       $("<tr />").append(
-        $("<td>" + key + "</td>"),
+        $("<td>" + T(key) + "</td>"),
         $("<td>" + value + "</td>")
       )
     );
@@ -290,7 +307,7 @@ function getScoreMods(m, noplus) {
 	if (r.length > 0) {
 		return (noplus ? "" : "+ ") + r.join(", ");
 	} else {
-		return (noplus ? 'None' : '');
+		return (noplus ? T('None') : '');
 	}
 }
 
