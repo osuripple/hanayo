@@ -572,7 +572,7 @@ i18next
     fallbackLng:  false,
     debug:        true,
     lng:          hanayoConf.language,
-    whitelist:    ["en", "de", "it", "ko", "es", "ru", "pl"],
+    whitelist:    ["de", "it", "ko", "es", "ru", "pl"],
     load:         "currentOnly",
     backend: {
       loadPath: "/static/locale/{{lng}}.json"
