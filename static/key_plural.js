@@ -1,0 +1,1 @@
+var keyPlurals = {"{{ stars }} star":"{{ stars }} stars","<b>{{ months }}</b> month = <b>€ {{ eur }}</b>":"<b>{{ months }}</b> months = <b>€ {{ eur }}</b>"};

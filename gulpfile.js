@@ -31,7 +31,9 @@ gulp.task("minify-js", function() {
 			"node_modules/timeago/jquery.timeago.js",
 			"static/konami.js",
 			"static/semantic.min.js",
-			"node_modules/vue/dist/vue.min.js",
+			"node_modules/i18next/i18next.min.js",
+			"node_modules/i18next-xhr-backend/i18nextXHRBackend.min.js",
+			"static/key_plural.js",
 			"static/ripple.js",
 		])
 		.pipe(plumber())

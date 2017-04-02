@@ -87,12 +87,13 @@
 				avatars:   {{ .Conf.AvatarURL }},
 				banchoAPI: {{ .Conf.BanchoAPI }},
 				baseAPI:   {{ .Conf.BaseAPIPublic }},
+				language:  {{ with getLanguage .Gin }}{{ . }}{{ else }}"en"{{ end }},
 			};
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
 		<script src="/static/dist.min.js?{{ unixNano }}"></script>
-		{{ with getLanguageTimeago .Gin }}
+		{{ with getLanguage .Gin }}
 			<script src="/static/timeago-locale/jquery.timeago.{{ . }}.js"></script>
 		{{ end }}
 		{{ if .Scripts }}

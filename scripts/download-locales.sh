@@ -1,7 +1,11 @@
 #!/usr/bin/bash
-cd ../data/locales
-rm templates-*.po
-for i in it es de pl ru ko en_GB; do
+rm data/{js-,}locales/templates-*.po
+cd data/locales
+for i in it es de pl ru ko; do
 	echo "$i"
-	wget --content-disposition --quiet "https://cutebirbs.ripple.moe/export/?path=/$i/Hanayo/"
+	wget -O templates-$i.po --quiet "https://cutebirbs.ripple.moe/export/?path=/$i/Hanayo/"
+	cd ../js-locales
+	wget -O templates-$i.po --quiet "https://cutebirbs.ripple.moe/export/?path=/$i/HanayoJS/"
+	i18next-conv -l $i -s templates-$i.po -t ../../static/locale/$i.json
+	cd ../locales
 done

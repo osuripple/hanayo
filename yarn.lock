@@ -1902,6 +1902,14 @@ http-signature@~1.1.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
+i18next-xhr-backend@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/i18next-xhr-backend/-/i18next-xhr-backend-1.4.1.tgz#ade99356065f51742da9e4bc79c7bb4905a4b91d"
+
+i18next@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-7.1.2.tgz#3a535ac9bb05589645e2caedaeafe3b56931f823"
+
 image-size@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.0.tgz#be7aed1c37b5ac3d9ba1d66a24b4c47ff8397651"

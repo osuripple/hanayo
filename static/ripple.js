@@ -563,3 +563,23 @@ function modifyObjectDynamically(obj, inds, set) {
   }
   return obj;
 }
+
+i18next
+  .use(i18nextXHRBackend)
+  .init({
+    nsSeparator:  false,
+    keySeparator: false,
+    fallbackLng:  false,
+    debug:        true,
+    lng:          hanayoConf.language,
+    whitelist:    ["en", "de", "it", "ko", "es", "ru", "pl"],
+    load:         "currentOnly",
+    backend: {
+      loadPath: "/static/locale/{{lng}}.json"
+    }
+  })
+;
+
+function T(s, settings) {
+  return i18next.t(s, settings);
+}

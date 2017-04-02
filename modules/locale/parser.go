@@ -9,13 +9,14 @@ import (
 )
 
 type po struct {
-	Headers      map[string][]string
+	Headers      map[string]string
 	Translations map[string]string
 }
 
 // A minimal .po file parser.
 func parse(s *bufio.Scanner) *po {
 	p := &po{
+		Headers:      make(map[string]string, 20),
 		Translations: make(map[string]string, 500),
 	}
 
@@ -44,7 +45,20 @@ func parse(s *bufio.Scanner) *po {
 				return nil
 			}
 
-			p.Translations[currentID] = currentString
+			if current != currentNothing && currentID == "" && currentString != "" {
+				for _, h := range strings.Split(currentString, "\n") {
+					if h == "" {
+						continue
+					}
+					parts := strings.SplitN(h, ": ", 2)
+					if len(parts) != 2 {
+						continue
+					}
+					p.Headers[parts[0]] = parts[1]
+				}
+			} else {
+				p.Translations[currentID] = currentString
+			}
 
 			currentID = unq
 			current = currentMsgID
@@ -57,7 +71,14 @@ func parse(s *bufio.Scanner) *po {
 			}
 			currentString = unq
 			current = currentMsgString
+		case strings.HasPrefix(line, "msgid_plural "), strings.HasPrefix(line, "msgstr["):
+			// We currently don't support plural in the Go parser, at least hold it off 'til it's needed.
+			current = currentNothing
 		default:
+			if current == currentNothing {
+				continue
+			}
+
 			unq, err := strconv.Unquote(strings.TrimSpace(line))
 			if err != nil {
 				fmt.Println(line)
