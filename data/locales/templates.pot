@@ -493,3 +493,96 @@ msgstr ""
 
 msgid "I have read and understood everything on this page."
 msgstr ""
+
+msgid "Ooops! Looks like something went really wrong while trying to process your request. Perhaps report this to a Ripple developer? Retrying doing what you were trying to do might work, too."
+msgstr ""
+
+# about.html
+msgid "Welcome to Ripple."
+msgstr ""
+
+msgid "Ripple is a private osu! server."
+msgstr ""
+
+msgid "There are many like it, but this one is ours."
+msgstr ""
+
+# %s is eggplant emoji
+msgid "Don't you like %s?"
+msgstr ""
+
+msgid "We have leaderboards."
+msgstr ""
+
+msgid "Online user listing."
+msgstr ""
+
+msgid "Free osu!direct."
+msgstr ""
+
+msgid "Global leaderboards."
+msgstr ""
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr ""
+
+msgid "Ranking queue for unranked beatmaps."
+msgstr ""
+
+msgid "Spectator."
+msgstr ""
+
+msgid "Multiplayer."
+msgstr ""
+
+msgid "FokaBot, our chat bot"
+msgstr ""
+
+msgid "with plenty of functions for just about anything, <a href=\"/doc/4\">check it out!</a>"
+msgstr ""
+
+msgid "And a lot more to come!"
+msgstr ""
+
+msgid "Ripple is the result of the hard work of two Italian developers, who got tired about the whole osu! ecosystem, and also because they wanted to play with a few banned friends."
+msgstr ""
+
+# %s is wink emoji
+msgid "It has now evolved into the largest available osu! private server, with more than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
+msgstr ""
+
+msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://zxq.co/ripple/ripple\">source code</a> Ripple is running on."
+msgstr ""
+
+# changelog.html
+msgid "This is the changelog. Changes are published here as soon as they hit the production status (as in, live on the website)."
+msgstr ""
+
+msgid "For various reasons, some software of Ripple does not contribute to the changelog, to which this website is a part of. In case you want to see the changelog of Hanayo, you can do so by <a href=\"https://zxq.co/ripple/hanayo/commits/master\">clicking here</a>."
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+# doc_content.html 
+msgid "View document"
+msgstr ""
+
+msgid "Documentation file not found!"
+msgstr ""
+
+msgid "View all docs"
+msgstr ""
+
+# doc.html
+msgid "Need some help getting around? Look no further! From here you will be able to view our documentation, which is basically a very simplistic wiki."
+msgstr ""
+
+msgid "Looks like there is no documentation on this ripple instance!"
+msgstr ""

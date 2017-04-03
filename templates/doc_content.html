@@ -11,7 +11,7 @@ HugeHeadingRight=true
 		{{ with .Get $url }}
 			{{ if not .title }}
 				<div class="ui segment">
-					Documentation file not found!
+					{{ .T "Documentation file not found!" }}
 				</div>
 			{{ else }}		
 				<div class="ui segment">
@@ -25,7 +25,7 @@ HugeHeadingRight=true
 		<div class="ui right aligned segment">
 			<a class="ui labeled icon button" href="/doc">
 				<i class="left arrow icon"></i>
-				View all docs
+				{{ .T "View all docs" }}
 			</a>
 		</div>
 	</div>
