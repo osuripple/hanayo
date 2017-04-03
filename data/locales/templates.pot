@@ -426,6 +426,9 @@ msgstr ""
 msgid "Share irrelevant opinions on reddit!"
 msgstr ""
 
+msgid "Language"
+msgstr ""
+
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
 msgstr ""
@@ -585,4 +588,127 @@ msgid "Need some help getting around? Look no further! From here you will be abl
 msgstr ""
 
 msgid "Looks like there is no documentation on this ripple instance!"
+msgstr ""
+
+# friends.html
+msgid "On this page you can see all of your friends, and unfriend them as you see fit."
+msgstr ""
+
+msgid "Mutual"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+# irc.html
+msgid "Here you can generate a new IRC token. You can use it to connect to Ripple's chat using IRC. Remember that your IRC token is like a password, anyone who knows it, has access to your account. If you're interested knowing how to connect to Ripple's chat via IRC, you may want to check out <a href=\"/doc/11\">this</a>."
+msgstr ""
+
+msgid "Generate a new token!"
+msgstr ""
+
+# leaderboard.html
+msgid "Rank"
+msgstr ""
+
+msgid "Player"
+msgstr ""
+
+msgid "PP/Score"
+msgstr ""
+
+msgid "Accuracy"
+msgstr ""
+
+msgid "Playcount"
+msgstr ""
+
+# profile.html
+# for <reason>, expires <placeholder for time>.
+msgid "User is <b>silenced</b> for %s, expires %s."
+msgstr ""
+
+# %s is placeholder for an adjective of the user, e.g. "locked", "pending verification", "restricted"
+msgid "User is <b>%s</b>"
+msgstr ""
+
+msgid "pending verification"
+msgstr ""
+
+msgid "banned"
+msgstr ""
+
+msgid "restricted"
+msgstr ""
+
+msgid "locked"
+msgstr ""
+
+msgid "(aka <b>%s</b>)"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "<b>%s</b> is a Ripple player from <b>%s</b>."
+msgstr ""
+
+msgid "Last seen: %s."
+msgstr ""
+
+msgid "They play with %s."
+msgstr ""
+
+msgid "Mouse"
+msgstr ""
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Keyboard"
+msgstr ""
+
+msgid "Touchscreen"
+msgstr ""
+
+msgid "Spoon"
+msgstr ""
+
+msgid "Leap motion"
+msgstr ""
+
+msgid "Oculus rift"
+msgstr ""
+
+msgid "Dick"
+msgstr ""
+
+msgid "Eggplant"
+msgstr ""
+
+msgid "This user hasn't got any badges!"
+msgstr ""
+
+msgid "PP"
+msgstr ""
+
+msgid "Ranked score"
+msgstr ""
+
+msgid "Total score"
+msgstr ""
+
+msgid "Replays watched"
+msgstr ""
+
+msgid "Total hits"
+msgstr ""
+
+msgid "Level %s"
 msgstr ""

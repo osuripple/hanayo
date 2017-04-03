@@ -8,7 +8,7 @@ KyutGrill=friends.jpg
 <div class="ui container">
 	<div class="ui segments">
 		<div class="ui segment">
-			On this page you can see all of your friends, and unfriend them as you see fit.
+			{{ .T "On this page you can see all of your friends, and unfriend them as you see fit." }}
 		</div>
 		<div class="ui segment">
 			{{ $page := or (atoint (.Gin.Query "p")) 1 }}
@@ -25,7 +25,7 @@ KyutGrill=friends.jpg
 										<div class="ui compact circular smalltext icon labeled {{ if .is_mutual }}red{{ else }}green{{ end }} button"
 											data-userid="{{ .id }}">
 											<i class="{{ if .is_mutual }}heart{{ else }}minus{{ end }} icon"></i>
-											<span>{{ if .is_mutual }}Mutual{{ else }}Remove{{ end }}</span>
+											<span>{{ if .is_mutual }}{{ .T "Mutual" }}{{ else }}{{ .T "Remove" }}{{ end }}</span>
 										</div>
 									</div>
 								</div>

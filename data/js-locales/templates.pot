@@ -107,3 +107,14 @@ msgstr[1] ""
 
 msgid "($ {{ usd }} / BTC {{ btc }})"
 msgstr ""
+
+# (following are in relation to friends)
+msgid "Mutual"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+

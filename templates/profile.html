@@ -10,7 +10,7 @@
 				window.userID = '{{ .id }}';
 			</script>
 			{{ if after .silence_info.end }}
-				<div class="ui error centered message">User is <b>silenced</b> for {{ .silence_info.reason }}, expires {{ time .silence_info.end }}.</div>
+				<div class="ui error centered message">{{ $global.T "User is <b>silenced</b> for %s, expires %s." .silence_info.reason (time .silence_info.end) | html }}</div>
 			{{ end }}
 			{{ if hasAdmin $global.Context.User.Privileges }}
 				{{ $restr := not (has .privileges 1) }}
@@ -18,14 +18,14 @@
 				{{ $pend  := has .privileges 1048576 }}
 				{{ if and $disab $restr }}
 					{{ if $pend }}
-						<div class="ui warning centered message">User is <b>pending verification</b>.</div>
+						<div class="ui warning centered message">{{ "User is <b>%s</b>" "pending verification" | html }}.</div>
 					{{ else }}
-						<div class="ui error centered message">User is <b>banned</b>.</div>
+						<div class="ui error centered message">{{ "User is <b>%s</b>" "banned" | html }}.</div>
 					{{ end }}
 				{{ else if $restr }}
-					<div class="ui error centered message">User is <b>restricted</b>.</div>
+					<div class="ui error centered message">{{ "User is <b>%s</b>" "restricted" | html }}.</div>
 				{{ else if $disab }}
-					<div class="ui error centered message">User is <b>locked</b>.</div>									
+					<div class="ui error centered message">{{ "User is <b>%s</b>" "locked" | html }}.</div>									
 				{{ end }}
 			{{ end }}
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
@@ -54,13 +54,13 @@
 						</h1>
 						{{ if .username_aka }}
 							<div class="subtitle">
-								(aka <b>{{ .username_aka }}</b>)
+								{{ $global.T "(aka <b>%s</b>)" .username_aka | html }}
 							</div>
 						{{ end }}
 						{{ with bget "isOnline?id=%.0f" .id }}
 							<div class="subtitle">
 								<i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
-								{{ if .result }}Online{{ else }}Offline{{ end }}
+								{{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }}
 							</div>
 						{{ end }}
 					</div>
@@ -72,7 +72,7 @@
 								<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>#{{ .global_leaderboard_rank }}</h1>
 							{{ end }}
 						{{ else }}
-								<h1>Unknown</h1>							
+								<h1>{{ $global.T "Unknown" }}</h1>							
 						{{ end }}
 						<div id="profile-actions">
 							{{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
@@ -99,14 +99,14 @@
 				<div class="ui three column divided stackable grid">
 					<div class="row">
 						<div class="column">
-							<b>{{ .username }}</b> is a Ripple player{{ with country .country true }} from <b>{{ . }}</b>{{ end }}. 
-							<br>They signed up on Ripple {{ time $user.registered_on }}.
-							<br>Last seen: {{ time $user.latest_activity }}.
-							<br>{{ with playstyle .play_style }}They play with {{ . }}.{{ end }}
+							{{ $global.T "<b>%s</b> is a Ripple player from <b>%s</b>." .username (country .country true) | html }} 
+							<br>{{ $global.T "They signed up on Ripple %s." (time $user.registered_on) | html }}
+							<br>{{ $global.T "Last seen: %s." (time $user.latest_activity) | html }}
+							<br>{{ with playstyle .play_style $global }}{{ $global.T "They play with %s." . }}{{ end }}
 						</div>
 						<div class="column">
 							{{ if and (not .badges) (not .custom_badge) }}
-								This user hasn't got any badges!
+								{{ $global.T "This user hasn't got any badges!" }}
 							{{ else }}
 								<div class="ui grid">
 									{{ range .badges }}
@@ -130,30 +130,30 @@
 									<table class="ui very basic two column compact table nopad">
 										<tbody>
 											<tr>
-												<td><b>PP</b></td>
+												<td><b>{{ $global.T "PP" }}</b></td>
 												<td>{{ humanize .pp }}</td>
 											</tr>
 											<tr>
-												<td><b>Ranked score</b></td>
+												<td><b>{{ $global.T "Ranked score" }}</b></td>
 												<td>{{ humanize .ranked_score }}</td>
 											</tr>
 											<tr>
-												<td><b>Total score</b></td>
+												<td><b>{{ $global.T "Total score" }}</b></td>
 												<td>{{ humanize .total_score }}</td>
 											</tr>
 											<tr>
-												<td><b>Playcount</b></td>
+												<td><b>{{ $global.T "Playcount" }}</b></td>
 												<td>{{ humanize .playcount }}</td>
 											</tr>
 											<tr>
-												<td><b>Replays watched</b></td>
+												<td><b>{{ $global.T "Replays watched" }}</b></td>
 												<td>{{ humanize .replays_watched }}</td>
 											</tr>
 											<tr>
-												<td><b>Total hits</b></td>
+												<td><b>{{ $global.T "Total hits" }}</b></td>
 												<td>{{ humanize .total_hits }}</td>
 											</tr>									<tr>
-												<td><b>Accuracy</b></td>
+												<td><b>{{ $global.T "Accuracy" }}</b></td>
 												<td>{{ printf "%.2f" .accuracy }}%</td>
 											</tr>
 										</tbody>
@@ -162,7 +162,7 @@
 										<div class="bar">
 											<div class="progress">{{ levelPercent .level }}%</div>
 										</div>
-										<div class="label">Level {{ level .level }}</div>
+										<div class="label">{{ $global.T "Level %s" (level .level) }}</div>
 									</div>
 								</div>
 							{{ end }}

@@ -108,7 +108,7 @@ var singlePageSnippets = {
         t.addClass(data.friend ? (data.mutual ? "red" : "green") : "blue");
         t.find(".icon").removeClass("minus plus heart").
           addClass(data.friend ? (data.mutual ? "heart" : "minus") : "plus");
-        t.find("span").text(data.friend ? (data.mutual ? "Mutual" : "Remove") : "Add");
+        t.find("span").text(data.friend ? (data.mutual ? T("Mutual") : T("Remove")) : t("Add"));
       }, true);
     });
   },

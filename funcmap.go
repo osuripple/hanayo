@@ -257,7 +257,8 @@ var funcMap = template.FuncMap{
 		return strconv.FormatInt(hanayoStarted, 10)
 	},
 	// playstyle returns the string representation of a playstyle.
-	"playstyle": func(i float64) string {
+	"playstyle": func(i float64, f *profileData) string {
+		// TODO: use f to translate PlayStyle
 		return playstyle.PlayStyle(i).String()
 	},
 	// arithmetic plus/minus

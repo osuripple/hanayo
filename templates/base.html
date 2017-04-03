@@ -87,7 +87,7 @@
 					{{ $info := languageInformationByNameShort . }}
 					<div class="text"><i class="{{ $info.CountryShort }} flag"></i>{{ $info.Name }}</div>
 				{{ else }}
-					<div class="default text">Language</div>
+					<div class="default text">{{ .T "Language" }}</div>
 				{{ end }}
 				<i class="dropdown icon"></i>
 				<div class="menu">
