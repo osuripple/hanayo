@@ -13,12 +13,12 @@ import (
 	"strings"
 	"time"
 
-	"zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/pariz/gountries"
 	"github.com/rjeczalik/notify"
 	"github.com/thehowl/conf"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 var templates = make(map[string]*template.Template)
@@ -119,9 +119,7 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 	if err != nil {
 		c.String(
 			200,
-			"oooops! A brit monkey stumbled upon a banana while trying to process your request. "+
-				"This doesn't make much sense, but in a few words: we fucked up something while processing your "+
-				"request. We are sorry for this, but don't worry: we have been notified and are on it!",
+			"An error occurred while trying to render the page, and we have now been notified about it.",
 		)
 		c.Error(err)
 		return

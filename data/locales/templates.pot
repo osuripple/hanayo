@@ -624,6 +624,9 @@ msgid "Playcount"
 msgstr ""
 
 # profile.html
+msgid "%s's profile"
+msgstr ""
+
 # for <reason>, expires <placeholder for time>.
 msgid "User is <b>silenced</b> for %s, expires %s."
 msgstr ""
@@ -642,6 +645,9 @@ msgid "restricted"
 msgstr ""
 
 msgid "locked"
+msgstr ""
+
+msgid "User not found"
 msgstr ""
 
 msgid "(aka <b>%s</b>)"
@@ -835,16 +841,10 @@ msgid "Please log in to get supporter"
 msgstr ""
 
 # Settings
-msgid "Profile"
-msgstr ""
-
 msgid "Userpage"
 msgstr ""
 
 msgid "Avatar"
-msgstr ""
-
-msgid "Two Factor Authentication"
 msgstr ""
 
 msgid "Discord donor"
@@ -971,4 +971,74 @@ msgid "Dinosaur, oompa-loompa, cool guy..."
 msgstr ""
 
 msgid "Playstyle"
+msgstr ""
+
+# Go source
+msgid "TOTP-based 2FA has been enabled on your account."
+msgstr ""
+
+msgid "Passcode is invalid. Perhaps it expired?"
+msgstr ""
+
+msgid "No passcode/secret was given. Please try again"
+msgstr ""
+
+msgid "TOTP-based 2FA is already enabled!"
+msgstr ""
+
+msgid "You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA."
+msgstr ""
+
+msgid "2FA disabled successfully."
+msgstr ""
+
+msgid "Changing avatar is currently not possible."
+msgstr ""
+
+msgid "An error occurred."
+msgstr ""
+
+msgid "We were not able to save your avatar."
+msgstr ""
+
+msgid "Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5."
+msgstr ""
+
+msgid "Internal Server Error"
+msgstr ""
+
+msgid "You're not a donor!"
+msgstr ""
+
+msgid "You've not joined the discord server! Links to it are below on the page. Please join the server before attempting to connect your account to Discord."
+msgstr ""
+
+msgid "Your account has been linked successfully!"
+msgstr ""
+
+msgid "Your new IRC token is <code>%s</code>. The old IRC token is not valid anymore.<br>Keep it safe, don't show it around, and store it now! We won't show it to you again."
+msgstr ""
+
+msgid "Your profile background has been saved."
+msgstr ""
+
+msgid "We were not able to save your profile background."
+msgstr ""
+
+msgid "Colour is invalid"
+msgstr ""
+
+msgid "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."
+msgstr ""
+
+msgid "You have been automatically logged out for security reasons. Please <a href='/login?redir=%s'>log back in</a>."
+msgstr ""
+
+msgid "You need to login first."
+msgstr ""
+
+msgid "Forbidden"
+msgstr ""
+
+msgid "You should not be 'round here."
 msgstr ""

@@ -142,7 +142,7 @@ func registerSubmit(c *gin.Context) {
 
 func registerResp(c *gin.Context, messages ...message) {
 	resp(c, 200, "register/register.html", &baseTemplateData{
-		TitleBar:  T(c, "Register"),
+		TitleBar:  "Register",
 		KyutGrill: "register.jpg",
 		Scripts:   []string{"https://www.google.com/recaptcha/api.js"},
 		Messages:  messages,
@@ -178,7 +178,7 @@ func verifyAccount(c *gin.Context) {
 	}
 
 	resp(c, 200, "register/verify.html", &baseTemplateData{
-		TitleBar:       T(c, "Verify account"),
+		TitleBar:       "Verify account",
 		HeadingOnRight: true,
 		KyutGrill:      "welcome.jpg",
 	})

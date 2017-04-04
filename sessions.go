@@ -2,14 +2,13 @@ package main
 
 import (
 	"net/http"
+	"net/url"
 	"time"
 
-	"net/url"
-
-	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/rippleapi/common"
+	"zxq.co/x/rs"
 )
 
 func sessionInitializer() func(c *gin.Context) {
@@ -75,10 +74,10 @@ func sessionInitializer() func(c *gin.Context) {
 		c.Set("session", sess)
 
 		if addBannedMessage {
-			addMessage(c, warningMessage{"You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."})
+			addMessage(c, warningMessage{T(c, "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe.")})
 		}
 		if passwordChanged {
-			addMessage(c, warningMessage{"You have been automatically logged out for security reasons. Please <a href='/login?redir=" + url.QueryEscape(c.Request.URL.Path) + "'>log back in</a>."})
+			addMessage(c, warningMessage{T(c, "You have been automatically logged out for security reasons. Please <a href='/login?redir=%s'>log back in</a>.", url.QueryEscape(c.Request.URL.Path))})
 		}
 
 		c.Next()

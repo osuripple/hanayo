@@ -23,32 +23,32 @@ func avatarSubmit(c *gin.Context) {
 		simpleReply(c, m)
 	}()
 	if config.AvatarsFolder == "" {
-		m = errorMessage{"Changing avatar is currently not possible."}
+		m = errorMessage{T(c, "Changing avatar is currently not possible.")}
 		return
 	}
 	file, _, err := c.Request.FormFile("avatar")
 	if err != nil {
-		m = errorMessage{"An error occurred."}
+		m = errorMessage{T(c, "An error occurred.")}
 		return
 	}
 	img, _, err := image.Decode(file)
 	if err != nil {
-		m = errorMessage{"An error occurred."}
+		m = errorMessage{T(c, "An error occurred.")}
 		return
 	}
 	img = resize.Thumbnail(256, 256, img, resize.Bilinear)
 	f, err := os.Create(fmt.Sprintf("%s/%d.png", config.AvatarsFolder, ctx.User.ID))
 	defer f.Close()
 	if err != nil {
-		m = errorMessage{"An error occurred."}
+		m = errorMessage{T(c, "An error occurred.")}
 		c.Error(err)
 		return
 	}
 	err = png.Encode(f, img)
 	if err != nil {
-		m = errorMessage{"We were not able to save your avatar."}
+		m = errorMessage{T(c, "We were not able to save your avatar.")}
 		c.Error(err)
 		return
 	}
-	m = successMessage{"Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5."}
+	m = successMessage{T(c, "Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5.")}
 }

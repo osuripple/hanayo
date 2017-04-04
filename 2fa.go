@@ -126,7 +126,7 @@ func tfaGateway(c *gin.Context) {
 	}
 
 	resp(c, 200, "2fa_gateway.html", &baseTemplateData{
-		TitleBar:  T(c, "Two Factor Authentication"),
+		TitleBar:  "Two Factor Authentication",
 		KyutGrill: "2fa.jpg",
 		RequestInfo: map[string]interface{}{
 			"redir": redir,
@@ -312,7 +312,7 @@ func disable2fa(c *gin.Context) {
 
 	db.Exec("DELETE FROM 2fa_telegram WHERE userid = ?", ctx.User.ID)
 	db.Exec("DELETE FROM 2fa_totp WHERE userid = ?", ctx.User.ID)
-	m = successMessage{"2FA disabled successfully."}
+	m = successMessage{T(c, "2FA disabled successfully.")}
 }
 
 func totpSetup(c *gin.Context) {
@@ -332,10 +332,10 @@ func totpSetup(c *gin.Context) {
 
 	switch is2faEnabled(ctx.User.ID) {
 	case 1:
-		addMessage(c, errorMessage{"You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA."})
+		addMessage(c, errorMessage{T(c, "You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA.")})
 		return
 	case 2:
-		addMessage(c, errorMessage{"TOTP-based 2FA is already enabled!"})
+		addMessage(c, errorMessage{T(c, "TOTP-based 2FA is already enabled!")})
 		return
 	}
 
@@ -344,20 +344,20 @@ func totpSetup(c *gin.Context) {
 	var secret string
 	db.Get(&secret, "SELECT secret FROM 2fa_totp WHERE userid = ?", ctx.User.ID)
 	if secret == "" || pc == "" {
-		addMessage(c, errorMessage{"No passcode/secret was given. Please try again"})
+		addMessage(c, errorMessage{T(c, "No passcode/secret was given. Please try again")})
 		return
 	}
 
 	fmt.Println(pc, secret)
 	if !totp.Validate(pc, secret) {
-		addMessage(c, errorMessage{"Passcode is invalid. Perhaps it expired?"})
+		addMessage(c, errorMessage{T(c, "Passcode is invalid. Perhaps it expired?")})
 		return
 	}
 
 	codes, _ := json.Marshal(generateRecoveryCodes())
 	db.Exec("UPDATE 2fa_totp SET recovery = ?, enabled = 1 WHERE userid = ?", string(codes), ctx.User.ID)
 
-	addMessage(c, successMessage{"TOTP-based 2FA has been enabled on your account."})
+	addMessage(c, successMessage{T(c, "TOTP-based 2FA has been enabled on your account.")})
 }
 
 func generateRecoveryCodes() []string {

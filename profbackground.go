@@ -21,14 +21,14 @@ func profBackground(c *gin.Context) {
 		resp403(c)
 		return
 	}
-	var m message = successMessage{"Your profile background has been saved."}
+	var m message = successMessage{T(c, "Your profile background has been saved.")}
 	defer func() {
 		addMessage(c, m)
 		getSession(c).Save()
 		c.Redirect(302, "/settings/profbackground")
 	}()
 	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
-		m = errorMessage{"CSRF token has expired. Please try again."}
+		m = errorMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")}
 		return
 	}
 	t := c.Param("type")
@@ -39,25 +39,25 @@ func profBackground(c *gin.Context) {
 		// image
 		file, _, err := c.Request.FormFile("value")
 		if err != nil {
-			m = errorMessage{"An error occurred."}
+			m = errorMessage{T(c, "An error occurred.")}
 			return
 		}
 		img, _, err := image.Decode(file)
 		if err != nil {
-			m = errorMessage{"An error occurred."}
+			m = errorMessage{T(c, "An error occurred.")}
 			return
 		}
 		img = resize.Thumbnail(2496, 1404, img, resize.Bilinear)
 		f, err := os.Create(fmt.Sprintf("static/profbackgrounds/%d.jpg", ctx.User.ID))
 		defer f.Close()
 		if err != nil {
-			m = errorMessage{"An error occurred."}
+			m = errorMessage{T(c, "An error occurred.")}
 			c.Error(err)
 			return
 		}
 		err = jpeg.Encode(f, img, nil)
 		if err != nil {
-			m = errorMessage{"We were not able to save your profile background."}
+			m = errorMessage{T(c, "We were not able to save your profile background.")}
 			c.Error(err)
 			return
 		}
@@ -67,7 +67,7 @@ func profBackground(c *gin.Context) {
 		col := strings.ToLower(c.PostForm("value"))
 		// verify it's valid
 		if !hexColourRegex.MatchString(col) {
-			m = errorMessage{"Colour is invalid"}
+			m = errorMessage{T(c, "Colour is invalid")}
 			return
 		}
 		saveProfileBackground(ctx, 2, col)

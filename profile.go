@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"strconv"
 
-	"zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 // TODO: replace with simple ResponseInfo containing userid
@@ -50,7 +50,7 @@ func userProfile(c *gin.Context) {
 
 	if data.UserID == 0 {
 		data.TitleBar = "User not found"
-		data.Messages = append(data.Messages, warningMessage{"That user could not be found!"})
+		data.Messages = append(data.Messages, warningMessage{T(c, "That user could not be found.")})
 		return
 	}
 
@@ -69,7 +69,7 @@ func userProfile(c *gin.Context) {
 		}
 	}
 
-	data.TitleBar = username + "'s profile"
+	data.TitleBar = T(c, "%s's profile", username)
 	data.DisableHH = true
 	data.Scripts = append(data.Scripts, "/static/profile.js")
 }

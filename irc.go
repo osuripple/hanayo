@@ -2,10 +2,9 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 
-	"zxq.co/ripple/rippleapi/common"
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 func ircGenToken(c *gin.Context) {
@@ -29,8 +28,6 @@ func ircGenToken(c *gin.Context) {
 
 	db.Exec("INSERT INTO irc_tokens(userid, token) VALUES (?, ?)", ctx.User.ID, m)
 	simple(c, getSimple("/irc"), []message{successMessage{
-		fmt.Sprintf("Your new IRC token is <code>%s</code>. The old IRC token is not valid anymore."+
-			"<br>Keep it safe, don't show it around, and store it now! "+
-			"We won't show it to you again.", s),
+		T(c, "Your new IRC token is <code>%s</code>. The old IRC token is not valid anymore.<br>Keep it safe, don't show it around, and store it now! We won't show it to you again.", s),
 	}}, nil)
 }

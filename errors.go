@@ -4,7 +4,7 @@ import "github.com/gin-gonic/gin"
 
 func notFound(c *gin.Context) {
 	resp(c, 404, "not_found.html", &baseTemplateData{
-		TitleBar:  T(c, "Not Found"),
+		TitleBar:  "Not Found",
 		KyutGrill: "not_found.jpg",
 	})
 }

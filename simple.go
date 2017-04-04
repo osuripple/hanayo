@@ -31,12 +31,12 @@ func simplePageFunc(p templateConfig) gin.HandlerFunc {
 func resp403(c *gin.Context) {
 	if getContext(c).User.ID == 0 {
 		ru := c.Request.URL
-		addMessage(c, warningMessage{"You need to login first."})
+		addMessage(c, warningMessage{T(c, "You need to login first.")})
 		getSession(c).Save()
 		c.Redirect(302, "/login?redir="+url.QueryEscape(ru.Path+"?"+ru.RawQuery))
 		return
 	}
-	respEmpty(c, "Forbidden", warningMessage{"You should not be 'round here."})
+	respEmpty(c, "Forbidden", warningMessage{T(c, "You should not be 'round here.")})
 }
 
 func simpleReply(c *gin.Context, errs ...message) error {
