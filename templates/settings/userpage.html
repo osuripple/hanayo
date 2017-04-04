@@ -6,6 +6,7 @@ Include=menu.html
 MinPrivileges=2
 */}}
 {{ define "tpl" }}
+{{ $ := . }}
 <div class="ui container">
 	<div class="ui stackable grid">
 		{{ template "settingsSidebar" . }}
@@ -15,12 +16,12 @@ MinPrivileges=2
 				{{ with .Get "users/userpage?id=%d" .Context.User.ID }}
 					<form class="ui form" method="post">
 						<textarea class="monospace" name="data">{{ .userpage }}</textarea>
-						<p><a href="https://docs.ripple.moe/docs/misc/hanayo_bbcode" target="_blank">BBCode syntax reference</a></p>
+						<p><a href="https://docs.ripple.moe/docs/misc/hanayo_bbcode" target="_blank">{{ $.T "BBCode syntax reference" }}</a></p>
 						<div class="ui divider"></div>
 						<div class="ui segment twemoji" id="userpage-content">{{ parseUserpage .userpage | html }}</div>
 						<div class="ui divider"></div>
 						<div style="text-align: right">
-							<button type="submit" class="ui blue button">Save</button>
+							<button type="submit" class="ui blue button">{{ $.T "Save" }}</button>
 						</div>
 						{{ $f }}
 					</form>

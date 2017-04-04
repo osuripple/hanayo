@@ -4,15 +4,22 @@ NoCompile=true
 {{ define "settingsSidebar" }}
 <div class="four wide column">
 	<div class="ui fluid vertical menu">
-		{{ navbarItem .Path "Profile" "/settings" }}
-		{{ navbarItem .Path "Userpage" "/settings/userpage" }}
-		{{ navbarItem .Path "Avatar" "/settings/avatar" }}
-		{{ navbarItem .Path "Password" "/settings/password" }}
-		{{ navbarItem .Path "Two Factor Authentication" "/settings/2fa" }}
+		{{ navbarItem .Path (.T "Profile") "/settings" }}
+
+		{{ navbarItem .Path (.T "Userpage") "/settings/userpage" }}
+
+		{{ navbarItem .Path (.T "Avatar") "/settings/avatar" }}
+
+		{{ navbarItem .Path (.T "Password") "/settings/password" }}
+
+		{{ navbarItem .Path (.T "Two Factor Authentication") "/settings/2fa" }}
+
 		{{/* Stuff for donators */}}
 		{{ if has .Context.User.Privileges 4 }}
-			{{ navbarItem .Path "Discord donor" "/settings/discord" }}
-			{{ navbarItem .Path "Profile background" "/settings/profbackground" }}
+			{{ navbarItem .Path (.T "Discord donor") "/settings/discord" }}
+
+			{{ navbarItem .Path (.T "Profile background") "/settings/profbackground" }}
+
 		{{ end }}
 	</div>
 </div>

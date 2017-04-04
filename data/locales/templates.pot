@@ -833,3 +833,142 @@ msgstr ""
 
 msgid "Please log in to get supporter"
 msgstr ""
+
+# Settings
+msgid "Profile"
+msgstr ""
+
+msgid "Userpage"
+msgstr ""
+
+msgid "Avatar"
+msgstr ""
+
+msgid "Two Factor Authentication"
+msgstr ""
+
+msgid "Discord donor"
+msgstr ""
+
+msgid "Profile background"
+msgstr ""
+
+msgid "Two factor authentication is enabled on your account."
+msgstr ""
+
+msgid "Two factor authentication is not enabled on your account."
+msgstr ""
+
+msgid "Telegram 2FA"
+msgstr ""
+
+msgid "To enable Telegram Two Factor Authentication, click this button, then click "start" on Telegram:"
+msgstr ""
+
+msgid "Enable Telegram 2FA"
+msgstr ""
+
+msgid "If you don't have Telegram on the current device, you can either open this page from a device on which you have it, or scan this QR code:"
+msgstr ""
+
+msgid "In case you don't have a way to scan QR codes or you simply can't be bothered to download an app that scans them, you can also open Telegram, start a conversation with <a href=\"http://telegram.me/ripple2fabot\"><b>@ripple2fabot</b></a> and send this message:"
+msgstr ""
+
+msgid "Google Authenticator (TOTP) based 2FA"
+msgstr ""
+
+msgid "At the moment you currently have set up Telegram Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
+msgstr ""
+
+msgid "At the moment you currently have set up TOTP-based (Google Authenticator) Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
+msgstr ""
+
+msgid "Disable Telegram 2FA"
+msgstr ""
+
+msgid "Disable TOTP-based 2FA"
+msgstr ""
+
+msgid "Google Authenticator recovery keys"
+msgstr ""
+
+msgid "These are the only thing that will let you get back into your Ripple account if you lose your device. Our suggestion is to paste them inside a document in your word processor (Microsoft Word, LibreOffice Writer), print them and store them in a safe place."
+msgstr ""
+
+msgid "Open File"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord. If you want to change your nickname, you can use the <code>/nick</code> command. To set or edit your <b>custom role</b> name and colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\"_blank\">here</a>, it's the one that starts with '#'. You can change your role name and colour <b>whenever you want!</b>"
+msgstr ""
+
+msgid "Thank you for supporting us and have fun on Ripple!"
+msgstr ""
+
+msgid "Donors get special privileges on our Discord server too!"
+msgstr ""
+
+msgid "Discord is a chatroom with text and voice channels, bots and lots of other cool features. You can <b>download Discord for free <a href=\"http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
+msgstr ""
+
+msgid "Here's what you get if you link your Discord account:"
+msgstr ""
+
+msgid "Access to /nick command, to change your Discord nickname"
+msgstr ""
+
+msgid "Access to #donators text and voice channels"
+msgstr ""
+
+msgid "Username on donors list"
+msgstr ""
+
+msgid "Custom role with custom username"
+msgstr ""
+
+msgid "To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our Discord server</a>, then click this fancy button:"
+msgstr ""
+
+msgid "Get Discord donor privileges"
+msgstr ""
+
+msgid "New password (leave blank if you don't want to change it)"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "BBCode syntax reference"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Alternative username (cannot be used for login)"
+msgstr ""
+
+msgid "Also known as..."
+msgstr ""
+
+msgid "Custom badge"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore."
+msgstr ""
+
+msgid "Icon reference"
+msgstr ""
+
+msgid "Dinosaur, oompa-loompa, cool guy..."
+msgstr ""
+
+msgid "Playstyle"
+msgstr ""

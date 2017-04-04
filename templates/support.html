@@ -129,7 +129,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.
 								<div class="ui label">
 									{{ $.T "User:" }}
 								</div>
-								<input name="os1" type="text" placeholder="User" value="{{ $global.User.Username }}">
+								<input name="os1" type="text" placeholder="{{ $.T "User" }}" value="{{ $global.User.Username }}">
 								<button type="submit" class="ui blue button">{{ $.T "Submit" }}</button>
 							</div>
 							{{ $ief }}
