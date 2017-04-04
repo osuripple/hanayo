@@ -712,3 +712,124 @@ msgstr ""
 
 msgid "Level %s"
 msgstr ""
+
+# support.html
+msgid "Support Ripple"
+msgstr ""
+
+msgid "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
+msgstr ""
+
+msgid "(Probably.)"
+msgstr ""
+
+msgid "(Probably not.)"
+msgstr ""
+
+msgid "Ripple is not cheap to run."
+msgstr ""
+
+msgid "While we provide this service for free, we still have to pay for it, and if we always took the money out of our own pockets, 1. we would be broke, 2. we wouldn't be able to upgrade our hardware to accomodate our users. While we do have loads of software optimisations that allow us to have Ripple run crazy fast while still being on not so high-end hardware, the more users we have, the higher-end our hardware needs to be. So we are asking you for help on this :)."
+msgstr ""
+
+msgid "We are still students."
+msgstr ""
+
+msgid "Ripple developers, and most of the Ripple staff, do not have a day job. This means that we get most of our income as students from doing small jobs as \"freelancers\" every so often, or, you know, allowance."
+msgstr ""
+
+msgid "We do not have ads. And never will."
+msgstr ""
+
+msgid "We love picking random icons from our icon library."
+msgstr ""
+
+msgid "You may have adblock enabled and have not noticed, but we don't have ads anywhere on our website. We believe ads are bad, as they can be very annoying to you and that you would rather spend a few bucks to help us rather than watch annoying ads all the time."
+msgstr ""
+
+msgid "So what can you do?"
+msgstr ""
+
+msgid "Well, you can give us money."
+msgstr ""
+
+msgid "Well, you can give us even more money."
+msgstr ""
+
+msgid "Here's what you get:"
+msgstr ""
+
+msgid "Yellow username"
+msgstr ""
+
+msgid "Donor badge"
+msgstr ""
+
+msgid "Custom badge editor"
+msgstr ""
+
+msgid "Friends ranking"
+msgstr ""
+
+msgid "Discord privileges"
+msgstr ""
+
+msgid "Profile background"
+msgstr ""
+
+msgid "More to come!"
+msgstr ""
+
+msgid "Just like in osu!, you get a <b>shiny yellow username</b> in the in-game chat to show everyone you're a really cool dude who has helped us pay the server bills."
+msgstr ""
+
+msgid "Again, just like in osu!, you will get a <b>donor badge</b> on your profile, to show everyone you're supporting us."
+msgstr ""
+
+msgid "You get to be able to create your <b>own personal badge</b>, with custom text and icon, to show off on your profile! Let the world know you're an anchor. Or prank people showing a spinnin' wheel with \"Loading...\"! Up to you."
+msgstr ""
+
+msgid "<b>Competing with friends</b> is really cool, you can play on the leaderboard with someone more or less on your level, without getting crippling depression and RSI for not beating that pro!"
+msgstr ""
+
+msgid "You'll get exclusive access to the <b>\"#donators\"</b> text and voice channels, you'll be able to change your discord nickname and you'll get a custom role with custom username colour!"
+msgstr ""
+
+msgid "Think about <b>spicing your profile up with some eggplants</b>? Got you covered! Having donor privileges, you get to be able to change your profile background."
+msgstr ""
+
+msgid "<b>Who knows</b> what we could implement next? You could be able to do even <i>more</i> stuff for donors once we implement it."
+msgstr ""
+
+msgid "And this is how you pay"
+msgstr ""
+
+msgid "You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>. Use the slider below to choose the amount of months you'd like to have the donor benefits, and the cost will be instantly calculated. Remember that if, for instance, you choose to donate € 4 instead of € 3.51, you will only be given one donor month."
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "PayPal"
+msgstr ""
+
+msgid "User:"
+msgstr ""
+
+msgid "Bitcoin"
+msgstr ""
+
+msgid "Send %s BTC to this Bitcoin address:"
+msgstr ""
+
+msgid "Afterwards, <b>please send an email to <a href=\"mailto:howl@ripple.moe\">howl@ripple.moe</a></b> containing the transaction hash!"
+msgstr ""
+
+msgid "I've donated, now what?"
+msgstr ""
+
+msgid "You'll have to wait until we verify and process your payment. It can take up to <b>12 hours</b>. If 12 hours have passed and you still haven't received your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server or send an email to <b><a href=\"mailto:support@ripple.moe\">support@ripple.moe</a></b>. Once we have processed your payment, you'll receive an <b>email</b> to the address you've used to sign up and you'll get <b>all the donor privileges, except the Discord ones</b>. To get the Discord donor privileges, go <a href=\"/settings/discord\">here</a>."
+msgstr ""
+
+msgid "Please log in to get supporter"
+msgstr ""
