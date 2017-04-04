@@ -227,6 +227,7 @@ var singlePageSnippets = {
         );
         $("input[name='os0']").attr("value", (+months).toFixed(0) + " month" + (months == 1 ? "" : "s"));
         $("#bitcoin-amt").text(priceBTC.toFixed(6));
+        $("#paypal-amt").val(priceEUR.toFixed(2));
       });
     });
   },
