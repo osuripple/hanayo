@@ -30,6 +30,8 @@
     "{{ stars }} star_0": "{{ stars }} звезда",
     "{{ stars }} star_1": "{{ stars }} звезды",
     "{{ stars }} star_2": "{{ stars }} звёзд",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>": "",
-    "($ {{ usd }} / BTC {{ btc }})": ""
+    "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})",
+    "Mutual": "Взаимно",
+    "Remove": "Удалить",
+    "Add": "Добавить"
 }

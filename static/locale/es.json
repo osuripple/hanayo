@@ -29,6 +29,8 @@
     "None": "Ninguna",
     "{{ stars }} star": "{{ stars }} estrella",
     "{{ stars }} star_plural": "{{ stars }} estrellas",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>": "",
-    "($ {{ usd }} / BTC {{ btc }})": ""
+    "($ {{ usd }} / BTC {{ btc }})": "",
+    "Mutual": "",
+    "Remove": "",
+    "Add": ""
 }

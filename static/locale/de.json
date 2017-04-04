@@ -29,6 +29,8 @@
     "None": "Keine",
     "{{ stars }} star": "{{ stars }} Stern",
     "{{ stars }} star_plural": "{{ stars }} Sterne",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>": "",
-    "($ {{ usd }} / BTC {{ btc }})": ""
+    "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }}) ",
+    "Mutual": "Freunde",
+    "Remove": "Entfernen",
+    "Add": "Hinzufügen"
 }

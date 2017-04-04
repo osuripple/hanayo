@@ -29,7 +29,8 @@
     "None": "Nessuna",
     "{{ stars }} star": "{{ stars }} stella",
     "{{ stars }} star_plural": "{{ stars }} stelle",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>": "<b>{{ months }}</b> mese = <b>€ {{ eur }}</b>",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>_plural": "<b>{{ months }}</b> mesi = <b>€ {{ eur }}</b>",
-    "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})"
+    "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})",
+    "Mutual": "Reciproci",
+    "Remove": "Rimuovi",
+    "Add": "Aggiungi"
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-02 09:49+0000\n"
+"POT-Creation-Date: 2017-04-04 20:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /ru/Hanayo/templates-ru.po\n"
-"X-Pootle-Revision: 1065\n"
+"X-Pootle-Revision: 1858\n"
 
 # General
 msgid "You're already logged in!"
@@ -413,7 +413,7 @@ msgid ""
 "Your password is sooooooo old, that we don't even know how to deal with it "
 "anymore. Could you please change it?"
 msgstr ""
-"Ваш пароль такоооооой старый, что мы даже не знаем как с ним быть. Вы не "
+"Ваш пароль тако-о-ой старый, что мы даже не знаем как с ним быть. Вы не "
 "могли бы его поменять?"
 
 msgid "Wrong password."
@@ -625,6 +625,9 @@ msgstr "Подписывайтесь на нас в Twitter!"
 msgid "Share irrelevant opinions on reddit!"
 msgstr "Делитесь своими мнениями на Reddit!"
 
+msgid "Language"
+msgstr "Язык"
+
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
 msgstr "Двухфакторная аутентификация"
@@ -634,7 +637,7 @@ msgid ""
 "Authenticator App to use the code for Ripple, so that we can log you in."
 msgstr ""
 "Перед тем как продолжить использовать Ripple, мы требуем от вас получить код "
-"из приложения Google Authenticator, чтобы мы смогли вас авторизировать."
+"из приложения Google Authenticator, чтобы мы смогли вас авторизовать."
 
 msgid ""
 "Before proceding any further on Ripple, we require you to use the message "
@@ -741,3 +744,702 @@ msgstr ""
 
 msgid "I have read and understood everything on this page."
 msgstr "Я прочитал и понял все вышеуказанное."
+
+msgid ""
+"Ooops! Looks like something went really wrong while trying to process your "
+"request. Perhaps report this to a Ripple developer? Retrying doing what you "
+"were trying to do might work, too."
+msgstr ""
+"У-упс! Похоже, что-то пошло не так при обработке Вашего запроса. Может, "
+"уведомить об этом разработчиков Ripple? Повтор всего того, что вы сделали, "
+"тоже может сработать."
+
+msgid "Ripple is a private osu! server."
+msgstr "Ripple - частный сервер osu!"
+
+msgid "There are many like it, but this one is ours."
+msgstr "Таких как он - много, но этот - наш."
+
+# %s is eggplant emoji
+msgid "Don't you like %s?"
+msgstr "Разве вы не любите %s?"
+
+msgid "We have leaderboards."
+msgstr "У нас есть таблица лидеров."
+
+msgid "Online user listing."
+msgstr "Отображение игроков в сети."
+
+msgid "Free osu!direct."
+msgstr "Бесплатный osu!direct."
+
+msgid "Global leaderboards."
+msgstr "Глобальная таблица лидеров."
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr "и PP для режимов osu!standard и osu!mania"
+
+msgid "Ranking queue for unranked beatmaps."
+msgstr "Проверка непроверенных карт."
+
+msgid "Spectator."
+msgstr "Режим наблюдателя."
+
+msgid "Multiplayer."
+msgstr "Мультиплеер."
+
+msgid "FokaBot, our chat bot"
+msgstr "Наш чат-бот FokaBot."
+
+msgid ""
+"with plenty of functions for just about anything, <a href=\"/doc/4\">check "
+"it out!</a>"
+msgstr ""
+"с кучей функций почти для всего, чего угодно! <a href=\"/doc/4\">Зацени!</a>"
+
+msgid "And a lot more to come!"
+msgstr "И это еще не все!"
+
+msgid ""
+"Ripple is the result of the hard work of two Italian developers, who got "
+"tired about the whole osu! ecosystem, and also because they wanted to play "
+"with a few banned friends."
+msgstr ""
+"Ripple это результат тяжелого труда двух итальянских разработчиков, которые "
+"устали ото всей экосистемы osu!, а также потому, что они хотели поиграть со "
+"своими заблокированными друзьями."
+
+# %s is wink emoji
+msgid ""
+"It has now evolved into the largest available osu! private server, with more "
+"than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"won't result in getting your account on osu! restricted, so what are you "
+"waiting for?! Come join us! %s"
+msgstr ""
+"Но сейчас он эволюционировал в самый популярный частный сервер osu! с более "
+"чем 10,000 зарегистрированными пользователями. <a href=\"/register\""
+">Регистрация</a> на Ripple не повлечет за собой блокировку аккаунта на "
+"официальном сервере, так чего же ты тогда ждешь?! Присоединяйся! %s"
+
+msgid ""
+"In case you want to make sure we're not doing shady stuff with your data, "
+"you can also check the <a href=\"https://zxq.co/ripple/ripple\">source "
+"code</a> Ripple is running on."
+msgstr ""
+"В случае, если Вы хотите убедиться в том, что мы не делаем каких-либо "
+"пакостных вещей с вашими данными, вы можете просмотреть <a href=\""
+"https://zxq.co/ripple/ripple\">исходный код</a>, на котором работает Ripple."
+
+# changelog.html
+msgid ""
+"This is the changelog. Changes are published here as soon as they hit the "
+"production status (as in, live on the website)."
+msgstr ""
+"Это список изменений. Изменения попадают себя как только попадают в "
+"эксплуатацию (например, на веб-сайт)."
+
+msgid ""
+"For various reasons, some software of Ripple does not contribute to the "
+"changelog, to which this website is a part of. In case you want to see the "
+"changelog of Hanayo, you can do so by <a href=\""
+"https://zxq.co/ripple/hanayo/commits/master\">clicking here</a>."
+msgstr ""
+"По разным причинам, некоторое программное обеспечение Ripple не попадает в "
+"список изменений. Этот сайт - один из них. Если вы хотите увидеть список "
+"изменений Hanayo, <a href=\"https://zxq.co/ripple/hanayo/commits/master\">"
+"нажмите сюда</a>."
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Time"
+msgstr "Время"
+
+# doc_content.html 
+msgid "View document"
+msgstr "Просмотреть документ"
+
+msgid "Documentation file not found!"
+msgstr "Файл документации не найден!"
+
+msgid "View all docs"
+msgstr "Просмотреть все документы"
+
+# doc.html
+msgid ""
+"Need some help getting around? Look no further! From here you will be able "
+"to view our documentation, which is basically a very simplistic wiki."
+msgstr ""
+"Нужна помощь в освоении? Больше нет! Отсюда вы можете просмотреть нашу "
+"документацию, которая, по сути, является простейшей Wiki."
+
+msgid "Looks like there is no documentation on this ripple instance!"
+msgstr "Похоже, что на этом сервере Ripple нет документации!"
+
+# friends.html
+msgid ""
+"On this page you can see all of your friends, and unfriend them as you see "
+"fit."
+msgstr ""
+"На этой странице Вы можете увидеть всех своих друзей и перестать с ними "
+"дружить, если желаете."
+
+msgid "Mutual"
+msgstr "Взаимно"
+
+msgid "Remove"
+msgstr "Удалить"
+
+# irc.html
+msgid ""
+"Here you can generate a new IRC token. You can use it to connect to Ripple's "
+"chat using IRC. Remember that your IRC token is like a password, anyone who "
+"knows it, has access to your account. If you're interested knowing how to "
+"connect to Ripple's chat via IRC, you may want to check out <a href=\"/doc/"
+"11\">this</a>."
+msgstr ""
+"Здесь Вы можете сгенерировать новый IRC-токен. Вы можете использовать его "
+"для соединения с чатом Ripple через IRC. Помните, что токен - как пароль, и "
+"каждый, кто знает его, имеет доступ к Вашему аккаунту. Если Вам интересно, "
+"как соединиться с чатом через IRC, просмотрите <a href=\"/doc/11\">это</a>."
+
+msgid "Generate a new token!"
+msgstr "Генерировать новый токен!"
+
+# leaderboard.html
+msgid "Rank"
+msgstr "Ранг"
+
+msgid "Player"
+msgstr "Игрок"
+
+msgid "PP/Score"
+msgstr "PP/Счет"
+
+msgid "Accuracy"
+msgstr "Точность"
+
+msgid "Playcount"
+msgstr "Сыграно карт"
+
+# profile.html
+msgid "%s's profile"
+msgstr "Профиль %s"
+
+# profile.html
+# for <reason>, expires <placeholder for time>.
+msgid "User is <b>silenced</b> for %s, expires %s."
+msgstr "Пользователь <b>не может говорить</b> за %s, истекает %s."
+
+# %s is placeholder for an adjective of the user, e.g. "locked", "pending verification", "restricted"
+msgid "User is <b>%s</b>"
+msgstr "Пользователь <b>%s</b>"
+
+msgid "pending verification"
+msgstr "ожидает подтверждения"
+
+msgid "banned"
+msgstr "забанен"
+
+msgid "restricted"
+msgstr "ограничен"
+
+msgid "locked"
+msgstr "заблокирован"
+
+msgid "User not found"
+msgstr "Пользователь не найден"
+
+msgid "(aka <b>%s</b>)"
+msgstr "(aka <b>%s</b>)"
+
+msgid "Online"
+msgstr "В сети"
+
+msgid "Offline"
+msgstr "Не в сети"
+
+msgid "Unknown"
+msgstr "Неизвестно"
+
+msgid "<b>%s</b> is a Ripple player from <b>%s</b>."
+msgstr "<b>%s</b> - игрок Ripple из <b>%s</b>."
+
+msgid "Last seen: %s."
+msgstr "Последний раз был в сети: %s."
+
+msgid "They play with %s."
+msgstr "Играет с помощью %s."
+
+msgid "Mouse"
+msgstr "Мышь"
+
+msgid "Tablet"
+msgstr "Планшет"
+
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+msgid "Touchscreen"
+msgstr "Сенсорный экран"
+
+msgid "Spoon"
+msgstr "Ложка"
+
+msgid "Leap motion"
+msgstr "Leap motion"
+
+msgid "Oculus rift"
+msgstr "Oculus rift"
+
+msgid "Dick"
+msgstr "Член"
+
+msgid "Eggplant"
+msgstr "Баклажан"
+
+msgid "This user hasn't got any badges!"
+msgstr "У этого пользователя нет ни одного значка!"
+
+msgid "PP"
+msgstr "PP"
+
+msgid "Ranked score"
+msgstr "Рейтинговый счет"
+
+msgid "Total score"
+msgstr "Общий счет"
+
+msgid "Replays watched"
+msgstr "Просмотрено повторов"
+
+msgid "Total hits"
+msgstr "Всего попаданий"
+
+msgid "Level %s"
+msgstr "Уровень %s"
+
+# support.html
+msgid "Support Ripple"
+msgstr "Поддержать Ripple"
+
+msgid ""
+"Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
+msgstr ""
+
+msgid "(Probably.)"
+msgstr "(Возможно.)"
+
+msgid "(Probably not.)"
+msgstr "(Скорее всего, нет.)"
+
+msgid "Ripple is not cheap to run."
+msgstr "Ripple не дешев в обслуживании."
+
+msgid ""
+"While we provide this service for free, we still have to pay for it, and if "
+"we always took the money out of our own pockets, 1. we would be broke, 2. we "
+"wouldn't be able to upgrade our hardware to accomodate our users. While we "
+"do have loads of software optimisations that allow us to have Ripple run "
+"crazy fast while still being on not so high-end hardware, the more users we "
+"have, the higher-end our hardware needs to be. So we are asking you for help "
+"on this :)."
+msgstr ""
+
+msgid "We are still students."
+msgstr ""
+
+msgid ""
+"Ripple developers, and most of the Ripple staff, do not have a day job. This "
+"means that we get most of our income as students from doing small jobs as \""
+"freelancers\" every so often, or, you know, allowance."
+msgstr ""
+
+msgid "We do not have ads. And never will."
+msgstr ""
+
+msgid "We love picking random icons from our icon library."
+msgstr ""
+
+msgid ""
+"You may have adblock enabled and have not noticed, but we don't have ads "
+"anywhere on our website. We believe ads are bad, as they can be very "
+"annoying to you and that you would rather spend a few bucks to help us "
+"rather than watch annoying ads all the time."
+msgstr ""
+
+msgid "So what can you do?"
+msgstr ""
+
+msgid "Well, you can give us money."
+msgstr ""
+
+msgid "Well, you can give us even more money."
+msgstr ""
+
+msgid "Here's what you get:"
+msgstr ""
+
+msgid "Yellow username"
+msgstr ""
+
+msgid "Donor badge"
+msgstr ""
+
+msgid "Custom badge editor"
+msgstr ""
+
+msgid "Friends ranking"
+msgstr ""
+
+msgid "Discord privileges"
+msgstr ""
+
+msgid "Profile background"
+msgstr ""
+
+msgid "More to come!"
+msgstr ""
+
+msgid ""
+"Just like in osu!, you get a <b>shiny yellow username</b> in the in-game "
+"chat to show everyone you're a really cool dude who has helped us pay the "
+"server bills."
+msgstr ""
+
+msgid ""
+"Again, just like in osu!, you will get a <b>donor badge</b> on your profile, "
+"to show everyone you're supporting us."
+msgstr ""
+
+msgid ""
+"You get to be able to create your <b>own personal badge</b>, with custom "
+"text and icon, to show off on your profile! Let the world know you're an "
+"anchor. Or prank people showing a spinnin' wheel with \"Loading...\"! Up to "
+"you."
+msgstr ""
+
+msgid ""
+"<b>Competing with friends</b> is really cool, you can play on the "
+"leaderboard with someone more or less on your level, without getting "
+"crippling depression and RSI for not beating that pro!"
+msgstr ""
+
+msgid ""
+"You'll get exclusive access to the <b>\"#donators\"</b> text and voice "
+"channels, you'll be able to change your discord nickname and you'll get a "
+"custom role with custom username colour!"
+msgstr ""
+
+msgid ""
+"Think about <b>spicing your profile up with some eggplants</b>? Got you "
+"covered! Having donor privileges, you get to be able to change your profile "
+"background."
+msgstr ""
+
+msgid ""
+"<b>Who knows</b> what we could implement next? You could be able to do even "
+"<i>more</i> stuff for donors once we implement it."
+msgstr ""
+
+msgid "And this is how you pay"
+msgstr ""
+
+msgid ""
+"You may donate through either <b>PayPal</b> (or credit/debit card linked to "
+"PayPal) or <b>Bitcoin</b>. Use the slider below to choose the amount of "
+"months you'd like to have the donor benefits, and the cost will be instantly "
+"calculated. Remember that if, for instance, you choose to donate € 4 instead "
+"of € 3.51, you will only be given one donor month."
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "PayPal"
+msgstr ""
+
+msgid "User:"
+msgstr ""
+
+msgid "Bitcoin"
+msgstr ""
+
+msgid "Send %s BTC to this Bitcoin address:"
+msgstr ""
+
+msgid ""
+"Afterwards, <b>please send an email to <a href=\"mailto:howl@ripple.moe\""
+">howl@ripple.moe</a></b> containing the transaction hash!"
+msgstr ""
+
+msgid "I've donated, now what?"
+msgstr ""
+
+msgid ""
+"You'll have to wait until we verify and process your payment. It can take up "
+"to <b>12 hours</b>. If 12 hours have passed and you still haven't received "
+"your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server "
+"or send an email to <b><a href=\"mailto:support@ripple.moe\""
+">support@ripple.moe</a></b>. Once we have processed your payment, you'll "
+"receive an <b>email</b> to the address you've used to sign up and you'll get "
+"<b>all the donor privileges, except the Discord ones</b>. To get the Discord "
+"donor privileges, go <a href=\"/settings/discord\">here</a>."
+msgstr ""
+
+msgid "Please log in to get supporter"
+msgstr ""
+
+# Settings
+#, fuzzy
+msgid "Userpage"
+msgstr "Имя пользователя"
+
+msgid "Avatar"
+msgstr ""
+
+msgid "Discord donor"
+msgstr ""
+
+msgid "Two factor authentication is enabled on your account."
+msgstr ""
+
+msgid "Two factor authentication is not enabled on your account."
+msgstr ""
+
+msgid "Telegram 2FA"
+msgstr ""
+
+msgid ""
+"To enable Telegram Two Factor Authentication, click this button, then click "
+"\"start\" on Telegram:"
+msgstr ""
+
+msgid "Enable Telegram 2FA"
+msgstr ""
+
+msgid ""
+"If you don't have Telegram on the current device, you can either open this "
+"page from a device on which you have it, or scan this QR code:"
+msgstr ""
+
+msgid ""
+"In case you don't have a way to scan QR codes or you simply can't be "
+"bothered to download an app that scans them, you can also open Telegram, "
+"start a conversation with <a href=\"http://telegram.me/ripple2fabot\""
+"><b>@ripple2fabot</b></a> and send this message:"
+msgstr ""
+
+msgid "Google Authenticator (TOTP) based 2FA"
+msgstr ""
+
+msgid ""
+"At the moment you currently have set up Telegram Two Factor Authentication. "
+"Should you wish to disable it, please fill out the following form:"
+msgstr ""
+
+msgid ""
+"At the moment you currently have set up TOTP-based (Google Authenticator) "
+"Two Factor Authentication. Should you wish to disable it, please fill out "
+"the following form:"
+msgstr ""
+
+msgid "Disable Telegram 2FA"
+msgstr ""
+
+msgid "Disable TOTP-based 2FA"
+msgstr ""
+
+msgid "Google Authenticator recovery keys"
+msgstr ""
+
+msgid ""
+"These are the only thing that will let you get back into your Ripple account "
+"if you lose your device. Our suggestion is to paste them inside a document "
+"in your word processor (Microsoft Word, LibreOffice Writer), print them and "
+"store them in a safe place."
+msgstr ""
+
+msgid "Open File"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid ""
+"Your discord account has been linked to this Ripple account. <b>Welcome to "
+"the donors club and thank you for supporting us!</b> You have now access to "
+"the #donators text and voice channels on our official Discord server! You "
+"can also set a custom role name and username colour and change your nickname "
+"on Discord. If you want to change your nickname, you can use the "
+"<code>/nick</code> command. To set or edit your <b>custom role</b> name and "
+"colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can "
+"pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\""
+"_blank\">here</a>, it's the one that starts with '#'. You can change your "
+"role name and colour <b>whenever you want!</b>"
+msgstr ""
+
+msgid "Thank you for supporting us and have fun on Ripple!"
+msgstr ""
+
+msgid "Donors get special privileges on our Discord server too!"
+msgstr ""
+
+msgid ""
+"Discord is a chatroom with text and voice channels, bots and lots of other "
+"cool features. You can <b>download Discord for free <a href=\""
+"http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our "
+"official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
+msgstr ""
+
+msgid "Here's what you get if you link your Discord account:"
+msgstr ""
+
+msgid "Access to /nick command, to change your Discord nickname"
+msgstr ""
+
+msgid "Access to #donators text and voice channels"
+msgstr ""
+
+msgid "Username on donors list"
+msgstr ""
+
+msgid "Custom role with custom username"
+msgstr ""
+
+msgid ""
+"To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our "
+"Discord server</a>, then click this fancy button:"
+msgstr ""
+
+msgid "Get Discord donor privileges"
+msgstr ""
+
+msgid "New password (leave blank if you don't want to change it)"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "BBCode syntax reference"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Alternative username (cannot be used for login)"
+msgstr ""
+
+msgid "Also known as..."
+msgstr ""
+
+msgid "Custom badge"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid ""
+"<b>Do not use offensive badges and do not pretend to be someone else with "
+"your badge.</b> If you abuse the badges system, you'll be silenced and you "
+"won't be able to edit your custom badge anymore."
+msgstr ""
+
+msgid "Icon reference"
+msgstr ""
+
+msgid "Dinosaur, oompa-loompa, cool guy..."
+msgstr ""
+
+msgid "Playstyle"
+msgstr ""
+
+# Go source
+msgid "TOTP-based 2FA has been enabled on your account."
+msgstr ""
+
+msgid "Passcode is invalid. Perhaps it expired?"
+msgstr ""
+
+msgid "No passcode/secret was given. Please try again"
+msgstr ""
+
+msgid "TOTP-based 2FA is already enabled!"
+msgstr ""
+
+msgid ""
+"You currently have Telegram 2FA enabled. You first need to disable that if "
+"you want to use TOTP-based 2FA."
+msgstr ""
+
+msgid "2FA disabled successfully."
+msgstr ""
+
+msgid "Changing avatar is currently not possible."
+msgstr ""
+
+msgid "An error occurred."
+msgstr ""
+
+msgid "We were not able to save your avatar."
+msgstr ""
+
+msgid ""
+"Your avatar was successfully changed. It may take some time to properly "
+"update. To force a cache refresh, you can use CTRL+F5."
+msgstr ""
+
+msgid "Internal Server Error"
+msgstr ""
+
+msgid "You're not a donor!"
+msgstr ""
+
+msgid ""
+"You've not joined the discord server! Links to it are below on the page. "
+"Please join the server before attempting to connect your account to Discord."
+msgstr ""
+
+msgid "Your account has been linked successfully!"
+msgstr ""
+
+msgid ""
+"Your new IRC token is <code>%s</code>. The old IRC token is not valid "
+"anymore.<br>Keep it safe, don't show it around, and store it now! We won't "
+"show it to you again."
+msgstr ""
+
+msgid "Your profile background has been saved."
+msgstr ""
+
+msgid "We were not able to save your profile background."
+msgstr ""
+
+msgid "Colour is invalid"
+msgstr ""
+
+msgid ""
+"You have been automatically logged out of your account because your account "
+"has either been banned or locked. Should you believe this is a mistake, you "
+"can contact our support team at support@ripple.moe."
+msgstr ""
+
+msgid ""
+"You have been automatically logged out for security reasons. Please <a "
+"href='/login?redir=%s'>log back in</a>."
+msgstr ""
+
+msgid "You need to login first."
+msgstr ""
+
+msgid "Forbidden"
+msgstr ""
+
+msgid "You should not be 'round here."
+msgstr ""

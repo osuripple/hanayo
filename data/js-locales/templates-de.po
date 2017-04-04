@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-02 15:44+0000\n"
+"POT-Creation-Date: 2017-04-04 20:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /de/HanayoJS/templates-de.po\n"
-"X-Pootle-Revision: 1471\n"
+"X-Pootle-Revision: 1759\n"
 
 # JavaScript
 msgid ""
@@ -124,9 +124,15 @@ msgid_plural "{{ stars }} stars"
 msgstr[0] "{{ stars }} Stern"
 msgstr[1] "{{ stars }} Sterne"
 
-msgid "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>"
-msgid_plural "<b>{{ months }}</b> months = <b>€ {{ eur }}</b>"
-msgstr[0] ""
-
 msgid "($ {{ usd }} / BTC {{ btc }})"
-msgstr ""
+msgstr "($ {{ usd }} / BTC {{ btc }}) "
+
+# (following are in relation to friends)
+msgid "Mutual"
+msgstr "Freunde"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Add"
+msgstr "Hinzufügen"

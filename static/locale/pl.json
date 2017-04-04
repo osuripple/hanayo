@@ -30,6 +30,8 @@
     "{{ stars }} star_0": "{{ stars }} gwiazdka",
     "{{ stars }} star_1": "{{ stars }} gwiazdki",
     "{{ stars }} star_2": "{{ stars }} gwiazdek",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>": "",
-    "($ {{ usd }} / BTC {{ btc }})": ""
+    "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})",
+    "Mutual": "Wspólny",
+    "Remove": "Usuń",
+    "Add": "Dodaj"
 }

@@ -28,6 +28,8 @@
     "Mode": "",
     "None": "",
     "{{ stars }} star": "",
-    "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>": "",
-    "($ {{ usd }} / BTC {{ btc }})": ""
+    "($ {{ usd }} / BTC {{ btc }})": "",
+    "Mutual": "",
+    "Remove": "",
+    "Add": ""
 }
