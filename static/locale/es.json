@@ -1,6 +1,6 @@
 {
     "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.": "Un error a ocurrido mientras se conectaba a la API de Ripple. Por favor, reportar esto a un desarrollador.",
-    "Why, LOVE, of course!": "",
+    "Why, LOVE, of course!": "Nivel",
     "Your new settings have been saved.": "Tus nuevos ajustes han sido guardados.",
     "Your userpage has been saved.": "",
     "Please provide a valid link, in the form of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;.": "",
@@ -29,8 +29,8 @@
     "None": "Ninguna",
     "{{ stars }} star": "{{ stars }} estrella",
     "{{ stars }} star_plural": "{{ stars }} estrellas",
-    "($ {{ usd }} / BTC {{ btc }})": "",
-    "Mutual": "",
+    "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})",
+    "Mutual": "Amistad mutua",
     "Remove": "",
-    "Add": ""
+    "Add": "Añadir"
 }

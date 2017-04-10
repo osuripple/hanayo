@@ -1034,6 +1034,18 @@ msgstr ""
 msgid "We were not able to save your profile background."
 msgstr ""
 
+msgid "Background type"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Solid colour"
+msgstr ""
+
 msgid "Colour is invalid"
 msgstr ""
 

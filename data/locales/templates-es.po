@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-04 20:15+0000\n"
+"POT-Creation-Date: 2017-04-10 21:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /es/Hanayo/templates-es.po\n"
-"X-Pootle-Revision: 1849\n"
+"X-Pootle-Revision: 2295\n"
 
 msgid "You're already logged in!"
 msgstr "Ya estas conectado/a!"
@@ -789,13 +789,13 @@ msgid "Ranking queue for unranked beatmaps."
 msgstr ""
 
 msgid "Spectator."
-msgstr ""
+msgstr "Espectador"
 
 msgid "Multiplayer."
-msgstr ""
+msgstr "Multijugador"
 
 msgid "FokaBot, our chat bot"
-msgstr ""
+msgstr "FokaBot, nuestro bot del chat"
 
 msgid ""
 "with plenty of functions for just about anything, <a href=\"/doc/4\">check "
@@ -803,15 +803,18 @@ msgid ""
 msgstr ""
 
 msgid "And a lot more to come!"
-msgstr ""
+msgstr "Y mucho mas por venir!"
 
 msgid ""
 "Ripple is the result of the hard work of two Italian developers, who got "
 "tired about the whole osu! ecosystem, and also because they wanted to play "
 "with a few banned friends."
 msgstr ""
+"Ripple es el resultado del trabajo ardúo de dos desarrolladores italianos, "
+"quienes se cansaron del ecosistema de osu!, y tambien porque querían jugar "
+"con algunos amigos baneados."
 
-# %s is wink emoji
+# %s = ;)
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
 "than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
@@ -830,6 +833,8 @@ msgid ""
 "This is the changelog. Changes are published here as soon as they hit the "
 "production status (as in, live on the website)."
 msgstr ""
+"Esta es la lista de cambios. Los cambios son publicados aqui al momento en "
+"el que son introducidos."
 
 msgid ""
 "For various reasons, some software of Ripple does not contribute to the "
@@ -839,23 +844,23 @@ msgid ""
 msgstr ""
 
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 msgid "Subject"
-msgstr ""
+msgstr "Asunto"
 
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 # doc_content.html 
 msgid "View document"
-msgstr ""
+msgstr "Ver documento"
 
 msgid "Documentation file not found!"
 msgstr ""
 
 msgid "View all docs"
-msgstr ""
+msgstr "Ver todos documentos"
 
 # doc.html
 msgid ""
@@ -952,6 +957,9 @@ msgstr ""
 msgid "Last seen: %s."
 msgstr ""
 
+msgid "\"They signed up on Ripple %s.\""
+msgstr ""
+
 msgid "They play with %s."
 msgstr ""
 
@@ -1007,8 +1015,14 @@ msgstr ""
 msgid "Support Ripple"
 msgstr ""
 
+msgid "You are a donor!"
+msgstr ""
+
 msgid ""
 "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
+msgstr ""
+
+msgid "Did you know?"
 msgstr ""
 
 msgid "(Probably.)"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-04 20:16+0000\n"
+"POT-Creation-Date: 2017-04-10 21:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,10 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /ko/Hanayo/templates-ko.po\n"
-"X-Pootle-Revision: 1802\n"
+"X-Pootle-Revision: 2297\n"
 
 msgid "You're already logged in!"
-msgstr "이미 로그인되어있습니다!"
+msgstr "이미 로그인이 되어 있습니다!"
 
 msgid "Submit"
 msgstr "제출"
@@ -77,7 +77,7 @@ msgstr "비밀번호 초기화"
 msgid ""
 "Glad to have you back here, %s! To finish the password recovery, type in a "
 "new password:"
-msgstr ""
+msgstr "다시 오신걸 환영합니다, %s!님! 비밀번호 변경을 완료하시려면 새로운 비밀번호를 입력해주세요:"
 
 msgid "Nope."
 msgstr "아니요"
@@ -101,7 +101,7 @@ msgstr "현재 회원가입이 불가능합니다. 나중에 다시 시도해주
 msgid ""
 "Remember: this seems like it's your second account! Do not multiaccount, or "
 "you're likely to get restricted!"
-msgstr ""
+msgstr "기억하세요: 이 계정은 당신의 부계정으로 보입니다! 계정을 두개 이상 만들면 정지를 당할수 있으니 조심하세요!"
 
 msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
 msgstr "아이디 (영문, 숫자, 띄어쓰기, <code>>[]</code> 포함 2~15자)"
@@ -119,40 +119,40 @@ msgstr "성공적으로 리플 서버 회원이 되었습니다! 이제 계정�
 
 # Register checks
 msgid "Your password is too short! It must be at least 8 characters long."
-msgstr ""
+msgstr "비밀번호가 너무 짧습니다! 최소 8자리 이여야 합니다."
 
 msgid ""
 "Your password is one of the most common passwords on the entire internet. No "
 "way we're letting you use that!"
-msgstr ""
+msgstr "비밀번호가 너무 단순합니다! 다른 비밀번호를 입력해 주세요."
 
 msgid ""
 "Your username must contain alphanumerical characters, spaces, or any of "
 "<code>_[]-</code>"
-msgstr ""
+msgstr "아이디는 영문, 숫자, 띄어쓰기, 혹은 <code>_[]-</code>만 사용할 수 있습니다."
 
 msgid "You're not allowed to register with that username."
 msgstr "이 아이디를 사용하실 수 없습니다."
 
 msgid "Please pass a valid email address."
-msgstr ""
+msgstr "올바른 이메일 주소를 입력하십시오."
 
 msgid "An username can't contain both underscores and spaces."
-msgstr ""
+msgstr "아이디는 밑줄 표시와 띄서쓰기를 모두 사용하실수는 없읍니다."
 
 msgid "An user with that username already exists!"
-msgstr ""
+msgstr "이미 사용중인 아이디입니다!"
 
 msgid "An user with that email address already exists!"
-msgstr ""
+msgstr "이미 사용중인 이메일 주소 입니다!"
 
 msgid "Captcha is invalid."
-msgstr ""
+msgstr "문자가 일치하지 않습니다. "
 
 msgid ""
 "Whoops, an error slipped in. You might have been registered, though. I don't "
 "know."
-msgstr ""
+msgstr "앗, 오류가 생겼읍니다. 계정이 생성되었을도 있읍니다, 잘 모르겠어요."
 
 # register/verify.html
 msgid "Verify account"
@@ -165,6 +165,9 @@ msgid ""
 "connect to Ripple from the osu! client!</b> If you're having trouble, <a "
 "href='/doc/1'>follow this guide</a>."
 msgstr ""
+"계정이 생성되었지만, 아직 <b>계정 인증을 하지 않았습니다!</b> <b><u>오스에 로그인을 해서</u></b> 계정 인증을 하세요! "
+"<b>현재 <u>이메일 계정 인증은 활성화 되지 않았기 때문에,</u> 리플 서버에 접속만 하면 됩니다!</b> 문제가 있다면, <a "
+"href='/doc/1'>이 가이드를 따라주세요</a>"
 
 msgid ""
 "<b class='big text'>Do not let anyone except yourself log into your Ripple "
@@ -174,27 +177,29 @@ msgid ""
 msgstr ""
 
 msgid "<a href='/doc/1'>The Guide,</a> tl;dr version"
-msgstr ""
+msgstr "<a href='/doc/1'>가이드, </a> 가이드를 읽기 귀찮다면..."
 
 msgid "Download the server switcher"
-msgstr ""
+msgstr "서버 전환기를 다운로드 하세요."
 
 msgid "Extract it, disable your antivirus, execute it <b>as administrator</b>"
-msgstr ""
+msgstr "압축 해제 후, 안티바이러스를 비활성화 시키고, <b>관리자 권한으로</b> 실행하세요."
 
 msgid "Click on <b>install certificate</b>, then <b>Yes</b>"
-msgstr ""
+msgstr "<b>인증서 다운로드 (install certificate)</b> 를 클릭한 후, <b>예 (Yes)</b> 를 클릭하세요."
 
 msgid ""
 "Make sure the switcher says you're playing on <b>Ripple</b> server, if not "
 "click <b>On/Off</b>"
-msgstr ""
+msgstr "서버 전환기에 <b>리플</b>에서 게임중인란걸 확인하십시오, 아니라면 <b>On/Off</b>를 클릭하십시오"
 
 msgid ""
 "If it says something about read-only mode, go to <code>C:\\Windows\\"
 "System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure "
 "it's not set to \"Read only\"."
 msgstr ""
+"읽기 전용모드로 되어있으면, <code>C:\\Windows\\System32\\Drivers\\etc</code>경로로 가서 host "
+"파일 속성에 (읽기전용) 모드가 비활성화가 되어있는지 확인하십시오. "
 
 msgid ""
 "If you're still having trouble, then again, get on our <a href='%s'>Discord "
@@ -217,7 +222,7 @@ msgid "Congratulations for not reading things!"
 msgstr "설명을 읽지 않으신것을 축하드립니다!"
 
 msgid "Multiaccounts are not allowed on Ripple"
-msgstr ""
+msgstr "부계정은 리플서버 에서 허용되지 않습니다. "
 
 msgid ""
 "Your new account has been <b>banned</b> and your main account has been "
@@ -244,7 +249,7 @@ msgid "Rules"
 msgstr "규칙"
 
 msgid "Documentation"
-msgstr ""
+msgstr "문서화"
 
 msgid "Status"
 msgstr "상태"
@@ -827,6 +832,9 @@ msgstr ""
 msgid "Last seen: %s."
 msgstr ""
 
+msgid "\"They signed up on Ripple %s.\""
+msgstr ""
+
 msgid "They play with %s."
 msgstr ""
 
@@ -882,8 +890,14 @@ msgstr ""
 msgid "Support Ripple"
 msgstr ""
 
+msgid "You are a donor!"
+msgstr ""
+
 msgid ""
 "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
+msgstr ""
+
+msgid "Did you know?"
 msgstr ""
 
 msgid "(Probably.)"

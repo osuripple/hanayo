@@ -17,10 +17,10 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 				{{ $value := or $d.value.String "" }}
 				<p>
 					<select class="ui dropdown" id="background-type" name="type">
-						<option value="">Background type</option>
-						<option value="0">None</option>
-						<option value="1"{{ if eq $type 1 }} selected{{ end }}>Image</option>
-						<option value="2"{{ if eq $type 2 }} selected{{ end }}>Solid colour</option>
+						<option value="">{{ .T "Background type" }}</option>
+						<option value="0">{{ .T "None" }}</option>
+						<option value="1"{{ if eq $type 1 }} selected{{ end }}>{{ .T "Image" }}</option>
+						<option value="2"{{ if eq $type 2 }} selected{{ end }}>{{ .T "Solid colour" }}</option>
 					</select>
 				</p>
 				<div class="ui compact segment" id="image-background" style="margin: 0 auto; max-width: 400px; max-height: 700px;" data-type="1"{{ if ne $type 1 }} hidden{{ end }}>
@@ -44,12 +44,12 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 					<div class="ui buttons">
 						<label for="file" class="ui green labeled icon button">
 							<i class="file icon"></i>
-							Open File
+							{{ .T "Open File" }}
 						</label>
 						{{ ieForm .Gin }}
 						<button type="submit" class="ui right labeled blue icon button">
 							<i class="save icon"></i>
-							Save					
+							{{ .T "Save" }}
 						</button>
 					</div>
 					<input type="file" id="file" style="display:none" required accept="image/*" name="value">
