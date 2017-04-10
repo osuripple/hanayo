@@ -14,7 +14,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.
 		{{ if .has_donor }}
 			<div class="ui segment">
 				<h1 class="ui center aligned header no bottom margin" style="margin: 0 auto; display: table;">
-					<i class="red heart icon" style="font-size: 90%;"></i> <div class="content">You are a donor!</div>
+					<i class="red heart icon" style="font-size: 90%;"></i> <div class="content">{{ $.T "You are a donor!" }}</div>
 				</h1>
 				<div class="ui centered subtitle" style="font-size:1.2rem;">
 					{{ $.T "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!" (time .expiration) | html }} &lt;3

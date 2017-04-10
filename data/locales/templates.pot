@@ -668,6 +668,9 @@ msgstr ""
 msgid "Last seen: %s."
 msgstr ""
 
+msgid ""They signed up on Ripple %s.""
+msgstr ""
+
 msgid "They play with %s."
 msgstr ""
 
@@ -723,7 +726,13 @@ msgstr ""
 msgid "Support Ripple"
 msgstr ""
 
+msgid "You are a donor!"
+msgstr ""
+
 msgid "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
+msgstr ""
+
+msgid "Did you know?"
 msgstr ""
 
 msgid "(Probably.)"
