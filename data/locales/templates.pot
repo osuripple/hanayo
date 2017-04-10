@@ -668,7 +668,7 @@ msgstr ""
 msgid "Last seen: %s."
 msgstr ""
 
-msgid ""They signed up on Ripple %s.""
+msgid "They signed up on Ripple %s."
 msgstr ""
 
 msgid "They play with %s."
