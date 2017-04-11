@@ -129,6 +129,18 @@
 								<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
 									<table class="ui very basic two column compact table nopad">
 										<tbody>
+											{{ with .global_leaderboard_rank }}
+												<tr>
+													<td><b>{{ $.T "Global rank" }}</b></td>
+													<td>#{{ . }}</td>
+												</tr>
+											{{ end }}
+											{{ with .country_leaderboard_rank }}
+												<tr>
+													<td><b>{{ $.T "Country rank" }} &nbsp;{{ country $user.country false }}</b></td>
+													<td>#{{ . }}</td>
+												</tr>
+											{{ end }}
 											<tr>
 												<td><b>{{ $global.T "PP" }}</b></td>
 												<td>{{ humanize .pp }}</td>

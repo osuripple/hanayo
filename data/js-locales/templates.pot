@@ -36,6 +36,12 @@ msgstr ""
 msgid "Unmutual friend"
 msgstr ""
 
+msgid "Global rank"
+msgstr ""
+
+msgid "Country rank"
+msgstr ""
+
 # score table
 msgid "General info"
 msgstr ""
