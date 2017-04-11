@@ -55,7 +55,9 @@ func profBackground(c *gin.Context) {
 			c.Error(err)
 			return
 		}
-		err = jpeg.Encode(f, img, nil)
+		err = jpeg.Encode(f, img, &jpeg.Options{
+			Quality: 88,
+		})
 		if err != nil {
 			m = errorMessage{T(c, "We were not able to save your profile background.")}
 			c.Error(err)
