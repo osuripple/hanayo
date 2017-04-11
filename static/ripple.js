@@ -249,8 +249,16 @@ var singlePageSnippets = {
 
   "/beatmaps/rank_request": function() {
     function updateRankRequestPage(data) {
-      $("#queue-info").html(data.submitted + "/" + data.queue_size +
-        (data.submitted_by_user > 0 ? " <i>(" + data.submitted_by_user + "/" + data.max_per_user + " by you)</i>" : ""));
+      $("#queue-info").html(data.submitted + "/" + data.queue_size);
+
+      if (data.submitted_by_user == 0)
+        $("#by-you").attr("hidden", "hidden");
+      else
+        $("#by-you").removeAttr("hidden");      
+
+      $("#submitted-by-user").text(data.submitted_by_user);
+      $("#max-per-user").text(data.max_per_user);
+
       var perc = (data.submitted / data.queue_size * 100).toFixed(0);
       $("#progressbar .progress").text(perc + "%");
       $("#progressbar").progress({

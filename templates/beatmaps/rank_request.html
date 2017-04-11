@@ -15,8 +15,7 @@ MinPrivileges=2
 				<i class="wait icon"></i>
 				{{ $.T "Queue status" }}
 			</h4>
-			<!-- todo: js will change by you. we need to localize it -->
-			<h2 style="display: inline; font-weight: normal;" id="queue-info">{{ .submitted }}/{{ .queue_size }}{{ if .submitted_by_user }} <i>({{ .submitted_by_user }}/{{ .max_per_user }} {{ $.T "by you" }})</i>{{ end }}</h2><br>
+			<h2 style="display: inline; font-weight: normal;"><span id="queue-info">{{ .submitted }}/{{ .queue_size }}</span> <i{{ if not .submitted_by_user }} hidden{{ end }} id="by-you">(<span id="submitted-by-user">{{ .submitted_by_user }}</span>/<span id="max-per-user">{{ .max_per_user }}</span> {{ $.T "by you" }})</i></h2><br>
 			<h3 style="display: inline; font-weight: normal;">{{ $.T "Requests submitted" }}</h3><br>
 			<h4 style="display: inline; font-weight: normal;">{{ $.T "In the past 24 hours" }}</h4><br>
 			{{ $perc := perc .submitted .queue_size }}
