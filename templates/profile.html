@@ -132,41 +132,41 @@
 											{{ with .global_leaderboard_rank }}
 												<tr>
 													<td><b>{{ $.T "Global rank" }}</b></td>
-													<td>#{{ . }}</td>
+													<td class="right aligned">#{{ . }}</td>
 												</tr>
 											{{ end }}
 											{{ with .country_leaderboard_rank }}
 												<tr>
 													<td><b>{{ $.T "Country rank" }} &nbsp;{{ country $user.country false }}</b></td>
-													<td>#{{ . }}</td>
+													<td class="right aligned">#{{ . }}</td>
 												</tr>
 											{{ end }}
 											<tr>
 												<td><b>{{ $global.T "PP" }}</b></td>
-												<td>{{ humanize .pp }}</td>
+												<td class="right aligned">{{ humanize .pp }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Ranked score" }}</b></td>
-												<td>{{ humanize .ranked_score }}</td>
+												<td class="right aligned">{{ humanize .ranked_score }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Total score" }}</b></td>
-												<td>{{ humanize .total_score }}</td>
+												<td class="right aligned">{{ humanize .total_score }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Playcount" }}</b></td>
-												<td>{{ humanize .playcount }}</td>
+												<td class="right aligned">{{ humanize .playcount }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Replays watched" }}</b></td>
-												<td>{{ humanize .replays_watched }}</td>
+												<td class="right aligned">{{ humanize .replays_watched }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Total hits" }}</b></td>
-												<td>{{ humanize .total_hits }}</td>
+												<td class="right aligned">{{ humanize .total_hits }}</td>
 											</tr>									<tr>
 												<td><b>{{ $global.T "Accuracy" }}</b></td>
-												<td>{{ printf "%.2f" .accuracy }}%</td>
+												<td class="right aligned">{{ printf "%.2f" .accuracy }}%</td>
 											</tr>
 										</tbody>
 									</table>
