@@ -60,8 +60,8 @@ MinPrivileges=2
 							{{ csrfGenerate .Context.User.ID }}
 							{{ ieForm .Gin }}
 							<div class="ui fluid action input">
-								<input type="text" placeholder="612 116" name="passcode">
-								<button class="ui right labeled icon blue button">
+								<input tabindex="1" type="text" placeholder="612 116" name="passcode">
+								<button tabindex="2" class="ui right labeled icon blue button">
 									<i class="right arrow icon"></i>
 									{{ .T "Submit" }}
 								</button>
@@ -81,8 +81,8 @@ MinPrivileges=2
 							{{ csrfGenerate .Context.User.ID }}
 							{{ ieForm .Gin }}
 							<div class="ui fluid action input">
-								<input name="password" type="password" placeholder="Password">
-								<button type="submit" class="ui red right labeled icon button">
+								<input tabindex="1" name="password" type="password" placeholder="Password">
+								<button tabindex="2" type="submit" class="ui red right labeled icon button">
 									<i class="ban icon"></i>
 									{{ if eq $e 1 }}{{ .T "Disable Telegram 2FA" }}{{ else }}{{ .T "Disable TOTP-based 2FA" }}{{ end }}
 								</button>

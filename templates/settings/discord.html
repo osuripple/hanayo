@@ -31,7 +31,7 @@ MinPrivileges=6
 					</ul>
 					<p>{{ .T "To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our Discord server</a>, then click this fancy button:" (config "DiscordServer") | html }}</p>
 					<p class="centered">
-						<a class="ui red labeled icon button" href="{{ authCodeURL .Context.User.ID }}"><i class="heart icon"></i> {{ .T "Get Discord donor privileges" }}</a>
+						<a tabindex="1" class="ui red labeled icon button" href="{{ authCodeURL .Context.User.ID }}"><i class="heart icon"></i> {{ .T "Get Discord donor privileges" }}</a>
 					</p>
 				{{ end }}
 			</div>

@@ -21,14 +21,6 @@ MinPrivileges=2
 					<div class="field">
 						<label>
 							<a href="/settings/password">{{ .T "Email address" }}</a>
-							<!-- commented until we actually implement something useful with it -->
-							{{/* if not (band (int $d.flags) 1) }}
-								| Needs verification! Click
-								<a href="/email_verify/start?{{ csrfURL .Context.User.ID }}" target="_blank">
-									here
-								</a>
-								to verify.
-							{{ end */}}
 						</label>
 						<input type="email" value="{{ $d.email }}" placeholder="{{ .T "Email address" }}" required disabled>
 					</div>

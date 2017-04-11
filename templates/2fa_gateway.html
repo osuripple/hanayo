@@ -16,7 +16,7 @@
 					<div class="ui form">
 						<div class="field">
 							<label>{{ if eq $e 1 }}{{ .T "Telegram code" }} <a href="/2fa_gateway/clear">{{ .T "(send again?)" }}</a>{{ else }}Google Authenticator passcode{{ end }}</label>
-							<input type="text" placeholder="{{ if eq $e 1 }}AWYXZ13Y{{ else }}612 511{{ end }}" id="telegram-code">
+							<input tabindex="1" type="text" placeholder="{{ if eq $e 1 }}AWYXZ13Y{{ else }}612 511{{ end }}" id="telegram-code">
 						</div>
 					</div>
 				</div>

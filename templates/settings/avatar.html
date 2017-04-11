@@ -17,11 +17,11 @@ MinPrivileges=2
 				<form action="/settings/avatar" method="post" enctype="multipart/form-data" class="little top margin">
 					{{ ieForm .Gin }}
 					<div class="ui buttons">
-						<label for="file" class="ui green labeled icon button">
+						<label tabindex="1" for="file" class="ui green labeled icon button">
 							<i class="file icon"></i>
 							{{ .T "Open File" }}
 						</label>
-						<button type="submit" class="ui right labeled blue icon button">
+						<button tabindex="2" type="submit" class="ui right labeled blue icon button">
 							<i class="save icon"></i>
 							{{ .T "Save" }}		
 						</button>

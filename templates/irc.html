@@ -12,7 +12,7 @@ MinPrivileges=2
 		<div class="ui right aligned segment">
 			<form action="/irc/generate" method="POST">
 				{{ ieForm .Gin }}
-				<button type="submit" class="ui right blue button">
+				<button tabindex="1" type="submit" class="ui right blue button">
 					{{ .T "Generate a new token!" }}
 				</button>
 			</form>
