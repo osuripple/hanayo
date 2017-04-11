@@ -122,12 +122,6 @@ func registerSubmit(c *gin.Context) {
 
 	db.Exec("INSERT INTO `users_stats`(id, username, user_color, user_style, ranked_score_std, playcount_std, total_score_std, ranked_score_taiko, playcount_taiko, total_score_taiko, ranked_score_ctb, playcount_ctb, total_score_ctb, ranked_score_mania, playcount_mania, total_score_mania) VALUES (?, ?, 'black', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);", lid, username)
 
-	for _, m := range []string{"std", "taiko", "ctb", "mania"} {
-		var lastPosition int
-		db.QueryRow("SELECT position FROM leaderboard_" + m + " ORDER BY position DESC LIMIT 1").Scan(&lastPosition)
-		db.Exec("INSERT INTO leaderboard_"+m+" (position, user, v) VALUES (?, ?, ?)", lastPosition+1, lid, 0)
-	}
-
 	schiavo.CMs.Send(fmt.Sprintf("User (**%s** | %s) registered from %s", username, c.PostForm("email"), clientIP(c)))
 
 	setYCookie(int(lid), c)
