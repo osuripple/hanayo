@@ -214,7 +214,7 @@ var singlePageSnippets = {
         var priceBTC = priceEUR / rates.EUR;
         var priceUSD = priceBTC * rates.USD;
         $("#cost").html(
-          T("<b>{{ months }}</b> month = <b>€ {{ eur }}</b>", {
+          T("<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>", {
             count: Math.round(+months),
             months: (+months).toFixed(0),
             eur: priceEUR.toFixed(2),

@@ -100,8 +100,8 @@ msgid_plural "{{ stars }} stars"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "<b>{{ months }}</b> month = <b>€ {{ eur }}</b>"
-msgid_plural "<b>{{ months }}</b> months = <b>€ {{ eur }}</b>"
+msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
+msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
 msgstr[0] ""
 msgstr[1] ""
 
