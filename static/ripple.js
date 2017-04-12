@@ -46,17 +46,26 @@ var singlePageSnippets = {
     page = page === 0 ? 1 : page;
     
     function loadLeaderboard() {
-      var wl = window.location;      
-      window.history.replaceState('', document.title, wl.pathname + "?mode=" + favouriteMode + "&p=" + page + wl.hash);
+      var wl = window.location;
+      window.history.replaceState('', document.title, 
+        wl.pathname + 
+        "?mode=" + favouriteMode +
+        "&p=" + page +
+        (country != "" ? "&country=" + encodeURI(country) : "") +
+        wl.hash
+      );
       api("leaderboard", {
         mode: favouriteMode,
         p: page,
         l: 50,
+        country: country,
       }, function(data) {
         var tb = $(".ui.table tbody");
         tb.find("tr").remove();
-        if (!data.users)
+        if (data.users == null) {
           disableSimplepagButtons(true);
+          data.users = [];
+        }
         var i = 0;
         data.users.forEach(function(v) {
           tb.append(
@@ -81,6 +90,17 @@ var singlePageSnippets = {
       return "<b>" + addCommas(pp) + "pp</b> (" + addCommas(s) + ")"
     }
 
+    // country stuff
+    $("#country-chooser-modal").click(function() {
+      $(".ui.modal").modal("show");
+    });
+    $(".lb-country").click(function() {
+      country = $(this).data("country");
+      page = 1;
+      $(".ui.modal").modal("hide");
+      loadLeaderboard();
+    });
+
     loadLeaderboard();
     setupSimplepag(loadLeaderboard);
     $("#mode-menu .item").click(function(e) {
@@ -88,6 +108,7 @@ var singlePageSnippets = {
       $("#mode-menu .active.item").removeClass("active");
       $(this).addClass("active");
       favouriteMode = $(this).data("mode");
+      country = "";
       page = 1;
       loadLeaderboard();
     });

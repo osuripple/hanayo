@@ -462,6 +462,9 @@ var funcMap = template.FuncMap{
 		}
 		return langInfo{}
 	},
+	"countryList": func(n int64) []string {
+		return rd.ZRevRange("hanayo:country_list", 0, n-1).Val()
+	},
 }
 
 var localeLanguages = []string{"de", "pl", "it", "es", "ru", "ko"}
