@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-10 21:07+0000\n"
+"POT-Creation-Date: 2017-04-12 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /de/Hanayo/templates-de.po\n"
-"X-Pootle-Revision: 2294\n"
+"X-Pootle-Revision: 2493\n"
 
 msgid "You're already logged in!"
 msgstr "Du bist bereits angemeldet!"
@@ -1003,8 +1003,8 @@ msgstr "<b>%s</b> ist ein Ripple Spieler von <b>%s</b>."
 msgid "Last seen: %s."
 msgstr "Zuletzt gesehen: %s"
 
-msgid "\"They signed up on Ripple %s.\""
-msgstr ""
+msgid "They signed up on Ripple %s."
+msgstr "Nutzer hat sich am %s bei Ripple registriert."
 
 msgid "They play with %s."
 msgstr "Spielt mit %s."
@@ -1039,6 +1039,12 @@ msgstr "Eggplant"
 msgid "This user hasn't got any badges!"
 msgstr "Dieser Benutzer hat keine Abzeichen!"
 
+msgid "Global rank"
+msgstr "Globaler Rank"
+
+msgid "Country rank"
+msgstr "Nationaler Rank"
+
 msgid "PP"
 msgstr "PP"
 
@@ -1062,7 +1068,7 @@ msgid "Support Ripple"
 msgstr "Unterstütze Ripple"
 
 msgid "You are a donor!"
-msgstr ""
+msgstr "Du bist ein Spender!"
 
 msgid ""
 "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
@@ -1071,7 +1077,7 @@ msgstr ""
 "du nichts gespendet hast!"
 
 msgid "Did you know?"
-msgstr ""
+msgstr "Wusstest du?"
 
 msgid "(Probably.)"
 msgstr "(Wahrscheinlich.)"
@@ -1576,6 +1582,18 @@ msgstr "Dein Profil Hintergrund wurde gespeichert."
 
 msgid "We were not able to save your profile background."
 msgstr "Es war nicht möglich dein Profil Hintergrund zu ändern."
+
+msgid "Background type"
+msgstr "Hintergrundtyp"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Solid colour"
+msgstr "Einfarbig"
 
 msgid "Colour is invalid"
 msgstr "Farbe ist ungültig."

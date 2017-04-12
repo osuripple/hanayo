@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-10 21:07+0000\n"
+"POT-Creation-Date: 2017-04-12 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /de/HanayoJS/templates-de.po\n"
-"X-Pootle-Revision: 1759\n"
+"X-Pootle-Revision: 2355\n"
 
 # JavaScript
 msgid ""
@@ -22,14 +22,8 @@ msgstr ""
 "Ein Fehler ist aufgetreten während die Ripple-API kontaktiert wurde. Bitte "
 "melde dies einem Ripple-Entwickler."
 
-# This is a quote of UNDERTALE if you didn't know.
-# It is shown regarding the level of an user, but it is shortened to "Lv.".
-# Of course, this means Level on Ripple, but in UNDERTALE, it actually means LOVE.
-# I'm not gonna spoil you why it's called LOVE.
-# It's hard to keep this cultural reference, so you can also just write the
-# translation for "Level" in this.
 msgid "Why, LOVE, of course!"
-msgstr "Warum, LIEBE, natürlich!"
+msgstr "Warum, LOVE, natürlich!"
 
 msgid "Your new settings have been saved."
 msgstr "Deine neuen Einstellungen wurden gespeichert."
@@ -96,7 +90,7 @@ msgid "Max combo"
 msgstr "Maximale Combo"
 
 msgid "(full combo)"
-msgstr "(Full Combo)"
+msgstr "(full Combo)"
 
 msgid "Difficulty"
 msgstr "Schwierigkeit"
@@ -124,8 +118,13 @@ msgid_plural "{{ stars }} stars"
 msgstr[0] "{{ stars }} Stern"
 msgstr[1] "{{ stars }} Sterne"
 
+msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
+msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
+msgstr[0] "<b>{{ Monate }}</b> monatliche Kosten <b>€ {{ eur }}</b>"
+msgstr[1] "<b>{{ Monate }}</b> monatliche Kosten <b>€ {{ eur }}</b>"
+
 msgid "($ {{ usd }} / BTC {{ btc }})"
-msgstr "($ {{ usd }} / BTC {{ btc }}) "
+msgstr "($ {{ usd }} / BTC {{ btc }})"
 
 # (following are in relation to friends)
 msgid "Mutual"

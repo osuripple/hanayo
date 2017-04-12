@@ -29,6 +29,8 @@
     "None": "Nessuna",
     "{{ stars }} star": "{{ stars }} stella",
     "{{ stars }} star_plural": "{{ stars }} stelle",
+    "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>": "<b>{{ months }}</b> mese costa <b>€ {{ eur }}</b>",
+    "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>_plural": "<b>{{ months }}</b> mesi costano <b>€ {{ eur }}</b>",
     "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})",
     "Mutual": "Reciproci",
     "Remove": "Rimuovi",

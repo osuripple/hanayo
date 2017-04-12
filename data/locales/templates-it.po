@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-10 21:07+0000\n"
+"POT-Creation-Date: 2017-04-12 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /it/Hanayo/templates-it.po\n"
-"X-Pootle-Revision: 2296\n"
+"X-Pootle-Revision: 2472\n"
 
 # General
 msgid "You're already logged in!"
@@ -986,11 +986,11 @@ msgstr "<b>%s</b> è un giocatore di Ripple da <b>%s</b>."
 msgid "Last seen: %s."
 msgstr "Ultima visita %s."
 
-msgid "\"They signed up on Ripple %s.\""
-msgstr ""
+msgid "They signed up on Ripple %s."
+msgstr "Si è registrato su Ripple %s."
 
 msgid "They play with %s."
-msgstr "Giocano con %s."
+msgstr "Gioca con %s."
 
 msgid "Mouse"
 msgstr "Mouse"
@@ -1022,6 +1022,12 @@ msgstr "Melanzana"
 msgid "This user hasn't got any badges!"
 msgstr "Questo utente non ha nessun badge!"
 
+msgid "Global rank"
+msgstr "Rank globale"
+
+msgid "Country rank"
+msgstr "Rank nazionale"
+
 msgid "PP"
 msgstr "PP"
 
@@ -1045,7 +1051,7 @@ msgid "Support Ripple"
 msgstr "Aiuta Ripple"
 
 msgid "You are a donor!"
-msgstr ""
+msgstr "Sei un donatore!"
 
 msgid ""
 "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
@@ -1054,7 +1060,7 @@ msgstr ""
 "colpa per non aver donato!"
 
 msgid "Did you know?"
-msgstr ""
+msgstr "Lo sapevi?"
 
 msgid "(Probably.)"
 msgstr "(Probabilmente.)"
@@ -1371,12 +1377,24 @@ msgid ""
 "_blank\">here</a>, it's the one that starts with '#'. You can change your "
 "role name and colour <b>whenever you want!</b>"
 msgstr ""
+"Il tuo account di Discord è stato collegato a questo account di Ripple. <b>"
+"Benvenuto nel club dei donatori e grazie per il tuo aiuto!</b> Ora hai "
+"accesso ai canali testuali e vocali #donators sul nostro server di Discord "
+"ufficiale! Puoi anche impostare un role (con anche colore) personalizzato e "
+"cambiare il tuo nickname su Discord. Se lo vuoi cambiare, puoi usare il "
+"comando <code>/nick</code>. Per cambiare o impostare il nome e il colore del "
+"tuo <b>role personalizzato</b>, usa il comando <code>!role "
+"COLORE_ESADECIMALE NOME_RUOLO</code>. Puoi scegliere un colore esadecimale <"
+"a href=\"http://www.colorpicker.com/\" target=\"_blank\">qui</a>, è quello "
+"che comincia per '#'. Puoi cambiare il nome e il colore del tuo role <b>"
+"quando vuoi!</b>"
 
 msgid "Thank you for supporting us and have fun on Ripple!"
 msgstr "Grazie per aver donato e divertiti su Ripple!"
 
 msgid "Donors get special privileges on our Discord server too!"
 msgstr ""
+"I donatori ottengono privilegi speciali anche sul nostro server di Discord!"
 
 msgid ""
 "Discord is a chatroom with text and voice channels, bots and lots of other "
@@ -1384,152 +1402,190 @@ msgid ""
 "http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our "
 "official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
 msgstr ""
+"Discord è una chat con canali testuali e vocali, bot e un sacco di altre "
+"funzionalità carine. Puoi <b>scaricare Discord gratuitamente <a href=\""
+"http://discord.gg/\" target=\"_blank\">qui</a></b> e puoi <b>entrare sul "
+"nostro server ufficiale di Discord <a href=\"%s\" target=\"_blank\""
+">qui</a></b>."
 
 msgid "Here's what you get if you link your Discord account:"
-msgstr ""
+msgstr "Questo è quello che ottieni se colleghi il tuo account di Discord:"
 
 msgid "Access to /nick command, to change your Discord nickname"
-msgstr ""
+msgstr "Accesso al comando /nick, per cambiare il tuo username di Discord"
 
 msgid "Access to #donators text and voice channels"
-msgstr ""
+msgstr "Accesso ai canali vocali e testuali #donators"
 
 msgid "Username on donors list"
-msgstr ""
+msgstr "Username nella lista dei donatori"
 
 msgid "Custom role with custom username"
-msgstr ""
+msgstr "Role con nome e colore personalizzabili"
 
 msgid ""
 "To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our "
 "Discord server</a>, then click this fancy button:"
 msgstr ""
+"Per ottenere questi vantaggi, prima di tutto <a href=\"%s\" target=\"_blank\""
+">entra sul nostro server di Discord</a>, poi clicca su questo bel bottoncino:"
 
 msgid "Get Discord donor privileges"
-msgstr ""
+msgstr "Ottieni privilegi di Donatore su Discord"
 
 msgid "New password (leave blank if you don't want to change it)"
-msgstr ""
+msgstr "Nuova password (lascia in bianco se non desideri cambiarla)"
 
 msgid "Current password"
-msgstr ""
+msgstr "Password attuale"
 
 msgid "BBCode syntax reference"
-msgstr ""
+msgstr "Sintassi BBCode di riferimento"
 
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 msgid "Email address"
-msgstr ""
+msgstr "Indirizzo e-mail"
 
 msgid "Alternative username (cannot be used for login)"
-msgstr ""
+msgstr "Username alternativo (non può essere usato per il login)"
 
 msgid "Also known as..."
-msgstr ""
+msgstr "Conosciuto anche come..."
 
 msgid "Custom badge"
-msgstr ""
+msgstr "Badge personalizzato"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid ""
 "<b>Do not use offensive badges and do not pretend to be someone else with "
 "your badge.</b> If you abuse the badges system, you'll be silenced and you "
 "won't be able to edit your custom badge anymore."
 msgstr ""
+"<b>Non usare badge offensivi e non fingerti qualcun altro con il tuo "
+"badge.</b> Se abusi del sistema dei badge, sarai silenziato e non sarai più "
+"in grado di cambiare il tuo badge personalizzato."
 
 msgid "Icon reference"
-msgstr ""
+msgstr "Lista di icone"
 
 msgid "Dinosaur, oompa-loompa, cool guy..."
-msgstr ""
+msgstr "Camaleonte, depresso cronico, poeta..."
 
 msgid "Playstyle"
-msgstr ""
+msgstr "Stile di gioco"
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
-msgstr ""
+msgstr "Il 2FA con TOTP è stato abilitato sul tuo account."
 
 msgid "Passcode is invalid. Perhaps it expired?"
-msgstr ""
+msgstr "Il codice è invalido. Forse è scaduto?"
 
 msgid "No passcode/secret was given. Please try again"
-msgstr ""
+msgstr "Nessun codice è stato ottenuto. Per favore riprova"
 
 msgid "TOTP-based 2FA is already enabled!"
-msgstr ""
+msgstr "Il 2FA con TOTP è già stato abilitato!"
 
 msgid ""
 "You currently have Telegram 2FA enabled. You first need to disable that if "
 "you want to use TOTP-based 2FA."
 msgstr ""
+"Al momento hai abilitato il 2FA con Telegram. Devi prima disabilitarlo se "
+"vuoi usare il 2FA usando TOTP."
 
 msgid "2FA disabled successfully."
-msgstr ""
+msgstr "2FA disabilitato."
 
 msgid "Changing avatar is currently not possible."
-msgstr ""
+msgstr "Cambiare avatar non è al momento possibile."
 
 msgid "An error occurred."
-msgstr ""
+msgstr "Si è verificato un errore."
 
 msgid "We were not able to save your avatar."
-msgstr ""
+msgstr "Non siamo stati in grado di salvare il tuo avatar."
 
 msgid ""
 "Your avatar was successfully changed. It may take some time to properly "
 "update. To force a cache refresh, you can use CTRL+F5."
 msgstr ""
+"Il tuo avatar è stato cambiato con successo. Potrebbe essere richiesto del "
+"tempo affinché si aggiorni propriamente. Per forzare un aggiornamento della "
+"cache, puoi usare CTRL+F5."
 
 msgid "Internal Server Error"
-msgstr ""
+msgstr "Errore interno del server"
 
 msgid "You're not a donor!"
-msgstr ""
+msgstr "Non sei un donatore!"
 
 msgid ""
 "You've not joined the discord server! Links to it are below on the page. "
 "Please join the server before attempting to connect your account to Discord."
 msgstr ""
+"Non sei entrato nel server di Discord! I link per accedervi sono in basso a "
+"questa pagina. Per favore unisciti al server prima di provare a collegare il "
+"tuo account a Discord."
 
 msgid "Your account has been linked successfully!"
-msgstr ""
+msgstr "Il tuo account è stato collegato!"
 
 msgid ""
 "Your new IRC token is <code>%s</code>. The old IRC token is not valid "
 "anymore.<br>Keep it safe, don't show it around, and store it now! We won't "
 "show it to you again."
 msgstr ""
+"Il tuo nuovo token IRC è <code>%s</code>. Il vecchio token IRC non è più "
+"valido.<br>Tienilo al sicuro, non mostrarlo in giro, e salvalo ora! Non te "
+"lo mostreremo di nuovo."
 
 msgid "Your profile background has been saved."
-msgstr ""
+msgstr "Il tuo nuovo sfondo è stato salvato."
 
 msgid "We were not able to save your profile background."
-msgstr ""
+msgstr "Non siamo stati in grado di salvare lo sfondo del tuo profilo."
+
+msgid "Background type"
+msgstr "Tipo di sfondo"
+
+msgid "None"
+msgstr "Nessuno"
+
+msgid "Image"
+msgstr "Immagine"
+
+msgid "Solid colour"
+msgstr "Tinta unita"
 
 msgid "Colour is invalid"
-msgstr ""
+msgstr "Colore invalido"
 
 msgid ""
 "You have been automatically logged out of your account because your account "
 "has either been banned or locked. Should you believe this is a mistake, you "
 "can contact our support team at support@ripple.moe."
 msgstr ""
+"Sei uscito dal tuo account automaticamente perché il tuo account è stato o "
+"bannato o lockato. Se credi che questo sia un errore, puoi contattare il "
+"nostro team di supporto all'indirizzo support@ripple.moe."
 
 msgid ""
 "You have been automatically logged out for security reasons. Please <a "
 "href='/login?redir=%s'>log back in</a>."
 msgstr ""
+"Sei uscito dal tuo account per motivi di sicurezza. Per favore <a "
+"href='/login?redir=%s'>rieffettua l'accesso</a>."
 
 msgid "You need to login first."
-msgstr ""
+msgstr "Devi effettuare l'accesso prima."
 
 msgid "Forbidden"
-msgstr ""
+msgstr "Vietato"
 
 msgid "You should not be 'round here."
-msgstr ""
+msgstr "Non dovresti essere da queste parti."

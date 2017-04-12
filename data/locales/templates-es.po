@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-10 21:07+0000\n"
+"POT-Creation-Date: 2017-04-12 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /es/Hanayo/templates-es.po\n"
-"X-Pootle-Revision: 2295\n"
+"X-Pootle-Revision: 2522\n"
 
 msgid "You're already logged in!"
 msgstr "Ya estas conectado/a!"
@@ -780,13 +780,13 @@ msgid "Free osu!direct."
 msgstr "osu!direct gratis"
 
 msgid "Global leaderboards."
-msgstr ""
+msgstr "Posiciones globales"
 
 msgid "and PP for osu!standard and osu!mania"
-msgstr ""
+msgstr "y PP para osu!standard y osu!mania"
 
 msgid "Ranking queue for unranked beatmaps."
-msgstr ""
+msgstr "Cola de clasificacion para mapas desclasificados"
 
 msgid "Spectator."
 msgstr "Espectador"
@@ -821,12 +821,19 @@ msgid ""
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
+"Ahora ha evolucionado en el más grande y disponible servidor privado de "
+"osu!, con mas de 10.000 usuarios registrados. <a href=\"/register\""
+">Registrarte</a> en Ripple no hara que tu cuenta en osu! sea restringida, "
+"asi que, Qué estas esperando? Unetenos! %s"
 
 msgid ""
 "In case you want to make sure we're not doing shady stuff with your data, "
 "you can also check the <a href=\"https://zxq.co/ripple/ripple\">source "
 "code</a> Ripple is running on."
 msgstr ""
+"En caso de que quieras estar seguro de que no hacemos nada sospechoso con "
+"tus datos, puedes revisar el <a href=\"https://zxq.co/ripple/ripple\">codigo "
+"fuente</a> con el cual Ripple funciona."
 
 # changelog.html
 msgid ""
@@ -842,6 +849,10 @@ msgid ""
 "changelog of Hanayo, you can do so by <a href=\""
 "https://zxq.co/ripple/hanayo/commits/master\">clicking here</a>."
 msgstr ""
+"Por varias razones, el software de Ripple no contribuye a la lista de "
+"cambios, de la cual este sitio es parte. En caso de que quieras ver la lists "
+"de cambios de Hanayo puedes hacerlo <a href=\""
+"https://zxq.co/ripple/hanayo/commits/master\">clickeando aquí</a>."
 
 msgid "Author"
 msgstr "Autor"
@@ -857,7 +868,7 @@ msgid "View document"
 msgstr "Ver documento"
 
 msgid "Documentation file not found!"
-msgstr ""
+msgstr "Archivo de documentación no encontrado!"
 
 msgid "View all docs"
 msgstr "Ver todos documentos"
@@ -867,21 +878,24 @@ msgid ""
 "Need some help getting around? Look no further! From here you will be able "
 "to view our documentation, which is basically a very simplistic wiki."
 msgstr ""
+"Necesitas ayuda para guiarte? No busques mas! Desde aqui seras capaz de "
+"observar nuestra documentacion, la cual es basicamente una Wiki muy simple"
 
 msgid "Looks like there is no documentation on this ripple instance!"
-msgstr ""
+msgstr "Al parecer no hay documentacion en esa parte de Ripple!"
 
 # friends.html
 msgid ""
 "On this page you can see all of your friends, and unfriend them as you see "
 "fit."
 msgstr ""
+"En esta página puedes ver a todos tus amigos, y eliminarlos como desees."
 
 msgid "Mutual"
-msgstr ""
+msgstr "Amistad mutua"
 
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 # irc.html
 msgid ""
@@ -891,148 +905,161 @@ msgid ""
 "connect to Ripple's chat via IRC, you may want to check out <a href=\"/doc/"
 "11\">this</a>."
 msgstr ""
+"Aquí puedes generar un nuevo token de IRC. Puedes usarlo para conectarte al "
+"chat de Ripple utilizando IRC. Recuerda que el token de IRC es como una "
+"contraseña, cualquiera que la sepa tendrá acceso a tu cuenta. Si estas "
+"interesado en conocer como conectarse al chat de Ripple utilizando IRC, "
+"entonces querrás ver <a href=\"/doc/11\">esto</a>."
 
 msgid "Generate a new token!"
-msgstr ""
+msgstr "Generar un nuevo token!"
 
 # leaderboard.html
 msgid "Rank"
-msgstr ""
+msgstr "Rango"
 
 msgid "Player"
-msgstr ""
+msgstr "Jugador"
 
 msgid "PP/Score"
-msgstr ""
+msgstr "PP/puntuación"
 
 msgid "Accuracy"
-msgstr ""
+msgstr "Precisión"
 
 msgid "Playcount"
-msgstr ""
+msgstr "Contador de veces jugadas"
 
 # profile.html
 msgid "%s's profile"
-msgstr ""
+msgstr "Perfil de %s"
 
 # profile.html
 # for <reason>, expires <placeholder for time>.
 msgid "User is <b>silenced</b> for %s, expires %s."
-msgstr ""
+msgstr "El usuario esta <b>silenced</b> por %s, expira en %s."
 
 # %s is placeholder for an adjective of the user, e.g. "locked", "pending verification", "restricted"
 msgid "User is <b>%s</b>"
-msgstr ""
+msgstr "El usuario esta <b>%s</b>"
 
 msgid "pending verification"
-msgstr ""
+msgstr "verificación pendiente"
 
 msgid "banned"
-msgstr ""
+msgstr "baneado"
 
 msgid "restricted"
-msgstr ""
+msgstr "restringido"
 
 msgid "locked"
-msgstr ""
+msgstr "bloqueado"
 
 msgid "User not found"
-msgstr ""
+msgstr "Usuario no encontrado"
 
 msgid "(aka <b>%s</b>)"
-msgstr ""
+msgstr "(aka <b>%s</b>)"
 
 msgid "Online"
-msgstr ""
+msgstr "Conectado"
 
 msgid "Offline"
-msgstr ""
+msgstr "Desconectado"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgid "<b>%s</b> is a Ripple player from <b>%s</b>."
-msgstr ""
+msgstr "<b>%s</b> es un jugador de Ripple de <b>%s</b>."
 
 msgid "Last seen: %s."
-msgstr ""
+msgstr "Ultima conexión: %s."
 
-msgid "\"They signed up on Ripple %s.\""
-msgstr ""
+msgid "They signed up on Ripple %s."
+msgstr "Se ha registrado %s."
 
 msgid "They play with %s."
-msgstr ""
+msgstr "Juega con %s."
 
 msgid "Mouse"
-msgstr ""
+msgstr "Ratón"
 
 msgid "Tablet"
-msgstr ""
+msgstr "Tableta"
 
 msgid "Keyboard"
-msgstr ""
+msgstr "Teclado"
 
 msgid "Touchscreen"
-msgstr ""
+msgstr "Pantalla táctil"
 
 msgid "Spoon"
-msgstr ""
+msgstr "Cuchara"
 
 msgid "Leap motion"
-msgstr ""
+msgstr "Movimiento de la cabeza"
 
 msgid "Oculus rift"
-msgstr ""
+msgstr "Oculus rift"
 
 msgid "Dick"
-msgstr ""
+msgstr "Pene"
 
 msgid "Eggplant"
-msgstr ""
+msgstr "Berenjena"
 
 msgid "This user hasn't got any badges!"
-msgstr ""
+msgstr "Este usuario no ha conseguido ninguna insignia!"
+
+msgid "Global rank"
+msgstr "Posiciones globales"
+
+msgid "Country rank"
+msgstr "Posiciones nacionales"
 
 msgid "PP"
-msgstr ""
+msgstr "PP"
 
 msgid "Ranked score"
-msgstr ""
+msgstr "Puntuación clasificada"
 
 msgid "Total score"
-msgstr ""
+msgstr "Puntuación total"
 
 msgid "Replays watched"
-msgstr ""
+msgstr "Repeticiones observadas"
 
 msgid "Total hits"
-msgstr ""
+msgstr "Golpes totales"
 
 msgid "Level %s"
-msgstr ""
+msgstr "Nivel %s"
 
 # support.html
 msgid "Support Ripple"
-msgstr ""
+msgstr "Apoya a Ripple"
 
 msgid "You are a donor!"
-msgstr ""
+msgstr "Eres un donador!"
 
 msgid ""
 "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
 msgstr ""
+"Tu tag de donador expira <b>%s</b>. No hay necesidad de sentirse culpable "
+"por no haber donado!"
 
 msgid "Did you know?"
-msgstr ""
+msgstr "¿Sabías que...?"
 
 msgid "(Probably.)"
-msgstr ""
+msgstr "(Probablemente.)"
 
 msgid "(Probably not.)"
-msgstr ""
+msgstr "(Probablemente no.)"
 
 msgid "Ripple is not cheap to run."
-msgstr ""
+msgstr "No es barato mantener Ripple"
 
 msgid ""
 "While we provide this service for free, we still have to pay for it, and if "
@@ -1043,9 +1070,17 @@ msgid ""
 "have, the higher-end our hardware needs to be. So we are asking you for help "
 "on this :)."
 msgstr ""
+"Mientras que proveemos un servicio gratis, nosotros pagamos por el, Y si "
+"casi siempre lo pagamos con diner de nuestras propias billeteras, 1: "
+"estariamos en banca rota. 2: No seriamos capaces de mejorar nuestro hardware "
+"para satisfacer a nuestros usuarios. Mientras que hacemos grandes cargas de "
+"optimizaciones de software que nos permite correr Ripple tan rapido mientras "
+"que nuestro hardware no termina tan bien, mientras mas usuarios tenemos, "
+"mejor debe ser nuestro hardware. Asi que por eso les pedimos ayuda en esto "
+":)."
 
 msgid "We are still students."
-msgstr ""
+msgstr "Todavia somos estudiantes."
 
 msgid ""
 "Ripple developers, and most of the Ripple staff, do not have a day job. This "
@@ -1054,10 +1089,10 @@ msgid ""
 msgstr ""
 
 msgid "We do not have ads. And never will."
-msgstr ""
+msgstr "No tenemos publicidades y nunca las tendremos."
 
 msgid "We love picking random icons from our icon library."
-msgstr ""
+msgstr "Amamos seleccionar iconos aleatorios de nuestra libreria de iconos."
 
 msgid ""
 "You may have adblock enabled and have not noticed, but we don't have ads "
@@ -1414,6 +1449,18 @@ msgid "Your profile background has been saved."
 msgstr ""
 
 msgid "We were not able to save your profile background."
+msgstr ""
+
+msgid "Background type"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Solid colour"
 msgstr ""
 
 msgid "Colour is invalid"

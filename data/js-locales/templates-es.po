@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-10 21:07+0000\n"
+"POT-Creation-Date: 2017-04-12 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /es/HanayoJS/templates-es.po\n"
-"X-Pootle-Revision: 2292\n"
+"X-Pootle-Revision: 2478\n"
 
 # JavaScript
 msgid ""
@@ -35,28 +35,30 @@ msgid "Your new settings have been saved."
 msgstr "Tus nuevos ajustes han sido guardados."
 
 msgid "Your userpage has been saved."
-msgstr ""
+msgstr "Tu página de usuario ha sido guardada."
 
 msgid ""
 "Please provide a valid link, in the form of either "
 "https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;."
 msgstr ""
+"Por favor, proporcione un link valido, en el formulario de "
+"https://osu.ppy.sh/s/&lt;ID&gt; p https://osu.ppy.sh/b/&lt;ID&gt;."
 
 msgid "Beatmap rank request has been submitted."
-msgstr ""
+msgstr "La petición de clasificación de beatmap ha sido enviada."
 
 msgid "That beatmap is already ranked!"
-msgstr ""
+msgstr "Ese mapa ya esta rankeado!"
 
 # user profile
 msgid "Add friend"
 msgstr "Añadir amigo"
 
 msgid "Remove friend"
-msgstr ""
+msgstr "Remover amistad"
 
 msgid "Unmutual friend"
-msgstr ""
+msgstr "Remover amistad"
 
 # score table
 msgid "General info"
@@ -85,7 +87,7 @@ msgid "PP"
 msgstr "PP"
 
 msgid "Beatmap"
-msgstr ""
+msgstr "Mapa"
 
 msgid "Accuracy"
 msgstr "Precisión"
@@ -94,7 +96,7 @@ msgid "Max combo"
 msgstr "Combo máximo"
 
 msgid "(full combo)"
-msgstr ""
+msgstr "(Combo completo)"
 
 msgid "Difficulty"
 msgstr "Dificultad"
@@ -123,6 +125,11 @@ msgid_plural "{{ stars }} stars"
 msgstr[0] "{{ stars }} estrella"
 msgstr[1] "{{ stars }} estrellas"
 
+msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
+msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
+msgstr[0] "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
+msgstr[1] "<b>{{ months }}</b> months costs <b>€ {{ eur }}</b>"
+
 msgid "($ {{ usd }} / BTC {{ btc }})"
 msgstr "($ {{ usd }} / BTC {{ btc }})"
 
@@ -131,7 +138,7 @@ msgid "Mutual"
 msgstr "Amistad mutua"
 
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Add"
 msgstr "Añadir"
