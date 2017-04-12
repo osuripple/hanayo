@@ -258,8 +258,16 @@ var funcMap = template.FuncMap{
 	},
 	// playstyle returns the string representation of a playstyle.
 	"playstyle": func(i float64, f *profileData) string {
-		// TODO: use f to translate PlayStyle
-		return playstyle.PlayStyle(i).String()
+		var parts []string
+
+		p := int(i)
+		for k, v := range playstyle.Styles {
+			if p&(1<<uint(k)) > 0 {
+				parts = append(parts, f.T(v))
+			}
+		}
+
+		return strings.Join(parts, ", ")
 	},
 	// arithmetic plus/minus
 	"plus": func(i ...float64) float64 {
