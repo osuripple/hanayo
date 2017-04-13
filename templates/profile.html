@@ -18,14 +18,14 @@
 				{{ $pend  := has .privileges 1048576 }}
 				{{ if and $disab $restr }}
 					{{ if $pend }}
-						<div class="ui warning centered message">{{ "User is <b>%s</b>" "pending verification" | html }}.</div>
+						<div class="ui warning centered message">{{ $global.T "User is <b>%s</b>" "pending verification" | html }}.</div>
 					{{ else }}
-						<div class="ui error centered message">{{ "User is <b>%s</b>" "banned" | html }}.</div>
+						<div class="ui error centered message">{{ $global.T "User is <b>%s</b>" "banned" | html }}.</div>
 					{{ end }}
 				{{ else if $restr }}
-					<div class="ui error centered message">{{ "User is <b>%s</b>" "restricted" | html }}.</div>
+					<div class="ui error centered message">{{ $global.T "User is <b>%s</b>" "restricted" | html }}.</div>
 				{{ else if $disab }}
-					<div class="ui error centered message">{{ "User is <b>%s</b>" "locked" | html }}.</div>									
+					<div class="ui error centered message">{{ $global.T "User is <b>%s</b>" "locked" | html }}.</div>									
 				{{ end }}
 			{{ end }}
 			{{ with $global.Get "users/userpage?id=%.0f" .id }}
