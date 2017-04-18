@@ -353,7 +353,7 @@ function getRank(gameMode, mods, acc, c300, c100, c50, cmiss) {
 
 	switch(gameMode) {
 		case 0:
-		case 1: // TODO: check taiko's
+		case 1:
 			var ratio300 = c300 / total;
 			var ratio50 = c50 / total;
 
