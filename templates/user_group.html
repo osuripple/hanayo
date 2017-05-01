@@ -5,7 +5,7 @@ NoCompile=true
 {{ with . }}
 	<div class="ui five column center aligned stackable grid">
 		{{ $teamJSON := teamJSON }}
-		{{ range .users }}
+		{{ range .members }}
 			{{/* ignore fokabot */}}
 			{{ if ne (int .id) 999 }}
 				{{ $tj := index $teamJSON (print .id)}}

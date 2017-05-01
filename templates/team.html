@@ -19,7 +19,7 @@ KyutGrill=team2.jpg
 				sent to <a href="mailto:support@ripple.moe">support@ripple.moe</a>.
 				Community Managers have a red name in the in-game chat.
 			</p>
-			{{ template "userGroup" (.Get "users?sort=username,asc&privilege_group=%s" "community%20manager") }}
+			{{ template "userGroup" (.Get "badges/members?id=%d" 4) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">Developers</h1>
@@ -29,7 +29,7 @@ KyutGrill=team2.jpg
 				They don't do anything related to the community. Developers have
 				a blue name in the in-game chat.
 			</p>
-			{{ template "userGroup" (.Get "users?sort=username,asc&privilege_group=%s" "developer") }}
+			{{ template "userGroup" (.Get "badges/members?id=%d" 2) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">Chat Moderators</h1>
@@ -37,7 +37,7 @@ KyutGrill=team2.jpg
 				Chat moderators manage the chat to make sure The Law&trade; (the
 				rules) is respected.
 			</p>
-			{{ template "userGroup" (.Get "users?sort=username,asc&privilege_group=%s&has_not_privileges=16" "chat%20mod") }}
+			{{ template "userGroup" (.Get "badges/members?id=%d" 30) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">BATs</h1>
@@ -45,7 +45,7 @@ KyutGrill=team2.jpg
 				BATs play beatmaps in the ranking queue and decide whether they
 				are good enough to be ranked or not.
 			</p>
-			{{ template "userGroup" (.Get "users?sort=username,asc&privilege_group=%s&has_not_privileges=16" "bat") }}
+			{{ template "userGroup" (.Get "badges/members?id=%d" 5) }}
 		</div>
 	</div>
 	<div class="ui segments">
