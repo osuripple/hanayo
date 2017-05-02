@@ -23,6 +23,7 @@ import (
 	"zxq.co/ripple/go-discord-oauth"
 	"zxq.co/ripple/hanayo/modules/bbcode"
 	"zxq.co/ripple/hanayo/modules/btcaddress"
+	"zxq.co/ripple/hanayo/modules/doc"
 	"zxq.co/ripple/hanayo/modules/fa-semantic-mappings"
 	"zxq.co/ripple/playstyle"
 	"zxq.co/ripple/rippleapi/common"
@@ -224,7 +225,16 @@ var funcMap = template.FuncMap{
 	},
 	// blackfriday passes some markdown through blackfriday.
 	"blackfriday": func(m string) template.HTML {
-		return template.HTML(blackfriday.MarkdownCommon([]byte(m)))
+		// The reason of m[strings.Index...] is to remove the "header", where
+		// there is the information about the file (namely, title, old_id and
+		// reference_version)
+		return template.HTML(
+			blackfriday.MarkdownCommon(
+				[]byte(
+					m[strings.Index(m, "\n---\n")+5:],
+				),
+			),
+		)
 	},
 	// i is an inline if.
 	// i (cond) (true) (false)
@@ -464,6 +474,13 @@ var funcMap = template.FuncMap{
 	},
 	"countryList": func(n int64) []string {
 		return rd.ZRevRange("hanayo:country_list", 0, n-1).Val()
+	},
+	"documentationFiles": doc.GetDocs,
+	"documentationData": func(slug string, language string) doc.File {
+		if i, err := strconv.Atoi(slug); err == nil {
+			slug = doc.SlugFromOldID(i)
+		}
+		return doc.GetFile(slug, language)
 	},
 }
 

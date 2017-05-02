@@ -1069,3 +1069,6 @@ msgstr ""
 
 msgid "You should not be 'round here."
 msgstr ""
+
+msgid "It seems like the original version of this file has been updated, so this file is out of date and may contain inaccurate information. If you want to make sure to be up-to-date, please refer to the <a href=\"%s%s\">English version</a>."
+msgstr ""

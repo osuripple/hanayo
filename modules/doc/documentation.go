@@ -1,13 +1,22 @@
 package doc
 
+import "io/ioutil"
+
 const referenceLanguage = "en"
 
 var docFiles []Document
 
 // File represents the single documentation file of a determined language.
 type File struct {
-	IsUpdated bool
-	Title     string
+	IsUpdated      bool
+	Title          string
+	referencesFile string
+}
+
+// Data retrieves data from file's actual file on disk.
+func (f File) Data() (string, error) {
+	data, err := ioutil.ReadFile(f.referencesFile)
+	return string(data), err
 }
 
 // Document represents a documentation file, providing its old ID, its slug,
@@ -58,4 +67,18 @@ func SlugFromOldID(i int) string {
 	}
 
 	return ""
+}
+
+// GetFile retrieves a file, given a slug and a language.
+func GetFile(slug, language string) File {
+	for _, f := range docFiles {
+		if f.Slug != slug {
+			continue
+		}
+		if val, ok := f.Languages[language]; ok {
+			return val
+		}
+		return f.Languages[referenceLanguage]
+	}
+	return File{}
 }

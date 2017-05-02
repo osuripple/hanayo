@@ -127,8 +127,9 @@ func loadLanguages(langs []string, fname string, referenceMD5 string) (map[strin
 		header := loadHeader(data)
 
 		m[lang] = File{
-			IsUpdated: lang == referenceLanguage || header.ReferenceVersion == referenceMD5,
-			Title:     header.Title,
+			IsUpdated:      lang == referenceLanguage || header.ReferenceVersion == referenceMD5,
+			Title:          header.Title,
+			referencesFile: "website-docs/" + lang + "/" + fname,
 		}
 	}
 

@@ -11,11 +11,11 @@ HugeHeadingRight=true
 			{{ .T "Need some help getting around? Look no further! From here you will be able to view our documentation, which is basically a very simplistic wiki." }}
 		</div>
 		<div class="ui segment">
-			{{ with .Get "doc" }}
-				{{ if .files }}
+			{{ with documentationFiles .Context.Language }}
+				{{ if . }}
 					<ul class="ui list">
-						{{ range .files }}
-							<li><a href="/doc/{{ .id }}">{{ .doc_name }}</a></li>
+						{{ range . }}
+							<li><a href="/doc/{{ .Slug }}">{{ .Title }}</a></li>
 						{{ end }}
 					</ul>
 				{{ else }}

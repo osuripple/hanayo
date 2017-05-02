@@ -8,18 +8,22 @@ HugeHeadingRight=true
 <div class="ui container">
 	<div class="ui segments">
 		{{ $ := . }}
-		{{ $url := i  (eq (.Gin.Param "id") "rules") "doc/rules"  (printf "doc/content?id=%s" (urlquery (.Gin.Param "id"))) }}
-		{{ with .Get $url }}
-			{{ if not .title }}
+		{{ with documentationData (.Gin.Param "id") (or (.Gin.Query "lang") .Context.Language) }}
+			{{ if .Title }}
 				<div class="ui segment">
-					{{ $.T "Documentation file not found!" }}
+					<h1 class="ui header">{{ .Title }}</h1>
+				</div>
+				{{ if not .IsUpdated }}
+					<div class="ui yellow segment">
+						{{ $.T "It seems like the original version of this file has been updated, so this file is out of date and may contain inaccurate information. If you want to make sure to be up-to-date, please refer to the <a href=\"%s%s\">English version</a>." $.Gin.Request.URL.Path "?lang=en" | html }}
+					</div>
+				{{ end }}
+				<div class="ui segment">
+					{{ blackfriday .Data }}
 				</div>
 			{{ else }}		
 				<div class="ui segment">
-					<h1 class="ui header">{{ .title }}</h1>
-				</div>
-				<div class="ui segment">
-					{{ blackfriday .content }}
+					{{ $.T "Documentation file not found!" }}
 				</div>
 			{{ end }}
 		{{ end }}
