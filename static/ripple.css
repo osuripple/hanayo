@@ -363,3 +363,12 @@ input[type="submit"].ie {
 	/* Don't ask. Simply don't. I just tried random display values and this was what worked best */
 	display: flex;
 }
+
+/* A camouflaged link looks like normal text but it isn't. */
+a.camouflaged {
+	color: inherit;
+}
+
+a.camouflaged:hover {
+	text-decoration: underline;
+}
