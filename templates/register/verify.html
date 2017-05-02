@@ -7,7 +7,7 @@
 		{{ .T "<b class='big text'>Do not let anyone except yourself log into your Ripple account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting." (config "DiscordServer") | html }}
 	</div>
 	<div class="ui segment">
-		<h1 class="ui heading">{{ .T "<a href='/doc/1'>The Guide,</a> tl;dr version" }}</h1>
+		<h1 class="ui heading">{{ .T "<a href='/doc/1'>The Guide,</a> tl;dr version" | html }}</h1>
 		<ol class="ui list">
 			<li><a href="https://mu.nyodev.xyz/upd.php?id=18"><b>{{ .T "Download the server switcher" }}</b></a></li>
 			<li>{{ .T "Extract it, disable your antivirus, execute it <b>as administrator</b>" | html }}</li>
