@@ -7,11 +7,12 @@ HugeHeadingRight=true
 {{ define "tpl" }}
 <div class="ui container">
 	<div class="ui segments">
+		{{ $ := . }}
 		{{ $url := i  (eq (.Gin.Param "id") "rules") "doc/rules"  (printf "doc/content?id=%s" (urlquery (.Gin.Param "id"))) }}
 		{{ with .Get $url }}
 			{{ if not .title }}
 				<div class="ui segment">
-					{{ .T "Documentation file not found!" }}
+					{{ $.T "Documentation file not found!" }}
 				</div>
 			{{ else }}		
 				<div class="ui segment">
