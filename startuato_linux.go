@@ -13,9 +13,9 @@ import (
 	"os/exec"
 	"syscall"
 
-	"zxq.co/ripple/schiavolib"
 	"github.com/gin-gonic/gin"
 	"github.com/rcrowley/goagain"
+	"zxq.co/ripple/schiavolib"
 )
 
 var l net.Listener
@@ -106,6 +106,9 @@ func updateFromRemote(c *gin.Context) {
 	c.String(200, "all right")
 	go func() {
 		if !execCommand("git", "pull", "origin", "master") {
+			return
+		}
+		if !execCommand("git", "submodule", "update") {
 			return
 		}
 		// go get
