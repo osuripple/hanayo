@@ -82,7 +82,7 @@
 			<a href="https://twitter.com/_ripple" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a>
 			<a href="https://reddit.com/r/osuripple" title="{{ .T "Share irrelevant opinions on reddit!" }}"><i class="reddit square icon"></i></a> |
 			<div class="ui scrolling dropdown" style="margin-left: 5px;" id="language-selector">
-				{{ $lang := getLanguage .Gin }}
+				{{ $lang := .Context.Language }}
 				{{ with $lang }}
 					{{ $info := languageInformationByNameShort . }}
 					<div class="text"><i class="{{ $info.CountryShort }} flag"></i>{{ $info.Name }}</div>

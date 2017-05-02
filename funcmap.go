@@ -451,14 +451,6 @@ var funcMap = template.FuncMap{
 		return x.Val()
 	},
 	"getBitcoinAddress": btcaddress.Get,
-	"getLanguage": func(c *gin.Context) string {
-		for _, l := range getLang(c) {
-			if in(l, localeLanguages) {
-				return l
-			}
-		}
-		return ""
-	},
 	"languageInformation": func() []langInfo {
 		return languageInformation
 	},
@@ -557,6 +549,15 @@ func getDiscord() *oauth2.Config {
 		Endpoint:     discordoauth.Endpoint,
 		Scopes:       []string{"identify"},
 	}
+}
+
+func getLanguageFromGin(c *gin.Context) string {
+	for _, l := range getLang(c) {
+		if in(l, localeLanguages) {
+			return l
+		}
+	}
+	return ""
 }
 
 func init() {

@@ -70,6 +70,8 @@ func sessionInitializer() func(c *gin.Context) {
 			addBannedMessage = true
 		}
 
+		ctx.Language = getLanguageFromGin(c)
+
 		c.Set("context", ctx)
 		c.Set("session", sess)
 
