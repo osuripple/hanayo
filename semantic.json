@@ -34,7 +34,6 @@
     "rail",
     "reveal",
     "segment",
-    "step",
     "breadcrumb",
     "form",
     "grid",
@@ -56,17 +55,11 @@
     "nag",
     "popup",
     "progress",
-    "rating",
     "search",
-    "shape",
     "sidebar",
-    "sticky",
     "tab",
-    "transition",
-    "api",
     "form",
-    "state",
-    "visibility"
+    "state"
   ],
   "version": "2.2.6"
 }
