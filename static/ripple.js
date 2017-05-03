@@ -431,14 +431,16 @@ $(document).ready(function(){
 function closeClosestMessage() {
   $(this)
     .closest('.message')
-    .transition('fade');
+    .fadeOut(300, function() {
+      $(this).remove();
+    });
 };
 
 function showMessage(type, message) {
   var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + T(message) + '</div>');
   newEl.find(".close.icon").click(closeClosestMessage);
   $("#messages-container").append(newEl);
-  newEl.transition("slide down");
+  newEl.slideDown(300);
 };
 
 // function for all api calls
