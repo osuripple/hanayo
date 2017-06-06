@@ -59,6 +59,7 @@
     "sidebar",
     "tab",
     "form",
+    "transition",
     "state"
   ],
   "version": "2.2.6"
