@@ -573,7 +573,7 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-# doc_content.html 
+# doc_content.html
 msgid "View document"
 msgstr ""
 
@@ -1072,3 +1072,7 @@ msgstr ""
 
 msgid "If you truly have understood what's written above and you have understood that creating a multiaccount will lead to a restriction on your main account, you can click here and you'll be brought to the sign up page."
 msgstr ""
+
+msgid "You look new here. Allow us to introduce you to what Ripple is."
+msgstr ""
+
