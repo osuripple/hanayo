@@ -30,6 +30,9 @@ func Initialise(handler RequestHandler) error {
 	config := osin.NewServerConfig()
 	config.AllowClientSecretInParams = true
 	config.AllowGetAccessRequest = true
+	// Hmm... Wondering why we're making access tokens everlasting, and
+	// disabling refresh tokens? http://telegra.ph/On-refresh-tokens-06-10
+	config.AccessExpiration = 0
 	osinServer = osin.NewServer(config, store)
 	return nil
 }
@@ -135,10 +138,12 @@ func Token(c *gin.Context) {
 
 	if ar := osinServer.HandleAccessRequest(resp, c.Request); ar != nil {
 		ar.Authorized = true
+		ar.GenerateRefresh = false
 		osinServer.FinishAccessRequest(resp, c.Request, ar)
 	}
 	if resp.IsError && resp.InternalError != nil {
 		fmt.Printf("ERROR: %s\n", resp.InternalError)
 	}
+	delete(resp.Output, "expire_in")
 	osin.OutputJSON(resp, c.Writer, c.Request)
 }
