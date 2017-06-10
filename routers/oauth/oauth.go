@@ -101,6 +101,7 @@ func Authorize(c *gin.Context) {
 		// all good, authorization succeded
 		ar.Authorized = c.PostForm("approve") == "1"
 		ar.UserData = strconv.Itoa(rh.GetUserID(c))
+		ar.Scope = strings.Join(client.Authorizations, " ")
 		osinServer.FinishAuthorizeRequest(resp, c.Request, ar)
 	}
 	if resp.IsError && resp.InternalError != nil {
