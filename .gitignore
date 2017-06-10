@@ -6,3 +6,5 @@ static/profbackgrounds/*
 !static/profbackgrounds/.keep
 semantic/gulpfile.tmp.*.js
 /_
+static/oauth-apps/*
+!static/oauth-apps/.keep

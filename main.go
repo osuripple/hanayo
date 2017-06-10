@@ -23,6 +23,7 @@ import (
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/hanayo/modules/btcaddress"
 	"zxq.co/ripple/hanayo/modules/btcconversions"
+	"zxq.co/ripple/hanayo/routers/oauth"
 	"zxq.co/ripple/hanayo/routers/pagemappings"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
@@ -133,7 +134,7 @@ func main() {
 	configMap = structs.Map(config)
 
 	// initialise db
-	db, err = sqlx.Open("mysql", config.DSN)
+	db, err = sqlx.Open("mysql", config.DSN+"?parseTime=true")
 	if err != nil {
 		panic(err)
 	}
@@ -165,6 +166,9 @@ func main() {
 		Addr:     config.RedisAddress,
 		Password: config.RedisPassword,
 	})
+
+	// initialise oauth
+	setUpOauth()
 
 	// initialise btcaddress
 	btcaddress.Redis = rd
@@ -290,6 +294,11 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/2fa/totp", totpSetup)
 	r.GET("/settings/discord/finish", discordFinish)
 	r.POST("/settings/profbackground/:type", profBackground)
+
+	r.GET("/oauth/authorize", oauth.Authorize)
+	r.POST("/oauth/authorize", oauth.Authorize)
+	r.GET("/oauth/token", oauth.Token)
+	r.POST("/oauth/token", oauth.Token)
 
 	r.GET("/donate/rates", btcconversions.GetRates)
 
