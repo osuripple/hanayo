@@ -1,6 +1,7 @@
 package oauth
 
 import (
+	"crypto/sha256"
 	"database/sql"
 	"encoding/json"
 	"fmt"
@@ -33,7 +34,7 @@ func Initialise(handler RequestHandler) error {
 	// Hmm... Wondering why we're making access tokens everlasting, and
 	// disabling refresh tokens? http://telegra.ph/On-refresh-tokens-06-10
 	config.AccessExpiration = 0
-	osinServer = osin.NewServer(config, store)
+	osinServer = osin.NewServer(config, storage{store})
 	return nil
 }
 
@@ -135,12 +136,37 @@ func Token(c *gin.Context) {
 	resp := osinServer.NewResponse()
 	defer resp.Close()
 
+	_ = resp.Storage.(storage)
+
 	c.Request.ParseForm()
 
 	if ar := osinServer.HandleAccessRequest(resp, c.Request); ar != nil {
 		ar.Authorized = true
 		ar.GenerateRefresh = false
+
+		redirectURI := c.Query("redirect_uri")
+		// Get redirect uri from AccessRequest if it's there (e.g., refresh token request)
+		if ar.RedirectUri != "" {
+			redirectURI = ar.RedirectUri
+		}
+
+		ar.ForceAccessData = &osin.AccessData{
+			Client:        ar.Client,
+			AuthorizeData: ar.AuthorizeData,
+			AccessData:    ar.AccessData,
+			RedirectUri:   redirectURI,
+			CreatedAt:     osinServer.Now(),
+			ExpiresIn:     ar.Expiration,
+			UserData:      ar.UserData,
+			Scope:         ar.Scope,
+		}
+
+		// generate access token
+		plainToken, _, _ := osinServer.AccessTokenGen.GenerateAccessToken(ar.ForceAccessData, ar.GenerateRefresh)
+		ar.ForceAccessData.AccessToken = fmt.Sprintf("%x", sha256.Sum256([]byte(plainToken)))
+
 		osinServer.FinishAccessRequest(resp, c.Request, ar)
+		resp.Output["access_token"] = plainToken
 	}
 	if resp.IsError && resp.InternalError != nil {
 		fmt.Printf("ERROR: %s\n", resp.InternalError)
