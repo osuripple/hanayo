@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-
 	"zxq.co/ripple/rippleapi/common"
 )
 
