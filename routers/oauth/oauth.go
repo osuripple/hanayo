@@ -23,11 +23,6 @@ func Initialise(handler RequestHandler) error {
 
 	rh = handler
 
-	err := store.CreateSchemas()
-	if err != nil {
-		return err
-	}
-
 	config := osin.NewServerConfig()
 	config.AllowClientSecretInParams = true
 	config.AllowGetAccessRequest = true
