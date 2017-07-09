@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 19:21+0000\n"
+"POT-Creation-Date: 2017-07-09 11:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,15 +12,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /pl/HanayoJS/templates-pl.po\n"
-"X-Pootle-Revision: 2358\n"
+"X-Pootle-Revision: 3637\n"
 
 # JavaScript
 msgid ""
 "An error occurred while contacting the Ripple API. Please report this to a "
 "Ripple developer."
 msgstr ""
-"Podczas podłączania do Ripple API nastąpił błąd. Prosze powiadomić o tym "
-"deweloperów Ripple."
+"Nastąpił błąd podczas kontaktowania API. Proszę powiadomić o tym deweloperów "
+"Ripple."
 
 # This is a quote of UNDERTALE if you didn't know.
 # It is shown regarding the level of an user, but it is shortened to "Lv.".
@@ -32,7 +32,7 @@ msgid "Why, LOVE, of course!"
 msgstr "Poziom"
 
 msgid "Your new settings have been saved."
-msgstr "Twoje nowe ustawienia zostały zapisane."
+msgstr "Twoje ustawienia zostały zapisane."
 
 msgid "Your userpage has been saved."
 msgstr "Twoja strona użytkownika była zapisana."
@@ -41,11 +41,11 @@ msgid ""
 "Please provide a valid link, in the form of either "
 "https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;."
 msgstr ""
-"Prosze o podanie prawidłowego linku we formie https://osu.ppy.sh/s/&lt;ID&gt;"
-" albo https://osu.ppy.sh/b/&lt;ID&gt;."
+"Proszę o podanie prawidłowego linku w formie https://osu.ppy.sh/s/&lt;ID&gt; "
+"albo https://osu.ppy.sh/b/&lt;ID&gt;."
 
 msgid "Beatmap rank request has been submitted."
-msgstr "Prośba o dodanie rankowej beatmapy zostało złożone pomyślnie."
+msgstr "Prośba o dodanie rankowej beatmapy została złożona pomyślnie."
 
 msgid "That beatmap is already ranked!"
 msgstr "Beatmapa jest już dodana jako ranked!"
@@ -96,7 +96,7 @@ msgid "Max combo"
 msgstr "Maksymalne kombo"
 
 msgid "(full combo)"
-msgstr "(Pełne kombo)"
+msgstr "(pełne combo)"
 
 msgid "Difficulty"
 msgstr "Trudność"
@@ -127,16 +127,16 @@ msgstr[2] "{{ stars }} gwiazdek"
 
 msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
 msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
-msgstr[0] "<b>{{ miesiąc }}</b> koszty miesięczne <b>€ {{ eur }}</b>"
-msgstr[1] "<b>{{ miesiące }}</b> koszty na miesiąc <b>€ {{ eur }}</b>"
-msgstr[2] "<b>{{ miesięcy }}</b> koszty na miesiące <b>€ {{ eur }}</b>"
+msgstr[0] "<b>{{ miesiąc }}</b> miesiąc kosztuje <b>{{ eur }} €</b>"
+msgstr[1] "<b>{{ miesiące }}</b> miesiące kosztują <b>{{ eur }} €</b>"
+msgstr[2] "<b>{{ miesięcy }}</b> miesięcy kosztują <b>{{ eur }} €</b>"
 
 msgid "($ {{ usd }} / BTC {{ btc }})"
 msgstr "($ {{ usd }} / BTC {{ btc }})"
 
 # (following are in relation to friends)
 msgid "Mutual"
-msgstr "Wspólny"
+msgstr "Wspólny znajomy"
 
 msgid "Remove"
 msgstr "Usuń"

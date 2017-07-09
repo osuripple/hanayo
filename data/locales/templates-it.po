@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 19:21+0000\n"
+"POT-Creation-Date: 2017-07-09 11:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /it/Hanayo/templates-it.po\n"
-"X-Pootle-Revision: 2472\n"
+"X-Pootle-Revision: 6048\n"
 
 # General
 msgid "You're already logged in!"
@@ -552,7 +552,7 @@ msgstr ""
 "posto bug alla velocità della luce. <a href='/about'>Puoi scoprire ancora di "
 "più a riguardo qui.</a> Abbiamo anche una community molto amichevole, e "
 "siamo <a href='https://zxq.co/ripple/ripple'>open source!</a> Al momento <b>"
-"ci sono %s utenti online and %s utenti registrati!</b>"
+"ci sono %s utenti online e %s utenti registrati!</b>"
 
 msgid ""
 "What are you waiting for? Join Ripple! It's risk-free: you won't get your "
@@ -1589,3 +1589,180 @@ msgstr "Vietato"
 
 msgid "You should not be 'round here."
 msgstr "Non dovresti essere da queste parti."
+
+msgid ""
+"It seems like the original version of this file has been updated, so this "
+"file is out of date and may contain inaccurate information. If you want to "
+"make sure to be up-to-date, please refer to the <a href=\"%s%s\">English "
+"version</a>."
+msgstr ""
+"Sembra che la traduzione sia più vecchia del file originale, quindi può "
+"darsi che ci siano delle informazioni imprecise. Se vuoi evitare di leggere "
+"informazioni sbagliate, leggi la <a href=\"%s%s\">versione inglese</a>."
+
+msgid ""
+"If you truly have understood what's written above and you have understood "
+"that creating a multiaccount will lead to a restriction on your main "
+"account, you can click here and you'll be brought to the sign up page."
+msgstr ""
+"Se hai davvero capito il testo soprastante e capisci che creare un secondo "
+"account risulterà nel mettere il tuo account principale in restricted, puoi "
+"cliccare qui e sarai portanto alla pagina di registrazione."
+
+msgid "You look new here. Allow us to introduce you to what Ripple is."
+msgstr ""
+"Sembri essere nuovo da queste parti. Permettici di introdurti che cos'è "
+"Ripple."
+
+# PAY ATTENTION! This is Log in *with* Ripple, not *on* Ripple. This is for
+# oauth.
+msgid "Log in with Ripple"
+msgstr "Accedi con Ripple"
+
+msgid "This application will be able to:"
+msgstr "Questa applicazione potrà:"
+
+msgid "Identify"
+msgstr "Identificarti"
+
+msgid ""
+"See your public information (everything somebody can see on your user "
+"profile), however with this alone it will not be able to see your private "
+"information (for instance your email address)."
+msgstr ""
+"Sarà in grado di vedere le tue informazioni pubbliche (tutto ciò che è "
+"visibile dal tuo profilo), tuttavia con solo questa impostazione non sarà in "
+"grado di vedere le tue informazioni private (per esempio il tuo indirizzo "
+"email)."
+
+msgid "Read private information"
+msgstr "Vedere informazioni private"
+
+msgid ""
+"This application will be able to see your email address, and any private "
+"information we will add in the future."
+msgstr ""
+"Questa applicazione sarà in grado di vedere il tuo indirizzo email, e "
+"qualsiasi altra informazione privata che aggiungeremo in futuro."
+
+msgid "Write"
+msgstr "Scrittura"
+
+msgid ""
+"This application will be able to make modifications to your Ripple account. "
+"This is potentially really dangerous! Use this only with applications that "
+"you trust."
+msgstr ""
+"Questa applicazione sarà in grado di effettuare modifiche sul tuo account di "
+"Ripple. Questo è potenzialmente davvero pericoloso! Dai questo permesso "
+"soltanto alle applicazioni di cui ti fidi."
+
+msgid "Approve"
+msgstr "Approva"
+
+msgid "Deny"
+msgstr "Nega"
+
+# Team page
+msgid ""
+"This is a list of the wonderful people who keep Ripple up and running and "
+"deal with its community."
+msgstr ""
+"Questa è una lista delle magnifiche persone che sostengono Ripple e "
+"gestiscono la community."
+
+msgid "Community Managers"
+msgstr "Community Manager"
+
+msgid ""
+"Community Managers deal with bans, silences, name changes and pretty much "
+"everything that has to do with the community."
+msgstr ""
+"I Community Manager si occupano dei ban, silence, cambiamenti di nomi e "
+"praticamente tutto ciò che ha a che fare con la community."
+
+msgid ""
+"They take care of our Discord server and reply to emails sent to <a "
+"href='mailto:support@ripple.moe'>support@ripple.moe</a>. Community Managers "
+"have a red name in the in-game chat."
+msgstr ""
+
+msgid "Developers"
+msgstr ""
+
+msgid ""
+"Developers add new features to the server, squash bugs, keep the server up "
+"and running and take care of its maintenance."
+msgstr ""
+
+msgid ""
+"They don't do anything related to the community. Developers have a blue name "
+"in the in-game chat."
+msgstr ""
+
+msgid "Chat Moderators"
+msgstr ""
+
+msgid ""
+"Chat moderators manage the chat to make sure The Law&trade; (the rules) is "
+"respected."
+msgstr ""
+
+msgid ""
+"BATs play beatmaps in the ranking queue and decide whether they are good "
+"enough to be ranked or not."
+msgstr ""
+
+msgid "Special thanks"
+msgstr ""
+
+msgid "Here's a list of people who helped with Ripple."
+msgstr ""
+
+msgid ""
+"<b>Franc[e]sco/lolisamurai</b>, for <a "
+"href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp "
+"calculator."
+msgstr ""
+
+msgid ""
+"<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-"
+"performance</a>, used as a reference for our mania pp calculator."
+msgstr ""
+
+msgid ""
+"<b>jrosdahl</b>, for <a "
+"href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
+"our IRC server."
+msgstr ""
+
+msgid "<b>Avail</b>, for having hosted Ripple on his server."
+msgstr ""
+
+msgid "<b>Angela Guerra</b>, for designing the Ripple logo."
+msgstr ""
+
+msgid ""
+"<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the "
+"Ripple project by donating or inviting other people."
+msgstr ""
+
+msgid "They told me these are very cool people."
+msgstr ""
+
+msgid ""
+"Looking for how you should contact our team? Check out <a href='/help'>this "
+"page</a>."
+msgstr ""
+
+msgid "And more..."
+msgstr ""
+
+msgid "Do you want to be in this list?"
+msgstr ""
+
+msgid "Support us with a donation!"
+msgstr ""
+
+msgid "(You get other cool perks too)"
+msgstr ""
