@@ -70,7 +70,7 @@
 			</div>
 	
 		</div>
-	
+		
 		<div class="footer">
 			{{ .T "&copy; 2015-%d Ripple, using Hanayo %s." (curryear) (version) | html }}
 			<a href="/team" title="{{ .T "Who is working on this thing?" }}"><i class="users icon"></i>{{ .T "Team" }}</a> | 
@@ -126,6 +126,17 @@
 				ga('create', {{ .Conf.AnalyticsID }}, 'auto');
 				ga('send', 'pageview');
 			</script>
+		{{ end }}
+		{{ if or (eq .Context.User.Country "") (eq .Context.User.Country "XX") (eq .Context.User.Country "US") }}
+		<script type="text/javascript">
+			var _bftn_options = {
+				theme: 'slow',
+				org: 'fftf',
+				delay: 1000,
+				date: new Date(2017, 6, 12),
+			};
+		</script>
+		<script src="https://widget.battleforthenet.com/widget.js" async></script>
 		{{ end }}
 	</body>
 </html>

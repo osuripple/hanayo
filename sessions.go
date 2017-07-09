@@ -34,6 +34,7 @@ func sessionInitializer() func(c *gin.Context) {
 				sess.Set("logout", rs.String(15))
 			}
 			ctx.User.Privileges = common.UserPrivileges(pRaw)
+			db.Get(&ctx.User.Country, "SELECT country FROm users_stats WHERE id = ?", userid)
 			db.Exec("UPDATE users SET latest_activity = ? WHERE id = ?", time.Now().Unix(), userid)
 			if s, ok := sess.Get("pw").(string); !ok || cmd5(password) != s {
 				ctx = context{}
