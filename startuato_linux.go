@@ -103,9 +103,18 @@ func updateFromRemote(c *gin.Context) {
 		c.String(500, "not git ffs")
 		return
 	}
+
+	br := c.Query("branch")
+	if br == "" {
+		br = "master"
+	}
+
 	c.String(200, "all right")
 	go func() {
-		if !execCommand("git", "pull", "origin", "master") {
+		if !execCommand("git", "fetch", "origin", br) {
+			return
+		}
+		if !execCommand("git", "checkout", "origin/"+br) {
 			return
 		}
 		if !execCommand("git", "submodule", "update") {
