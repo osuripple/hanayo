@@ -36,8 +36,5 @@ func (c *ciecaCSRF) Generate(u int) (string, error) {
 
 func (c *ciecaCSRF) Validate(u int, token string) (bool, error) {
 	_, e := c.GetWithExist(strconv.Itoa(u) + token)
-	if e {
-		c.Delete(strconv.Itoa(u) + token)
-	}
 	return e, nil
 }
