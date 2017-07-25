@@ -131,6 +131,11 @@ var funcMap = template.FuncMap{
 		t = t.Add(time.Hour * 24)
 		return _time(t.Format(time.RFC3339), t)
 	},
+	// nativeTime creates a native Go time.Time from a RFC3339 timestamp.
+	"nativeTime": func(s string) time.Time {
+		t, _ := time.Parse(time.RFC3339, s)
+		return t
+	},
 	// band is a bitwise AND.
 	"band": func(i1 int, i ...int) int {
 		for _, el := range i {
@@ -481,6 +486,9 @@ var funcMap = template.FuncMap{
 			slug = doc.SlugFromOldID(i)
 		}
 		return doc.GetFile(slug, language)
+	},
+	"privilegesToString": func(privs float64) string {
+		return common.Privileges(privs).String()
 	},
 }
 

@@ -1,17 +1,17 @@
 /*!
  * ripple.js
  * Copyright (C) 2016-2017 Morgan Bazalgette and Giuseppe Guerra
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -28,7 +28,7 @@ var singlePageSnippets = {
           switch (resp) {
           case "0":
             $("#telegram-code").closest(".field").addClass("success");
-            redir = redir ? redir : "/"; 
+            redir = redir ? redir : "/";
             window.location.href = redir;
             break;
           case "1":
@@ -44,11 +44,11 @@ var singlePageSnippets = {
 
   "/leaderboard": function() {
     page = page === 0 ? 1 : page;
-    
+
     function loadLeaderboard() {
       var wl = window.location;
-      window.history.replaceState('', document.title, 
-        wl.pathname + 
+      window.history.replaceState('', document.title,
+        wl.pathname +
         "?mode=" + favouriteMode +
         "&p=" + page +
         (country != "" ? "&country=" + encodeURI(country) : "") +
@@ -71,7 +71,7 @@ var singlePageSnippets = {
           tb.append(
             $("<tr />").append(
               $("<td />").text("#" + ((page-1) * 50 + (++i))),
-              $("<td />").html("<a href='/u/" + v.id + "' title='View profile'><i class='" + 
+              $("<td />").html("<a href='/u/" + v.id + "' title='View profile'><i class='" +
                 v.country.toLowerCase() + " flag'></i>" + escapeHTML(v.username) + "</a>"),
               $("<td />").html(scoreOrPP(v.chosen_mode.ranked_score, v.chosen_mode.pp)),
               $("<td />").text(v.chosen_mode.accuracy.toFixed(2) + "%"),
@@ -162,7 +162,7 @@ var singlePageSnippets = {
       if ($(this).is(":checked"))
         $("#custom-badge-fields").slideDown();
       else
-        $("#custom-badge-fields").slideUp();        
+        $("#custom-badge-fields").slideUp();
     });
     $("form").submit(function(e) {
       e.preventDefault();
@@ -252,7 +252,7 @@ var singlePageSnippets = {
       });
     });
   },
-  
+
   "/settings/avatar": function() {
     $("#file").change(function(e) {
       var f = e.target.files;
@@ -275,7 +275,7 @@ var singlePageSnippets = {
       if (data.submitted_by_user == 0)
         $("#by-you").attr("hidden", "hidden");
       else
-        $("#by-you").removeAttr("hidden");      
+        $("#by-you").removeAttr("hidden");
 
       $("#submitted-by-user").text(data.submitted_by_user);
       $("#max-per-user").text(data.max_per_user);
@@ -311,7 +311,7 @@ var singlePageSnippets = {
         postData.set_id = +reData[2];
       else
         postData.id = +reData[2];
-      var t = $(this);     
+      var t = $(this);
       api("beatmaps/rank_requests", postData, function(data) {
         t.removeClass("loading");
         showMessage("success", "Beatmap rank request has been submitted.");
@@ -346,6 +346,12 @@ var singlePageSnippets = {
       };
       $("#image-background").empty().append(i);
     });
+  },
+
+  "/dev/tokens": function() {
+    $("#privileges-number").on("input", function() {
+      $("#privileges-text").text(privilegesToString($(this).val()));
+    });
   }
 };
 
@@ -372,7 +378,7 @@ $(document).ready(function(){
       twemoji.parse(v);
     });
   }
-  
+
   // ripple stuff
   var f = singlePageSnippets[window.location.pathname];
   if (typeof f === 'function')
@@ -407,7 +413,7 @@ $(document).ready(function(){
       window.location.pathname = "/u/" + $(this).val();
     }
   });
-  
+
   // setup timeago
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
@@ -453,7 +459,7 @@ function api(endpoint, data, success, failure, post) {
     post = failure;
     failure = undefined;
   }
-  
+
   var errorMessage = "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
 
   $.ajax({
@@ -528,7 +534,7 @@ function setupSimplepag(callback) {
 }
 function disableSimplepagButtons(right) {
   var el = $(".simplepag");
-  
+
   if (page <= 1)
     el.find(".left.floated .item").addClass("disabled");
   else
@@ -590,7 +596,7 @@ function formToObject(form) {
         break;
       default:
         value = el.val();
-        break;        
+        break;
       }
       break;
     }
@@ -635,6 +641,30 @@ i18next.on("loaded", function() {
 
 function T(s, settings) {
   if (typeof settings !== "undefined" && typeof settings.count !== "undefined" && $.inArray(hanayoConf.language, langWhitelist) === -1 && settings.count !== 1)
-      s = keyPlurals[s];
+    s = keyPlurals[s];
   return i18next.t(s, settings);
+}
+
+var apiPrivileges = [
+	"ReadConfidential",
+	"Write",
+	"ManageBadges",
+	"BetaKeys",
+	"ManageSettings",
+	"ViewUserAdvanced",
+	"ManageUser",
+	"ManageRoles",
+	"ManageAPIKeys",
+	"Blog",
+	"APIMeta",
+	"Beatmap"
+];
+
+function privilegesToString(privs) {
+  var privList = [];
+  apiPrivileges.forEach(function(value, index) {
+    if ((privs & (1 << (index + 1))) != 0)
+      privList.push(value);
+  });
+  return privList.join(", ");
 }

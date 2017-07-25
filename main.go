@@ -291,6 +291,10 @@ func generateEngine() *gin.Engine {
 	r.GET("/settings/discord/finish", discordFinish)
 	r.POST("/settings/profbackground/:type", profBackground)
 
+	r.POST("/dev/tokens/create", createAPIToken)
+	r.POST("/dev/tokens/delete", deleteAPIToken)
+	r.POST("/dev/tokens/edit", editAPIToken)
+
 	r.GET("/donate/rates", btcconversions.GetRates)
 
 	r.Any("/blog/*url", blogRedirect)
