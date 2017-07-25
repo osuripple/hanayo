@@ -8,74 +8,67 @@ KyutGrill=team2.jpg
 <div class="ui container">
 	<div class="ui segments">
 		<div class="ui center aligned segment">
-			<h3>This is a list of the wonderful people who keep Ripple up and running and deal with its community.</h3>
+			<h3>{{ .T "This is a list of the wonderful people who keep Ripple up and running and deal with its community." }}</h3>
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">Community Managers</h1>
+			<h1 class="ui heading">{{ .T "Community Managers" }}</h1>
 			<p>
-				Community Managers deal with bans, silences, name changes and
-				pretty much everything that has to do with the community.<br>
-				They take care of our Discord server and reply to emails
-				sent to <a href="mailto:support@ripple.moe">support@ripple.moe</a>.
-				Community Managers have a red name in the in-game chat.
+				{{ .T "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community." }}<br>
+				{{ .T "They take care of our Discord server and reply to emails sent to <a href='mailto:support@ripple.moe'>support@ripple.moe</a>. Community Managers have a red name in the in-game chat." | html }}
 			</p>
 			{{ template "userGroup" (.Get "badges/members?id=%d" 4) }}
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">Developers</h1>
+			<h1 class="ui heading">{{ .T "Developers" }}</h1>
 			<p>
-				Developers add new features to the server, squash bugs, keep the
-				server up and running and take care of its maintenance.<br>
-				They don't do anything related to the community. Developers have
-				a blue name in the in-game chat.
+				{{ .T "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance." }}<br>
+				{{ .T "They don't do anything related to the community. Developers have a blue name in the in-game chat." }}
 			</p>
 			{{ template "userGroup" (.Get "badges/members?id=%d" 2) }}
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">Chat Moderators</h1>
+			<h1 class="ui heading">{{ .T "Chat Moderators" }}</h1>
 			<p>
-				Chat moderators manage the chat to make sure The Law&trade; (the
-				rules) is respected.
+				{{ .T "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected." | html }}
 			</p>
 			{{ template "userGroup" (.Get "badges/members?id=%d" 30) }}
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">BATs</h1>
+			<h1 class="ui heading">{{ .T "BATs" }}</h1>
 			<p>
-				BATs play beatmaps in the ranking queue and decide whether they
-				are good enough to be ranked or not.
+				{{ .T "BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not." }}
 			</p>
 			{{ template "userGroup" (.Get "badges/members?id=%d" 5) }}
 		</div>
 	</div>
 	<div class="ui segments">
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">Special thanks</h1>
-			<p>Here's a list of people who helped with Ripple.</p>
+			<h1 class="ui heading">{{ .T "Special thanks" }}</h1>
+			<p>{{ .T "Here's a list of people who helped with Ripple." }}</p>
 		</div>
 		<div class="ui segment">
 			<ul class="ui list">
 				<li>
-					<b>Franc[e]sco/lolisamurai</b>, for <a href="https://github.com/Francesco149/oppai">oppai</a>, used as standard pp calculator.<br>
+					{{ .T "<b>Franc[e]sco/lolisamurai</b>, for <a href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp calculator." | html }}<br>
 					oppai is licensed under GPL v3. Our implementation can be found <a href="https://zxq.co/ripple/lets/src/master/pp/rippoppai.py">here</a>.
 				</li>
 				<li>
-					<b>Tom94</b>, for <a href="https://github.com/ppy/osu-performance">osu-performance</a>, used as a reference for our mania pp calculator.<br>
+					{{ .T "<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-performance</a>, used as a reference for our mania pp calculator." | html }}<br>
 					osu-performance is licensed under AGPL v3. Our implementation can be found <a href="https://zxq.co/ripple/lets/src/master/pp/wifipiano2.py">here</a>.
 				</li>
 				<li>
-					<b>jrosdahl</b>, for <a href="https://github.com/jrosdahl/miniircd">miniircd</a>, used as a base for our IRC server.<br>
+					{{ .T "<b>jrosdahl</b>, for <a href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for our IRC server." | html }}<br>
 					miniircd is licensed under GPL v2. Our implementation can be found <a href="https://zxq.co/ripple/pep.py/src/master/irc/ircserver.py">here</a>.
 				</li>
-				<li><b>Avail</b>, for hosting Ripple on his server.</li>
-				<li><b>Angela Guerra</b>, for designing the Ripple logo.</li>
-				<li><b><a id="everyone" class="clickable">Everyone</a></b> who has supported the Ripple project by donating or inviting other people.</li>
+				<li>{{ .T "<b>Avail</b>, for having hosted Ripple on his server." | html }}</li>
+				<li>{{ .T "<b>Angela Guerra</b>, for designing the Ripple logo." | html }}</li>
+				<li>{{ .T "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people." }}</li>
 			</ul>
 		</div>
 	</div>
-	Looking for how you should contact our team? Check out <a href="/help">this page</a>.
+	{{ .T "Looking for how you should contact our team? Check out <a href='/help'>this page</a>." | html }}
 	<div class="ui modal">
-		<div class="header"><h2 class="ui header">They told me these are very cool people.</h2></div>
+		<div class="header"><h2 class="ui header">{{ .T "They told me these are very cool people." }}</h2></div>
 		{{ with .Get "users?sort=donor_expire,desc&l=52" }}
 			<div class="content">
 				<div class="ui four column grid">
@@ -93,10 +86,10 @@ KyutGrill=team2.jpg
 				<!-- Probably most shit coded part of Hanayo -->
 				<br>
 				<div class="centered">
-					<b>And more...</b><br><br>
-					<b>Do you want to be in this list?</b><br>
-					<a href="/donate"><b>Support us with a donation!</b></a><br>
-					<i>(You get other cool perks too)</i>
+					<b>{{ .T "And more..." }}</b><br><br>
+					<b>{{ .T "Do you want to be in this list?" }}</b><br>
+					<a href="/donate"><b>{{ .T "Support us with a donation!" }}</b></a><br>
+					<i>{{ .T "(You get other cool perks too)" }}</i>
 				</div>
 			</div>
 		{{ end }}
