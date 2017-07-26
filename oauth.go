@@ -22,6 +22,8 @@ func (o oauthRequestHandler) DisplayAuthorizePage(client oauth.Client, c *gin.Co
 	var creatorName string
 	db.Get(&creatorName, "SELECT username FROM users WHERE id = ? LIMIT 1", client.CreatorID)
 
+	c.Header("X-Frame-Options", "deny")
+
 	simple(c, getSimpleByFilename("oauth.html"), nil, map[string]interface{}{
 		"Client":      client,
 		"CreatorName": creatorName,
