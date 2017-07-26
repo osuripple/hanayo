@@ -192,7 +192,7 @@ body.ds .subtitle, body.ds .about.title {
 	color: rgba(255,255,255,.8);
 }
 body.ds .subtitle b {
-	color: rgba(255,255,255,.94);	
+	color: rgba(255,255,255,.94);
 }
 
 .little.margin.top {
@@ -316,7 +316,7 @@ code {
 }
 
 .tiny.container {
-	margin: 0 auto;	
+	margin: 0 auto;
 }
 @media (max-width: 720px) {
 	.tiny.container {
@@ -371,4 +371,11 @@ a.camouflaged {
 
 a.camouflaged:hover {
 	text-decoration: underline;
+}
+
+.avatar-cell {
+	width: 90px;
+}
+.avatar-cell > img {
+	margin: 0 auto;
 }

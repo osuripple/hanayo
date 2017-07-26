@@ -298,6 +298,10 @@ func generateEngine() *gin.Engine {
 	r.POST("/dev/tokens/create", createAPIToken)
 	r.POST("/dev/tokens/delete", deleteAPIToken)
 	r.POST("/dev/tokens/edit", editAPIToken)
+	r.GET("/dev/apps", getOAuthApplications)
+	r.GET("/dev/apps/edit", editOAuthApplication)
+	r.POST("/dev/apps/edit", editOAuthApplicationSubmit)
+	r.POST("/dev/apps/delete", deleteOAuthApplication)
 
 	r.GET("/oauth/authorize", oauth.Authorize)
 	r.POST("/oauth/authorize", oauth.Authorize)
