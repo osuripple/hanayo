@@ -207,6 +207,11 @@ func changePasswordSubmit(c *gin.Context) {
 		})
 	}()
 
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
+		addMessage(c, errorMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")})
+		return
+	}
+
 	var password string
 	db.Get(&password, "SELECT password_md5 FROM users WHERE id = ? LIMIT 1", ctx.User.ID)
 

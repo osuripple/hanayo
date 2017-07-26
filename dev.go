@@ -11,6 +11,7 @@ import (
 	"mime/multipart"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"net/http"
@@ -365,4 +366,77 @@ func deleteOAuthApplication(c *gin.Context) {
 	db.Exec("DELETE FROM osin_client WHERE id = ?", clientID)
 
 	addMessage(c, successMessage{"poof"})
+}
+
+type authorization struct {
+	oAuthClient
+	Scope       string
+	CreatedAt   time.Time
+	AccessToken string
+}
+
+var scopeMap = map[string]string{
+	"identify":          "Identify",
+	"read_confidential": "Read private information",
+	"write":             "Write",
+}
+
+func (a authorization) Scopes(c *gin.Context) string {
+	scopes := strings.Split(a.Scope, " ")
+	scopes = append([]string{"identify"}, scopes...)
+	for i, val := range scopes {
+		scopes[i] = T(c, scopeMap[val])
+	}
+	return strings.Join(scopes, ", ")
+}
+
+func authorizedApplications(c *gin.Context) {
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+	}
+
+	var apps []authorization
+	err := db.Select(&apps, `
+SELECT c.extra, a.scope, a.created_at AS createdat,
+	a.access_token as accesstoken
+FROM osin_access a
+INNER JOIN osin_client c ON c.id = a.client
+WHERE a.extra = ?
+ORDER BY a.created_at DESC`, ctx.User.ID)
+
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
+
+	simple(
+		c, getSimpleByFilename("settings/authorized_applications.html"), nil,
+		map[string]interface{}{
+			"apps": apps,
+		},
+	)
+}
+
+func revokeAuthorization(c *gin.Context) {
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+		return
+	}
+
+	sess := getSession(c)
+	defer func() {
+		sess.Save()
+		c.Redirect(302, "/settings/authorized_applications")
+	}()
+
+	if ok, _ := CSRF.Validate(ctx.User.ID, c.PostForm("csrf")); !ok {
+		addMessage(c, errorMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")})
+		return
+	}
+
+	db.Exec("DELETE FROM osin_access WHERE access_token = ? AND extra = ?", c.PostForm("access_token"), ctx.User.ID)
+	addMessage(c, successMessage{T(c, "That authorization has been successfully revoked.")})
 }

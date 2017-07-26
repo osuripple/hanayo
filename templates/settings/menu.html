@@ -14,6 +14,8 @@ NoCompile=true
 
 		{{ navbarItem .Path (.T "Two Factor Authentication") "/settings/2fa" }}
 
+		{{ navbarItem .Path (.T "Authorized applications") "/settings/authorized_applications" }}
+
 		{{/* Stuff for donators */}}
 		{{ if has .Context.User.Privileges 4 }}
 			{{ navbarItem .Path (.T "Discord donor") "/settings/discord" }}

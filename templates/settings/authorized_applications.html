@@ -1,0 +1,60 @@
+{{/*###
+TitleBar=Authorized applications
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+{{ $ := . }}
+<div class="ui container">
+	<div class="ui stackable grid">
+		{{ template "settingsSidebar" . }}
+		<div class="twelve wide column">
+			<div class="ui segment">
+				{{ .T "From here you can check all the applications you granted authorization to your account, and revoke their permissions if necessary." }}
+				<div class="ui divider"></div>
+				{{ $csrf := csrfGenerate .Context.User.ID }}
+				{{ with .RequestInfo.apps }}
+					<!--
+						#trw: the reason why I'm putting the access token to
+						identify that specifically it's because the access token
+						is the PK of the table in the database, so faster lookup
+						+ I'm sure there's only one of it.
+						Also, the Access token in this page is sha256'd, so
+						you can't really use it to do anything.
+					-->
+					<table class="ui very basic fixed table">
+						{{ range . }}
+							<tr>
+								<td class="avatar-cell">
+									{{ if .Avatar }}
+										<img src="/static/oauth-apps/{{ .Avatar }}" class="ui tiny rounded image">
+									{{ end }}
+								</td>
+								<td>
+									<b>{{ .Name }}</b><br>{{ .Scopes $.Gin }}
+									<div class="subtitle">{{ $.T "Authorization created %s" (timeFromTime .CreatedAt) | html }}</div>
+								</td>
+								<td class="right aligned">
+									<div class="ui vertical buttons">
+										<form method="POST" action="/settings/authorized_applications/revoke">
+											<a class="ui labeled icon blue button" href="/u/{{ .Owner }}"><i class="user icon"></i>Owner</a>
+											<!-- explanation: ctrl-f for #trw -->
+											<input type="hidden" name="access_token" value="{{ .AccessToken }}">
+											{{ $csrf }}
+											{{ ieForm $.Gin }}
+											<button type="submit" class="ui labeled icon red button"><i class="remove icon"></i>Revoke</button>
+										</form>
+									</div>
+								</td>
+							</tr>
+						{{ end }}
+					</table>
+				{{ else }}
+					{{ $.T "... but it looks like you have none!" }}
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}

@@ -16,7 +16,7 @@ HugeHeadingRight=true
 				<div class="ui divider"></div>
 				{{ $csrf := csrfGenerate .Context.User.ID }}
 				{{ with .RequestInfo.apps }}
-					<table class="ui very basic table">
+					<table class="ui very basic fixed table">
 						{{ range . }}
 							<tr>
 								<td class="avatar-cell">

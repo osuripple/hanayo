@@ -988,6 +988,22 @@ msgstr ""
 msgid "Playstyle"
 msgstr ""
 
+msgid "Authorized applications"
+msgstr ""
+
+msgid "From here you can check all the applications you granted authorization to your account, and revoke their permissions if necessary."
+msgstr ""
+
+msgid "... but it looks like you have none!"
+msgstr ""
+
+msgid "That authorization has been successfully revoked."
+msgstr ""
+
+msgid "Authorization created %s"
+msgstr ""
+
+
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
 msgstr ""
