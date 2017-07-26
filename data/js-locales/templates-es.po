@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 19:21+0000\n"
+"POT-Creation-Date: 2017-07-26 20:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,14 +12,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /es/HanayoJS/templates-es.po\n"
-"X-Pootle-Revision: 2478\n"
+"X-Pootle-Revision: 3351\n"
 
 # JavaScript
 msgid ""
 "An error occurred while contacting the Ripple API. Please report this to a "
 "Ripple developer."
 msgstr ""
-"Un error a ocurrido mientras se conectaba a la API de Ripple. Por favor, "
+"Ha ocurrido un error mientras se contactaba la API de Ripple. Por favor, "
 "reportar esto a un desarrollador."
 
 # This is a quote of UNDERTALE if you didn't know.
@@ -58,7 +58,7 @@ msgid "Remove friend"
 msgstr "Remover amistad"
 
 msgid "Unmutual friend"
-msgstr "Remover amistad"
+msgstr "Remover amistad mutua"
 
 # score table
 msgid "General info"
@@ -127,8 +127,8 @@ msgstr[1] "{{ stars }} estrellas"
 
 msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
 msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
-msgstr[0] "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
-msgstr[1] "<b>{{ months }}</b> months costs <b>€ {{ eur }}</b>"
+msgstr[0] "<b>{{ months }}</b> costo mensual <b>€ {{ eur }}</b>"
+msgstr[1] "<b>{{ months }}</b> costos mensuales <b>€ {{ eur }}</b>"
 
 msgid "($ {{ usd }} / BTC {{ btc }})"
 msgstr "($ {{ usd }} / BTC {{ btc }})"

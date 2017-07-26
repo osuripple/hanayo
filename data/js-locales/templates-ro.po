@@ -6,21 +6,21 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ru\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
-"X-Pootle-Path: /ru/HanayoJS/templates-ru.po\n"
-"X-Pootle-Revision: 2488\n"
+"X-Pootle-Path: /ro/HanayoJS/templates-ro.po\n"
+"X-Pootle-Revision: 5702\n"
 
 # JavaScript
 msgid ""
 "An error occurred while contacting the Ripple API. Please report this to a "
 "Ripple developer."
 msgstr ""
-"Произошла ошибка при соединении с API Ripple. Пожалуйста, сообщите об этом "
-"разработчикам."
+"A apărut o eroare în timpul contactului cu API-ul Ripple. Te rugăm sa "
+"raportezi această eroare la un developer Ripple."
 
 # This is a quote of UNDERTALE if you didn't know.
 # It is shown regarding the level of an user, but it is shortened to "Lv.".
@@ -29,117 +29,117 @@ msgstr ""
 # It's hard to keep this cultural reference, so you can also just write the
 # translation for "Level" in this.
 msgid "Why, LOVE, of course!"
-msgstr "Уровень"
+msgstr "De ce, IUBIRE, desigur!"
 
 msgid "Your new settings have been saved."
-msgstr "Ваши новые настройки были сохранены."
+msgstr "Setările noi au fost salvate."
 
 msgid "Your userpage has been saved."
-msgstr "Ваш юзерпейдж был сохранен."
+msgstr "Pagina ta de profil a fost salvată."
 
 msgid ""
 "Please provide a valid link, in the form of either "
 "https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;."
 msgstr ""
-"Пожалуйста, вставьте в поле рабочую ссылку вида "
-"https://osu.ppy.sh/s/&lt;ID&gt; или https://osu.ppy.sh/b/&lt;ID&gt;."
+"Te rugăm provizionează-ne cu un link valid, fie in formă de "
+"https://osu.ppy.sh/s/&lt;ID&gt; sau https://osu.ppy.sh/b/&lt;ID&gt;."
 
 msgid "Beatmap rank request has been submitted."
-msgstr "Запрос на проверку карты отправлен."
+msgstr "Cererea de rank a Beatmap-ului a fost trimisă."
 
 msgid "That beatmap is already ranked!"
-msgstr "Эта карта уже проверена!"
+msgstr "Acest Beatmap este deja ranked!"
 
 # user profile
 msgid "Add friend"
-msgstr "Добавить в друзья"
+msgstr "Adaugă prieten"
 
 msgid "Remove friend"
-msgstr "Удалить из друзей"
+msgstr "Elimină prieten"
 
 msgid "Unmutual friend"
-msgstr "Удалить из друзей"
+msgstr "Scoate prietenul din lista ta."
 
 # score table
 msgid "General info"
-msgstr "Основная информация"
+msgstr "Informații generale"
 
 msgid "Score"
-msgstr "Очки"
+msgstr "Scor"
 
 msgid "Load more"
-msgstr "Загрузить ещё"
+msgstr "Incarcă mai mult"
 
 msgid "Best scores"
-msgstr "Рекорды"
+msgstr "Cele mai bune scoruri"
 
 msgid "Recent scores"
-msgstr "Недавно сыгранные"
+msgstr "Scoruri recente"
 
 msgid "Download"
-msgstr "Скачать"
+msgstr "Descarcă"
 
 # score modal (when you click on a score)
 msgid "Points"
-msgstr "Очки"
+msgstr "Puncte"
 
 msgid "PP"
 msgstr "PP"
 
 msgid "Beatmap"
-msgstr "Карта"
+msgstr "Beatmap"
 
 msgid "Accuracy"
-msgstr "Точность"
+msgstr "Acuratețe"
 
 msgid "Max combo"
-msgstr "Максимальное комбо"
+msgstr "Combo maxim"
 
 msgid "(full combo)"
-msgstr "(идеальное комбо)"
+msgstr "(combo complet)"
 
 msgid "Difficulty"
-msgstr "Сложность"
+msgstr "Dificultate"
 
 msgid "Yes"
-msgstr "Да"
+msgstr "Da"
 
 msgid "No"
-msgstr "Нет"
+msgstr "Nu"
 
 # Achieved (refers to date)
 msgid "Achieved"
-msgstr "Получен"
+msgstr "Realizate"
 
 # Game mode, like osu! standard, not like HR
 msgid "Mode"
-msgstr "Режим"
+msgstr "Mod de joc"
 
 # (No mods used)
 msgid "None"
-msgstr "Нет"
+msgstr "Nimic"
 
 msgid "{{ stars }} star"
 msgid_plural "{{ stars }} stars"
-msgstr[0] "{{ stars }} звезда"
-msgstr[1] "{{ stars }} звезды"
-msgstr[2] "{{ stars }} звёзд"
+msgstr[0] "{{ stele }} stea"
+msgstr[1] "{{ stele }} stele"
+msgstr[2] ""
 
 msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
 msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
-msgstr[0] "<b>{{ months }}</b> месяц стоит <b>€ {{ eur }}</b>"
-msgstr[1] "<b>{{ months }}</b> месяца стоят <b>€ {{ eur }}</b>"
-msgstr[2] "<b>{{ months }}</b> месяцев стоят <b>€ {{ eur }}</b>"
+msgstr[0] "<b>{{ luna }}</b> costurile lunii <b>€ {{ eur }}</b>"
+msgstr[1] "<b>{{ luni }}</b> costurile luniilor <b>€ {{ eur }}</b>"
+msgstr[2] ""
 
 msgid "($ {{ usd }} / BTC {{ btc }})"
 msgstr "($ {{ usd }} / BTC {{ btc }})"
 
 # (following are in relation to friends)
 msgid "Mutual"
-msgstr "Взаимно"
+msgstr "Prieten reciproc"
 
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Șterge"
 
 msgid "Add"
-msgstr "Добавить"
+msgstr "Adaugă"

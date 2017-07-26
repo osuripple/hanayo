@@ -2,86 +2,80 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 20:08+0000\n"
+"POT-Creation-Date: 2017-07-26 20:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: it\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
-"X-Pootle-Path: /it/HanayoJS/templates-it.po\n"
-"X-Pootle-Revision: 2347\n"
+"X-Pootle-Path: /sv/HanayoJS/templates-sv.po\n"
+"X-Pootle-Revision: 3113\n"
 
 # JavaScript
 msgid ""
 "An error occurred while contacting the Ripple API. Please report this to a "
 "Ripple developer."
 msgstr ""
-"È capitato un errore durante la connessione con l'API di Ripple. Per favore "
-"segnala quest'errore ad uno sviluppatore di Ripple."
+"Ett fel uppstod när du kontaktade Ripple API. Var vänlig rapportera detta "
+"till en Ripple-uvecklare."
 
-# This is a quote of UNDERTALE if you didn't know.
-# It is shown regarding the level of an user, but it is shortened to "Lv.".
-# Of course, this means Level on Ripple, but in UNDERTALE, it actually means LOVE.
-# I'm not gonna spoil you why it's called LOVE.
-# It's hard to keep this cultural reference, so you can also just write the
-# translation for "Level" in this.
 msgid "Why, LOVE, of course!"
-msgstr "Livello"
+msgstr "Varför, ÄLSKAR, förstås!"
 
 msgid "Your new settings have been saved."
-msgstr "Le tue nuove impostazioni sono state salvate."
+msgstr "Dina nya inställningar har sparats."
 
 msgid "Your userpage has been saved."
-msgstr "La tua userpage è stata salvata."
+msgstr "Din användarsida har sparats."
 
 msgid ""
 "Please provide a valid link, in the form of either "
 "https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;."
 msgstr ""
-"Per favore fornisci un link valido, nella forma di "
-"https://osu.ppy.sh/s/&lt;ID&gt; o https://osu.ppy.sh/b/&lt;ID&gt;."
+"Vänligen ange en giltig länk, antingen i form av https://osu.ppy.sh/s/&lt;"
+"ID&gt och https://osu.ppy.sh/s/&lt;ID&gt."
 
 msgid "Beatmap rank request has been submitted."
-msgstr "La richiesta di rank della beatmap è stata inviata."
+msgstr "Beatmap rankningsförfrågan har skickats in."
 
 msgid "That beatmap is already ranked!"
-msgstr "Quella beatmap è già rankata!"
+msgstr "Den beatmap är redan rankad!"
 
 # user profile
 msgid "Add friend"
-msgstr "Aggiungi amico"
+msgstr "Lägg till vän"
 
 msgid "Remove friend"
-msgstr "Rimuovi amico"
+msgstr "Ta bort vän"
 
 msgid "Unmutual friend"
-msgstr "Rimuovi amico"
+msgstr "Ångra en ömsesidig vänskap"
 
 # score table
 msgid "General info"
-msgstr "Informazioni generali"
+msgstr "Generell info"
 
 msgid "Score"
-msgstr "Punteggio"
+msgstr "Poäng"
 
 msgid "Load more"
-msgstr "Carica altri"
+msgstr "Läs mer"
 
 msgid "Best scores"
-msgstr "Punteggi migliori"
+msgstr "Bästa poängen"
 
 msgid "Recent scores"
-msgstr "Punteggi recenti"
+msgstr "Senaste poängen"
 
 msgid "Download"
-msgstr "Scarica"
+msgstr "Hämta"
 
 # score modal (when you click on a score)
 msgid "Points"
-msgstr "Punti"
+msgstr "Poäng"
 
 msgid "PP"
 msgstr "PP"
@@ -90,54 +84,54 @@ msgid "Beatmap"
 msgstr "Beatmap"
 
 msgid "Accuracy"
-msgstr "Accuracy"
+msgstr "Noggrannhet"
 
 msgid "Max combo"
-msgstr "Combo massima"
+msgstr "Maximal kombination"
 
 msgid "(full combo)"
-msgstr "(full combo)"
+msgstr "(full kombination)"
 
 msgid "Difficulty"
-msgstr "Difficoltà"
+msgstr "Svårighet"
 
 msgid "Yes"
-msgstr "Sì"
+msgstr "Ja"
 
 msgid "No"
-msgstr "No"
+msgstr "Nej"
 
 # Achieved (refers to date)
 msgid "Achieved"
-msgstr "Realizzato"
+msgstr "Datum uppnått"
 
 # Game mode, like osu! standard, not like HR
 msgid "Mode"
-msgstr "Modalità"
+msgstr "Läge"
 
 # (No mods used)
 msgid "None"
-msgstr "Nessuna"
+msgstr "Ingen"
 
 msgid "{{ stars }} star"
 msgid_plural "{{ stars }} stars"
-msgstr[0] "{{ stars }} stella"
-msgstr[1] "{{ stars }} stelle"
+msgstr[0] "{{ stjärnor }} stjärna"
+msgstr[1] "{{ stjärnor }} stjärnor"
 
 msgid "<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>"
 msgid_plural "<b>{{ months }}</b> months cost <b>€ {{ eur }}</b>"
-msgstr[0] "<b>{{ months }}</b> mese costa <b>€ {{ eur }}</b>"
-msgstr[1] "<b>{{ months }}</b> mesi costano <b>€ {{ eur }}</b>"
+msgstr[0] "<b>{{ månad }}</b> månad kostnad <b>€ {{ eur }}</b>"
+msgstr[1] "<b>{{ månader }}</b> månader kostnad <b>€ {{ eur }}</b>"
 
 msgid "($ {{ usd }} / BTC {{ btc }})"
 msgstr "($ {{ usd }} / BTC {{ btc }})"
 
 # (following are in relation to friends)
 msgid "Mutual"
-msgstr "Reciproci"
+msgstr "ömsesidig"
 
 msgid "Remove"
-msgstr "Rimuovi"
+msgstr "Ta bort"
 
 msgid "Add"
-msgstr "Aggiungi"
+msgstr "Lägg till"

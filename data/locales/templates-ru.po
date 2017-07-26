@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 19:21+0000\n"
+"POT-Creation-Date: 2017-07-26 20:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /ru/Hanayo/templates-ru.po\n"
-"X-Pootle-Revision: 2642\n"
+"X-Pootle-Revision: 6902\n"
 
 # General
 msgid "You're already logged in!"
@@ -561,7 +561,7 @@ msgid ""
 "Welcome back to Ripple. We currently have <b>%s online users and %s total "
 "registed users.</b> Nice day to farm a few maps, isn't it?"
 msgstr ""
-"С возвращением на Ripple. Сейчас у нас <b>%s пользователей онлайн and %s "
+"С возвращением на Ripple. Сейчас у нас <b>%s пользователей онлайн и %s "
 "зарегистрированных пользователей.</b> Хороший день пофармить карт, не так ли?"
 
 msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
@@ -1365,9 +1365,9 @@ msgid ""
 "role name and colour <b>whenever you want!</b>"
 msgstr ""
 "Ваш аккаунт Discord был подключен к этому аккаунту Ripple. <b>Приветствуем в "
-"клубе донором и спасибо за вашу поддержку!</b> Теперь у вас есть доступ к "
+"клубе доноров и спасибо за вашу поддержку!</b> Теперь у вас есть доступ к "
 "голосовому и текстовому каналу #donators на нашем официальном сервере "
-"Discord! Также вы можете установить свою роль, цвет ника и свой никнейм в "
+"Discord! Также, вы можете установить свою роль, цвет ника и свой никнейм в "
 "Discord. Если вы хотите поменять ваш ник, используйте команду "
 "<code>/nick</code>. Чтобы установить или изменить цвет и название <b>вашей "
 "роли</b>, используйте команду <code>!rode ЦВЕТ_HEX НАЗВАНИЕ_РОЛИ</code>. Вы "
@@ -1462,6 +1462,29 @@ msgstr ""
 
 msgid "Playstyle"
 msgstr "Стиль игры"
+
+msgid "Authorized applications"
+msgstr ""
+
+msgid ""
+"From here you can check all the applications you granted authorization to "
+"your account, and revoke their permissions if necessary."
+msgstr ""
+
+msgid "... but it looks like you have none!"
+msgstr ""
+
+msgid "That authorization has been successfully revoked."
+msgstr ""
+
+msgid "Authorization created %s"
+msgstr ""
+
+msgid "Owner"
+msgstr ""
+
+msgid "Revoke"
+msgstr ""
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
@@ -1575,3 +1598,166 @@ msgstr "Доступ запрещен."
 
 msgid "You should not be 'round here."
 msgstr "Вы не должны тут находиться."
+
+msgid ""
+"It seems like the original version of this file has been updated, so this "
+"file is out of date and may contain inaccurate information. If you want to "
+"make sure to be up-to-date, please refer to the <a href=\"%s%s\">English "
+"version</a>."
+msgstr ""
+
+msgid ""
+"If you truly have understood what's written above and you have understood "
+"that creating a multiaccount will lead to a restriction on your main "
+"account, you can click here and you'll be brought to the sign up page."
+msgstr ""
+
+msgid "You look new here. Allow us to introduce you to what Ripple is."
+msgstr ""
+
+# PAY ATTENTION! This is Log in *with* Ripple, not *on* Ripple. This is for
+# oauth.
+msgid "Log in with Ripple"
+msgstr ""
+
+msgid "This application will be able to:"
+msgstr ""
+
+msgid "Identify"
+msgstr ""
+
+msgid ""
+"See your public information (everything somebody can see on your user "
+"profile), however with this alone it will not be able to see your private "
+"information (for instance your email address)."
+msgstr ""
+
+msgid "Read private information"
+msgstr ""
+
+msgid ""
+"This application will be able to see your email address, and any private "
+"information we will add in the future."
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid ""
+"This application will be able to make modifications to your Ripple account. "
+"This is potentially really dangerous! Use this only with applications that "
+"you trust."
+msgstr ""
+
+msgid "Approve"
+msgstr ""
+
+msgid "Deny"
+msgstr ""
+
+# Team page
+msgid ""
+"This is a list of the wonderful people who keep Ripple up and running and "
+"deal with its community."
+msgstr ""
+
+msgid "Community Managers"
+msgstr ""
+
+msgid ""
+"Community Managers deal with bans, silences, name changes and pretty much "
+"everything that has to do with the community."
+msgstr ""
+
+msgid ""
+"They take care of our Discord server and reply to emails sent to <a "
+"href='mailto:support@ripple.moe'>support@ripple.moe</a>. Community Managers "
+"have a red name in the in-game chat."
+msgstr ""
+
+msgid "Developers"
+msgstr ""
+
+msgid ""
+"Developers add new features to the server, squash bugs, keep the server up "
+"and running and take care of its maintenance."
+msgstr ""
+
+msgid ""
+"They don't do anything related to the community. Developers have a blue name "
+"in the in-game chat."
+msgstr ""
+
+msgid "Chat Moderators"
+msgstr ""
+
+msgid ""
+"Chat moderators manage the chat to make sure The Law&trade; (the rules) is "
+"respected."
+msgstr ""
+
+msgid ""
+"BATs play beatmaps in the ranking queue and decide whether they are good "
+"enough to be ranked or not."
+msgstr ""
+
+msgid "Special thanks"
+msgstr ""
+
+msgid "Here's a list of people who helped with Ripple."
+msgstr ""
+
+msgid ""
+"<b>Franc[e]sco/lolisamurai</b>, for <a "
+"href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp "
+"calculator."
+msgstr ""
+
+msgid ""
+"<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-"
+"performance</a>, used as a reference for our mania pp calculator."
+msgstr ""
+
+msgid ""
+"<b>jrosdahl</b>, for <a "
+"href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
+"our IRC server."
+msgstr ""
+
+msgid "<b>Avail</b>, for having hosted Ripple on his server."
+msgstr ""
+
+msgid "<b>Angela Guerra</b>, for designing the Ripple logo."
+msgstr ""
+
+msgid ""
+"<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the "
+"Ripple project by donating or inviting other people."
+msgstr ""
+
+msgid "They told me these are very cool people."
+msgstr ""
+
+msgid ""
+"Looking for how you should contact our team? Check out <a href='/help'>this "
+"page</a>."
+msgstr ""
+
+msgid "And more..."
+msgstr ""
+
+msgid "Do you want to be in this list?"
+msgstr ""
+
+msgid "Support us with a donation!"
+msgstr ""
+
+msgid "(You get other cool perks too)"
+msgstr ""
+
+msgid ""
+"The Ripple API is the system through which developers can create "
+"applications to interact with Ripple. <b>If you're asked to fill out an API "
+"token from this page, be wary and only actually create the token if you "
+"really trust the owner of the application.</b>"
+msgstr ""

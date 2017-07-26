@@ -62,10 +62,11 @@ KyutGrill=team2.jpg
 				</li>
 				<li>{{ .T "<b>Avail</b>, for having hosted Ripple on his server." | html }}</li>
 				<li>{{ .T "<b>Angela Guerra</b>, for designing the Ripple logo." | html }}</li>
-				<li>{{ .T "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people." }}</li>
+				<li>{{ .T "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people." | html }}</li>
 			</ul>
 		</div>
 	</div>
+	{{ $ := . }}
 	{{ .T "Looking for how you should contact our team? Check out <a href='/help'>this page</a>." | html }}
 	<div class="ui modal">
 		<div class="header"><h2 class="ui header">{{ .T "They told me these are very cool people." }}</h2></div>
@@ -86,10 +87,10 @@ KyutGrill=team2.jpg
 				<!-- Probably most shit coded part of Hanayo -->
 				<br>
 				<div class="centered">
-					<b>{{ .T "And more..." }}</b><br><br>
-					<b>{{ .T "Do you want to be in this list?" }}</b><br>
-					<a href="/donate"><b>{{ .T "Support us with a donation!" }}</b></a><br>
-					<i>{{ .T "(You get other cool perks too)" }}</i>
+					<b>{{ $.T "And more..." }}</b><br><br>
+					<b>{{ $.T "Do you want to be in this list?" }}</b><br>
+					<a href="/donate"><b>{{ $.T "Support us with a donation!" }}</b></a><br>
+					<i>{{ $.T "(You get other cool perks too)" }}</i>
 				</div>
 			</div>
 		{{ end }}

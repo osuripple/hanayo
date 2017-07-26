@@ -630,7 +630,7 @@ function modifyObjectDynamically(obj, inds, set) {
   return obj;
 }
 
-var langWhitelist = ["de", "it", "ko", "es", "ru", "pl"];
+var langWhitelist = ["de", "it", "ko", "es", "ru", "pl", "fr", "nl", "sv", "fi", "ro", "ko", "vi"];
 i18next
   .use(i18nextXHRBackend)
   .init({
