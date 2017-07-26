@@ -414,6 +414,18 @@ $(document).ready(function(){
     }
   });
 
+  $(document).keydown(function(e) {
+    var activeElement = $(document.activeElement);
+    var isInput = activeElement.is(":input,[contenteditable]");
+    if ((e.which === 83 || e.which === 115) && !isInput) {
+        $("#user-search-input").focus();
+        e.preventDefault();
+    }
+    if (e.which === 27 && isInput) {
+      activeElement.blur();
+    }
+  });
+
   // setup timeago
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
