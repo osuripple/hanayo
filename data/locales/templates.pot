@@ -1003,6 +1003,11 @@ msgstr ""
 msgid "Authorization created %s"
 msgstr ""
 
+msgid "Owner"
+msgstr ""
+
+msgid "Revoke"
+msgstr ""
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
