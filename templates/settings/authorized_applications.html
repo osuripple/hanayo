@@ -38,12 +38,12 @@ MinPrivileges=2
 								<td class="right aligned">
 									<div class="ui vertical buttons">
 										<form method="POST" action="/settings/authorized_applications/revoke">
-											<a class="ui labeled icon blue button" href="/u/{{ .Owner }}"><i class="user icon"></i>{{ .T "Owner" }}</a>
+											<a class="ui labeled icon blue button" href="/u/{{ .Owner }}"><i class="user icon"></i>{{ $.T "Owner" }}</a>
 											<!-- explanation: ctrl-f for #trw -->
 											<input type="hidden" name="access_token" value="{{ .AccessToken }}">
 											{{ $csrf }}
 											{{ ieForm $.Gin }}
-											<button type="submit" class="ui labeled icon red button"><i class="remove icon"></i>{{ .T "Revoke" }}</button>
+											<button type="submit" class="ui labeled icon red button"><i class="remove icon"></i>{{ $.T "Revoke" }}</button>
 										</form>
 									</div>
 								</td>
