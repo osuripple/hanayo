@@ -490,6 +490,14 @@ var funcMap = template.FuncMap{
 	"privilegesToString": func(privs float64) string {
 		return common.Privileges(privs).String()
 	},
+	"shouldShowJP": func(c *gin.Context, cont context) bool {
+		for _, x := range getLang(c) {
+			if x == "ja" {
+				return cont.User.ID%5 == 4
+			}
+		}
+		return false
+	},
 }
 
 var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
