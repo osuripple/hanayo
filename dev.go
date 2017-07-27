@@ -382,6 +382,9 @@ var scopeMap = map[string]string{
 }
 
 func (a authorization) Scopes(c *gin.Context) string {
+	if a.Scope == "" {
+		return T(c, "Identify")
+	}
 	scopes := strings.Split(a.Scope, " ")
 	scopes = append([]string{"identify"}, scopes...)
 	for i, val := range scopes {
