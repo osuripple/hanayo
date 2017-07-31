@@ -72,7 +72,11 @@ func twoFALock(c *gin.Context) {
 	}
 	addMessage(c, warningMessage{T(c, "You need to complete the 2fa challenge first.")})
 	sess.Save()
-	c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(c.Request.URL.Path))
+	query := c.Request.URL.RawQuery
+	if query != "" {
+		query = "?" + query
+	}
+	c.Redirect(302, "/2fa_gateway?redir="+url.QueryEscape(c.Request.URL.Path+query))
 	c.Abort()
 }
 
