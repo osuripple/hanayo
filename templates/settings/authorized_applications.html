@@ -15,14 +15,6 @@ MinPrivileges=2
 				<div class="ui divider"></div>
 				{{ $csrf := csrfGenerate .Context.User.ID }}
 				{{ with .RequestInfo.apps }}
-					<!--
-						#trw: the reason why I'm putting the access token to
-						identify that specifically it's because the access token
-						is the PK of the table in the database, so faster lookup
-						+ I'm sure there's only one of it.
-						Also, the Access token in this page is sha256'd, so
-						you can't really use it to do anything.
-					-->
 					<table class="ui very basic fixed table">
 						{{ range . }}
 							<tr>
@@ -39,8 +31,7 @@ MinPrivileges=2
 									<div class="ui vertical buttons">
 										<form method="POST" action="/settings/authorized_applications/revoke">
 											<a class="ui labeled icon blue button" href="/u/{{ .Owner }}"><i class="user icon"></i>{{ $.T "Owner" }}</a>
-											<!-- explanation: ctrl-f for #trw -->
-											<input type="hidden" name="access_token" value="{{ .AccessToken }}">
+											<input type="hidden" name="client_id" value="{{ .Client }}">
 											{{ $csrf }}
 											{{ ieForm $.Gin }}
 											<button type="submit" class="ui labeled icon red button"><i class="remove icon"></i>{{ $.T "Revoke" }}</button>

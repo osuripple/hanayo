@@ -370,9 +370,9 @@ func deleteOAuthApplication(c *gin.Context) {
 
 type authorization struct {
 	oAuthClient
-	Scope       string
-	CreatedAt   time.Time
-	AccessToken string
+	Scope     string
+	CreatedAt time.Time
+	Client    string
 }
 
 var scopeMap = map[string]string{
@@ -401,11 +401,11 @@ func authorizedApplications(c *gin.Context) {
 
 	var apps []authorization
 	err := db.Select(&apps, `
-SELECT c.extra, a.scope, a.created_at AS createdat,
-	a.access_token as accesstoken
+SELECT c.extra, a.scope, a.created_at AS createdat, a.client
 FROM osin_access a
 INNER JOIN osin_client c ON c.id = a.client
 WHERE a.extra = ?
+GROUP BY a.client
 ORDER BY a.created_at DESC`, ctx.User.ID)
 
 	if err != nil {
