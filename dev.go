@@ -440,6 +440,6 @@ func revokeAuthorization(c *gin.Context) {
 		return
 	}
 
-	db.Exec("DELETE FROM osin_access WHERE access_token = ? AND extra = ?", c.PostForm("access_token"), ctx.User.ID)
+	db.Exec("DELETE FROM osin_access WHERE client = ? AND extra = ?", c.PostForm("client_id"), ctx.User.ID)
 	addMessage(c, successMessage{T(c, "That authorization has been successfully revoked.")})
 }
