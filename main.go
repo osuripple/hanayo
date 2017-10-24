@@ -82,8 +82,6 @@ var (
 		SentryDSN string
 
 		IP_API string
-
-		AnalyticsID string
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
