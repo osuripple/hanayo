@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-31 13:42+0000\n"
+"POT-Creation-Date: 2017-10-29 19:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /fr/HanayoJS/templates-fr.po\n"
-"X-Pootle-Revision: 6370\n"
+"X-Pootle-Revision: 6997\n"
 
 # JavaScript
 msgid ""
@@ -71,7 +71,7 @@ msgid "Load more"
 msgstr "Charger plus"
 
 msgid "Best scores"
-msgstr "Meilleur score"
+msgstr "Meilleurs scores"
 
 msgid "Recent scores"
 msgstr "Scores récents"
@@ -109,7 +109,7 @@ msgstr "Non"
 
 # Achieved (refers to date)
 msgid "Achieved"
-msgstr "Atteint"
+msgstr "Effectué le"
 
 # Game mode, like osu! standard, not like HR
 msgid "Mode"
