@@ -29,6 +29,7 @@ gulp.task("minify-js", function() {
 			"static/licenseheader.js",
 			"node_modules/jquery/dist/jquery.min.js",
 			"node_modules/timeago/jquery.timeago.js",
+			"static/snowfall.jquery.min.js",
 			"static/konami.js",
 			"static/semantic.min.js",
 			"node_modules/i18next/i18next.min.js",

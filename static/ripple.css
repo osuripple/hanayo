@@ -46,6 +46,8 @@
 	position: absolute;
 	color: #f9f9f9;
 	text-shadow: 0 2px 10px #000;
+	margin-bottom: 0px;
+	z-index: 1000001; /* getting bigger every year */
 }
 
 .main.wrapper {

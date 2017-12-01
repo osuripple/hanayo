@@ -430,6 +430,9 @@ $(document).ready(function(){
   $.timeago.settings.allowFuture = true;
   $("time.timeago").timeago();
 
+  // It's christmas again!
+  $(".huge.heading").snowfall({flakeCount: 50, maxSpeed: 1, minSpeed: 1, minSize: 6, round: true, shadow: true});
+
   // dark site
   new Konami(function() {
     var cflags = document.cookie.replace(/(?:(?:^|.*;\s*)cflags\s*\=\s*([^;]*).*$)|^.*$/, "$1");
