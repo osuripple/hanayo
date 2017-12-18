@@ -498,6 +498,7 @@ var funcMap = template.FuncMap{
 		}
 		return false
 	},
+	"htmlescaper": template.HTMLEscaper,
 }
 
 var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
