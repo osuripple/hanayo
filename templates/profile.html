@@ -95,7 +95,7 @@
 				<div class="ui three column divided stackable grid">
 					<div class="row">
 						<div class="column">
-							{{ $global.T "<b>%s</b> is a Ripple player from <b>%s</b>." .username (country .country true | htmlescaper) | html }}
+							{{ $global.T "<b>%s</b> is a Ripple player from <b>%s</b>." .username (country .country true) | html }}
 							<br>{{ $global.T "They signed up on Ripple %s." (time $user.registered_on) | html }}
 							<br>{{ $global.T "Last seen: %s." (time $user.latest_activity) | html }}
 							<br>{{ with playstyle .play_style $global }}{{ $global.T "They play with %s." . }}{{ end }}
