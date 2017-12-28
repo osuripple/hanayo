@@ -12,8 +12,8 @@ import (
 	"bytes"
 
 	"github.com/gin-gonic/gin"
-	"zxq.co/ripple/hanayo/modules/bbcode"
-	tp "zxq.co/ripple/hanayo/modules/top-passwords"
+	"./modules/bbcode"
+	tp "./modules/top-passwords"
 	"zxq.co/ripple/rippleapi/common"
 )
 
