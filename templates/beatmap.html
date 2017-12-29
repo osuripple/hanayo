@@ -1,3 +1,56 @@
 {{ define "tpl" }}
-song name: {{ .SongName }}
+	<div class="ui container">
+	{{ if .Found }}
+		<div class="ui floating icon labeled dropdown button">
+			<i class="caret down icon"></i>
+			<span class="text">
+				<i class="attention icon"></i>
+				{{ .Beatmap.DiffName }}
+			</span>
+			<div class="menu">
+				{{ range $map := .Beatmapset.ChildrenBeatmaps }}
+				<div class="item">
+					<i class="attention icon"></i>
+					{{ $map.DiffName }}
+				</div>
+				{{ end }}
+			</div>
+		</div>
+		<div class="ui segment">
+		</div>
+
+		{{ if not .Beatmap.Mode }}
+			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
+			{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
+			<script>
+				var favouriteMode = {{ $favMode }};
+				var page = {{ .Gin.Query "p" | atoint | atLeastOne }};
+			</script>
+			<div class="ui four item menu" id="mode-menu">
+				{{ range $k, $v := modes }}
+					<a class="{{ favMode $favMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.BeatmapID }}?mode={{ $k }}">{{ $v }}</a>
+				{{ end }}
+			</div>
+		{{ else }}
+		{{ end }}
+		<table class="ui fixed table">
+			<thead>
+				{{ template "simplepag" 6 }}
+				<tr>
+					<th class="two wide">{{ .T "Rank" }} </th>
+					<th class="four wide">{{ .T "Player" }} </th>
+					<th class="four wide">{{ .T "Score" }} </th>
+					<th class="two wide">{{ .T "Accuracy" }} </th>
+					<th class="two wide">{{ .T "Combo" }} </th>
+					<th class="two wide">{{ .T "PP" }} </th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				{{ template "simplepag" 6 }}
+			</tfoot>
+		</table>
+	{{ end }}
+	</div>
 {{ end }}
