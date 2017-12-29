@@ -271,6 +271,7 @@ func generateEngine() *gin.Engine {
 	r.GET("/register/welcome", welcome)
 
 	r.GET("/u/:user", userProfile)
+	r.GET("/b/:bid", beatmapInfo)
 
 	r.POST("/pwreset", passwordReset)
 	r.GET("/pwreset/continue", passwordResetContinue)
