@@ -66,7 +66,6 @@
   $("#diff-menu .item")
       .click(function(e) {
         e.preventDefault();
-        $("#mode-menu .active.item").removeClass("active");
         $(this).addClass("active");
         beatmapID = $(this).data("bid");
         changeDifficulty(beatmapID);
