@@ -29,7 +29,9 @@
 			{{ if not .DisableHH }}
 				<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped"
 					style="background-image: url('/static/headers/{{ or .KyutGrill "default.jpg" }}');">
-					<h1>{{ if .HeadingTitle }}{{ .T .HeadingTitle | html }}{{ else }}{{ .T .TitleBar }}{{ end }}</h1>
+					<div class="ui container">
+						<h1>{{ if .HeadingTitle }}{{ .T .HeadingTitle | html }}{{ else }}{{ .T .TitleBar }}{{ end }}</h1>
+					</div>
 				</div>
 			{{ end }}
 
@@ -107,6 +109,7 @@
 				avatars:   {{ .Conf.AvatarURL }},
 				banchoAPI: {{ .Conf.BanchoAPI }},
 				baseAPI:   {{ .Conf.BaseAPIPublic }},
+				cheesegullAPI: {{ .Conf.CheesegullAPI }},
 				language:  {{ with $lang }}{{ . }}{{ else }}"en"{{ end }},
 			};
 		</script>

@@ -19,70 +19,73 @@
 // this object contains tiny snippets that were deemed too small to be worth
 // their own file.
 var singlePageSnippets = {
-  "/2fa_gateway": function() {
-    $('#telegram-code').on('input', function() {
-      if ($(this).val().length >= 6) {
-        $.get("/2fa_gateway/verify", {
-          token: $(this).val().trim().substr(0, 8),
-        }, function(resp) {
-          switch (resp) {
-          case "0":
-            $("#telegram-code").closest(".field").addClass("success");
-            redir = redir ? redir : "/";
-            window.location.href = redir;
-            break;
-          case "1":
-            $("#telegram-code").closest(".field").addClass("error");
-            break;
+  "/2fa_gateway" : function() {
+    $('#telegram-code')
+        .on('input', function() {
+          if ($(this).val().length >= 6) {
+            $.get("/2fa_gateway/verify", {
+              token : $(this).val().trim().substr(0, 8),
+            },
+                  function(resp) {
+                    switch (resp) {
+                    case "0":
+                      $("#telegram-code").closest(".field").addClass("success");
+                      redir = redir ? redir : "/";
+                      window.location.href = redir;
+                      break;
+                    case "1":
+                      $("#telegram-code").closest(".field").addClass("error");
+                      break;
+                    }
+                  });
+          } else {
+            $("#telegram-code").closest(".field").removeClass("error");
           }
         });
-      } else {
-        $("#telegram-code").closest(".field").removeClass("error");
-      }
-    });
   },
 
-  "/leaderboard": function() {
+  "/leaderboard" : function() {
     page = page === 0 ? 1 : page;
 
     function loadLeaderboard() {
       var wl = window.location;
-      window.history.replaceState('', document.title,
-        wl.pathname +
-        "?mode=" + favouriteMode +
-        "&p=" + page +
-        (country != "" ? "&country=" + encodeURI(country) : "") +
-        wl.hash
-      );
+      window.history.replaceState(
+          '', document.title,
+          wl.pathname + "?mode=" + favouriteMode + "&p=" + page +
+              (country != "" ? "&country=" + encodeURI(country) : "") +
+              wl.hash);
       api("leaderboard", {
-        mode: favouriteMode,
-        p: page,
-        l: 50,
-        country: country,
-      }, function(data) {
-        var tb = $(".ui.table tbody");
-        tb.find("tr").remove();
-        if (data.users == null) {
-          disableSimplepagButtons(true);
-          data.users = [];
-        }
-        var i = 0;
-        data.users.forEach(function(v) {
-          tb.append(
-            $("<tr />").append(
-              $("<td />").text("#" + ((page-1) * 50 + (++i))),
-              $("<td />").html("<a href='/u/" + v.id + "' title='View profile'><i class='" +
-                v.country.toLowerCase() + " flag'></i>" + escapeHTML(v.username) + "</a>"),
-              $("<td />").html(scoreOrPP(v.chosen_mode.ranked_score, v.chosen_mode.pp)),
-              $("<td />").text(v.chosen_mode.accuracy.toFixed(2) + "%"),
-              // bonus points if you get the undertale joke
-              $("<td />").html(addCommas(v.chosen_mode.playcount) +
-                " <i title='" + T("Why, LOVE, of course!") + "'>(lv. " + v.chosen_mode.level.toFixed(0) + ")</i>")
-            )
-          );
-        });
-        disableSimplepagButtons(data.users.length < 50);
-      });
+        mode : favouriteMode,
+        p : page,
+        l : 50,
+        country : country,
+      },
+          function(data) {
+            var tb = $(".ui.table tbody");
+            tb.find("tr").remove();
+            if (data.users == null) {
+              disableSimplepagButtons(true);
+              data.users = [];
+            }
+            var i = 0;
+            data.users.forEach(function(v) {
+              tb.append($("<tr />").append(
+                  $("<td />").text("#" + ((page - 1) * 50 + (++i))),
+                  $("<td />").html("<a href='/u/" + v.id +
+                                   "' title='View profile'><i class='" +
+                                   v.country.toLowerCase() + " flag'></i>" +
+                                   escapeHTML(v.username) + "</a>"),
+                  $("<td />").html(
+                      scoreOrPP(v.chosen_mode.ranked_score, v.chosen_mode.pp)),
+                  $("<td />").text(v.chosen_mode.accuracy.toFixed(2) + "%"),
+                  // bonus points if you get the undertale joke
+                  $("<td />").html(addCommas(v.chosen_mode.playcount) +
+                                   " <i title='" + T("Why, LOVE, of course!") +
+                                   "'>(lv. " + v.chosen_mode.level.toFixed(0) +
+                                   ")</i>")));
+            });
+            disableSimplepagButtons(data.users.length < 50);
+          });
     }
     function scoreOrPP(s, pp) {
       if (pp === 0)
@@ -91,137 +94,154 @@ var singlePageSnippets = {
     }
 
     // country stuff
-    $("#country-chooser-modal").click(function() {
-      $(".ui.modal").modal("show");
-    });
-    $(".lb-country").click(function() {
-      country = $(this).data("country");
-      page = 1;
-      $(".ui.modal").modal("hide");
-      loadLeaderboard();
-    });
+    $("#country-chooser-modal")
+        .click(function() {
+          $(".ui.modal").modal("show");
+        });
+    $(".lb-country")
+        .click(function() {
+          country = $(this).data("country");
+          page = 1;
+          $(".ui.modal").modal("hide");
+          loadLeaderboard();
+        });
 
     loadLeaderboard();
     setupSimplepag(loadLeaderboard);
-    $("#mode-menu .item").click(function(e) {
-      e.preventDefault();
-      $("#mode-menu .active.item").removeClass("active");
-      $(this).addClass("active");
-      favouriteMode = $(this).data("mode");
-      country = "";
-      page = 1;
-      loadLeaderboard();
-    });
+    $("#mode-menu .item")
+        .click(function(e) {
+          e.preventDefault();
+          $("#mode-menu .active.item").removeClass("active");
+          $(this).addClass("active");
+          favouriteMode = $(this).data("mode");
+          country = "";
+          page = 1;
+          loadLeaderboard();
+        });
   },
 
-  "/friends": function() {
-    $(".smalltext.button").click(function() {
-      var t = $(this);
-      var delAdd = t.data("deleted") === "1" ? "add" : "del";
-      console.log(delAdd);
-      t.addClass("disabled");
-      api("friends/" + delAdd, {
-        user: +t.data("userid")
-      }, function(data) {
-        t.removeClass("disabled");
-        t.data("deleted", data.friend ? "0" : "1");
-        t.removeClass("green red blue");
-        t.addClass(data.friend ? (data.mutual ? "red" : "green") : "blue");
-        t.find(".icon").removeClass("minus plus heart").
-          addClass(data.friend ? (data.mutual ? "heart" : "minus") : "plus");
-        t.find("span").text(data.friend ? (data.mutual ? T("Mutual") : T("Remove")) : t("Add"));
-      }, true);
-    });
+  "/friends" : function() {
+    $(".smalltext.button")
+        .click(function() {
+          var t = $(this);
+          var delAdd = t.data("deleted") === "1" ? "add" : "del";
+          console.log(delAdd);
+          t.addClass("disabled");
+          api("friends/" + delAdd, {user : +t.data("userid")}, function(data) {
+            t.removeClass("disabled");
+            t.data("deleted", data.friend ? "0" : "1");
+            t.removeClass("green red blue");
+            t.addClass(data.friend ? (data.mutual ? "red" : "green") : "blue");
+            t.find(".icon")
+                .removeClass("minus plus heart")
+                .addClass(data.friend ? (data.mutual ? "heart" : "minus")
+                                      : "plus");
+            t.find("span").text(data.friend
+                                    ? (data.mutual ? T("Mutual") : T("Remove"))
+                                    : t("Add"));
+          }, true);
+        });
   },
 
-  "/team": function() {
-    $("#everyone").click(function() {
-      $(".ui.modal").modal("show");
-    });
+  "/team" : function() {
+    $("#everyone").click(function() { $(".ui.modal").modal("show"); });
   },
 
-  "/register/verify": function() {
+  "/register/verify" : function() {
     var qu = query("u");
     setInterval(function() {
-      $.getJSON(hanayoConf.banchoAPI + "/api/v1/verifiedStatus?u=" + qu, function(data) {
-        if (data.result >= 0) {
-          window.location.href = "/register/welcome?u=" + qu;
-        }
-      })
+      $.getJSON(hanayoConf.banchoAPI + "/api/v1/verifiedStatus?u=" + qu,
+                function(data) {
+                  if (data.result >= 0) {
+                    window.location.href = "/register/welcome?u=" + qu;
+                  }
+                })
     }, 5000)
   },
 
-  "/settings": function() {
-    $("input[name='custom_badge.icon']").on("input", function() {
-      $("#badge-icon").attr("class", "circular big icon " + escapeHTML($(this).val()));
-    });
-    $("input[name='custom_badge.name']").on("input", function() {
-      $("#badge-name").html(escapeHTML($(this).val()));
-    });
-    $("input[name='custom_badge.show']").change(function() {
-      if ($(this).is(":checked"))
-        $("#custom-badge-fields").slideDown();
-      else
-        $("#custom-badge-fields").slideUp();
-    });
-    $("form").submit(function(e) {
-      e.preventDefault();
-      var obj = formToObject($(this));
-      var ps = 0;
-      $(this).find("input[data-sv]").each(function(_, el) {
-        el = $(el);
-        if (el.is(":checked")) {
-          ps |= el.data("sv");
-        }
-      });
-      obj.play_style = ps;
-      var f = $(this);
-      api("users/self/settings", obj, function(data) {
-        showMessage("success", "Your new settings have been saved.");
-        f.removeClass("loading");
-      }, true);
-      return false;
-    });
+  "/settings" : function() {
+    $("input[name='custom_badge.icon']")
+        .on("input", function() {
+          $("#badge-icon")
+              .attr("class", "circular big icon " + escapeHTML($(this).val()));
+        });
+    $("input[name='custom_badge.name']")
+        .on("input", function() {
+          $("#badge-name").html(escapeHTML($(this).val()));
+        });
+    $("input[name='custom_badge.show']")
+        .change(function() {
+          if ($(this).is(":checked"))
+            $("#custom-badge-fields").slideDown();
+          else
+            $("#custom-badge-fields").slideUp();
+        });
+    $("form")
+        .submit(function(e) {
+          e.preventDefault();
+          var obj = formToObject($(this));
+          var ps = 0;
+          $(this)
+              .find("input[data-sv]")
+              .each(function(_, el) {
+                el = $(el);
+                if (el.is(":checked")) {
+                  ps |= el.data("sv");
+                }
+              });
+          obj.play_style = ps;
+          var f = $(this);
+          api("users/self/settings", obj, function(data) {
+            showMessage("success", "Your new settings have been saved.");
+            f.removeClass("loading");
+          }, true);
+          return false;
+        });
   },
 
-  "/settings/userpage": function() {
+  "/settings/userpage" : function() {
     var lastTimeout = null;
-    $("textarea[name='data']").on('input', function() {
-      if (lastTimeout !== null) {
-        clearTimeout(lastTimeout);
-      }
-      var v = $(this).val();
-      lastTimeout = setTimeout(function() {
-        $("#userpage-content").addClass("loading");
-        $.post("/settings/userpage/parse", $("textarea[name='data']").val(), function(data) {
-          var e = $("#userpage-content").removeClass("loading").html(data);
-          if (typeof twemoji !== "undefined") {
-            twemoji.parse(e[0]);
+    $("textarea[name='data']")
+        .on('input', function() {
+          if (lastTimeout !== null) {
+            clearTimeout(lastTimeout);
           }
-        }, "text");
-      }, 800);
-    });
-    $("form").submit(function(e) {
-      e.preventDefault();
-      var obj = formToObject($(this));
-      var f = $(this);
-      api("users/self/userpage", obj, function(data) {
-        showMessage("success", "Your userpage has been saved.");
-        f.removeClass("loading");
-      }, true);
-      return false;
-    });
+          var v = $(this).val();
+          lastTimeout = setTimeout(function() {
+            $("#userpage-content").addClass("loading");
+            $.post(
+                "/settings/userpage/parse",
+                $("textarea[name='data']").val(), function(data) {
+                  var e =
+                      $("#userpage-content").removeClass("loading").html(data);
+                  if (typeof twemoji !== "undefined") {
+                    twemoji.parse(e[0]);
+                  }
+                }, "text");
+          }, 800);
+        });
+    $("form")
+        .submit(function(e) {
+          e.preventDefault();
+          var obj = formToObject($(this));
+          var f = $(this);
+          api("users/self/userpage", obj, function(data) {
+            showMessage("success", "Your userpage has been saved.");
+            f.removeClass("loading");
+          }, true);
+          return false;
+        });
   },
 
-  "/donate": function() {
+  "/donate" : function() {
     var sl = $("#months-slider")[0];
     noUiSlider.create(sl, {
-      start: [1],
-      step: 1,
-      connect: [true, false],
-      range: {
-        min: [1],
-        max: [24],
+      start : [ 1 ],
+      step : 1,
+      connect : [ true, false ],
+      range : {
+        min : [ 1 ],
+        max : [ 24 ],
       }
     });
     var rates = {};
@@ -234,41 +254,40 @@ var singlePageSnippets = {
         var priceEUR = Math.pow(months * 30 * 0.2, 0.70);
         var priceBTC = priceEUR / rates.EUR;
         var priceUSD = priceBTC * rates.USD;
-        $("#cost").html(
-          T("<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>", {
-            count: Math.round(+months),
-            months: (+months).toFixed(0),
-            eur: priceEUR.toFixed(2),
-          }) +
-          "<br>" +
-          T("($ {{ usd }} / BTC {{ btc }})", {
-            usd: priceUSD.toFixed(2),
-            btc: priceBTC.toFixed(10),
-          })
-        );
-        $("input[name='os0']").attr("value", (+months).toFixed(0) + " month" + (months == 1 ? "" : "s"));
+        $("#cost")
+            .html(T("<b>{{ months }}</b> month costs <b>€ {{ eur }}</b>", {
+                    count : Math.round(+months),
+                    months : (+months).toFixed(0),
+                    eur : priceEUR.toFixed(2),
+                  }) +
+                  "<br>" + T("($ {{ usd }} / BTC {{ btc }})", {
+                    usd : priceUSD.toFixed(2),
+                    btc : priceBTC.toFixed(10),
+                  }));
+        $("input[name='os0']")
+            .attr("value",
+                  (+months).toFixed(0) + " month" + (months == 1 ? "" : "s"));
         $("#bitcoin-amt").text(priceBTC.toFixed(6));
         $("#paypal-amt").val(priceEUR.toFixed(2));
       });
     });
   },
 
-  "/settings/avatar": function() {
-    $("#file").change(function(e) {
-      var f = e.target.files;
-      if (f.length < 1) {
-        return;
-      }
-      var u = window.URL.createObjectURL(f[0]);
-      var i = $("#avatar-img")[0];
-      i.src = u;
-      i.onload = function() {
-        window.URL.revokeObjectURL(this.src);
-      };
-    });
+  "/settings/avatar" : function() {
+    $("#file")
+        .change(function(e) {
+          var f = e.target.files;
+          if (f.length < 1) {
+            return;
+          }
+          var u = window.URL.createObjectURL(f[0]);
+          var i = $("#avatar-img")[0];
+          i.src = u;
+          i.onload = function() { window.URL.revokeObjectURL(this.src); };
+        });
   },
 
-  "/beatmaps/rank_request": function() {
+  "/beatmaps/rank_request" : function() {
     function updateRankRequestPage(data) {
       $("#queue-info").html(data.submitted + "/" + data.queue_size);
 
@@ -282,9 +301,10 @@ var singlePageSnippets = {
 
       var perc = (data.submitted / data.queue_size * 100).toFixed(0);
       $("#progressbar .progress").text(perc + "%");
-      $("#progressbar").progress({
-        percent: perc,
-      });
+      $("#progressbar")
+          .progress({
+            percent : perc,
+          });
       if (data.can_submit)
         $("#b-form .input, #b-form .button").removeClass("disabled");
       else
@@ -294,171 +314,192 @@ var singlePageSnippets = {
       api("beatmaps/rank_requests/status", {}, updateRankRequestPage);
     }, 10000);
     var re = /^https?:\/\/osu.ppy.sh\/(s|b)\/(\d+)$/gi;
-    $("#b-form").submit(function(e) {
-      e.preventDefault();
-      var v = $("#beatmap").val().trim();
-      var reData = re.exec(v);
-      re.exec(); // apparently this is always null, idk
-      console.log(v, reData);
-      if (reData === null) {
-        showMessage("error", "Please provide a valid link, in the form " +
-          "of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;.");
-        $(this).removeClass("loading");
-        return false;
-      }
-      var postData = {};
-      if (reData[1] == "s")
-        postData.set_id = +reData[2];
-      else
-        postData.id = +reData[2];
-      var t = $(this);
-      api("beatmaps/rank_requests", postData, function(data) {
-        t.removeClass("loading");
-        showMessage("success", "Beatmap rank request has been submitted.");
-        updateRankRequestPage(data);
-      }, function(data) {
-        t.removeClass("loading");
-        if (data.code == 406)
-          showMessage("warning", "That beatmap is already ranked!");
-      }, true);
-      return false;
-    });
+    $("#b-form")
+        .submit(function(e) {
+          e.preventDefault();
+          var v = $("#beatmap").val().trim();
+          var reData = re.exec(v);
+          re.exec(); // apparently this is always null, idk
+          console.log(v, reData);
+          if (reData === null) {
+            showMessage(
+                "error",
+                "Please provide a valid link, in the form " +
+                    "of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;.");
+            $(this).removeClass("loading");
+            return false;
+          }
+          var postData = {};
+          if (reData[1] == "s")
+            postData.set_id = +reData[2];
+          else
+            postData.id = +reData[2];
+          var t = $(this);
+          api("beatmaps/rank_requests", postData,
+              function(data) {
+                t.removeClass("loading");
+                showMessage("success",
+                            "Beatmap rank request has been submitted.");
+                updateRankRequestPage(data);
+              },
+              function(data) {
+                t.removeClass("loading");
+                if (data.code == 406)
+                  showMessage("warning", "That beatmap is already ranked!");
+              },
+              true);
+          return false;
+        });
   },
 
-  "/settings/profbackground": function() {
-    $("#colorpicker").minicolors({
-      inline: true,
-    });
-    $("#background-type").change(function() {
-      $("[data-type]:not([hidden])").attr("hidden", "hidden");
-      $("[data-type=" + $(this).val() + "]").removeAttr("hidden");
-    });
-    $("#file").change(function(e) {
-      var f = e.target.files;
-      if (f.length < 1) {
-        return;
-      }
-      var u = window.URL.createObjectURL(f[0]);
-      var i = document.createElement("img");
-      i.src = u;
-      i.onload = function() {
-        window.URL.revokeObjectURL(this.src);
-      };
-      $("#image-background").empty().append(i);
-    });
+  "/settings/profbackground" : function() {
+    $("#colorpicker")
+        .minicolors({
+          inline : true,
+        });
+    $("#background-type")
+        .change(function() {
+          $("[data-type]:not([hidden])").attr("hidden", "hidden");
+          $("[data-type=" + $(this).val() + "]").removeAttr("hidden");
+        });
+    $("#file")
+        .change(function(e) {
+          var f = e.target.files;
+          if (f.length < 1) {
+            return;
+          }
+          var u = window.URL.createObjectURL(f[0]);
+          var i = document.createElement("img");
+          i.src = u;
+          i.onload = function() { window.URL.revokeObjectURL(this.src); };
+          $("#image-background").empty().append(i);
+        });
   },
 
-  "/dev/tokens": function() {
-    $("#privileges-number").on("input", function() {
-      $("#privileges-text").text(privilegesToString($(this).val()));
-    });
+  "/dev/tokens" : function() {
+    $("#privileges-number")
+        .on("input", function() {
+          $("#privileges-text").text(privilegesToString($(this).val()));
+        });
   }
 };
 
-$(document).ready(function(){
-  // semantic stuff
-  $('.message .close').on('click', closeClosestMessage);
-  $('.ui.checkbox').checkbox();
-  $('.ui.dropdown').dropdown();
-  $('.ui.progress').progress();
-  $('.ui.form').submit(function(e) {
-    var t = $(this);
-    if (t.hasClass("loading") || t.hasClass("disabled")) {
-      e.preventDefault();
-      return false;
-    }
-    t.addClass("loading");
-    var f = t.attr("id");
-    $("[form='" + f + "']").addClass("loading");
-  });
-
-  // emojis!
-  if (typeof twemoji !== "undefined") {
-    $(".twemoji").each(function(k, v) {
-      twemoji.parse(v);
-    });
-  }
-
-  // ripple stuff
-  var f = singlePageSnippets[window.location.pathname];
-  if (typeof f === 'function')
-    f();
-  if (typeof deferredToPageLoad === "function") deferredToPageLoad();
-
-  // setup user search
-  $("#user-search").search({
-    onSelect: function(val) {
-      window.location.href = val.url;
-      return false;
-    },
-    apiSettings: {
-      url: "/api/v1/users/lookup?name={query}",
-      onResponse: function(resp) {
-        var r = {
-          results: [],
-        };
-        $.each(resp.users, function(index, item) {
-          r.results.push({
-            title: item.username,
-            url  : "/u/" + item.id,
-            image: hanayoConf.avatars + "/" + item.id,
+$(document)
+    .ready(function() {
+      // semantic stuff
+      $('.message .close').on('click', closeClosestMessage);
+      $('.ui.checkbox').checkbox();
+      $('.ui.dropdown').dropdown();
+      $('.ui.progress').progress();
+      $('.ui.form')
+          .submit(function(e) {
+            var t = $(this);
+            if (t.hasClass("loading") || t.hasClass("disabled")) {
+              e.preventDefault();
+              return false;
+            }
+            t.addClass("loading");
+            var f = t.attr("id");
+            $("[form='" + f + "']").addClass("loading");
           });
-        });
-        return r;
-      },
-    },
-  });
-  $("#user-search-input").keypress(function (e) {
-    if (e.which == 13) {
-      window.location.pathname = "/u/" + $(this).val();
-    }
-  });
 
-  $(document).keydown(function(e) {
-    var activeElement = $(document.activeElement);
-    var isInput = activeElement.is(":input,[contenteditable]");
-    if ((e.which === 83 || e.which === 115) && !isInput) {
-        $("#user-search-input").focus();
-        e.preventDefault();
-    }
-    if (e.which === 27 && isInput) {
-      activeElement.blur();
-    }
-  });
+      // emojis!
+      if (typeof twemoji !== "undefined") {
+        $(".twemoji").each(function(k, v) { twemoji.parse(v); });
+      }
 
-  // setup timeago
-  $.timeago.settings.allowFuture = true;
-  $("time.timeago").timeago();
+      // ripple stuff
+      var f = singlePageSnippets[window.location.pathname];
+      if (typeof f === 'function')
+        f();
+      if (typeof deferredToPageLoad === "function")
+        deferredToPageLoad();
 
-  // It's christmas again!
-  $(".huge.heading").snowfall({flakeCount: 50, maxSpeed: 1, minSpeed: 1, minSize: 6, round: true, shadow: true});
+      // setup user search
+      $("#user-search")
+          .search({
+            onSelect : function(val) {
+              window.location.href = val.url;
+              return false;
+            },
+            apiSettings : {
+              url : "/api/v1/users/lookup?name={query}",
+              onResponse : function(resp) {
+                var r = {
+                  results : [],
+                };
+                $.each(resp.users, function(index, item) {
+                  r.results.push({
+                    title : item.username,
+                    url : "/u/" + item.id,
+                    image : hanayoConf.avatars + "/" + item.id,
+                  });
+                });
+                return r;
+              },
+            },
+          });
+      $("#user-search-input")
+          .keypress(function(e) {
+            if (e.which == 13) {
+              window.location.pathname = "/u/" + $(this).val();
+            }
+          });
 
-  // dark site
-  new Konami(function() {
-    var cflags = document.cookie.replace(/(?:(?:^|.*;\s*)cflags\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    // toggle 1 (dark theme)
-    cflags = (+cflags) ^ 1;
-    document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
-    window.location.reload();
-  });
+      $(document)
+          .keydown(function(e) {
+            var activeElement = $(document.activeElement);
+            var isInput = activeElement.is(":input,[contenteditable]");
+            if ((e.which === 83 || e.which === 115) && !isInput) {
+              $("#user-search-input").focus();
+              e.preventDefault();
+            }
+            if (e.which === 27 && isInput) {
+              activeElement.blur();
+            }
+          });
 
-  $("#language-selector .item").click(function() {
-    var lang = $(this).data("lang");
-    document.cookie = "language=" + lang + ";path=/;max-age=31536000";
-    window.location.reload();
-  });
-});
+      // setup timeago
+      $.timeago.settings.allowFuture = true;
+      $("time.timeago").timeago();
+
+      // It's christmas again!
+      $(".huge.heading")
+          .snowfall({
+            flakeCount : 50,
+            maxSpeed : 1,
+            minSpeed : 1,
+            minSize : 6,
+            round : true,
+            shadow : true
+          });
+
+      // dark site
+      new Konami(function() {
+        var cflags = document.cookie.replace(
+            /(?:(?:^|.*;\s*)cflags\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        // toggle 1 (dark theme)
+        cflags = (+cflags) ^ 1;
+        document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
+        window.location.reload();
+      });
+
+      $("#language-selector .item")
+          .click(function() {
+            var lang = $(this).data("lang");
+            document.cookie = "language=" + lang + ";path=/;max-age=31536000";
+            window.location.reload();
+          });
+    });
 
 function closeClosestMessage() {
-  $(this)
-    .closest('.message')
-    .fadeOut(300, function() {
-      $(this).remove();
-    });
+  $(this).closest('.message').fadeOut(300, function() { $(this).remove(); });
 };
 
 function showMessage(type, message) {
-  var newEl = $('<div class="ui ' + type + ' message hidden"><i class="close icon"></i>' + T(message) + '</div>');
+  var newEl =
+      $('<div class="ui ' + type +
+        ' message hidden"><i class="close icon"></i>' + T(message) + '</div>');
   newEl.find(".close.icon").click(closeClosestMessage);
   $("#messages-container").append(newEl);
   newEl.slideDown(300);
@@ -475,17 +516,19 @@ function api(endpoint, data, success, failure, post) {
     failure = undefined;
   }
 
-  var errorMessage = "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
+  var errorMessage =
+      "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
 
   $.ajax({
-    method:   (post ? "POST" : "GET"),
-    dataType: "json",
-    url:      hanayoConf.baseAPI + "/api/v1/" + endpoint,
-    data:     (post ? JSON.stringify(data) : data),
-    contentType: (post ? "application/json; charset=utf-8" : ""),
-    success: function(data) {
+    method : (post ? "POST" : "GET"),
+    dataType : "json",
+    url : hanayoConf.baseAPI + "/api/v1/" + endpoint,
+    data : (post ? JSON.stringify(data) : data),
+    contentType : (post ? "application/json; charset=utf-8" : ""),
+    success : function(data) {
       if (data.code != 200) {
-        if ((data.code >= 400 && data.code < 500) && typeof failure == "function") {
+        if ((data.code >= 400 && data.code < 500) &&
+            typeof failure == "function") {
           failure(data);
           return;
         }
@@ -494,8 +537,9 @@ function api(endpoint, data, success, failure, post) {
       }
       success(data);
     },
-    error: function(jqXHR, textStatus, errorThrown) {
-      if ((jqXHR.status >= 400 && jqXHR.status < 500) && typeof failure == "function") {
+    error : function(jqXHR, textStatus, errorThrown) {
+      if ((jqXHR.status >= 400 && jqXHR.status < 500) &&
+          typeof failure == "function") {
         failure(jqXHR.responseJSON);
         return;
       }
@@ -506,30 +550,29 @@ function api(endpoint, data, success, failure, post) {
 };
 
 var modes = {
-  0: "osu! standard",
-  1: "Taiko",
-  2: "Catch the Beat",
-  3: "osu!mania",
+  0 : "osu! standard",
+  1 : "Taiko",
+  2 : "Catch the Beat",
+  3 : "osu!mania",
 };
 var modesShort = {
-  0: "std",
-  1: "taiko",
-  2: "ctb",
-  3: "mania",
+  0 : "std",
+  1 : "taiko",
+  2 : "ctb",
+  3 : "mania",
 };
 
 var entityMap = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': '&quot;',
-  "'": '&#39;',
-  "/": '&#x2F;',
+  "&" : "&amp;",
+  "<" : "&lt;",
+  ">" : "&gt;",
+  '"' : '&quot;',
+  "'" : '&#39;',
+  "/" : '&#x2F;',
 };
 function escapeHTML(str) {
-  return String(str).replace(/[&<>"'\/]/g, function(s) {
-    return entityMap[s];
-  });
+  return String(str).replace(/[&<>"'\/]/g,
+                             function(s) { return entityMap[s]; });
 }
 
 function setupSimplepag(callback) {
@@ -565,28 +608,102 @@ window.URL = window.URL || window.webkitURL;
 
 // thank mr stackoverflow
 function addCommas(nStr) {
-	nStr += '';
-	x = nStr.split('.');
-	x1 = x[0];
-	x2 = x.length > 1 ? '.' + x[1] : '';
-	var rgx = /(\d+)(\d{3})/;
-	while (rgx.test(x1)) {
-		x1 = x1.replace(rgx, '$1' + ',' + '$2');
-	}
-	return x1 + x2;
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' +
+                             ',' +
+                             '$2');
+  }
+  return x1 + x2;
+}
+
+// thank mr francesco149
+// https://github.com/Francesco149/ojsama/blob/master/ojsama.js
+var modbits = {
+  nomod : 0,
+  nf : 1 << 0,
+  ez : 1 << 1,
+  td : 1 << 2,
+  hd : 1 << 3,
+  hr : 1 << 4,
+  dt : 1 << 6,
+  ht : 1 << 8,
+  nc : 1 << 9,
+  fl : 1 << 10,
+  so : 1 << 12,
+};
+modbits.from_string = function(str) {
+  var mask = 0;
+  str = str.toLowerCase();
+  for (var property in modbits) {
+    if (property.length != 2) {
+      continue;
+    }
+    if (!modbits.hasOwnProperty(property)) {
+      continue;
+    }
+    if (str.indexOf(property) >= 0) {
+      mask |= modbits[property];
+    }
+  }
+  return mask;
+};
+modbits.string = function(mods) {
+  var res = Array();
+  for (var property in modbits) {
+    if (property.length != 2) {
+      continue;
+    }
+    if (!modbits.hasOwnProperty(property)) {
+      continue;
+    }
+    if (mods & modbits[property]) {
+      res.push(property.toUpperCase());
+    }
+  }
+  return res.join(",");
+};
+
+// time format (seconds -> hh:mm:ss notation)
+function timeFormat(t) {
+  var h = Math.floor(t / 3600);
+  t %= 3600;
+  var m = Math.floor(t / 60);
+  var s = t % 60;
+  var c = "";
+  if (h > 0) {
+    c += h + ":";
+    if (m < 10) {
+      c += "0";
+    }
+    c += m + ":";
+  } else {
+    c += m + ":";
+  }
+  if (s < 10) {
+    c += "0";
+  }
+  c += s;
+  return c;
 }
 
 // http://stackoverflow.com/a/901144/5328069
 function query(name, url) {
-    if (!url) {
-      url = window.location.href;
-    }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  if (!url) {
+    url = window.location.href;
+  }
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+  if (!results)
+    return null;
+  if (!results[2])
+    return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 // Useful for forms contacting the Ripple API
@@ -633,46 +750,35 @@ function modifyObjectDynamically(obj, inds, set) {
   return obj;
 }
 
-var langWhitelist = ["de", "it", "ko", "es", "ru", "pl", "fr", "nl", "sv", "fi", "ro", "ko", "vi"];
-i18next
-  .use(i18nextXHRBackend)
-  .init({
-    nsSeparator:  false,
-    keySeparator: false,
-    fallbackLng:  false,
-    lng:          hanayoConf.language,
-    whitelist:    langWhitelist,
-    load:         "currentOnly",
-    backend: {
-      loadPath: "/static/locale/{{lng}}.json"
-    }
-  })
-;
-
-var i18nLoaded = $.inArray(hanayoConf.language, langWhitelist) === -1;
-i18next.on("loaded", function() {
-  i18nLoaded = true
+var langWhitelist = [
+  "de", "it", "ko", "es", "ru", "pl", "fr", "nl", "sv", "fi", "ro", "ko", "vi"
+];
+i18next.use(i18nextXHRBackend).init({
+  nsSeparator : false,
+  keySeparator : false,
+  fallbackLng : false,
+  lng : hanayoConf.language,
+  whitelist : langWhitelist,
+  load : "currentOnly",
+  backend : {loadPath : "/static/locale/{{lng}}.json"}
 });
 
+var i18nLoaded = $.inArray(hanayoConf.language, langWhitelist) === -1;
+i18next.on("loaded", function() { i18nLoaded = true });
+
 function T(s, settings) {
-  if (typeof settings !== "undefined" && typeof settings.count !== "undefined" && $.inArray(hanayoConf.language, langWhitelist) === -1 && settings.count !== 1)
+  if (typeof settings !== "undefined" &&
+      typeof settings.count !== "undefined" &&
+      $.inArray(hanayoConf.language, langWhitelist) === -1 &&
+      settings.count !== 1)
     s = keyPlurals[s];
   return i18next.t(s, settings);
 }
 
 var apiPrivileges = [
-	"ReadConfidential",
-	"Write",
-	"ManageBadges",
-	"BetaKeys",
-	"ManageSettings",
-	"ViewUserAdvanced",
-	"ManageUser",
-	"ManageRoles",
-	"ManageAPIKeys",
-	"Blog",
-	"APIMeta",
-	"Beatmap"
+  "ReadConfidential", "Write", "ManageBadges", "BetaKeys", "ManageSettings",
+  "ViewUserAdvanced", "ManageUser", "ManageRoles", "ManageAPIKeys", "Blog",
+  "APIMeta", "Beatmap"
 ];
 
 function privilegesToString(privs) {

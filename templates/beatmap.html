@@ -1,7 +1,7 @@
 {{ define "tpl" }}
 	<div class="ui container">
 	{{ if .Found }}
-		<div class="ui floating icon labeled dropdown button">
+		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
 			<span class="text">
 				<i class="attention icon"></i>
@@ -9,7 +9,7 @@
 			</span>
 			<div class="menu">
 				{{ range $map := .Beatmapset.ChildrenBeatmaps }}
-				<a href="/b/{{ $map.ID }}" class="item">
+				<a href="/b/{{ $map.ID }}" class="item {{ if eq $map.ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ $map.ID }}">
 					<i class="attention icon"></i>
 					<span class="description">{{ printf "%.2f" $map.DifficultyRating }}</span>
       				<span class="text">{{ $map.DiffName }}</span>
@@ -17,41 +17,72 @@
 				{{ end }}
 			</div>
 		</div>
-		<div class="ui segment">
+
+		<div class="ui segments">
+			<div class="ui segment">
+				<div class="ui four column divided stackable grid">
+					<div class="row">
+						<div class="column">
+							<b>Artist:</b> {{ .Beatmapset.Artist }}<br />
+							<b>Title:</b> {{ .Beatmapset.Title }}<br />
+							<b>Creator:</b> {{ .Beatmapset.Creator }}<br />
+							<b>Source:</b> {{ .Beatmapset.Source }}<br />
+						</div>
+						<div class="column">
+							<b>Circle Size:</b> <span id="cs"></span><br />
+							<b>HP Drain:</b> <span id="hp"></span><br />
+							<b>Overall Difficulty:</b> <span id="od"></span><br />
+							<b>Passes/Plays:</b> <span id="passcount"></span> / <span id="playcount"></span>
+						</div>
+						<div class="column">
+							<b>Approach Rate:</b> <span id="ar"></span><br />
+							<b>Star Difficulty:</b> <span id="stars"></span><br />
+							<b>Length:</b> <span id="length"></span> (<span id="drainLength"></span> drain)<br />
+							<b>BPM:</b> <span id="bpm"></span><br />
+						</div>
+						<div class="column">
+							Download options:
+							<p><a href="osu://dl/{{ .Beatmapset.ID }}" class="ui pink labeled icon button"><i class="download icon"></i> osu!direct</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
+		{{ $currentMode := .Beatmap.Mode }}
 		{{ if not .Beatmap.Mode }}
 			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
-			{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
+			{{ $currentMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
 			<script>
 				var page = {{ .Gin.Query "p" | atoint | atLeastOne }};
 			</script>
 			<div class="ui four item menu" id="mode-menu">
 				{{ range $k, $v := modes }}
-					<a class="{{ favMode $favMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
+					<a class="{{ favMode $currentMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
 				{{ end }}
 			</div>
 		{{ else }}
 		{{ end }}
+
+		<script>
+			var currentMode = {{ $currentMode }};
+			var beatmapID = {{ .Beatmap.ID }};
+			var setData = JSON.parse({{ .SetJSON }});
+		</script>
+
 		<table class="ui fixed table">
 			<thead>
 				<tr>
 					<th class="two wide">{{ .T "Rank" }} </th>
 					<th class="four wide">{{ .T "Player" }} </th>
-					<th class="four wide">{{ .T "Score" }} </th>
+					<th class="three wide">{{ .T "Score" }} </th>
+					<th class="one wide">{{ .T "Mods" }} </th>
 					<th class="two wide">{{ .T "Accuracy" }} </th>
 					<th class="two wide">{{ .T "Combo" }} </th>
 					<th class="two wide">{{ .T "PP" }} </th>
 				</tr>
 			</thead>
 			<tbody>
-				{{ if not .Scores }}
-					<tr>
-						<td colspan="6" class="center aligned">
-							<i class="attention icon"></i> There aren't any scores for this map yet!
-						</td>
-					</tr>
-				{{ end }}
 			</tbody>
 		</table>
 	{{ end }}

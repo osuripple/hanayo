@@ -10,32 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"zxq.co/ripple/cheesegull/models"
-	"zxq.co/ripple/rippleapi/app/v1"
-	"zxq.co/ripple/rippleapi/common"
 )
-
-// idk if this shud b exported, just getting it to work for now.
-// TODO: figure ^ out
-
-type userData struct {
-	ID             int                  `json:"id"`
-	Username       string               `json:"username"`
-	UsernameAKA    string               `json:"username_aka"`
-	RegisteredOn   common.UnixTimestamp `json:"registered_on"`
-	Privileges     uint64               `json:"privileges"`
-	LatestActivity common.UnixTimestamp `json:"latest_activity"`
-	Country        string               `json:"country"`
-}
-
-type beatmapScore struct {
-	v1.Score
-	User userData `json:"user"`
-}
-
-type scoresResponse struct {
-	common.ResponseBase
-	Scores []beatmapScore `json:"scores"`
-}
 
 type beatmapPageData struct {
 	baseTemplateData
@@ -43,7 +18,7 @@ type beatmapPageData struct {
 	Found      bool
 	Beatmap    models.Beatmap
 	Beatmapset models.Set
-	Scores     []beatmapScore
+	SetJSON    string
 }
 
 type beatmapsList []models.Beatmap
@@ -98,17 +73,18 @@ func beatmapInfo(c *gin.Context) {
 		return
 	}
 
-	scores, err := getScoresData(beatmap)
-	if err != nil {
-		data.Messages = append(data.Messages, errorMessage{T(c, "Could not retrieve scores for this map.")})
-		c.Error(err)
-	} else {
-		data.Scores = scores
-	}
-
 	data.Beatmap = beatmap
 	data.Beatmapset = bset
+
+	setJson, err := json.Marshal(bset)
+	if err == nil {
+		data.SetJSON = fmt.Sprintf("%s", setJson)
+	} else {
+		data.SetJSON = "[]"
+	}
+
 	data.TitleBar = T(c, "%s - %s", bset.Artist, bset.Title)
+	data.Scripts = append(data.Scripts, "/static/beatmap.js")
 }
 
 func getBeatmapData(b string) (beatmap models.Beatmap, err error) {
@@ -147,27 +123,4 @@ func getBeatmapSetData(beatmap models.Beatmap) (bset models.Set, err error) {
 	}
 
 	return bset, nil
-}
-
-func getScoresData(beatmap models.Beatmap) (scores []beatmapScore, err error) {
-	scoreResp := new(scoresResponse)
-
-	resp, err := http.Get(config.API + "scores?b=" + strconv.Itoa(beatmap.ID) + "&p=1&l=50")
-	if err != nil {
-		return scores, err
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return scores, err
-	}
-	fmt.Printf("%#v\n", body)
-
-	err = json.Unmarshal(body, &scoreResp)
-	if err != nil {
-		return scores, err
-	}
-	fmt.Printf("%#v\n", scores)
-
-	return scoreResp.Scores, nil
 }
