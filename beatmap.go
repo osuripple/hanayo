@@ -5,62 +5,68 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"sort"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/cheesegull/models"
+	"zxq.co/ripple/rippleapi/app/v1"
+	"zxq.co/ripple/rippleapi/common"
 )
 
-type beatmapData struct {
-	AR float32
-	CS float32
-	HP float32
-	OD float32
+// idk if this shud b exported, just getting it to work for now.
+// TODO: figure ^ out
 
-	BeatmapID   int
-	ParentSetID int
-
-	BPM              float32
-	DiffName         string
-	DifficultyRating float32
-	FileMD5          string
-	HitLength        int
-	MaxCombo         int
-	Mode             int
-	Passcount        int
-	Playcount        int
-	TotalLength      int
+type userData struct {
+	ID             int                  `json:"id"`
+	Username       string               `json:"username"`
+	UsernameAKA    string               `json:"username_aka"`
+	RegisteredOn   common.UnixTimestamp `json:"registered_on"`
+	Privileges     uint64               `json:"privileges"`
+	LatestActivity common.UnixTimestamp `json:"latest_activity"`
+	Country        string               `json:"country"`
 }
 
-type beatmapSetData struct {
-	ApprovedDate     string // todo an actual date
-	Artist           string
-	ChildrenBeatmaps []*beatmapData
-	Creator          string
-	Favourites       int
-	Genre            int
-	HasVideo         bool
-	Language         int
-	LastChecked      string
-	LastUpdate       string
-	RankedStatus     int
-	SetID            int
-	Source           string
-	Tags             string
-	Title            string
+type beatmapScore struct {
+	v1.Score
+	User userData `json:"user"`
+}
+
+type scoresResponse struct {
+	common.ResponseBase
+	Scores []beatmapScore `json:"scores"`
 }
 
 type beatmapPageData struct {
 	baseTemplateData
 
 	Found      bool
-	Beatmap    *beatmapData
-	Beatmapset *beatmapSetData
+	Beatmap    models.Beatmap
+	Beatmapset models.Set
+	Scores     []beatmapScore
+}
+
+type beatmapsList []models.Beatmap
+
+func (s beatmapsList) Len() int {
+	return len(s)
+}
+
+func (s beatmapsList) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func (s beatmapsList) Less(i, j int) bool {
+	if s[i].Mode != s[j].Mode {
+		return s[i].Mode < s[j].Mode
+	}
+	return s[i].DifficultyRating < s[j].DifficultyRating
 }
 
 func beatmapInfo(c *gin.Context) {
 	var (
-		beatmap      *beatmapData
-		bset         *beatmapSetData
+		beatmap      models.Beatmap
+		bset         models.Set
 		beatmapFound bool
 	)
 
@@ -74,15 +80,15 @@ func beatmapInfo(c *gin.Context) {
 		beatmap, err = getBeatmapData(b)
 		if err != nil {
 			c.Error(err)
-		} else {
-			bset, err = getBeatmapSetData(beatmap)
-			if err != nil {
-				c.Error(err)
-			} else {
-				fmt.Printf("set: %#v\n", bset)
-				beatmapFound = true
-			}
+			return
 		}
+		bset, err = getBeatmapSetData(beatmap)
+		if err != nil {
+			c.Error(err)
+			return
+		}
+		beatmapFound = true
+		sort.Sort(beatmapsList(bset.ChildrenBeatmaps))
 	}
 
 	data.Found = beatmapFound
@@ -92,49 +98,76 @@ func beatmapInfo(c *gin.Context) {
 		return
 	}
 
+	scores, err := getScoresData(beatmap)
+	if err != nil {
+		data.Messages = append(data.Messages, errorMessage{T(c, "Could not retrieve scores for this map.")})
+		c.Error(err)
+	} else {
+		data.Scores = scores
+	}
+
 	data.Beatmap = beatmap
 	data.Beatmapset = bset
 	data.TitleBar = T(c, "%s - %s", bset.Artist, bset.Title)
 }
 
-func getBeatmapData(b string) (beatmap *beatmapData, err error) {
-	obj := new(beatmapData)
-
+func getBeatmapData(b string) (beatmap models.Beatmap, err error) {
 	resp, err := http.Get(config.CheesegullAPI + "/b/" + b)
 	if err != nil {
-		return obj, err
+		return beatmap, err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return obj, err
+		return beatmap, err
 	}
 
-	err = json.Unmarshal(body, &obj)
+	err = json.Unmarshal(body, &beatmap)
 	if err != nil {
-		return obj, err
+		return beatmap, err
 	}
 
-	return obj, nil
+	return beatmap, nil
 }
 
-func getBeatmapSetData(beatmap *beatmapData) (bset *beatmapSetData, err error) {
-	obj := new(beatmapSetData)
-
+func getBeatmapSetData(beatmap models.Beatmap) (bset models.Set, err error) {
 	resp, err := http.Get(config.CheesegullAPI + "/s/" + strconv.Itoa(beatmap.ParentSetID))
 	if err != nil {
-		return obj, err
+		return bset, err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return obj, err
+		return bset, err
 	}
 
-	err = json.Unmarshal(body, &obj)
+	err = json.Unmarshal(body, &bset)
 	if err != nil {
-		return obj, err
+		return bset, err
 	}
 
-	return obj, nil
+	return bset, nil
+}
+
+func getScoresData(beatmap models.Beatmap) (scores []beatmapScore, err error) {
+	scoreResp := new(scoresResponse)
+
+	resp, err := http.Get(config.API + "scores?b=" + strconv.Itoa(beatmap.ID) + "&p=1&l=50")
+	if err != nil {
+		return scores, err
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return scores, err
+	}
+	fmt.Printf("%#v\n", body)
+
+	err = json.Unmarshal(body, &scoreResp)
+	if err != nil {
+		return scores, err
+	}
+	fmt.Printf("%#v\n", scores)
+
+	return scoreResp.Scores, nil
 }

@@ -9,10 +9,11 @@
 			</span>
 			<div class="menu">
 				{{ range $map := .Beatmapset.ChildrenBeatmaps }}
-				<div class="item">
+				<a href="/b/{{ $map.ID }}" class="item">
 					<i class="attention icon"></i>
-					{{ $map.DiffName }}
-				</div>
+					<span class="description">{{ printf "%.2f" $map.DifficultyRating }}</span>
+      				<span class="text">{{ $map.DiffName }}</span>
+				</a>
 				{{ end }}
 			</div>
 		</div>
@@ -23,19 +24,17 @@
 			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
 			{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
 			<script>
-				var favouriteMode = {{ $favMode }};
 				var page = {{ .Gin.Query "p" | atoint | atLeastOne }};
 			</script>
 			<div class="ui four item menu" id="mode-menu">
 				{{ range $k, $v := modes }}
-					<a class="{{ favMode $favMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.BeatmapID }}?mode={{ $k }}">{{ $v }}</a>
+					<a class="{{ favMode $favMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
 				{{ end }}
 			</div>
 		{{ else }}
 		{{ end }}
 		<table class="ui fixed table">
 			<thead>
-				{{ template "simplepag" 6 }}
 				<tr>
 					<th class="two wide">{{ .T "Rank" }} </th>
 					<th class="four wide">{{ .T "Player" }} </th>
@@ -46,10 +45,14 @@
 				</tr>
 			</thead>
 			<tbody>
+				{{ if not .Scores }}
+					<tr>
+						<td colspan="6" class="center aligned">
+							<i class="attention icon"></i> There aren't any scores for this map yet!
+						</td>
+					</tr>
+				{{ end }}
 			</tbody>
-			<tfoot>
-				{{ template "simplepag" 6 }}
-			</tfoot>
 		</table>
 	{{ end }}
 	</div>
