@@ -8,36 +8,36 @@
   function loadLeaderboard(b, m) {
     var wl = window.location;
     window.history.replaceState('', document.title,
-                                "/b/" + b + "?mode=" + m + wl.hash);
+      "/b/" + b + "?mode=" + m + wl.hash);
     api("scores", {
       mode : m,
       b : b,
       p : 1,
       l : 50,
     },
-        function(data) {
-          console.log(data);
-          var tb = $(".ui.table tbody");
-          tb.find("tr").remove();
-          if (data.scores == null) {
-            data.scores = [];
-          }
-          var i = 0;
-          data.scores.forEach(function(score) {
-            var user = score.user;
-            tb.append($("<tr />").append(
-                $("<td />").text("#" + ((page - 1) * 50 + (++i))),
-                $("<td />").html("<a href='/u/" + user.id +
+    function(data) {
+      console.log(data);
+      var tb = $(".ui.table tbody");
+      tb.find("tr").remove();
+      if (data.scores == null) {
+        data.scores = [];
+      }
+      var i = 0;
+      data.scores.forEach(function(score) {
+        var user = score.user;
+        tb.append($("<tr />").append(
+          $("<td />").text("#" + ((page - 1) * 50 + (++i))),
+          $("<td />").html("<a href='/u/" + user.id +
                                  "' title='View profile'><i class='" +
                                  user.country.toLowerCase() + " flag'></i>" +
                                  escapeHTML(user.username) + "</a>"),
-                $("<td />").html(addCommas(score.score)),
-                $("<td />").html(modbits.string(score.mods)),
-                $("<td />").text(score.accuracy.toFixed(2) + "%"),
-                $("<td />").text(addCommas(score.max_combo)),
-                $("<td />").html(score.pp.toFixed(2))));
-          });
-        });
+          $("<td />").html(addCommas(score.score)),
+          $("<td />").html(modbits.string(score.mods)),
+          $("<td />").text(score.accuracy.toFixed(2) + "%"),
+          $("<td />").text(addCommas(score.max_combo)),
+          $("<td />").html(score.pp.toFixed(2))));
+      });
+    });
   }
   function changeDifficulty(bid) {
     // load info
@@ -64,18 +64,18 @@
   changeDifficulty(beatmapID);
   // loadLeaderboard(beatmapID, currentMode);
   $("#diff-menu .item")
-      .click(function(e) {
-        e.preventDefault();
-        $(this).addClass("active");
-        beatmapID = $(this).data("bid");
-        changeDifficulty(beatmapID);
-      });
+    .click(function(e) {
+      e.preventDefault();
+      $(this).addClass("active");
+      beatmapID = $(this).data("bid");
+      changeDifficulty(beatmapID);
+    });
   $("#mode-menu .item")
-      .click(function(e) {
-        e.preventDefault();
-        $("#mode-menu .active.item").removeClass("active");
-        $(this).addClass("active");
-        currentMode = $(this).data("mode");
-        loadLeaderboard(beatmapID, currentMode);
-      });
+    .click(function(e) {
+      e.preventDefault();
+      $("#mode-menu .active.item").removeClass("active");
+      $(this).addClass("active");
+      currentMode = $(this).data("mode");
+      loadLeaderboard(beatmapID, currentMode);
+    });
 })();
