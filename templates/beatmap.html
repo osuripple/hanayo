@@ -6,13 +6,14 @@
 			<span class="text">
 				<i class="attention icon"></i>
 				{{ .Beatmap.DiffName }}
+				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .Beatmap.DifficultyRating }})
 			</span>
 			<div class="menu">
-				{{ range $map := .Beatmapset.ChildrenBeatmaps }}
-				<a href="/b/{{ $map.ID }}" class="item {{ if eq $map.ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ $map.ID }}">
+				{{ range .Beatmapset.ChildrenBeatmaps }}
+				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ .ID }}">
 					<i class="attention icon"></i>
-					<span class="description">{{ printf "%.2f" $map.DifficultyRating }}</span>
-      				<span class="text">{{ $map.DiffName }}</span>
+					{{ .DiffName }}					
+      				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .DifficultyRating }})
 				</a>
 				{{ end }}
 			</div>
