@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"sort"
@@ -55,7 +54,7 @@ func beatmapInfo(c *gin.Context) {
 
 	setJson, err := json.Marshal(data.Beatmapset)
 	if err == nil {
-		data.SetJSON = fmt.Sprintf("%s", setJson)
+		data.SetJSON = string(setJson)
 	} else {
 		data.SetJSON = "[]"
 	}
