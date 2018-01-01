@@ -45,6 +45,9 @@
 							<div class="ui vertical buttons">
 								<a href="osu://dl/{{ .Beatmapset.ID }}" class="ui pink labeled icon button"><i class="download icon"></i>osu!direct</a>
 								<a href="http://storage.ripple.moe/d/{{ .Beatmapset.ID }}" class="ui green labeled icon button"><i class="download icon"></i>download</a>
+								{{ if .Beatmapset.HasVideo }}
+								<a href="http://storage.ripple.moe/d/{{ .Beatmapset.ID }}?novideo" class="ui gray labeled icon button"><i class="download icon"></i>download (no video)</a>
+								{{ end }}
 							</div>
 						</div>
 					</div>
