@@ -176,9 +176,18 @@ var singlePageSnippets = {
         else
           $("#custom-badge-fields").slideUp();
       });
+    var isDark = $("#dark-site").is(":checked");
     $("form")
       .submit(function(e) {
         e.preventDefault();
+
+        var darkSetting = $("#dark-site").is(":checked")
+        if (darkSetting != isDark) {
+          var cflags = document.cookie.replace(/(?:(?:^|.*;\s*)cflags\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+          cflags = darkSetting ? +cflags | 1 : +cflags & ~1;
+          document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
+        }
+      
         var obj = formToObject($(this));
         var ps = 0;
         $(this)
@@ -192,6 +201,10 @@ var singlePageSnippets = {
         obj.play_style = ps;
         var f = $(this);
         api("users/self/settings", obj, function(data) {
+          if (darkSetting != isDark) {
+            window.location.reload();            
+            return;
+          }
           showMessage("success", "Your new settings have been saved.");
           f.removeClass("loading");
         }, true);
@@ -462,16 +475,6 @@ $(document)
     // setup timeago
     $.timeago.settings.allowFuture = true;
     $("time.timeago").timeago();
-
-    // dark site
-    new Konami(function() {
-      var cflags = document.cookie.replace(
-        /(?:(?:^|.*;\s*)cflags\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-        // toggle 1 (dark theme)
-      cflags = (+cflags) ^ 1;
-      document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
-      window.location.reload();
-    });
 
     $("#language-selector .item")
       .click(function() {

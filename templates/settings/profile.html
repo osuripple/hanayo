@@ -72,6 +72,12 @@ MinPrivileges=2
 							</div>
 						{{ end }}
 					</div>
+					<h3 class="ui header">{{ .T "Preferences" }}</h3>
+					{{ $ds := band .ClientFlags 1 }}
+					<div class="ui checkbox">
+						<input type="checkbox" {{ if $ds }}checked{{ end }} id="dark-site">
+						<label>{{ .T "Dark site" }}</label>
+					</div>
 					<div class="ui divider"></div>
 					<div style="text-align: right">
 						<button type="submit" class="ui blue button">{{ .T "Save" }}</button>
