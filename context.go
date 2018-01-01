@@ -15,7 +15,7 @@ type context struct {
 type sessionUser struct {
 	ID         int
 	Username   string
-	Privileges common.UserPrivileges
+	Privileges uint64
 	Flags      uint64
 }
 

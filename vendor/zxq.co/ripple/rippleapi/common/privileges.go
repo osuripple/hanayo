@@ -77,3 +77,18 @@ func (p Privileges) CanOnly(userPrivs UserPrivileges) Privileges {
 	}
 	return Privileges(newPrivilege)
 }
+
+var privilegeMap = map[string]Privileges{
+	"read_confidential": PrivilegeReadConfidential,
+	"write":             PrivilegeWrite,
+}
+
+// OAuthPrivileges returns the equivalent in Privileges of a space-separated
+// list of scopes.
+func OAuthPrivileges(scopes string) Privileges {
+	var p Privileges
+	for _, x := range strings.Split(scopes, " ") {
+		p |= privilegeMap[x]
+	}
+	return p
+}

@@ -48,7 +48,7 @@ var wg sync.WaitGroup      // used to wait until the runloop starts
 // started and is ready via the wg. It also serves purpose of a dummy source,
 // thanks to it the runloop does not return as it also has at least one source
 // registered.
-var source = C.CFRunLoopSourceCreate(nil, 0, &C.CFRunLoopSourceContext{
+var source = C.CFRunLoopSourceCreate(refZero, 0, &C.CFRunLoopSourceContext{
 	perform: (C.CFRunLoopPerformCallBack)(C.gosource),
 })
 
@@ -144,7 +144,7 @@ type stream struct {
 }
 
 // NewStream creates a stream for given path, listening for file events and
-// calling fn upon receving any.
+// calling fn upon receiving any.
 func newStream(path string, fn streamFunc) *stream {
 	return &stream{
 		path: path,
@@ -159,8 +159,8 @@ func (s *stream) Start() error {
 		return nil
 	}
 	wg.Wait()
-	p := C.CFStringCreateWithCStringNoCopy(nil, C.CString(s.path), C.kCFStringEncodingUTF8, nil)
-	path := C.CFArrayCreate(nil, (*unsafe.Pointer)(unsafe.Pointer(&p)), 1, nil)
+	p := C.CFStringCreateWithCStringNoCopy(refZero, C.CString(s.path), C.kCFStringEncodingUTF8, refZero)
+	path := C.CFArrayCreate(refZero, (*unsafe.Pointer)(unsafe.Pointer(&p)), 1, nil)
 	ctx := C.FSEventStreamContext{}
 	ref := C.EventStreamCreate(&ctx, C.uintptr_t(s.info), path, C.FSEventStreamEventId(atomic.LoadUint64(&since)), latency, flags)
 	if ref == nilstream {

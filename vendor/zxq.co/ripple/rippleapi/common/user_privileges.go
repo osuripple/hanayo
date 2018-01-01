@@ -26,6 +26,7 @@ const (
 	AdminPrivilegeKickUsers
 	UserPrivilegePendingVerification
 	UserPrivilegeTournamentStaff
+	AdminPrivilegeCaker
 )
 
 // UserPrivileges represents a bitwise enum of the privileges of an user.

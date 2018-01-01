@@ -264,7 +264,7 @@ func (c *Client) Histogram(name string, value float64, tags []string, rate float
 	return c.send(name, stat, tags, rate)
 }
 
-// Decr is just Count of 1
+// Decr is just Count of -1
 func (c *Client) Decr(name string, tags []string, rate float64) error {
 	return c.send(name, "-1|c", tags, rate)
 }
@@ -294,6 +294,9 @@ func (c *Client) TimeInMilliseconds(name string, value float64, tags []string, r
 
 // Event sends the provided Event.
 func (c *Client) Event(e *Event) error {
+	if c == nil {
+		return nil
+	}
 	stat, err := e.Encode(c.Tags...)
 	if err != nil {
 		return err

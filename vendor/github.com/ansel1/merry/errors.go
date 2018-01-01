@@ -245,7 +245,7 @@ func UserMessage(e error) string {
 
 // Message returns just the error message.  It is equivalent to
 // Error() when Verbose is false.
-// The behavior of Error() is (psuedo-code):
+// The behavior of Error() is (pseudo-code):
 //
 //     if verbose
 //       Details(e)
@@ -317,7 +317,7 @@ func Appendf(e error, format string, args ...interface{}) Error {
 	return WrapSkipping(e, 1).Appendf(format, args...)
 }
 
-// Prepend a message after the current error message, in the format "new: original".
+// Prepend a message before the current error message, in the format "new: original".
 // If e == nil, return nil.
 func Prepend(e error, msg string) Error {
 	if e == nil {
@@ -539,7 +539,7 @@ func (e *merryErr) Appendf(format string, args ...interface{}) Error {
 	return e.Append(fmt.Sprintf(format, args...))
 }
 
-// Prepend a message after the current error message, in the format "new: original"
+// Prepend a message before the current error message, in the format "new: original"
 func (e *merryErr) Prepend(msg string) Error {
 	if e == nil {
 		return nil
@@ -547,7 +547,7 @@ func (e *merryErr) Prepend(msg string) Error {
 	return e.WithMessagef("%s: %s", msg, e.Error())
 }
 
-// Prepend a message after the current error message, in the format "new: original"
+// Prepend a message before the current error message, in the format "new: original"
 func (e *merryErr) Prependf(format string, args ...interface{}) Error {
 	if e == nil {
 		return nil

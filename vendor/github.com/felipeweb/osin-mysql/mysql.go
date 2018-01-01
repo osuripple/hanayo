@@ -16,13 +16,13 @@ import (
 )
 
 var schemas = []string{`CREATE TABLE IF NOT EXISTS {prefix}client (
-	id           varchar(255) NOT NULL PRIMARY KEY,
+	id           varchar(255) BINARY NOT NULL PRIMARY KEY,
 	secret 		 varchar(255) NOT NULL,
 	extra 		 varchar(255) NOT NULL,
 	redirect_uri varchar(255) NOT NULL
 )`, `CREATE TABLE IF NOT EXISTS {prefix}authorize (
-	client       varchar(255) NOT NULL,
-	code         varchar(255) NOT NULL PRIMARY KEY,
+	client       varchar(255) BINARY NOT NULL,
+	code         varchar(255) BINARY NOT NULL PRIMARY KEY,
 	expires_in   int(10) NOT NULL,
 	scope        varchar(255) NOT NULL,
 	redirect_uri varchar(255) NOT NULL,
@@ -30,29 +30,27 @@ var schemas = []string{`CREATE TABLE IF NOT EXISTS {prefix}client (
 	extra 		 varchar(255) NOT NULL,
 	created_at   timestamp NOT NULL
 )`, `CREATE TABLE IF NOT EXISTS {prefix}access (
-	client        varchar(255) NOT NULL,
-	authorize     varchar(255) NOT NULL,
-	previous      varchar(255) NOT NULL,
-	access_token  varchar(255) NOT NULL PRIMARY KEY,
-	refresh_token varchar(255) NOT NULL,
+	client        varchar(255) BINARY NOT NULL,
+	authorize     varchar(255) BINARY NOT NULL,
+	previous      varchar(255) BINARY NOT NULL,
+	access_token  varchar(255) BINARY NOT NULL PRIMARY KEY,
+	refresh_token varchar(255) BINARY NOT NULL,
 	expires_in    int(10) NOT NULL,
 	scope         varchar(255) NOT NULL,
 	redirect_uri  varchar(255) NOT NULL,
 	extra 		  varchar(255) NOT NULL,
 	created_at    timestamp NOT NULL
 )`, `CREATE TABLE IF NOT EXISTS {prefix}refresh (
-	token         varchar(255) NOT NULL PRIMARY KEY,
-	access        varchar(255) NOT NULL
+	token         varchar(255) BINARY NOT NULL PRIMARY KEY,
+	access        varchar(255) BINARY NOT NULL
 )`, `CREATE TABLE IF NOT EXISTS {prefix}expires (
 	id 		int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	token		varchar(255) NOT NULL,
+	token		varchar(255) BINARY NOT NULL,
 	expires_at	timestamp NOT NULL,
 	INDEX expires_index (expires_at),
 	INDEX token_expires_index (token)
 )`,
 }
-
-var notFoundError = merry.New("Not found")
 
 // Storage implements interface "github.com/RangelReale/osin".Storage and interface "github.com/felipeweb/osin-mysql/storage".Storage
 type Storage struct {
@@ -96,7 +94,7 @@ func (s *Storage) GetClient(id string) (osin.Client, error) {
 	var extra string
 
 	if err := row.Scan(&c.Id, &c.Secret, &c.RedirectUri, &extra); err == sql.ErrNoRows {
-		return nil, notFoundError
+		return nil, osin.ErrNotFound
 	} else if err != nil {
 		return nil, merry.Wrap(err)
 	}
@@ -166,7 +164,7 @@ func (s *Storage) LoadAuthorize(code string) (*osin.AuthorizeData, error) {
 	var extra string
 	var cid string
 	if err := s.db.QueryRow(fmt.Sprintf("SELECT client, code, expires_in, scope, redirect_uri, state, created_at, extra FROM %sauthorize WHERE code=? LIMIT 1", s.tablePrefix), code).Scan(&cid, &data.Code, &data.ExpiresIn, &data.Scope, &data.RedirectUri, &data.State, &data.CreatedAt, &extra); err == sql.ErrNoRows {
-		return nil, notFoundError
+		return nil, osin.ErrNotFound
 	} else if err != nil {
 		return nil, merry.Wrap(err)
 	}
@@ -267,7 +265,7 @@ func (s *Storage) LoadAccess(code string) (*osin.AccessData, error) {
 		&result.CreatedAt,
 		&extra,
 	); err == sql.ErrNoRows {
-		return nil, notFoundError
+		return nil, osin.ErrNotFound
 	} else if err != nil {
 		return nil, merry.Wrap(err)
 	}
@@ -303,7 +301,7 @@ func (s *Storage) LoadRefresh(code string) (*osin.AccessData, error) {
 	row := s.db.QueryRow(fmt.Sprintf("SELECT access FROM %srefresh WHERE token=? LIMIT 1", s.tablePrefix), code)
 	var access string
 	if err := row.Scan(&access); err == sql.ErrNoRows {
-		return nil, notFoundError
+		return nil, osin.ErrNotFound
 	} else if err != nil {
 		return nil, merry.Wrap(err)
 	}

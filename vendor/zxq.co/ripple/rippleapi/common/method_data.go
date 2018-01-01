@@ -70,6 +70,13 @@ func Err(c *fasthttp.RequestCtx, err error) {
 	_err(err, tags, nil, c)
 }
 
+// WSErr is the error function for errors happening in the websockets.
+func WSErr(err error) {
+	_err(err, map[string]string{
+		"endpoint": "/api/v1/ws",
+	}, nil, nil)
+}
+
 func _err(err error, tags map[string]string, user *raven.User, c *fasthttp.RequestCtx) {
 	if RavenClient == nil {
 		fmt.Println("ERROR!!!!")
@@ -93,6 +100,10 @@ func _err(err error, tags map[string]string, user *raven.User, c *fasthttp.Reque
 }
 
 func generateRavenHTTP(ctx *fasthttp.RequestCtx) *raven.Http {
+	if ctx == nil {
+		return nil
+	}
+
 	// build uri
 	uri := ctx.URI()
 	// safe to use b2s because a new string gets allocated eventually for
@@ -142,4 +153,9 @@ func (md MethodData) HasQuery(q string) bool {
 // Unmarshal unmarshals a request's JSON body into an interface.
 func (md MethodData) Unmarshal(into interface{}) error {
 	return json.Unmarshal(md.Ctx.PostBody(), into)
+}
+
+// IsBearer tells whether the current token is a Bearer (oauth) token.
+func (md MethodData) IsBearer() bool {
+	return md.User.ID == -1
 }

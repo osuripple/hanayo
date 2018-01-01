@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"strings"
+	"sync"
 
 	"github.com/jmoiron/sqlx/reflectx"
 )
@@ -30,8 +31,14 @@ var origMapper = reflect.ValueOf(NameMapper)
 // importers have time to customize the NameMapper.
 var mpr *reflectx.Mapper
 
+// mprMu protects mpr.
+var mprMu sync.Mutex
+
 // mapper returns a valid mapper using the configured NameMapper func.
 func mapper() *reflectx.Mapper {
+	mprMu.Lock()
+	defer mprMu.Unlock()
+
 	if mpr == nil {
 		mpr = reflectx.NewMapperFunc("db", NameMapper)
 	} else if origMapper != reflect.ValueOf(NameMapper) {
@@ -620,10 +627,14 @@ func (r *Rows) StructScan(dest interface{}) error {
 func Connect(driverName, dataSourceName string) (*DB, error) {
 	db, err := Open(driverName, dataSourceName)
 	if err != nil {
-		return db, err
+		return nil, err
 	}
 	err = db.Ping()
-	return db, err
+	if err != nil {
+		db.Close()
+		return nil, err
+	}
+	return db, nil
 }
 
 // MustConnect connects to a database and panics on error.
