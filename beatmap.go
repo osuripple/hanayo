@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"zxq.co/ripple/cheesegull/models"
+	"github.com/osuripple/cheesegull/models"
 )
 
 type beatmapPageData struct {
@@ -52,9 +52,9 @@ func beatmapInfo(c *gin.Context) {
 		return
 	}
 
-	setJson, err := json.Marshal(data.Beatmapset)
+	setJSON, err := json.Marshal(data.Beatmapset)
 	if err == nil {
-		data.SetJSON = string(setJson)
+		data.SetJSON = string(setJSON)
 	} else {
 		data.SetJSON = "[]"
 	}
