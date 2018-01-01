@@ -1,6 +1,6 @@
 {{ define "tpl" }}
 	<div class="ui container">
-	{{ if .Found }}
+	{{ if ne .Beatmapset.ID 0 }}
 		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
 			<span class="text">

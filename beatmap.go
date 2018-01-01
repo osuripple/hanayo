@@ -22,12 +22,6 @@ type beatmapPageData struct {
 }
 
 func beatmapInfo(c *gin.Context) {
-	var (
-		beatmap      models.Beatmap
-		bset         models.Set
-		beatmapFound bool
-	)
-
 	data := new(beatmapPageData)
 	defer resp(c, 200, "beatmap.html", data)
 
@@ -35,43 +29,38 @@ func beatmapInfo(c *gin.Context) {
 	if _, err := strconv.Atoi(b); err != nil {
 		c.Error(err)
 	} else {
-		beatmap, err = getBeatmapData(b)
+		data.Beatmap, err = getBeatmapData(b)
 		if err != nil {
 			c.Error(err)
 			return
 		}
-		bset, err = getBeatmapSetData(beatmap)
+		data.Beatmapset, err = getBeatmapSetData(data.Beatmap)
 		if err != nil {
 			c.Error(err)
 			return
 		}
-		beatmapFound = true
-		sort.Slice(bset.ChildrenBeatmaps, func(i, j int) bool {
-			if bset.ChildrenBeatmaps[i].Mode != bset.ChildrenBeatmaps[j].Mode {
-				return bset.ChildrenBeatmaps[i].Mode < bset.ChildrenBeatmaps[j].Mode
+		sort.Slice(data.Beatmapset.ChildrenBeatmaps, func(i, j int) bool {
+			if data.Beatmapset.ChildrenBeatmaps[i].Mode != data.Beatmapset.ChildrenBeatmaps[j].Mode {
+				return data.Beatmapset.ChildrenBeatmaps[i].Mode < data.Beatmapset.ChildrenBeatmaps[j].Mode
 			}
-			return bset.ChildrenBeatmaps[i].DifficultyRating < bset.ChildrenBeatmaps[j].DifficultyRating
+			return data.Beatmapset.ChildrenBeatmaps[i].DifficultyRating < data.Beatmapset.ChildrenBeatmaps[j].DifficultyRating
 		})
 	}
 
-	data.Found = beatmapFound
-	if !beatmapFound {
+	if data.Beatmapset.ID == 0 {
 		data.TitleBar = T(c, "Beatmap not found.")
 		data.Messages = append(data.Messages, errorMessage{T(c, "Beatmap could not be found.")})
 		return
 	}
 
-	data.Beatmap = beatmap
-	data.Beatmapset = bset
-
-	setJson, err := json.Marshal(bset)
+	setJson, err := json.Marshal(data.Beatmapset)
 	if err == nil {
 		data.SetJSON = fmt.Sprintf("%s", setJson)
 	} else {
 		data.SetJSON = "[]"
 	}
 
-	data.TitleBar = T(c, "%s - %s", bset.Artist, bset.Title)
+	data.TitleBar = T(c, "%s - %s", data.Beatmapset.Artist, data.Beatmapset.Title)
 	data.Scripts = append(data.Scripts, "/static/beatmap.js")
 }
 
