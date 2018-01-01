@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"sort"
@@ -51,6 +52,9 @@ func beatmapInfo(c *gin.Context) {
 		data.Messages = append(data.Messages, errorMessage{T(c, "Beatmap could not be found.")})
 		return
 	}
+
+	data.KyutGrill = fmt.Sprintf("https://assets.ppy.sh/beatmaps/%d/covers/cover.jpg", data.Beatmapset.ID)
+	data.KyutGrillAbsolute = true
 
 	setJSON, err := json.Marshal(data.Beatmapset)
 	if err == nil {
