@@ -1,6 +1,3 @@
-/*
- * This file contains Ripple's CSS, that little that is needed for ripple's custom elements.
- */
 .ripple.logo {
 	padding-top: 4px;
 }
@@ -380,4 +377,11 @@ a.camouflaged:hover {
 }
 .avatar-cell > img {
 	margin: 0 auto;
+}
+
+/* column in a grid which is both vertically and horizontally centered */
+.ui.grid > .row > .full-centered.column {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
