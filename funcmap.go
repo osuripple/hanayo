@@ -234,10 +234,11 @@ var funcMap = template.FuncMap{
 		// there is the information about the file (namely, title, old_id and
 		// reference_version)
 		return template.HTML(
-			blackfriday.MarkdownCommon(
+			blackfriday.Run(
 				[]byte(
 					m[strings.Index(m, "\n---\n")+5:],
 				),
+				blackfriday.WithExtensions(blackfriday.CommonExtensions),
 			),
 		)
 	},
