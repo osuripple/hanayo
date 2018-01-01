@@ -1,9 +1,8 @@
 (function() {
-  var mapset = Object();
-  for (var i = 0; i < setData.ChildrenBeatmaps.length; ++i) {
-    var diff = setData.ChildrenBeatmaps[i];
+  var mapset = {};
+  setData.ChildrenBeatmaps.forEach(function(diff) {
     mapset[diff.BeatmapID] = diff;
-  }
+  });
   console.log(mapset);
   function loadLeaderboard(b, m) {
     var wl = window.location;
