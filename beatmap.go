@@ -21,23 +21,6 @@ type beatmapPageData struct {
 	SetJSON    string
 }
 
-type beatmapsList []models.Beatmap
-
-func (s beatmapsList) Len() int {
-	return len(s)
-}
-
-func (s beatmapsList) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func (s beatmapsList) Less(i, j int) bool {
-	if s[i].Mode != s[j].Mode {
-		return s[i].Mode < s[j].Mode
-	}
-	return s[i].DifficultyRating < s[j].DifficultyRating
-}
-
 func beatmapInfo(c *gin.Context) {
 	var (
 		beatmap      models.Beatmap
@@ -63,7 +46,12 @@ func beatmapInfo(c *gin.Context) {
 			return
 		}
 		beatmapFound = true
-		sort.Sort(beatmapsList(bset.ChildrenBeatmaps))
+		sort.Slice(bset.ChildrenBeatmaps, func(i, j int) bool {
+			if bset.ChildrenBeatmaps[i].Mode != bset.ChildrenBeatmaps[j].Mode {
+				return bset.ChildrenBeatmaps[i].Mode < bset.ChildrenBeatmaps[j].Mode
+			}
+			return bset.ChildrenBeatmaps[i].DifficultyRating < bset.ChildrenBeatmaps[j].DifficultyRating
+		})
 	}
 
 	data.Found = beatmapFound
