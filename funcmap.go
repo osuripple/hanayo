@@ -121,20 +121,6 @@ var funcMap = template.FuncMap{
 		t, _ := time.Parse(time.RFC3339, s)
 		return _time(s, t)
 	},
-	// time format (seconds -> hh:mm:ss notation)
-	"timeFormat": func(t int) template.HTML {
-		h := t / 3600
-		t %= 3600
-		m := t / 60
-		s := t % 60
-		var c string
-		if h > 0 {
-			c = fmt.Sprintf("%d:%2d:%2d", h, m, s)
-		} else {
-			c = fmt.Sprintf("%d:%2d", m, s)
-		}
-		return template.HTML(c)
-	},
 	// time generates a time from a native Go time.Time
 	"timeFromTime": func(t time.Time) template.HTML {
 		return _time(t.Format(time.RFC3339), t)
