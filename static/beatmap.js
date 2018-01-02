@@ -8,7 +8,7 @@
     var wl = window.location;
     window.history.replaceState('', document.title,
       "/b/" + b + "?mode=" + m + wl.hash);
-    api("scores?sort=score,asc&sort=id,desc", {
+    api("scores?sort=score,desc&sort=id,desc", {
       mode : m,
       b : b,
       p : 1,
