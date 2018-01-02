@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<script>
 			{{ $p := .Gin.Query "p" }}
 			var beatmapID = {{ .Beatmap.ID }};
@@ -63,18 +63,17 @@
 			// defaults to 0
 			var currentMode = 0;
 		</script>
-		{{ if eq .Beatmap.Mode 0 }}
-			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
-			{{ $currentMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
-			<script>currentMode = {{ $currentMode }};</script>
-			<div class="ui four item menu" id="mode-menu">
-				{{ range $k, $v := modes }}
-					<a class="{{ favMode $currentMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
-				{{ end }}
-			</div>
-		{{ end }}
-
 		{{ if ge .Beatmapset.RankedStatus 1 }}
+			{{ if eq .Beatmap.Mode 0 }}
+				{{ $favModeRaw := .Get "users/self/favourite_mode" }}
+				{{ $currentMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
+				<script>currentMode = {{ $currentMode }};</script>
+				<div class="ui four item menu" id="mode-menu">
+					{{ range $k, $v := modes }}
+						<a class="{{ favMode $currentMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
+					{{ end }}
+				</div>
+			{{ end }}
 			<table class="ui fixed table">
 				<thead>
 					<tr>
