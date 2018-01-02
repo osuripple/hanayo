@@ -74,21 +74,23 @@
 			</div>
 		{{ end }}
 
-		<table class="ui fixed table">
-			<thead>
-				<tr>
-					<th class="two wide">{{ .T "Rank" }} </th>
-					<th class="four wide">{{ .T "Player" }} </th>
-					<th class="three wide">{{ .T "Score" }} </th>
-					<th class="one wide">{{ .T "Mods" }} </th>
-					<th class="two wide">{{ .T "Accuracy" }} </th>
-					<th class="two wide">{{ .T "Combo" }} </th>
-					<th class="two wide">{{ .T "PP" }} </th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
+		{{ if ge .RankedStatus 1 }}
+			<table class="ui fixed table">
+				<thead>
+					<tr>
+						<th class="two wide">{{ .T "Rank" }} </th>
+						<th class="four wide">{{ .T "Player" }} </th>
+						<th class="three wide">{{ .T "Score" }} </th>
+						<th class="one wide">{{ .T "Mods" }} </th>
+						<th class="two wide">{{ .T "Accuracy" }} </th>
+						<th class="two wide">{{ .T "Combo" }} </th>
+						<th class="two wide">{{ .T "PP" }} </th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		{{ end }}
 	{{ end }}
 	</div>
 {{ end }}
