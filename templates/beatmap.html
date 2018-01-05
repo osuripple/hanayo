@@ -51,22 +51,23 @@
 
 		<script>
 			{{ $p := .Gin.Query "p" }}
+			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
+			var shiet = {{ $favModeRaw }};
+			
 			var beatmapID = {{ .Beatmap.ID }};
 			var setData = JSON.parse({{ .SetJSON }});
 			var page = {{ $p | atoint | atLeastOne }};
 			// defaults to 0
-			var currentMode = 0;
+			var currentMode = {{ atoi (.Gin.Query "mode") }};
+			var currentModeChanged = false;
+			var favMode = parseInt({{ $favModeRaw.favourite_mode }}) || 0;
 		</script>
-		{{ if eq .Beatmap.Mode 0 }}
-			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
-			{{ $currentMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
-			<script>currentMode = {{ $currentMode }};</script>
-			<div class="ui four item menu" id="mode-menu">
-				{{ range $k, $v := modes }}
-					<a class="{{ favMode $currentMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
-				{{ end }}
-			</div>
-		{{ end }}
+
+		<div class="ui four item menu" id="mode-menu">
+			{{ range $k, $v := modes }}
+				<a class="item" id="mode-{{ $k }}" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
+			{{ end }}
+		</div>
 
 		<table class="ui sortable fixed table">
 			<thead>
