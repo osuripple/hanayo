@@ -58,7 +58,6 @@
 		<script>
 			{{ $p := .Gin.Query "p" }}
 			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
-			var shiet = {{ $favModeRaw }};
 			
 			var beatmapID = {{ .Beatmap.ID }};
 			var setData = JSON.parse({{ .SetJSON }});
