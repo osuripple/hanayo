@@ -33,7 +33,7 @@ KyutGrill=christmas_homepage.jpg
 		<div class="ui segment">
 			<h1 class="ui header">{{ .T "Howdy, %s!" .Context.User.Username }}</h1>
 			<p>
-				{{ .T "Welcome back to Ripple. We currently have <b>%s online users and %s total registed users.</b> Nice day to farm a few maps, isn't it?" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
+				{{ .T "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
 			</p>
 		</div>
 	{{ end }}
