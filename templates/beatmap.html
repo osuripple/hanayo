@@ -12,7 +12,7 @@
 				{{ range .Beatmapset.ChildrenBeatmaps }}
 				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ .ID }}">
 					<i class="attention icon"></i>
-					{{ .DiffName }}					
+					{{ .DiffName }}
       				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .DifficultyRating }})
 				</a>
 				{{ end }}
@@ -54,42 +54,41 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script>
 			{{ $p := .Gin.Query "p" }}
+			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
+
 			var beatmapID = {{ .Beatmap.ID }};
 			var setData = JSON.parse({{ .SetJSON }});
 			var page = {{ $p | atoint | atLeastOne }};
 			// defaults to 0
-			var currentMode = 0;
+			var currentMode = {{ atoi (.Gin.Query "mode") }};
+			var currentModeChanged = false;
+			var favMode = parseInt({{ $favModeRaw.favourite_mode }}) || 0;
 		</script>
-		{{ if ge .Beatmapset.RankedStatus 1 }}
-			{{ if eq .Beatmap.Mode 0 }}
-				{{ $favModeRaw := .Get "users/self/favourite_mode" }}
-				{{ $currentMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
-				<script>currentMode = {{ $currentMode }};</script>
-				<div class="ui four item menu" id="mode-menu">
-					{{ range $k, $v := modes }}
-						<a class="{{ favMode $currentMode $k }}item" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
-					{{ end }}
-				</div>
+
+		<div class="ui four item menu" id="mode-menu">
+			{{ range $k, $v := modes }}
+				<a class="item" id="mode-{{ $k }}" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
 			{{ end }}
-			<table class="ui fixed table">
-				<thead>
-					<tr>
-						<th class="one wide">{{ .T "Rank" }} </th>
-						<th class="four wide">{{ .T "Player" }} </th>
-						<th class="three wide">{{ .T "Score" }} </th>
-						<th class="two wide">{{ .T "Mods" }} </th>
-						<th class="two wide">{{ .T "Accuracy" }} </th>
-						<th class="two wide">{{ .T "Combo" }} </th>
-						<th class="two wide">{{ .T "PP" }} </th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		{{ end }}
+		</div>
+
+		<table class="ui sortable fixed table">
+			<thead>
+				<tr>
+					<th class="two wide">{{ .T "Rank" }} </th>
+					<th class="four wide">{{ .T "Player" }} </th>
+					<th class="three wide">{{ .T "Score" }} </th>
+					<th class="one wide">{{ .T "Mods" }} </th>
+					<th class="two wide">{{ .T "Accuracy" }} </th>
+					<th class="two wide">{{ .T "Combo" }} </th>
+					<th class="two wide">{{ .T "PP" }} </th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 	{{ end }}
 	</div>
 {{ end }}
