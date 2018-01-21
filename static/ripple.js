@@ -613,52 +613,57 @@ function addCommas(nStr) {
   return x1 + x2;
 }
 
-// thank mr francesco149
-// https://github.com/Francesco149/ojsama/blob/master/ojsama.js
-var modbits = {
-  nomod : 0,
-  nf : 1 << 0,
-  ez : 1 << 1,
-  td : 1 << 2,
-  hd : 1 << 3,
-  hr : 1 << 4,
-  dt : 1 << 6,
-  ht : 1 << 8,
-  nc : 1 << 9,
-  fl : 1 << 10,
-  so : 1 << 12,
-};
-modbits.from_string = function(str) {
-  var mask = 0;
-  str = str.toLowerCase();
-  for (var property in modbits) {
-    if (property.length != 2) {
-      continue;
-    }
-    if (!modbits.hasOwnProperty(property)) {
-      continue;
-    }
-    if (str.indexOf(property) >= 0) {
-      mask |= modbits[property];
-    }
-  }
-  return mask;
-};
-modbits.string = function(mods) {
-  var res = Array();
-  for (var property in modbits) {
-    if (property.length != 2) {
-      continue;
-    }
-    if (!modbits.hasOwnProperty(property)) {
-      continue;
-    }
-    if (mods & modbits[property]) {
-      res.push(property.toUpperCase());
-    }
-  }
-  return res.join(",");
-};
+// helper functions copied from user.js in old-frontend
+function getScoreMods(m, noplus) {
+	var r = [];
+  // has nc => remove dt
+  if ((m & 512) == 512)
+    m = m & ~64;
+  // has pf => remove sd
+  if ((m & 16384) == 16384)
+    m = m & ~32;
+  modsString.forEach(function(v, idx) {
+    var val = 1 << idx;
+    if ((m & val) > 0)
+      r.push(v);
+  });
+	if (r.length > 0) {
+		return (noplus ? "" : "+ ") + r.join(", ");
+	} else {
+		return (noplus ? T('None') : '');
+	}
+}
+
+var modsString = [
+  "NF",
+	"EZ",
+	"NV",
+	"HD",
+	"HR",
+	"SD",
+	"DT",
+	"RX",
+	"HT",
+	"NC",
+	"FL",
+	"AU", // Auto.
+	"SO",
+	"AP", // Autopilot.
+	"PF",
+	"K4",
+	"K5",
+	"K6",
+	"K7",
+	"K8",
+	"K9",
+	"RN", // Random
+	"LM", // LastMod. Cinema?
+	"K9",
+	"K0",
+	"K1",
+	"K3",
+	"K2",
+];
 
 // time format (seconds -> hh:mm:ss notation)
 function timeFormat(t) {
