@@ -55,6 +55,11 @@ func loadTemplates(subdir string) {
 			continue
 		}
 
+		// ignore non-html files
+		if strings.HasPrefix(i.Name(), ".html") {
+			continue
+		}
+
 		fullName := "templates" + subdir + "/" + i.Name()
 		_c := parseConfig(fullName)
 		var c templateConfig
