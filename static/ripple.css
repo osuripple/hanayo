@@ -377,3 +377,24 @@ a.camouflaged:hover {
 	justify-content: center;
 	align-items: center;
 }
+
+/* SO, of course: https://stackoverflow.com/a/8612047/5328069 */
+img.achievement {
+	-webkit-filter: drop-shadow(0 5px 5px #777);
+	filter: drop-shadow(0 5px 5px #777);
+}
+img.locked-achievement {
+	-webkit-filter: brightness(0) drop-shadow(0 5px 5px #777);
+	filter: brightness(0) drop-shadow(0 5px 5px #777);
+	-webkit-transition: all 500ms ;
+    -moz-transition: all 500ms ;
+    -ms-transition: all 500ms ;
+    -o-transition: all 500ms ;
+    transition: all 500ms ;
+}
+img.locked-achievement:hover {
+	filter: gray; /* IE6-9 */
+	-webkit-filter: brightness(0.5) drop-shadow(0 5px 5px #777);
+	filter: brightness(0.5) drop-shadow(0 5px 5px #777);
+}
+

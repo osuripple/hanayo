@@ -112,6 +112,7 @@
 				cheesegullAPI: {{ .Conf.CheesegullAPI }},
 				language:  {{ with $lang }}{{ . }}{{ else }}"en"{{ end }},
 			};
+			var currentUserID = {{ .Context.User.ID }};
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>

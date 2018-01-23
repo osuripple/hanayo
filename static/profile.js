@@ -27,6 +27,7 @@ $(document).ready(function() {
 		$(this).addClass("active");
 		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
 	});
+	initialiseAchievements();
 	initialiseFriends();
 	// load scores page for the current favourite mode
 	var i = function(){initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "]"), favouriteMode)};
@@ -39,8 +40,65 @@ $(document).ready(function() {
 });
 
 function initialiseAchievements() {
-	api('users/achievements', {id: userID}, function (resp) {
-		console.log("fofo");
+	api('users/achievements' + (currentUserID == userID ? '?all' : ''),
+		{id: userID}, function (resp) {
+		var achievements = resp.achievements;
+		// no achievements -- show default message
+		if (achievements.length === 0) {
+			$("#achievements")
+				.append($("<div class='ui sixteen wide column'>")
+					.text(T("Nothing here. Yet.")));
+			$("#load-more-achievements").remove();
+			return;
+		}
+
+		var displayAchievements = function(limit, achievedOnly) {
+			var $ach = $("#achievements").empty();
+			limit = limit < 0 ? achievements.length : limit;
+			var shown = 0;
+			for (var i = 0; i < achievements.length; i++) {
+				var ach = achievements[i];
+				if (shown >= limit || (achievedOnly && !ach.achieved)) {
+					continue;
+				}
+				shown++;
+				$ach.append(
+					$("<div class='ui two wide column'>").append(
+						$("<img src='https://s.ripple.moe/images/medals-" +
+							"client/" + ach.icon + ".png' alt='" + ach.name +
+							"' class='" +
+							(!ach.achieved ? "locked-achievement" : "achievement") +
+							"'>").popup({
+							title: ach.name,
+							content: ach.description,
+							position: "bottom center",
+							distanceAway: 10
+						})
+					)
+				);
+			}
+			// if we've shown nothing, and achievedOnly is enabled, try again
+			// this time disabling it.
+			if (shown == 0 && achievedOnly) {
+				displayAchievements(limit, false);
+			}
+		};
+
+		// only 8 achievements - we can remove the button completely, because
+		// it won't be used (no more achievements).
+		// otherwise, we simply remove the disabled class and add the click handler
+		// to activate it.
+		if (achievements.length <= 8) {
+			$("#load-more-achievements").remove();
+		} else {
+			$("#load-more-achievements")
+				.removeClass("disabled")
+				.click(function() {
+				$(this).remove();
+				displayAchievements(-1, false);
+			});
+		}
+		displayAchievements(8, true);
 	});
 }
 
@@ -85,7 +143,7 @@ function friendClick() {
 	var t = $(this);
 	if (t.hasClass("loading")) return;
 	t.addClass("loading");
-	api("friends/" + (t.attr("data-friends") == 1 ? "del" : "add"), {user: +userID}, setFriendOnResponse, true);
+	api("friends/" + (t.attr("data-friends") == 1 ? "del" : "add"), {user: userID}, setFriendOnResponse, true);
 }
 
 var defaultScoreTable;
@@ -375,5 +433,5 @@ function ppOrScore(pp, score) {
 function beatmapLink(type, id) {
 	if (type == "s")
 		return "<a href='/s/" + id + "'>" + id + '</a>';
-	return "<a href='/b/" + id + "'>" + id + '</a>';	
+	return "<a href='/b/" + id + "'>" + id + '</a>';
 }

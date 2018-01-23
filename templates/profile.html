@@ -7,7 +7,7 @@
 			{{ $favouritemode := _or $gqm .favourite_mode }}
 			<script>
 				window.favouriteMode = {{ $favouritemode }};
-				window.userID = '{{ .id }}';
+				window.userID = {{ .id }};
 			</script>
 			{{ if after .silence_info.end }}
 				<div class="ui error centered message">{{ $global.T "User is <b>silenced</b> for %s, expires %s." (.silence_info.reason | htmlescaper) (time .silence_info.end) | html }}</div>
@@ -183,6 +183,17 @@
 					<div data-mode="{{ . }}" {{ if ne . (int $favouritemode) }} hidden{{ end }} data-loaded="0">
 					</div>
 				{{ end }}
+			</div>
+
+			<div class="ui segment">
+				<h2 class="ui header">Achievements</h2>
+				<div id="achievements" class="ui grid">
+				</div>
+				<div class="right aligned">
+					<button class="ui disabled button" id="load-more-achievements">
+						{{ $global.T "Load more" }}
+					</button>
+				</div>
 			</div>
 			<div class="ui modal">
 				<i class="close icon"></i>
