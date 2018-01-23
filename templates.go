@@ -230,8 +230,8 @@ func reloader() error {
 	}
 	go func() {
 		var last time.Time
-		for range c {
-			if time.Since(last) < time.Second*3 {
+		for ev := range c {
+			if !strings.HasSuffix(ev.Path(), ".html") || time.Since(last) < time.Second*3 {
 				continue
 			}
 			fmt.Println("Change detected! Refreshing templates")
