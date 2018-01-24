@@ -77,6 +77,11 @@ func WSErr(err error) {
 	}, nil, nil)
 }
 
+// GenericError is just an error. Can't make a good description.
+func GenericError(err error) {
+	_err(err, nil, nil, nil)
+}
+
 func _err(err error, tags map[string]string, user *raven.User, c *fasthttp.RequestCtx) {
 	if RavenClient == nil {
 		fmt.Println("ERROR!!!!")

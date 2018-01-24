@@ -40,8 +40,8 @@
 [[projects]]
   name = "github.com/certifi/gocertifi"
   packages = ["."]
-  revision = "a4ab0227d360091084658029ec8ae45f989fba3e"
-  version = "2017.11.05"
+  revision = "deb3ae2ef2610fde3330947281941c562861188b"
+  version = "2018.01.18"
 
 [[projects]]
   branch = "master"
@@ -83,7 +83,7 @@
   branch = "master"
   name = "github.com/getsentry/raven-go"
   packages = ["."]
-  revision = "32a13797442ccb601b11761d74232773c1402d14"
+  revision = "563b81fc02b75d664e54da31f787c2cc2186780b"
 
 [[projects]]
   branch = "master"
@@ -95,7 +95,7 @@
   branch = "master"
   name = "github.com/gin-gonic/contrib"
   packages = ["sessions"]
-  revision = "8f08bc9b92a9734916abda03656c5f1b99ad10be"
+  revision = "dccbb4a462e965297e21372a9ad3ea05e0df3e5f"
 
 [[projects]]
   name = "github.com/gin-gonic/gin"
@@ -113,7 +113,7 @@
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
-  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
+  revision = "c65a0412e71e8b9b3bfd22925720d23c0f054237"
 
 [[projects]]
   name = "github.com/gorilla/context"
@@ -137,7 +137,7 @@
   branch = "master"
   name = "github.com/jmoiron/sqlx"
   packages = [".","reflectx"]
-  revision = "de8647470aafe4854c976707c431dbe1eb2822c6"
+  revision = "05cef0741ade10ca668982355b3f3f0bcf0ff0a8"
 
 [[projects]]
   branch = "master"
@@ -221,7 +221,7 @@
   branch = "master"
   name = "github.com/rjeczalik/notify"
   packages = ["."]
-  revision = "e1801ee34d54c4bf45126ef51fe9750b4e42bee8"
+  revision = "27b537f07230b3f917421af6dcf044038dbe57e2"
 
 [[projects]]
   name = "github.com/russross/blackfriday"
@@ -254,10 +254,10 @@
   revision = "9b9405451f4721e0b8fdc7320388272496f34077"
 
 [[projects]]
-  branch = "master"
   name = "github.com/ugorji/go"
   packages = ["codec"]
-  revision = "ccfe18359b55b97855cee1d3f74e5efbda4869dc"
+  revision = "9831f2c3ac1068a78f50999a30db84270f647af6"
+  version = "v1.1"
 
 [[projects]]
   name = "github.com/valyala/fasthttp"
@@ -269,25 +269,25 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["bcrypt","blowfish"]
-  revision = "0fcca4842a8d74bfddc2c96a073bd2a4d2a7a2e8"
+  revision = "3d37316aaa6bd9929127ac9a527abf408178ea7b"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","context/ctxhttp","html","html/atom"]
-  revision = "d866cfc389cec985d6fda2859936a575a55a3ab6"
+  revision = "0ed95abb35c445290478a5348a7b38bb154135fd"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/oauth2"
   packages = [".","internal"]
-  revision = "197281d4e0ecd78c33865daf9c6e51626feefcb2"
+  revision = "b28fcf2b08a19742b43084fb40ab78ac6c3d8067"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "83801418e1b59fb1880e363299581ee543af32ca"
+  revision = "af9a21289d0040306ecc55fa668c95246f1f8425"
 
 [[projects]]
   name = "google.golang.org/appengine"
@@ -317,7 +317,7 @@
   branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
+  revision = "d670f9405373e636a5a2765eea47fac0c9bc91a4"
 
 [[projects]]
   branch = "master"
@@ -335,7 +335,7 @@
   branch = "master"
   name = "zxq.co/ripple/rippleapi"
   packages = ["common"]
-  revision = "31308634565980b0194740feb4684d4bf27f8200"
+  revision = "77ba8aee7849a37feb1a8ec8bb86ee95fddeeb52"
 
 [[projects]]
   branch = "master"
