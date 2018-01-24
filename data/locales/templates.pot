@@ -380,7 +380,7 @@ msgstr ""
 msgid "Howdy, %s!"
 msgstr ""
 
-msgid "Welcome back to Ripple. We currently have <b>%s online users and %s total registed users.</b> Nice day to farm a few maps, isn't it?"
+msgid "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?"
 msgstr ""
 
 msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
@@ -393,7 +393,7 @@ msgstr ""
 msgid "The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website."
 msgstr ""
 
-msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Ripple's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='mailto:support@ripple.moe'>support@ripple.moe</a>."
+msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Ripple's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='https://support.ripple.moe'>support.ripple.moe</a>."
 msgstr ""
 
 msgid "&copy; 2015-%d Ripple, using Hanayo %s."
@@ -427,6 +427,52 @@ msgid "Share irrelevant opinions on reddit!"
 msgstr ""
 
 msgid "Language"
+msgstr ""
+
+# beatmap.html
+msgid "Artist"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Creator"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Circle Size"
+msgstr ""
+
+msgid "HP Drain"
+msgstr ""
+
+msgid "Overall Difficulty"
+msgstr ""
+
+msgid "Passes/Plays"
+msgstr ""
+
+msgid "Approach Rate"
+msgstr ""
+
+msgid "Star Difficulty"
+msgstr ""
+
+msgid "Length"
+msgstr ""
+
+msgid "BPM"
+msgstr ""
+
+msgid "osu!direct"
+msgstr ""
+
+msgid "download"
+msgstr ""
+
+msgid "download (no video)"
 msgstr ""
 
 # 2fa_gateway.html
@@ -464,37 +510,6 @@ msgid "A new code has been generated and sent to you through Telegram."
 msgstr ""
 
 msgid "You've been successfully logged in."
-msgstr ""
-
-# help.html
-msgid "If you need to get in touch with our support team (our Community Managers), you will need to send an email to our support email address. You can compose an email to it by clicking the button at the bottom of this page. <b>Please read the following</b> though, as it is important."
-msgstr ""
-
-msgid "The support email <b>is not meant for technical support</b>. If you need technical support, then please join our <a href='%s'>Discord Server</a>, and ask your question on the <b>#help channel</b>. You should also join the Discord server and ask a CM if you have any informal inquiry that you may have. If you need to contact a specific staff member, you can contact them by clicking the envelope icon under their name in the <a href='/team'>Team page</a>."
-msgstr ""
-
-msgid "Instead, if you need any of the following:"
-msgstr ""
-
-msgid "Username change"
-msgstr ""
-
-msgid "Appeal your ban/restriction"
-msgstr ""
-
-msgid "Anything else that strictly deals with your account and is not related in any way to a technical issue of yours."
-msgstr ""
-
-msgid "Then the support mail is the way to go."
-msgstr ""
-
-msgid "When contacting the support mail, please make sure to <b>send the email from the email address you signed up on Ripple with</b>."
-msgstr ""
-
-msgid "Last but not least, <b>the support email is not meant for filing bug reports</b>. If you need to report a bug, then please just ask one of our developers on Discord. If it's a security bug, for instance XSS or SQL injection, then please contact <a href='mailto:howl@ripple.moe'>Howl</a> or <a href='mailto:nyo@ripple.moe'>Nyo</a>."
-msgstr ""
-
-msgid "I have read and understood everything on this page."
 msgstr ""
 
 msgid "Ooops! Looks like something went really wrong while trying to process your request. Perhaps report this to a Ripple developer? Retrying doing what you were trying to do might work, too."
@@ -726,6 +741,9 @@ msgid "Total hits"
 msgstr ""
 
 msgid "Level %s"
+msgstr ""
+
+msgid "Achievements"
 msgstr ""
 
 # support.html
@@ -1009,6 +1027,12 @@ msgstr ""
 msgid "Revoke"
 msgstr ""
 
+msgid "Dark site"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
 msgstr ""
@@ -1191,7 +1215,7 @@ msgstr ""
 msgid "They told me these are very cool people."
 msgstr ""
 
-msgid "Looking for how you should contact our team? Check out <a href='/help'>this page</a>."
+msgid "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>."
 msgstr ""
 
 msgid "And more..."
