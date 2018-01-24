@@ -1,6 +1,7 @@
 package main
 
 import (
+	gocontext "context"
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
@@ -8,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 
 	"bytes"
 
@@ -98,7 +100,8 @@ func discordFinish(c *gin.Context) {
 		return
 	}
 
-	tok, err := getDiscord().Exchange(nil, c.Query("code"))
+	reqCtx, _ := gocontext.WithTimeout(gocontext.Background(), time.Second*20)
+	tok, err := getDiscord().Exchange(reqCtx, c.Query("code"))
 	if err != nil {
 		c.Error(err)
 		addMessage(c, errorMessage{T(c, "An error occurred.")})
