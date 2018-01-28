@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-24 21:34+0000\n"
+"POT-Creation-Date: 2018-01-28 19:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /ru/Hanayo/templates-ru.po\n"
-"X-Pootle-Revision: 7556\n"
+"X-Pootle-Revision: 7672\n"
 
 # General
 msgid "You're already logged in!"
@@ -557,13 +557,12 @@ msgstr ""
 msgid "Howdy, %s!"
 msgstr "Как дела, %s!"
 
-#, fuzzy
 msgid ""
 "Welcome back to Ripple. We currently have <b>%s online users and %s total "
 "registered users.</b> Nice day to farm a few maps, isn't it?"
 msgstr ""
-"С возвращением на Ripple. Сейчас у нас <b>%s пользователей онлайн и %s "
-"зарегистрированных пользователей.</b> Хороший день пофармить карт, не так ли?"
+"С возвращением на Ripple. На данный момент <b>%s пользователей онлайн и %s "
+"пользователей зарегистрировано.</b> Хороший день пофармить, не так ли?"
 
 msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
 msgstr "Последние новости из нашего <a href='https://blog.ripple.moe'>блога</a>"
@@ -631,28 +630,28 @@ msgstr "Язык"
 
 # beatmap.html
 msgid "Artist"
-msgstr ""
+msgstr "Исполнитель"
 
 msgid "Title"
-msgstr ""
+msgstr "Название"
 
 msgid "Creator"
-msgstr ""
+msgstr "Автор"
 
 msgid "Source"
-msgstr ""
+msgstr "Источник"
 
 msgid "Circle Size"
-msgstr ""
+msgstr "Размер нот"
 
 msgid "HP Drain"
 msgstr ""
 
 msgid "Overall Difficulty"
-msgstr ""
+msgstr "Сложность"
 
 msgid "Passes/Plays"
-msgstr ""
+msgstr "Пройдено/Сыграно"
 
 msgid "Approach Rate"
 msgstr ""

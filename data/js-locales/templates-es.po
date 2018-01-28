@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-24 21:34+0000\n"
+"POT-Creation-Date: 2018-01-28 19:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /es/HanayoJS/templates-es.po\n"
-"X-Pootle-Revision: 3351\n"
+"X-Pootle-Revision: 7624\n"
 
 # JavaScript
 msgid ""
@@ -41,7 +41,7 @@ msgid ""
 "Please provide a valid link, in the form of either "
 "https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;."
 msgstr ""
-"Por favor, proporcione un link valido, en el formulario de "
+"Por favor, proporcione un link válido, en el formulario de "
 "https://osu.ppy.sh/s/&lt;ID&gt; p https://osu.ppy.sh/b/&lt;ID&gt;."
 
 msgid "Beatmap rank request has been submitted."
@@ -109,7 +109,7 @@ msgstr "No"
 
 # Achieved (refers to date)
 msgid "Achieved"
-msgstr "Archivado"
+msgstr "Obtenido"
 
 # Game mode, like osu! standard, not like HR
 msgid "Mode"
@@ -118,7 +118,7 @@ msgstr "Modo"
 # (No mods used)
 # Sabéis cual es el contexto de esto?
 msgid "None"
-msgstr "Ninguna"
+msgstr "Ninguno"
 
 msgid "{{ stars }} star"
 msgid_plural "{{ stars }} stars"
