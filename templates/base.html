@@ -67,11 +67,6 @@
 						{{ $.T "The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website." }}
 					</div>
 				{{ end }}
-				{{ if shouldShowJP .Gin .Context }}
-					<div class="ui info message">
-						英語が話せますか? Rippleを翻訳するため、Rippleの日本語翻訳チームに参加したがったら、<a href="https://docs.google.com/forms/d/e/1FAIpQLScYgWfrqsjyI55dq2ZFIZgp5dCfmcqWP5XZTE602bqCfhAeew/viewform">❲ここでクリック❳</a>お願いします
-					</div>
-				{{ end }}
 				</div>
 				{{ template "tpl" . }}
 			</div>
