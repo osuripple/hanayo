@@ -321,6 +321,12 @@
 
 [[projects]]
   branch = "master"
+  name = "zxq.co/ripple/agplwarning"
+  packages = ["."]
+  revision = "d3a3d0ee424fcb0bd09a651354c1735285f59f8c"
+
+[[projects]]
+  branch = "master"
   name = "zxq.co/ripple/go-discord-oauth"
   packages = ["."]
   revision = "348e08feccb5ae7c1ea3b237769aeb757e393e0c"
@@ -352,6 +358,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "31db444f279aef8d091c6b566e3a30ceeaa56213ccf6928523f68174bddb8393"
+  inputs-digest = "29d578563c9e60434e4a6bcf45adedfc296541960866919aa0029cb849a7111f"
   solver-name = "gps-cdcl"
   solver-version = 1

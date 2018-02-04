@@ -152,3 +152,7 @@
 [[constraint]]
   branch = "master"
   name = "zxq.co/x/rs"
+
+[[constraint]]
+  branch = "master"
+  name = "zxq.co/ripple/agplwarning"
