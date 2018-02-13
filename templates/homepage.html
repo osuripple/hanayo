@@ -9,7 +9,7 @@ KyutGrill=homepage2.jpg
 {{ $   := . }}
 <div class="ui container">
 	<div class="ui center aligned segment">
-		<img src="/static/logos/logo-{{ randomLogoColour }}{{ if $ds }}-dark{{ end }}.svg">
+		<img src="/static/logos/logo-blue.png">
 	</div>
 	{{ $set := systemSettings "website_home_alert" }}
 	{{ with $set.website_home_alert.String }}
@@ -20,41 +20,28 @@ KyutGrill=homepage2.jpg
 	{{/* Not logged in block */}}
 	{{ if not .Context.User.ID }}
 		<div class="ui segment">
-			<h1 class="ui header">{{ .T "Welcome to Ripple." }}</h1>
+			<h1 class="ui header">{{ .T "Welcome to Enjuu." }}</h1>
 			<p>
-				{{ .T "You look new here. Allow us to introduce you to what Ripple is." }}
+				{{ .T "You look new here. Allow us to introduce you to what Enjuu is: Enjuu is a private Server with pp and some Users. We have osu!Direct and more! Have Fun on Enjuu!" }}
 			</p>
-			<p>
-				{{ .T "Ripple is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
-			</p>
-			<h3 class="ui header center aligned">{{ .T "What are you waiting for? Join Ripple! It's risk-free: you won't get your account banned on the official server if you play on Ripple.<br>You can also switch anytime between the official osu! server and Ripple!" | html }}</h3>
+			<h3 class="ui header center aligned">{{ .T "What are you waiting for? Join Enjuu! It's risk-free: you won't get your account banned on the official server if you play on Enjuu.<br>You can also switch anytime between the official osu! server and Enjuu!" | html }}</h3>
 		</div>
 	{{ else }}
 		<div class="ui segment">
 			<h1 class="ui header">{{ .T "Howdy, %s!" .Context.User.Username }}</h1>
 			<p>
-				{{ .T "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
+				{{ .T "Welcome back Friend. Nice day to farm a few maps, isn't it? Do you want to talk with us? Go visit our <a href='https://discord.gg/WYbwfJS'>Discord</a> If you want to help Enjuu with Designs, HTML &amp; CSS? Come and talk to us :3 We currently not support Donations but if you Nevertheless want to Donate us go on Discord and add <b>Justen#3200</b><br><br><b>Enjuu is watching you</b>" | html }}
 			</p>
 		</div>
 	{{ end }}
 	{{ with (.Get "blog/posts?l=5") }}
 		<div class="ui raised segment">
 			<h1 class="ui center aligned header">
-				{{ $.T "Latest news from our <a href='https://blog.ripple.moe'>blog</a>" | html }}
+				{{ $.T "Join our Discord for Support &amp; Talk to other Players! <a href='https://discord.gg/WYbwfJS'>Discord</a>" | html }}
 			</h1>
 		</div>
 		<div class="ui segments">
-			{{ range $i, $v := .posts }}
-				<div class="ui segment">
-					<h1 class="ui header no top margin">
-						<a href="https://blog.ripple.moe/{{ $v.unique_slug }}" class="inherit">{{ html $v.title }}</a>
-						<div class="sub header"><a href="https://blog.ripple.moe/@{{ $v.creator.username }}">{{ $v.creator.name }}</a>, {{ time $v.created_at }}</div>
-					</h1>
-					<p>
-						{{ $v.snippet }}
-					</p>
-				</div>
-			{{ end }}
+			
 		</div>
 	{{ end }}
 </div>

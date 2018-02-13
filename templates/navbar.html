@@ -5,7 +5,7 @@
 <div class="ui secondary fixed-height stackable white background main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
 	<div class="ui container">
 		<div class="item">
-			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Ripple"></a></b>
+			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Enjuu"></a></b>
 		</div>
 		{{ if $isRAP }}
 			{{/*
@@ -17,14 +17,14 @@
 		{{ else }}
 			{{ navbarItem .Path (.T "Leaderboard") "/leaderboard" }}
 			<div class="ui dropdown item">
-				<span>{{ .T "Help" }}</span>
+				<span>{{ .T "Info" }}</span>
 				<div class="menu">
-					{{ navbarItem .Path (.T "About") "/about" }}
+					{{ navbarItem .Path (.T "Android App") "http://mobile.enjuuprivate.tk/" }}
+					{{ navbarItem .Path (.T "YouTube") "https://www.youtube.com/channel/UCOZ5teZ20-z0RUQ3ksGWbNA" }}
 					{{ navbarItem .Path (.T "Rules") "/doc/rules" }}
-					{{ navbarItem .Path (.T "Documentation") "/doc" }}
 					<div class="divider"></div>
 					{{ navbarItem .Path (.T "Chat (Discord)") .Conf.DiscordServer }}
-					{{ navbarItem .Path (.T "Contact support") "https://support.ripple.moe" }}
+					{{ navbarItem .Path (.T "Contact support") "https://discord.gg/eQAfN5P" }}
 				</div>
 			</div>
 			{{ if .Context.User.Username }}
@@ -32,11 +32,15 @@
 				<span>{{ .T "Beatmaps" }}</span>
 				<div class="menu">
 					{{ navbarItem .Path (.T "Request beatmap ranking") "/beatmaps/rank_request" }}
+					<div class="divider"></div>
+					{{ navbarItem .Path (.T "Bloodcat (BM Mirror)") "http://bloodcat.com/osu/" }}
+					{{ navbarItem .Path (.T "Hexide (BM Mirror)") "https://osu.hexide.com/list/" }}
+					{{ navbarItem .Path (.T "Official BM Packs (BM Mirror)") "https://osu.yas-online.net" }}
 				</div>
 			</div>
 			{{ end }}
-			{{ navbarItem .Path (.T "Donate" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
-			{{ if $isAdmin }}{{ navbarItem .Path (.T "RAP" | printf "<b>%s</b>") "https://old.ripple.moe/index.php?p=100" }}{{ end }}
+			{{ navbarItem .Path (.T "Download Switcher" | printf "<i class=\"blue cloud download icon\"></i>%s") "http://space.enjuu.click/EnjuuSwitcher/" }}
+			{{ if $isAdmin }}{{ navbarItem .Path (.T "EAP" | printf "<b>%s</b>") "https://old.enjuu.click/index.php?p=100" }}{{ end }}
 		{{ end }}
 		<div class="firetrucking-right-menu">
 			<div class="item">
