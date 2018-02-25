@@ -77,8 +77,15 @@
 								</button>
 							{{ end }}
 							{{ if eq $global.Context.User.ID $global.UserID }}
-								<a href="/settings" class="ui circular mini teal icon button">
+								<a href="/settings" class="ui circular mini teal icon button"
+									title="{{ $global.T "Settings" }}">
 									<i class="edit icon"></i>
+								</a>
+							{{ end }}
+							{{ if hasAdmin $global.Context.User.Privileges }}
+								<a href="https://old.ripple.moe/index.php?p=103&id={{ $global.UserID }}"
+									target="_blank" title="Quick edit" class="ui circular mini blue icon button">
+									<i class="folder open outline icon"></i>
 								</a>
 							{{ end }}
 						</div>
