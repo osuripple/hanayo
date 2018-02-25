@@ -189,6 +189,9 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
+msgid "Server switcher"
+msgstr ""
+
 msgid "Status"
 msgstr ""
 
