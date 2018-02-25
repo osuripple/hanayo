@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 rm data/{js-,}locales/templates-*.po
 cd data/locales
 for i in it es de pl ru fr nl sv "fi" ro ko vi; do

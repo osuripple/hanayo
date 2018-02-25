@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 19:25+0000\n"
+"POT-Creation-Date: 2018-02-25 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /fr/Hanayo/templates-fr.po\n"
-"X-Pootle-Revision: 7534\n"
+"X-Pootle-Revision: 8331\n"
 
 # General
 msgid "You're already logged in!"
@@ -300,6 +300,9 @@ msgstr "Règles"
 msgid "Documentation"
 msgstr "Documentation"
 
+msgid "Server switcher"
+msgstr ""
+
 msgid "Status"
 msgstr "État"
 
@@ -577,7 +580,6 @@ msgstr ""
 msgid "Howdy, %s!"
 msgstr "Salutation, %s!"
 
-#, fuzzy
 msgid ""
 "Welcome back to Ripple. We currently have <b>%s online users and %s total "
 "registered users.</b> Nice day to farm a few maps, isn't it?"
@@ -652,49 +654,49 @@ msgstr "Langue"
 
 # beatmap.html
 msgid "Artist"
-msgstr ""
+msgstr "Artiste"
 
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 msgid "Creator"
-msgstr ""
+msgstr "Créateur"
 
 msgid "Source"
-msgstr ""
+msgstr "Provenance"
 
 msgid "Circle Size"
-msgstr ""
+msgstr "Circle Size"
 
 msgid "HP Drain"
-msgstr ""
+msgstr "HP Drain"
 
 msgid "Overall Difficulty"
-msgstr ""
+msgstr "Overall Difficulty"
 
 msgid "Passes/Plays"
-msgstr ""
+msgstr "Passes/Plays"
 
 msgid "Approach Rate"
-msgstr ""
+msgstr "Approach Rate"
 
 msgid "Star Difficulty"
-msgstr ""
+msgstr "Difficulté en étoiles"
 
 msgid "Length"
-msgstr ""
+msgstr "Durée"
 
 msgid "BPM"
-msgstr ""
+msgstr "BPM"
 
 msgid "osu!direct"
-msgstr ""
+msgstr "osu!direct"
 
 msgid "download"
-msgstr ""
+msgstr "télécharger"
 
 msgid "download (no video)"
-msgstr ""
+msgstr "Télécharger (sans vidéo)"
 
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
@@ -776,8 +778,8 @@ msgstr "osu!direct gratuit"
 msgid "Global leaderboards."
 msgstr "Classement mondial."
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "et des PP pour osu!standard et osu!mania"
+msgid "and PP for all game modes"
+msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
 msgstr "File d'attente de classement pour les maps non classées."
@@ -811,9 +813,10 @@ msgstr ""
 "voulaient jouer avec quelques amis bannis."
 
 # %s is wink emoji
+#, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
@@ -1035,7 +1038,7 @@ msgid "Level %s"
 msgstr "Niveau %s"
 
 msgid "Achievements"
-msgstr ""
+msgstr "Succès"
 
 # support.html
 msgid "Support Ripple"
@@ -1511,10 +1514,10 @@ msgid "Revoke"
 msgstr "Révoquer"
 
 msgid "Dark site"
-msgstr ""
+msgstr "Site sombre"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
@@ -1787,6 +1790,11 @@ msgstr ""
 "osu!mania."
 
 msgid ""
+"<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-"
+"pp</a>, used as catch the beat pp calculator."
+msgstr ""
+
+msgid ""
 "<b>jrosdahl</b>, for <a "
 "href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
 "our IRC server."
@@ -1840,6 +1848,9 @@ msgstr ""
 "applications pour interagir avec Ripple. <b>Si vous êtes invité à remplir un "
 "jeton d'API de cette page, soyez prudent et ne créez que le jeton si vous "
 "avez vraiment confiance au propriétaire de l'application.</b>"
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr "et des PP pour osu!standard et osu!mania"
 
 # help.html
 msgid ""

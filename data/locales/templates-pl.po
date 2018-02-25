@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 19:25+0000\n"
+"POT-Creation-Date: 2018-02-25 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /pl/Hanayo/templates-pl.po\n"
-"X-Pootle-Revision: 7547\n"
+"X-Pootle-Revision: 8340\n"
 
 msgid "You're already logged in!"
 msgstr "Jesteś już zalogowany!"
@@ -285,6 +285,9 @@ msgstr "Zasady"
 
 msgid "Documentation"
 msgstr "Dokumentacja"
+
+msgid "Server switcher"
+msgstr ""
 
 msgid "Status"
 msgstr "Status"
@@ -650,16 +653,16 @@ msgid "HP Drain"
 msgstr ""
 
 msgid "Overall Difficulty"
-msgstr ""
+msgstr "Ogólny poziom trudności"
 
 msgid "Passes/Plays"
 msgstr ""
 
 msgid "Approach Rate"
-msgstr ""
+msgstr "Wskaźnik zbliżania się"
 
 msgid "Star Difficulty"
-msgstr ""
+msgstr "Trudność planszy"
 
 msgid "Length"
 msgstr ""
@@ -671,10 +674,10 @@ msgid "osu!direct"
 msgstr ""
 
 msgid "download"
-msgstr ""
+msgstr "pobierz"
 
 msgid "download (no video)"
-msgstr ""
+msgstr "pobierz (bez video)"
 
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
@@ -753,8 +756,8 @@ msgstr "Darmowy osu!direct."
 msgid "Global leaderboards."
 msgstr "Globalne tabele wyników."
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "i PP dla osu!standard i osu!mania"
+msgid "and PP for all game modes"
+msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
 msgstr "Kolejka dla nierankingowych beatmap."
@@ -788,9 +791,10 @@ msgstr ""
 "kilkoma zbanowanymi znajomymi."
 
 # %s is wink emoji
+#, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
@@ -1011,7 +1015,7 @@ msgid "Level %s"
 msgstr "Poziom %s"
 
 msgid "Achievements"
-msgstr ""
+msgstr "Osiągnięcia"
 
 # support.html
 msgid "Support Ripple"
@@ -1473,10 +1477,10 @@ msgid "Revoke"
 msgstr "Unieważnij"
 
 msgid "Dark site"
-msgstr ""
+msgstr "Ciemna strona"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Preferencje"
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
@@ -1743,6 +1747,11 @@ msgstr ""
 "performance</a>, użyte jako odniesienie do naszego kalkulatora pp manii."
 
 msgid ""
+"<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-"
+"pp</a>, used as catch the beat pp calculator."
+msgstr ""
+
+msgid ""
 "<b>jrosdahl</b>, for <a "
 "href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
 "our IRC server."
@@ -1796,6 +1805,9 @@ msgstr ""
 "interakcji z Ripple. <b>Jeśli zostałeś zapytany, by wpisać token API z tej "
 "strony, uważaj i stwórz token jeśli na prawdę ufasz właścicielowi "
 "aplikacji.</b>"
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr "i PP dla osu!standard i osu!mania"
 
 # help.html
 msgid ""

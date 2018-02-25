@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 19:25+0000\n"
+"POT-Creation-Date: 2018-02-25 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /vi/Hanayo/templates-vi.po\n"
-"X-Pootle-Revision: 7564\n"
+"X-Pootle-Revision: 8349\n"
 
 # General
 msgid "You're already logged in!"
@@ -278,6 +278,9 @@ msgstr "Các quy tắc"
 
 msgid "Documentation"
 msgstr "Tài liệu"
+
+msgid "Server switcher"
+msgstr ""
 
 msgid "Status"
 msgstr "Tình trạng"
@@ -738,8 +741,8 @@ msgstr "Osu!direct miễn phí"
 msgid "Global leaderboards."
 msgstr "Bảng xếp hạng toàn cầu"
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "và PP cho mode Osu!stadard lẫn Osu!mania"
+msgid "and PP for all game modes"
+msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
 msgstr "Hàng chờ đề cử ranked cho những beatmap unranked"
@@ -773,9 +776,10 @@ msgstr ""
 "muốn chơi chung với một vài người bạn bị khóa tài khoản trên server chính."
 
 # %s is wink emoji
+#, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
@@ -1603,6 +1607,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-"
+"pp</a>, used as catch the beat pp calculator."
+msgstr ""
+
+msgid ""
 "<b>jrosdahl</b>, for <a "
 "href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
 "our IRC server."
@@ -1645,6 +1654,9 @@ msgid ""
 "token from this page, be wary and only actually create the token if you "
 "really trust the owner of the application.</b>"
 msgstr ""
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr "và PP cho mode Osu!stadard lẫn Osu!mania"
 
 msgid "Username change"
 msgstr "Đổi tên người dùng"

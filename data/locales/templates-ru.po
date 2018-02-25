@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 19:25+0000\n"
+"POT-Creation-Date: 2018-02-25 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /ru/Hanayo/templates-ru.po\n"
-"X-Pootle-Revision: 7672\n"
+"X-Pootle-Revision: 8343\n"
 
 # General
 msgid "You're already logged in!"
@@ -289,6 +289,9 @@ msgstr "Правила"
 msgid "Documentation"
 msgstr "Документация"
 
+msgid "Server switcher"
+msgstr ""
+
 msgid "Status"
 msgstr "Статус"
 
@@ -387,7 +390,7 @@ msgstr ""
 "все хорошо."
 
 msgid "Don't stop me now!"
-msgstr "Не останавливай меня сейчас!"
+msgstr "Тебе меня не остановить!"
 
 msgid "Bring me back to safety!"
 msgstr "Верни меня в безопасное место!"
@@ -397,7 +400,7 @@ msgid "Log in"
 msgstr "Вход"
 
 msgid "Username (or email)"
-msgstr "Имя пользователя (или эл. почта)"
+msgstr "Имя пользователя (или почта)"
 
 # in relationship to a password
 msgid "(forgot?)"
@@ -657,22 +660,23 @@ msgid "Approach Rate"
 msgstr ""
 
 msgid "Star Difficulty"
-msgstr ""
+msgstr "Кол-во звезд"
 
 msgid "Length"
-msgstr ""
+msgstr "Длина"
 
 msgid "BPM"
-msgstr ""
+msgstr "BPM"
 
+# не переводить
 msgid "osu!direct"
 msgstr ""
 
 msgid "download"
-msgstr ""
+msgstr "загрузить"
 
 msgid "download (no video)"
-msgstr ""
+msgstr "загрузить (без видео)"
 
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
@@ -751,8 +755,8 @@ msgstr "Бесплатный osu!direct."
 msgid "Global leaderboards."
 msgstr "Глобальная таблица лидеров."
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "и PP для режимов osu!standard и osu!mania"
+msgid "and PP for all game modes"
+msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
 msgstr "Проверка непроверенных карт."
@@ -785,9 +789,10 @@ msgstr ""
 "своими заблокированными друзьями."
 
 # %s is wink emoji
+#, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
@@ -952,32 +957,39 @@ msgstr "Зарегистрировался на Ripple %s."
 msgid "They play with %s."
 msgstr "Играет с помощью %s."
 
+# контекст: "Играет с помощью..."
 msgid "Mouse"
-msgstr "Мышь"
+msgstr "мыши"
 
+# контекст: "Играет с помощью..."
 msgid "Tablet"
-msgstr "Планшет"
+msgstr "планшета"
 
+# контекст: "Играет с помощью..."
 msgid "Keyboard"
-msgstr "Клавиатура"
+msgstr "клавиатуры"
 
+# контекст: "Играет с помощью..."
 msgid "Touchscreen"
-msgstr "Сенсорный экран"
+msgstr "сенсорного экрана"
 
+# контекст: "Играет с помощью..."
 msgid "Spoon"
-msgstr "Ложка"
+msgstr "ложки"
 
 msgid "Leap motion"
 msgstr "Leap motion"
 
 msgid "Oculus rift"
-msgstr "Oculus rift"
+msgstr "Oculus Rift"
 
+# контекст: "Играет с помощью..."
 msgid "Dick"
-msgstr "Член"
+msgstr "члена"
 
+# контекст: "Играет с помощью..."
 msgid "Eggplant"
-msgstr "Баклажан"
+msgstr "баклажана"
 
 msgid "This user hasn't got any badges!"
 msgstr "У этого пользователя нет ни одного значка!"
@@ -1007,7 +1019,7 @@ msgid "Level %s"
 msgstr "Уровень %s"
 
 msgid "Achievements"
-msgstr ""
+msgstr "Достижения"
 
 # support.html
 msgid "Support Ripple"
@@ -1470,7 +1482,7 @@ msgid "Dark site"
 msgstr ""
 
 msgid "Preferences"
-msgstr ""
+msgstr "Настройки"
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
@@ -1677,6 +1689,9 @@ msgid ""
 "services (email and support.ripple.moe). Community Managers have a red name "
 "in the in-game chat."
 msgstr ""
+"Они занимаются нашим сервером в Discord и отвечают на письма, отправленные в "
+"поддержку (email и support.ripple.moe). У Менеджеров Сообщества красный ник "
+"в игровом чате."
 
 msgid "Developers"
 msgstr "Разработчики"
@@ -1732,6 +1747,11 @@ msgstr ""
 "калькулятора mania pp."
 
 msgid ""
+"<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-"
+"pp</a>, used as catch the beat pp calculator."
+msgstr ""
+
+msgid ""
 "<b>jrosdahl</b>, for <a "
 "href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
 "our IRC server."
@@ -1760,6 +1780,8 @@ msgid ""
 "Looking for how you should contact our team? Check out <a "
 "href='https://support.ripple.moe/'>this page</a>."
 msgstr ""
+"Хотите связаться с нашей командой? Взгляните на <a "
+"href='https://support.ripple.moe/'>эту страницу</a>."
 
 msgid "And more..."
 msgstr "И еще..."
@@ -1783,6 +1805,9 @@ msgstr ""
 "приложения для работы с Ripple. <b>Если вас попросили передать API-токен с "
 "этой страницы - будьте осторожны и создавайте токен, только если вы "
 "доверяете владельцу приложения.</b>"
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr "и PP для режимов osu!standard и osu!mania"
 
 # help.html
 msgid ""

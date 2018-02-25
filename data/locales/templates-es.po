@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 19:25+0000\n"
+"POT-Creation-Date: 2018-02-25 11:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,10 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 2.0.0\n"
 "X-Pootle-Path: /es/Hanayo/templates-es.po\n"
-"X-Pootle-Revision: 7630\n"
+"X-Pootle-Revision: 8328\n"
 
 msgid "You're already logged in!"
-msgstr "Ya estas conectado/a!"
+msgstr "Ya estás conectado/a!"
 
 msgid "Submit"
 msgstr "Enviar"
@@ -27,7 +27,7 @@ msgid "Password"
 msgstr "Contraseña"
 
 msgid "Invalid CSRF token"
-msgstr "Token CSRF invalido"
+msgstr "Token CSRF inválido"
 
 msgid ""
 "Your session has expired. Please try redoing what you were trying to do."
@@ -47,7 +47,7 @@ msgid ""
 "Want to play an unranked beatmap and get pp? You can submit beatmaps rank "
 "requests here!"
 msgstr ""
-"Quieres jugar un mapa unranked y conseguir pp? Puedes enviar peticiones de "
+"¿Quieres jugar un mapa unranked y conseguir pp? ¡Puedes enviar peticiones de "
 "mapas para que los rankeen aquí!"
 
 msgid "Queue status"
@@ -57,7 +57,7 @@ msgid "by you"
 msgstr "por tí"
 
 msgid "Requests submitted"
-msgstr "Petición enviada"
+msgstr "Peticiones enviadas"
 
 msgid "In the past 24 hours"
 msgstr "En las ultimas 24 horas"
@@ -66,7 +66,7 @@ msgid "Request a beatmap"
 msgstr "Solicita un mapa"
 
 msgid "You cannot currently request beatmaps!"
-msgstr "Por el momento no puedes solicitar mapas!"
+msgstr "¡Por ahora no puedes solicitar mapas!"
 
 # After this text there is a date. The date is localised separately.
 msgid "Please try again "
@@ -80,14 +80,14 @@ msgid ""
 "Glad to have you back here, %s! To finish the password recovery, type in a "
 "new password:"
 msgstr ""
-"Estamos contentos de tenerte de vuelta aquí, %s! Para finalizar la "
+"¡Estamos alegres de tenerte de vuelta aquí, %s! Para finalizar la "
 "recuperación de contraseña, escribe una nueva contraseña:"
 
 msgid "Nope."
 msgstr "Nope."
 
 msgid "That key could not be found. Perhaps it expired?"
-msgstr "No se ha podido encontrar esa llave, Quizás ha expirado?"
+msgstr "No se ha podido encontrar esa llave, ¿Quizás ha expirado?"
 
 msgid ""
 "All right, we have changed your password and you should now be able to "
@@ -106,14 +106,14 @@ msgid ""
 "Remember: this seems like it's your second account! Do not multiaccount, or "
 "you're likely to get restricted!"
 msgstr ""
-"Recuerda: Esta parece ser tu cuenta secundaria! No crees múltiples cuentas o "
-"es muy probable que seas restringido/a!"
+"Recuerda: ¡Esta parece ser tu cuenta secundaria! No crees múltiples cuentas "
+"o es muy probable que seas restringido/a!"
 
 msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
 msgstr "Usuario (2 a 15 caracteres, alfanuméricos, espacios, <code>_[]-</code>)"
 
 msgid "Password (at least 8 characters)"
-msgstr "Clave (por lo menos 8 caracteres)"
+msgstr "Contraseña (por lo menos 8 caracteres)"
 
 msgid "Email"
 msgstr "Correo electrónico"
@@ -127,7 +127,7 @@ msgstr ""
 
 # Register checks
 msgid "Your password is too short! It must be at least 8 characters long."
-msgstr "¡Tu clave es muy corta! Tiene que tener por lo menos 8 caracteres."
+msgstr "¡Tu contraseña es muy corta! Tiene que tener por lo menos 8 caracteres."
 
 msgid ""
 "Your password is one of the most common passwords on the entire internet. No "
@@ -147,10 +147,10 @@ msgid "You're not allowed to register with that username."
 msgstr "No puedes registrarte con este nombre de usuario."
 
 msgid "Please pass a valid email address."
-msgstr "Por favor, introduce una dirección email valida."
+msgstr "Por favor, introduce una dirección de correo válida."
 
 msgid "An username can't contain both underscores and spaces."
-msgstr "Un nombre de usuario no puede contener guion bajo y espacios."
+msgstr "Un nombre de usuario no puede contener guión bajo y espacios."
 
 msgid "An user with that username already exists!"
 msgstr "¡Ya existe una cuenta con este nombre de usuario!"
@@ -159,13 +159,13 @@ msgid "An user with that email address already exists!"
 msgstr "¡Ya existe un usuario con esta dirección de correo!"
 
 msgid "Captcha is invalid."
-msgstr "El captcha está inválido."
+msgstr "El captcha es inválido."
 
 msgid ""
 "Whoops, an error slipped in. You might have been registered, though. I don't "
 "know."
 msgstr ""
-"¡Ups! Ha ocurrido un error. Deberías estar registrado, aunque. No lo sé."
+"¡Ups! Ha ocurrido un error. Deberías estar registrado, aunque, no lo sé."
 
 # register/verify.html
 msgid "Verify account"
@@ -178,11 +178,11 @@ msgid ""
 "connect to Ripple from the osu! client!</b> If you're having trouble, <a "
 "href='/doc/1'>follow this guide</a>."
 msgstr ""
-"Tu cuenta se ha creado pero todavía <b>¡necesita ser verificada!</b> Por "
+"Tu cuenta se ha creado pero, ¡todavía <b>necesita ser verificada!</b> Por "
 "favor entra a <b><u>osu! (el juego)</u></b> usando tu cuenta. <b>No hay <u>"
 "confirmación de correo</u> en este momento. Todo lo que tendrás que hacer es "
-"conectarte a Ripple con osu!</b> Si tienes problemas, <a href='/doc/1'>sigue "
-"esta guía</a>."
+"conectarte a Ripple usando el cliente osu!</b> Si tienes problemas, <a "
+"href='/doc/1'>sigue esta guía</a>."
 
 msgid ""
 "<b class='big text'>Do not let anyone except yourself log into your Ripple "
@@ -283,6 +283,9 @@ msgstr "Reglas"
 
 msgid "Documentation"
 msgstr "Documentación"
+
+msgid "Server switcher"
+msgstr ""
 
 msgid "Status"
 msgstr "Estado"
@@ -755,8 +758,8 @@ msgstr "osu!direct gratis"
 msgid "Global leaderboards."
 msgstr "Posiciones globales"
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "y PP para osu!standard y osu!mania"
+msgid "and PP for all game modes"
+msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
 msgstr "Cola de clasificacion para mapas desclasificados"
@@ -789,10 +792,12 @@ msgstr ""
 "quienes se cansaron del ecosistema de osu!, y tambien porque querían jugar "
 "con algunos amigos baneados."
 
+# %s is wink emoji
 # %s = ;)
+#, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 10,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
@@ -1753,6 +1758,11 @@ msgstr ""
 "del modo mania."
 
 msgid ""
+"<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-"
+"pp</a>, used as catch the beat pp calculator."
+msgstr ""
+
+msgid ""
 "<b>jrosdahl</b>, for <a "
 "href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
 "our IRC server."
@@ -1806,6 +1816,9 @@ msgstr ""
 "aplicaciones para interactuar con Ripple. <b>Si se te pregunta para "
 "completar una ficha API desde esta pagina, se cuidadoso y solo crea la ficha "
 "si realmente confías en el dueño de la aplicación.</b>"
+
+msgid "and PP for osu!standard and osu!mania"
+msgstr "y PP para osu!standard y osu!mania"
 
 # help.html
 msgid ""
