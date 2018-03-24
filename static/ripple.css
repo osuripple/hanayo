@@ -224,6 +224,11 @@ body.ds .subtitle b {
 #userpage-content {
 	max-height: 500px;
 	overflow: auto;
+	width: 10%;
+}
+
+#userpage-content.expanded {
+	width: 150%;
 }
 
 #profile-actions {
@@ -339,8 +344,13 @@ textarea.monospace {
 }
 
 #userpage-content {
-	-webkit-transition: all 500ms;
-	transition: all 500ms;
+	-webkit-transition: all 1500ms;
+	transition: all 1500ms;
+	-webkit-transition-timing-function: cubic-bezier(0.195, 0.875, 0.105, 0); /* older webkit */
+	-webkit-transition-timing-function: cubic-bezier(0.195, 0.875, 0.105, -0.600);
+	   -moz-transition-timing-function: cubic-bezier(0.195, 0.875, 0.105, -0.600);
+		 -o-transition-timing-function: cubic-bezier(0.195, 0.875, 0.105, -0.600);
+			transition-timing-function: cubic-bezier(0.195, 0.875, 0.105, -0.600); /* custom */
 }
 
 /* FUCK INTERNET EXPLORER */

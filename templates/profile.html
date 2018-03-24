@@ -32,6 +32,8 @@
 				{{ if .userpage }}
 					{{ with parseUserpage .userpage }}
 						<div class="ui raised segment twemoji" id="userpage-content">
+							<button class="ui blue button" id="expand-dong" data-content="April fool's!">EXPAND DONG</button>
+							<br>
 							{{ html . }}
 						</div>
 					{{ end }}
