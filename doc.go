@@ -2,4 +2,4 @@
 package main
 
 // version is the current version of hanayo
-const version = "1.8.4"
+const version = "v1.8.5"
