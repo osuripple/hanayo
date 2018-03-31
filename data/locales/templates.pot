@@ -819,6 +819,9 @@ msgstr ""
 msgid "Profile background"
 msgstr ""
 
+msgid "Account wipe"
+msgstr ""
+
 msgid "More to come!"
 msgstr ""
 
@@ -838,6 +841,9 @@ msgid "You'll get exclusive access to the <b>\"#donators\"</b> text and voice ch
 msgstr ""
 
 msgid "Think about <b>spicing your profile up with some eggplants</b>? Got you covered! Having donor privileges, you get to be able to change your profile background."
+msgstr ""
+
+msgid "Want to start over one more time? With donor you can! Normally you can only <a href='https://support.ripple.moe' target='_blank'>request an account wipe</a> once, but having donated you'll be able to do it once again."
 msgstr ""
 
 msgid "<b>Who knows</b> what we could implement next? You could be able to do even <i>more</i> stuff for donors once we implement it."
