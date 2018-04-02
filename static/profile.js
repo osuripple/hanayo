@@ -27,10 +27,6 @@ $(document).ready(function() {
 		$(this).addClass("active");
 		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
 	});
-	$("#expand-dong").click(function() {
-		$(this).remove();
-		$("#userpage-content").addClass("expanded");
-	}).popup();
 	initialiseAchievements();
 	initialiseFriends();
 	// load scores page for the current favourite mode
