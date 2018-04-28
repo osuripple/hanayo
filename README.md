@@ -1,6 +1,6 @@
 This repository has a mirror [here](https://github.com/osuripple/hanayo). The original repo is still [here](https://zxq.co/ripple/hanayo).
 
-# Hanayo
+# Hanayo ![build status](https://ci.zxq.co/api/badges/ripple/hanayo.svg)
 
 Hanayo answers the question: what if you wanted to write in PHP but make it fast?
 

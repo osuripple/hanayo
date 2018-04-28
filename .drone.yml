@@ -1,0 +1,10 @@
+workspace:
+  base: /go
+  path: src/zxq.co/ripple/hanayo
+
+pipeline:
+  build:
+    image: golang:1.10
+    pull: true
+    commands:
+      - go build -v .
