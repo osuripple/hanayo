@@ -901,21 +901,6 @@ msgstr ""
 msgid "Two factor authentication is not enabled on your account."
 msgstr ""
 
-msgid "Telegram 2FA"
-msgstr ""
-
-msgid "To enable Telegram Two Factor Authentication, click this button, then click "start" on Telegram:"
-msgstr ""
-
-msgid "Enable Telegram 2FA"
-msgstr ""
-
-msgid "If you don't have Telegram on the current device, you can either open this page from a device on which you have it, or scan this QR code:"
-msgstr ""
-
-msgid "In case you don't have a way to scan QR codes or you simply can't be bothered to download an app that scans them, you can also open Telegram, start a conversation with <a href=\"http://telegram.me/ripple2fabot\"><b>@ripple2fabot</b></a> and send this message:"
-msgstr ""
-
 msgid "Google Authenticator (TOTP) based 2FA"
 msgstr ""
 
