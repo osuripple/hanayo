@@ -128,6 +128,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.
 								<input type="hidden" name="option_amount{{ . }}" value="{{ calculateDonorPrice $months }}">
 							{{ end }}
 							<input type="hidden" name="on1" value="Ripple user to give donor">
+							<input type="hidden" name="custom" value="username={{ $global.User.Username }}">
 							<input type="hidden" name="amount" value="{{ calculateDonorPrice 1 }}" id="paypal-amt">
 							<div class="ui fluid labeled action input">
 								<div class="ui label">
@@ -137,7 +138,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.
 								<button type="submit" class="ui blue button">{{ $.T "Submit" }}</button>
 							</div>
 							{{ $ief }}
-							<input type="hidden" 
+							<input type="hidden"
 name="business" value="to@nyo.zz.mu">
 							<input type="hidden" name="cmd" value="_xclick">
 							<input type="hidden" name="lc" value="GB">
