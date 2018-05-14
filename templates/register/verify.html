@@ -13,10 +13,10 @@
 			<li>{{ .T "Extract it, disable your antivirus, execute it <b>as administrator</b>" | html }}</li>
 			<li>{{ .T "Click on <b>install certificate</b>, then <b>Yes</b>" | html }}</li>
 			<li>{{ .T "Make sure the switcher says you're playing on <b>Ripple</b> server, if not click <b>On/Off</b>" | html }}</li>
-			<li>{{ .T "If it says something about read-only mode, go to <code>C:\\Windows\\System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure it's not set to \"Read only\"." }}</li>
+			<li>{{ .T "If it says something about read-only mode, go to <code>C:\\Windows\\System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure it's not set to \"Read only\"." | html }}</li>
 		</ol>
 		<p>
-			{{ .T "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #help channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this." (config "DiscordServer") }}
+			{{ .T "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #help channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this." (config "DiscordServer") | html }}
 		</p>
 	</div>
 	<div class="ui center aligned segment">
