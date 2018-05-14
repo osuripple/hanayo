@@ -1,6 +1,13 @@
 package doc
 
-import "io/ioutil"
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"regexp"
+	"strings"
+	"time"
+)
 
 const referenceLanguage = "en"
 
@@ -16,7 +23,12 @@ type File struct {
 // Data retrieves data from file's actual file on disk.
 func (f File) Data() (string, error) {
 	data, err := ioutil.ReadFile(f.referencesFile)
-	return string(data), err
+	updateIPs()
+	res := strings.NewReplacer(
+		"{ipmain}", ipMain,
+		"{ipmirror}", ipMirror,
+	).Replace(string(data))
+	return res, err
 }
 
 // Document represents a documentation file, providing its old ID, its slug,
@@ -81,4 +93,42 @@ func GetFile(slug, language string) File {
 		return f.Languages[referenceLanguage]
 	}
 	return File{}
+}
+
+var (
+	ipMain        = "163.172.71.251"
+	ipMirror      = "51.15.222.176"
+	ipLastUpdated = time.Date(2018, 5, 13, 11, 45, 0, 0, time.UTC)
+	ipRegex       = regexp.MustCompile(`^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$`)
+)
+
+func updateIPs() {
+	if time.Now().Sub(ipLastUpdated) < time.Hour*24*14 {
+		return
+	}
+	ipLastUpdated = time.Now()
+
+	resp, err := http.Get("https://ip.ripple.moe")
+	if err != nil {
+		fmt.Println("error updating IPs", err)
+		return
+	}
+
+	data, err := ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
+	if err != nil {
+		fmt.Println("error updating IPs", err)
+		return
+	}
+
+	ips := strings.SplitN(string(data), "\n", 3)
+	if len(ips) < 2 || !ipRegex.MatchString(ips[0]) || !ipRegex.MatchString(ips[1]) {
+		return
+	}
+	ipMain = ips[0]
+	ipMirror = ips[1]
+}
+
+func init() {
+	go updateIPs()
 }
