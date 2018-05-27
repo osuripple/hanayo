@@ -58,7 +58,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.
 			<h1 class="ui center aligned header">
 				{{ $.T "So what can you do?" }}
 				<div class="sub header">
-					{{ if .has_donor }}{{ $.T "Well, you can give us even more money." }}{{ else }}{{ $.T "Well, you can give us even more money." }}{{ end }}
+					{{ if .has_donor }}{{ $.T "Well, you can give us even more money." }}{{ else }}{{ $.T "Well, you can give us money." }}{{ end }}
 				</div>
 			</h1>
 			<h4 class="ui horizontal divider header">
@@ -128,13 +128,13 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.
 								<input type="hidden" name="option_amount{{ . }}" value="{{ calculateDonorPrice $months }}">
 							{{ end }}
 							<input type="hidden" name="on1" value="Ripple user to give donor">
-							<input type="hidden" name="custom" value="username={{ $global.User.Username }}">
+							<input type="hidden" name="custom" value="username={{ $global.User.Username }}" id="ipn-username">
 							<input type="hidden" name="amount" value="{{ calculateDonorPrice 1 }}" id="paypal-amt">
 							<div class="ui fluid labeled action input">
 								<div class="ui label">
 									{{ $.T "User:" }}
 								</div>
-								<input name="os1" type="text" placeholder="{{ $.T "User" }}" value="{{ $global.User.Username }}">
+								<input name="os1" type="text" placeholder="{{ $.T "User" }}" value="{{ $global.User.Username }}" id="username-input">
 								<button type="submit" class="ui blue button">{{ $.T "Submit" }}</button>
 							</div>
 							{{ $ief }}

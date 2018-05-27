@@ -187,7 +187,7 @@ var singlePageSnippets = {
           cflags = darkSetting ? +cflags | 1 : +cflags & ~1;
           document.cookie = "cflags=" + cflags + ";path=/;max-age=31536000";
         }
-      
+
         var obj = formToObject($(this));
         var ps = 0;
         $(this)
@@ -202,7 +202,7 @@ var singlePageSnippets = {
         var f = $(this);
         api("users/self/settings", obj, function(data) {
           if (darkSetting != isDark) {
-            window.location.reload();            
+            window.location.reload();
             return;
           }
           showMessage("success", "Your new settings have been saved.");
@@ -259,7 +259,6 @@ var singlePageSnippets = {
     });
     var rates = {};
     var us = sl.noUiSlider;
-    var doneOne = false;
     $.getJSON("/donate/rates", function(data) {
       rates = data;
       us.on('update', function() {
@@ -283,6 +282,9 @@ var singlePageSnippets = {
         $("#bitcoin-amt").text(priceBTC.toFixed(6));
         $("#paypal-amt").val(priceEUR.toFixed(2));
       });
+    });
+    $("#username-input").on("input", function() {
+      $("#ipn-username").attr("value", "username=" + $(this).val());
     });
   },
 
