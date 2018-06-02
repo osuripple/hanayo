@@ -19,19 +19,18 @@
 			<div class="ui dropdown item">
 				<span>{{ .T "Info" }}</span>
 				<div class="menu">
-					{{ navbarItem .Path (.T "Android App") "http://mobile.enjuuprivate.tk/" }}
-					{{ navbarItem .Path (.T "YouTube") "https://www.youtube.com/channel/UCOZ5teZ20-z0RUQ3ksGWbNA" }}
-					{{ navbarItem .Path (.T "Rules") "/doc/rules" }}
+					{{ navbarItem .Path (.T "YouTube" | printf "<i class=\"blue youtube icon\"></i>%s") "https://www.youtube.com/channel/UCOZ5teZ20-z0RUQ3ksGWbNA" }}
+					{{ navbarItem .Path (.T "Twitter" | printf "<i class=\"blue twitter icon\"></i>%s") "https://twitter.com/OEnjuu" }}
 					<div class="divider"></div>
-					{{ navbarItem .Path (.T "Chat (Discord)") .Conf.DiscordServer }}
-					{{ navbarItem .Path (.T "Contact support") "https://discord.gg/eQAfN5P" }}
+					{{ navbarItem .Path (.T "Chat (Discord)" | printf "<i class=\"blue chat icon\"></i>%s") .Conf.DiscordServer }}
+					{{ navbarItem .Path (.T "Contact support" | printf "<i class=\"blue phone icon\"></i>%s") "https://discord.gg/eQAfN5P" }}
 				</div>
 			</div>
 			{{ if .Context.User.Username }}
 			<div class="ui dropdown item">
 				<span>{{ .T "Beatmaps" }}</span>
 				<div class="menu">
-					{{ navbarItem .Path (.T "Request beatmap ranking") "/beatmaps/rank_request" }}
+					{{ navbarItem .Path (.T "Request beatmap ranking") "https://discord.gg/g2hGut8" }}
 					<div class="divider"></div>
 					{{ navbarItem .Path (.T "Bloodcat (BM Mirror)") "http://bloodcat.com/osu/" }}
 					{{ navbarItem .Path (.T "Hexide (BM Mirror)") "https://osu.hexide.com/list/" }}
@@ -39,7 +38,8 @@
 				</div>
 			</div>
 			{{ end }}
-			{{ navbarItem .Path (.T "Download Switcher" | printf "<i class=\"blue cloud download icon\"></i>%s") "http://space.enjuu.click/EnjuuSwitcher/" }}
+			{{ navbarItem .Path (.T "Download Switcher" | printf "<i class=\"blue download icon\"></i>%s") "http://space.enjuu.click/EnjuuSwitcher/" }}
+			{{ navbarItem .Path (.T "Enjuu!Search" | printf "<i class=\"blue search icon\"></i>%s") "http://search.enjuu.click/" }}
 			{{ if $isAdmin }}{{ navbarItem .Path (.T "EAP" | printf "<b>%s</b>") "https://old.enjuu.click/index.php?p=100" }}{{ end }}
 		{{ end }}
 		<div class="firetrucking-right-menu">

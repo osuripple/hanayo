@@ -7,16 +7,16 @@
 		{{ .T "<b class='big text'>Do not let anyone except yourself log into your Enjuu account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting." (config "DiscordServer") | html }}
 	</div>
 	<div class="ui segment">
-		<h1 class="ui heading">{{ .T "<a href='/doc/1'>The Guide,</a> tl;dr version" | html }}</h1>
+		<h1 class="ui heading">{{ .T "The Guide" | html }}</h1>
 		<ol class="ui list">
-			<li><a href="http://space.enjuu.click/dl/exe/EnjuuSwitcher.exe"><b>{{ .T "Download the server switcher" }}</b></a></li>
+			<li><a href="http://space.enjuu.click/EnjuuSwitcher/"><b>{{ .T "Download the server switcher" }}</b></a></li>
 			<li>{{ .T "Extract it, disable your antivirus, execute it <b>as administrator</b>" | html }}</li>
 			<li>{{ .T "Click on <b>install certificate</b>, then <b>Yes</b>" | html }}</li>
 			<li>{{ .T "Make sure the switcher says you're playing on <b>Enjuu</b> server, if not click <b>On/Off</b>" | html }}</li>
 			<li>{{ .T "If it says something about read-only mode, go to <code>C:\\Windows\\System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure it's not set to \"Read only\"." }}</li>
 		</ol>
 		<p>
-			{{ .T "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #help channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this." (config "DiscordServer") }}
+			{{ .T "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #support channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this." (config "DiscordServer") }}
 		</p>
 	</div>
 	<div class="ui center aligned segment">
