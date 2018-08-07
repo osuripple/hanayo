@@ -478,6 +478,9 @@ msgstr ""
 msgid "download (no video)"
 msgstr ""
 
+msgid "Rank in RAP"
+msgstr ""
+
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
 msgstr ""
