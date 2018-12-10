@@ -1,7 +1,17 @@
 #snow-container {
 	position: absolute;
 	width: 100%;
-	height: 175px;
+}
+
+@media (max-width: 700px) {
+	#snow-container {
+		height: 100px;
+	}
+}
+@media (min-width: 700px) {
+	#snow-container {
+		height: 175px;
+	}
 }
 
 #snow-container>div:first-child, .snow {
