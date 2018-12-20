@@ -13,10 +13,11 @@ type commit struct {
 	UnixTimestamp time.Time
 	Username      string
 	Subject       string
+	Repository    string
 }
 
 func createFromString(s string) (c commit) {
-	var r = strings.SplitN(s, "|", 4)
+	var r = strings.SplitN(s, "|", 5)
 	for i, v := range r {
 		switch i {
 		case 0:
@@ -31,6 +32,8 @@ func createFromString(s string) (c commit) {
 			c.Username = v
 		case 3:
 			c.Subject = v
+		case 4:
+			c.Repository = v
 		}
 	}
 	return
