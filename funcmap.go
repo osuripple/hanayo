@@ -492,6 +492,9 @@ var funcMap = template.FuncMap{
 		return common.Privileges(privs).String()
 	},
 	"htmlescaper": template.HTMLEscaper,
+	"hhmm": func(seconds float64) string {
+		return fmt.Sprintf("%02dh %02dm", int(math.Floor(seconds / 3600)), int(math.Floor(seconds / 60)) % 60)
+	},
 }
 
 var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
