@@ -287,7 +287,8 @@ function viewScoreInfo() {
 			count: Math.round(s.beatmap.difficulty2[modesShort[s.play_mode]]),
 	 }),
 		"Mods":				 getScoreMods(s.mods, true),
-		"Passed":			 T(s.completed >= 2 ? "Yes" : "No")
+		"Passed":			 T(s.completed >= 2 ? "Yes" : "No"),
+		"Personal high score": T(s.completed === 3 ? "Yes" : "No")
 	};
 
 	// hits data
