@@ -228,9 +228,14 @@ function loadScoresPage(type, mode) {
 		r.scores.forEach(function(v, idx){
 			scoreStore[v.id] = v;
 			var scoreRank = getRank(mode, v.mods, v.accuracy, v.count_300, v.count_100, v.count_50, v.count_miss);
-			table.append($("<tr class='new score-row' data-scoreid='" + v.id + "' />").append(
+			var scoreRankIcon = "<img src='/static/ranking-icons/" + scoreRank + ".svg' class='score rank' alt='" + scoreRank + "'> ";
+			var rowColor = '';
+			if (type === 'recent') {
+				rowColor = v.completed === 3 ? 'positive' : v.completed < 2 ? 'error' : '';
+			}
+			table.append($("<tr class='new score-row " + rowColor + "' data-scoreid='" + v.id + "' />").append(
 				$(
-					"<td><img src='/static/ranking-icons/" + scoreRank + ".svg' class='score rank' alt='" + scoreRank + "'> " +
+					"<td>" + (v.completed < 2 ? '' : scoreRankIcon) +
 					escapeHTML(v.beatmap.song_name) + " <b>" + getScoreMods(v.mods) + "</b> <i>(" + v.accuracy.toFixed(2) + "%)</i><br />" +
 					"<div class='subtitle'><time class='new timeago' datetime='" + v.time + "'>" + v.time + "</time></div></td>"
 				),
@@ -282,6 +287,7 @@ function viewScoreInfo() {
 			count: Math.round(s.beatmap.difficulty2[modesShort[s.play_mode]]),
 	 }),
 		"Mods":				 getScoreMods(s.mods, true),
+		"Passed":			 T(s.completed >= 2 ? "Yes" : "No")
 	};
 
 	// hits data
