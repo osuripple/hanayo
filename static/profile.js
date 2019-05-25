@@ -39,6 +39,40 @@ $(document).ready(function() {
 		});
 });
 
+function loadMostPlayedBeatmaps(mode) {
+	console.log(mostPlayedPage)
+	api('users/most_played', {id: userID, mode: mode, p: mostPlayedPage, l: 5}, function (resp) {
+		if (resp.beatmaps === null) {
+			return;
+		}
+		mostPlayedPage++
+		resp.beatmaps.forEach(function(el, idx) {
+			$("#most-played").append(
+				$("<tr />").append(
+					$("<td />").append(
+						$("<h4 class='ui image header' />").append(
+							$("<img src='https://assets.ppy.sh/beatmaps/" + el.beatmap.beatmapset_id + "/covers/list.jpg' class='ui mini rounded image'>"),
+							$("<div class='content' />").append(
+								$("<a href='/b/" + el.beatmap.beatmap_id + "' />").append(
+									$('<b />').text(el.beatmap.song_name),
+									// $('<i />').text(' by OwO')
+								)
+							)
+						)
+					),
+					$("<td class='right aligned' />").append(
+						$('<i class="play circle icon" />'),
+						$('<b />').text(el.playcount)
+					)
+				)
+			)
+		})
+		if (resp.beatmaps.length === 5) {
+			$('#load-more-most-played').removeClass('disabled')
+		}
+	})
+}
+
 function initialiseAchievements() {
 	api('users/achievements' + (currentUserID == userID ? '?all' : ''),
 		{id: userID}, function (resp) {
@@ -180,15 +214,40 @@ function initialiseScores(el, mode) {
 	el.attr("data-loaded", "1");
 	var best = defaultScoreTable.clone(true).addClass("orange");
 	var recent = defaultScoreTable.clone(true).addClass("blue");
+	var mostPlayedBeatmapsTable = $("<table class='ui table F-table yellow' data-mode='" + mode + "' />")
+			.append(
+					$("<thead />").append(
+							$("<tr />").append(
+									$("<th>"+ T("Beatmap") + "</th>"),
+									$("<th class='right aligned'>"+ T("Plays") + "</th>")
+							)
+					)
+			)
+			.append(
+					$('<tbody id="most-played" />')
+			)
+			.append(
+					$("<tfoot />").append(
+							$("<tr />").append(
+									$("<th colspan=2 />").append(
+											$("<div class='ui right floated pagination menu' />").append(
+													$("<a id='load-more-most-played' class='disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
+											)
+									)
+							)
+					)
+			)
 	best.attr("data-type", "best");
 	recent.attr("data-type", "recent");
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
-		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Best scores") + "</h2>", best),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("Best scores") + "</h2>", best),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
 	loadScoresPage("best", mode);
 	loadScoresPage("recent", mode);
+	loadMostPlayedBeatmaps(mode);
 };
 function loadMoreClick() {
 	var t = $(this);
@@ -199,6 +258,14 @@ function loadMoreClick() {
 	var mode = t.parents("div[data-mode]").data("mode");
 	loadScoresPage(type, mode);
 }
+function loadMoreMostPlayed() {
+	var t = $(this);
+	if (t.hasClass("disabled"))
+		return;
+	t.addClass("disabled");
+	var mode = t.parents("div[data-mode]").data("mode");
+	loadMostPlayedBeatmaps(mode);
+}
 // currentPage for each mode
 var currentPage = {
 	0: {best: 0, recent: 0},
@@ -206,6 +273,7 @@ var currentPage = {
 	2: {best: 0, recent: 0},
 	3: {best: 0, recent: 0},
 };
+var mostPlayedPage = 1
 var scoreStore = {};
 function loadScoresPage(type, mode) {
 	var table = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
@@ -215,10 +283,11 @@ function loadScoresPage(type, mode) {
 		type: type,
 		mode: mode,
 	});
+	var limit = type === 'best' ? 10 : 5;
 	api("users/scores/" + type, {
 		mode: mode,
 		p: page,
-		l: 20,
+		l: limit,
 		id: userID,
 	}, function(r) {
 		if (r.scores == null) {
@@ -248,7 +317,7 @@ function loadScoresPage(type, mode) {
 			e.stopPropagation();
 		}).removeClass("new");
 		var enable = true;
-		if (r.scores.length != 20)
+		if (r.scores.length !== limit)
 			enable = false;
 		disableLoadMoreButton(type, mode, enable);
 	});
