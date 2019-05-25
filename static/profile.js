@@ -68,8 +68,7 @@ function loadMostPlayedBeatmaps(mode) {
 			)
 		})
 		if (resp.beatmaps.length === 5) {
-			var el = mostPlayedTable.find('.load-more')
-			$(el).removeClass('disabled')
+			mostPlayedTable.find('.load-more').removeClass('disabled')
 		}
 	})
 }
@@ -225,7 +224,7 @@ function initialiseScores(el, mode) {
 					)
 			)
 			.append(
-					$('<tbody id="most-played" />')
+					$('<tbody />')
 			)
 			.append(
 					$("<tfoot />").append(
