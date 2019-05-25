@@ -40,14 +40,14 @@ $(document).ready(function() {
 });
 
 function loadMostPlayedBeatmaps(mode) {
-	console.log(mostPlayedPage)
-	api('users/most_played', {id: userID, mode: mode, p: mostPlayedPage, l: 5}, function (resp) {
+	var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
+	currentPage[mode].mostPlayed++
+	api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
 		if (resp.beatmaps === null) {
 			return;
 		}
-		mostPlayedPage++
 		resp.beatmaps.forEach(function(el, idx) {
-			$("#most-played").append(
+			mostPlayedTable.children('tbody').append(
 				$("<tr />").append(
 					$("<td />").append(
 						$("<h4 class='ui image header' />").append(
@@ -68,7 +68,8 @@ function loadMostPlayedBeatmaps(mode) {
 			)
 		})
 		if (resp.beatmaps.length === 5) {
-			$('#load-more-most-played').removeClass('disabled')
+			var el = mostPlayedTable.find('.load-more')
+			$(el).removeClass('disabled')
 		}
 	})
 }
@@ -231,7 +232,7 @@ function initialiseScores(el, mode) {
 							$("<tr />").append(
 									$("<th colspan=2 />").append(
 											$("<div class='ui right floated pagination menu' />").append(
-													$("<a id='load-more-most-played' class='disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
+													$("<a class='load-more disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
 											)
 									)
 							)
@@ -239,6 +240,7 @@ function initialiseScores(el, mode) {
 			)
 	best.attr("data-type", "best");
 	recent.attr("data-type", "recent");
+	mostPlayedBeatmapsTable.attr("data-type", "most-played");
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
 		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("Best scores") + "</h2>", best),
@@ -268,12 +270,11 @@ function loadMoreMostPlayed() {
 }
 // currentPage for each mode
 var currentPage = {
-	0: {best: 0, recent: 0},
-	1: {best: 0, recent: 0},
-	2: {best: 0, recent: 0},
-	3: {best: 0, recent: 0},
+	0: {best: 0, recent: 0, mostPlayed: 0},
+	1: {best: 0, recent: 0, mostPlayed: 0},
+	2: {best: 0, recent: 0, mostPlayed: 0},
+	3: {best: 0, recent: 0, mostPlayed: 0},
 };
-var mostPlayedPage = 1
 var scoreStore = {};
 function loadScoresPage(type, mode) {
 	var table = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
