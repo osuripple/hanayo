@@ -193,8 +193,6 @@
 				{{ range _range 4 }}
 					<div data-mode="{{ . }}" {{ if ne . (int $favouritemode) }} hidden{{ end }} data-loaded="0">
 					</div>
-					<div class="most-played" data-mode="{{ . }}" {{ if ne . (int $favouritemode) }} hidden{{ end }} data-loaded="0">
-					</div>
 				{{ end }}
 			</div>
 
