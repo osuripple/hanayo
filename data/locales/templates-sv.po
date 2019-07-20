@@ -1628,6 +1628,12 @@ msgstr ""
 "kan möjligtvis vara riktigt farligt! Använd endast detta med applikationer "
 "som du litar på."
 
+msgid "Access to Bancho"
+msgstr ""
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr ""
+
 msgid "Approve"
 msgstr "Godkänn"
 

@@ -1666,6 +1666,12 @@ msgstr ""
 "Esto es potencialmente peligroso! Usa esto solo con las aplicaciones en las "
 "que confías. "
 
+msgid "Access to Bancho"
+msgstr ""
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr ""
+
 msgid "Approve"
 msgstr "Aprobar"
 

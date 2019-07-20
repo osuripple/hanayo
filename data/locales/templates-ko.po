@@ -1514,6 +1514,12 @@ msgid ""
 "you trust."
 msgstr ""
 
+msgid "Access to Bancho"
+msgstr ""
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr ""
+
 msgid "Approve"
 msgstr "승인하기"
 

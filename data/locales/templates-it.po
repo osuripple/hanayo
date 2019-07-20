@@ -1668,6 +1668,12 @@ msgstr ""
 "Ripple. Questo è potenzialmente davvero pericoloso! Dai questo permesso "
 "soltanto alle applicazioni di cui ti fidi."
 
+msgid "Access to Bancho"
+msgstr "Accedere a Bancho"
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr "Questa applicazione potrà farti comparire online nel gioco ed utilizzare la chat."
+
 msgid "Approve"
 msgstr "Approva"
 

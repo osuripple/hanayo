@@ -1147,6 +1147,12 @@ msgstr ""
 msgid "This application will be able to make modifications to your Ripple account. This is potentially really dangerous! Use this only with applications that you trust."
 msgstr ""
 
+msgid "Access to Bancho"
+msgstr ""
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr ""
+
 msgid "Approve"
 msgstr ""
 

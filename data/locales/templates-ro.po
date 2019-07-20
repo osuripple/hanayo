@@ -1678,6 +1678,12 @@ msgstr ""
 "Aceasta poate fi foarte periculoasă. Foloseşte acest lucru doar cu aplicaţii "
 "în care ai încredere."
 
+msgid "Access to Bancho"
+msgstr ""
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr ""
+
 msgid "Approve"
 msgstr "Aprobă"
 
