@@ -177,6 +177,7 @@ type modeData struct {
 	RankedScore            uint64  `json:"ranked_score"`
 	TotalScore             uint64  `json:"total_score"`
 	PlayCount              int     `json:"playcount"`
+	PlayTime               int     `json:"play_time"`
 	ReplaysWatched         int     `json:"replays_watched"`
 	TotalHits              int     `json:"total_hits"`
 	Level                  float64 `json:"level"`
@@ -225,19 +226,19 @@ SELECT
 
 	users_stats.ranked_score_std, users_stats.total_score_std, users_stats.playcount_std,
 	users_stats.replays_watched_std, users_stats.total_hits_std,
-	users_stats.avg_accuracy_std, users_stats.pp_std,
+	users_stats.avg_accuracy_std, users_stats.pp_std, users_stats.playtime_std,
 
 	users_stats.ranked_score_taiko, users_stats.total_score_taiko, users_stats.playcount_taiko,
 	users_stats.replays_watched_taiko, users_stats.total_hits_taiko,
-	users_stats.avg_accuracy_taiko, users_stats.pp_taiko,
+	users_stats.avg_accuracy_taiko, users_stats.pp_taiko, users_stats.playtime_taiko,
 
 	users_stats.ranked_score_ctb, users_stats.total_score_ctb, users_stats.playcount_ctb,
 	users_stats.replays_watched_ctb, users_stats.total_hits_ctb,
-	users_stats.avg_accuracy_ctb, users_stats.pp_ctb,
+	users_stats.avg_accuracy_ctb, users_stats.pp_ctb, users_stats.playtime_ctb,
 
 	users_stats.ranked_score_mania, users_stats.total_score_mania, users_stats.playcount_mania,
 	users_stats.replays_watched_mania, users_stats.total_hits_mania,
-	users_stats.avg_accuracy_mania, users_stats.pp_mania,
+	users_stats.avg_accuracy_mania, users_stats.pp_mania, users_stats.playtime_mania,
 
 	users.silence_reason, users.silence_end,
 	users.notes, users.ban_datetime, users.email
@@ -265,19 +266,19 @@ LIMIT 1
 
 		&r.STD.RankedScore, &r.STD.TotalScore, &r.STD.PlayCount,
 		&r.STD.ReplaysWatched, &r.STD.TotalHits,
-		&r.STD.Accuracy, &r.STD.PP,
+		&r.STD.Accuracy, &r.STD.PP, &r.STD.PlayTime,
 
 		&r.Taiko.RankedScore, &r.Taiko.TotalScore, &r.Taiko.PlayCount,
 		&r.Taiko.ReplaysWatched, &r.Taiko.TotalHits,
-		&r.Taiko.Accuracy, &r.Taiko.PP,
+		&r.Taiko.Accuracy, &r.Taiko.PP, &r.Taiko.PlayTime,
 
 		&r.CTB.RankedScore, &r.CTB.TotalScore, &r.CTB.PlayCount,
 		&r.CTB.ReplaysWatched, &r.CTB.TotalHits,
-		&r.CTB.Accuracy, &r.CTB.PP,
+		&r.CTB.Accuracy, &r.CTB.PP, &r.CTB.PlayTime,
 
 		&r.Mania.RankedScore, &r.Mania.TotalScore, &r.Mania.PlayCount,
 		&r.Mania.ReplaysWatched, &r.Mania.TotalHits,
-		&r.Mania.Accuracy, &r.Mania.PP,
+		&r.Mania.Accuracy, &r.Mania.PP, &r.Mania.PlayTime,
 
 		&r.SilenceInfo.Reason, &r.SilenceInfo.End,
 		&r.CMNotes, &r.BanDate, &r.Email,

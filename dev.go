@@ -379,6 +379,7 @@ var scopeMap = map[string]string{
 	"identify":          "Identify",
 	"read_confidential": "Read private information",
 	"write":             "Write",
+	"bancho":            "Access to Bancho",
 }
 
 func (a authorization) Scopes(c *gin.Context) string {

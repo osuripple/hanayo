@@ -88,9 +88,9 @@ func initialCaretaker(c *fasthttp.RequestCtx, f func(md common.MethodData) commo
 	}
 
 	if md.HasQuery("callback") {
-		c.Response.Header.Add("Content-Type", "application/javascript; charset=utf-8")
+		c.Response.Header.SetContentType("application/javascript; charset=utf-8")
 	} else {
-		c.Response.Header.Add("Content-Type", "application/json; charset=utf-8")
+		c.Response.Header.SetContentType("application/json; charset=utf-8")
 	}
 
 	mkjson(c, resp)

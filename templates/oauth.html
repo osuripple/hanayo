@@ -30,6 +30,12 @@ MinPrivileges=2
 							{{ $.T "This application will be able to make modifications to your Ripple account. This is potentially really dangerous! Use this only with applications that you trust." }}
 						</p>
 					{{ end }}
+					{{ if eq . "bancho" }}
+						<h3 class="ui header"><i class="cloud icon"></i><div class="content">{{ $.T "Access to Bancho" }}</i></h3>
+						<p>
+							{{ $.T "This application will be able to make you appear online ingame and use the chat." }}
+						</p>
+					{{ end }}
 					<div class="ui section divider"></div>
 				{{ end }}
 				<p>

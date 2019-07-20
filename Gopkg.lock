@@ -341,7 +341,7 @@
   branch = "master"
   name = "zxq.co/ripple/rippleapi"
   packages = ["common"]
-  revision = "77ba8aee7849a37feb1a8ec8bb86ee95fddeeb52"
+  revision = "34f24b8de68b46de2cbbfce71bb17c8ad1279f0f"
 
 [[projects]]
   branch = "master"

@@ -777,7 +777,7 @@ function T(s, settings) {
 var apiPrivileges = [
   "ReadConfidential", "Write", "ManageBadges", "BetaKeys", "ManageSettings",
   "ViewUserAdvanced", "ManageUser", "ManageRoles", "ManageAPIKeys", "Blog",
-  "APIMeta", "Beatmap"
+  "APIMeta", "Beatmap", "Bancho"
 ];
 
 function privilegesToString(privs) {
