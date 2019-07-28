@@ -10,6 +10,15 @@ MinPrivileges=2
 	<div class="ui raised segment center aligned">
 		{{ $f := ieForm .Gin }}
 		<h4>{{ .T "Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!" }}</h4>
+        <p>The "Ranking Criteria" are as followed:</p>
+        <table>
+            <tr><td>Follows the <a href="https://osu.ppy.sh/help/wiki/Ranking_Criteria/">Bancho Ranking Criteria</a> to some extend</td></tr>
+            <tr><td>No clear abuse of any systems (pp/stars)</td></tr>
+            <tr><td>No speedup or re-upload of existing maps</td></tr>
+            <tr><td>No Jump/Stream Training Compilations</td></tr>
+            <tr><td>At least 66% Completion for 7+ Minute songs, anything else completely mapped</td></tr>
+            <tr><td>Popularity does not mean rankable</td></tr>
+        </table>
 		{{ with .Get "beatmaps/rank_requests/status" }}
 			<h4 class="ui horizontal divider header">
 				<i class="wait icon"></i>
