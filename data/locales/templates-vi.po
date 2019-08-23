@@ -1672,3 +1672,24 @@ msgstr "Gửi đơn khiếu nại về việc bị cấm hay bị hạn chế ho
 
 msgid "I have read and understood everything on this page."
 msgstr "Tôi đã đọc và hiểu mọi thứ trên trang này"
+
+msgid "The 'Ranking Criteria' are as follows:"
+msgstr ""
+
+msgid "Follow the <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho Ranking Criteria</a> to some extend"
+msgstr ""
+
+msgid "No clear abuse of any systems (pp/stars)"
+msgstr ""
+
+msgid "No speedup or re-upload of existing maps"
+msgstr ""
+
+msgid "No Jump/Stream Training Compilations"
+msgstr ""
+
+msgid "At least 66% Completion for 7+ Minute songs, anything else completely mapped"
+msgstr ""
+
+msgid "Popularity does not mean rankable"
+msgstr ""

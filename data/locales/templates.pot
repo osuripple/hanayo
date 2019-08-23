@@ -1238,3 +1238,24 @@ msgstr ""
 
 msgid "The Ripple API is the system through which developers can create applications to interact with Ripple. <b>If you're asked to fill out an API token from this page, be wary and only actually create the token if you really trust the owner of the application.</b>"
 msgstr ""
+
+msgid "The 'Ranking Criteria' are as follows:"
+msgstr ""
+
+msgid "Follow the <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho Ranking Criteria</a> to some extend"
+msgstr ""
+
+msgid "No clear abuse of any systems (pp/stars)"
+msgstr ""
+
+msgid "No speedup or re-upload of existing maps"
+msgstr ""
+
+msgid "No Jump/Stream Training Compilations"
+msgstr ""
+
+msgid "At least 66% Completion for 7+ Minute songs, anything else completely mapped"
+msgstr ""
+
+msgid "Popularity does not mean rankable"
+msgstr ""
