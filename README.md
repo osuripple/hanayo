@@ -5,6 +5,12 @@ This repository has a mirror [here](https://github.com/osuripple/hanayo). The or
 # Requirements
 * GO with proper $GOPATH
 
+# Extras 
+* Ripple API
+* Database
+* Server
+* Mutual Connection
+
 # Setting Up Hanayo
 ```bash
 $ go get -u github.com/light-ripple/hanayo
