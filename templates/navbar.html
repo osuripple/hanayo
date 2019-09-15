@@ -17,6 +17,15 @@
 		{{ else }}
 			{{ navbarItem .Path (.T "Leaderboard") "/leaderboard" }}
 			<div class="ui dropdown item">
+				<span>{{ .T "Community" }}</span>
+				<div class="menu">
+					{{ navbarItem .Path (.T "Multiplayer listing") "https://vinse.ripple.moe" }}
+					{{/* {{ navbarItem .Path (.T "Tournaments") "https://tourn.ripple.moe" }} */}}
+					<div class="divider"></div>
+					{{ navbarItem .Path (.T "Discord Server") .Conf.DiscordServer }}
+				</div>
+			</div>
+			<div class="ui dropdown item">
 				<span>{{ .T "Help" }}</span>
 				<div class="menu">
 					{{ navbarItem .Path (.T "About") "/about" }}
@@ -24,7 +33,6 @@
 					{{ navbarItem .Path (.T "Documentation") "/doc" }}
 					{{ navbarItem .Path (.T "Server switcher") "https://mu.nyodev.xyz/upd.php?id=18" }}
 					<div class="divider"></div>
-					{{ navbarItem .Path (.T "Chat (Discord)") .Conf.DiscordServer }}
 					{{ navbarItem .Path (.T "Contact support") "https://support.ripple.moe" }}
 				</div>
 			</div>
