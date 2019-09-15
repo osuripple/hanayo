@@ -134,9 +134,22 @@ body.ds .white.background {
 .user.avatar {
 	float: left;
 	overflow: auto;
-	padding-right: 10px;
+	margin-right: 10px;
 	display: block;
 	height: 80px;
+	border-radius: 7px;
+}
+
+.ui.avatar.offline {
+	box-shadow: 0px 0px 7px gray;
+}
+
+.ui.avatar.online {
+	box-shadow: 0px 0px 7px #5dd136;
+}
+
+.ui.avatar.irc {
+	box-shadow: 0px 0px 7px #34abeb;
 }
 
 .ui.attached.segment {
