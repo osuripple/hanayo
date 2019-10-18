@@ -96,8 +96,8 @@ func GetFile(slug, language string) File {
 }
 
 var (
-	ipMain        = "51.15.223.146"
-	ipMirror      = "51.15.223.146"
+	ipMain        = "51.15.26.118"
+	ipMirror      = "51.15.26.118"
 	ipLastUpdated = time.Date(2018, 5, 13, 11, 45, 0, 0, time.UTC)
 	ipRegex       = regexp.MustCompile(`^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$`)
 )
