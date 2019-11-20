@@ -516,7 +516,7 @@ function showMessage(type, message) {
 };
 
 // function for all api calls
-function _api(base, endpoint, data, success, failure, post) {
+function _api(base, endpoint, data, success, failure, post, handleAllFailures) {
   if (typeof data == "function") {
     success = data;
     data = null;
@@ -525,6 +525,7 @@ function _api(base, endpoint, data, success, failure, post) {
     post = failure;
     failure = undefined;
   }
+  handleAllFailures = (typeof handleAllFailures !== undefined) ? handleAllFailures : false;
 
   var errorMessage =
       "An error occurred while contacting the Ripple API. Please report this to a Ripple developer.";
@@ -537,8 +538,9 @@ function _api(base, endpoint, data, success, failure, post) {
     contentType : (post ? "application/json; charset=utf-8" : ""),
     success : function(data) {
       if (data.code != 200) {
-        if ((data.code >= 400 && data.code < 500) &&
-            typeof failure == "function") {
+        if (typeof failure === "function" &&
+          (handleAllFailures || (data.code >= 400 && data.code < 500))
+        ) {
           failure(data);
           return;
         }
@@ -548,8 +550,9 @@ function _api(base, endpoint, data, success, failure, post) {
       success(data);
     },
     error : function(jqXHR, textStatus, errorThrown) {
-      if ((jqXHR.status >= 400 && jqXHR.status < 500) &&
-          typeof failure == "function") {
+      if (typeof failure == "function" &&
+        (handleAllFailures || (jqXHR.status >= 400 && jqXHR.status < 500))
+      ) {
         failure(jqXHR.responseJSON);
         return;
       }
@@ -559,12 +562,20 @@ function _api(base, endpoint, data, success, failure, post) {
   });
 };
 
-function api(endpoint, data, success, failure, post) {
-  return _api(hanayoConf.baseAPI + "/api/v1/", endpoint, data, success, failure, post);
+function api(endpoint, data, success, failure, post, handleAllFailures) {
+  return _api(hanayoConf.baseAPI + "/api/v1/", endpoint, data, success, failure, post, handleAllFailures);
 }
 
-function banchoAPI(endpoint, data, success, failure, post) {
-  return _api(hanayoConf.banchoAPI + "/api/v2/", endpoint, data, success, failure, post);
+function banchoAPI(endpoint, data, success, failure, post, handleAllFailures) {
+  // By default, ignore all bancho api failures (do not display messages on the website)
+  if (typeof failure === "undefined") {
+    handleAllFailures = true;
+    failure = function(data) {
+      console.warn("Silently failing.");
+      console.warn(data);
+    };
+  }
+  return _api(hanayoConf.banchoAPI + "/api/v2/", endpoint, data, success, failure, post, handleAllFailures);
 }
 
 var modes = {
