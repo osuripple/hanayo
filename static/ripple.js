@@ -484,6 +484,22 @@ $(document)
         document.cookie = "language=" + lang + ";path=/;max-age=31536000";
         window.location.reload();
       });
+
+    // Color navbar avatar (if we're logged in) based on our bancho status
+    // (propritize bancho over irc)
+    if (isLoggedIn()) {
+      banchoAPI('clients/' + currentUserID, {}, function(resp) {
+        var onlineClass = "offline";
+        resp.clients.forEach(function(el) {
+          if (el.type === 0) {
+            onlineClass = "online";
+          } else if (el.type === 1 && onlineClass !== "online") {
+            onlineClass = "irc";
+          }
+        });
+        $("#avatar").addClass(onlineClass);
+      })
+    }
   });
 
 function closeClosestMessage() {
@@ -500,7 +516,7 @@ function showMessage(type, message) {
 };
 
 // function for all api calls
-function api(endpoint, data, success, failure, post) {
+function _api(base, endpoint, data, success, failure, post) {
   if (typeof data == "function") {
     success = data;
     data = null;
@@ -516,7 +532,7 @@ function api(endpoint, data, success, failure, post) {
   $.ajax({
     method : (post ? "POST" : "GET"),
     dataType : "json",
-    url : hanayoConf.baseAPI + "/api/v1/" + endpoint,
+    url : base + endpoint,
     data : (post ? JSON.stringify(data) : data),
     contentType : (post ? "application/json; charset=utf-8" : ""),
     success : function(data) {
@@ -542,6 +558,14 @@ function api(endpoint, data, success, failure, post) {
     },
   });
 };
+
+function api(endpoint, data, success, failure, post) {
+  return _api(hanayoConf.baseAPI + "/api/v1/", endpoint, data, success, failure, post);
+}
+
+function banchoAPI(endpoint, data, success, failure, post) {
+  return _api(hanayoConf.banchoAPI + "/api/v2/", endpoint, data, success, failure, post);
+}
 
 var modes = {
   0 : "osu! standard",
@@ -787,4 +811,8 @@ function privilegesToString(privs) {
       privList.push(value);
   });
   return privList.join(", ");
+}
+
+function isLoggedIn() {
+  return currentUserID > 0;
 }
