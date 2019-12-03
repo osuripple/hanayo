@@ -41,8 +41,6 @@ var pageMappings = map[int]interface{}{
 	26: "/friends",
 	27: "https://status.ripple.moe",
 	28: "/", // user lookup
-	29: "/2fa_gateway",
-	30: "/settings/2fa",
 	31: "/beatmaps/rank_request",
 	32: "/dev/applications",
 	33: "/dev/applications", // Theorically, this should be something like /dev/applications/<id>, but no-one ever used that page so who gives a fuck.

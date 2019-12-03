@@ -270,7 +270,6 @@ func generateEngine() *gin.Engine {
 		sessions.Sessions("session", store),
 		sessionInitializer(),
 		rateLimiter(false),
-		twoFALock,
 	)
 
 	r.Static("/static", "static")
@@ -291,12 +290,6 @@ func generateEngine() *gin.Engine {
 	r.GET("/pwreset/continue", passwordResetContinue)
 	r.POST("/pwreset/continue", passwordResetContinueSubmit)
 
-	r.GET("/2fa_gateway", tfaGateway)
-	r.GET("/2fa_gateway/clear", clear2fa)
-	r.GET("/2fa_gateway/verify", verify2fa)
-	r.GET("/2fa_gateway/recover", recover2fa)
-	r.POST("/2fa_gateway/recover", recover2faSubmit)
-
 	r.POST("/irc/generate", ircGenToken)
 
 	r.GET("/settings/password", changePassword)
@@ -305,8 +298,6 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
-	r.POST("/settings/2fa/disable", disable2fa)
-	r.POST("/settings/2fa/totp", totpSetup)
 	r.GET("/settings/discord/finish", discordFinish)
 	r.POST("/settings/profbackground/:type", profBackground)
 

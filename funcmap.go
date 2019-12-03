@@ -406,10 +406,6 @@ var funcMap = template.FuncMap{
 	"calculateDonorPrice": func(a float64) string {
 		return fmt.Sprintf("%.2f", math.Pow(a*30*0.2, 0.7))
 	},
-	// is2faEnabled checks 2fa is enabled for an user
-	"is2faEnabled": is2faEnabled,
-	// get2faConfirmationToken retrieves the current confirmation token for a certain user.
-	"get2faConfirmationToken": get2faConfirmationToken,
 	// csrfGenerate creates a csrf token input
 	"csrfGenerate": func(u int) template.HTML {
 		return template.HTML(`<input type="hidden" name="csrf" value="` + mustCSRFGenerate(u) + `">`)
@@ -445,15 +441,6 @@ var funcMap = template.FuncMap{
 	// version gets what's the current Hanayo version.
 	"version": func() string {
 		return version
-	},
-	"generateKey": generateKey,
-	// getKeys gets the recovery 2fa keys for an user
-	"getKeys": func(id int) []string {
-		var keyRaw string
-		db.Get(&keyRaw, "SELECT recovery FROM 2fa_totp WHERE userid = ?", id)
-		s := make([]string, 0, 8)
-		json.Unmarshal([]byte(keyRaw), &s)
-		return s
 	},
 	// rediget retrieves a value from redis.
 	"rediget": func(k string) string {
@@ -612,4 +599,12 @@ var languageInformation = []langInfo{
 	{"Svenska", "se", "sv"},
 	{"Tiếng Việt Nam", "vn", "vi"},
 	{"한국어", "kr", "ko"},
+}
+
+func clientIP(c *gin.Context) string {
+	ff := c.Request.Header.Get("CF-Connecting-IP")
+	if ff != "" {
+		return ff
+	}
+	return c.ClientIP()
 }
