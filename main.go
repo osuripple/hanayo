@@ -22,8 +22,6 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/agplwarning"
-	"github.com/kawatapw/hanayo/modules/btcaddress"
-	"github.com/kawatapw/hanayo/modules/btcconversions"
 	"github.com/kawatapw/hanayo/routers/pagemappings"
 	"github.com/kawatapw/hanayo/services"
 	"github.com/kawatapw/hanayo/services/cieca"
@@ -167,11 +165,6 @@ func main() {
 		Password: config.RedisPassword,
 	})
 
-	// initialise btcaddress
-	btcaddress.Redis = rd
-	btcaddress.APIKey = config.CoinbaseAPIKey
-	btcaddress.APISecret = config.CoinbaseAPISecret
-
 	// even if it's not release, we say that it's release
 	// so that gin doesn't spam
 	gin.SetMode(gin.ReleaseMode)
@@ -280,8 +273,6 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/profbackground/:type", profBackground)
-
-	r.GET("/donate/rates", btcconversions.GetRates)
 
 	loadSimplePages(r)
 
