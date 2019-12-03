@@ -24,7 +24,6 @@ import (
 	"zxq.co/ripple/agplwarning"
 	"github.com/kawatapw/hanayo/modules/btcaddress"
 	"github.com/kawatapw/hanayo/modules/btcconversions"
-	"github.com/kawatapw/hanayo/routers/oauth"
 	"github.com/kawatapw/hanayo/routers/pagemappings"
 	"github.com/kawatapw/hanayo/services"
 	"github.com/kawatapw/hanayo/services/cieca"
@@ -169,9 +168,6 @@ func main() {
 		Password: config.RedisPassword,
 	})
 
-	// initialise oauth
-	setUpOauth()
-
 	// initialise btcaddress
 	btcaddress.Redis = rd
 	btcaddress.APIKey = config.CoinbaseAPIKey
@@ -286,25 +282,10 @@ func generateEngine() *gin.Engine {
 	r.POST("/irc/generate", ircGenToken)
 
 	r.GET("/settings/password", changePassword)
-	r.GET("/settings/authorized_applications", authorizedApplications)
-	r.POST("/settings/authorized_applications/revoke", revokeAuthorization)
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/profbackground/:type", profBackground)
-
-	r.POST("/dev/tokens/create", createAPIToken)
-	r.POST("/dev/tokens/delete", deleteAPIToken)
-	r.POST("/dev/tokens/edit", editAPIToken)
-	r.GET("/dev/apps", getOAuthApplications)
-	r.GET("/dev/apps/edit", editOAuthApplication)
-	r.POST("/dev/apps/edit", editOAuthApplicationSubmit)
-	r.POST("/dev/apps/delete", deleteOAuthApplication)
-
-	r.GET("/oauth/authorize", oauth.Authorize)
-	r.POST("/oauth/authorize", oauth.Authorize)
-	r.GET("/oauth/token", oauth.Token)
-	r.POST("/oauth/token", oauth.Token)
 
 	r.GET("/donate/rates", btcconversions.GetRates)
 

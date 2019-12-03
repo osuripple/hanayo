@@ -42,8 +42,6 @@ var pageMappings = map[int]interface{}{
 	27: "https://status.ripple.moe",
 	28: "/", // user lookup
 	31: "/beatmaps/rank_request",
-	32: "/dev/applications",
-	33: "/dev/applications", // Theorically, this should be something like /dev/applications/<id>, but no-one ever used that page so who gives a fuck.
 	34: "/donate",
 	35: "/team",
 	36: "/irc",

@@ -390,13 +390,6 @@ var singlePageSnippets = {
         $("#image-background").empty().append(i);
       });
   },
-
-  "/dev/tokens": function () {
-    $("#privileges-number")
-      .on("input", function () {
-        $("#privileges-text").text(privilegesToString($(this).val()));
-      });
-  }
 };
 
 $(document)

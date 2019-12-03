@@ -12,8 +12,6 @@ NoCompile=true
 
 		{{ navbarItem .Path (.T "Password") "/settings/password" }}
 
-		{{ navbarItem .Path (.T "Authorized applications") "/settings/authorized_applications" }}
-
 		{{/* Stuff for donators */}}
 		{{ if has .Context.User.Privileges 4 }}
 
