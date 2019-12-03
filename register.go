@@ -2,8 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
-	"net/url"
 	"regexp"
 	"strconv"
 	"strings"
@@ -12,7 +10,6 @@ import (
 	"github.com/asaskevich/govalidator"
 	"github.com/gin-gonic/gin"
 	"github.com/kawatapw/api/common"
-	"zxq.co/ripple/schiavolib"
 )
 
 func register(c *gin.Context) {
@@ -94,16 +91,6 @@ func registerSubmit(c *gin.Context) {
 		return
 	}
 
-	uMulti, criteria := tryBotnets(c)
-	if criteria != "" {
-		schiavo.CMs.Send(
-			fmt.Sprintf(
-				"User **%s** registered with the same %s as %s (%s/u/%s). **POSSIBLE MULTIACCOUNT!!!**. Waiting for ingame verification...",
-				username, criteria, uMulti, config.BaseURL, url.QueryEscape(uMulti),
-			),
-		)
-	}
-
 	// The actual registration.
 	pass, err := generatePassword(c.PostForm("password"))
 	if err != nil {
@@ -121,8 +108,6 @@ func registerSubmit(c *gin.Context) {
 	lid, _ := res.LastInsertId()
 
 	db.Exec("INSERT INTO `users_stats`(id, username, user_color, user_style, ranked_score_std, playcount_std, total_score_std, ranked_score_taiko, playcount_taiko, total_score_taiko, ranked_score_ctb, playcount_ctb, total_score_ctb, ranked_score_mania, playcount_mania, total_score_mania) VALUES (?, ?, 'black', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);", lid, username)
-
-	schiavo.CMs.Send(fmt.Sprintf("User (**%s** | %s) registered from %s", username, c.PostForm("email"), clientIP(c)))
 
 	setYCookie(int(lid), c)
 	logIP(c, int(lid))

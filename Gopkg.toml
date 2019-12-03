@@ -155,10 +155,6 @@
 
 [[constraint]]
   branch = "master"
-  name = "zxq.co/ripple/schiavolib"
-
-[[constraint]]
-  branch = "master"
   name = "zxq.co/x/rs"
 
 [prune]
