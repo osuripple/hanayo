@@ -49,17 +49,35 @@
 						{{ end }}
 					</div>
 					<div class="table element">
-						<h1 class="ui header">
-							{{ .username }}
-						</h1>
+					<h1 class="ui header">
+						{{ .username }}
+					</h1>
 						{{ if .username_aka }}
 							<div class="subtitle">
-								{{ $global.T "(aka <b>%s</b>)" (.username_aka | htmlescaper) | html }}
+								{{ $global.T "<b>%s</b>" (.username_aka | htmlescaper) | html }}
 							</div>
 						{{ end }}
-						{{ with bgetv1 "isOnline?id=%.0f" .id }}
+						<div class="ui grid" id="badgescol">
+						{{ if and (not .badges) (not .custom_badge) }}
+							{{ else }}
+								{{ range .badges }}
+									<div class="column" id="badges">
+										<i class="{{ faIcon .icon }} large icon"></i><br>
+									</div>
+								{{ end }}
+								<br>
+								{{ with .custom_badge }}
+								<div class="column" id="badges">
+									<i class="{{ faIcon .icon }} large icon"></i><br>
+								</div>
+								{{ end }}
+
+						{{ end }}
+						</div>
+
+						{{ with bget "isOnline?id=%.0f" .id }}
 							<div class="subtitle">
-								<i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
+								<br><br><i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
 								{{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }}
 							</div>
 						{{ end }}
@@ -83,7 +101,7 @@
 								</a>
 							{{ end }}
 							{{ if hasAdmin $global.Context.User.Privileges }}
-								<a href="https://old.ripple.moe/index.php?p=103&id={{ $global.UserID }}"
+								<a href="https://old.kawata.pw/index.php?p=103&id={{ $global.UserID }}"
 									target="_blank" title="Quick edit" class="ui circular mini blue icon button">
 									<i class="folder open outline icon"></i>
 								</a>
@@ -102,30 +120,13 @@
 				<div class="ui three column divided stackable grid">
 					<div class="row">
 						<div class="column">
-							{{ $global.T "<b>%s</b> is a Ripple player from <b>%s</b>." .username (country .country true) | html }}
-							<br>{{ $global.T "They signed up on Ripple %s." (time $user.registered_on) | html }}
+							{{ $global.T "<b>%s</b> is a Kawata player from <b>%s</b>." .username (country .country true) | html }}
+							<br>{{ $global.T "They signed up on Kawata %s." (time $user.registered_on) | html }}
 							<br>{{ $global.T "Last seen: %s." (time $user.latest_activity) | html }}
 							<br>{{ with playstyle .play_style $global }}{{ $global.T "They play with %s." . }}{{ end }}
 						</div>
 						<div class="column">
-							{{ if and (not .badges) (not .custom_badge) }}
-								{{ $global.T "This user hasn't got any badges!" }}
-							{{ else }}
-								<div class="ui grid">
-									{{ range .badges }}
-										<div class="eight wide centered column">
-											<i class="circular {{ faIcon .icon }} big icon"></i><br>
-											<b>{{ .name }}</b>
-										</div>
-									{{ end }}
-									{{ with .custom_badge }}
-										<div class="eight wide centered column">
-											<i class="circular {{ faIcon .icon }} big icon"></i><br>
-											<b><i>{{ .name }}</i></b>
-										</div>
-									{{ end }}
-								</div>
-							{{ end }}
+
 						</div>
 						<div class="column">
 							{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
@@ -201,7 +202,7 @@
 				<div id="achievements" class="ui grid">
 				</div>
 				<div class="right aligned">
-					<button class="ui disabled button" id="load-more-achievements">
+					<button class="ui button" id="load-more-achievements">
 						{{ $global.T "Load more" }}
 					</button>
 				</div>

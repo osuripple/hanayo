@@ -1,0 +1,31 @@
+{{/*###
+Handler=/settings/delete
+TitleBar=Delete Account
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+    <div class="ui container">
+        <div class="ui stackable grid">
+            {{ template "settingsSidebar" . }}
+            <div class="twelve wide column">
+                <div class="ui segment">
+                    <h3 class="ui header">{{ .T "Delete your account" }}</h3>
+                    <span id="deletewarning">
+                        <br>
+                        <i class="red big warning icon"></i>
+                        <br><br>
+                        <p align="center">WARNING: This operation will delete your account, and ALL the data associated to it.</p>
+                        <p align="center">After deleting your account, you are NOT allowed to create a new one. If you are looking to have your account wiped, please file a wipe request.</p>
+                    </span>
+                    <div class="ui divider"></div>
+    
+                    <div style="text-align: right">
+                        <button onclick="window.location.href = '/settings/delete/confirm';" class="btn-hover color-11">{{ .T "Delete Account" }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}

@@ -1,0 +1,31 @@
+{{/*###
+Handler=/settings/delete/confirm
+TitleBar=ARE YOU TOTALLY SURE?!
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="sixteen wide column">
+                <div class="ui segment">
+                    <span id="deletewarning2">
+                        <strong><h1 align="center">THIS IS THE LAST WARNING: Your account will be gone for ever, after confirming!</h1></strong>
+                    </span>
+                    <div class="ui divider"></div>
+                        <h4>To confirm, please type <span style="font-size: 1.3rem">"Yes, I am totally sure"</span>;</h4>
+                    <div class="ui divider"></div>
+                    <div style="text-align: right">
+                        <form action="/settings/delete/confirm" method="post" class="ui form">
+                            <div class="field">
+                                <input type="text" name="confirm">
+                            </div>
+                            <button type="submit" class="btn-hover color-11">{{ .T "Submit" }}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}

@@ -10,14 +10,18 @@ NoCompile=true
 
 		{{ navbarItem .Path (.T "Avatar") "/settings/avatar" }}
 
-		{{ navbarItem .Path (.T "Password") "/settings/password" }}
+		{{ navbarItem .Path (.T "Email & Password") "/settings/password" }}
+
+		{{ navbarItem .Path (.T "Clan") "/settings/clansettings" }}
 
 		{{/* Stuff for donators */}}
 		{{ if has .Context.User.Privileges 4 }}
 
-			{{ navbarItem .Path (.T "Profile background") "/settings/profbackground" }}
+		{{ navbarItem .Path (.T "Profile background") "/settings/profbackground" }}
 
 		{{ end }}
+
+		{{ navbarItem .Path (.T "Delete Account") "/settings/delete" }}
 	</div>
 </div>
 {{ end }}

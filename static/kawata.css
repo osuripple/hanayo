@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Color */
+
+body.ds .white.background {
+    background-color: rgba(247, 247, 247, 0.4) !important;
+}
+
+body {
+    background: url("https://kawata.pw/static/assets/background/bg-light.png");
+}
+
+.ui.vertical.menu {
+    background: #f5f5f57d;
+}
+
+.ui.menu .dropdown.item .menu{
+    background: url("/static/assets/background/bg-light.png");
+}
+
+.ui.modal>.content {
+    background: #f8f8f8;
+}
+
+.ui.table {
+    background: #ffffff;
+}
+
+#userinfo {
+    padding: 1.1rem;
+    margin-left: 1.05rem;
+}
+
+.ui.table thead th {
+    background: #eeeeee;
+}
+
+.ui.table tr td {
+    background: #fafafa;
+}
+
+.ui.table tfoot th {
+    background: #eeeeee;
+}
+
+.ui.segments {
+    background: #f5f5f598;
+    border: none;
+    box-shadow: none;
+}
+
+.ui.menu {
+    background: #f7f7f7;
+    box-shadow: none;
+    border: none;
+}
+
+#jumbotron {
+    position:relative;
+    height:auto;
+    overflow:auto;
+    background: rgba(250, 250, 250, 0.4)
+}
+
+.ui.search>.results {
+    background: #e6e6e6;
+    border: none;
+    box-shadow: 0 0 10px 8px #cacaca;
+}
+
+.ui.card {
+    background: #f8f8f8;
+    box-shadow: 0 0 20px 7px rgb(255, 255, 255);
+}
+
+.huge.heading h1 {
+    color: black;
+    text-shadow: 0 0 0px #000;
+}
+
+/* Color Independant */
+
+p {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+}
+
+.active.item {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-weight: 400;
+}
+
+.item {
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-weight: 400;
+}
+
+#deletewarning {
+    color: orange;
+    font-size: 1.1rem;
+}
+
+ #deletewarning2 {
+    color: red;
+    font-size: 1.1rem;
+}
+
+.user.avatar {
+    border-radius: 50%;
+}
+
+.huge.heading {
+    background: none;
+    height: 50%;
+}
+
+.huge.heading h1 {
+    padding: 3.0rem;
+    font-family: 'Noto Sans', 'Helvetica', 'Arial';
+    font-size: 3.0rem;
+}
+
+.ui.attached.segment {
+    border: none;
+}
+
+.ui.attached.menu:not(.tabular) {
+    border: none;
+}
+
+.ui.table {
+    border: none;
+}
+
+#badges {
+    margin: 5px;
+}
+
+#username {
+    float: left;
+}
+
+#badgescol {
+    float: left;
+}
+
+#userdropdown {
+    width: 20rem;
+}
+
+#welcome {
+    width: 95%;
+    text-align: left;
+    padding-top: 1.1rem;
+}
+
+.buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.ui.search>.results img {
+    border-radius: 50%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.onlineusers {
+    color: #DD5F03;
+}
+
+/* Buttons */
+
+.btn-hover {
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    height: 45px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.btn-hover:focus {
+    outline: none;
+}
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+       background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}

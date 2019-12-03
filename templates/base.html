@@ -1,59 +1,39 @@
-{{ define "base" }}
-{{ $cf := .ClientFlags }}
-{{ $ds := band $cf 1 }}
-{{ $   := . }}
+{{ define "base" }}{{ $cf := .ClientFlags }}{{ $ds := band $cf 1 }}{{ $   := . }}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ if .TitleBar }}{{ .T .TitleBar }} - {{ end }}Kawata</title>
 
-		<title>{{ if .TitleBar }}{{ .T .TitleBar }} - {{ end }}Ripple</title>
+  <link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}semantic.min.css?{{ unixNano }}">
+  <link rel="stylesheet" type="text/css" href="/static/ripple.css?{{ unixNano }}">
+	<link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}kawata.css?{{ unixNano }}">
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123250156-2"></script>
+</head>
 
-		<link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}semantic.min.css?{{ unixNano }}">
-		<link rel="stylesheet" type="text/css" href="/static/ripple.css?{{ unixNano }}">
-		<link rel="stylesheet" type="text/css" href="/static/snow/snow.css?{{ unixNano }}">
-	</head>
-	<body {{ if $ds }} class="ds"{{ end }}>
-		{{/*
-			If we're asked to disable the hugeheading, but a KyutGrill is set, it will become the background of the page.
-			This is mainly used in user profiles, allowing users to set their profile background.
-			If we're asked to disable the hugeheading, and a KyutGrill is not set, navbar has the `dropped` class.
-		*/}}
-		<div class="ui full height main wrapper"
-			{{ if and .DisableHH .KyutGrill }}
-				style="background-image: url('{{ if .KyutGrillAbsolute }}{{ .KyutGrill }}{{ else }}/static/headers/{{ .KyutGrill }}{{ end }}');"
-			{{ else if .SolidColour }}
-				style="background-color: {{ .SolidColour }}"
-			{{ end }}>
-			{{ template "navbar" . }}
-			{{ if not .DisableHH }}
-				<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped"
-					style="background-image: url('{{ if .KyutGrillAbsolute }}{{ .KyutGrill }}{{ else }}/static/headers/{{ or .KyutGrill "default.jpg" }}{{ end }}');">
-					<div id="snow-container">
-						<div>
-							<div class="snow large"></div>
-							<div class="snow large delayed"></div>
-							
-							<div class="snow medium"></div>
-							<div class="snow medium delayed"></div>
-							
-							<div class="snow small"></div>
-							<div class="snow small delayed"></div>
-						</div>
-					</div>
-					<div class="ui container">
-						<h1>{{ if .HeadingTitle }}{{ .T .HeadingTitle | html }}{{ else }}{{ .T .TitleBar }}{{ end }}</h1>
-					</div>
-				</div>
-			{{ end }}
+<body {{ if $ds }} class="ds"{{ end }}>
+	<div class="ui full height main wrapper"
+		{{ if and .DisableHH .KyutGrill }}
+		{{ else if .SolidColour }}
+		{{ end }}>
+		{{ template "navbar" . }}
+		{{ if not .DisableHH }}
+		<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped">
+		<div class="ui container">
+		  <h1>{{ if .HeadingTitle }}{{ .T .HeadingTitle | html }}{{ else }}{{ .T .TitleBar }}{{ end }}</h1>
+		</div>
+	</div>
+		{{ end }}
 
-			<div class="h-container">
-				<div class="ui margined container" id="messages-container">
-				<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
-				{{ if and .Context.User.Username (not (has .Context.User.Privileges 1)) }}
-					<div class="ui warning message">
-						{{ $.T "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Ripple's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='https://support.ripple.moe'>support.ripple.moe</a>." | html }}
+	<div class="h-container">
+		<div class="ui margined container" id="messages-container">
+			<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
+    
+      {{ if and .Context.User.Username (not (has .Context.User.Privileges 1)) }}
+			<div class="ui warning message">
+				{{ $.T "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Kawata's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>." | html }}
 					</div>
 				{{ end }}
 				{{ if .Messages }}
@@ -72,12 +52,12 @@
 				{{ end }}
 				{{ with $settings.game_maintenance.Int }}
 					<div class="ui warning message">
-						{{ $.T "Ripple's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being." }}
+						{{ $.T "Kawata's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being." }}
 					</div>
 				{{ end }}
 				{{ with $settings.website_maintenance.Int }}
 					<div class="ui warning message">
-						{{ $.T "The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website." }}
+						{{ $.T "The Kawata website is currently in maintenance mode. Only certain users are allowed to access the full website." }}
 					</div>
 				{{ end }}
 				</div>
@@ -87,56 +67,42 @@
 		</div>
 
 		<div class="footer">
-			{{ .T "&copy; 2015-%d Ripple, using Hanayo %s." (curryear) (version) | html }}
-			<a href="/team" title="{{ .T "Who is working on this thing?" }}"><i class="users icon"></i>{{ .T "Team" }}</a> |
-			<a href="https://docs.ripple.moe" title="59 6f 75 27 72 65 20 73 6f 20 31 33 33 37 2e"><i class="wrench icon"></i>{{ .T "Developer docs" }}</a> |
-			<a href="/changelog" title="{{ .T "See what changed!" }}"><i class="bug icon"></i>{{ .T "Changelog" }}</a> |
-			<a href="http://status.ripple.moe"><i class="signal icon"></i>{{ .T "Status" }}</a> |
-			<a href="https://zxq.co/ripple" title="{{ .T "What's going on under the hood?"}}{{/*'"*/}}"><i class="git square icon"></i></a>
-			<a href="https://twitter.com/_ripple" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a>
-			<a href="https://reddit.com/r/osuripple" title="{{ .T "Share irrelevant opinions on reddit!" }}"><i class="reddit square icon"></i></a> |
-			<div class="ui scrolling dropdown" style="margin-left: 5px;" id="language-selector">
-				{{ $lang := .Context.Language }}
-				{{ with $lang }}
-					{{ $info := languageInformationByNameShort . }}
-					<div class="text"><i class="{{ $info.CountryShort }} flag"></i>{{ $info.Name }}</div>
-				{{ else }}
-					<div class="default text">{{ .T "Language" }}</div>
-				{{ end }}
-				<i class="dropdown icon"></i>
-				<div class="menu">
-					{{ range languageInformation }}
-						<div class="{{ if eq .NameShort $lang }}selected {{ end }}item" data-lang="{{ .NameShort }}"><i class="{{ .CountryShort }} flag"></i>{{ .Name }}</div>
-					{{ end }}
-				</div>
-			</div>
+
+				© 2019 osu!Kawata
+				•
+				<a href="/team" title="Who is working on this thing?"><i class="users icon"></i>Team</a>
+				•
+				<a href="https://github.com/kawatapw" title="What is running behind our server?"><i class="github icon"></i>Source Code</a>
+				•
+				<a href="https://twitter.com/Kawatapw" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a>
+
 		</div>
 		<script>
 			var hanayoConf = {
 				avatars:   {{ .Conf.AvatarURL }},
 				banchoAPI: {{ .Conf.BanchoAPI }},
 				baseAPI:   {{ .Conf.BaseAPIPublic }},
-				cheesegullAPI: {{ .Conf.CheesegullAPI }},
-				language:  {{ with $lang }}{{ . }}{{ else }}"en"{{ end }},
+        cheesegullAPI: {{ .Conf.CheesegullAPI }},
 			};
 			var currentUserID = {{ .Context.User.ID }};
 		</script>
-		{{/* If we got some more scripts to print, print'em */}}
-		<!-- CDN'd stuff -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/15.0.9/i18next.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.5/jquery.timeago.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/2.0.1/i18nextXHRBackend.min.js"></script>
-		
-		<!-- Local stuff -->
-		<script src="/static/semantic.min.js?{{ unixNano }}"></script>
-		<script src="/static/key_plural.js?{{ unixNano }}"></script>
-		<script src="/static/ripple.js?{{ unixNano }}"></script>
+
+    <!-- CDN'd stuff -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.5/jquery.timeago.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/15.0.9/i18next.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/2.0.1/i18nextXHRBackend.min.js"></script>
+
+    <!-- Local stuff -->
+    <script src="/static/semantic.min.js?{{ unixNano }}"></script>
+    <script src="/static/key_plural.js?{{ unixNano }}"></script>
+    <script src="/static/ripple.js?{{ unixNano }}"></script>
+    
 		{{ if .Scripts }}
-			{{ range .Scripts }}
-				<script src="{{ . }}?{{ unixNano }}"></script>
-			{{ end }}
-		{{ end }}
+		  {{ range .Scripts }}
+			   <script src="{{ . }}?{{ unixNano }}"></script>
+		  {{ end }}
+	  {{ end }}
 	</body>
 </html>
 {{ end }}

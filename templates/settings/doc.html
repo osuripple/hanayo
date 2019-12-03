@@ -1,0 +1,40 @@
+{{/*###
+Handler=/settings/doc
+TitleBar=Edit Document
+Include=menu.html
+MinPrivileges=3145727
+*/}}
+    {{ define "tpl" }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <div class="ui container">
+        <div class="ui stackable grid">
+            {{ template "settingsSidebar" . }}
+            <div class="twelve wide column">
+                <div class="ui center aligned segment">
+                    {{ $f := ieForm .Gin }}
+                    {{ with documentationData "rules" "en" }}
+                        <form class="ui form" method="post">
+                            <textarea spellcheck="false" tabindex="1" class="monospace" rows="5" id="inputx" oninput="myFunction()" name="data">{{ if .Title }}{{ .Data }}{{ end }}</textarea>
+                            <script>
+                                var simplemde = new SimpleMDE();
+                            </script>
+                            <div class="ui divider"></div>
+                            <div style="text-align: right">
+                                <button type="submit" class="ui blue button">{{ $.T "Save" }}</button>
+                            </div>
+                            {{ $f }}
+                        </form>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function myFunction() {
+        var x = document.getElementById("inputx").value
+        document.getElementById("content").innerHTML = x;
+    }
+    </script>
+    {{ end }}
