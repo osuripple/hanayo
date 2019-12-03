@@ -283,8 +283,6 @@ func generateEngine() *gin.Engine {
 
 	r.GET("/donate/rates", btcconversions.GetRates)
 
-	r.Any("/blog/*url", blogRedirect)
-
 	r.GET("/help", func(c *gin.Context) {
 		c.Redirect(301, "https://support.ripple.moe")
 	})
