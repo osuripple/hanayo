@@ -16,7 +16,6 @@ NoCompile=true
 
 		{{/* Stuff for donators */}}
 		{{ if has .Context.User.Privileges 4 }}
-			{{ navbarItem .Path (.T "Discord donor") "/settings/discord" }}
 
 			{{ navbarItem .Path (.T "Profile background") "/settings/profbackground" }}
 

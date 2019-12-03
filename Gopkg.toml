@@ -147,10 +147,6 @@
 
 [[constraint]]
   branch = "master"
-  name = "zxq.co/ripple/go-discord-oauth"
-
-[[constraint]]
-  branch = "master"
   name = "zxq.co/ripple/playstyle"
 
 [[constraint]]

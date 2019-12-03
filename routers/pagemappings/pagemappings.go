@@ -50,7 +50,6 @@ var pageMappings = map[int]interface{}{
 	37: "/beatmaps",
 	38: "/register/verify",
 	39: "/register/welcome",
-	40: "/settings/discord",
 	41: "/register", // elmo
 }
 

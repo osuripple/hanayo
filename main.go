@@ -73,8 +73,6 @@ var (
 		RecaptchaSite    string
 		RecaptchaPrivate string
 
-		DiscordOAuthID     string
-		DiscordOAuthSecret string
 		DonorBotURL        string
 		DonorBotSecret     string
 
@@ -293,7 +291,6 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
-	r.GET("/settings/discord/finish", discordFinish)
 	r.POST("/settings/profbackground/:type", profBackground)
 
 	r.POST("/dev/tokens/create", createAPIToken)
