@@ -379,9 +379,9 @@ var funcMap = template.FuncMap{
 		return i
 	},
 
-	// bgetv1 makes a request to the legacy bancho api v1
+	// bget makes a request to the legacy bancho api v1
 	// https://docs.ripple.moe/docs/banchoapi/v1
-	"bgetv1": func(ept string, qs ...interface{}) map[string]interface{} {
+	"bget": func(ept string, qs ...interface{}) map[string]interface{} {
 		d, err := http.Get(fmt.Sprintf(config.BanchoAPI+"/api/v1/"+ept, qs...))
 		if err != nil {
 			return nil
