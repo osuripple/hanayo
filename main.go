@@ -282,11 +282,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/profbackground/:type", profBackground)
 
 	r.GET("/donate/rates", btcconversions.GetRates)
-
-	r.GET("/help", func(c *gin.Context) {
-		c.Redirect(301, "https://support.ripple.moe")
-	})
-
+	
 	loadSimplePages(r)
 
 	r.NoRoute(notFound)

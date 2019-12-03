@@ -114,7 +114,7 @@
 		<script>
 			var hanayoConf = {
 				avatars:   {{ .Conf.AvatarURL }},
-				banchoAPI: {{ .Conf.BanchoAPIPublic }},
+				banchoAPI: {{ .Conf.BanchoAPI }},
 				baseAPI:   {{ .Conf.BaseAPIPublic }},
 				cheesegullAPI: {{ .Conf.CheesegullAPI }},
 				language:  {{ with $lang }}{{ . }}{{ else }}"en"{{ end }},
