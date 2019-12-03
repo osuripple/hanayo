@@ -1,6 +1,6 @@
 # Hanayo ![build status](https://ci.zxq.co/api/badges/ripple/hanayo/status.svg)
 
-This repository has a mirror [here](https://github.com/osuripple/hanayo). The original repo is still [here](https://zxq.co/ripple/hanayo).
+This repository has a mirror [here](https://github.com/osuripple/hanayo). The original repo is still [here](https://github.com/kawatapw/hanayo).
 
 ## To fellow developers: this is not how you do it!
 

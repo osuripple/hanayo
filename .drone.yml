@@ -1,6 +1,6 @@
 workspace:
   base: /go
-  path: src/zxq.co/ripple/hanayo
+  path: src/github.com/kawatapw/hanayo
 
 pipeline:
   build:

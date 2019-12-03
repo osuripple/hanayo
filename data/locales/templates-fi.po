@@ -825,7 +825,7 @@ msgid ""
 "For various reasons, some software of Ripple does not contribute to the "
 "changelog, to which this website is a part of. In case you want to see the "
 "changelog of Hanayo, you can do so by <a href=\""
-"https://zxq.co/ripple/hanayo/commits/master\">clicking here</a>."
+"https://github.com/kawatapw/hanayo/commits/master\">clicking here</a>."
 msgstr ""
 
 msgid "Author"

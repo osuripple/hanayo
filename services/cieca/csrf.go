@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/thehowl/cieca"
-	"zxq.co/ripple/hanayo/services"
+	"github.com/kawatapw/hanayo/services"
 	"zxq.co/x/rs"
 )
 

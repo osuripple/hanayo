@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mailgun/mailgun-go.v1"
-	"zxq.co/ripple/rippleapi/common"
+	"github.com/kawatapw/api/common"
 	"zxq.co/x/rs"
 )
 

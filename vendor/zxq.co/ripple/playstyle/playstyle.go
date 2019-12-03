@@ -16,8 +16,6 @@ const (
 	Spoon
 	LeapMotion
 	OculusRift
-	Dick
-	Eggplant
 )
 
 // Styles are string representations of the various playstyles someone can have.
@@ -29,8 +27,6 @@ var Styles = [...]string{
 	"Spoon",
 	"Leap motion",
 	"Oculus rift",
-	"Dick",
-	"Eggplant",
 }
 
 // String is the string representation of a playstyle.
