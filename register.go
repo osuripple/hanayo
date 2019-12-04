@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"regexp"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -103,6 +104,7 @@ func registerSubmit(c *gin.Context) {
 		username, safeUsername(username), pass, c.PostForm("email"), time.Now().Unix(), common.UserPrivilegePendingVerification)
 	if err != nil {
 		registerResp(c, errorMessage{T(c, "Whoops, an error slipped in. You might have been registered, though. I don't know.")})
+		fmt.Printf(err.Error())
 		return
 	}
 	lid, _ := res.LastInsertId()
@@ -114,7 +116,6 @@ func registerSubmit(c *gin.Context) {
 
 	rd.Incr("ripple:registered_users")
 
-	addMessage(c, successMessage{T(c, "You have been successfully registered on Kawata! You now need to verify your account.")})
 	getSession(c).Save()
 	c.Redirect(302, "/register/verify?u="+strconv.Itoa(int(lid)))
 }
@@ -251,7 +252,6 @@ func in(s string, ss []string) bool {
 
 var usernameRegex = regexp.MustCompile(`^[A-Za-z0-9 _\[\]-]{2,15}$`)
 var forbiddenUsernames = []string{
-	"peppy",
 	"rrtyui",
 	"cookiezi",
 	"azer",

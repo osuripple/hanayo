@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/osuripple/cheesegull/models"
+	"zxq.co/ripple/cheesegull/models"
 )
 
 type beatmapPageData struct {
