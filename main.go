@@ -48,6 +48,8 @@ var (
 		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
 		AvatarsFolder    string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
 
+		ClanAvatarsFolder string `description:"location folder of clan avatars, used for placing the clan avatars from the clan avatar change page."`
+
 		CookieSecret string
 
 		RedisMaxConnections int
@@ -259,6 +261,12 @@ func generateEngine() *gin.Engine {
 	r.GET("/register/verify", verifyAccount)
 	r.GET("/register/welcome", welcome)
 
+	r.GET("/clans/create", ccreate)
+	r.POST("/clans/create", ccreateSubmit)
+	r.GET("/c/:cid", clanPage)
+	r.POST("/c/:cid", leaveClan)
+	r.GET("/clans/invite/:inv", clanInvite)
+
 	r.GET("/u/:user", userProfile)
 	r.GET("/b/:bid", beatmapInfo)
 
@@ -273,6 +281,9 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/profbackground/:type", profBackground)
+
+	r.POST("/settings/clansettings", createInvite)
+	r.POST("/settings/clansettings/k", clanKick)
 
 	loadSimplePages(r)
 
