@@ -133,12 +133,12 @@
   version = "v1.4.1"
 
 [[projects]]
-  digest = "1:573ca21d3669500ff845bdebee890eb7fc7f0f50c59f2132f2a0c6b03d85086a"
+  digest = "1:318f1c959a8a740366fce4b1e1eb2fd914036b4af58fbd0a003349b305f118ad"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
   pruneopts = "UT"
-  revision = "6c65a5562fc06764971b7c5d05c76c75e84bdbf7"
-  version = "v1.3.2"
+  revision = "c823c79ea1570fb5ff454033735a8e68575d1d0f"
+  version = "v1.3.0"
 
 [[projects]]
   digest = "1:c79fb010be38a59d657c48c6ba1d003a8aa651fa56b579d959d74573b7dff8e1"
@@ -208,8 +208,8 @@
     "zlib",
   ]
   pruneopts = "UT"
-  revision = "34ae9022f399c99bedd94a92973abf11d6be6f98"
-  version = "v1.9.3"
+  revision = "438db640fd672278e44bb9bec0b979358e7e9c76"
+  version = "v1.9.4"
 
 [[projects]]
   digest = "1:803b281410ec195645c782ddb9cb029d43c2855d4b7824ea31104985b507a458"
@@ -387,15 +387,15 @@
     "html/atom",
   ]
   pruneopts = "UT"
-  revision = "ef20fe5d793301b553005db740f730d87993f778"
+  revision = "5ee1b9f4859acd2e99987ef94ec7a58427c53bef"
 
 [[projects]]
   branch = "master"
-  digest = "1:72f7bc975a18badcb4b05585929a12e042ab45cb0bee781aaab8044f39bd41f5"
+  digest = "1:4da420ceda5f68e8d748aa2169d0ed44ffadb1bbd6537cf778a49563104189b8"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "6d18c012aee9febd81bbf9806760c8c4480e870d"
+  revision = "ce4227a45e2eb77e5c847278dcc6a626742e2945"
 
 [[projects]]
   digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
@@ -453,17 +453,6 @@
   revision = "bd4406595c7e785e35fbfb2c6460a1f39822884e"
 
 [[projects]]
-  digest = "1:81132647efd57c99314f07d1b6bfb230bd860af384436f67896837265366df2a"
-  name = "zxq.co/ripple/hanayo"
-  packages = [
-    "modules/bbcode",
-    "modules/top-passwords",
-  ]
-  pruneopts = "UT"
-  revision = "0a4dcd7319e04216591640a9a526fe52b90546f6"
-  version = "v1.6.4"
-
-[[projects]]
   branch = "master"
   digest = "1:706b8f934bce560cda38f9f243e9563700f2c9e8b436f6fadbb4d8d4a653aea7"
   name = "zxq.co/ripple/playstyle"
@@ -509,8 +498,6 @@
     "gopkg.in/redis.v5",
     "gopkg.in/yaml.v2",
     "zxq.co/ripple/agplwarning",
-    "zxq.co/ripple/hanayo/modules/bbcode",
-    "zxq.co/ripple/hanayo/modules/top-passwords",
     "zxq.co/ripple/playstyle",
     "zxq.co/x/rs",
   ]
