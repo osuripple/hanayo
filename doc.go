@@ -1,2 +1,5 @@
+// Hanayo is the Ripple front-end web server.
 package main
-const version = "v1.8.6"
+
+// version is the current version of hanayo
+const version = "v1.9.0"

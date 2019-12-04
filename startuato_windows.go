@@ -12,9 +12,8 @@ import (
 
 var l net.Listener
 
-func startuato(engine *gin.Engine) bool {
+func startuato(engine *gin.Engine) {
 	var err error
-	socketstatus := true
 
 	// Listen on a TCP or a UNIX domain socket (TCP here).
 	if config.Unix {
@@ -24,9 +23,7 @@ func startuato(engine *gin.Engine) bool {
 	}
 	if err != nil {
 		log.Fatalln(err)
-		socketstatus = false
 	}
 
 	http.Serve(l, engine)
-	return socketstatus
 }
