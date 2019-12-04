@@ -10,22 +10,6 @@
   version = "v3.3.0"
 
 [[projects]]
-  digest = "1:88b822fdfd4e6cc3e04bcae689b9914dadf385fbf17ccd9204dd5fa1c4582f38"
-  name = "github.com/RangelReale/osin"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "0f3357bb07e801ea62327872d19913969001dd7a"
-  version = "v1.0.1"
-
-[[projects]]
-  digest = "1:a97ddad89f7b48876da3e3610ff86c0f0670df14b8bb8941d57418a3ca72584d"
-  name = "github.com/ansel1/merry"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "6cbec365a520b977d098dceb3005d91a2c78a799"
-  version = "v1.5.0"
-
-[[projects]]
   digest = "1:320e7ead93de9fd2b0e59b50fd92a4d50c1f8ab455d96bc2eb083267453a9709"
   name = "github.com/asaskevich/govalidator"
   packages = ["."]
@@ -40,18 +24,6 @@
   pruneopts = "UT"
   revision = "fc113767cd6b051980f260d6dbe84b2740c46ab0"
   version = "v1.2"
-
-[[projects]]
-  digest = "1:7b94d37d65c0445053c6f3e73090e3966c1c29127035492c349e14f25c440359"
-  name = "github.com/boombuler/barcode"
-  packages = [
-    ".",
-    "qr",
-    "utils",
-  ]
-  pruneopts = "UT"
-  revision = "3cfea5ab600ae37946be2b763b8ec2c1cf2d272d"
-  version = "v1.0.0"
 
 [[projects]]
   digest = "1:fed1f537c2f1269fe475a8556c393fe466641682d73ef8fd0491cd3aa1e47bad"
@@ -76,22 +48,6 @@
   pruneopts = "UT"
   revision = "4966fc68f5b7593aafa6cbbba2d65ec6e1416047"
   version = "v1.1.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:9faf36431bedc19ecedbfe05f7be01676b598647ca8aa34139e2fd510e61126e"
-  name = "github.com/felipeweb/gopher-utils"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "05a00fc86ef51b7b351fb05a0e13307c85dbe115"
-
-[[projects]]
-  branch = "master"
-  digest = "1:641f91f80e3f4357ab4271b7d391c9bca8a82863f5dcd087a8346a8e4cf2024a"
-  name = "github.com/felipeweb/osin-mysql"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "269603eb06cfa0a1e839d3c9c59ddab39cf6fb9e"
 
 [[projects]]
   branch = "master"
@@ -183,14 +139,6 @@
   pruneopts = "UT"
   revision = "6c65a5562fc06764971b7c5d05c76c75e84bdbf7"
   version = "v1.3.2"
-
-[[projects]]
-  digest = "1:582b704bebaa06b48c29b0cec224a6058a09c86883aaddabde889cd1a5f73e1b"
-  name = "github.com/google/uuid"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "0cd6bf5da1e1c83f8b45653022c74f71af0538a4"
-  version = "v1.1.1"
 
 [[projects]]
   digest = "1:c79fb010be38a59d657c48c6ba1d003a8aa651fa56b579d959d74573b7dff8e1"
@@ -328,32 +276,12 @@
   version = "0.1.3"
 
 [[projects]]
-  digest = "1:e5d0bd87abc2781d14e274807a470acd180f0499f8bf5bb18606e9ec22ad9de9"
-  name = "github.com/pborman/uuid"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "adf5a7427709b9deb95d29d3fa8a2bf9cfd388f1"
-  version = "v1.2"
-
-[[projects]]
   digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
   name = "github.com/pkg/errors"
   packages = ["."]
   pruneopts = "UT"
   revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
   version = "v0.8.1"
-
-[[projects]]
-  digest = "1:3e5eb9af2330c7a46d64592800813c33adf94305ce53a3fae42191ea18e520e6"
-  name = "github.com/pquerna/otp"
-  packages = [
-    ".",
-    "hotp",
-    "totp",
-  ]
-  pruneopts = "UT"
-  revision = "43bebefda392017900e7a7b237b4c914c6a55b50"
-  version = "v1.2.0"
 
 [[projects]]
   branch = "master"
@@ -452,27 +380,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d133cf737c9b6d9b902798751d0107642d84256bfdc13aea88153dff6c849bdd"
+  digest = "1:31e1c7b74883bc71a69e1f4e09554005727001e51419905d5ca6ff4ded339afc"
   name = "golang.org/x/net"
   packages = [
-    "context",
-    "context/ctxhttp",
     "html",
     "html/atom",
   ]
   pruneopts = "UT"
   revision = "ef20fe5d793301b553005db740f730d87993f778"
-
-[[projects]]
-  branch = "master"
-  digest = "1:55d36eb35766a3f105fa36cfb2faf053cc33c019108a6adee799c4e7d59d62b2"
-  name = "golang.org/x/oauth2"
-  packages = [
-    ".",
-    "internal",
-  ]
-  pruneopts = "UT"
-  revision = "858c2ad4c8b6c5d10852cb89079f6ca1c7309787"
 
 [[projects]]
   branch = "master"
@@ -483,29 +398,9 @@
   revision = "6d18c012aee9febd81bbf9806760c8c4480e870d"
 
 [[projects]]
-  branch = "master"
-  digest = "1:a0e46a43516d3f5ff0ba3636488b8a8df632b2986da49823cd8340c070c1a125"
-  name = "golang.org/x/xerrors"
-  packages = [
-    ".",
-    "internal",
-  ]
-  pruneopts = "UT"
-  revision = "1b5146add8981d58be77b16229c0ff0f8bebd8c1"
-
-[[projects]]
-  digest = "1:602f92501b1cc299f1febc5febb27acdf80c4bc70aaa833942e8000e2e77ddee"
+  digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
   name = "google.golang.org/appengine"
-  packages = [
-    "cloudsql",
-    "internal",
-    "internal/base",
-    "internal/datastore",
-    "internal/log",
-    "internal/remote_api",
-    "internal/urlfetch",
-    "urlfetch",
-  ]
+  packages = ["cloudsql"]
   pruneopts = "UT"
   revision = "971852bfffca25b069c31162ae8f247a3dba083b"
   version = "v1.6.5"
@@ -558,12 +453,15 @@
   revision = "bd4406595c7e785e35fbfb2c6460a1f39822884e"
 
 [[projects]]
-  branch = "master"
-  digest = "1:fc6347f5c34f4866943ea5b1e5e935a6dce46ccd2d8834b4e1ba953e383a2877"
-  name = "zxq.co/ripple/go-discord-oauth"
-  packages = ["."]
+  digest = "1:81132647efd57c99314f07d1b6bfb230bd860af384436f67896837265366df2a"
+  name = "zxq.co/ripple/hanayo"
+  packages = [
+    "modules/bbcode",
+    "modules/top-passwords",
+  ]
   pruneopts = "UT"
-  revision = "348e08feccb5ae7c1ea3b237769aeb757e393e0c"
+  revision = "0a4dcd7319e04216591640a9a526fe52b90546f6"
+  version = "v1.6.4"
 
 [[projects]]
   branch = "master"
@@ -572,14 +470,6 @@
   packages = ["."]
   pruneopts = "UT"
   revision = "e5f4f85b91685d3c0924e62980293f050acb7ecc"
-
-[[projects]]
-  branch = "master"
-  digest = "1:377362c606df99ce3d3573f150824e8a6b3c9a7be68f42711723d332419481c7"
-  name = "zxq.co/ripple/schiavolib"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "9cdc674dad0700ec79618de4ab558db6ad1de372"
 
 [[projects]]
   branch = "master"
@@ -593,11 +483,9 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/RangelReale/osin",
     "github.com/asaskevich/govalidator",
     "github.com/dustin/go-humanize",
     "github.com/fatih/structs",
-    "github.com/felipeweb/osin-mysql",
     "github.com/frustra/bbcode",
     "github.com/getsentry/raven-go",
     "github.com/gin-gonic/contrib/sessions",
@@ -610,8 +498,6 @@
     "github.com/nfnt/resize",
     "github.com/osuripple/cheesegull/models",
     "github.com/pariz/gountries",
-    "github.com/pquerna/otp",
-    "github.com/pquerna/otp/totp",
     "github.com/rcrowley/goagain",
     "github.com/rjeczalik/notify",
     "github.com/russross/blackfriday",
@@ -619,14 +505,13 @@
     "github.com/thehowl/conf",
     "github.com/thehowl/qsql",
     "golang.org/x/crypto/bcrypt",
-    "golang.org/x/oauth2",
     "gopkg.in/mailgun/mailgun-go.v1",
     "gopkg.in/redis.v5",
     "gopkg.in/yaml.v2",
     "zxq.co/ripple/agplwarning",
-    "zxq.co/ripple/go-discord-oauth",
+    "zxq.co/ripple/hanayo/modules/bbcode",
+    "zxq.co/ripple/hanayo/modules/top-passwords",
     "zxq.co/ripple/playstyle",
-    "zxq.co/ripple/schiavolib",
     "zxq.co/x/rs",
   ]
   solver-name = "gps-cdcl"
