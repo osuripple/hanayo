@@ -71,12 +71,6 @@ var (
 		RecaptchaSite    string
 		RecaptchaPrivate string
 
-		DonorBotURL        string
-		DonorBotSecret     string
-
-		CoinbaseAPIKey    string
-		CoinbaseAPISecret string
-
 		SentryDSN string
 
 		IP_API string
