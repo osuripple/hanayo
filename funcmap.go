@@ -44,7 +44,7 @@ var funcMap = template.FuncMap{
 		if path == currentPath {
 			act = "active "
 		}
-		return template.HTML(fmt.Sprintf(`<a class="%sitem" href="%s">%s</a>`, act, path, name))
+		return template.HTML(fmt.Sprintf(`<a class="%sitem hvr-bounce-in" href="%s">%s</a>`, act, path, name))
 	},
 	// curryear returns the current year.
 	"curryear": func() int {
@@ -250,9 +250,9 @@ var funcMap = template.FuncMap{
 	// modes returns an array containing all the modes (in their string representation).
 	"modes": func() []string {
 		return []string{
-			"osu! standard",
-			"Taiko",
-			"Catch the Beat",
+			"osu!",
+			"osu!taiko",
+			"osu!catch",
 			"osu!mania",
 		}
 	},
@@ -340,13 +340,6 @@ var funcMap = template.FuncMap{
 	"capitalise": strings.Title,
 	// servicePrefix gets the prefix of a service, like github.
 	"servicePrefix": func(s string) string { return servicePrefixes[s] },
-	// randomLogoColour picks a "random" colour for ripple's logo.
-	"randomLogoColour": func() string {
-		if rand.Int()%4 == 0 {
-			return logoColours[rand.Int()%len(logoColours)]
-		}
-		return "pink"
-	},
 	// after checks whether a certain time is after time.Now()
 	"after": func(s string) bool {
 		t, _ := time.Parse(time.RFC3339, s)
@@ -379,7 +372,7 @@ var funcMap = template.FuncMap{
 		return i
 	},
 
-	// bget makes a request to the legacy bancho api v1
+	// bget makes a request to the bancho api
 	// https://docs.ripple.moe/docs/banchoapi/v1
 	"bget": func(ept string, qs ...interface{}) map[string]interface{} {
 		d, err := http.Get(fmt.Sprintf(config.BanchoAPI+"/api/v1/"+ept, qs...))
@@ -446,9 +439,6 @@ var funcMap = template.FuncMap{
 		}
 		return x.Val()
 	},
-	"languageInformation": func() []langInfo {
-		return languageInformation
-	},
 	"languageInformationByNameShort": func(s string) langInfo {
 		for _, lang := range languageInformation {
 			if lang.NameShort == s {
@@ -476,7 +466,7 @@ var funcMap = template.FuncMap{
 	},
 }
 
-var localeLanguages = []string{}
+var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
 
 var hanayoStarted = time.Now().UnixNano()
 
@@ -484,13 +474,6 @@ var servicePrefixes = map[string]string{
 	"github":  "https://github.com/",
 	"twitter": "https://twitter.com/",
 	"mail":    "mailto:",
-}
-
-var logoColours = [...]string{
-	"blue",
-	"green",
-	"orange",
-	"red",
 }
 
 // we still haven't got jquery when the script is here, so well shit.
@@ -568,19 +551,7 @@ type langInfo struct {
 }
 
 var languageInformation = []langInfo{
-	{"Deutsch", "de", "de"},
 	{"English (UK)", "gb", "en"},
-	{"Español", "es", "es"},
-	{"Français", "fr", "fr"},
-	{"Italiano", "it", "it"},
-	{"Nederlands", "nl", "nl"},
-	{"Polski", "pl", "pl"},
-	{"Русский", "ru", "ru"},
-	{"Română", "ro", "ro"},
-	{"Suomi", "fi", "fi"},
-	{"Svenska", "se", "sv"},
-	{"Tiếng Việt Nam", "vn", "vi"},
-	{"한국어", "kr", "ko"},
 }
 
 func clientIP(c *gin.Context) string {

@@ -11,7 +11,6 @@ import (
 	"time"
 
 	"github.com/fatih/structs"
-	"github.com/getsentry/raven-go"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -33,17 +32,17 @@ var startTime = time.Now()
 var (
 	config struct {
 		// Essential configuration that must be always checked for every environment.
-		ListenTo        string `description:"ip:port from which to take requests."`
-		Unix            bool   `description:"Whether ListenTo is an unix socket."`
-		DSN             string `description:"MySQL server DSN"`
-		RedisEnable     bool
-		AvatarURL       string
-		BaseURL         string
-		API             string
-		BanchoAPI       string `description:"Bancho base url (without /api) that hanayo will use to contact bancho"`
-		CheesegullAPI   string
-		APISecret       string
-		Offline         bool `description:"If this is true, files will be served from the local server instead of the CDN."`
+		ListenTo      string `description:"ip:port from which to take requests."`
+		Unix          bool   `description:"Whether ListenTo is an unix socket."`
+		DSN           string `description:"MySQL server DSN"`
+		RedisEnable   bool
+		AvatarURL     string
+		BaseURL       string
+		API           string
+		BanchoAPI     string
+		CheesegullAPI string
+		APISecret     string
+		Offline       bool `description:"If this is true, files will be served from the local server instead of the CDN."`
 
 		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
 		AvatarsFolder    string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
@@ -71,6 +70,8 @@ var (
 		RecaptchaSite    string
 		RecaptchaPrivate string
 
+		DiscordOAuthID     string
+		DiscordOAuthSecret string
 		DonorBotURL        string
 		DonorBotSecret     string
 
@@ -133,6 +134,8 @@ func main() {
 		}
 	}
 
+	configMap = structs.Map(config)
+
 	// initialise db
 	db, err = sqlx.Open("mysql", config.DSN+"?parseTime=true")
 	if err != nil {
@@ -193,8 +196,6 @@ func main() {
 
 	conf.Export(config, "hanayo.conf")
 
-	configMap = structs.Map(config)
-
 	fmt.Println("Intialisation:", time.Since(startTime))
 
 	httpLoop()
@@ -232,16 +233,6 @@ func generateEngine() *gin.Engine {
 
 	r := gin.Default()
 
-	// sentry
-	if config.SentryDSN != "" {
-		ravenClient, err := raven.New(config.SentryDSN)
-		if err != nil {
-			fmt.Println(err)
-		} else {
-			r.Use(Recovery(ravenClient, false))
-		}
-	}
-
 	r.Use(
 		gzip.Gzip(gzip.DefaultCompression),
 		pagemappings.CheckRedirect,
@@ -274,13 +265,12 @@ func generateEngine() *gin.Engine {
 	r.GET("/pwreset/continue", passwordResetContinue)
 	r.POST("/pwreset/continue", passwordResetContinueSubmit)
 
-	r.POST("/irc/generate", ircGenToken)
-
 	r.GET("/settings/password", changePassword)
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/profbackground/:type", profBackground)
+	r.POST("/settings/doc", docEdit)
 	r.POST("/settings/delete/confirm", deleteAccount)
 
 	r.POST("/settings/clansettings", createInvite)
