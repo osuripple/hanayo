@@ -42,7 +42,7 @@ func sessionInitializer() func(c *gin.Context) {
 			}
 		}
 
-		if v, _ := sess.Get("2fa_must_validate").(bool); !v && ctx.User.ID != 0 {
+		if ctx.User.ID != 0 {
 			tok := sess.Get("token")
 			if tok, ok := tok.(string); ok {
 				ctx.Token = tok
