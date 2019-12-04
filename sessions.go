@@ -3,6 +3,7 @@ package main
 import (
 	"net/url"
 	"time"
+	"net/http"
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -38,6 +39,27 @@ func sessionInitializer() func(c *gin.Context) {
 				ctx = context{}
 				sess.Clear()
 				passwordChanged = true
+			}
+		}
+
+		if v, _ := sess.Get("2fa_must_validate").(bool); !v && ctx.User.ID != 0 {
+			tok := sess.Get("token")
+			if tok, ok := tok.(string); ok {
+				ctx.Token = tok
+			}
+			oldToken := ctx.Token
+			ctx.Token, _ = checkToken(ctx.Token, ctx.User.ID, c)
+			// Set rt cookie in case:
+			// - User has not got a token in rt
+			// - Token has been updated with checkToken
+			// - user still has old token in rt
+			if x, _ := c.Cookie("rt"); oldToken != ctx.Token || x != ctx.Token {
+				http.SetCookie(c.Writer, &http.Cookie{
+					Name:    "rt",
+					Value:   ctx.Token,
+					Expires: time.Now().Add(time.Hour * 24 * 30 * 1),
+				})
+				sess.Set("token", ctx.Token)
 			}
 		}
 
