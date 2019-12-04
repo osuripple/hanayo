@@ -439,9 +439,6 @@ var funcMap = template.FuncMap{
 		}
 		return x.Val()
 	},
-	"languageInformation": func() []langInfo {
-		return languageInformation
-	},
 	"languageInformationByNameShort": func(s string) langInfo {
 		for _, lang := range languageInformation {
 			if lang.NameShort == s {
@@ -469,7 +466,7 @@ var funcMap = template.FuncMap{
 	},
 }
 
-var localeLanguages = []string{}
+var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
 
 var hanayoStarted = time.Now().UnixNano()
 
