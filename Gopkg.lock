@@ -200,6 +200,14 @@
   revision = "b8b6593a1121ffe648b1bded3f163af0f3798051"
 
 [[projects]]
+  branch = "master"
+  digest = "1:27d396298fa2260553272b839e2375315e4ff39e9674ee35411055d981bef1b3"
+  name = "github.com/kawatapw/playstyle"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "29e3327b7518d316d1b804521d9e7d9a70aa55c2"
+
+[[projects]]
   digest = "1:1a27a67993fd9ad63a5e04b49a9cacd32e4d3efdf44223749410c1e02bb53011"
   name = "github.com/klauspost/compress"
   packages = [
@@ -454,14 +462,6 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:706b8f934bce560cda38f9f243e9563700f2c9e8b436f6fadbb4d8d4a653aea7"
-  name = "zxq.co/ripple/playstyle"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "e5f4f85b91685d3c0924e62980293f050acb7ecc"
-
-[[projects]]
-  branch = "master"
   digest = "1:a8a733f0f05e45ba9ebacb74306fbe19c80fc9e6989da373fda092a2f34021ab"
   name = "zxq.co/x/rs"
   packages = ["."]
@@ -483,6 +483,7 @@
     "github.com/jmoiron/sqlx",
     "github.com/johnniedoe/contrib/gzip",
     "github.com/kawatapw/api/common",
+    "github.com/kawatapw/playstyle",
     "github.com/microcosm-cc/bluemonday",
     "github.com/nfnt/resize",
     "github.com/osuripple/cheesegull/models",
@@ -498,7 +499,6 @@
     "gopkg.in/redis.v5",
     "gopkg.in/yaml.v2",
     "zxq.co/ripple/agplwarning",
-    "zxq.co/ripple/playstyle",
     "zxq.co/x/rs",
   ]
   solver-name = "gps-cdcl"

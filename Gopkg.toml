@@ -70,6 +70,10 @@
   name = "github.com/kawatapw/api"
 
 [[constraint]]
+  branch = "master"
+  name = "github.com/kawatapw/playstyle"
+
+[[constraint]]
   name = "github.com/microcosm-cc/bluemonday"
   version = "1.0.2"
 
@@ -128,10 +132,6 @@
 [[constraint]]
   branch = "master"
   name = "zxq.co/ripple/agplwarning"
-
-[[constraint]]
-  branch = "master"
-  name = "zxq.co/ripple/playstyle"
 
 [[constraint]]
   branch = "master"

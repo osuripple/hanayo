@@ -22,7 +22,7 @@ import (
 	"github.com/kawatapw/hanayo/modules/bbcode"
 	"github.com/kawatapw/hanayo/modules/doc"
 	"github.com/kawatapw/hanayo/modules/fa-semantic-mappings"
-	"zxq.co/ripple/playstyle"
+	"github.com/kawatapw/playstyle"
 	"github.com/kawatapw/api/common"
 )
 

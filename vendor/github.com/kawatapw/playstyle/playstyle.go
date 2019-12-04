@@ -13,9 +13,11 @@ const (
 	Tablet
 	Keyboard
 	Touchscreen
-	Spoon
-	LeapMotion
-	OculusRift
+	Relax
+	Timewarp
+	AimAssist
+	Unmod
+	EZ
 )
 
 // Styles are string representations of the various playstyles someone can have.
@@ -24,9 +26,11 @@ var Styles = [...]string{
 	"Tablet",
 	"Keyboard",
 	"Touchscreen",
-	"Spoon",
-	"Leap motion",
-	"Oculus rift",
+	"Relax",
+	"Timewarp",
+	"Aim Assist",
+	"Unmod",
+	"EZ",
 }
 
 // String is the string representation of a playstyle.
