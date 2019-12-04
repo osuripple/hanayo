@@ -1,7 +1,6 @@
 package main
 
 import (
-	"net/http"
 	"net/url"
 	"time"
 
@@ -42,27 +41,6 @@ func sessionInitializer() func(c *gin.Context) {
 			}
 		}
 
-		if v, _ := sess.Get("2fa_must_validate").(bool); !v && ctx.User.ID != 0 {
-			tok := sess.Get("token")
-			if tok, ok := tok.(string); ok {
-				ctx.Token = tok
-			}
-			oldToken := ctx.Token
-			ctx.Token, _ = checkToken(ctx.Token, ctx.User.ID, c)
-			// Set rt cookie in case:
-			// - User has not got a token in rt
-			// - Token has been updated with checkToken
-			// - user still has old token in rt
-			if x, _ := c.Cookie("rt"); oldToken != ctx.Token || x != ctx.Token {
-				http.SetCookie(c.Writer, &http.Cookie{
-					Name:    "rt",
-					Value:   ctx.Token,
-					Expires: time.Now().Add(time.Hour * 24 * 30 * 1),
-				})
-				sess.Set("token", ctx.Token)
-			}
-		}
-
 		var addBannedMessage bool
 		if ctx.User.ID != 0 && (ctx.User.Privileges&common.UserPrivilegeNormal == 0) {
 			ctx = context{}
@@ -70,11 +48,13 @@ func sessionInitializer() func(c *gin.Context) {
 			addBannedMessage = true
 		}
 
+		ctx.Language = getLanguageFromGin(c)
+
 		c.Set("context", ctx)
 		c.Set("session", sess)
 
 		if addBannedMessage {
-			addMessage(c, warningMessage{T(c, "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe.")})
+			addMessage(c, warningMessage{T(c, "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at accounts@kawata.pw.")})
 		}
 		if passwordChanged {
 			addMessage(c, warningMessage{T(c, "You have been automatically logged out for security reasons. Please <a href='/login?redir=%s'>log back in</a>.", url.QueryEscape(c.Request.URL.Path))})
