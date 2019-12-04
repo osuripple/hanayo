@@ -3,6 +3,8 @@ package main
 import (
 	"database/sql"
 	"strings"
+	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
@@ -246,4 +248,30 @@ func changePasswordSubmit(c *gin.Context) {
 	db.Exec("UPDATE users SET flags = flags & ~3 WHERE id = ? LIMIT 1", ctx.User.ID)
 
 	messages = append(messages, successMessage{T(c, "Your settings have been saved.")})
+}
+
+func deleteAccount(c *gin.Context) {
+	ctx := getContext(c)
+	if ctx.User.ID == 0 {
+		resp403(c)
+		return
+	}
+
+ 	if c.PostForm("confirm") != "Yes, I am totally sure" {
+		addMessage(c, errorMessage{T(c, "Invalid input.")})
+		getSession(c).Save()
+		c.Redirect(302, "/")
+	} else {
+		db.Exec("DELETE FROM users WHERE id=?", ctx.User.ID)
+		getSession(c).Clear()
+		http.SetCookie(c.Writer, &http.Cookie{
+			Name:    "rt",
+			Value:   "",
+			Expires: time.Now().Add(-time.Hour),
+		})
+		addMessage(c, successMessage{T(c, "Your account has been deleted successfully! We're sorry to see you go.")})
+		getSession(c).Save()
+
+ 		c.Redirect(302, "/")
+	}	
 }

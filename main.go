@@ -281,6 +281,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/userpage/parse", parseBBCode)
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/profbackground/:type", profBackground)
+	r.POST("/settings/delete/confirm", deleteAccount)
 
 	r.POST("/settings/clansettings", createInvite)
 	r.POST("/settings/clansettings/k", clanKick)
