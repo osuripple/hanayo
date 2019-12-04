@@ -115,19 +115,18 @@ func loginSubmit(c *gin.Context) {
 	sess.Set("pw", cmd5(data.Password))
 	sess.Set("logout", rs.String(15))
 
-	afterLogin(c, data.ID, data.Country, data.Flags)
-
 	redir := c.PostForm("redir")
 	if len(redir) > 0 && redir[0] != '/' {
 		redir = ""
 	}
 
-		addMessage(c, successMessage{T(c, "Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
-		sess.Save()
-		if redir == "" {
-			redir = "/"
-		}
-		c.Redirect(302, redir)
+	addMessage(c, successMessage{T(c, "Hey %s! You are now logged in.", template.HTMLEscapeString(data.Username))})
+	sess.Save()
+	if redir == "" {
+		redir = "/"
+	}
+	c.Redirect(302, redir)
+	return
 }
 
 func afterLogin(c *gin.Context, id int, country string, flags uint) {
