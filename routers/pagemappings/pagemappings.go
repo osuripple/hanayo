@@ -43,10 +43,11 @@ var pageMappings = map[int]interface{}{
 	31: "/beatmaps/rank_request",
 	34: "/donate",
 	35: "/team",
-	36: "/beatmaps",
-	37: "/register/verify",
-	38: "/register/welcome",
-	39: "/register", // elmo
+	36: "/irc",
+	37: "/beatmaps",
+	38: "/register/verify",
+	39: "/register/welcome",
+	41: "/register", // elmo
 }
 
 // CheckRedirect checks if the request is to be redirected to another page.

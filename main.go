@@ -274,6 +274,8 @@ func generateEngine() *gin.Engine {
 	r.GET("/pwreset/continue", passwordResetContinue)
 	r.POST("/pwreset/continue", passwordResetContinueSubmit)
 
+	r.POST("/irc/generate", ircGenToken)
+
 	r.GET("/settings/password", changePassword)
 	r.POST("/settings/password", changePasswordSubmit)
 	r.POST("/settings/userpage/parse", parseBBCode)
