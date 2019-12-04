@@ -1,0 +1,71 @@
+module github.com/kawatapw/hanayo
+
+go 1.13
+
+require (
+	github.com/DataDog/datadog-go v3.3.0+incompatible
+	github.com/asaskevich/govalidator v0.0.0-20180315120708-ccb8e960c48f
+	github.com/aymerick/douceur v0.2.0
+	github.com/boj/redistore v0.0.0-20160128113310-fc113767cd6b
+	github.com/buaazp/fasthttprouter v0.1.1
+	github.com/certifi/gocertifi v0.0.0-20180118203423-deb3ae2ef261
+	github.com/dustin/go-humanize v1.0.0
+	github.com/fatih/structs v1.1.0
+	github.com/frustra/bbcode v0.0.0-20180807171629-48be21ce690c
+	github.com/garyburd/redigo v1.6.0
+	github.com/getsentry/raven-go v0.2.0
+	github.com/gin-contrib/sse v0.1.0
+	github.com/gin-gonic/contrib v0.0.0-20190923054218-35076c1b2bea
+	github.com/gin-gonic/gin v1.5.0
+	github.com/go-playground/locales v0.13.0
+	github.com/go-playground/universal-translator v0.17.0
+	github.com/go-sql-driver/mysql v1.4.1
+	github.com/golang/protobuf v1.3.2
+	github.com/gorilla/context v1.1.1
+	github.com/gorilla/css v1.0.0
+	github.com/gorilla/securecookie v1.1.1
+	github.com/gorilla/sessions v1.2.0
+	github.com/jmoiron/sqlx v1.2.0
+	github.com/johnniedoe/contrib v0.0.0-20150821124612-d553224621be
+	github.com/json-iterator/go v1.1.7
+	github.com/kawatapw/api v0.0.0-20191203182008-b8b6593a1121
+	github.com/klauspost/compress v1.9.3
+	github.com/leavengood/websocket v0.0.0-20170104145153-470559ebf58e
+	github.com/leodido/go-urn v1.2.0
+	github.com/mattn/go-isatty v0.0.9
+	github.com/microcosm-cc/bluemonday v1.0.2
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+	github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742
+	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
+	github.com/osuripple/cheesegull v2.1.0+incompatible
+	github.com/pariz/gountries v0.0.0-20171019111738-adb00f6513a3
+	github.com/pkg/errors v0.8.1
+	github.com/rcrowley/goagain v0.0.0-20140424170347-f2f192b5d1a9
+	github.com/rjeczalik/notify v0.9.2
+	github.com/russross/blackfriday v2.0.0+incompatible
+	github.com/shurcooL/sanitized_anchor_name v1.0.0
+	github.com/thehowl/cieca v0.0.0-20161122163418-3d95e04c9b12
+	github.com/thehowl/conf v0.1.1-0.20161010150023-bdfc17531a74
+	github.com/thehowl/go-osuapi v0.0.0-20171004075559-b918f5da7258
+	github.com/thehowl/qsql v0.0.0-20160712153739-9b9405451f47
+	github.com/ugorji/go v1.1.7
+	github.com/valyala/bytebufferpool v1.0.0
+	github.com/valyala/fasthttp v0.0.0-20171207120941-e5f51c11919d
+	golang.org/x/crypto v0.0.0-20191202143827-86a70503ff7e
+	golang.org/x/net v0.0.0-20191126235420-ef20fe5d7933
+	golang.org/x/sys v0.0.0-20191128015809-6d18c012aee9
+	google.golang.org/appengine v1.6.5
+	gopkg.in/go-playground/validator.v9 v9.29.1
+	gopkg.in/mailgun/mailgun-go.v1 v1.1.1
+	gopkg.in/redis.v5 v5.2.9
+	gopkg.in/thehowl/go-osuapi.v1 v1.0.0-20171004075559-b918f5da7258
+	gopkg.in/yaml.v2 v2.2.7
+	zxq.co/ripple/agplwarning v0.0.0-20180204130109-bd4406595c7e
+	zxq.co/ripple/cheesegull v2.1.0+incompatible
+	zxq.co/ripple/hanayo v1.6.4
+	zxq.co/ripple/ocl v0.0.0-20190423081600-ba6c1b2f7885
+	zxq.co/ripple/playstyle v0.0.0-20191022094601-e5f4f85b9168
+	zxq.co/ripple/semantic-icons-ugc v0.0.0-20190527150307-87f54f9a60d6
+	zxq.co/x/getrank v0.0.0-20170418183109-97d2823cf77d
+	zxq.co/x/rs v0.0.0-20160912144010-8b39b068a155
+)
