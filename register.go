@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"regexp"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -103,6 +104,7 @@ func registerSubmit(c *gin.Context) {
 		username, safeUsername(username), pass, c.PostForm("email"), time.Now().Unix(), common.UserPrivilegePendingVerification)
 	if err != nil {
 		registerResp(c, errorMessage{T(c, "Whoops, an error slipped in. You might have been registered, though. I don't know.")})
+		fmt.Printf(err.Error())
 		return
 	}
 	lid, _ := res.LastInsertId()
