@@ -1,0 +1,772 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-08 13:20+0000\n"
+"PO-Revision-Date: 2019-12-08 13:20+0000\n"
+"Last-Translator: Suzukaze Aoba <neko.aoba.suzukaze@gmail.com>\n"
+"Language-Team: Thai <neko.aoba.suzukaze@gmail.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Pootle-Path: /th/Hanayo/templates-th.po\n"
+"X-Pootle-Revision: 8354\n"
+
+# General
+msgid "You're already logged in!"
+msgstr "คุณเข้าสู่ระบบอยู่แล้ว"
+
+msgid "Submit"
+msgstr "ส่ง"
+
+msgid "Username"
+msgstr "ชื่อผู้ใช้"
+
+msgid "Password"
+msgstr "รหัสผ่าน"
+
+msgid "Invalid CSRF token"
+msgstr "รหัส CSRF ผิดพลาด"
+
+msgid "Your session has expired. Please try redoing what you were trying to do."
+msgstr "เซสชั่นหมดอายุ ลองทำใหม่ดูอาจจะหายก็ได้นะ!"
+
+msgid "That user could not be found."
+msgstr "เราไม่เห็นเจอคนนั้นเลยนะ"
+
+msgid "Your settings have been saved."
+msgstr "การตั้งค่าของคุณได้ถูกบันทึกแล้ว"
+
+# beatmaps/rank_requests.html
+msgid "Request beatmap ranking"
+msgstr "ขอให้บีทแมพอยู่ในโหมด Ranked"
+
+msgid "Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!"
+msgstr "ต้องการอยากให้แมพที่ไม่ Ranked แต่ได้ PP งั้นเหรอ? ได้! คุณสามารถส่งบีทแมพมาให้เราแล้วเราจะสามารถทำให้ความฝันของคุณอาจจะเป็นจริงได้!"
+
+msgid "Queue status"
+msgstr "สถานะคิวตอนนี้"
+
+msgid "by you"
+msgstr "โดยคุณ"
+
+msgid "Requests submitted"
+msgstr "ส่งคำขอไปแล้วทั้งหมด"
+
+msgid "In the past 24 hours"
+msgstr "ในเมื่อ 24 ชั่วโมงที่แล้ว"
+
+msgid "Request a beatmap"
+msgstr "ขอบีทแมพ"
+
+msgid "You cannot currently request beatmaps!"
+msgstr "คุณยังขอตอนนี้ไม่ได้นะ!"
+
+# After this text there is a date. The date is localised separately.
+msgid "Please try again "
+msgstr "ลองใหม่อีกครั้งนึงนะ"
+
+# pwreset/continue.html
+msgid "Reset password"
+msgstr "รีเซ็ตรหัสผ่าน"
+
+msgid "Glad to have you back here, %s! To finish the password recovery, type in a new password:"
+msgstr "ยินดีที่เห็นคุณกลับมานะ! %s! เพื่อจะให้รหัสผ่านถูกรีเซ็ตใหม่ทั้งหมด กรุณาใส่รหัสผ่านใหม่ที่ช่องนี้:"
+
+msgid "Nope."
+msgstr "ไม่."
+
+msgid "That key could not be found. Perhaps it expired?"
+msgstr "เราไม่เจอคีย์นั้นนะ หมดอายุแล้วหรือเปล่า?"
+
+msgid "All right, we have changed your password and you should now be able to login! Have fun!"
+msgstr "โอเค! เราเปลี่ยนรหัสผ่านให้คุณแล้วนะ สามารถเข้าสู่ระบบได้เลย ขอให้สนุกนะ!"
+
+# register/register.html
+msgid "Register"
+msgstr "สมัครสมาชิก"
+
+msgid "Sorry, it's not possible to register at the moment. Please try again later."
+msgstr "โทษทีนะ เรายังไม่เปิดให้คุณได้สมัครตอนนี้ ค่อยมาดูใหม่ทีหลังนะ"
+
+msgid "Remember: this seems like it's your second account! Do not multiaccount, or you're likely to get restricted!"
+msgstr "จำเอาไว้นะ ว่าคุณกำลังสร้างบัญชีอันที่ 2! และการสร้างหลายบัญชีนั้นมันจะทำให้คุณถูกแบนได้เลยนะ"
+
+msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
+msgstr "ชื่อผู้ใช้ (2-15 ตัว สามารถใช้ตัวอักษรภาษาอังกฤษ, ตัวเลข, เว้นวรรค หรือสัญลักษณ์ต่อไปนี้ <code>_[]-</code>)"
+
+msgid "Password (at least 8 characters)"
+msgstr "รหัสผ่าน (อย่างน้อยต้องมี 8 ตัวขึ้นไป)"
+
+msgid "Email"
+msgstr "อีเมลล์"
+
+msgid "You have been successfully registered on Kawata! You now need to verify your account."
+msgstr "คุณได้สมัครบัญชีแล้ว! ตอนนี้ก็เหลือแค่ยืนยันเท่านั้นแหละ"
+
+# Register checks
+msgid "Your password is too short! It must be at least 8 characters long."
+msgstr "รหัสผ่านของคุณมันสั้นเกินไปนะ อย่างน้อยต้องมี 8 ตัวสิ"
+
+msgid "Your password is one of the most common passwords on the entire internet. No way we're letting you use that!"
+msgstr "รู้อะไรไหม? รหัสผ่านพวกนี้มันง่ายมากๆ เราจะไม่ให้คุณใช้รหัสผ่านโง่ๆแบบนั้นไม่ได้หรอกนะ!"
+
+msgid "Your username must contain alphanumerical characters, spaces, or any of <code>_[]-</code>"
+msgstr "ชื่อผู้ใช้จะต้องมี 2-15 ตัว สามารถใช้ตัวอักษรภาษาอังกฤษ, ตัวเลข, เว้นวรรค หรือสัญลักษณ์ต่อไปนี้ <code>_[]-</code>"
+
+msgid "You're not allowed to register with that username."
+msgstr "ชื่อผู้ใช้นี้ไม่อนุญาตให้ใช้นะ"
+
+msgid "Please pass a valid email address."
+msgstr "กรุณานำอีเมลที่ถูกต้องมาใส่ด้วยนะ"
+
+msgid "An username can't contain both underscores and spaces."
+msgstr "ชื่อผู้ใช้ไม่สามารถใช้ ขีดเส้นใต้ หรือ เว้นวรรค 2 ตัวได้นะ"
+
+msgid "An user with that username already exists!"
+msgstr "โทษทีนะ แต่ชื่อผู้ใช้นั้นโดยใช้งานไปแล้ว"
+
+msgid "An user with that email address already exists!"
+msgstr "โทษทีนะ แต่มีใช้อีเมลนั้นไปแล้วนะ"
+
+msgid "Captcha is invalid."
+msgstr "ยืนยัน Captcha ไม่ผ่านอะ"
+
+msgid "Whoops, an error slipped in. You might have been registered, though. I don't know."
+msgstr "อุย พอดีอยู่ดีๆระบบก็เจ๊ง อาจจะสมัครไปแล้วมั้ง...? ไม่รู้อะ"
+
+# register/verify.html
+msgid "Verify account"
+msgstr "ยืนยันบัญชีของคุณ"
+
+msgid "Thank you, your account has been successfully created!"
+msgstr "ขอขอบคุณที่เข้าร่วมเล่นกับพวกเรา, ตอนนี้เราได้สร้างบัญชีให้แล้ว"
+
+msgid "Your account is currently pending verification. In order to activate your account, you have to log in to osu! using your Kawata account."
+msgstr "ขณะนี้บัญชีของคุณกำลังรอการยืนยัน. เพื่อที่จะให้บัญชีคุณยืนยันนั้น คุณจะต้องล็อกอินในเกม osu! โดยใช้บัญชี Kawata"
+
+msgid "Do not let anyone except yourself log into your Kawata account!"
+msgstr "อย่าให้ใครเข้าเล่นบัญชีคุณนอกจากตัวคุณเอง!"
+
+msgid "Wondering how to connect?"
+msgstr "งงว่าเข้ายังไงนะเหรอ?"
+
+msgid "Don't worry, it's very simple!"
+msgstr "ไม่ต้องห่วง มันง่ายมากๆ"
+
+msgid "Download our server switcher"
+msgstr "โหลดตัวสลับเซิร์ฟเวอร์ของพวกเรามา"
+
+msgid "Turn off your antivirus, then execute <i>kawata-server-switcher.exe</i> <b>as administrator</b>"
+msgstr "ปิดตัวสแกนไวรัส จากนั้นให้เปิด <i>kawata-server-switcher.exe</i> <b>ในฐานะผู้ดูแลระบบ</b> (หรือ Run as administrator นั้นเอง)"
+
+msgid "Click on \"Connect to Kawata\""
+msgstr "กดไปที่ \"Connect to Kawata\" เท่านี้ก็เรียบร้อยแล้ว!"
+
+msgid "Having trouble? Please have a look at our <a href='https://kawata.pw/doc/5' target='blank'>FAQ</a>"
+msgstr "หรือถ้ายังมีปัญหาอยู่ละก็ มาเช็ค <a href='/doc/5/' target='blank'>คำถามที่พบบ่อย</a>"
+
+msgid "Waiting for verification"
+msgstr "กำลังรอการยืนยัน"
+
+msgid "(once you have completed verification, you will be able to log into the website.)"
+msgstr "(เมื่อคุณยืนยันเสร็จแล้ว คุณจะสามารถล็อกอินในเว๊ปได้ตามปกติ)"
+
+# register/elmo.html
+msgid "Elmo! Stop!"
+msgstr "เฮ้นาย! หยุดเลย!"
+
+msgid "Stop!"
+msgstr "หยุดทันที!!!"
+
+msgid "We see that you're trying to sign up while having already signed up as %s! Please note that multiaccounting is punishable, and can lead to a one month restriction!"
+msgstr "เรารู้นะว่านายจะทำอะไรน่ะ %s! ขอบอกไว้เลยว่าถ้าสร้างบัญชีหลายๆบัญชีอะ ถูกทำโทษได้เลยนะ!! ยังไม่พอแค่นั้นมันจะทำให้โดนแบน 1 เดือนด้วยละ!!!"
+
+msgid "If you're %s, keep in mind that multiaccounting = ban."
+msgstr "ถ้าคุณคือ %s บอกเลยว่าสร้างหลายบัญชีนั้น แบนสถานเดียว"
+
+msgid "If you're not %s, but you're using %s's computer, please sign up on Kawata from your own computer."
+msgstr "ถ้าคุณไม่ใช่ %s ละก็ แต่คุณกำลังใช้คอม %s อยู่ ไปสมัครที่คอมคุณเถอะนะ"
+
+msgid "If you live with %s and you don't have your own computer from which to sign up on Kawata, then please contact accounts@kawata.pw, and we'll deal with your specific case."
+msgstr "ถ้าคุณอยู่กับ %s แต่คุณไม่มีคอมเล่นแต่อยากจะเล่นกับเซิร์ฟเวอร์เรา กรุณาติดต่อเราที่ดิสคอร์ดเดี๋ยวเราไปคุยเอง"
+
+msgid "This warning may pop up also if you're using another computer on the same network of %s. As long as you're not using the same computer, you should be all good."
+msgstr "บางที่คำเตือนนี้อาจจะเด้งมาที่คอมเครื่องอื่นๆแต่ใช้เน็ตเร้าเตอร์เดียวกันกับ %s แต่ถ้าไม่ได้ใช้คอมเครื่องเดียวกัน นั้นก็ไม่มีปัญหาหรอกนะ"
+
+msgid "Don't stop me now!"
+msgstr "อย่าหยุดเราเดี๋ยวเราฟาดแม่มเลย"
+
+msgid "Bring me back to safety!"
+msgstr "ก็ได้!  ก็ได้! กลับไปเดี๋ยวนี้แหละ!!"
+
+# login.html
+msgid "Log in"
+msgstr "เข้าสู่ระบบ"
+
+msgid "Username (or email)"
+msgstr "ชื่อผู้ใช้ (หรืออีเมลล์ก็ได้อะนะ)"
+
+# in relationship to a password
+msgid "(forgot?)"
+msgstr "(หรือลืมรหัสผ่าน?)"
+
+msgid "Username or password not set."
+msgstr "ชื่อผู้ใช้หรือรหัสผ่านยังไม่ได้ใส่เลย"
+
+msgid "No user with such %s!"
+msgstr "ไม่เห็นเจอคนที่ชื่อ %s เลย!"
+
+msgid "Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?"
+msgstr "รหัสผ่านแม่มโคตรจะเก่าาาาาาาาาาาาาาาาาาาาาาาาา เลย เราแทบจะทนไม่ไหวกับรหัสผ่านเน่าๆแบบนี้แล้วนะ ช่วยเปลี่ยนใหม่หน่อยได้มั้ย!?"
+
+msgid "Wrong password."
+msgstr "รหัสผ่านผิดจ้า"
+
+msgid "You will need to verify your account first."
+msgstr "เฮ้ ไปยืนยันบัญชีก่อนเข้านะ -*-"
+
+msgid "You are not allowed to login. This means your account is either banned or locked."
+msgstr "เราไม่ให้เข้าหรอกนะ :v นั้นหมายความว่าคุณอาจจะโดนแบนหรือโดนล็อคบัญชีอยู่ก็เป็นได้"
+
+msgid "Hey %s! You are now logged in."
+msgstr "เย้!! ว่าไง %s! กลับมาแล้วสินะ!"
+
+msgid "You're already logged out!"
+msgstr "เอ๋? คุณออกจากระบบไปนานแล้วนิหน่า!?"
+
+msgid "Successfully logged out."
+msgstr "ออกจากระบบแล้ว ไว้เจอกันนะ :("
+
+# pwreset.html
+msgid "Forgot your password? Worry not! Here you can reset it. Just tell us your username or email address, and we'll take care of it. You will receive an email at the email address you used to sign up on Kawata. To continue the password reset procedure, click the link on that email."
+msgstr "ลืมรหัสผ่านงั้นเรอะ? ไม่ต้องห่วง! มาที่นี้แล้วคุณก็สามารถรีเซ็ตได้ แค่บอกอีเมลและชื่อมาก็พอ, และจากนั้นเราจะจัดการเอง คุณจะได้รับอีเมลที่อีเมลที่คุณสมัครใน Kawata. ในการรีเซ้ตรหัสผ่านนั้นง่ายมาก แค่เปิดอีเมลแล้วก็กดลิ้งค์ที่เราส่งไปให้ในเมลล์เลย!"
+
+msgid "You look pretty banned/locked here."
+msgstr "คุณเหมือนโดนล็อกหรือโดนแบนอยู่นะ"
+
+msgid "Done! You should shortly receive an email from us at the email you used to sign up on Kawata."
+msgstr "เรียบร้อย! อีกหน่อยคุณน่าจะได้รับอีเมลจากเราแล้วละ"
+
+msgid "Kawata password recovery instructions"
+msgstr "วิธีการรีเซ้ตรหัสผ่านใน Kawata"
+
+msgid "Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Kawata. Otherwise, silently ignore this email."
+msgstr "เฮ้ ว่าไง %s! มีใครบางคน (คงเป็นคุณอะแหละ) มาขอรีเซ็ตรหัสผ่านบัญชีคุณ ถ้าคุณเป็นคนขอเอง กรุณากดที่<a href='%s'>นี้เลย</a>เพื่อที่จะให้ดำเนินการเสร็จ ถ้าถ้าไม่ใช่คุณละก็ ไม่ต้องสนใจเมลนี้หรอกนะ"
+
+# not_found.html
+msgid "Not Found"
+msgstr "เราหาไม่เจอเลยอ่ะ TwT"
+
+msgid "We're sorry, but we were unable to find the content you were looking for!"
+msgstr "ขอโทษจริงๆที่เราหาไม่เจอ เราหาทั่วทุกมุมแล้วเร็วไม่เจออะไรเลยอ่าา ;_;"
+
+# navbar.html
+msgid "Leaderboard"
+msgstr "กระดานคะแนน"
+
+msgid "Global"
+msgstr "ทั่วโลก"
+
+msgid "Help"
+msgstr "ขอความช่วยเหลือ"
+
+msgid "About"
+msgstr "เกี่ยวกับเรา"
+
+msgid "Docs"
+msgstr "เอกสาร"
+
+msgid "About"
+msgstr "เกี่ยวกับเรา"
+
+msgid "Rules"
+msgstr "กฎ"
+
+msgid "Documentation"
+msgstr "เอกสารต่างๆ"
+
+msgid "Server Switcher"
+msgstr "ตัวสลับเซิร์ฟเวอร์"
+
+msgid "Discord"
+msgstr "ดิสคอร์ด"
+
+msgid "Twitter"
+msgstr "ทวิตเตอร์"
+
+msgid "YouTube Channel"
+msgstr "ช่อง YouTube"
+
+msgid "Reddit"
+msgstr "เรดดิต"
+
+msgid "Clans"
+msgstr "แคลน"
+
+msgid "Leaderboard"
+msgstr "กระดานคะแนน"
+
+msgid "My Clan"
+msgstr "แคลนของฉัน"
+
+msgid "Create"
+msgstr "สร้าง"
+
+msgid "Beatmaps"
+msgstr "บีทแมพ"
+
+msgid "Rank Request"
+msgstr "ขอให้บีทแมพอยู่ในโหมด Ranked"
+
+msgid "Profile"
+msgstr "โปรไฟล์"
+
+msgid "Friends"
+msgstr "เพื่อน"
+
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+msgid "Log out"
+msgstr "ออกจากระบบ"
+
+msgid "Search"
+msgstr "ค้นหา"
+
+# homepage.html
+msgid "Home Page"
+msgstr "หน้าหลัก"
+
+msgid "Welcome to osu!Kawata!"
+msgstr "ยินดีต้อนรับเข้าสู่ osu!Kawata!"
+
+msgid "users online"
+msgstr "คนที่กำลังออนไลน์"
+
+msgid "users registered"
+msgstr "คนที่สมัครแล้ว"
+
+msgid "Kawata is the first osu! private server that allows cheating. Confused? Don't worry, we'll help getting you started!"
+msgstr "Kawata คือเซิร์ฟเวอร์ osu! เซิร์ฟเวอร์แรกที่อนุญาตให้โกงได้ งงหรอ? ไม่ต้องเครียด เดี๋ยวพวกเราจะพาคุณเริ่มกันดีกว่า!"
+
+msgid "My profile"
+msgstr "โปรไฟล์ของฉัน"
+
+msgid "Sign up!"
+msgstr "สมัครเลย!"
+
+msgid "Read the Rules"
+msgstr "อ่านกฎ"
+
+msgid "Hi there!"
+msgstr "ดีจ้า!"
+
+msgid "missed us?"
+msgstr "คิดถึงเค้ามั้ย"
+
+msgid "If you want any new features, or have found an issue, do not hesitate to contact us, on our <a href='https://discord.gg/Gk7wAqf' target='_blank'>Discord server</a>, for example."
+msgstr "หากคุณอยากได้ระบบเจ๋งๆ หรืออยากแจ้งปัญหา, ไม่ต้องกลัวพวกเราหรอกนะ (พวกเราไม่กัดหรอกอิอิ) สามารถติดต่อเราได้ที่ <a href='https://discord.gg/Gk7wAqf' target='_blank'>เซิร์ฟเวอร์ดิสคอร์ด</a> ได้เลย"
+
+msgid "Thanks!"
+msgstr "ขอบคุณครับ"
+
+# base.html
+msgid "Kawata's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being."
+msgstr "ระบบคะแนนในเซิร์ฟเวอร์กำลังปิดตอนนี้ คุณจะไม่สามารถลงคะแนนอะไรใดๆไม่ได้เลย! ขออภัยในความไม่สะดวก!"
+
+msgid "The Kawata website is currently in maintenance mode. Only certain users are allowed to access the full website."
+msgstr "เว๊ปไซต์อยู่ในช่วงปิดปรับปรุง เฉพาะผู้ใช้ที่อนุญาตเท่านั้นที่สามารถใช้เว๊ปไซต์อย่างเต็มรูปแบบได้!"
+
+msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Kawata's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>."
+msgstr "บัญชีคุณตอนนี้กำลังถูกระงับ! คุณจะไม่สามารถทำอะไรได้และคุณจะถูกเห็นโดยคุณเองและทีมงาน Kawata เท่านั้น! ถ้าคุณรู้สึกว่าเราทำอะไรผิดพลาดไป คุณสามารถลองขอปลดได้ที่ <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>.
+
+msgid "&copy 2019 osu!Kawata"
+msgstr "&copy 2019 osu!Kawata"
+
+msgid "Team"
+msgstr "ทีมงาน"
+
+msgid "Who is working on this thing?"
+msgstr "ใครทำงานในส่วนนี้ฟะ?"
+
+msgid "What is running behind our server?""
+msgstr "ใช้อะไรเปิดเซิร์ฟเวอร์เนี่ย"
+
+msgid "Follow us on Twitter!"
+msgstr "ติดตามพวกเราในทวิตเตอร์!"
+
+msgid "Language"
+msgstr "ภาษา"
+
+# beatmap.html
+msgid "Artist"
+msgstr "เจ้าของเพลง"
+
+msgid "Title"
+msgstr "ชื่อเพลง"
+
+msgid "Creator"
+msgstr "ผู้สร้าง"
+
+msgid "Source"
+msgstr "ที่มา"
+
+msgid "Circle Size"
+msgstr "ขนาดวงกลม"
+
+msgid "HP Drain"
+msgstr "ความเร็วการลด HP"
+
+msgid "Overall Difficulty"
+msgstr "ระดับความยากรวมๆ"
+
+msgid "Passes/Plays"
+msgstr "ผ่าน/เล่นไปกี่ครั้งแล้ว"
+
+msgid "Approach Rate"
+msgstr "ความไวของ Approach Rate"
+
+msgid "Star Difficulty"
+msgstr "ระดับดาว"
+
+msgid "Length"
+msgstr "ความยาว"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "osu!direct"
+msgstr "free!direct"
+
+msgid "download"
+msgstr "ดาวน์โหลด"
+
+msgid "download (no video)"
+msgstr "ดาวน์โหลด (แบบไม่เอาวีดีโอ)"
+
+msgid "Rank in RAP"
+msgstr "เปิดให้แมพ Ranked"
+
+# about.html
+msgid "Welcome to Kawata"
+msgstr "ยินดีต้อนรับสู่เซิร์ฟเวอร์ osu!Kawata"
+
+msgid "Kawata is a private osu! server."
+msgstr "osu!Kawata คือเซิร์ฟ osu!"
+
+msgid "There are many like it, but this one is ours."
+msgstr "มีหลายเซิร์ฟที่คล้ายๆกัน แต่เซิร์ฟนี้เซิฟเรา"
+
+# %s is eggplant emoji
+msgid "Don't you like %s?"
+msgstr "คุณไม่ชอบ %s หรือ?"
+
+msgid "We have leaderboards."
+msgstr "เรามีกระดานคะแนน"
+
+msgid "Online user listing."
+msgstr "รายชื่อคนที่ออนไลน์"
+
+msgid "Free osu!direct."
+msgstr "osu!direct ให้ใช้แบบฟรีๆ"
+
+msgid "Global leaderboards."
+msgstr "กระดานคะแนนในเกมส์"
+
+msgid "and PP for all game modes"
+msgstr "และ PP สำหรับทุกเกมส์โหมด"
+
+msgid "Ranking queue for unranked beatmaps."
+msgstr "ระบบขอ Beatmap ให้อยู่ในโหมด Ranked"
+
+msgid "Spectator."
+msgstr "โหมดคนดู"
+
+msgid "Multiplayer."
+msgstr "เล่นแบบหลายคน"
+
+msgid "AC, anticheat guy"
+msgstr "AC พ่อหนุ่มกันโปร"
+
+msgid "with plenty of functions for just about anything, <a href=\"/doc/4\">check it out!</a>"
+msgstr "พร้อมกับระบบสุดเจ๋งหลายอย่างที่ AC มี <a href=\"/doc/4\">ลองดูสิ!</a>"
+
+msgid "And a lot more to come!"
+msgstr "และอื่นๆอีกมากมายที่จะมาเร็วๆนี้"
+
+msgid "Ainu! is the result of the hard work of developers, who got tired about the whole osu! server"
+msgstr "osu!thailand คือเซิร์ฟที่ทำมาจากทีมงานผู้พัฒนาที่ทำมาอย่างยากลำบาก ที่ลองผิดลองถูกกับเซิร์ฟเวอร์ osu!"
+
+# %s is wink emoji
+msgid "Thanks to developers who has help me and make server for us <a href=\"/register\">Signing up</a> on Kawata won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
+msgstr "ต้องขอบคุณทีมงานทุกๆท่านที่มาช่วยเหลือพวกเราและได้สร้างเซิร์ฟเวอร์นี้ขึ้นมา <a href=\"/register\">สมัครตอนนี้</a>เลย! และไม่ต้องกลัวว่าบัญชีคุณนั้นจะถูกแบน แล้วจะรออะไรอยู่ละ!? มาเล่นกันเถอะ %s!"
+
+msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://github.com/kawatapw\">source code</a> Kawata is running on."
+msgstr "ถ้ารู้สึกว่ากลัวว่าเราจะทำอะไรแปลกๆ เราสามารถให้คุณดู <a href=\"https://github.com/kawatapw\">src</a> ของพวกเราเพื่อให้รู้ว่าเราไม่ได้ทำอะไรแย่ๆได้เลย!"
+
+# friends.html
+msgid "On this page you can see all of your friends, and unfriend them as you see fit."
+msgstr "ในหน้านี้จะเป็นรายชื่อเพื่อนของคุณ และคุณสามารถลบเพื่อนออกได้ แล้วแต่คุณเลย"
+
+msgid "Mutual"
+msgstr "เพิ่มเพื่อน"
+
+msgid "Remove"
+msgstr "ลบออก"
+
+# leaderboard.html
+msgid "Rank"
+msgstr "ที่"
+
+msgid "Player"
+msgstr "ผู้เล่น"
+
+msgid "PP/Score"
+msgstr "PP/คะแนน"
+
+msgid "Accuracy"
+msgstr "ความแม่นยำ"
+
+msgid "Playcount"
+msgstr "เล่นไปทั้งหมด"
+
+# profile.html
+msgid "%s's profile"
+msgstr "โปรไฟล์ของ %s"
+
+# for <reason>, expires <placeholder for time>.
+msgid "User is <b>silenced</b> for %s, expires %s."
+msgstr "ผู้ใช้คนนี้กำลัง <b>โดนใบ้</b> เนื่องจาก %s และจะหมดอายุตอน %s"
+
+# %s is placeholder for an adjective of the user, e.g. "locked", "pending verification", "restricted"
+msgid "User is <b>%s</b>"
+msgstr "ผู้ใช้คนนี้ <b>%s</b>"
+
+msgid "pending verification"
+msgstr "กำลังรอการยืนยัน"
+
+msgid "banned"
+msgstr "โดนแบน"
+
+msgid "restricted"
+msgstr "โดนระงับการใช้งาน"
+
+msgid "locked"
+msgstr "โดนล็อก"
+
+msgid "User not found"
+msgstr "เราไม่เห็นเจอคนนั้นเลยนะ"
+
+msgid "(aka <b>%s</b>)"
+msgstr "(รู้จักกันในนามว่า <b>%s</b>)"
+
+msgid "Online"
+msgstr "กำลังออนไลน์"
+
+msgid "Offline"
+msgstr "ออฟไลน์"
+
+msgid "Unknown"
+msgstr "ไม่รู้"
+
+msgid "<b>%s</b> is a"
+msgstr "<b>%s</b> คือ"
+
+msgid "from <b>%s</b>."
+msgstr "จากประเทศ <b>%s</b>"
+
+msgid "Last seen: %s."
+msgstr "เห็นล่าสุดเมื่อ: %s"
+
+msgid "They signed up on Kawata %s."
+msgstr "สมัครใน Kawata ตั้งแต่ %s"
+
+msgid "They play with %s."
+msgstr "เขาเล่นด้วย %s"
+
+msgid "Mouse"
+msgstr "เม้าส์"
+
+msgid "Tablet"
+msgstr "เม้าส์ปากกา"
+
+msgid "Keyboard"
+msgstr "คีย์บอร์ด"
+
+msgid "Touchscreen"
+msgstr "หน้าจอสัมผัส"
+
+msgid "Relax"
+msgstr "Relax"
+
+msgid "Timewarp"
+msgstr "Timewarp"
+
+msgid "Aim Assist"
+msgstr "ระบบช่วยเล็ง"
+
+msgid "Unmod"
+msgstr "ระบบลบ Mod"
+
+msgid "EZ"
+msgstr "EZ"
+
+msgid "This user hasn't got any badges!"
+msgstr "คนนี้ไม่ได้มีโล่อะไรเลย"
+
+msgid "Global rank"
+msgstr "ลำดับทั่วโลก"
+
+msgid "Country rank"
+msgstr "ลำดับประเทศ"
+
+msgid "PP"
+msgstr ""
+
+msgid "Ranked score"
+msgstr "คะแนน (โหมดแรงค์)"
+
+msgid "Total score"
+msgstr "คะแนน (ทั้งหมด)"
+
+msgid "Replays watched"
+msgstr "มีคนดู Replays ทั้งหมด (ครั้ง)"
+
+msgid "Total hits"
+msgstr "กดไปทั้งหมด (ครั้ง)"
+
+msgid "Level %s"
+msgstr "เลเวล %s"
+
+msgid "Achievements"
+msgstr "ความสำเร็จ"
+
+# Settings
+msgid "Userpage"
+msgstr "คำคมประจำตัว"
+
+msgid "Avatar"
+msgstr "รูปโปรไฟล์"
+
+msgid "Profile background"
+msgstr "ภาพพื้นหลังในโปรไฟล์"
+
+msgid "Open File"
+msgstr "เปิดไฟล์"
+
+msgid "Save"
+msgstr "บันทึก"
+
+msgid "New password (leave blank if you don't want to change it)"
+msgstr "รหัสผ่านใหม่ (ไม่ต้องใส่ถ้าไม่อยากเปลี่ยน)"
+
+msgid "Current password"
+msgstr "รหัสผ่านปัจจุบัน"
+
+msgid "BBCode syntax reference"
+msgstr "วิธีใช้ BBCode"
+
+msgid "General"
+msgstr "ข้อมูลเบื้องต้น"
+
+msgid "Email address"
+msgstr "อีเมลล์"
+
+msgid "Alternative username (cannot be used for login)"
+msgstr "ชื่อที่รู้ในนามต่างๆ (ไม่สามารถเอาอันนี้ไปล็อกอินได้นะ!)"
+
+msgid "Also known as..."
+msgstr "รู้จักกันในนามว่า..."
+
+msgid "Favourite mode"
+msgstr "โหมดที่ชอบเล่นมากที่สุด"
+
+msgid "Custom badge"
+msgstr "โล่พิเศษ"
+
+msgid "Enable"
+msgstr "เปิด"
+
+msgid "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore."
+msgstr "<b>คำเตือน!</b> โปรดอย่าตั้งชื่อโล่ให้ดูแบบหยาบคายมากนัก หรือตั้งโล่ตัวเองเหมือนใหญ่เช่น Owner เป็นต้น เราจะนำคุณออกไม่ให้ใช้ระบบโล่พิเศษ เราถือว่าเตือนแล้วนะ"
+
+msgid "Icon reference"
+msgstr "ดูคลังรูปไอคอน"
+
+msgid "Dinosaur, oompa-loompa, cool guy..."
+msgstr "ฉายาของตัวเอง"
+
+msgid "Playstyle"
+msgstr "เล่นด้วยอะไรเอ่ย?"
+
+msgid "Owner"
+msgstr "เจ้าของ"
+
+msgid "Revoke"
+msgstr "เพิกเฉย"
+
+msgid "Dark site"
+msgstr "เว๊ปธีมสีดำ"
+
+msgid "Preferences"
+msgstr "โหมดเพิ่มเติมอื่นๆ"
+
+# Go source
+msgid "Changing avatar is currently not possible."
+msgstr "ตอนนี้เรายังไม่ให้เปลี่ยนรูปโปรไฟล์นะ"
+
+msgid "An error occurred."
+msgstr "อยู่ดีๆก็เกิดปัญหาขึ้นมา"
+
+msgid "We were not able to save your avatar."
+msgstr "เราเปลี่ยนไม่ได้อะ ทำไงดี!?"
+
+msgid "Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5."
+msgstr "เปลี่ยนรูปให้แล้วจ้า กด CTRL + F5 เลยเดี๋ยวมันก็เปลี่ยนให้เอง"
+
+msgid "Internal Server Error"
+msgstr "เซิร์ฟเวอร์มีปัญหา"
+
+msgid "You're not a donor!"
+msgstr "คุณไม่ได้เป็น Donater"
+
+msgid "Your profile background has been saved."
+msgstr "ภาพพื้นหลังในโปรไฟล์ของคุณได้ถูกบันทึกแล้ว!"
+
+msgid "We were not able to save your profile background."
+msgstr "เราเปลี่ยนไม่ได้อะ ทำไงดี!?"
+
+msgid "Background type"
+msgstr "รูปแบบพื้นหลัง"
+
+msgid "None"
+msgstr "ไม่มี"
+
+msgid "Image"
+msgstr "รูปภาพ"
+
+msgid "Solid colour"
+msgstr "สี"
+
+msgid "Colour is invalid"
+msgstr "สีบ้าอะไรเนี่ย!?"
+
+msgid "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."
+msgstr "คุณถูกบังคับให้ออกจากระบบเนื่องจากบัญชีของคุณโดนแบนหรือถูกล็อก"
+
+msgid "You have been automatically logged out for security reasons. Please <a href='/login?redir=%s'>log back in</a>."
+msgstr "คุณถูกบังคับให้ออกจากระบบเนื่องจากความปลอดภัย"
+
+msgid "You need to login first."
+msgstr "คุณต้องเข้าสู่ระบบก่อนนะ"
+
+msgid "Forbidden"
+msgstr "คุณไม่ได้รับอนุญาตให้มาที่นี้"
+
+msgid "You should not be 'round here."
+msgstr "ออกไปเดี๋ยวนี้เลยนะ >///<"
+
+msgid "If you truly have understood what's written above and you have understood that creating a multiaccount will lead to a restriction on your main account, you can click here and you'll be brought to the sign up page."
+msgstr "ถ้าคุณเข้าใจว่าเราอธิบายให้คุณฟังแล้ว และคุณเข้าใจว่าการสร้างหลายๆบัญชีทำให้ถูกแบนได้ คุณสามารถกดข้อความนี้เพื่อไปสมัครได้เลย"
