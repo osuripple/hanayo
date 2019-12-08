@@ -476,7 +476,7 @@ var funcMap = template.FuncMap{
 	},
 }
 
-var localeLanguages = []string{}
+var localeLanguages = []string{"th"}
 
 var hanayoStarted = time.Now().UnixNano()
 
@@ -569,6 +569,7 @@ type langInfo struct {
 
 var languageInformation = []langInfo{
 	{"English (UK)", "gb", "en"},
+	{"ภาษาไทย", "th", "th"},
 }
 
 func clientIP(c *gin.Context) string {
