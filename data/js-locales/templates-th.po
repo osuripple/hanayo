@@ -1,6 +1,6 @@
 # JavaScript
 msgid "An error occurred while contacting the Kawata API. Please report this to a Kawata developer."
-msgstr "เกิดข้อผิดพลาดขณะระบบกำลังติดต่อระบบข้อมูลของ Kawata API กรุณาติดต่อผู้ดูแลเซิร์ฟเวอ์"
+msgstr "เกิดข้อผิดพลาดขณะระบบกำลังติดต่อระบบข้อมูลของ Kawata API กรุณาติดต่อผู้ดูแลเซิร์ฟเวอร์"
 
 # This is a quote of UNDERTALE if you didn't know.
 # It is shown regarding the level of an user, but it is shortened to "Lv.".
