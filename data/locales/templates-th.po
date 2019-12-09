@@ -190,10 +190,10 @@ msgid "If you're not %s, but you're using %s's computer, please sign up on Kawat
 msgstr "ถ้าคุณไม่ใช่ %s ละก็ แต่คุณกำลังใช้คอม %s อยู่ ไปสมัครที่คอมคุณเถอะนะ"
 
 msgid "If you live with %s and you don't have your own computer from which to sign up on Kawata, then please contact accounts@kawata.pw, and we'll deal with your specific case."
-msgstr "ถ้าคุณอยู่กับ %s แต่คุณไม่มีคอมเล่นแต่อยากจะเล่นกับเซิร์ฟเวอร์เรา กรุณาติดต่อเราที่ดิสคอร์ดเดี๋ยวเราไปคุยเอง"
+msgstr "ถ้าคุณอยู่กับ %s แต่คุณไม่มีคอมเล่นแต่อยากจะเล่นกับเซิร์ฟเวอร์เรา กรุณาติดต่อเราที่อีเมล accounts@kawata.pw เดี๋ยวเราไปคุยเอง"
 
 msgid "This warning may pop up also if you're using another computer on the same network of %s. As long as you're not using the same computer, you should be all good."
-msgstr "บางที่คำเตือนนี้อาจจะเด้งมาที่คอมเครื่องอื่นๆแต่ใช้เน็ตเร้าเตอร์เดียวกันกับ %s แต่ถ้าไม่ได้ใช้คอมเครื่องเดียวกัน นั้นก็ไม่มีปัญหาหรอกนะ"
+msgstr "บางที่คำเตือนนี้อาจจะเด้งมาที่คอมเครื่องอื่นๆหากใช้เน็ตเร้าเตอร์เดียวกันกับ %s แต่ถ้าไม่ได้ใช้คอมเครื่องเดียวกัน นั้นก็ไม่มีปัญหาหรอกนะ"
 
 msgid "Don't stop me now!"
 msgstr "อย่าหยุดเราเดี๋ยวเราฟาดแม่มเลย"
@@ -623,7 +623,7 @@ msgid "Country rank"
 msgstr "ลำดับประเทศ"
 
 msgid "PP"
-msgstr ""
+msgstr "PP"
 
 msgid "Ranked score"
 msgstr "คะแนน (โหมดแรงค์)"
