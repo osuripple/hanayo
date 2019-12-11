@@ -250,7 +250,7 @@ msgid "Done! You should shortly receive an email from us at the email you used t
 msgstr "เรียบร้อย! อีกหน่อยคุณน่าจะได้รับอีเมลจากเราแล้วละ"
 
 msgid "Kawata password recovery instructions"
-msgstr "วิธีการรีเซ้ตรหัสผ่านใน Kawata"
+msgstr "วิธีการรีเซ็ตรหัสผ่านใน Kawata"
 
 msgid "Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Kawata. Otherwise, silently ignore this email."
 msgstr "เฮ้ ว่าไง %s! มีใครบางคน (คงเป็นคุณอะแหละ) มาขอรีเซ็ตรหัสผ่านบัญชีคุณ ถ้าคุณเป็นคนขอเอง กรุณากดที่<a href='%s'>นี้เลย</a>เพื่อที่จะให้ดำเนินการเสร็จ ถ้าถ้าไม่ใช่คุณละก็ ไม่ต้องสนใจเมลนี้หรอกนะ"
@@ -380,7 +380,8 @@ msgid "The Kawata website is currently in maintenance mode. Only certain users a
 msgstr "เว๊ปไซต์อยู่ในช่วงปิดปรับปรุง เฉพาะผู้ใช้ที่อนุญาตเท่านั้นที่สามารถใช้เว๊ปไซต์อย่างเต็มรูปแบบได้!"
 
 msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Kawata's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>."
-msgstr "บญชคณตอนนกำลงถกระงบ! คณจะไมสามารถทำอะไรไดและคณจะถกเหนโดยคณเองและทมงาน Kawata เทานน! ถาคณสามารถลองขอปลดไดทท accounts@kawata.pw."
+msgstr "บัญชีคุณตอนนี้กำลังถูกระงับ! คุณจะไม่สามารถทำอะไรได้และคุณจะถูกเห็นโดยคุณเองและทีมงาน Kawata เท่านั้น! ถ้าคิดว่าคุณไม่ได้ผิดหรือครบ 1 เดือนแล้ว สามารถลองขอปลดได้ที่อีเมล accounts@kawata.pw."
+
 msgid "&copy 2019 osu!Kawata"
 msgstr "&copy 2019 osu!Kawata"
 
