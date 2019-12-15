@@ -201,11 +201,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:27d396298fa2260553272b839e2375315e4ff39e9674ee35411055d981bef1b3"
+  digest = "1:3a0c8c44b73ba39132cd6702ab2e47ffa5994603a950b655c5467ab3f32c8c17"
   name = "github.com/kawatapw/playstyle"
   packages = ["."]
   pruneopts = "UT"
-  revision = "29e3327b7518d316d1b804521d9e7d9a70aa55c2"
+  revision = "fa857769401a508dcc2ce31696ce95dd36950822"
 
 [[projects]]
   digest = "1:1a27a67993fd9ad63a5e04b49a9cacd32e4d3efdf44223749410c1e02bb53011"

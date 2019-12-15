@@ -18,6 +18,7 @@ const (
 	AimAssist
 	Unmod
 	EZ
+	TrueHD
 )
 
 // Styles are string representations of the various playstyles someone can have.
@@ -31,6 +32,7 @@ var Styles = [...]string{
 	"Aim Assist",
 	"Unmod",
 	"EZ",
+	"TrueHD",
 }
 
 // String is the string representation of a playstyle.
