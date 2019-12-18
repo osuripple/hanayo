@@ -184,7 +184,7 @@ function initialiseScores(el, mode) {
 	recent.attr("data-type", "recent");
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
-		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("🅱️est scores") + "</h2>", best),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Best scores") + "</h2>", best),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
 	loadScoresPage("best", mode);
