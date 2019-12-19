@@ -366,8 +366,8 @@ msgstr "ดีจ้า!"
 msgid "missed us?"
 msgstr "คิดถึงเค้ามั้ย"
 
-msgid "If you want any new features, or have found an issue, do not hesitate to contact us, on our <a href='https://discord.gg/Gk7wAqf' target='_blank'>Discord server</a>, for example."
-msgstr "หากคุณอยากได้ระบบเจ๋งๆ หรืออยากแจ้งปัญหา, ไม่ต้องกลัวพวกเราหรอกนะ (พวกเราไม่กัดหรอกอิอิ) สามารถติดต่อเราได้ที่ <a href='https://discord.gg/Gk7wAqf' target='_blank'>เซิร์ฟเวอร์ดิสคอร์ด</a> ได้เลย"
+msgid "If you want any new features, or have found an issue, do not hesitate to contact us, on our <a href='https://discord.gg/4CzsqkK' target='_blank'>Discord server</a>, for example."
+msgstr "หากคุณอยากได้ระบบเจ๋งๆ หรืออยากแจ้งปัญหา, ไม่ต้องกลัวพวกเราหรอกนะ (พวกเราไม่กัดหรอกอิอิ) สามารถติดต่อเราได้ที่ <a href='https://discord.gg/4CzsqkK' target='_blank'>เซิร์ฟเวอร์ดิสคอร์ด</a> ได้เลย"
 
 msgid "Thanks!"
 msgstr "ขอบคุณครับ"
