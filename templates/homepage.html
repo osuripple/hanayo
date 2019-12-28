@@ -23,7 +23,7 @@ TitleBar=Home Page
 			<p>Kawata is the first osu! private server that allows cheating. Confused? Don't worry, we'll help getting you started!</p>
 			<br>
 			{{ if .Context.User.Username }}
-			<span class="buttons">
+			<span class="button1">
 				<button class="btn-hover color-1" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
 			</span>
 			{{ else }}
@@ -33,6 +33,9 @@ TitleBar=Home Page
 			{{ end }}
 			<span class="buttons">
 				<button class="btn-hover color-4" onclick="window.location.href='/doc/rules'">Read the Rules</button>
+			</span>
+			<span class="buttons">
+				<button class="btn-hover color-3" onclick="window.open('https://discord.gg/4CzsqkK')">Discord Server</button>
 			</span>
 			</div>
 		</div>
