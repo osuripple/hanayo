@@ -127,6 +127,7 @@
 						</div>
 						<div class="column">
 							{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
+							{{ $maxcombo := qb "SELECT FORMAT(scores.max_combo,0) AS combo FROM scores WHERE userid = ? ORDER BY max_combo DESC;" $.UserID}}						
 								<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
 									<table class="ui very basic two column compact table nopad">
 										<tbody>
@@ -157,6 +158,10 @@
 											<tr>
 												<td><b>{{ $global.T "Playcount" }}</b></td>
 												<td class="right aligned">{{ humanize .playcount }}</td>
+											</tr>
+											<tr>
+												<td><b>{{ $global.T "Maximum Combo" }}</b></td>
+												<td class="right aligned">{{ $maxcombo.combo }}</td>
 											</tr>
 											<tr>
 												<td><b>{{ $global.T "Total Play Time" }}</b></td>
