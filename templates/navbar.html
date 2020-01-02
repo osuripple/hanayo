@@ -63,7 +63,6 @@
 			</div>
 
 			{{ end }}
-			{{ navbarItem .Path (.T "" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
 			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://old.kawata.pw" }}{{end}}
 		{{ end }}
 		<div class="firetrucking-right-menu">

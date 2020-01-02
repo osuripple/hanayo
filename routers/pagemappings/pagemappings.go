@@ -41,7 +41,6 @@ var pageMappings = map[int]interface{}{
 	26: "/friends",
 	28: "/", // user lookup
 	31: "/beatmaps/rank_request",
-	34: "/donate",
 	35: "/team",
 	36: "/irc",
 	37: "/beatmaps",
