@@ -88,7 +88,7 @@
 						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
 							<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>{{ with and $v $v.global_leaderboard_rank }}#{{ . }}{{ else }}{{ $global.T "Unknown" }}{{ end }}</h1>
 						{{ end }}
-						<div id="profile-actions">
+						<div id="profile-actions" style="display: flex;">
 							{{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
 								<button class="ui circular mini icon loading button" id="add-friend-button">
 									<i class="horizontal ellipsis icon"></i>
@@ -101,10 +101,20 @@
 								</a>
 							{{ end }}
 							{{ if hasAdmin $global.Context.User.Privileges }}
-								<a href="https://old.kawata.pw/index.php?p=103&id={{ $global.UserID }}"
+								<a href="https://old.ainu.pw/index.php?p=103&id={{ $global.UserID }}"
 									target="_blank" title="Quick edit" class="ui circular mini blue icon button">
 									<i class="folder open outline icon"></i>
 								</a>
+								<div style="margin-top: 5px;"></div>
+								<form id="unrestrict-form" action="/unrestrict/user/confirm" method="post"></form>
+									<button type="submit" name="user" form="unrestrict-form" value="{{ .id }}" class="ui circular mini green icon button">
+										<i class="unlock open outline icon"></i>
+									</button>
+								</form>
+								<form id="restrict-form" action="/restrict/user/confirm" method="post"></form>
+								<button type="submit" name="user"  form="restrict-form" value="{{ .id }}" class="ui circular mini red icon button">
+									<i class="ban open outline icon"></i>
+								</button>
 							{{ end }}
 						</div>
 					</div>
