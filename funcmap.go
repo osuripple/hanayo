@@ -495,6 +495,10 @@ var funcMap = template.FuncMap{
 	"hhmm": func(seconds float64) string {
 		return fmt.Sprintf("%02dh %02dm", int(math.Floor(seconds / 3600)), int(math.Floor(seconds / 60)) % 60)
 	},
+	"hasSnow": func() bool {
+		var now = time.Now()
+		return now.Month() == time.December || now.Month() == time.January
+	},
 }
 
 var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
