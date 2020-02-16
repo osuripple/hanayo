@@ -7,8 +7,10 @@ KyutGrill=leaderboard2.jpg
 <div class="ui container">
 	{{ $favModeRaw := .Get "users/self/favourite_mode" }}
 	{{ $favMode := _or (atoi (.Gin.Query "mode")) $favModeRaw.favourite_mode (float 0) }}
+	{{ $favRelax := _or (atoi (.Gin.Query "relax")) $favModeRaw.favourite_relax (float 0) }}
 	<script>
 		var favouriteMode = {{ $favMode }};
+		var favouriteRelax = {{ $favRelax }};
 		var page = {{ .Gin.Query "p" | atoint | atLeastOne }};
 		var country = {{ .Gin.Query "country" }}.toLowerCase();
 		if (country.length != 2)
@@ -18,6 +20,10 @@ KyutGrill=leaderboard2.jpg
 		{{ range $k, $v := modes }}
 			<a class="{{ favMode $favMode $k }}item" data-mode="{{ $k }}" href="/leaderboard?mode={{ $k }}">{{ $v }}</a>
 		{{ end }}
+	</div>
+	<div class="ui two item menu" id="relax-menu">
+		<a class="{{ if eq (int $favRelax) 0 }}active{{ end }} item" data-relax="0">{{ .T "Classic" }}</a>
+		<a class="{{ if eq (int $favRelax) 1 }}active{{ end }} item" data-relax="1">{{ .T "Relax" }}<div class="ui pink horizontal mini label">New!</div></a>
 	</div>
 	<div class="ui twelve item stackable menu">
 		{{ range countryList 11 }}

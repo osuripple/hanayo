@@ -46,19 +46,20 @@ var singlePageSnippets = {
 
   "/leaderboard" : function() {
     page = page === 0 ? 1 : page;
-
     function loadLeaderboard() {
       var wl = window.location;
       window.history.replaceState(
         '', document.title,
         wl.pathname + "?mode=" + favouriteMode + "&p=" + page +
               (country != "" ? "&country=" + encodeURI(country) : "") +
+              "&relax=" + favouriteRelax +
               wl.hash);
       api("leaderboard", {
         mode : favouriteMode,
         p : page,
         l : 50,
         country : country,
+        relax : favouriteRelax,
       },
       function(data) {
         var tb = $(".ui.table tbody");
@@ -93,6 +94,12 @@ var singlePageSnippets = {
       return "<b>" + addCommas(pp) + "pp</b> (" + addCommas(s) + ")"
     }
 
+    if (favouriteMode === 3) {
+      favouriteRelax = 0
+      $("#relax-menu .item[data-relax=1]").addClass("disabled").removeClass("active")
+      $("#relax-menu .item[data-relax=0]").addClass("active")
+    }
+
     // country stuff
     $("#country-chooser-modal")
       .click(function() {
@@ -111,10 +118,34 @@ var singlePageSnippets = {
     $("#mode-menu .item")
       .click(function(e) {
         e.preventDefault();
+        if ($(this).hasClass("disabled")) {
+          return;
+        }
         $("#mode-menu .active.item").removeClass("active");
         $(this).addClass("active");
         favouriteMode = $(this).data("mode");
+        if (favouriteMode === 3) {
+          // mania has no relax
+          favouriteRelax = 0
+          $("#relax-menu .item[data-relax=1]").addClass("disabled").removeClass("active")
+          $("#relax-menu .item[data-relax=0]").addClass("active")
+        } else {
+          $("#relax-menu .item[data-relax=1]").removeClass("disabled")
+        }
         country = "";
+        page = 1;
+        loadLeaderboard();
+      });
+
+    $("#relax-menu .item")
+      .click(function(e) {
+        e.preventDefault();
+        if ($(this).hasClass("disabled")) {
+          return;
+        }
+        $("#relax-menu .active.item").removeClass("active");
+        $(this).addClass("active");
+        favouriteRelax = $(this).data("relax");
         page = 1;
         loadLeaderboard();
       });
