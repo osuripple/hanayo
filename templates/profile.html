@@ -1,11 +1,30 @@
 {{ define "tpl" }}
 <div class="ui container">
 	{{ if .UserID }}
-		{{ $gqm := atoi (.Gin.Query "mode") }}
+		{{ $rqm := atoint (.Gin.Query "relax") }}
+		{{ $gqm := atoint (.Gin.Query "mode") }}
+		{{ if and (eq $gqm 3) (eq $rqm 1) }}
+			{{ $rqm = 0 }}
+		{{ end }}
+
+		{{ $hasMode := false }}
+		{{ if (.Gin.Query "mode") }}
+			{{ $hasMode = true }}
+		{{ end }}
+
+		{{ $hasRelax := false }}
+		{{ if (.Gin.Query "relax") }}
+			{{ $hasRelax = true }}
+		{{ end }}
+
 		{{ $global := . }}
-		{{ with (.Get "users/full?id=%d" .UserID) }}
-			{{ $favouritemode := _or $gqm .favourite_mode }}
+		{{ with (.Get "users/full?id=%d&relax=2" .UserID) }}
+			{{ $favouritemode := (int .favourite_mode) }}
+			{{ $favouriteRelax := (int .favourite_relax) }}
+			{{ if $hasMode }}{{ $favouritemode = $gqm }}{{ end }}
+			{{ if $hasRelax }}{{ $favouriteRelax = $rqm }}{{ end }}
 			<script>
+				window.favouriteRelax = {{ $favouriteRelax }};
 				window.favouriteMode = {{ $favouritemode }};
 				window.userID = {{ .id }};
 			</script>
@@ -65,8 +84,12 @@
 				</div>
 				<div class="magic table floating right">
 					<div class="table element">
-						{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
-							<h1 data-mode="{{ $k }}"{{ if ne $k (int $favouritemode) }} hidden{{ end }}>{{ with and $v $v.global_leaderboard_rank }}#{{ . }}{{ else }}{{ $global.T "Unknown" }}{{ end }}</h1>
+						{{ range $k, $v := .stats }}
+							{{ $isRelax := 0 }}
+							{{ if eq $k "relax" }}{{ $isRelax = 1 }}{{ end }}
+							{{ range $kk, $vv := (slice .std .taiko .ctb .mania) }}
+								<h1 data-mode="{{ $kk }}" data-relax="{{ $isRelax }}" {{ if or (ne $kk $favouritemode) (ne $isRelax $favouriteRelax) }} hidden{{ end }}>{{ with and $vv $vv.global_leaderboard_rank }}#{{ . }}{{ else }}{{ $global.T "Unknown" }}{{ end }}</h1>
+							{{ end }}
 						{{ end }}
 						<div id="profile-actions">
 							{{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
@@ -93,8 +116,12 @@
 			{{ $user := . }}
 			<div class="ui four item bottom attached menu" id="mode-menu">
 				{{ range $k, $v := modes }}
-					<a class="{{ favMode $favouritemode $k }}item" data-mode="{{ $k }}" href="/u/{{ $user.id }}?mode={{ $k }}">{{ $v }}</a>
+					<a class="{{ if eq $favouritemode $k }}active {{ end }}item" data-mode="{{ $k }}" href="/u/{{ $user.id }}?mode={{ $k }}">{{ $v }}</a>
 				{{ end }}
+			</div>
+			<div class="ui two item menu" id="relax-menu">
+				<a class="item {{ if eq $favouriteRelax 0 }}active{{ end }}" data-relax="0">{{ $global.T "Classic" }} </a>
+				<a class="item {{ if eq $favouriteRelax 1 }}active{{ end }} {{ if eq $favouritemode 3 }}disabled{{ end }}" data-relax="1">{{ $global.T "Relax" }}<div class="ui pink horizontal mini label">New!</div></a>
 			</div>
 			<div class="ui segment">
 				<div class="ui three column divided stackable grid">
@@ -126,71 +153,77 @@
 							{{ end }}
 						</div>
 						<div class="column">
-							{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
-								<div data-mode="{{ $k }}" {{ if ne $k (int $favouritemode) }} hidden{{ end }}>
-									<table class="ui very basic two column compact table nopad">
-										<tbody>
-											{{ with .global_leaderboard_rank }}
+							{{ range $relax, $v := .stats }}
+								{{ range $mode, $vv := (slice .std .taiko .ctb .mania) }}
+									{{ $isRelax := 0 }}
+									{{if eq $relax "relax" }}{{ $isRelax = 1 }}{{ end }}
+									<div data-mode="{{ $mode }}" data-relax="{{ $isRelax }}" {{ if or (ne $mode $favouritemode) (ne $isRelax $favouriteRelax) }} hidden{{ end }}>
+										<table class="ui very basic two column compact table nopad">
+											<tbody>
+												{{ with .global_leaderboard_rank }}
+													<tr>
+														<td><b>{{ $global.T "Global rank" }}</b></td>
+														<td class="right aligned">#{{ . }}</td>
+													</tr>
+												{{ end }}
+												{{ with .country_leaderboard_rank }}
+													<tr>
+														<td><b>{{ $global.T "Country rank" }} &nbsp;{{ country $user.country false }}</b></td>
+														<td class="right aligned">#{{ . }}</td>
+													</tr>
+												{{ end }}
 												<tr>
-													<td><b>{{ $global.T "Global rank" }}</b></td>
-													<td class="right aligned">#{{ . }}</td>
+													<td><b>{{ $global.T "PP" }}</b></td>
+													<td class="right aligned">{{ humanize .pp }}</td>
 												</tr>
-											{{ end }}
-											{{ with .country_leaderboard_rank }}
 												<tr>
-													<td><b>{{ $global.T "Country rank" }} &nbsp;{{ country $user.country false }}</b></td>
-													<td class="right aligned">#{{ . }}</td>
+													<td><b>{{ $global.T "Ranked score" }}</b></td>
+													<td class="right aligned">{{ humanize .ranked_score }}</td>
 												</tr>
-											{{ end }}
-											<tr>
-												<td><b>{{ $global.T "PP" }}</b></td>
-												<td class="right aligned">{{ humanize .pp }}</td>
-											</tr>
-											<tr>
-												<td><b>{{ $global.T "Ranked score" }}</b></td>
-												<td class="right aligned">{{ humanize .ranked_score }}</td>
-											</tr>
-											<tr>
-												<td><b>{{ $global.T "Total score" }}</b></td>
-												<td class="right aligned">{{ humanize .total_score }}</td>
-											</tr>
-											<tr>
-												<td><b>{{ $global.T "Playcount" }}</b></td>
-												<td class="right aligned">{{ humanize .playcount }}</td>
-											</tr>
-											<tr>
-												<td><b>{{ $global.T "Total Play Time" }}</b></td>
-												<td class="right aligned">{{ hhmm .play_time }}</td>
-											</tr>
-											<tr>
-												<td><b>{{ $global.T "Replays watched" }}</b></td>
-												<td class="right aligned">{{ humanize .replays_watched }}</td>
-											</tr>
-											<tr>
-												<td><b>{{ $global.T "Total hits" }}</b></td>
-												<td class="right aligned">{{ humanize .total_hits }}</td>
-											</tr>									<tr>
-												<td><b>{{ $global.T "Accuracy" }}</b></td>
-												<td class="right aligned">{{ printf "%.2f" .accuracy }}%</td>
-											</tr>
-										</tbody>
-									</table>
-									<div class="ui blue progress little margin top" data-percent="{{ levelPercent .level }}">
-										<div class="bar">
-											<div class="progress">{{ levelPercent .level }}%</div>
+												<tr>
+													<td><b>{{ $global.T "Total score" }}</b></td>
+													<td class="right aligned">{{ humanize .total_score }}</td>
+												</tr>
+												<tr>
+													<td><b>{{ $global.T "Playcount" }}</b></td>
+													<td class="right aligned">{{ humanize .playcount }}</td>
+												</tr>
+												<tr>
+													<td><b>{{ $global.T "Total Play Time" }}</b></td>
+													<td class="right aligned">{{ hhmm .play_time }}</td>
+												</tr>
+												<tr>
+													<td><b>{{ $global.T "Replays watched" }}</b></td>
+													<td class="right aligned">{{ humanize .replays_watched }}</td>
+												</tr>
+												<tr>
+													<td><b>{{ $global.T "Total hits" }}</b></td>
+													<td class="right aligned">{{ humanize .total_hits }}</td>
+												</tr>									<tr>
+													<td><b>{{ $global.T "Accuracy" }}</b></td>
+													<td class="right aligned">{{ printf "%.2f" .accuracy }}%</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="ui {{ if eq $isRelax 0}}blue{{ else }}teal{{ end }} progress little margin top" data-percent="{{ levelPercent .level }}">
+											<div class="bar">
+												<div class="progress">{{ levelPercent .level }}%</div>
+											</div>
+											<div class="label">{{ $global.T "Level %s" (level .level) }}</div>
 										</div>
-										<div class="label">{{ $global.T "Level %s" (level .level) }}</div>
 									</div>
-								</div>
+								{{ end }}
 							{{ end }}
 						</div>
 					</div>
 				</div>
 			</div> <!-- end grid segment -->
 			<div id="scores-zone">
-				{{ range _range 4 }}
-					<div data-mode="{{ . }}" {{ if ne . (int $favouritemode) }} hidden{{ end }} data-loaded="0">
-					</div>
+				{{ range $r := _range 2 }}
+					{{ range $m := _range 4 }}
+						<div data-mode="{{ $m }}" data-relax="{{ $r }}" {{ if or (ne $m $favouritemode) (ne $r $favouriteRelax) }} hidden{{ end }} data-loaded="0">
+						</div>
+					{{ end }}
 				{{ end }}
 			</div>
 

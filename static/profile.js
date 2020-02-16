@@ -1,5 +1,24 @@
 // code that is executed on every user profile
 $(document).ready(function() {
+	function changeCurrentScores() {
+		var m = 0;
+		var mel = $("#mode-menu>.item.active");
+		if (mel.length > 0) {
+			m = mel.data("mode");
+		}
+		var rel = $("#relax-menu>.item.active");
+		var r = 0;
+		if (rel.length > 0) {
+			r = rel.data("relax");
+		}
+		$("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
+		$("[data-mode=" + m + "][data-relax=" + r + "]:not(.item)").removeAttr("hidden");
+		var needsLoad = $("#scores-zone>[data-mode=" + m + "][data-relax=" + r + "][data-loaded=0]");
+		if (needsLoad.length > 0)
+			initialiseScores(needsLoad, m, r);
+		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + "&relax=" + r + wl.hash);
+	}
+
 	var wl = window.location;
 	var newPathName = wl.pathname;
 	// userID is defined in profile.html
@@ -17,20 +36,29 @@ $(document).ready(function() {
 		e.preventDefault();
 		if ($(this).hasClass("active"))
 			return;
-		var m = $(this).data("mode");
-		$("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
-		$("[data-mode=" + m + "]:not(.item)").removeAttr("hidden");
 		$("#mode-menu>.active.item").removeClass("active");
-		var needsLoad = $("#scores-zone>[data-mode=" + m + "][data-loaded=0]");
-		if (needsLoad.length > 0)
-			initialiseScores(needsLoad, m);
 		$(this).addClass("active");
-		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
+		if ($(this).data("mode") == 3) {
+			// relax has no mania
+			$("#relax-menu>.item[data-relax=1]").addClass("disabled").removeClass("active");
+			$("#relax-menu>.item[data-relax=0]").addClass("active");
+		} else {
+			$("#relax-menu>.item[data-relax=1]").removeClass("disabled");
+		}
+		changeCurrentScores();
+	});
+	$("#relax-menu>.item").click(function(e) {
+		e.preventDefault();
+		if ($(this).hasClass("active") || $(this).hasClass("disabled"))
+			return;
+		$("#relax-menu>.active.item").removeClass("active");
+		$(this).addClass("active");
+		changeCurrentScores();
 	});
 	initialiseAchievements();
 	initialiseFriends();
 	// load scores page for the current favourite mode
-	var i = function(){initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "]"), favouriteMode)};
+	var i = function(){initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "][data-relax=" + favouriteRelax + "]"), favouriteMode, favouriteRelax)};
 	if (i18nLoaded)
 		i();
 	else
@@ -124,8 +152,8 @@ function loadOnlineStatus() {
 
 function loadMostPlayedBeatmaps(mode) {
 	var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
-	currentPage[mode].mostPlayed++
-	api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
+	mostPlayedPage[mode].mostPlayed++
+	api('users/most_played', {id: userID, mode: mode, p: mostPlayedPage[mode].mostPlayed, l: 5}, function (resp) {
 		if (resp.beatmaps === null) {
 			return;
 		}
@@ -293,7 +321,7 @@ function setDefaultScoreTable() {
 i18next.on('loaded', function(loaded) {
 	setDefaultScoreTable();
 });
-function initialiseScores(el, mode) {
+function initialiseScores(el, mode, relax) {
 	el.attr("data-loaded", "1");
 	var best = defaultScoreTable.clone(true).addClass("orange");
 	var recent = defaultScoreTable.clone(true).addClass("blue");
@@ -329,8 +357,8 @@ function initialiseScores(el, mode) {
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
-	loadScoresPage("best", mode);
-	loadScoresPage("recent", mode);
+	loadScoresPage("best", mode, relax);
+	loadScoresPage("recent", mode, relax);
 	loadMostPlayedBeatmaps(mode);
 };
 function loadMoreClick() {
@@ -352,26 +380,45 @@ function loadMoreMostPlayed() {
 }
 // currentPage for each mode
 var currentPage = {
-	0: {best: 0, recent: 0, mostPlayed: 0},
-	1: {best: 0, recent: 0, mostPlayed: 0},
-	2: {best: 0, recent: 0, mostPlayed: 0},
-	3: {best: 0, recent: 0, mostPlayed: 0},
+	// classic
+	0: {
+		0: {best: 0, recent: 0, mostPlayed: 0},
+		1: {best: 0, recent: 0, mostPlayed: 0},
+		2: {best: 0, recent: 0, mostPlayed: 0},
+		3: {best: 0, recent: 0, mostPlayed: 0},
+	},
+	// relax
+	1: {
+		0: {best: 0, recent: 0, mostPlayed: 0},
+		1: {best: 0, recent: 0, mostPlayed: 0},
+		2: {best: 0, recent: 0, mostPlayed: 0},
+		3: {best: 0, recent: 0, mostPlayed: 0},
+	}
 };
+var mostPlayedPage = {
+	0: 0,
+	1: 0,
+	2: 0,
+	3: 0,
+}
 var scoreStore = {};
-function loadScoresPage(type, mode) {
-	var table = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
-	var page = ++currentPage[mode][type];
+function loadScoresPage(type, mode, relax) {
+	var table = $("#scores-zone div[data-mode=" + mode + "][data-relax=" + relax + "] table[data-type=" + type + "] tbody");
+	var page = ++currentPage[relax][mode][type];
 	console.log("loadScoresPage with", {
 		page: page,
 		type: type,
 		mode: mode,
+		relax: relax,
 	});
+	console.log(table);
 	var limit = type === 'best' ? 10 : 5;
 	api("users/scores/" + type, {
 		mode: mode,
 		p: page,
 		l: limit,
 		id: userID,
+		relax: relax,
 	}, function(r) {
 		if (r.scores == null) {
 			disableLoadMoreButton(type, mode);
