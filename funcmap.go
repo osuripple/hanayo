@@ -20,11 +20,11 @@ import (
 	"github.com/russross/blackfriday"
 	"github.com/thehowl/qsql"
 	"golang.org/x/oauth2"
-	"zxq.co/ripple/go-discord-oauth"
+	discordoauth "zxq.co/ripple/go-discord-oauth"
 	"zxq.co/ripple/hanayo/modules/bbcode"
 	"zxq.co/ripple/hanayo/modules/btcaddress"
 	"zxq.co/ripple/hanayo/modules/doc"
-	"zxq.co/ripple/hanayo/modules/fa-semantic-mappings"
+	fasuimappings "zxq.co/ripple/hanayo/modules/fa-semantic-mappings"
 	"zxq.co/ripple/playstyle"
 	"zxq.co/ripple/rippleapi/common"
 )
@@ -253,9 +253,9 @@ var funcMap = template.FuncMap{
 	// modes returns an array containing all the modes (in their string representation).
 	"modes": func() []string {
 		return []string{
-			"osu! standard",
-			"Taiko",
-			"Catch the Beat",
+			"osu!standard",
+			"osu!taiko",
+			"osu!catch",
 			"osu!mania",
 		}
 	},
@@ -493,7 +493,7 @@ var funcMap = template.FuncMap{
 	},
 	"htmlescaper": template.HTMLEscaper,
 	"hhmm": func(seconds float64) string {
-		return fmt.Sprintf("%02dh %02dm", int(math.Floor(seconds / 3600)), int(math.Floor(seconds / 60)) % 60)
+		return fmt.Sprintf("%02dh %02dm", int(math.Floor(seconds/3600)), int(math.Floor(seconds/60))%60)
 	},
 }
 
