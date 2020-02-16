@@ -62,20 +62,28 @@
 		<script>
 			{{ $p := .Gin.Query "p" }}
 			{{ $favModeRaw := .Get "users/self/favourite_mode" }}
+			{{ $favRelax := int $favModeRaw.favourite_relax }}
 
 			var beatmapID = {{ .Beatmap.ID }};
 			var setData = JSON.parse({{ .SetJSON }});
 			var page = {{ $p | atoint | atLeastOne }};
 			// defaults to 0
 			var currentMode = {{ atoi (.Gin.Query "mode") }};
+			var currentRelax = {{ atoi (.Gin.Query "relax") }};
 			var currentModeChanged = false;
 			var favMode = parseInt({{ $favModeRaw.favourite_mode }}) || 0;
+			var favRelax = parseInt({{ if (.Gin.Query "relax") }}{{ .Gin.Query "relax" }}{{ else }}{{ $favRelax }}{{ end }}) || 0;
 		</script>
 
 		<div class="ui four item menu" id="mode-menu">
 			{{ range $k, $v := modes }}
 				<a class="item" id="mode-{{ $k }}" data-mode="{{ $k }}" href="/b/{{ $.Beatmap.ID }}?mode={{ $k }}">{{ $v }}</a>
 			{{ end }}
+		</div>
+
+		<div class="ui two item menu" id="relax-menu">
+			<a class="item" data-relax="0">Classic</a>
+			<a class="item" data-relax="1">Relax <div class="ui pink horizontal mini label">New!</div></a>
 		</div>
 
 		<table class="ui sortable fixed table">

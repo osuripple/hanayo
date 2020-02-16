@@ -1,21 +1,21 @@
 (function() {
+  var currentRelax = favRelax;
   var mapset = {};
   setData.ChildrenBeatmaps.forEach(function(diff) {
     mapset[diff.BeatmapID] = diff;
   });
-  console.log(mapset);
-  function loadLeaderboard(b, m) {
+  function loadLeaderboard(b, m, r) {
     var wl = window.location;
     window.history.replaceState('', document.title,
-      "/b/" + b + "?mode=" + m + wl.hash);
+      "/b/" + b + "?mode=" + m + "&relax=" + r + wl.hash);
     api("scores?sort=score,desc&sort=id,asc", {
       mode : m,
       b : b,
       p : 1,
       l : 50,
+      relax: r,
     },
     function(data) {
-      console.log(data);
       var tb = $(".ui.table tbody");
       tb.find("tr").remove();
       if (data.scores == null) {
@@ -63,20 +63,28 @@
     $("#bpm").html(diff.BPM);
 
     // hide mode for non-std maps
-    console.log("favMode", favMode);
     if (diff.Mode != 0) {
       currentMode = (currentModeChanged ? currentMode : favMode);
       $("#mode-menu").hide();
     } else {
       currentMode = diff.Mode;
       $("#mode-menu").show();
+      $("#relax-menu").show();
+    }
+
+    // hide classic/relax switcher for mania only-maps
+    if (diff.Mode == 3) {
+      $("#relax-menu").hide();
     }
 
     // update mode menu
     $("#mode-menu .active.item").removeClass("active");
     $("#mode-" + currentMode).addClass("active");
 
-    loadLeaderboard(bid, currentMode);
+    // brico meiser
+    $("#relax-menu>[data-relax=" + favRelax + "]").addClass("active");
+
+    loadLeaderboard(bid, currentMode, currentRelax);
   }
   window.loadLeaderboard = loadLeaderboard;
   window.changeDifficulty = changeDifficulty;
@@ -95,8 +103,25 @@
       $("#mode-menu .active.item").removeClass("active");
       $(this).addClass("active");
       currentMode = $(this).data("mode");
-      loadLeaderboard(beatmapID, currentMode);
+      if (currentMode == 3) {
+        $("#relax-menu>[data-relax=1]").addClass("disabled").removeClass("active");
+        $("#relax-menu>[data-relax=0]").addClass("active");
+      } else {
+        $("#relax-menu>[data-relax=1]").removeClass("disabled");
+      }
+      loadLeaderboard(beatmapID, currentMode, currentRelax);
       currentModeChanged = true;
     });
+  $("#relax-menu .item")
+    .click(function(e) {
+      e.preventDefault();
+      if ($(this).hasClass("disabled")) {
+        return;
+      }
+      $("#relax-menu .active.item").removeClass("active");
+      $(this).addClass("active");
+      currentRelax = $(this).data("relax");
+      loadLeaderboard(beatmapID, currentMode, currentRelax);
+    })
   $("table.sortable").tablesort();
 })();
