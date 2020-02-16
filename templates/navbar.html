@@ -5,7 +5,7 @@
 <div class="ui secondary fixed-height stackable white background main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
 	<div class="ui container">
 		<div class="item">
-			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text-{{ if $ds }}white{{ else }}black{{ end }}.png" alt="Ripple"></a></b>
+			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text{{ if $ds }}-neg{{ end }}.svg" alt="Ripple"></a></b>
 		</div>
 		{{ if $isRAP }}
 			{{/*
