@@ -28,12 +28,19 @@ MinPrivileges=2
 						<label>{{ .T "Alternative username (cannot be used for login)" }}</label>
 						<input type="text" name="username_aka" value="{{ $d.username_aka }}" placeholder="{{ .T "Also known as..." }}">
 					</div>
-					<div class="field">
+					<div class="field" id="favourite-mode">
 						<label>{{ .T "Favourite mode" }}</label>
 						<select class="ui dropdown" name="favourite_mode" data-cast="int">
 							{{ range $k, $v := modes }}
 								<option value="{{ $k }}" {{ if eq (int $d.favourite_mode) $k }}selected{{ end }}>{{ $v }}</a>
 							{{ end }}
+						</select>
+					</div>
+					<div class="field" id="favourite-relax">
+						<label>{{ .T "Favourite relax mode" }}</label>
+						<select class="ui dropdown {{ if eq (int $d.favourite_mode) 3 }}disabled{{ end }}" name="favourite_relax" data-cast="int">
+							<option value="0" {{ if eq (int $d.favourite_relax) 0 }}selected{{ end }}>Classic</a>
+							<option value="1" {{ if eq (int $d.favourite_relax) 1 }}selected{{ end }}>Relax</a>
 						</select>
 					</div>
 					{{ if has .Context.User.Privileges 4 }}

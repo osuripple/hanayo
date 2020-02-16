@@ -191,6 +191,15 @@ var singlePageSnippets = {
   },
 
   "/settings" : function() {
+    $("#favourite-mode>.ui.dropdown").dropdown("setting", "onChange", function(value) {
+      var dropdown = $("#favourite-relax>.ui.dropdown")
+      if (value == 3) {
+        dropdown.dropdown("set selected", "0");
+        dropdown.addClass("disabled");
+      } else {
+        dropdown.removeClass("disabled");
+      }
+    });
     $("input[name='custom_badge.icon']")
       .on("input", function() {
         $("#badge-icon")
