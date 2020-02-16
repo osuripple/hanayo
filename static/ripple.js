@@ -610,9 +610,9 @@ function banchoAPI(endpoint, data, success, failure, post, handleAllFailures) {
 }
 
 var modes = {
-  0 : "osu! standard",
-  1 : "Taiko",
-  2 : "Catch the Beat",
+  0 : "osu!standard",
+  1 : "osu!taiko",
+  2 : "osu!catch",
   3 : "osu!mania",
 };
 var modesShort = {
