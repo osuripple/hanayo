@@ -1771,15 +1771,6 @@ msgstr ""
 "<b>Sunpy</b>, per <a href='https://github.com/osufx/catch-the-pp'>catch-the-"
 "pp</a>, usato come calcolatore pp per catch the beat."
 
-msgid ""
-"<b>jrosdahl</b>, for <a "
-"href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
-"our IRC server."
-msgstr ""
-"<b>jrosdahl</b>, per <a "
-"href='https://github.com/jrosdahl/miniircd'>miniircd</a>, usato come base "
-"per il nostro server IRC."
-
 msgid "<b>Avail</b>, for having hosted Ripple on his server."
 msgstr "<b>Avail</b>, per aver hostato Ripple sul suo server."
 

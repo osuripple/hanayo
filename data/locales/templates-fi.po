@@ -1717,14 +1717,6 @@ msgid ""
 "pp</a>, used as catch the beat pp calculator."
 msgstr ""
 
-msgid ""
-"<b>jrosdahl</b>, for <a "
-"href='https://github.com/jrosdahl/miniircd'>miniircd</a>, used as a base for "
-"our IRC server."
-msgstr ""
-"<b>jrosdahl</b>,<a href='https://github.com/jrosdahl/miniircd'>miniircd</a>, "
-"jota käytetään IRC serverin pohjana."
-
 msgid "<b>Avail</b>, for having hosted Ripple on his server."
 msgstr "<b>Avail</b>, joka hostasi Rippleä omalla serverillään."
 
