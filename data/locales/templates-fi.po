@@ -1698,11 +1698,11 @@ msgstr "Tässä on lista henkilöistä jotka ovat auttaneet Ripplen kanssa."
 
 msgid ""
 "<b>Franc[e]sco/lolisamurai</b>, for <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp "
 "calculator."
 msgstr ""
 "<b>Franc[e]sco/lolisamurai</b>, <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a> , joka toimii "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a> , joka toimii "
 "standard muodon pp laskimena."
 
 msgid ""

@@ -1756,11 +1756,11 @@ msgstr "Aceasta este o listă cu oameni care au ajutat Ripple."
 
 msgid ""
 "<b>Franc[e]sco/lolisamurai</b>, for <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp "
 "calculator."
 msgstr ""
 "<b>Franc[e]sco/lolisamurai</b>, pentru <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a>, folosit ca "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, folosit ca "
 "calculator de PP pentru osu!standard."
 
 msgid ""

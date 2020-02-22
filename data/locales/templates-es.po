@@ -1748,11 +1748,11 @@ msgstr "Aquí hay una lista de la gente que ayudo con Ripple."
 
 msgid ""
 "<b>Franc[e]sco/lolisamurai</b>, for <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp "
 "calculator."
 msgstr ""
 "<b>Franc[e]sco/lolisamurai</b>, por  <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a>, utilizada como una "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, utilizada como una "
 "calculadora de pp para el modo standard."
 
 msgid ""

@@ -1703,7 +1703,7 @@ msgstr "Här är en lista över folk som har hjälpt till med Ripple."
 
 msgid ""
 "<b>Franc[e]sco/lolisamurai</b>, for <a "
-"href='https://github.com/Francesco149/oppai'>oppai</a>, used as standard pp "
+"href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp "
 "calculator."
 msgstr ""
 
