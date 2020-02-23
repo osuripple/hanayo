@@ -386,7 +386,7 @@ msgstr ""
 msgid "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?"
 msgstr ""
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
 msgstr ""
 
 # base.html
@@ -572,7 +572,7 @@ msgid "Ripple is the result of the hard work of two Italian developers, who got 
 msgstr ""
 
 # %s is wink emoji
-msgid "It has now evolved into the largest available osu! private server, with more than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
+msgid "It has now evolved into the largest available osu! private server, with more than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
 msgstr ""
 
 msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://zxq.co/ripple/ripple\">source code</a> Ripple is running on."

@@ -567,7 +567,7 @@ msgstr ""
 "Witaj ponownie w Ripple. W tym momencie mamy <b>%s użytkowników online oraz %"
 "s zarejestrowanych użytkowników.</b>"
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
 msgstr ""
 "Najnowsze wiadomości z naszego <a href='https://blog.ripple.moe'>bloga</a>"
 
@@ -794,12 +794,12 @@ msgstr ""
 #, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
 "Teraz ewoluował w jeden z największych prywatnych serwerów osu!, z ponad "
-"10,000 zarejestrowanych użytkowników. <a href=\"/register\"> Rejestracja </a>"
+"70,000 zarejestrowanych użytkowników. <a href=\"/register\"> Rejestracja </a>"
 " na Ripple nie spowoduje zablokowania twojego konta osu!, więc nie czekaj! "
 "Dołącz do nas! %s"
 

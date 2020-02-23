@@ -561,9 +561,9 @@ msgstr ""
 "đang online và %s tài khoản đã đăng ký .</b> Một ngày tuyệt vời để farm maps "
 "đúng ko nhỉ?"
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
 msgstr ""
-"Nhưng tin mới nhất từ <a href='https://blog.ripple.moe'>blog</a> của chúng "
+"Nhưng tin mới nhất từ blog của chúng "
 "tôi."
 
 # base.html
@@ -779,12 +779,12 @@ msgstr ""
 #, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
 "Giờ nó đã phát triển thành một trong những server Osu! ngầm lớn nhất, với "
-"hơn 10,000 người đã đăng kí. <a href=\"/register\">Đăng nhập</a> trên Ripple "
+"hơn 70,000 người đã đăng kí. <a href=\"/register\">Đăng nhập</a> trên Ripple "
 "sẽ không làm tài khoản chính của bạn ở server Osu! chính bị hạn chế hoạt "
 "động, vậy thì chần chừ gì nữa?! Vào đây chơi cùng nào! %s"
 

@@ -567,7 +567,7 @@ msgstr ""
 "С возвращением на Ripple. На данный момент <b>%s пользователей онлайн и %s "
 "пользователей зарегистрировано.</b> Хороший день пофармить, не так ли?"
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
 msgstr "Последние новости из нашего <a href='https://blog.ripple.moe'>блога</a>"
 
 # base.html
@@ -792,12 +792,12 @@ msgstr ""
 #, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
 "Но сейчас он эволюционировал в самый популярный частный сервер osu! с более "
-"чем 10,000 зарегистрированными пользователями. <a href=\"/register\""
+"чем 70,000 зарегистрированными пользователями. <a href=\"/register\""
 ">Регистрация</a> на Ripple не повлечет за собой блокировку аккаунта на "
 "официальном сервере, так чего же ты тогда ждешь?! Присоединяйся! %s"
 

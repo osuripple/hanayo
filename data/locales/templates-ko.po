@@ -517,7 +517,7 @@ msgstr ""
 "다시 오신것을 환영합니다. 현재 서버에는 <b>%s 명이 플레이 하고 있고, 총 %s 명이 가입이 되어있습니다.</b> 오늘도 즐거운 "
 "파밍을 하지 않으실래요?"
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
 msgstr "<a href='https://blog.ripple.moe'>블로그</a> 를 통해 새로운 소식을 확인하세요."
 
 # base.html
@@ -725,11 +725,11 @@ msgstr "리플은 기존 오스의 시스템에 지친 두명의 이탈리안 �
 #, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
-"1만명이 넘어가는 가입자를 기록하며 가장 규모가 큰 osu! 사설 서버가 되었습니다. Ripple서버에 <a href=\"/"
+"7만명이 넘어가는 가입자를 기록하며 가장 규모가 큰 osu! 사설 서버가 되었습니다. Ripple서버에 <a href=\"/"
 "register\">가입</a>한다고 해서 osu! 계정이 차단되는 건 아니니깐, 빨리 들어오세요! %s"
 
 msgid ""

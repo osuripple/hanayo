@@ -575,7 +575,7 @@ msgstr ""
 "onlinessa ja %s käyttäjää rekisteröityneenä.</b> Hyvä päivä muutaman "
 "beatmapin farmaamiseen, eikö niin?"
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
 msgstr ""
 "Viimeisimmät uutiset meidän <a href='https://blog.ripple.moe'>blogista</a>"
 
@@ -799,7 +799,7 @@ msgstr ""
 # %s is wink emoji
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""

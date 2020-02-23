@@ -588,8 +588,8 @@ msgstr ""
 "et %s utilisateurs enregistrés au total.</b> Un bon jour pour farm quelques "
 "maps, n'est-ce pas ?"
 
-msgid "Latest news from our <a href='https://blog.ripple.moe'>blog</a>"
-msgstr "Dernières nouvelles de notre <a href='https://blog.ripple.moe'>blog</a>"
+msgid "Latest news from our blog"
+msgstr "Dernières nouvelles de notre blog"
 
 # base.html
 msgid ""
@@ -816,7 +816,7 @@ msgstr ""
 #, fuzzy
 msgid ""
 "It has now evolved into the largest available osu! private server, with more "
-"than 50,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
+"than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple "
 "won't result in getting your account on osu! restricted, so what are you "
 "waiting for?! Come join us! %s"
 msgstr ""
