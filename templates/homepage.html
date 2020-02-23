@@ -18,8 +18,9 @@ KyutGrill=homepage2.jpg
 		</div>
 	{{ end }}
 	{{/* Not logged in block */}}
-	{{ if not .Context.User.ID }}
-		<div class="ui segment">
+
+	<div class="ui raised segment">
+		{{ if not .Context.User.ID }}
 			<h1 class="ui header">{{ .T "Welcome to Ripple." }}</h1>
 			<p>
 				{{ .T "You look new here. Allow us to introduce you to what Ripple is." }}
@@ -28,22 +29,43 @@ KyutGrill=homepage2.jpg
 				{{ .T "Ripple is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
 			</p>
 			<h3 class="ui header center aligned">{{ .T "What are you waiting for? Join Ripple! It's risk-free: you won't get your account banned on the official server if you play on Ripple.<br>You can also switch anytime between the official osu! server and Ripple!" | html }}</h3>
-		</div>
-	{{ else }}
-		<div class="ui segment">
+		{{ else }}
 			<h1 class="ui header">{{ .T "Howdy, %s!" .Context.User.Username }}</h1>
 			<p>
 				{{ .T "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
 			</p>
+		{{ end }}
+		<div class="ui center aligned basic segment">
+			{{ if not .Context.User.ID }}
+				<a class="ui pink button" href="/register">
+					<i class="plus square icon"></i>
+					{{ $.T "Register" }}
+				</a>
+			{{ end }}
+			<a class="ui pink button" href="https://switcher.ripple.moe">
+				<i class="download icon"></i>
+				Download the Server Switcher
+			</a>
+			{{ if .Context.User.ID }}
+				<a class="ui pink inverted button" href="/doc/connection_guide">
+					<i class="book icon"></i>
+					Connection guide
+				</a>
+			{{ else }}
+				<a class="ui pink button" href="/login">
+					<i class="sign in icon"></i>
+					{{ $.T "Log in" }}
+				</a>
+			{{ end }}
 		</div>
-	{{ end }}
+	</div>
 	{{ with (.Get "blog/posts?l=5") }}
-		<div class="ui raised segment">
-			<h1 class="ui center aligned header">
-				{{ $.T "Latest news from our <a href='https://blog.ripple.moe'>blog</a>" | html }}
-			</h1>
-		</div>
 		<div class="ui segments">
+			<div class="ui segment">
+				<h1 class="ui center aligned header">
+					{{ $.T "Latest news from our blog" | html }}
+				</h1>
+			</div>
 			{{ range $i, $v := .posts }}
 				<div class="ui segment">
 					<h1 class="ui header no top margin">
@@ -55,6 +77,12 @@ KyutGrill=homepage2.jpg
 					</p>
 				</div>
 			{{ end }}
+			<div class="ui bottom attached pink center aligned segment">
+				<a class="ui pink button" href="https://blog.ripple.moe">
+					<i class="book icon"></i>
+					{{ $.T "Read more" }}
+				</a>
+			</div>
 		</div>
 	{{ end }}
 </div>
