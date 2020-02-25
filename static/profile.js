@@ -390,7 +390,8 @@ function loadMoreClick() {
 	t.addClass("disabled");
 	var type = t.parents("table[data-type]").data("type");
 	var mode = t.parents("div[data-mode]").data("mode");
-	loadScoresPage(type, mode);
+	var relax = t.parents("div[data-relax]").data("relax");
+	loadScoresPage(type, mode, relax);
 }
 function loadMoreMostPlayed() {
 	var t = $(this);
