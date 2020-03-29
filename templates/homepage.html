@@ -49,7 +49,7 @@ KyutGrill=homepage2.jpg
 			{{ if .Context.User.ID }}
 				<a class="ui pink inverted button" href="/doc/connection_guide">
 					<i class="book icon"></i>
-					Connection guide
+					{{ $.T "Connection guide" }}
 				</a>
 			{{ else }}
 				<a class="ui pink button" href="/login">

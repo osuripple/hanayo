@@ -1956,3 +1956,6 @@ msgstr ""
 
 msgid "Read more"
 msgstr ""
+
+msgid "Connection guide"
+msgstr ""

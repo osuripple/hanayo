@@ -1927,3 +1927,6 @@ msgstr "Scarica il Server Switcher"
 
 msgid "Read more"
 msgstr "Leggi di più"
+
+msgid "Connection guide"
+msgstr "Guida di connessione"
