@@ -418,7 +418,7 @@ msgid "See what changed!"
 msgstr "ดูซิ ว่ามีอะไรเปลี่ยนไปบ้าง!"
 
 msgid "Changelog"
-msgstr "ประวัติการเปลี่ยนแลง"
+msgstr "ประวัติการเปลี่ยนแปลง"
 
 msgid "Blog"
 msgstr "บล็อก"
