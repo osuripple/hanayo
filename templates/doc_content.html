@@ -14,8 +14,14 @@ HugeHeadingRight=true
 					<h1 class="ui header">{{ .Title }}</h1>
 				</div>
 				{{ if not .IsUpdated }}
-					<div class="ui yellow segment">
-						{{ $.T "It seems like the original version of this file has been updated, so this file is out of date and may contain inaccurate information. If you want to make sure to be up-to-date, please refer to the <a href=\"%s%s\">English version</a>." $.Gin.Request.URL.Path "?lang=en" | html }}
+					<div class="ui warning message segment">
+						<h4 class="ui header no top margin">
+							<i class="warning sign icon"></i>
+							<div class="content">
+								{{ $.T "It seems like the original version of this file has been updated, so this file is out of date and may contain inaccurate information. If you want to make sure to be up-to-date, please refer to the <a href=\"%s%s\">English version</a>." $.Gin.Request.URL.Path "?lang=en" | html }}
+							</div>
+						</h4>
+						
 					</div>
 				{{ end }}
 				<div class="ui segment">
