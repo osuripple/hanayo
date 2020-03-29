@@ -137,7 +137,7 @@ msgid "The Guide (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <
 msgstr "วิธีเข้า (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>) ฉบับย่อๆ"
 
 msgid "Download the server switcher"
-msgstr "โหลดตัวสลับเซิร์ฟเวอร์มา"
+msgstr "ดาวน์โหลดตัวสลับเซิร์ฟเวอร์"
 
 msgid "Extract it, disable your antivirus, execute <i>RippleServerSwitcher.exe</i> <b>as administrator</b>"
 msgstr "แตกไฟล์, ปิดแอนตี้ไวรัส (ถ้ามันเตือน), แล้วเปิดโปรแกรม <i>RippleServerSwitcher.exe</i> ในฐานะ <b>แอดมิน</b>"
@@ -1262,16 +1262,16 @@ msgid "Popularity does not mean rankable"
 msgstr "ความกังของแมพไม่ได้หมายความว่าจะสามารถแรงค์ได้"
 
 msgid "Community"
-msgstr ""
+msgstr "ชุมชน"
 
 msgid "Multiplayer listing"
-msgstr ""
+msgstr "รายชื่อห้องเล่นหลายคน"
 
 msgid "Discord Server"
-msgstr ""
+msgstr "เซิร์ฟเวอร์ Discord"
 
 msgid "Read more"
-msgstr ""
+msgstr "อ่านเพิ่มเติม"
 
 msgid "Connection guide"
-msgstr ""
+msgstr "วิธีการเชื่อมต่อ"
