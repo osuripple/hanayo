@@ -128,7 +128,7 @@ msgid "Verify account"
 msgstr "ยืนยันบัญชี"
 
 msgid "Your account has been created, however it still <b>needs to be verified!</b> Please log in into <b><u>osu! (the game)</u></b> using your account. <b>There is <u>no email confirmation</u> at the moment. All you need to do is connect to Ripple from the osu! client!</b> If you're having trouble, <a href='/doc/1'>follow this guide</a>."
-msgstr "บัญชีของคุณได้ถูกสร้างแล้ว แต่! <b>ต้องยืนยันก่อน!</b> กรุณาเข้าสู่ระบบใน <b><u>osu! (ตัวเกม)</u></b> โดยใช้บัญชีของคุณ <b>ตอนนี้ <u>ยังไม่มีระบบยืนยันอีเมล</u> สิ่งที่คุณต้องทำก็คือเชื่อมต่อเซิร์ฟเวอร์ Ripple ผ่านตัวเกม osu! นั้นเอง!</b> หากคุณกำลังมีปัญหาอยู่, <a href='/doc/1'>ลองทำตามนี้ดู!</a>.
+msgstr "บัญชีของคุณได้ถูกสร้างแล้ว แต่! <b>ต้องยืนยันก่อน!</b> กรุณาเข้าสู่ระบบใน <b><u>osu! (ตัวเกม)</u></b> โดยใช้บัญชีของคุณ <b>ตอนนี้ <u>ยังไม่มีระบบยืนยันอีเมล</u> สิ่งที่คุณต้องทำก็คือเชื่อมต่อเซิร์ฟเวอร์ Ripple ผ่านตัวเกม osu! นั้นเอง!</b> หากคุณกำลังมีปัญหาอยู่, <a href='/doc/1'>ลองทำตามนี้ดู!</a>."
 
 msgid "<b class='big text'>Do not let anyone except yourself log into your Ripple account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting."
 msgstr "<b class='big text'>อย่าให้ใครยกเว้นตัวเองเข้าบัญชี Ripple ของคุณ!</b><br> ไปที่ <a href='%s'>เซิร์ฟเวอร์ Discord</a> ห้อง #help แทน (ถ้าคุณลองทำตามเว๊ปที่เว๊ปนี้บอกแล้วอะนะ) เพื่อที่จะให้เราช่วยเหลือคุณในการเชื่อมต่อ"
