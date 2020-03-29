@@ -1610,7 +1610,7 @@ msgstr ""
 "Parece que la versión original de este archivo ha sido actualizado, este "
 "archivo esta caducado y puede contener información incorrecta. Si quieres "
 "asegurarte de que este al día, por favor referir a la <a href=\"%s%s\">"
-"Versión Español</a>."
+"Versión inglesa</a>."
 
 msgid ""
 "If you truly have understood what's written above and you have understood "
