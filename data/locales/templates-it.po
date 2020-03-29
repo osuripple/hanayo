@@ -1893,22 +1893,37 @@ msgid "I have read and understood everything on this page."
 msgstr "Ho letto e capito tutto ciò che è contenuto su questa pagina."
 
 msgid "The 'Ranking Criteria' are as follows:"
-msgstr ""
+msgstr "I 'Criteri di ranking' sono i seguenti:"
 
 msgid "Follow the <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho Ranking Criteria</a> to some extend"
-msgstr ""
+msgstr "Segui i <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>criteri di Ranking di Bancho</a> in una certa misura"
 
 msgid "No clear abuse of any systems (pp/stars)"
-msgstr ""
+msgstr "No abusi di alcun sistema (pp/stelle)"
 
 msgid "No speedup or re-upload of existing maps"
-msgstr ""
+msgstr "No versioni velocizzate o re-upload di mappe esistenti"
 
 msgid "No Jump/Stream Training Compilations"
-msgstr ""
+msgstr "No compilation di jump/stream"
 
 msgid "At least 66% Completion for 7+ Minute songs, anything else completely mapped"
-msgstr ""
+msgstr "Almeno il 66% di completamento per una canzone di 7+ minuti, altrimenti deve essere completamente mappata"
 
 msgid "Popularity does not mean rankable"
-msgstr ""
+msgstr "Popolare non vuol dire rankabile"
+
+msgid "Community"
+msgstr "Community"
+
+msgid "Multiplayer listing"
+msgstr "Lista partite multiplayer"
+
+msgid "Discord Server"
+msgstr "Server Discord"
+
+msgid "Download the Server Switcher"
+msgstr "Scarica il Server Switcher"
+
+msgid "Read more"
+msgstr "Leggi di più"
