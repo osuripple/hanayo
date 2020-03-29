@@ -1262,19 +1262,19 @@ msgid "Popularity does not mean rankable"
 msgstr "ความกังของแมพไม่ได้หมายความว่าจะสามารถแรงค์ได้"
 
 msgid "Community"
-msgstr ""
+msgstr "ชุมชน"
 
 msgid "Multiplayer listing"
-msgstr ""
+msgstr "รายชื่อห้องเล่นหลายคน"
 
 msgid "Discord Server"
-msgstr ""
+msgstr "เซิร์ฟเวอร์ Discord"
 
 msgid "Download the Server Switcher"
-msgstr ""
+msgstr "ดาวน์โหลดตัวสลับเซิร์ฟเวอร์"
 
 msgid "Read more"
-msgstr ""
+msgstr "อ่านเพิ่มเติม"
 
 msgid "Connection guide"
-msgstr ""
+msgstr "วิธีการเชื่อมต่อ"
