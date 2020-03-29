@@ -199,7 +199,7 @@ msgid "<a href='/doc/1'>The Guide,</a> tl;dr version"
 msgstr "<a href='/doc/1'>La Guía,</a> version tl;dr/ml;nl"
 
 msgid "Download the server switcher"
-msgstr "Descarga el switcher (herramienta para cambiar de servidor)"
+msgstr "Descarga el switcher"
 
 msgid "Extract it, disable your antivirus, execute it <b>as administrator</b>"
 msgstr "Extráelo, desactiva tu antivirus, <b>ejecútalo como administrador.</b>"
@@ -1918,9 +1918,6 @@ msgid "Multiplayer listing"
 msgstr ""
 
 msgid "Discord Server"
-msgstr ""
-
-msgid "Download the Server Switcher"
 msgstr ""
 
 msgid "Read more"

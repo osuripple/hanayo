@@ -1864,9 +1864,6 @@ msgstr ""
 msgid "Discord Server"
 msgstr ""
 
-msgid "Download the Server Switcher"
-msgstr ""
-
 msgid "Read more"
 msgstr ""
 

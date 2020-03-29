@@ -1922,9 +1922,6 @@ msgstr "Lista partite multiplayer"
 msgid "Discord Server"
 msgstr "Server Discord"
 
-msgid "Download the Server Switcher"
-msgstr "Scarica il Server Switcher"
-
 msgid "Read more"
 msgstr "Leggi di più"
 
