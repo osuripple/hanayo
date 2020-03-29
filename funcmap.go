@@ -501,7 +501,7 @@ var funcMap = template.FuncMap{
 	},
 }
 
-var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko"}
+var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko", "th"}
 
 var hanayoStarted = time.Now().UnixNano()
 
@@ -616,4 +616,5 @@ var languageInformation = []langInfo{
 	{"Svenska", "se", "sv"},
 	{"Tiếng Việt Nam", "vn", "vi"},
 	{"한국어", "kr", "ko"},
+	{"ภาษาไทย", "th", "th"},
 }
