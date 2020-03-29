@@ -67,7 +67,7 @@ KyutGrill=team2.jpg
 		</div>
 	</div>
 	{{ $ := . }}
-	{{ .T "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe'>this page</a>." | html }}
+	{{ .T "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>." | html }}
 	<div class="ui modal">
 		<div class="header"><h2 class="ui header">{{ .T "They told me these are very cool people." }}</h2></div>
 		{{ with .Get "users?sort=donor_expire,desc&l=52" }}
