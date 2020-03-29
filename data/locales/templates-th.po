@@ -53,7 +53,7 @@ msgid "Please try again "
 msgstr "ลองใหม่อีกครั้งนึงนะ"
 
 
- pwreset/continue.html
+# pwreset/continue.html
 msgid "Reset password"
 msgstr "รีเซ็ตรหัสผ่าน"
 
