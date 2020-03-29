@@ -1260,3 +1260,18 @@ msgstr "คนที่ผ่านแมพจะต้องมีอย่า
 
 msgid "Popularity does not mean rankable"
 msgstr "ความกังของแมพไม่ได้หมายความว่าจะสามารถแรงค์ได้"
+
+msgid "Community"
+msgstr ""
+
+msgid "Multiplayer listing"
+msgstr ""
+
+msgid "Discord Server"
+msgstr ""
+
+msgid "Download the Server Switcher"
+msgstr ""
+
+msgid "Read more"
+msgstr ""

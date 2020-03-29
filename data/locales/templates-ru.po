@@ -1897,3 +1897,18 @@ msgstr ""
 
 msgid "Popularity does not mean rankable"
 msgstr ""
+
+msgid "Community"
+msgstr ""
+
+msgid "Multiplayer listing"
+msgstr ""
+
+msgid "Discord Server"
+msgstr ""
+
+msgid "Download the Server Switcher"
+msgstr ""
+
+msgid "Read more"
+msgstr ""
