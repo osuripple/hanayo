@@ -550,8 +550,8 @@ msgstr "osu!direct ให้ใช้แบบฟรีๆ"
 msgid "Global leaderboards."
 msgstr "กระดานคะแนนในเกมส์"
 
-msgid "and PP for all game modes"
-msgstr "และ PP สำหรับทุกเกมส์โหมด"
+msgid "and PP for all game modes, including Relax and Autopilot!"
+msgstr "และ PP สำหรับทุกเกมส์โหมด ทั้งโหมด Relax และ Autopilot!"
 
 msgid "Ranking queue for unranked beatmaps."
 msgstr "ระบบขอบีทแมพให้อยู่ในโหมดแรงค์"
