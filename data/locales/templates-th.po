@@ -1277,13 +1277,13 @@ msgid "Connection guide"
 msgstr "วิธีการเชื่อมต่อ"
 
 msgid "Classic"
-msgstr ""
+msgstr "คลาสสิก"
 
 msgid "Relax"
-msgstr ""
+msgstr "Relax"
 
 msgid "New!"
-msgstr ""
+msgstr "ใหม่!"
 
 msgid "Total Play Time"
-msgstr ""
+msgstr "เวลาเล่นทั้งหมด"
