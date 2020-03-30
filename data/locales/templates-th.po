@@ -174,7 +174,7 @@ msgid "Your new account has been <b>banned</b> and your main account has been <b
 msgstr "บัญชีของตุณนั้นได้ถูก<b>แบนเรียบร้อยแล้ว</b> และ บัญชีหลักของคุณนั้นโดน<b>ระงับการใช้งานแล้ว</b> คุณสามารถขอปลดแบนโดยคุณส่งอีเมลมาที่ <b><a href='https://support.ripple.moe'>support.ripple.moe<a></b> อย่าลืมอ่านกฎด้วยละครั้งต่อไป ฮ่า"
 
 msgid "Welcome to Ripple"
-msgstr "ยินดีต้อนรับเข้าสุ่ Ripple"
+msgstr "ยินดีต้อนรับเข้าสู่ Ripple"
 
 msgid "We're glad to have you here. <b>Your account is now active.</b> You can now play on Ripple and <a href='/login'>log in</a> on the website!"
 msgstr "รู้สึกดีจังที่คุณมาอยู่ที่นี้ <b>ตอนนี้บัญชีของคุณได้เปิดใช้งานแล้ว</b> คุณสามารถมาเล่นเซิร์ฟเวอร์ Ripple ได้เลยนะ และก็อย่าลืม <a href='/login'>เข้าสู่ระบบ</a>ในเว๊ปด้วยละ!"
@@ -860,7 +860,7 @@ msgid "And this is how you pay"
 msgstr "และนี้คือวิธีบริจาค"
 
 msgid "You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>. Use the slider below to choose the amount of months you'd like to have the donor benefits, and the cost will be instantly calculated. Remember that if, for instance, you choose to donate € 4 instead of € 3.51, you will only be given one donor month."
-msgstr "คุณสามารถบริจาคผ่าน <b>PayPal</b> (หรือบัตรเครดิต/เดบิตที่เชื่อมโยงกับ PayPal) หรือ <b>Bitcoin</b> ใช้แถบเลื่อนด้านล่างเพื่อเลือกจำนวนเดือนที่คุณต้องการรับผลประโยชน์จากผู้บริจาคและค่าใช้จ่ายจะถูกคำนวณทันที โปรดจำไว้ว่าหากคุณเลือกบริจาค €4 แทo €3.51 คุณจะได้รับเงินบริจาคหนึ่งเดือนเท่านั้น"
+msgstr "คุณสามารถบริจาคผ่าน <b>PayPal</b> (หรือบัตรเครดิต/เดบิตที่เชื่อมโยงกับ PayPal) หรือ <b>Bitcoin</b> ใช้แถบเลื่อนด้านล่างเพื่อเลือกจำนวนเดือนที่คุณต้องการรับผลประโยชน์จากผู้บริจาคและค่าใช้จ่ายจะถูกคำนวณทันที โปรดจำไว้ว่าหากคุณเลือกบริจาค €4 แทนที่จะเป็น €3.51 คุณจะได้รับเงินบริจาคหนึ่งเดือนเท่านั้น"
 
 msgid "Loading..."
 msgstr "กำลังโหลด..."
@@ -887,7 +887,7 @@ msgid "You'll have to wait until we verify and process your payment. It can take
 msgstr "คุณจะต้องรอจนกว่าเราจะตรวจสอบและประมวลผลการชำระเงินของคุณ อาจใช้เวลานานถึง <b>12 ชั่วโมง</b> หากเวลาผ่านไป 12 ชั่วโมงและคุณยังไม่ได้รับแท็กผู้บริจาคโปรดติดต่อ <b>ทีมงานผู้พัฒนา/ผู้จัดการความสงบของชุมชน</b> ในเซิร์ฟเวอร์ Discord ของเราหรือส่งอีเมลไปที่ <b><a href=\"mailto:support@ripple.moe\">support@ripple.moe</a></b> เมื่อเราประมวลผลการชำระเงินของคุณแล้วคุณจะได้รับ <b>อีเมล</b> ไปยังที่อยู่ที่คุณเคยสมัครใช้งานและคุณจะได้รับ <b>สิทธิ์ผู้บริจาคทั้งหมดยกเว้นรายการ Discord</b> หากต้องการรับสิทธิ์ผู้บริจาค Discord ให้ไป<a href=\"/settings/discord\">ที่นี่</a>"
 
 msgid "Please log in to get supporter"
-msgstr "กรุณาเข้าสุ่ระบบเพื่อรับซัพพอร์ตเตอร์"
+msgstr "กรุณาเข้าสู่ระบบเพื่อรับซัพพอร์ตเตอร์"
 
 # Settings
 msgid "Userpage"
@@ -909,13 +909,13 @@ msgid "Two factor authentication is not enabled on your account."
 msgstr "การยืนยันแบบ 2 ขั้นตอนไม่ได้เปิดในบัญชีของคุณ"
 
 msgid "Google Authenticator (TOTP) based 2FA"
-msgstr "Google Authenticator (TOTP) อ้างอิงจาก 2FA"
+msgstr "ระบบการยืนยันแบบ 2 ขั้นตอนแบบ Google Authenticator (TOTP)"
 
 msgid "At the moment you currently have set up Telegram Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
-msgstr "ในขณะนี้คุณกำลังใช้การยืนยันแบบ 2 ขั้นตอนของ Telegram หากคุณต้องการปิดการใช้งานโปรดกรอกแบบฟอร์มต่อไปนี้:"
+msgstr "ในขณะนี้คุณกำลังใช้การยืนยันแบบ 2 ขั้นตอนแบบ Telegram หากคุณต้องการปิดการใช้งานโปรดกรอกแบบฟอร์มต่อไปนี้:"
 
 msgid "At the moment you currently have set up TOTP-based (Google Authenticator) Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
-msgstr "ในขณะนี้คุณกำลังใช้การยืนยันแบบ 2 ขั้นตอนของ TOTP (Google Authenticator) หากคุณต้องการปิดการใช้งานโปรดกรอกแบบฟอร์มต่อไปนี้:"
+msgstr "ในขณะนี้คุณกำลังใช้การยืนยันแบบ 2 ขั้นตอนแบบ TOTP (Google Authenticator) หากคุณต้องการปิดการใช้งานโปรดกรอกแบบฟอร์มต่อไปนี้:"
 
 msgid "Disable Telegram 2FA"
 msgstr "เลิกใช้ 2FA ของ Telegram"
@@ -1020,10 +1020,10 @@ msgid "That authorization has been successfully revoked."
 msgstr "เอาการให้สิทธิ์ดังกล่าวออกสำเร็จแล้ว"
 
 msgid "Authorization created %s"
-msgstr "สร้างการอนุญาตแล้ว %s"
+msgstr "อนุญาตเมื่อ %s"
 
 msgid "Owner"
-msgstr "เจ้าของ"
+msgstr "เจ้าของแอพ"
 
 msgid "Revoke"
 msgstr "เอาออก"
@@ -1036,7 +1036,7 @@ msgstr "โหมดเพิ่มเติมอื่นๆ"
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
-msgstr "TOTP-based 2FA ได้เปิดใช้งานในบัญชีของคุณแล้ว"
+msgstr "การยืนยันแบบ 2 ขั้นตอนแบบ TOTP ได้เปิดใช้งานในบัญชีของคุณแล้ว"
 
 msgid "Passcode is invalid. Perhaps it expired?"
 msgstr "รหัสผ่านไม่ถูกต้อง หรือมันหมดอายุก่อนนะ?"
@@ -1045,7 +1045,7 @@ msgid "No passcode/secret was given. Please try again"
 msgstr "ไม่ได้รับรหัสผ่าน/รหัสลับ กรุณาลองอีกครั้ง"
 
 msgid "TOTP-based 2FA is already enabled!"
-msgstr "TOTP-based 2FA ได้เปิดใช้งานอยู่แล้ว"
+msgstr "การยืนยันแบบ 2 ขั้นตอนแบบ TOTP ได้เปิดใช้งานอยู่แล้ว"
 
 msgid "You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA."
 msgstr "ขณะนี้คุณเปิดใช้งาน Telegram 2FA คุณต้องปิดการใช้งานก่อนหากคุณต้องการใช้ 2FA ที่ใช้ TOTP"
@@ -1084,7 +1084,7 @@ msgid "Your profile background has been saved."
 msgstr "ภาพพื้นหลังในโปรไฟล์ของคุณได้ถูกบันทึกแล้ว!"
 
 msgid "We were not able to save your profile background."
-msgstr "เราเปลี่ยนไม่ได้อะ ทำไงดี!?"
+msgstr "เราไม่สามารถบันทึกพื้นหลังโปรไฟล์ของคุณได้"
 
 msgid "Background type"
 msgstr "รูปแบบพื้นหลัง"
@@ -1111,7 +1111,7 @@ msgid "You need to login first."
 msgstr "คุณต้องเข้าสู่ระบบก่อนนะ"
 
 msgid "Forbidden"
-msgstr "คุณไม่ได้รับอนุญาตเข้าเขตพระราชทาน"
+msgstr "ไม่ได้รับอนุญาต"
 
 msgid "You should not be 'round here."
 msgstr "คุณไม่น่าจะอยู่แถวๆนี้นะ"
@@ -1181,7 +1181,7 @@ msgid "Developers"
 msgstr "ทีมงานผู้พัฒนา"
 
 msgid "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance."
-msgstr "ทีมงานผู้พัฒนาเพิ่มระบบใหม่ๆให้กับเซิร์ฟเวอร์, ฆ่าบั๊ก, รักษาเซิร์ฟเวอร์ให้พร้อมใช้งานและดูแลการบำรุงรักษา"
+msgstr "ทีมงานผู้พัฒนาเพิ่มระบบใหม่ๆให้กับเซิร์ฟเวอร์, แก้บั๊ก, รักษาเซิร์ฟเวอร์ให้พร้อมใช้งานและดูแลการบำรุงรักษา"
 
 msgid "They don't do anything related to the community. Developers have a blue name in the in-game chat."
 msgstr "เขาไม่ทำอะไรมากหรอกเกี่ยวกับพวกชุมชน ทีมงานผู้พัฒนาจะมีชื่อสีฟ้าในแชทในเกม"
@@ -1202,7 +1202,7 @@ msgid "Here's a list of people who helped with Ripple."
 msgstr "และนี่คือรายชื่อผู้คนที่ช่วยเกี่ยวกับเซิร์ฟเวอร์ Ripple"
 
 msgid "<b>Franc[e]sco/lolisamurai</b>, for <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp calculator."
-msgstr "<b>Franc[e]sco/lolisamurai</b> สำหรับ <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a> นั้นคือระบบ PP ในโหมด Standard"
+msgstr "<b>Franc[e]sco/lolisamurai</b> สำหรับ <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a> ใช้เป็นระบบ PP ในโหมด Standard"
 
 msgid "<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-performance</a>, used as a reference for our mania pp calculator."
 msgstr "<b>Tom94</b> สำหรับ <a href='https://github.com/ppy/osu-performance'>osu-performance</a> ใช้เป็นโค้ตอ้างอิงสำหรับระบบ PP ในโหมด Mania"
@@ -1220,7 +1220,7 @@ msgid "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported 
 msgstr "<b><a id='everyone' class='clickable'>และทุกๆคน</a></b> ที่สนับสนุนโปรเจค Ripple โดยการโดเนทและเชิญคนมาเล่น"
 
 msgid "They told me these are very cool people."
-msgstr "เขาว่ากันว่าคนพวกนี้เก๋ามาก"
+msgstr "เขาว่ากันว่าคนพวกนี้เทพชิบหาย"
 
 msgid "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>."
 msgstr "กำลังหาวิธีติดต่อทีมงานเรางั้นหรอ? ลองดู <a href='https://support.ripple.moe/'>หน้านี้</a> สิ"
@@ -1259,7 +1259,7 @@ msgid "At least 66% Completion for 7+ Minute songs, anything else completely map
 msgstr "คนที่ผ่านแมพจะต้องมีอย่างน้อย 66% สำหรับเพลง 7 นาทีขึ้นไป ที่เหลือจะเป็นแมพสมบูรณ์"
 
 msgid "Popularity does not mean rankable"
-msgstr "ความกังของแมพไม่ได้หมายความว่าจะสามารถแรงค์ได้"
+msgstr "ความดังของแมพไม่ได้หมายความว่าจะสามารถแรงค์ได้"
 
 msgid "Community"
 msgstr "ชุมชน"
