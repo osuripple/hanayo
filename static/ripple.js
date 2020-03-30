@@ -825,7 +825,7 @@ function modifyObjectDynamically(obj, inds, set) {
 }
 
 var langWhitelist = [
-  "de", "it", "ko", "es", "ru", "pl", "fr", "nl", "sv", "fi", "ro", "ko", "vi"
+  "de", "it", "ko", "es", "ru", "pl", "fr", "nl", "sv", "fi", "ro", "ko", "vi", "th"
 ];
 i18next.use(i18nextXHRBackend).init({
   nsSeparator : false,
