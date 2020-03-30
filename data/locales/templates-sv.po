@@ -754,7 +754,7 @@ msgstr "Gratis osu!direkt."
 msgid "Global leaderboards."
 msgstr "Global ledartavla."
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
@@ -1758,9 +1758,6 @@ msgid ""
 "token from this page, be wary and only actually create the token if you "
 "really trust the owner of the application.</b>"
 msgstr ""
-
-msgid "and PP for osu!standard and osu!mania"
-msgstr "och PP för osu!standard och osu!mania"
 
 # help.html
 msgid ""

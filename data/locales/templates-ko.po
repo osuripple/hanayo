@@ -692,7 +692,7 @@ msgstr "무료 osu!direct"
 msgid "Global leaderboards."
 msgstr "글로벌 리더보드."
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
@@ -1631,9 +1631,6 @@ msgid ""
 "token from this page, be wary and only actually create the token if you "
 "really trust the owner of the application.</b>"
 msgstr ""
-
-msgid "and PP for osu!standard and osu!mania"
-msgstr "그리고 스탠다드와 매니아 모드에서의 PP"
 
 # help.html
 msgid ""

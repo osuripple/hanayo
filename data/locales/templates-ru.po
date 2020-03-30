@@ -755,7 +755,7 @@ msgstr "Бесплатный osu!direct."
 msgid "Global leaderboards."
 msgstr "Глобальная таблица лидеров."
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
@@ -1802,9 +1802,6 @@ msgstr ""
 "приложения для работы с Ripple. <b>Если вас попросили передать API-токен с "
 "этой страницы - будьте осторожны и создавайте токен, только если вы "
 "доверяете владельцу приложения.</b>"
-
-msgid "and PP for osu!standard and osu!mania"
-msgstr "и PP для режимов osu!standard и osu!mania"
 
 # help.html
 msgid ""

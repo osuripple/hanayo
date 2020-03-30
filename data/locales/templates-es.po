@@ -758,7 +758,7 @@ msgstr "osu!direct gratis"
 msgid "Global leaderboards."
 msgstr "Posiciones globales"
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
@@ -1814,8 +1814,6 @@ msgstr ""
 "completar una ficha API desde esta pagina, se cuidadoso y solo crea la ficha "
 "si realmente confías en el dueño de la aplicación.</b>"
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "y PP para osu!standard y osu!mania"
 
 # help.html
 msgid ""

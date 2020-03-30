@@ -741,7 +741,7 @@ msgstr "Osu!direct miễn phí"
 msgid "Global leaderboards."
 msgstr "Bảng xếp hạng toàn cầu"
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."

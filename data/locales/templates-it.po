@@ -1817,9 +1817,6 @@ msgstr ""
 "di creare un token API da questa pagina, stai all'erta e crea il token "
 "soltanto se ti fidi davvero del proprietario dell'applicazione.</b>"
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "e PP per osu!standard e osu!mania"
-
 # help.html
 msgid ""
 "If you need to get in touch with our support team (our Community Managers), "

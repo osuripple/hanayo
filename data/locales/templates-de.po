@@ -777,7 +777,7 @@ msgstr "Kostenloses osu!direct."
 msgid "Global leaderboards."
 msgstr "Globale Bestenlisten."
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
@@ -1845,9 +1845,6 @@ msgstr ""
 "Anwendung nach deinem sogennanten API-Token gefragt wirst, sei vorsichtig "
 "und erstelle diesen Token nur, wenn du dem Entwickler der Anwendung "
 "vertraust.</b>"
-
-msgid "and PP for osu!standard and osu!mania"
-msgstr "und PP für osu!standard und osu!mania"
 
 # help.html
 msgid ""

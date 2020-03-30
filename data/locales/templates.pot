@@ -547,7 +547,7 @@ msgstr ""
 msgid "Global leaderboards."
 msgstr ""
 
-msgid "and PP for all game modes"
+msgid "and PP for all game modes, including Relax and Autopilot!"
 msgstr ""
 
 msgid "Ranking queue for unranked beatmaps."
