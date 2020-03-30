@@ -1655,9 +1655,6 @@ msgid ""
 "really trust the owner of the application.</b>"
 msgstr ""
 
-msgid "and PP for osu!standard and osu!mania"
-msgstr "và PP cho mode Osu!stadard lẫn Osu!mania"
-
 msgid "Username change"
 msgstr "Đổi tên người dùng"
 
