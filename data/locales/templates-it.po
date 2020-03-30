@@ -1924,3 +1924,15 @@ msgstr "Leggi di più"
 
 msgid "Connection guide"
 msgstr "Guida di connessione"
+
+msgid "Classic"
+msgstr "Classico"
+
+msgid "Relax"
+msgstr "Relax"
+
+msgid "New!"
+msgstr "Nuovo!"
+
+msgid "Total Play Time"
+msgstr "Tempo di gioco totale"

@@ -39,8 +39,8 @@ MinPrivileges=2
 					<div class="field" id="favourite-relax">
 						<label>{{ .T "Favourite relax mode" }}</label>
 						<select class="ui dropdown {{ if eq (int $d.favourite_mode) 3 }}disabled{{ end }}" name="favourite_relax" data-cast="int">
-							<option value="0" {{ if eq (int $d.favourite_relax) 0 }}selected{{ end }}>Classic</a>
-							<option value="1" {{ if eq (int $d.favourite_relax) 1 }}selected{{ end }}>Relax</a>
+							<option value="0" {{ if eq (int $d.favourite_relax) 0 }}selected{{ end }}>{{ .T "Classic" }}</a>
+							<option value="1" {{ if eq (int $d.favourite_relax) 1 }}selected{{ end }}>{{ .T "Relax" }}</a>
 						</select>
 					</div>
 					{{ if has .Context.User.Privileges 4 }}

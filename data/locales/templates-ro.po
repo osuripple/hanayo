@@ -1931,3 +1931,15 @@ msgstr ""
 
 msgid "Connection guide"
 msgstr ""
+
+msgid "Classic"
+msgstr ""
+
+msgid "Relax"
+msgstr ""
+
+msgid "New!"
+msgstr ""
+
+msgid "Total Play Time"
+msgstr ""

@@ -1275,3 +1275,15 @@ msgstr "อ่านเพิ่มเติม"
 
 msgid "Connection guide"
 msgstr "วิธีการเชื่อมต่อ"
+
+msgid "Classic"
+msgstr ""
+
+msgid "Relax"
+msgstr ""
+
+msgid "New!"
+msgstr ""
+
+msgid "Total Play Time"
+msgstr ""
