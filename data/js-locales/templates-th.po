@@ -120,3 +120,6 @@ msgstr "ลบออก"
 
 msgid "Add"
 msgstr "เพิ่ม"
+
+msgid "Most played beatmaps"
+msgstr ""

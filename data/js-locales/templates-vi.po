@@ -138,3 +138,6 @@ msgstr "Bỏ"
 
 msgid "Add"
 msgstr "Thêm vào"
+
+msgid "Most played beatmaps"
+msgstr ""

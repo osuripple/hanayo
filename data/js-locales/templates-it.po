@@ -141,3 +141,6 @@ msgstr "Rimuovi"
 
 msgid "Add"
 msgstr "Aggiungi"
+
+msgid "Most played beatmaps"
+msgstr "Beatmap più giocate"

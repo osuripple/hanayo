@@ -141,3 +141,6 @@ msgstr "Poista"
 
 msgid "Add"
 msgstr "Lisää"
+
+msgid "Most played beatmaps"
+msgstr ""

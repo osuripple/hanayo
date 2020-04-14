@@ -143,3 +143,6 @@ msgstr "Șterge"
 
 msgid "Add"
 msgstr "Adaugă"
+
+msgid "Most played beatmaps"
+msgstr ""

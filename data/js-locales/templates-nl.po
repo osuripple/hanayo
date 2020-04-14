@@ -141,3 +141,6 @@ msgstr "Verwijderen"
 
 msgid "Add"
 msgstr "Toevoegen"
+
+msgid "Most played beatmaps"
+msgstr ""

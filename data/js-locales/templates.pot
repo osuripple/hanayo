@@ -49,6 +49,9 @@ msgstr ""
 msgid "Best scores"
 msgstr ""
 
+msgid "Most played beatmaps"
+msgstr ""
+
 msgid "Recent scores"
 msgstr ""
 

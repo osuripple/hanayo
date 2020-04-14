@@ -137,3 +137,6 @@ msgstr "제거"
 
 msgid "Add"
 msgstr "추가"
+
+msgid "Most played beatmaps"
+msgstr ""
