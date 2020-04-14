@@ -1936,3 +1936,9 @@ msgstr "Nuovo!"
 
 msgid "Total Play Time"
 msgstr "Tempo di gioco totale"
+
+msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
+msgstr "<b>Abbiamo cambiato il nostro sistema di badge personalizzati.</b> Ora puoi utilizzare le emoji come icone! Dagli un'occhiata!"
+
+msgid "Pick an emoji"
+msgstr "Scegli un'emoji"

@@ -1967,3 +1967,9 @@ msgstr ""
 
 msgid "Total Play Time"
 msgstr ""
+
+msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
+msgstr ""
+
+msgid "Pick an emoji"
+msgstr ""
