@@ -398,6 +398,16 @@ var funcMap = template.FuncMap{
 	"styles": func() []string {
 		return playstyle.Styles[:]
 	},
+	"sanestyles": func() []string {
+		s := []string{}
+		for i, v := range playstyle.Styles {
+			if i >= 4 && i <= 8 {
+				continue
+			}
+			s = append(s, v)
+		}
+		return s
+	},
 	// shift shifts n1 by n2
 	"shift": func(n1, n2 int) int {
 		return n1 << uint(n2)

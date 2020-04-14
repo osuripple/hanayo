@@ -77,7 +77,7 @@ AdditionalJS=/static/jquery.lsxemojipicker.js
 					<h3 class="ui header">{{ .T "Playstyle" }}</h3>
 					<div class="ui three column grid" id="checkbox-grid">
 						{{ $ := . }}
-						{{ range $k, $v := styles }}
+						{{ range $k, $v := sanestyles }}
 							<div class="column">
 								{{ $checked := band (int $d.play_style) (shift 1 $k) }}
 								<div class="ui checkbox">
