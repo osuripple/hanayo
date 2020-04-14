@@ -411,3 +411,40 @@ img.locked-achievement:hover {
 	filter: brightness(0.5) drop-shadow(0 5px 5px #777);
 }
 
+.badge>.twemoji>img {
+	height: 100% !important;
+	width: 100% !important;
+	margin: auto;
+}
+
+.badge>.twemoji {
+	height: 100%;
+	width: 100%;
+}
+
+.badge {
+	height: 4em !important;
+	width: 4em !important;
+	border-radius: 50%;
+	line-height: 1;
+	padding: 1em;
+	box-shadow: 0 0 0 0.25em rgba(0,0,0,.1) inset;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.lsx-emojipicker-emoji.lsx-emoji-tab {
+	width: 100% !important;
+}
+
+.lsx-emojipicker-container {
+	width: 300px !important;
+}
+
+.lsx-emojipicker-tabs {
+	text-align: center !important;
+}
+
+.lsx-emojipicker-container {
+	top: -290px !important;
+}

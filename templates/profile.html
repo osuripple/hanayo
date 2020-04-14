@@ -139,14 +139,22 @@
 								<div class="ui grid">
 									{{ range .badges }}
 										<div class="eight wide centered column">
-											<i class="circular {{ faIcon .icon }} big icon"></i><br>
-											<b>{{ .name }}</b>
+											<div>
+												<div class="badge">
+													<div class="twemoji">{{ .icon }}</div>
+												</div>
+												<b>{{ .name }}</b>
+											</div>
 										</div>
 									{{ end }}
 									{{ with .custom_badge }}
 										<div class="eight wide centered column">
-											<i class="circular {{ faIcon .icon }} big icon"></i><br>
-											<b><i>{{ .name }}</i></b>
+											<div>
+												<div class="badge">
+													<div class="twemoji">{{ .icon }}</div>
+												</div>
+												<b><i>{{ .name }}</i></b>
+											</div>
 										</div>
 									{{ end }}
 								</div>

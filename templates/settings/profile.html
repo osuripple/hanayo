@@ -4,6 +4,7 @@ TitleBar=Settings
 KyutGrill=settings2.jpg
 Include=menu.html
 MinPrivileges=2
+AdditionalJS=/static/jquery.lsxemojipicker.js
 */}}
 {{ define "tpl" }}
 <div class="ui container">
@@ -11,7 +12,7 @@ MinPrivileges=2
 		{{ template "settingsSidebar" . }}
 		<div class="twelve wide column">
 			<div class="ui segment">
-				<form class="ui form" method="post">
+				<form id="settings-form" class="ui form" method="post">
 					{{ $d := .Get "users/self/settings" }}
 					<h3 class="ui header">{{ .T "General" }}</h3>
 					<div class="field">
@@ -48,19 +49,26 @@ MinPrivileges=2
 						<div class="ui warning message">
 							{{ .T "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore." | html}}
 						</div>
+						<div class="ui info message">
+							{{ .T "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!" | html}}
+						</div>
 						<div class="ui toggle checkbox">
 							<input type="checkbox" name="custom_badge.show" {{ if $d.custom_badge.show }}checked{{ end }}>
 							<label>{{ .T "Enable" }}</label>
 						</div>
 						<div id="custom-badge-fields" {{ if not $d.custom_badge.show }}style="display: none"{{ end }} class="little top margin">
-							<p><a href="http://semantic-ui.com/elements/icon.html">{{ .T "Icon reference" }}</a></p>
 							<div class="ui two column center aligned grid" style="margin-top: 0">
 								<div class="column">
-									<i class="circular {{ faIcon $d.custom_badge.icon }} big icon" id="badge-icon"></i><br>
-									<b id="badge-name">{{ $d.custom_badge.name }}</b>
+									<div>
+										<div class="badge">
+											<div class="twemoji">{{ $d.custom_badge.icon }}</div>
+										</div>
+										<b id="badge-name"><i>{{ $d.custom_badge.name}}</i></b>
+									</div>
 								</div>
 								<div class="column">
-									<p><input type="text" name="custom_badge.icon" placeholder="plane, left chevron, hand spock..." value="{{ $d.custom_badge.icon }}"></p>
+									<p><button id="memoji" class="ui button fluid">{{ .T "Pick an emoji" }}</button></p>
+									<p><input type="text" name="custom_badge.icon" hidden value="{{ $d.custom_badge.icon }}"></p>
 									<p><input type="text" name="custom_badge.name" placeholder="{{ .T "Dinosaur, oompa-loompa, cool guy..." }}" value="{{ $d.custom_badge.name }}"></p>
 								</div>
 							</div>

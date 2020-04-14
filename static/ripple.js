@@ -191,6 +191,23 @@ var singlePageSnippets = {
   },
 
   "/settings" : function() {
+    $('#memoji').lsxEmojiPicker({
+      twemoji: true,
+      onSelect: function(emoji) {
+        var e = twemoji.convert.fromCodePoint(emoji.value.replace('&#x', ''));
+        $("input[name='custom_badge.icon']").val(e);
+        $("#custom-badge-fields .badge>.twemoji").text(e);
+        twemoji.parse($("#custom-badge-fields .badge")[0]);
+      }
+    });
+    // Pressing enter on the badge name input somehow opens the emoji picker...
+    $("input[name='custom_badge.name']")
+      .keypress(function(e) {
+        if (e.which == 13) {
+          e.preventDefault();
+          $("#settings-form").submit();
+        }
+      });
     $("#favourite-mode>.ui.dropdown").dropdown("setting", "onChange", function(value) {
       var dropdown = $("#favourite-relax>.ui.dropdown")
       if (value == 3) {
