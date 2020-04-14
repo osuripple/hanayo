@@ -797,7 +797,7 @@ msgid "You may have adblock enabled and have not noticed, but we don't have ads 
 msgstr "คุณอาจจะมี Adblock และไม่ได้สังเกตว่าเรานั้นไม่มีโฆษณาในเว็บไซต์ของเรา เราเชื่อว่าโฆษณาไม่ดีเนื่องจากโฆษณาเหล่านี้อาจสร้างความรำคาญให้คุณและคุณควรใช้เงินสองสามเหรียญเพื่อช่วยเราแทนที่จะดูโฆษณาที่น่ารำคาญตลอดเวลา"
 
 msgid "So what can you do?"
-msgstr "เราคุณสามารถทำอะไรได้บ้างล่ะ?"
+msgstr "แล้วคุณสามารถทำอะไรได้บ้างล่ะ?"
 
 msgid "Well, you can give us money."
 msgstr "งั้น คุณก็ให้เงินเราก็ได้สิ"
@@ -1277,16 +1277,16 @@ msgid "Connection guide"
 msgstr "วิธีการเชื่อมต่อ"
 
 msgid "Classic"
-msgstr ""
+msgstr "คลาสสิก"
 
 msgid "Relax"
-msgstr ""
+msgstr "Relax"
 
 msgid "New!"
-msgstr ""
+msgstr "ใหม่!"
 
 msgid "Total Play Time"
-msgstr ""
+msgstr "เวลาเล่นทั้งหมด"
 
 msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
 msgstr ""
