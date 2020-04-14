@@ -34,5 +34,6 @@
     "($ {{ usd }} / BTC {{ btc }})": "($ {{ usd }} / BTC {{ btc }})",
     "Mutual": "Reciproci",
     "Remove": "Rimuovi",
-    "Add": "Aggiungi"
+    "Add": "Aggiungi",
+    "Most played beatmaps": "Beatmap più giocate"
 }
