@@ -49,6 +49,9 @@ msgstr "โหลดเพิ่มเติม"
 msgid "Best scores"
 msgstr "คะแนนที่ดีที่สุด"
 
+msgid "Most played beatmaps"
+msgstr "แมพที่เล่นบ่อยที่สุด"
+
 msgid "Recent scores"
 msgstr "คะแนนล่าสุด"
 
