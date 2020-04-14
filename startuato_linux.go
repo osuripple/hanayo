@@ -15,7 +15,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rcrowley/goagain"
-	"zxq.co/ripple/schiavolib"
+	schiavo "zxq.co/ripple/schiavolib"
 )
 
 var l net.Listener
@@ -120,10 +120,8 @@ func updateFromRemote(c *gin.Context) {
 		if !execCommand("git", "submodule", "update") {
 			return
 		}
-		// go get
-		//        -u: update all dependencies
-		//        -d: stop after downloading deps
-		if !execCommand("go", "get", "-v", "-u", "-d") {
+		// will ensure dependencies are up-to-date
+		if !execCommand("go", "get", "-v", "-d") {
 			return
 		}
 		if !execCommand("bash", "-c", "go build -v") {
