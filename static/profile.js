@@ -1,31 +1,5 @@
 // code that is executed on every user profile
 $(document).ready(function() {
-	function changeCurrentScores() {
-		var m = 0;
-		var mel = $("#mode-menu>.item.active");
-		if (mel.length > 0) {
-			m = mel.data("mode");
-		}
-		var rel = $("#relax-menu>.item.active");
-		var r = 0;
-		if (rel.length > 0) {
-			r = rel.data("relax");
-		}
-		$("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
-		$("[data-mode=" + m + "][data-relax=" + r + "]:not(.item)").removeAttr("hidden");
-		var mostPlayed = $("[data-mode=" + m + "][data-type=most-played]")
-			.detach()
-			.appendTo("#scores-zone>[data-mode=" + m + "][data-relax=" + r + "] [data-type=most-played-container]")
-			.removeAttr("hidden")
-		;
-		var needsLoad = $("#scores-zone>[data-mode=" + m + "][data-relax=" + r + "][data-loaded=0]");
-		if (needsLoad.length > 0)
-			initialiseScores(needsLoad, m, r);
-		else
-			currentPage[0][m].mostPlayed = mostPlayed.data("page");
-		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + "&relax=" + r + wl.hash);
-	}
-
 	var wl = window.location;
 	var newPathName = wl.pathname;
 	// userID is defined in profile.html
@@ -43,29 +17,20 @@ $(document).ready(function() {
 		e.preventDefault();
 		if ($(this).hasClass("active"))
 			return;
+		var m = $(this).data("mode");
+		$("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
+		$("[data-mode=" + m + "]:not(.item)").removeAttr("hidden");
 		$("#mode-menu>.active.item").removeClass("active");
+		var needsLoad = $("#scores-zone>[data-mode=" + m + "][data-loaded=0]");
+		if (needsLoad.length > 0)
+			initialiseScores(needsLoad, m);
 		$(this).addClass("active");
-		if ($(this).data("mode") == 3) {
-			// relax has no mania
-			$("#relax-menu>.item[data-relax=1]").addClass("disabled").removeClass("active");
-			$("#relax-menu>.item[data-relax=0]").addClass("active");
-		} else {
-			$("#relax-menu>.item[data-relax=1]").removeClass("disabled");
-		}
-		changeCurrentScores();
-	});
-	$("#relax-menu>.item").click(function(e) {
-		e.preventDefault();
-		if ($(this).hasClass("active") || $(this).hasClass("disabled"))
-			return;
-		$("#relax-menu>.active.item").removeClass("active");
-		$(this).addClass("active");
-		changeCurrentScores();
+		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + wl.hash);
 	});
 	initialiseAchievements();
 	initialiseFriends();
 	// load scores page for the current favourite mode
-	var i = function(){initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "][data-relax=" + favouriteRelax + "]"), favouriteMode, favouriteRelax)};
+	var i = function(){initialiseScores($("#scores-zone>div[data-mode=" + favouriteMode + "]"), favouriteMode)};
 	if (i18nLoaded)
 		i();
 	else
@@ -157,15 +122,10 @@ function loadOnlineStatus() {
 	});
 }
 
-function loadMostPlayedBeatmaps(mode, increment) {
+function loadMostPlayedBeatmaps(mode) {
 	var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
-	// currentPage[0] = classic, most played beatmaps have the same data on both classic and relax
-	// only [0] (classic) has the mostPlayed key
-	if (increment) {
-		currentPage[0][mode].mostPlayed++;
-		mostPlayedTable.data("page", currentPage[0][mode].mostPlayed);
-	}
-	api('users/most_played', {id: userID, mode: mode, p: currentPage[0][mode].mostPlayed, l: 5}, function (resp) {
+	currentPage[mode].mostPlayed++
+	api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
 		if (resp.beatmaps === null) {
 			return;
 		}
@@ -220,7 +180,7 @@ function initialiseAchievements() {
 				}
 				shown++;
 				$ach.append(
-					$("<div class='ui two wide computer eight wide mobile centered column'>").append(
+					$("<div class='ui two wide column'>").append(
 						$("<img src='https://s.ripple.moe/images/medals-" +
 							"client/" + ach.icon + ".png' alt='" + ach.name +
 							"' class='" +
@@ -333,55 +293,45 @@ function setDefaultScoreTable() {
 i18next.on('loaded', function(loaded) {
 	setDefaultScoreTable();
 });
-function initialiseScores(el, mode, relax) {
+function initialiseScores(el, mode) {
 	el.attr("data-loaded", "1");
 	var best = defaultScoreTable.clone(true).addClass("orange");
 	var recent = defaultScoreTable.clone(true).addClass("blue");
-	var mostPlayedBeatmapsTable = $("[data-mode=" + mode + "][data-type=most-played]");
-	var shouldInitMostPlayed = false;
-	if (mostPlayedBeatmapsTable.length == 0) {
-		mostPlayedBeatmapsTable = $("<table class='ui table F-table yellow' data-mode='" + mode + "' data-type='most-played' data-page='1' />")
-				.append(
-						$("<thead />").append(
-								$("<tr />").append(
-										$("<th>"+ T("Beatmap") + "</th>"),
-										$("<th class='right aligned'>"+ T("Plays") + "</th>")
-								)
-						)
-				)
-				.append(
-						$('<tbody />')
-				)
-				.append(
-						$("<tfoot />").append(
-								$("<tr />").append(
-										$("<th colspan=2 />").append(
-												$("<div class='ui right floated pagination menu' />").append(
-														$("<a class='load-more disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
-												)
-										)
-								)
-						)
-				)
-		shouldInitMostPlayed = true;
-	} else {
-		mostPlayedBeatmapsTable.removeAttr("hidden");
-	}
+	var mostPlayedBeatmapsTable = $("<table class='ui table F-table yellow' data-mode='" + mode + "' />")
+			.append(
+					$("<thead />").append(
+							$("<tr />").append(
+									$("<th>"+ T("Beatmap") + "</th>"),
+									$("<th class='right aligned'>"+ T("Plays") + "</th>")
+							)
+					)
+			)
+			.append(
+					$('<tbody />')
+			)
+			.append(
+					$("<tfoot />").append(
+							$("<tr />").append(
+									$("<th colspan=2 />").append(
+											$("<div class='ui right floated pagination menu' />").append(
+													$("<a class='load-more disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
+											)
+									)
+							)
+					)
+			)
 	best.attr("data-type", "best");
 	recent.attr("data-type", "recent");
-
+	mostPlayedBeatmapsTable.attr("data-type", "most-played");
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
 		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("Best scores") + "</h2>", best),
-		$("<div class='ui segment' data-type='most-played-container' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
-	loadScoresPage("best", mode, relax);
-	loadScoresPage("recent", mode, relax);
-	if (shouldInitMostPlayed) {
-		currentPage[0][mode].mostPlayed = 1;
-		loadMostPlayedBeatmaps(mode, false);
-	}
+	loadScoresPage("best", mode);
+	loadScoresPage("recent", mode);
+	loadMostPlayedBeatmaps(mode);
 };
 function loadMoreClick() {
 	var t = $(this);
@@ -390,8 +340,7 @@ function loadMoreClick() {
 	t.addClass("disabled");
 	var type = t.parents("table[data-type]").data("type");
 	var mode = t.parents("div[data-mode]").data("mode");
-	var relax = t.parents("div[data-relax]").data("relax");
-	loadScoresPage(type, mode, relax);
+	loadScoresPage(type, mode);
 }
 function loadMoreMostPlayed() {
 	var t = $(this);
@@ -399,43 +348,30 @@ function loadMoreMostPlayed() {
 		return;
 	t.addClass("disabled");
 	var mode = t.parents("div[data-mode]").data("mode");
-	loadMostPlayedBeatmaps(mode, true);
+	loadMostPlayedBeatmaps(mode);
 }
 // currentPage for each mode
 var currentPage = {
-	// classic
-	0: {
-		0: {best: 0, recent: 0, mostPlayed: 0},
-		1: {best: 0, recent: 0, mostPlayed: 0},
-		2: {best: 0, recent: 0, mostPlayed: 0},
-		3: {best: 0, recent: 0, mostPlayed: 0},
-	},
-	// relax
-	1: {
-		0: {best: 0, recent: 0},
-		1: {best: 0, recent: 0},
-		2: {best: 0, recent: 0},
-		3: {best: 0, recent: 0},
-	}
+	0: {best: 0, recent: 0, mostPlayed: 0},
+	1: {best: 0, recent: 0, mostPlayed: 0},
+	2: {best: 0, recent: 0, mostPlayed: 0},
+	3: {best: 0, recent: 0, mostPlayed: 0},
 };
 var scoreStore = {};
-function loadScoresPage(type, mode, relax) {
-	var table = $("#scores-zone div[data-mode=" + mode + "][data-relax=" + relax + "] table[data-type=" + type + "] tbody");
-	var page = ++currentPage[relax][mode][type];
-	/*console.log("loadScoresPage with", {
+function loadScoresPage(type, mode) {
+	var table = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
+	var page = ++currentPage[mode][type];
+	console.log("loadScoresPage with", {
 		page: page,
 		type: type,
 		mode: mode,
-		relax: relax,
 	});
-	console.log(table);*/
 	var limit = type === 'best' ? 10 : 5;
 	api("users/scores/" + type, {
 		mode: mode,
 		p: page,
 		l: limit,
 		id: userID,
-		relax: relax,
 	}, function(r) {
 		if (r.scores == null) {
 			disableLoadMoreButton(type, mode);
