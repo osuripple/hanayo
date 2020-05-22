@@ -1,0 +1,1291 @@
+# General
+msgid "You're already logged in!"
+msgstr "你已经登录了！"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Invalid CSRF token"
+msgstr "无效的 CSRF 令牌"
+
+msgid "Your session has expired. Please try redoing what you were trying to do."
+msgstr "您的会话已过期，请重试。"
+
+msgid "That user could not be found."
+msgstr "找不到该用户。"
+
+msgid "Your settings have been saved."
+msgstr "设置已保存。"
+
+# beatmaps/rank_requests.html
+msgid "Request beatmap ranking"
+msgstr "谱面 Rank 申请"
+
+msgid "Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!"
+msgstr "想要在 Unranked 谱面上获得 PP ？你可以在这里申请 Rank 谱面！"
+
+msgid "Queue status"
+msgstr "队列状态"
+
+msgid "by you"
+msgstr "来自你"
+
+msgid "Requests submitted"
+msgstr "申请已提交"
+
+msgid "In the past 24 hours"
+msgstr "在过去24小时中"
+
+msgid "Request a beatmap"
+msgstr "提交一张谱面"
+
+msgid "You cannot currently request beatmaps!"
+msgstr "您目前无法再提交更多谱面了！"
+
+# After this text there is a date. The date is localised separately.
+msgid "Please try again "
+msgstr "请重试 "
+
+# pwreset/continue.html
+msgid "Reset password"
+msgstr "重置密码"
+
+msgid "Glad to have you back here, %s! To finish the password recovery, type in a new password:"
+msgstr "很高兴你回到这里，%s！输入新密码来完成最后步骤："
+
+msgid "Nope."
+msgstr "不了"
+
+msgid "That key could not be found. Perhaps it expired?"
+msgstr "找不到该密钥。也许它过期了？"
+
+msgid "All right, we have changed your password and you should now be able to login! Have fun!"
+msgstr "我们已经更改了您的密码！玩得开心！"
+
+# register/register.html
+msgid "Register"
+msgstr "注册"
+
+msgid "Sorry, it's not possible to register at the moment. Please try again later."
+msgstr "抱歉，目前无法注册。请稍后再试。"
+
+msgid "Remember: this seems like it's your second account! Do not multiaccount, or you're likely to get restricted!"
+msgstr "请记住：这似乎是您的第二个帐户！请勿开小号，否则您可能会遭到封禁！"
+
+msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
+msgstr "用户名 (2-15个英文或数字，空格。可用<code>_[]-</code>)"
+
+msgid "Password (at least 8 characters)"
+msgstr "密码 (至少8个字符)"
+
+msgid "Email"
+msgstr "邮箱"
+
+msgid "You have been successfully registered on Ripple! You now need to verify your account."
+msgstr "您已成功注册 Ripple 账号！现在，需要验证您的帐户。"
+
+# Register checks
+msgid "Your password is too short! It must be at least 8 characters long."
+msgstr "您的密码太短！长度必须至少为8个字符。"
+
+msgid "Your password is one of the most common passwords on the entire internet. No way we're letting you use that!"
+msgstr "您的密码是整个互联网上最常见的密码之一。我们绝对不能让您使用它！"
+
+msgid "Your username must contain alphanumerical characters, spaces, or any of <code>_[]-</code>"
+msgstr "您的用户名必须包含英文或数字，空格，或任何<code>_[]-</code>"
+
+msgid "You're not allowed to register with that username."
+msgstr "您无权使用该用户名注册。"
+
+msgid "Please pass a valid email address."
+msgstr "请输入一个有效的电子邮件地址。"
+
+msgid "An username can't contain both underscores and spaces."
+msgstr "用户名不能同时包含下划线和空格。"
+
+msgid "An user with that username already exists!"
+msgstr "该用户名已存在！"
+
+msgid "An user with that email address already exists!"
+msgstr "该电子邮件已存在！"
+
+msgid "Captcha is invalid."
+msgstr "坏了，验证无效。如果您根本没有看到人机验证，说明您所在的国家无法访问谷歌人机验证。"
+
+msgid "Whoops, an error slipped in. You might have been registered, though. I don't know."
+msgstr "糟糕，出现了错误。也许您已经注册成功了。"
+
+# register/verify.html
+msgid "Verify account"
+msgstr "验证账户"
+
+msgid "Your account has been created, however it still <b>needs to be verified!</b> Please log in into <b><u>osu! (the game)</u></b> using your account. <b>There is <u>no email confirmation</u> at the moment. All you need to do is connect to Ripple from the osu! client!</b> If you're having trouble, <a href='/doc/1'>follow this guide</a>."
+msgstr "您的账户已经创建，但它仍需要<b>验证</b>！请使用您的账户登录 <b><u>osu! 客户端</u></b><b>我们<u>不需要邮箱验证</u>。您仅需从 osu! 客户端登录您的 Ripple 账户。</b>如果遇到了困难，请跟随这篇<a href='/doc/1'>教程</a>操作。"
+
+msgid "<b class='big text'>Do not let anyone except yourself log into your Ripple account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting."
+msgstr "<b class='big text'>除了您自己，不要让任何人登录您的 Ripple 帐户！</b><br>如果您仍有连接问题（跟随教程后），请加入我们的<a href='%s'> Discord 服务器</a>，在 #help 频道中获得帮助。"
+
+msgid "The Guide (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>). TL;DR version below."
+msgstr "连接教程 (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>)。下面是教程的简单版本。"
+
+msgid "Download the server switcher"
+msgstr "下载切换器(Server switcher)"
+
+msgid "Extract it, disable your antivirus, execute <i>RippleServerSwitcher.exe</i> <b>as administrator</b>"
+msgstr "解压缩，并以管理员身份运行 <i>RippleServerSwitcher.exe</i>"
+
+msgid "Click on <b>Connect to Ripple</b>, then <b>Ok/Yes</b>"
+msgstr "点击 <b>Connect to Ripple</b>，然后 <b>Ok/Yes</b>"
+
+msgid "Make sure the switcher says you're connected to <b>Ripple</b>"
+msgstr "确保切换器已经连接到了 <b>Ripple</b>"
+
+msgid "If it says something about read-only mode, go to <code>C:\\Windows\\System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure it's not set to \"Read only\"."
+msgstr "如果它提到了只读(read-only)，前往<code>C:\\Windows\\System32\\Drivers\\etc</code>找到并打开 <code>hosts</code> 文件属性并确保未将其设置为<code>只读</code>。"
+
+msgid "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #help channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this."
+msgstr "如果您仍然遇到问题，请前往我们的 <a href='%s'>Discord 服务器</a>里的 #help 频道。如果您担心没有人回复，您可以使用暗号 \"strawberry\" 来告诉我们您已经跟随了这些教程但仍有其他问题。"
+
+msgid "Waiting for verification"
+msgstr "等待验证中"
+
+# register/welcome.html
+msgid "Welcome!"
+msgstr "欢迎！"
+
+msgid "Welcome back!"
+msgstr "欢迎回来！"
+
+msgid "Congratulations for not reading things!"
+msgstr "恭喜您！没有需要处理的东西！"
+
+msgid "Multiaccounts are not allowed on Ripple"
+msgstr "Ripple 禁止一切小号行为"
+
+msgid "Your new account has been <b>banned</b> and your main account has been <b>restricted</b>. You can appeal in a month by sending an email to <b><a href='https://support.ripple.moe'>support.ripple.moe</a></b>. You better read the rules next time."
+msgstr "您的小号已被 <b>封禁</b> 这也导致了您的大号被 <b>限制</b>。您可以在一个月之后发送邮件至 <b><a href='https://support.ripple.moe'>support.ripple.moe</a></b> 来上诉请求。下次您最好仔细阅读规则。"
+
+msgid "Welcome to Ripple"
+msgstr "欢迎来到 Ripple"
+
+msgid "We're glad to have you here. <b>Your account is now active.</b> You can now play on Ripple and <a href='/login'>log in</a> on the website!"
+msgstr "很高兴您出现在了这里。这说明<b>您的帐户现已激活。</b>您已经可以游玩并在网站<a href='/login'>登录</a>了!"
+
+msgid "Here's a few things you might want to check out:"
+msgstr "您可能需要检查以下几件事："
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Rules"
+msgstr "规则"
+
+msgid "Documentation"
+msgstr "文档"
+
+msgid "Server switcher"
+msgstr "切换器"
+
+msgid "Status"
+msgstr "服务器状态"
+
+msgid "Discord"
+msgstr Discord
+
+msgid "Subreddit"
+msgstr "Reddit"
+
+msgid " - in case you don't know where to start"
+msgstr " - 如果您不知道从哪里开始"
+
+msgid " - in case you haven't already read them"
+msgstr " - 如果您还没有读过它们"
+
+msgid " - in case, well, you need help doing stuff"
+msgstr " - 如果您需要帮助"
+
+msgid " - in case you believe Ripple is down"
+msgstr " - 如果你认为 Ripple 已经宕机"
+
+msgid " - in case you want to talk with people about Ripple"
+msgstr " - 如果你想和别人讨论 Ripple"
+
+msgid " - just in case"
+msgstr " - 如果..."
+
+# 2fa_gateway_recover.html
+msgid "Recover account"
+msgstr "找回账户"
+
+msgid "Can't find a way to get back access to your Ripple account? Fear not! If you have your recovery codes which we recommended you to print you can type one in here and we'll magically log you in this time. After you've managed to get in, please disable and then re-enable 2FA, so you won't risk losing your account again."
+msgstr "无法找到登录您 Ripple 帐户的方法？不要怕！如果您有恢复码，则可以在此输入其中一个，就可以进行神奇的临时登录。登录后，请先禁用 2FA，然后再重新启用您的 2FA，这样就不会再次承担丢失账户的风险了。"
+
+msgid "Oh no you don't."
+msgstr "哦，不，你不能。"
+
+msgid "Get out."
+msgstr "离开这里。"
+
+msgid "Recovery code is invalid."
+msgstr "恢复码无效。"
+
+# register/elmo.html
+msgid "你最好知道你在干什么"
+msgstr ""
+
+msgid "停一停！"
+msgstr ""
+
+msgid "We see that you're trying to sign up while having already signed up as %s! Please note that multiaccounting is punishable, and can lead to a one month restriction!"
+msgstr "我们认为您的大号是 %s。请记住，小号是绝对禁止的！这会导致您被封禁。"
+
+msgid "If you're %s, keep in mind that multiaccounting = ban."
+msgstr "如果您真的是 %s，小号 = 封禁。"
+
+msgid "If you're not %s, but you're using %s's computer, please sign up on Ripple from your own computer."
+msgstr "如果您不是 %s，但使用了 %s 的电脑。请使用您自己的电脑注册 Ripple。"
+
+msgid "If you live with %s and you don't have your own computer from which to sign up on Ripple, then please contact support@ripple.moe, and we'll deal with your specific case."
+msgstr "如果您与 %s 住在一起，并且没有自己的电脑可以在 Ripple 上进行注册，请联系 support@ripple.moe，我们将处理您的特殊情况。"
+
+msgid "This warning may pop up also if you're using another computer on the same network of %s. As long as you're not using the same computer, you should be all good."
+msgstr "如果您在 %s 的同一网络上使用另一台电脑，也会弹出此警告。只要您不使用同一台电脑，那一切都会保持正常。"
+
+msgid "Don't stop me now!"
+msgstr "我知道我在干什么！"
+
+msgid "Bring me back to safety!"
+msgstr "带我回到安全的地方"
+
+# login.html
+msgid "Log in"
+msgstr "登录"
+
+msgid "Username (or email)"
+msgstr "用户名 (或邮箱)"
+
+# in relationship to a password
+msgid "(forgot?)"
+msgstr "(忘了？)"
+
+msgid "Username or password not set."
+msgstr "用户名或密码未设置。"
+
+msgid "No user with such %s!"
+msgstr "找不到 %s 这个用户名！ "
+
+msgid "Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?"
+msgstr "您的密码也太旧了吧，我们甚至都不知道如何处理它。您能修改一下您的密码吗？"
+
+msgid "Wrong password."
+msgstr "错误的密码。"
+
+msgid "You will need to verify your account first."
+msgstr "您需要先验证您的帐户。"
+
+msgid "You are not allowed to login. This means your account is either banned or locked."
+msgstr "您无权登录。这意味着您的帐户被禁止或锁定。"
+
+msgid "Hey %s! You are now logged in."
+msgstr "嗨，%s！您已成功登录。"
+
+msgid "You're already logged out!"
+msgstr "您已经登出了！"
+
+msgid "Successfully logged out."
+msgstr "登出成功。"
+
+# pwreset.html
+msgid "Forgot your password? Worry not! Here you can reset it. Just tell us your username or email address, and we'll take care of it. You will receive an email at the email address you used to sign up on Ripple. To continue the password reset procedure, click the link on that email."
+msgstr "忘记了密码？不用担心！只需告诉我们您的用户名或电子邮件，我们就会帮您重置。您将会在注册 Ripple 的邮箱中收到一封邮件，只需点击右键内的链接，即可进行密码重置。
+
+msgid "You look pretty banned/locked here."
+msgstr "看来您已经被封禁/锁定了。"
+
+msgid "Done! You should shortly receive an email from us at the email you used to sign up on Ripple."
+msgstr "Done! 您很快就会在您注册 Ripple 的电子邮箱中收到我们的邮件。"
+
+msgid "Ripple password recovery instructions"
+msgstr "Ripple 找回密码说​​明"
+
+msgid "Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Ripple. Otherwise, silently ignore this email."
+msgstr "嗨 %s! 有个人（我们希望是您自己）想要重置您账户的密码。如果是您，请<a href='%s'>点击这里</a>来进行密码重置。如果不是，请忽略这封邮件。"
+
+# not_found.html
+msgid "Not Found"
+msgstr "页面丢失"
+
+msgid "We're sorry, but we were unable to find the content you were looking for!"
+msgstr "很抱歉，我们找不到您想要的内容！"
+
+# navbar.html
+msgid "Home page"
+msgstr "主页"
+
+msgid "Leaderboard"
+msgstr "排行榜"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Chat (Discord)"
+msgstr "Discord"
+
+msgid "Contact support"
+msgstr "联系客服"
+
+msgid "Beatmaps"
+msgstr "谱面"
+
+msgid "Donate"
+msgstr "捐助"
+
+msgid "RAP"
+msgstr "RAP"
+
+msgid "Profile"
+msgstr "个人资料"
+
+msgid "Friends"
+msgstr "好友"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Log out"
+msgstr "登出"
+
+msgid "Looking for someone?"
+msgstr "寻找某个人？"
+
+# homepage.html
+msgid "Home Page"
+msgstr "主页"
+
+msgid "Welcome to Ripple."
+msgstr "欢迎来到 Ripple"
+
+msgid "Ripple is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>"
+msgstr "Ripple 是一个 osu! 私服，拥有多人游戏，PP，一个非常活跃的社区以及一支开发团队。<a href='/about'>你可以在这里了解 Ripple 的全部功能</a>。它也有一个非常友好的社区，并且<a href='https://zxq.co/ripple/ripple'>开放源码</a>！<b>我们已经拥有 %s 个在线玩家以及超过 %s 位注册用户！</b>"
+
+msgid "What are you waiting for? Join Ripple! It's risk-free: you won't get your account banned on the official server if you play on Ripple.<br>You can also switch anytime between the official osu! server and Ripple!"
+msgstr "还在等什么？加入 Ripple！它是无风险的：您在 Ripple 上游玩不会影响到您的官方服务器账户。您也可以随时在 Ripple 服务器和 osu! 官方服务器之间切换！"
+
+msgid "Howdy, %s!"
+msgstr "你好，%s！"
+
+msgid "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?"
+msgstr "欢迎回到 Ripple。目前，我们有<b> %s 个在线玩家和超过 %s 位注册用户。</b>美好的一天，从刷pp开始，不是吗？"
+
+msgid "Latest news from our blog"
+msgstr "来自我们博客的最新消息"
+
+# base.html
+msgid "Ripple's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being."
+msgstr "Ripple 的分数系统目前处于维护模式。您暂时无法上传成绩。"
+
+msgid "The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website."
+msgstr "Ripple 网站目前处于维护模式。仅允许某些用户访问整个网站。"
+
+msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Ripple's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='https://support.ripple.moe'>support.ripple.moe</a>."
+msgstr "您的帐户当前处于限制(Restricted)模式。您无法执行某些操作，您的个人资料只能由您和 Ripple 的工作人员查看。如果您认为我们错误地将您封禁，或者自您首次看到此消息以来已经过去了一个月，您可以通过发送邮件至 <a href='https://support.ripple.moe'>support.ripple.moe</a> 来提交上诉。"
+
+msgid "&copy; 2015-%d Ripple, using Hanayo %s."
+msgstr "&copy; 2015-%d Ripple，由 Hanayo %s 强力驱动。"
+
+msgid "Team"
+msgstr "团队"
+
+msgid "Who is working on this thing?"
+msgstr "谁成就了 Ripple？"
+
+msgid "Developer docs"
+msgstr "开发者文档"
+
+msgid "See what changed!"
+msgstr "来看看我们做了什么！"
+
+msgid "Changelog"
+msgstr "更新日志"
+
+msgid "Blog"
+msgstr "博客"
+
+msgid "What's going on under the hood?"
+msgstr "到底是怎么回事？"
+
+msgid "Follow us on Twitter!"
+msgstr "关注我们的 Twitter！"
+
+msgid "Share irrelevant opinions on reddit!"
+msgstr "在 Reddit 上分享您的意见！"
+
+msgid "Language"
+msgstr "语言"
+
+# beatmap.html
+msgid "Artist"
+msgstr "艺术家"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Creator"
+msgstr "作者"
+
+msgid "Source"
+msgstr "来源"
+
+msgid "Circle Size"
+msgstr "CS"
+
+msgid "HP Drain"
+msgstr "HP"
+
+msgid "Overall Difficulty"
+msgstr "OD"
+
+msgid "Passes/Plays"
+msgstr "通过率"
+
+msgid "Approach Rate"
+msgstr "AR"
+
+msgid "Star Difficulty"
+msgstr "Star"
+
+msgid "Length"
+msgstr "长度"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "osu!direct"
+msgstr "osu!direct"
+
+msgid "download"
+msgstr "下载"
+
+msgid "download (no video)"
+msgstr "不包含视频"
+
+msgid "Rank in RAP"
+msgstr "Rank in RAP"
+
+# 2fa_gateway.html
+msgid "Two Factor Authentication"
+msgstr "两步验证"
+
+msgid "Before proceding further on Ripple, we require you to use your Google Authenticator App to use the code for Ripple, so that we can log you in."
+msgstr "在登录 Ripple 之前，请输入您两步验证 APP 上的代码，以便我们确认是您本人。"
+
+msgid "Before proceding any further on Ripple, we require you to use the message you just received on telegram to log in to your account."
+msgstr "在登录 Ripple 之前，请在 Telegram 中查看消息，以便我们确认是您本人。"
+
+msgid "Lost your phone, or can't access Google Authenticator?"
+msgstr "无法使用两步验证 APP？"
+
+msgid "Click here to use a recovery code."
+msgstr "使用恢复码。"
+
+msgid "Telegram code"
+msgstr "Telegram 代码"
+
+msgid "(send again?)"
+msgstr "(没有收到验证码？)"
+
+msgid "Google Authenticator passcode"
+msgstr "两步验证代码"
+
+msgid "Hey, %s."
+msgstr "嗨，％s。"
+
+msgid "You need to complete the 2fa challenge first."
+msgstr "您需要先完成两步验证。"
+
+msgid "A new code has been generated and sent to you through Telegram."
+msgstr "新的代码已生成并通过 Telegram 发给了您。"
+
+msgid "You've been successfully logged in."
+msgstr "您已成功登录。"
+
+msgid "Ooops! Looks like something went really wrong while trying to process your request. Perhaps report this to a Ripple developer? Retrying doing what you were trying to do might work, too."
+msgstr "哎呀！似乎在尝试处理您的请求时出了点问题。您可以把此次错误提交给 Ripple 开发成员。"
+
+# about.html
+msgid "Welcome to Ripple."
+msgstr "欢迎来到 Ripple"
+
+msgid "Ripple is a private osu! server."
+msgstr "Ripple 是一个 osu! 私服。"
+
+msgid "There are many like it, but this one is ours."
+msgstr "虽然有很多类似的服务器，但 Ripple 永远是我们的。"
+
+# %s is eggplant emoji
+msgid "Don't you like %s?"
+msgstr "你不喜欢 %s 吗？"
+
+msgid "We have leaderboards."
+msgstr "我们拥有排行榜"
+
+msgid "Online user listing."
+msgstr "在线玩家列表"
+
+msgid "Free osu!direct."
+msgstr "免费的 osu!direct"
+
+msgid "Global leaderboards."
+msgstr "全球排行榜"
+
+msgid "and PP for all game modes, including Relax and Autopilot!"
+msgstr "适用于任何模式的 PP 算法，包括 Relax 和 Autopilot！"
+
+msgid "Ranking queue for unranked beatmaps."
+msgstr "谱面 Rank 申请队列"
+
+msgid "Spectator."
+msgstr "观看"
+
+msgid "Multiplayer."
+msgstr "多人游戏"
+
+msgid "FokaBot, our chat bot"
+msgstr "FokaBot，我们的 BanchoBot"
+
+msgid "with plenty of functions for just about anything, <a href=\"/doc/4\">check it out!</a>"
+msgstr "我们拥有几乎适用所有模式的功能，<a href=\"/doc/4\">一探究竟</a>！"
+
+msgid "And a lot more to come!"
+msgstr "还有更多！"
+
+msgid "Ripple is the result of the hard work of two Italian developers, who got tired about the whole osu! ecosystem, and also because they wanted to play with a few banned friends."
+msgstr "Ripple 是两个意大利开发者辛勤工作的结果，他们对整个 osu! 生态系统感到厌倦！，也因为他们想和一些被封禁的朋友一起游玩。"
+
+# %s is wink emoji
+msgid "It has now evolved into the largest available osu! private server, with more than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
+msgstr "现在已经发展成为最大的 osu! 私服，拥有超过 70,000 个注册用户。 <a href=\"/register\">注册</a> Ripple 不会导致您的 osu! 账号被封禁，所以还在等什么？！加入我们吧！%s"
+
+msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://zxq.co/ripple/ripple\">source code</a> Ripple is running on."
+msgstr "如果您想确保 Ripple 不会对您的数据做任何可疑的事情，欢迎检查 Ripple 正在运行的<a href=\"https://zxq.co/ripple/ripple\">开源代码</a>！
+
+# changelog.html
+msgid "This is the changelog. Changes are published here as soon as they hit the production status (as in, live on the website)."
+msgstr ""
+
+msgid "For various reasons, some software of Ripple does not contribute to the changelog, to which this website is a part of. In case you want to see the changelog of Hanayo, you can do so by <a href=\"https://zxq.co/ripple/hanayo/commits/master\">clicking here</a>."
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+# doc_content.html
+msgid "View document"
+msgstr ""
+
+msgid "Documentation file not found!"
+msgstr ""
+
+msgid "View all docs"
+msgstr ""
+
+# doc.html
+msgid "Need some help getting around? Look no further! From here you will be able to view our documentation, which is basically a very simplistic wiki."
+msgstr ""
+
+msgid "Looks like there is no documentation on this ripple instance!"
+msgstr ""
+
+# friends.html
+msgid "On this page you can see all of your friends, and unfriend them as you see fit."
+msgstr ""
+
+msgid "Mutual"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+# irc.html
+msgid "Here you can generate a new IRC token. You can use it to connect to Ripple's chat using IRC. Remember that your IRC token is like a password, anyone who knows it, has access to your account. If you're interested knowing how to connect to Ripple's chat via IRC, you may want to check out <a href=\"/doc/11\">this</a>."
+msgstr ""
+
+msgid "Generate a new token!"
+msgstr ""
+
+# leaderboard.html
+msgid "Rank"
+msgstr ""
+
+msgid "Player"
+msgstr ""
+
+msgid "PP/Score"
+msgstr ""
+
+msgid "Accuracy"
+msgstr ""
+
+msgid "Playcount"
+msgstr ""
+
+# profile.html
+msgid "%s's profile"
+msgstr ""
+
+# for <reason>, expires <placeholder for time>.
+msgid "User is <b>silenced</b> for %s, expires %s."
+msgstr ""
+
+# %s is placeholder for an adjective of the user, e.g. "locked", "pending verification", "restricted"
+msgid "User is <b>%s</b>"
+msgstr ""
+
+msgid "pending verification"
+msgstr ""
+
+msgid "banned"
+msgstr ""
+
+msgid "restricted"
+msgstr ""
+
+msgid "locked"
+msgstr ""
+
+msgid "User not found"
+msgstr ""
+
+msgid "(aka <b>%s</b>)"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "<b>%s</b> is a Ripple player from <b>%s</b>."
+msgstr ""
+
+msgid "Last seen: %s."
+msgstr ""
+
+msgid "They signed up on Ripple %s."
+msgstr ""
+
+msgid "They play with %s."
+msgstr ""
+
+msgid "Mouse"
+msgstr ""
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Keyboard"
+msgstr ""
+
+msgid "Touchscreen"
+msgstr ""
+
+msgid "Spoon"
+msgstr ""
+
+msgid "Leap motion"
+msgstr ""
+
+msgid "Oculus rift"
+msgstr ""
+
+msgid "Dick"
+msgstr ""
+
+msgid "Eggplant"
+msgstr ""
+
+msgid "This user hasn't got any badges!"
+msgstr ""
+
+msgid "Global rank"
+msgstr ""
+
+msgid "Country rank"
+msgstr ""
+
+msgid "PP"
+msgstr ""
+
+msgid "Ranked score"
+msgstr ""
+
+msgid "Total score"
+msgstr ""
+
+msgid "Replays watched"
+msgstr ""
+
+msgid "Total hits"
+msgstr ""
+
+msgid "Level %s"
+msgstr ""
+
+msgid "Achievements"
+msgstr ""
+
+# support.html
+msgid "Support Ripple"
+msgstr ""
+
+msgid "You are a donor!"
+msgstr ""
+
+msgid "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
+msgstr ""
+
+msgid "Did you know?"
+msgstr ""
+
+msgid "(Probably.)"
+msgstr ""
+
+msgid "(Probably not.)"
+msgstr ""
+
+msgid "Ripple is not cheap to run."
+msgstr ""
+
+msgid "While we provide this service for free, we still have to pay for it, and if we always took the money out of our own pockets, 1. we would be broke, 2. we wouldn't be able to upgrade our hardware to accomodate our users. While we do have loads of software optimisations that allow us to have Ripple run crazy fast while still being on not so high-end hardware, the more users we have, the higher-end our hardware needs to be. So we are asking you for help on this :)."
+msgstr ""
+
+msgid "We are still students."
+msgstr ""
+
+msgid "Ripple developers, and most of the Ripple staff, do not have a day job. This means that we get most of our income as students from doing small jobs as \"freelancers\" every so often, or, you know, allowance."
+msgstr ""
+
+msgid "We do not have ads. And never will."
+msgstr ""
+
+msgid "We love picking random icons from our icon library."
+msgstr ""
+
+msgid "You may have adblock enabled and have not noticed, but we don't have ads anywhere on our website. We believe ads are bad, as they can be very annoying to you and that you would rather spend a few bucks to help us rather than watch annoying ads all the time."
+msgstr ""
+
+msgid "So what can you do?"
+msgstr ""
+
+msgid "Well, you can give us money."
+msgstr ""
+
+msgid "Well, you can give us even more money."
+msgstr ""
+
+msgid "Here's what you get:"
+msgstr ""
+
+msgid "Yellow username"
+msgstr ""
+
+msgid "Donor badge"
+msgstr ""
+
+msgid "Custom badge editor"
+msgstr ""
+
+msgid "Friends ranking"
+msgstr ""
+
+msgid "Discord privileges"
+msgstr ""
+
+msgid "Profile background"
+msgstr ""
+
+msgid "Account wipe"
+msgstr ""
+
+msgid "More to come!"
+msgstr ""
+
+msgid "Just like in osu!, you get a <b>shiny yellow username</b> in the in-game chat to show everyone you're a really cool dude who has helped us pay the server bills."
+msgstr ""
+
+msgid "Again, just like in osu!, you will get a <b>donor badge</b> on your profile, to show everyone you're supporting us."
+msgstr ""
+
+msgid "You get to be able to create your <b>own personal badge</b>, with custom text and icon, to show off on your profile! Let the world know you're an anchor. Or prank people showing a spinnin' wheel with \"Loading...\"! Up to you."
+msgstr ""
+
+msgid "<b>Competing with friends</b> is really cool, you can play on the leaderboard with someone more or less on your level, without getting crippling depression and RSI for not beating that pro!"
+msgstr ""
+
+msgid "You'll get exclusive access to the <b>\"#donators\"</b> text and voice channels, you'll be able to change your discord nickname and you'll get a custom role with custom username colour!"
+msgstr ""
+
+msgid "Think about <b>spicing your profile up with some eggplants</b>? Got you covered! Having donor privileges, you get to be able to change your profile background."
+msgstr ""
+
+msgid "Want to start over one more time? With donor you can! Normally you can only <a href='https://support.ripple.moe' target='_blank'>request an account wipe</a> once, but having donated you'll be able to do it once again."
+msgstr ""
+
+msgid "<b>Who knows</b> what we could implement next? You could be able to do even <i>more</i> stuff for donors once we implement it."
+msgstr ""
+
+msgid "And this is how you pay"
+msgstr ""
+
+msgid "You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>. Use the slider below to choose the amount of months you'd like to have the donor benefits, and the cost will be instantly calculated. Remember that if, for instance, you choose to donate € 4 instead of € 3.51, you will only be given one donor month."
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "PayPal"
+msgstr ""
+
+msgid "User:"
+msgstr ""
+
+msgid "Bitcoin"
+msgstr ""
+
+msgid "Send %s BTC to this Bitcoin address:"
+msgstr ""
+
+msgid "Afterwards, <b>please send an email to <a href=\"mailto:howl@ripple.moe\">howl@ripple.moe</a></b> containing the transaction hash!"
+msgstr ""
+
+msgid "I've donated, now what?"
+msgstr ""
+
+msgid "You'll have to wait until we verify and process your payment. It can take up to <b>12 hours</b>. If 12 hours have passed and you still haven't received your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server or send an email to <b><a href=\"mailto:support@ripple.moe\">support@ripple.moe</a></b>. Once we have processed your payment, you'll receive an <b>email</b> to the address you've used to sign up and you'll get <b>all the donor privileges, except the Discord ones</b>. To get the Discord donor privileges, go <a href=\"/settings/discord\">here</a>."
+msgstr ""
+
+msgid "Please log in to get supporter"
+msgstr ""
+
+# Settings
+msgid "Userpage"
+msgstr ""
+
+msgid "Avatar"
+msgstr ""
+
+msgid "Discord donor"
+msgstr ""
+
+msgid "Profile background"
+msgstr ""
+
+msgid "Two factor authentication is enabled on your account."
+msgstr ""
+
+msgid "Two factor authentication is not enabled on your account."
+msgstr ""
+
+msgid "Google Authenticator (TOTP) based 2FA"
+msgstr ""
+
+msgid "At the moment you currently have set up Telegram Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
+msgstr ""
+
+msgid "At the moment you currently have set up TOTP-based (Google Authenticator) Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
+msgstr ""
+
+msgid "Disable Telegram 2FA"
+msgstr ""
+
+msgid "Disable TOTP-based 2FA"
+msgstr ""
+
+msgid "Google Authenticator recovery keys"
+msgstr ""
+
+msgid "These are the only thing that will let you get back into your Ripple account if you lose your device. Our suggestion is to paste them inside a document in your word processor (Microsoft Word, LibreOffice Writer), print them and store them in a safe place."
+msgstr ""
+
+msgid "Open File"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord. If you want to change your nickname, you can use the <code>/nick</code> command. To set or edit your <b>custom role</b> name and colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\"_blank\">here</a>, it's the one that starts with '#'. You can change your role name and colour <b>whenever you want!</b>"
+msgstr ""
+
+msgid "Thank you for supporting us and have fun on Ripple!"
+msgstr ""
+
+msgid "Donors get special privileges on our Discord server too!"
+msgstr ""
+
+msgid "Discord is a chatroom with text and voice channels, bots and lots of other cool features. You can <b>download Discord for free <a href=\"http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
+msgstr ""
+
+msgid "Here's what you get if you link your Discord account:"
+msgstr ""
+
+msgid "Access to /nick command, to change your Discord nickname"
+msgstr ""
+
+msgid "Access to #donators text and voice channels"
+msgstr ""
+
+msgid "Username on donors list"
+msgstr ""
+
+msgid "Custom role with custom username"
+msgstr ""
+
+msgid "To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our Discord server</a>, then click this fancy button:"
+msgstr ""
+
+msgid "Get Discord donor privileges"
+msgstr ""
+
+msgid "New password (leave blank if you don't want to change it)"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "BBCode syntax reference"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Alternative username (cannot be used for login)"
+msgstr ""
+
+msgid "Also known as..."
+msgstr ""
+
+msgid "Custom badge"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore."
+msgstr ""
+
+msgid "Icon reference"
+msgstr ""
+
+msgid "Dinosaur, oompa-loompa, cool guy..."
+msgstr ""
+
+msgid "Playstyle"
+msgstr ""
+
+msgid "Authorized applications"
+msgstr ""
+
+msgid "From here you can check all the applications you granted authorization to your account, and revoke their permissions if necessary."
+msgstr ""
+
+msgid "... but it looks like you have none!"
+msgstr ""
+
+msgid "That authorization has been successfully revoked."
+msgstr ""
+
+msgid "Authorization created %s"
+msgstr ""
+
+msgid "Owner"
+msgstr ""
+
+msgid "Revoke"
+msgstr ""
+
+msgid "Dark site"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+# Go source
+msgid "TOTP-based 2FA has been enabled on your account."
+msgstr ""
+
+msgid "Passcode is invalid. Perhaps it expired?"
+msgstr ""
+
+msgid "No passcode/secret was given. Please try again"
+msgstr ""
+
+msgid "TOTP-based 2FA is already enabled!"
+msgstr ""
+
+msgid "You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA."
+msgstr ""
+
+msgid "2FA disabled successfully."
+msgstr ""
+
+msgid "Changing avatar is currently not possible."
+msgstr ""
+
+msgid "An error occurred."
+msgstr ""
+
+msgid "We were not able to save your avatar."
+msgstr ""
+
+msgid "Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5."
+msgstr ""
+
+msgid "Internal Server Error"
+msgstr ""
+
+msgid "You're not a donor!"
+msgstr ""
+
+msgid "You've not joined the discord server! Links to it are below on the page. Please join the server before attempting to connect your account to Discord."
+msgstr ""
+
+msgid "Your account has been linked successfully!"
+msgstr ""
+
+msgid "Your new IRC token is <code>%s</code>. The old IRC token is not valid anymore.<br>Keep it safe, don't show it around, and store it now! We won't show it to you again."
+msgstr ""
+
+msgid "Your profile background has been saved."
+msgstr ""
+
+msgid "We were not able to save your profile background."
+msgstr ""
+
+msgid "Background type"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Solid colour"
+msgstr ""
+
+msgid "Colour is invalid"
+msgstr ""
+
+msgid "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."
+msgstr ""
+
+msgid "You have been automatically logged out for security reasons. Please <a href='/login?redir=%s'>log back in</a>."
+msgstr ""
+
+msgid "You need to login first."
+msgstr ""
+
+msgid "Forbidden"
+msgstr ""
+
+msgid "You should not be 'round here."
+msgstr ""
+
+msgid "It seems like the original version of this file has been updated, so this file is out of date and may contain inaccurate information. If you want to make sure to be up-to-date, please refer to the <a href=\"%s%s\">English version</a>."
+msgstr ""
+
+msgid "If you truly have understood what's written above and you have understood that creating a multiaccount will lead to a restriction on your main account, you can click here and you'll be brought to the sign up page."
+msgstr ""
+
+msgid "You look new here. Allow us to introduce you to what Ripple is."
+msgstr ""
+
+# PAY ATTENTION! This is Log in *with* Ripple, not *on* Ripple. This is for
+# oauth.
+msgid "Log in with Ripple"
+msgstr ""
+
+msgid "This application will be able to:"
+msgstr ""
+
+msgid "Identify"
+msgstr ""
+
+msgid "See your public information (everything somebody can see on your user profile), however with this alone it will not be able to see your private information (for instance your email address)."
+msgstr ""
+
+msgid "Read private information"
+msgstr ""
+
+msgid "This application will be able to see your email address, and any private information we will add in the future."
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "This application will be able to make modifications to your Ripple account. This is potentially really dangerous! Use this only with applications that you trust."
+msgstr ""
+
+msgid "Access to Bancho"
+msgstr ""
+
+msgid "This application will be able to make you appear online ingame and use the chat."
+msgstr ""
+
+msgid "Approve"
+msgstr ""
+
+msgid "Deny"
+msgstr ""
+
+# Team page
+
+msgid "This is a list of the wonderful people who keep Ripple up and running and deal with its community."
+msgstr ""
+
+msgid "Community Managers"
+msgstr ""
+
+msgid "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community."
+msgstr ""
+
+msgid "They take care of our Discord server and reply to emails sent to the support services (email and support.ripple.moe). Community Managers have a red name in the in-game chat."
+msgstr ""
+
+msgid "Developers"
+msgstr ""
+
+msgid "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance."
+msgstr ""
+
+msgid "They don't do anything related to the community. Developers have a blue name in the in-game chat."
+msgstr ""
+
+msgid "Chat Moderators"
+msgstr ""
+
+msgid "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected."
+msgstr ""
+
+msgid "BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not."
+msgstr ""
+
+msgid "Special thanks"
+msgstr ""
+
+msgid "Here's a list of people who helped with Ripple."
+msgstr ""
+
+msgid "<b>Franc[e]sco/lolisamurai</b>, for <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp calculator."
+msgstr ""
+
+msgid "<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-performance</a>, used as a reference for our mania pp calculator."
+msgstr ""
+
+msgid "<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-pp</a>, used as catch the beat pp calculator."
+msgstr ""
+
+msgid "<b>Avail</b>, for having hosted Ripple on his server."
+msgstr ""
+
+msgid "<b>Angela Guerra</b>, for designing the Ripple logo."
+msgstr ""
+
+msgid "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people."
+msgstr ""
+
+msgid "They told me these are very cool people."
+msgstr ""
+
+msgid "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>."
+msgstr ""
+
+msgid "And more..."
+msgstr ""
+
+msgid "Do you want to be in this list?"
+msgstr ""
+
+msgid "Support us with a donation!"
+msgstr ""
+
+msgid "(You get other cool perks too)"
+msgstr ""
+
+msgid "The Ripple API is the system through which developers can create applications to interact with Ripple. <b>If you're asked to fill out an API token from this page, be wary and only actually create the token if you really trust the owner of the application.</b>"
+msgstr ""
+
+msgid "The 'Ranking Criteria' are as follows:"
+msgstr ""
+
+msgid "Follow the <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho Ranking Criteria</a> to some extend"
+msgstr ""
+
+msgid "No clear abuse of any systems (pp/stars)"
+msgstr ""
+
+msgid "No speedup or re-upload of existing maps"
+msgstr ""
+
+msgid "No Jump/Stream Training Compilations"
+msgstr ""
+
+msgid "At least 66% Completion for 7+ Minute songs, anything else completely mapped"
+msgstr ""
+
+msgid "Popularity does not mean rankable"
+msgstr ""
+
+msgid "Community"
+msgstr ""
+
+msgid "Multiplayer listing"
+msgstr ""
+
+msgid "Discord Server"
+msgstr ""
+
+msgid "Read more"
+msgstr ""
+
+msgid "Connection guide"
+msgstr ""
+
+msgid "Classic"
+msgstr ""
+
+msgid "Relax"
+msgstr ""
+
+msgid "New!"
+msgstr ""
+
+msgid "Total Play Time"
+msgstr ""
+
+msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
+msgstr ""
+
+msgid "Pick an emoji"
+msgstr ""
