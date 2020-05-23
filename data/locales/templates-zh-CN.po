@@ -15,7 +15,7 @@ msgid "Invalid CSRF token"
 msgstr "无效的 CSRF 令牌"
 
 msgid "Your session has expired. Please try redoing what you were trying to do."
-msgstr "您的会话已过期，请重试。"
+msgstr "你的会话已过期，请重试。"
 
 msgid "That user could not be found."
 msgstr "找不到该用户。"
@@ -46,7 +46,7 @@ msgid "Request a beatmap"
 msgstr "提交一张谱面"
 
 msgid "You cannot currently request beatmaps!"
-msgstr "您目前无法再提交更多谱面了！"
+msgstr "你目前无法再提交更多谱面了！"
 
 # After this text there is a date. The date is localised separately.
 msgid "Please try again "
@@ -66,7 +66,7 @@ msgid "That key could not be found. Perhaps it expired?"
 msgstr "找不到该密钥。也许它过期了？"
 
 msgid "All right, we have changed your password and you should now be able to login! Have fun!"
-msgstr "我们已经更改了您的密码！玩得开心！"
+msgstr "我们已经更改了你的密码！玩得开心！"
 
 # register/register.html
 msgid "Register"
@@ -76,7 +76,7 @@ msgid "Sorry, it's not possible to register at the moment. Please try again late
 msgstr "抱歉，目前无法注册。请稍后再试。"
 
 msgid "Remember: this seems like it's your second account! Do not multiaccount, or you're likely to get restricted!"
-msgstr "请记住：这似乎是您的第二个帐户！请勿开小号，否则您可能会遭到封禁！"
+msgstr "请记住：这似乎是你的第二个帐户！请勿开小号，否则你可能会遭到封禁！"
 
 msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
 msgstr "用户名 (2-15个英文或数字，空格。可用<code>_[]-</code>)"
@@ -88,20 +88,20 @@ msgid "Email"
 msgstr "邮箱"
 
 msgid "You have been successfully registered on Ripple! You now need to verify your account."
-msgstr "您已成功注册 Ripple 账号！现在，需要验证您的帐户。"
+msgstr "你已成功注册 Ripple 账号！现在，需要验证你的帐户。"
 
 # Register checks
 msgid "Your password is too short! It must be at least 8 characters long."
-msgstr "您的密码太短！长度必须至少为8个字符。"
+msgstr "你的密码太短！长度必须至少为8个字符。"
 
 msgid "Your password is one of the most common passwords on the entire internet. No way we're letting you use that!"
-msgstr "您的密码是整个互联网上最常见的密码之一。我们绝对不能让您使用它！"
+msgstr "你的密码是整个互联网上最常见的密码之一。我们绝对不能让你使用它！"
 
 msgid "Your username must contain alphanumerical characters, spaces, or any of <code>_[]-</code>"
-msgstr "您的用户名必须包含英文或数字，空格，或任何<code>_[]-</code>"
+msgstr "你的用户名必须包含英文或数字，空格，或任何<code>_[]-</code>"
 
 msgid "You're not allowed to register with that username."
-msgstr "您无权使用该用户名注册。"
+msgstr "你无权使用该用户名注册。"
 
 msgid "Please pass a valid email address."
 msgstr "请输入一个有效的电子邮件地址。"
@@ -116,20 +116,20 @@ msgid "An user with that email address already exists!"
 msgstr "该电子邮件已存在！"
 
 msgid "Captcha is invalid."
-msgstr "坏了，验证无效。如果您根本没有看到人机验证，说明您所在的国家无法访问谷歌人机验证。"
+msgstr "坏了，验证无效。如果你根本没有看到人机验证，说明你所在的国家无法访问谷歌人机验证。"
 
 msgid "Whoops, an error slipped in. You might have been registered, though. I don't know."
-msgstr "糟糕，出现了错误。也许您已经注册成功了。"
+msgstr "糟糕，出现了错误。也许你已经注册成功了。"
 
 # register/verify.html
 msgid "Verify account"
 msgstr "验证账户"
 
 msgid "Your account has been created, however it still <b>needs to be verified!</b> Please log in into <b><u>osu! (the game)</u></b> using your account. <b>There is <u>no email confirmation</u> at the moment. All you need to do is connect to Ripple from the osu! client!</b> If you're having trouble, <a href='/doc/1'>follow this guide</a>."
-msgstr "您的账户已经创建，但它仍需要<b>验证</b>！请使用您的账户登录 <b><u>osu! 客户端</u></b><b>我们<u>不需要邮箱验证</u>。您仅需从 osu! 客户端登录您的 Ripple 账户。</b>如果遇到了困难，请跟随这篇<a href='/doc/1'>教程</a>操作。"
+msgstr "你的账户已经创建，但它仍需要<b>验证</b>！请使用你的账户登录 <b><u>osu! 客户端</u></b><b>我们<u>不需要邮箱验证</u>。你仅需从 osu! 客户端登录你的 Ripple 账户。</b>如果遇到了困难，请跟随这篇<a href='/doc/1'>教程</a>操作。"
 
 msgid "<b class='big text'>Do not let anyone except yourself log into your Ripple account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting."
-msgstr "<b class='big text'>除了您自己，不要让任何人登录您的 Ripple 帐户！</b><br>如果您仍有连接问题（跟随教程后），请加入我们的<a href='%s'> Discord 服务器</a>，在 #help 频道中获得帮助。"
+msgstr "<b class='big text'>除了你自己，不要让任何人登录你的 Ripple 帐户！</b><br>如果你仍有连接问题（跟随教程后），请加入我们的<a href='%s'> Discord 服务器</a>，在 #help 频道中获得帮助。"
 
 msgid "The Guide (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>). TL;DR version below."
 msgstr "连接教程 (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>)。下面是教程的简单版本。"
@@ -150,7 +150,7 @@ msgid "If it says something about read-only mode, go to <code>C:\\Windows\\Syste
 msgstr "如果它提到了只读(read-only)，前往<code>C:\\Windows\\System32\\Drivers\\etc</code>找到并打开 <code>hosts</code> 文件属性并确保未将其设置为<code>只读</code>。"
 
 msgid "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #help channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this."
-msgstr "如果您仍然遇到问题，请前往我们的 <a href='%s'>Discord 服务器</a>里的 #help 频道。如果您担心没有人回复，您可以使用暗号 \"strawberry\" 来告诉我们您已经跟随了这些教程但仍有其他问题。"
+msgstr "如果你仍然遇到问题，请前往我们的 <a href='%s'>Discord 服务器</a>里的 #help 频道。如果你担心没有人回复，你可以使用暗号 \"strawberry\" 来告诉我们你已经跟随了这些教程但仍有其他问题。"
 
 msgid "Waiting for verification"
 msgstr "等待验证中"
@@ -163,22 +163,22 @@ msgid "Welcome back!"
 msgstr "欢迎回来！"
 
 msgid "Congratulations for not reading things!"
-msgstr "恭喜您！没有需要处理的东西！"
+msgstr "恭喜你！没有需要处理的东西！"
 
 msgid "Multiaccounts are not allowed on Ripple"
 msgstr "Ripple 禁止一切小号行为"
 
 msgid "Your new account has been <b>banned</b> and your main account has been <b>restricted</b>. You can appeal in a month by sending an email to <b><a href='https://support.ripple.moe'>support.ripple.moe</a></b>. You better read the rules next time."
-msgstr "您的小号已被 <b>封禁</b> 这也导致了您的大号被 <b>限制</b>。您可以在一个月之后发送邮件至 <b><a href='https://support.ripple.moe'>support.ripple.moe</a></b> 来上诉请求。下次您最好仔细阅读规则。"
+msgstr "你的小号已被 <b>封禁</b> 这也导致了你的大号被 <b>限制</b>。你可以在一个月之后发送邮件至 <b><a href='https://support.ripple.moe'>support.ripple.moe</a></b> 来上诉请求。下次你最好仔细阅读规则。"
 
 msgid "Welcome to Ripple"
 msgstr "欢迎来到 Ripple"
 
 msgid "We're glad to have you here. <b>Your account is now active.</b> You can now play on Ripple and <a href='/login'>log in</a> on the website!"
-msgstr "很高兴您出现在了这里。这说明<b>您的帐户现已激活。</b>您已经可以游玩并在网站<a href='/login'>登录</a>了!"
+msgstr "很高兴你出现在了这里。这说明<b>你的帐户现已激活。</b>你已经可以游玩并在网站<a href='/login'>登录</a>了!"
 
 msgid "Here's a few things you might want to check out:"
-msgstr "您可能需要检查以下几件事："
+msgstr "你可能需要检查以下几件事："
 
 msgid "Login"
 msgstr "登录"
@@ -187,7 +187,7 @@ msgid "Rules"
 msgstr "规则"
 
 msgid "Documentation"
-msgstr "文档"
+msgstr "帮助文档"
 
 msgid "Server switcher"
 msgstr "切换器"
@@ -202,13 +202,13 @@ msgid "Subreddit"
 msgstr "Reddit"
 
 msgid " - in case you don't know where to start"
-msgstr " - 如果您不知道从哪里开始"
+msgstr " - 如果你不知道从哪里开始"
 
 msgid " - in case you haven't already read them"
-msgstr " - 如果您还没有读过它们"
+msgstr " - 如果你还没有读过它们"
 
 msgid " - in case, well, you need help doing stuff"
-msgstr " - 如果您需要帮助"
+msgstr " - 如果你需要帮助"
 
 msgid " - in case you believe Ripple is down"
 msgstr " - 如果你认为 Ripple 已经宕机"
@@ -224,7 +224,7 @@ msgid "Recover account"
 msgstr "找回账户"
 
 msgid "Can't find a way to get back access to your Ripple account? Fear not! If you have your recovery codes which we recommended you to print you can type one in here and we'll magically log you in this time. After you've managed to get in, please disable and then re-enable 2FA, so you won't risk losing your account again."
-msgstr "无法找到登录您 Ripple 帐户的方法？不要怕！如果您有恢复码，则可以在此输入其中一个，就可以进行神奇的临时登录。登录后，请先禁用 2FA，然后再重新启用您的 2FA，这样就不会再次承担丢失账户的风险了。"
+msgstr "无法找到登录你 Ripple 帐户的方法？不要怕！如果你有恢复码，则可以在此输入其中一个，就可以进行神奇的临时登录。登录后，请先禁用 2FA，然后再重新启用你的 2FA，这样就不会再次承担丢失账户的风险了。"
 
 msgid "Oh no you don't."
 msgstr "哦，不，你不能。"
@@ -243,19 +243,19 @@ msgid "停一停！"
 msgstr ""
 
 msgid "We see that you're trying to sign up while having already signed up as %s! Please note that multiaccounting is punishable, and can lead to a one month restriction!"
-msgstr "我们认为您的大号是 %s。请记住，小号是绝对禁止的！这会导致您被封禁。"
+msgstr "我们认为你的大号是 %s。请记住，小号是绝对禁止的！这会导致你被封禁。"
 
 msgid "If you're %s, keep in mind that multiaccounting = ban."
-msgstr "如果您真的是 %s，小号 = 封禁。"
+msgstr "如果你真的是 %s，小号 = 封禁。"
 
 msgid "If you're not %s, but you're using %s's computer, please sign up on Ripple from your own computer."
-msgstr "如果您不是 %s，但使用了 %s 的电脑。请使用您自己的电脑注册 Ripple。"
+msgstr "如果你不是 %s，但使用了 %s 的电脑。请使用你自己的电脑注册 Ripple。"
 
 msgid "If you live with %s and you don't have your own computer from which to sign up on Ripple, then please contact support@ripple.moe, and we'll deal with your specific case."
-msgstr "如果您与 %s 住在一起，并且没有自己的电脑可以在 Ripple 上进行注册，请联系 support@ripple.moe，我们将处理您的特殊情况。"
+msgstr "如果你与 %s 住在一起，并且没有自己的电脑可以在 Ripple 上进行注册，请联系 support@ripple.moe，我们将处理你的特殊情况。"
 
 msgid "This warning may pop up also if you're using another computer on the same network of %s. As long as you're not using the same computer, you should be all good."
-msgstr "如果您在 %s 的同一网络上使用另一台电脑，也会弹出此警告。只要您不使用同一台电脑，那一切都会保持正常。"
+msgstr "如果你在 %s 的同一网络上使用另一台电脑，也会弹出此警告。只要你不使用同一台电脑，那一切都会保持正常。"
 
 msgid "Don't stop me now!"
 msgstr "我知道我在干什么！"
@@ -281,48 +281,48 @@ msgid "No user with such %s!"
 msgstr "找不到 %s 这个用户名！ "
 
 msgid "Your password is sooooooo old, that we don't even know how to deal with it anymore. Could you please change it?"
-msgstr "您的密码也太旧了吧，我们甚至都不知道如何处理它。您能修改一下您的密码吗？"
+msgstr "你的密码也太旧了吧，我们甚至都不知道如何处理它。你能修改一下你的密码吗？"
 
 msgid "Wrong password."
 msgstr "错误的密码。"
 
 msgid "You will need to verify your account first."
-msgstr "您需要先验证您的帐户。"
+msgstr "你需要先验证你的帐户。"
 
 msgid "You are not allowed to login. This means your account is either banned or locked."
-msgstr "您无权登录。这意味着您的帐户被禁止或锁定。"
+msgstr "你无权登录。这意味着你的帐户被禁止或锁定。"
 
 msgid "Hey %s! You are now logged in."
-msgstr "嗨，%s！您已成功登录。"
+msgstr "嗨，%s！你已成功登录。"
 
 msgid "You're already logged out!"
-msgstr "您已经登出了！"
+msgstr "你已经登出了！"
 
 msgid "Successfully logged out."
 msgstr "登出成功。"
 
 # pwreset.html
 msgid "Forgot your password? Worry not! Here you can reset it. Just tell us your username or email address, and we'll take care of it. You will receive an email at the email address you used to sign up on Ripple. To continue the password reset procedure, click the link on that email."
-msgstr "忘记了密码？不用担心！只需告诉我们您的用户名或电子邮件，我们就会帮您重置。您将会在注册 Ripple 的邮箱中收到一封邮件，只需点击右键内的链接，即可进行密码重置。
+msgstr "忘记了密码？不用担心！只需告诉我们你的用户名或电子邮件，我们就会帮你重置。你将会在注册 Ripple 的邮箱中收到一封邮件，只需点击右键内的链接，即可进行密码重置。
 
 msgid "You look pretty banned/locked here."
-msgstr "看来您已经被封禁/锁定了。"
+msgstr "看来你已经被封禁/锁定了。"
 
 msgid "Done! You should shortly receive an email from us at the email you used to sign up on Ripple."
-msgstr "Done! 您很快就会在您注册 Ripple 的电子邮箱中收到我们的邮件。"
+msgstr "Done! 你很快就会在你注册 Ripple 的电子邮箱中收到我们的邮件。"
 
 msgid "Ripple password recovery instructions"
 msgstr "Ripple 找回密码说​​明"
 
 msgid "Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Ripple. Otherwise, silently ignore this email."
-msgstr "嗨 %s! 有个人（我们希望是您自己）想要重置您账户的密码。如果是您，请<a href='%s'>点击这里</a>来进行密码重置。如果不是，请忽略这封邮件。"
+msgstr "嗨 %s! 有个人（我们希望是你自己）想要重置你账户的密码。如果是你，请<a href='%s'>点击这里</a>来进行密码重置。如果不是，请忽略这封邮件。"
 
 # not_found.html
 msgid "Not Found"
 msgstr "页面丢失"
 
 msgid "We're sorry, but we were unable to find the content you were looking for!"
-msgstr "很抱歉，我们找不到您想要的内容！"
+msgstr "很抱歉，我们找不到你想要的内容！"
 
 # navbar.html
 msgid "Home page"
@@ -378,7 +378,7 @@ msgid "Ripple is a private osu! server, featuring multiplayer, PP, a very active
 msgstr "Ripple 是一个 osu! 私服，拥有多人游戏，PP，一个非常活跃的社区以及一支开发团队。<a href='/about'>你可以在这里了解 Ripple 的全部功能</a>。它也有一个非常友好的社区，并且<a href='https://zxq.co/ripple/ripple'>开放源码</a>！<b>我们已经拥有 %s 个在线玩家以及超过 %s 位注册用户！</b>"
 
 msgid "What are you waiting for? Join Ripple! It's risk-free: you won't get your account banned on the official server if you play on Ripple.<br>You can also switch anytime between the official osu! server and Ripple!"
-msgstr "还在等什么？加入 Ripple！它是无风险的：您在 Ripple 上游玩不会影响到您的官方服务器账户。您也可以随时在 Ripple 服务器和 osu! 官方服务器之间切换！"
+msgstr "还在等什么？加入 Ripple！它是无风险的：你在 Ripple 上游玩不会影响到你的官方服务器账户。你也可以随时在 Ripple 服务器和 osu! 官方服务器之间切换！"
 
 msgid "Howdy, %s!"
 msgstr "你好，%s！"
@@ -391,13 +391,13 @@ msgstr "来自我们博客的最新消息"
 
 # base.html
 msgid "Ripple's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being."
-msgstr "Ripple 的分数系统目前处于维护模式。您暂时无法上传成绩。"
+msgstr "Ripple 的分数系统目前处于维护模式。你暂时无法上传成绩。"
 
 msgid "The Ripple website is currently in maintenance mode. Only certain users are allowed to access the full website."
 msgstr "Ripple 网站目前处于维护模式。仅允许某些用户访问整个网站。"
 
 msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Ripple's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='https://support.ripple.moe'>support.ripple.moe</a>."
-msgstr "您的帐户当前处于限制(Restricted)模式。您无法执行某些操作，您的个人资料只能由您和 Ripple 的工作人员查看。如果您认为我们错误地将您封禁，或者自您首次看到此消息以来已经过去了一个月，您可以通过发送邮件至 <a href='https://support.ripple.moe'>support.ripple.moe</a> 来提交上诉。"
+msgstr "你的帐户当前处于限制(Restricted)模式。你无法执行某些操作，你的个人资料只能由你和 Ripple 的工作人员查看。如果你认为我们错误地将你封禁，或者自你首次看到此消息以来已经过去了一个月，你可以通过发送邮件至 <a href='https://support.ripple.moe'>support.ripple.moe</a> 来提交上诉。"
 
 msgid "&copy; 2015-%d Ripple, using Hanayo %s."
 msgstr "&copy; 2015-%d Ripple，由 Hanayo %s 强力驱动。"
@@ -427,7 +427,7 @@ msgid "Follow us on Twitter!"
 msgstr "关注我们的 Twitter！"
 
 msgid "Share irrelevant opinions on reddit!"
-msgstr "在 Reddit 上分享您的意见！"
+msgstr "在 Reddit 上分享你的意见！"
 
 msgid "Language"
 msgstr "语言"
@@ -486,10 +486,10 @@ msgid "Two Factor Authentication"
 msgstr "两步验证"
 
 msgid "Before proceding further on Ripple, we require you to use your Google Authenticator App to use the code for Ripple, so that we can log you in."
-msgstr "在登录 Ripple 之前，请输入您两步验证 APP 上的代码，以便我们确认是您本人。"
+msgstr "在登录 Ripple 之前，请输入你两步验证 APP 上的代码，以便我们确认是你本人。"
 
 msgid "Before proceding any further on Ripple, we require you to use the message you just received on telegram to log in to your account."
-msgstr "在登录 Ripple 之前，请在 Telegram 中查看消息，以便我们确认是您本人。"
+msgstr "在登录 Ripple 之前，请在 Telegram 中查看消息，以便我们确认是你本人。"
 
 msgid "Lost your phone, or can't access Google Authenticator?"
 msgstr "无法使用两步验证 APP？"
@@ -510,16 +510,16 @@ msgid "Hey, %s."
 msgstr "嗨，％s。"
 
 msgid "You need to complete the 2fa challenge first."
-msgstr "您需要先完成两步验证。"
+msgstr "你需要先完成两步验证。"
 
 msgid "A new code has been generated and sent to you through Telegram."
-msgstr "新的代码已生成并通过 Telegram 发给了您。"
+msgstr "新的代码已生成并通过 Telegram 发给了你。"
 
 msgid "You've been successfully logged in."
-msgstr "您已成功登录。"
+msgstr "你已成功登录。"
 
 msgid "Ooops! Looks like something went really wrong while trying to process your request. Perhaps report this to a Ripple developer? Retrying doing what you were trying to do might work, too."
-msgstr "哎呀！似乎在尝试处理您的请求时出了点问题。您可以把此次错误提交给 Ripple 开发成员。"
+msgstr "哎呀！似乎在尝试处理你的请求时出了点问题。你可以把此次错误提交给 Ripple 开发成员。"
 
 # about.html
 msgid "Welcome to Ripple."
@@ -573,363 +573,363 @@ msgstr "Ripple 是两个意大利开发者辛勤工作的结果，他们对整�
 
 # %s is wink emoji
 msgid "It has now evolved into the largest available osu! private server, with more than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
-msgstr "现在已经发展成为最大的 osu! 私服，拥有超过 70,000 个注册用户。 <a href=\"/register\">注册</a> Ripple 不会导致您的 osu! 账号被封禁，所以还在等什么？！加入我们吧！%s"
+msgstr "现在已经发展成为最大的 osu! 私服，拥有超过 70,000 个注册用户。 <a href=\"/register\">注册</a> Ripple 不会导致你的 osu! 账号被封禁，所以还在等什么？！加入我们吧！%s"
 
 msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://zxq.co/ripple/ripple\">source code</a> Ripple is running on."
-msgstr "如果您想确保 Ripple 不会对您的数据做任何可疑的事情，欢迎检查 Ripple 正在运行的<a href=\"https://zxq.co/ripple/ripple\">开源代码</a>！
+msgstr "如果你想确保 Ripple 不会对你的数据做任何可疑的事情，欢迎检查 Ripple 正在运行的<a href=\"https://zxq.co/ripple/ripple\">开源代码</a>！
 
 # changelog.html
 msgid "This is the changelog. Changes are published here as soon as they hit the production status (as in, live on the website)."
-msgstr ""
+msgstr "这里是更新日志。如果修改的内容实装，修改内容马上就会出现在这里（就像网站上显示的一样）。"
 
 msgid "For various reasons, some software of Ripple does not contribute to the changelog, to which this website is a part of. In case you want to see the changelog of Hanayo, you can do so by <a href=\"https://zxq.co/ripple/hanayo/commits/master\">clicking here</a>."
-msgstr ""
+msgstr "由于各种原因，Ripple 的某些软件未参与变更日志。如果你想查看 Hanayo 的变更日志，请<a href=\"https://zxq.co/ripple/hanayo/commits/master\">点击这里</a>。"
 
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
 msgid "Subject"
-msgstr ""
+msgstr "项目"
 
 msgid "Time"
-msgstr ""
+msgstr "时间"
 
 # doc_content.html
 msgid "View document"
-msgstr ""
+msgstr "查看文档"
 
 msgid "Documentation file not found!"
-msgstr ""
+msgstr "无法找到这个文档！"
 
 msgid "View all docs"
-msgstr ""
+msgstr "查看所有文档"
 
 # doc.html
 msgid "Need some help getting around? Look no further! From here you will be able to view our documentation, which is basically a very simplistic wiki."
-msgstr ""
+msgstr "需要一些帮助吗？别再迷茫了！你可以从这里查看我们的帮助文档，该文档算是一个非常简单的 Wiki。"
 
 msgid "Looks like there is no documentation on this ripple instance!"
-msgstr ""
+msgstr "好像没有关于此实例的帮助文档！"
 
 # friends.html
 msgid "On this page you can see all of your friends, and unfriend them as you see fit."
-msgstr ""
+msgstr "你可以看到你所有已添加的好友，并在你可以在合适的时时候删掉一些好友。人生有梦，各自精彩！"
 
 msgid "Mutual"
-msgstr ""
+msgstr "Mutual"
 
 msgid "Remove"
-msgstr ""
+msgstr "删除"
 
 # irc.html
 msgid "Here you can generate a new IRC token. You can use it to connect to Ripple's chat using IRC. Remember that your IRC token is like a password, anyone who knows it, has access to your account. If you're interested knowing how to connect to Ripple's chat via IRC, you may want to check out <a href=\"/doc/11\">this</a>."
-msgstr ""
+msgstr "你可以在这里生成一个新的 IRC 令牌。你可以使用它从 IRC 连接到 Ripple 的聊天频道。请记住，你的 IRC 令牌就像一个密码，任何知道它的人都可以轻松访问你的帐户。如果你想知道如何通过 IRC 连接到 Ripple 的聊天室，请阅读<a href=\"/doc/11\">该文档</a>。"
 
 msgid "Generate a new token!"
-msgstr ""
+msgstr "生成一个新令牌！"
 
 # leaderboard.html
 msgid "Rank"
-msgstr ""
+msgstr "排名"
 
 msgid "Player"
-msgstr ""
+msgstr "玩家"
 
 msgid "PP/Score"
-msgstr ""
+msgstr "PP/分数"
 
 msgid "Accuracy"
-msgstr ""
+msgstr "准确率"
 
 msgid "Playcount"
-msgstr ""
+msgstr "游玩次数"
 
 # profile.html
 msgid "%s's profile"
-msgstr ""
+msgstr "%s 的个人资料"
 
 # for <reason>, expires <placeholder for time>.
 msgid "User is <b>silenced</b> for %s, expires %s."
-msgstr ""
+msgstr "用户因 %s 而被<b>禁言</b>，于 %s 过期。"
 
 # %s is placeholder for an adjective of the user, e.g. "locked", "pending verification", "restricted"
 msgid "User is <b>%s</b>"
-msgstr ""
+msgstr "当前用户<b>%s</b>"
 
 msgid "pending verification"
-msgstr ""
+msgstr "正在等待验证"
 
 msgid "banned"
-msgstr ""
+msgstr "已被封禁"
 
 msgid "restricted"
-msgstr ""
+msgstr "已被限制(Restricted)"
 
 msgid "locked"
-msgstr ""
+msgstr "已被锁定"
 
 msgid "User not found"
-msgstr ""
+msgstr "找不到该用户"
 
 msgid "(aka <b>%s</b>)"
-msgstr ""
+msgstr "(也就是 <b>%s</b>)"
 
 msgid "Online"
-msgstr ""
+msgstr "在线"
 
 msgid "Offline"
-msgstr ""
+msgstr "离线"
 
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 msgid "<b>%s</b> is a Ripple player from <b>%s</b>."
-msgstr ""
+msgstr "<b>%s</b> 是一位来自 <b>%s</b> 的 Ripple 玩家。"
 
 msgid "Last seen: %s."
-msgstr ""
+msgstr "上次登录："
 
 msgid "They signed up on Ripple %s."
-msgstr ""
+msgstr "在 %s 来到了 Ripple。"
 
 msgid "They play with %s."
-msgstr ""
+msgstr "惯用 %。"
 
 msgid "Mouse"
-msgstr ""
+msgstr "鼠标"
 
 msgid "Tablet"
-msgstr ""
+msgstr "数位板"
 
 msgid "Keyboard"
-msgstr ""
+msgstr "键盘"
 
 msgid "Touchscreen"
-msgstr ""
+msgstr "触摸屏"
 
 msgid "Spoon"
-msgstr ""
+msgstr "勺子"
 
 msgid "Leap motion"
-msgstr ""
+msgstr "大跳"
 
 msgid "Oculus rift"
-msgstr ""
+msgstr "星际玩家"
 
 msgid "Dick"
-msgstr ""
+msgstr "**"
 
 msgid "Eggplant"
-msgstr ""
+msgstr "茄子"
 
 msgid "This user hasn't got any badges!"
-msgstr ""
+msgstr "该用户没有任何徽章！"
 
 msgid "Global rank"
-msgstr ""
+msgstr "全球排名"
 
 msgid "Country rank"
-msgstr ""
+msgstr "国内/区内排名"
 
 msgid "PP"
-msgstr ""
+msgstr "PP"
 
 msgid "Ranked score"
-msgstr ""
+msgstr "Ranked 谱面总分"
 
 msgid "Total score"
-msgstr ""
+msgstr "总分"
 
 msgid "Replays watched"
-msgstr ""
+msgstr "回放被观看次数"
 
 msgid "Total hits"
-msgstr ""
+msgstr "总命中次数"
 
 msgid "Level %s"
-msgstr ""
+msgstr "等级 %s"
 
 msgid "Achievements"
-msgstr ""
+msgstr "成就"
 
 # support.html
 msgid "Support Ripple"
-msgstr ""
+msgstr "支持 Ripple"
 
 msgid "You are a donor!"
-msgstr ""
+msgstr "你是捐助者！"
 
 msgid "Your donor expires <b>%s</b>. No need to feel guilty for not having donated!"
-msgstr ""
+msgstr "你的捐助者标签将在 <b>%s</b> 到期。不用为没有捐赠而感到内疚！"
 
 msgid "Did you know?"
-msgstr ""
+msgstr "你知道吗？"
 
 msgid "(Probably.)"
-msgstr ""
+msgstr "(也许。)"
 
 msgid "(Probably not.)"
-msgstr ""
+msgstr "(也许不知道。)"
 
 msgid "Ripple is not cheap to run."
-msgstr ""
+msgstr "保持 Ripple 运行并不廉价。"
 
 msgid "While we provide this service for free, we still have to pay for it, and if we always took the money out of our own pockets, 1. we would be broke, 2. we wouldn't be able to upgrade our hardware to accomodate our users. While we do have loads of software optimisations that allow us to have Ripple run crazy fast while still being on not so high-end hardware, the more users we have, the higher-end our hardware needs to be. So we are asking you for help on this :)."
-msgstr ""
+msgstr "虽然我们免费提供这些服务器，但我们仍然需要付费，如果我们总是自掏腰包：1.我们很快就会破产，2.我们将无法升级硬件来满足我们的用户。尽管我们确实进行了大量软硬件优化，使我们能够在仍然没有那么多高端硬件的情况下使 Ripple 疯狂运行，但拥有的用户越多，硬件需要就越高。因此，我们正在寻求你的帮助 :)"
 
 msgid "We are still students."
-msgstr ""
+msgstr "我们还只是学生。"
 
 msgid "Ripple developers, and most of the Ripple staff, do not have a day job. This means that we get most of our income as students from doing small jobs as \"freelancers\" every so often, or, you know, allowance."
-msgstr ""
+msgstr "Ripple 开发成员和大多数的 Ripple 工作人员没有日常工作。这意味着我们经常从事着“自由职业者”的小工作中获得作为学生的大部分收入。"
 
 msgid "We do not have ads. And never will."
-msgstr ""
+msgstr "我们没有广告。而且永远不会。"
 
 msgid "We love picking random icons from our icon library."
-msgstr ""
+msgstr "从我们的图标库中挑选随机图标。"
 
 msgid "You may have adblock enabled and have not noticed, but we don't have ads anywhere on our website. We believe ads are bad, as they can be very annoying to you and that you would rather spend a few bucks to help us rather than watch annoying ads all the time."
-msgstr ""
+msgstr "你也许启用了各种广告拦截功能，但可能没有注意到，我们网站上的任何地方都没有广告。我们认为广告毫无意义，因为它们很烦人，既然你宁愿花几美元来帮助我们，那为什么需要广告呢？"
 
 msgid "So what can you do?"
-msgstr ""
+msgstr "所以，你可以做什么？"
 
 msgid "Well, you can give us money."
-msgstr ""
+msgstr "好吧，你可以捐助我们。"
 
 msgid "Well, you can give us even more money."
-msgstr ""
+msgstr "好吧，你可以捐助我们更多。"
 
 msgid "Here's what you get:"
-msgstr ""
+msgstr "那么我能得到什么？"
 
 msgid "Yellow username"
-msgstr ""
+msgstr "用户名高亮"
 
 msgid "Donor badge"
-msgstr ""
+msgstr "捐助者徽章"
 
 msgid "Custom badge editor"
-msgstr ""
+msgstr "自定义徽章"
 
 msgid "Friends ranking"
-msgstr ""
+msgstr "好友排名"
 
 msgid "Discord privileges"
-msgstr ""
+msgstr "Discord 特权"
 
 msgid "Profile background"
-msgstr ""
+msgstr "个人资料背景"
 
 msgid "Account wipe"
-msgstr ""
+msgstr "重置账户数据"
 
 msgid "More to come!"
-msgstr ""
+msgstr "还有更多！"
 
 msgid "Just like in osu!, you get a <b>shiny yellow username</b> in the in-game chat to show everyone you're a really cool dude who has helped us pay the server bills."
-msgstr ""
+msgstr "就像 osu! 官方服务器一样，你会在游戏里得到<b>闪亮的黄色用户名</b>，来向所有人显示你是一个非常酷的家伙，他帮助我们支付了服务器账单。"
 
 msgid "Again, just like in osu!, you will get a <b>donor badge</b> on your profile, to show everyone you're supporting us."
-msgstr ""
+msgstr "没错，又像 osu! 官方服务器一样，你会在个人资料上获得一个<b>捐助者徽章</b>来向所有人展示你对我们的支持。"
 
 msgid "You get to be able to create your <b>own personal badge</b>, with custom text and icon, to show off on your profile! Let the world know you're an anchor. Or prank people showing a spinnin' wheel with \"Loading...\"! Up to you."
-msgstr ""
+msgstr "你可以创建属于自己的<b>个人徽章</b>，带有自定义文字和图标！让所有人知道你想表达什么，或是一个带有恶作剧的"正在加载"动态徽章...由你决定！"
 
 msgid "<b>Competing with friends</b> is really cool, you can play on the leaderboard with someone more or less on your level, without getting crippling depression and RSI for not beating that pro!"
-msgstr ""
+msgstr "<b>和朋友竞争</b>真的很酷，你可以在排行榜上与或多或少与你级别相同的人一起对抗，不用因为没打过职业选手而抑郁。"
 
 msgid "You'll get exclusive access to the <b>\"#donators\"</b> text and voice channels, you'll be able to change your discord nickname and you'll get a custom role with custom username colour!"
-msgstr ""
+msgstr "你将拥有<b>\"#donators\"</b>文本和语音通道的独​访问权，你也可以改变你的 Discord 服务器名称，并获得具有自定义用户名颜色的自定义角色！"
 
-msgid "Think about <b>spicing your profile up with some eggplants</b>? Got you covered! Having donor privileges, you get to be able to change your profile background."
+msgid "考虑<b>用一些茄子来给你的个人资料增加乐趣吗</b>？只要拥有捐助者标签，你就可以更改个人资料背景。"
 msgstr ""
 
 msgid "Want to start over one more time? With donor you can! Normally you can only <a href='https://support.ripple.moe' target='_blank'>request an account wipe</a> once, but having donated you'll be able to do it once again."
-msgstr ""
+msgstr "因为准确率太低而沮丧？想要重新开始？通常，你只能<a href='https://support.ripple.moe' target='_blank'>请求清除</a>一次帐户，但捐赠后就可以再次进行一次。"
 
 msgid "<b>Who knows</b> what we could implement next? You could be able to do even <i>more</i> stuff for donors once we implement it."
-msgstr ""
+msgstr "<b>没人知道</b>我们下一步会实装什么...但是一旦实装，你就可以通过捐助来做更多酷炫的事情！"
 
 msgid "And this is how you pay"
-msgstr ""
+msgstr "你的付款方式"
 
 msgid "You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>. Use the slider below to choose the amount of months you'd like to have the donor benefits, and the cost will be instantly calculated. Remember that if, for instance, you choose to donate € 4 instead of € 3.51, you will only be given one donor month."
-msgstr ""
+msgstr "你可以通过 <b>PayPal</b> 或 <b>Bitcoin</b> 进行捐赠。使用下面的滑块选择你希望获得捐助者标签的月数，我们会立即计算出费用。请记住，就算你选择捐赠 € 4 而不是 € 3.51，那么你也只能得到一个月。"
 
 msgid "Loading..."
-msgstr ""
+msgstr "载入中..."
 
 msgid "PayPal"
-msgstr ""
+msgstr "PayPal"
 
 msgid "User:"
-msgstr ""
+msgstr "用户名："
 
 msgid "Bitcoin"
 msgstr ""
 
 msgid "Send %s BTC to this Bitcoin address:"
-msgstr ""
+msgstr "发送 %s BTC 到这个 Bitcoin   地址："
 
 msgid "Afterwards, <b>please send an email to <a href=\"mailto:howl@ripple.moe\">howl@ripple.moe</a></b> containing the transaction hash!"
-msgstr ""
+msgstr "然后，<b>请发送电子邮件至 <a href=\"mailto:howl@ripple.moe\">howl@ripple.moe</a></b>，请包含你的转账哈希值！"
 
 msgid "I've donated, now what?"
-msgstr ""
+msgstr "我已经捐赠了，然后？"
 
 msgid "You'll have to wait until we verify and process your payment. It can take up to <b>12 hours</b>. If 12 hours have passed and you still haven't received your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server or send an email to <b><a href=\"mailto:support@ripple.moe\">support@ripple.moe</a></b>. Once we have processed your payment, you'll receive an <b>email</b> to the address you've used to sign up and you'll get <b>all the donor privileges, except the Discord ones</b>. To get the Discord donor privileges, go <a href=\"/settings/discord\">here</a>."
-msgstr ""
+msgstr "请稍事等待，直到我们验证并处理你的付款。最多可能需要<b> 12 小时</b>。如果已经过去 12 小时，但你仍未收到捐助者标签，请与我们的 Discord 服务器中的 <b>Dev/Community Manager</b> 联系，或发送邮件至 <b><a href=\"mailto:support@ripple.moe\">support@ripple.moe</a></b>。在我们处理完你的付款后，你会收到一封电子邮件，并且将自动获得除 Discord 以外的所有捐赠者特权。"
 
 msgid "Please log in to get supporter"
-msgstr ""
+msgstr "请登录"
 
 # Settings
 msgid "Userpage"
-msgstr ""
+msgstr "用户页"
 
 msgid "Avatar"
-msgstr ""
+msgstr "头像"
 
 msgid "Discord donor"
-msgstr ""
+msgstr "Discord 捐助特权"
 
 msgid "Profile background"
-msgstr ""
+msgstr "个人资料背景"
 
 msgid "Two factor authentication is enabled on your account."
-msgstr ""
+msgstr "你的帐户已启用两步验证。"
 
 msgid "Two factor authentication is not enabled on your account."
-msgstr ""
+msgstr "你的帐户未启用两步验证。"
 
 msgid "Google Authenticator (TOTP) based 2FA"
-msgstr ""
+msgstr "基于 Google Authenticator(TOTP)的两步验证"
 
 msgid "At the moment you currently have set up Telegram Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
-msgstr ""
+msgstr "你当前已启动 Telegram 两步验证。如果你想禁用它，请填写以下内容："
 
 msgid "At the moment you currently have set up TOTP-based (Google Authenticator) Two Factor Authentication. Should you wish to disable it, please fill out the following form:"
-msgstr ""
+msgstr "你当前已启动基于 TOTP(Google 身份验证器)的两步验证。如果你想禁用它，请填写以下内容："
 
 msgid "Disable Telegram 2FA"
-msgstr ""
+msgstr "禁用 Telegram 两步验证"
 
 msgid "Disable TOTP-based 2FA"
-msgstr ""
+msgstr "禁用基于 TOTP 的两步验证"
 
 msgid "Google Authenticator recovery keys"
-msgstr ""
+msgstr "谷歌身份验证器恢复密钥"
 
 msgid "These are the only thing that will let you get back into your Ripple account if you lose your device. Our suggestion is to paste them inside a document in your word processor (Microsoft Word, LibreOffice Writer), print them and store them in a safe place."
-msgstr ""
+msgstr "如果丢失了你设备，这些是唯一可以让你重新进入 Ripple 帐户的东西。我们的建议是将它们保存到文档中，进行打印并将它们存储在安全的地方。"
 
 msgid "Open File"
-msgstr ""
+msgstr "选择文件"
 
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord. If you want to change your nickname, you can use the <code>/nick</code> command. To set or edit your <b>custom role</b> name and colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\"_blank\">here</a>, it's the one that starts with '#'. You can change your role name and colour <b>whenever you want!</b>"
 msgstr ""
