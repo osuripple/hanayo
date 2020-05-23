@@ -932,360 +932,360 @@ msgid "Save"
 msgstr "保存"
 
 msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord. If you want to change your nickname, you can use the <code>/nick</code> command. To set or edit your <b>custom role</b> name and colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\"_blank\">here</a>, it's the one that starts with '#'. You can change your role name and colour <b>whenever you want!</b>"
-msgstr ""
+msgstr "你的 Discord 已连接到 Ripple 帐户。<b>欢迎来到 Donors Club 并再次感谢你的支持！</b>你现在可以在我们的官方 Discord 服务器上访问 #donators 频道！你还可以设置自定义身份组名称和颜色，并在 Discord 上更改昵称。如果你想修改你的昵称，请使用 <code>/nick</code> 命令。如果你想修改你的<b>自定义身份组</b>名称和颜色，请使用 <code>!role HEX_COLOUR ROLE_NAME</code> 命令，你可以在<a href=\"http://www.colorpicker.com/\" target=\"_blank\">这里</a>找到你想要的 HEX 颜色代码，他通常以 "#" 开头。你可以随时更改它们。"
 
 msgid "Thank you for supporting us and have fun on Ripple!"
-msgstr ""
+msgstr "感谢你的支持，在 Ripple 上玩得开心！"
 
 msgid "Donors get special privileges on our Discord server too!"
-msgstr ""
+msgstr "捐助者也可以在我们的 Discord 服务器上获得特殊权限！""
 
 msgid "Discord is a chatroom with text and voice channels, bots and lots of other cool features. You can <b>download Discord for free <a href=\"http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
-msgstr ""
+msgstr "我们在 Discord 上创建了一个聊天室，具有聊天和语音频道，机器人和许多其他很酷的功能。你可以<b>免费下载<a href=\"http://discord.gg/\" target=\"_blank\"> Discord </a></b> 并<b>加入我们的 <a href=\"%s\" target=\"_blank\">Discord 官方服务器</a></b>。（注意：Discord 无法在中国大陆访问）"
 
 msgid "Here's what you get if you link your Discord account:"
-msgstr ""
+msgstr "在连接 Discord 账号时会获得这些信息："
 
 msgid "Access to /nick command, to change your Discord nickname"
-msgstr ""
+msgstr "使用 /nick 命令，来更改你的 Discord 名称"
 
 msgid "Access to #donators text and voice channels"
-msgstr ""
+msgstr "访问 #donators 聊天和语音频道"
 
 msgid "Username on donors list"
-msgstr ""
+msgstr "出现在捐助者感谢名单当中"
 
 msgid "Custom role with custom username"
-msgstr ""
+msgstr "自定义你自己的身份组名称及颜色"
 
 msgid "To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our Discord server</a>, then click this fancy button:"
-msgstr ""
+msgstr "前提是，请先<a href=\"%s\" target=\"_blank\">加入我们的 Discord 服务器</a>，然后再点击下面这个花里胡哨的按钮："
 
 msgid "Get Discord donor privileges"
-msgstr ""
+msgstr "获取 Discord 捐助者特权"
 
 msgid "New password (leave blank if you don't want to change it)"
-msgstr ""
+msgstr "新密码（如不修改请留白）"
 
 msgid "Current password"
-msgstr ""
+msgstr "当前密码"
 
 msgid "BBCode syntax reference"
-msgstr ""
+msgstr "BBCode 语法参考"
 
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 msgid "Email address"
-msgstr ""
+msgstr "电子邮箱"
 
 msgid "Alternative username (cannot be used for login)"
-msgstr ""
+msgstr "曾用名（无法用于登陆）"
 
 msgid "Also known as..."
-msgstr ""
+msgstr "也就是..."
 
 msgid "Custom badge"
-msgstr ""
+msgstr "自定义徽章"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore."
-msgstr ""
+msgstr "<b>不要使用令人反感的徽章，也不要冒充别人。</b>如果你滥用徽章系统，你将被封禁，并且将无法再次使用自定义徽章。"
 
 msgid "Icon reference"
-msgstr ""
+msgstr "图标参考"
 
 msgid "Dinosaur, oompa-loompa, cool guy..."
-msgstr ""
+msgstr "Dinosaur, oompa-loompa, cool guy..."
 
 msgid "Playstyle"
-msgstr ""
+msgstr "游戏风格"
 
 msgid "Authorized applications"
-msgstr ""
+msgstr "第三方应用程序"
 
 msgid "From here you can check all the applications you granted authorization to your account, and revoke their permissions if necessary."
-msgstr ""
+msgstr "在这里，你可以查看你授予帐户授权的所有第三方应用程序，你可以随时移除它们。"
 
 msgid "... but it looks like you have none!"
-msgstr ""
+msgstr "...但是看起来这里什么都没有"
 
 msgid "That authorization has been successfully revoked."
-msgstr ""
+msgstr "该授权已被成功移除。"
 
 msgid "Authorization created %s"
-msgstr ""
+msgstr "授权于 %s"
 
 msgid "Owner"
-msgstr ""
+msgstr "开发者"
 
 msgid "Revoke"
-msgstr ""
+msgstr "移除"
 
 msgid "Dark site"
-msgstr ""
+msgstr "暗黑模式"
 
 msgid "Preferences"
-msgstr ""
+msgstr "偏好"
 
 # Go source
 msgid "TOTP-based 2FA has been enabled on your account."
-msgstr ""
+msgstr "你的帐户已启用基于 TOTP 的两步验证。"
 
 msgid "Passcode is invalid. Perhaps it expired?"
-msgstr ""
+msgstr "密码无效。也许它过期了？"
 
 msgid "No passcode/secret was given. Please try again"
-msgstr ""
+msgstr "没有提供密码。请再试一遍"
 
 msgid "TOTP-based 2FA is already enabled!"
-msgstr ""
+msgstr "基于 TOTP 的两步验证已经启用了！"
 
 msgid "You currently have Telegram 2FA enabled. You first need to disable that if you want to use TOTP-based 2FA."
-msgstr ""
+msgstr "你当前已启用 Telegram 两步验证。如果要启用基于 TOTP 的两步验证，请先禁用它"
 
 msgid "2FA disabled successfully."
-msgstr ""
+msgstr "两步验证已禁用。"
 
 msgid "Changing avatar is currently not possible."
-msgstr ""
+msgstr "目前无法更改头像。"
 
 msgid "An error occurred."
-msgstr ""
+msgstr "发生未知错误。"
 
 msgid "We were not able to save your avatar."
-msgstr ""
+msgstr "我们无法保存你的头像。"
 
 msgid "Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5."
-msgstr ""
+msgstr "你的头像已成功更改。可能需要一些时间才能更新。如果想强制刷新缓存，可以使用 CTRL + F5。"
 
 msgid "Internal Server Error"
-msgstr ""
+msgstr "内部服务器错误"
 
 msgid "You're not a donor!"
-msgstr ""
+msgstr "你不是捐助者！"
 
 msgid "You've not joined the discord server! Links to it are below on the page. Please join the server before attempting to connect your account to Discord."
-msgstr ""
+msgstr "你尚未加入 Discord 服务器！它的邀请链接在页面下方。在尝试将你的帐户关联到 Discord 之前，请先加入服务器。"
 
 msgid "Your account has been linked successfully!"
-msgstr ""
+msgstr "你的帐户已成功关联！"
 
 msgid "Your new IRC token is <code>%s</code>. The old IRC token is not valid anymore.<br>Keep it safe, don't show it around, and store it now! We won't show it to you again."
-msgstr ""
+msgstr "你的新 IRC 令牌为<code>%s</code>。旧的IRC令牌不再有效。<br>保管好它，不要到处乱丢！我们不会再向你显示第二次令牌。"
 
 msgid "Your profile background has been saved."
-msgstr ""
+msgstr "你的个人资料背景已保存。"
 
 msgid "We were not able to save your profile background."
-msgstr ""
+msgstr "我们无法保存你的个人资料背景。"
 
 msgid "Background type"
-msgstr ""
+msgstr "背景类型"
 
 msgid "None"
-msgstr ""
+msgstr "无"
 
 msgid "Image"
-msgstr ""
+msgstr "图片"
 
 msgid "Solid colour"
-msgstr ""
+msgstr "纯色"
 
 msgid "Colour is invalid"
-msgstr ""
+msgstr "颜色无效"
 
 msgid "You have been automatically logged out of your account because your account has either been banned or locked. Should you believe this is a mistake, you can contact our support team at support@ripple.moe."
-msgstr ""
+msgstr "由于你的帐户已被禁止或锁定，已自动退出帐户。如果你认为这是一个错误，请通过 support@ripple.moe 与我们的支持团队联系。"
 
 msgid "You have been automatically logged out for security reasons. Please <a href='/login?redir=%s'>log back in</a>."
-msgstr ""
+msgstr "出于安全原因，你已被自动注销。请<a href='/login?redir=%s'>重新登陆</a>。"
 
 msgid "You need to login first."
-msgstr ""
+msgstr "请先登录"
 
 msgid "Forbidden"
-msgstr ""
+msgstr "禁止！！！"
 
 msgid "You should not be 'round here."
-msgstr ""
+msgstr "你不应该在这里。"
 
 msgid "It seems like the original version of this file has been updated, so this file is out of date and may contain inaccurate information. If you want to make sure to be up-to-date, please refer to the <a href=\"%s%s\">English version</a>."
-msgstr ""
+msgstr "本文是原始内容的过期翻译，请查阅 <a href=\"%s%s\">英文版本 </a>以获得最准确的信息。"
 
 msgid "If you truly have understood what's written above and you have understood that creating a multiaccount will lead to a restriction on your main account, you can click here and you'll be brought to the sign up page."
-msgstr ""
+msgstr "如果你确实了解上面的内容，并且知道小号会导致大号封禁，则可以单击这里转到登录页面。"
 
 msgid "You look new here. Allow us to introduce you to what Ripple is."
-msgstr ""
+msgstr "看来你是新来的。请允许我们给你介绍什么是 Ripple。"
 
 # PAY ATTENTION! This is Log in *with* Ripple, not *on* Ripple. This is for
 # oauth.
 msgid "Log in with Ripple"
-msgstr ""
+msgstr "使用 Ripple 登录"
 
 msgid "This application will be able to:"
-msgstr ""
+msgstr "此应用程序能够："
 
 msgid "Identify"
-msgstr ""
+msgstr "授权"
 
 msgid "See your public information (everything somebody can see on your user profile), however with this alone it will not be able to see your private information (for instance your email address)."
-msgstr ""
+msgstr "查看你的公开信息（你的个人资料上能看到的所有内容）"
 
 msgid "Read private information"
-msgstr ""
+msgstr "读取非公开信息"
 
 msgid "This application will be able to see your email address, and any private information we will add in the future."
-msgstr ""
+msgstr "查看你的电子邮件地址，以及将来会添加的一些非公开信息。"
 
 msgid "Write"
-msgstr ""
+msgstr "修改权限"
 
 msgid "This application will be able to make modifications to your Ripple account. This is potentially really dangerous! Use this only with applications that you trust."
-msgstr ""
+msgstr "对你的 Ripple 帐户进行修改。这非常危险！请在你信任的应用程序上勾选此功能。"
 
 msgid "Access to Bancho"
-msgstr ""
+msgstr "访问 Bancho"
 
 msgid "This application will be able to make you appear online ingame and use the chat."
-msgstr ""
+msgstr "连接到在线游戏及 IRC 聊天室"
 
 msgid "Approve"
-msgstr ""
+msgstr "同意"
 
 msgid "Deny"
-msgstr ""
+msgstr "拒绝"
 
 # Team page
 
 msgid "This is a list of the wonderful people who keep Ripple up and running and deal with its community."
-msgstr ""
+msgstr "这里是使 Ripple 正常运行并与社区打交道的人士的列表。"
 
 msgid "Community Managers"
-msgstr ""
+msgstr "社区经理"
 
 msgid "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community."
-msgstr ""
+msgstr "社区经理处理封禁，禁言，更改名称以及与社区有关的几乎所有事。"
 
 msgid "They take care of our Discord server and reply to emails sent to the support services (email and support.ripple.moe). Community Managers have a red name in the in-game chat."
-msgstr ""
+msgstr "他们会帮忙照顾我们的 Discord 服务器并回复发送给的 support.ripple.moe 的邮件。社区经理在游戏内的聊天室中使用高亮的红色名称。"
 
 msgid "Developers"
-msgstr ""
+msgstr "开发者"
 
 msgid "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance."
-msgstr ""
+msgstr "开发者会添加新功能，修复错误，并保持服务器的正常运行和维护。"
 
 msgid "They don't do anything related to the community. Developers have a blue name in the in-game chat."
-msgstr ""
+msgstr "他们不做任何与社区有关的事情。开发者在游戏内的聊天室中使用蓝色名称。"
 
 msgid "Chat Moderators"
-msgstr ""
+msgstr "聊天管理员"
 
 msgid "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected."
-msgstr ""
+msgstr "聊天版主管理聊天，确保任何人都能得到尊重。"
 
 msgid "BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not."
-msgstr ""
+msgstr "BAT 们审核谱面 Rank 队列中的申请是否有资格在 Ripple 中得到 Ranked。"
 
 msgid "Special thanks"
-msgstr ""
+msgstr "特别感谢"
 
 msgid "Here's a list of people who helped with Ripple."
-msgstr ""
+msgstr "以下是为 Ripple 提供帮助的朋友们。"
 
 msgid "<b>Franc[e]sco/lolisamurai</b>, for <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp calculator."
-msgstr ""
+msgstr "<b>Franc[e]sco/lolisamurai</b>，使用 <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>，作为 std 的 pp 算法。"
 
 msgid "<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-performance</a>, used as a reference for our mania pp calculator."
-msgstr ""
+msgstr "<b>Tom94</b>，使用 <a href='https://github.com/ppy/osu-performance'>osu-performance</a>，作为 mania 的 pp 算法。"
 
 msgid "<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-pp</a>, used as catch the beat pp calculator."
-msgstr ""
+msgstr "<b>Sunpy</b>，使用 <a href='https://github.com/osufx/catch-the-pp'>catch-the-pp</a>，作为 ctb 的 pp 算法。"
 
 msgid "<b>Avail</b>, for having hosted Ripple on his server."
-msgstr ""
+msgstr "<b>Avail</b>，在服务器上托管了 Ripple。"
 
 msgid "<b>Angela Guerra</b>, for designing the Ripple logo."
-msgstr ""
+msgstr "<b>Angela Guerra</b>，设计了 Ripple 的 logo。"
 
 msgid "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people."
-msgstr ""
+msgstr "<b><a id='everyone' class='clickable'>Everyone</a></b>，通过捐赠和邀请其他人来支持 Ripple 项目。"
 
 msgid "They told me these are very cool people."
-msgstr ""
+msgstr "这些人很酷。"
 
 msgid "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>."
-msgstr ""
+msgstr "想要联系我们的支持团队？请点 <a href='https://support.ripple.moe/'>这里</a>。"
 
 msgid "And more..."
-msgstr ""
+msgstr "还有更多..."
 
 msgid "Do you want to be in this list?"
-msgstr ""
+msgstr "你想加入他们吗？"
 
 msgid "Support us with a donation!"
-msgstr ""
+msgstr "通过捐助来支持我们！"
 
 msgid "(You get other cool perks too)"
-msgstr ""
+msgstr "（你也会得到其他很棒的补贴）"
 
 msgid "The Ripple API is the system through which developers can create applications to interact with Ripple. <b>If you're asked to fill out an API token from this page, be wary and only actually create the token if you really trust the owner of the application.</b>"
-msgstr ""
+msgstr "Ripple API 是开发者用来创造能与 Ripple 交互的应用程序的系统。<b>如果有人要求你填写此页面的 API Key，请当心，只有你真正信任的的情况下，才可以那么做。</b>"
 
 msgid "The 'Ranking Criteria' are as follows:"
-msgstr ""
+msgstr "Ranking Criteria 如下："
 
 msgid "Follow the <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho Ranking Criteria</a> to some extend"
-msgstr ""
+msgstr "请先遵循 <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho 的 Ranking Criteria</a>"
 
 msgid "No clear abuse of any systems (pp/stars)"
-msgstr ""
+msgstr "没有明显的滥用任何系统 (pp/星级)"
 
 msgid "No speedup or re-upload of existing maps"
-msgstr ""
+msgstr "没有加速或重新上传的现有地图"
 
 msgid "No Jump/Stream Training Compilations"
-msgstr ""
+msgstr "不是大跳/连打训练合集"
 
 msgid "At least 66% Completion for 7+ Minute songs, anything else completely mapped"
-msgstr ""
+msgstr "7分钟以上的谱面至少完成 66%，其他的请全部 Pass"
 
 msgid "Popularity does not mean rankable"
-msgstr ""
+msgstr "受欢迎并不意味着可以 Ranked"
 
 msgid "Community"
-msgstr ""
+msgstr "社区"
 
 msgid "Multiplayer listing"
-msgstr ""
+msgstr "多人游戏列表"
 
 msgid "Discord Server"
-msgstr ""
+msgstr "Discord 服务器"
 
 msgid "Read more"
-msgstr ""
+msgstr "查看更多"
 
 msgid "Connection guide"
-msgstr ""
+msgstr "连接教程"
 
 msgid "Classic"
-msgstr ""
+msgstr "经典"
 
 msgid "Relax"
-msgstr ""
+msgstr "Relax"
 
 msgid "New!"
-msgstr ""
+msgstr "全新！"
 
 msgid "Total Play Time"
-msgstr ""
+msgstr "总游玩时长"
 
 msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
-msgstr ""
+msgstr "<b>我们更改了自定义徽章系统。</b>你现在可以将 Emoji 用作图标了！快去试试吧！"
 
 msgid "Pick an emoji"
-msgstr ""
+msgstr "选择一个 Emoji"
