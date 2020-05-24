@@ -196,7 +196,7 @@ msgid "Status"
 msgstr "服务器状态"
 
 msgid "Discord"
-msgstr Discord
+msgstr "Discord"
 
 msgid "Subreddit"
 msgstr "Reddit"
@@ -303,7 +303,7 @@ msgstr "登出成功。"
 
 # pwreset.html
 msgid "Forgot your password? Worry not! Here you can reset it. Just tell us your username or email address, and we'll take care of it. You will receive an email at the email address you used to sign up on Ripple. To continue the password reset procedure, click the link on that email."
-msgstr "忘记了密码？不用担心！只需告诉我们你的用户名或电子邮件，我们就会帮你重置。你将会在注册 Ripple 的邮箱中收到一封邮件，只需点击右键内的链接，即可进行密码重置。
+msgstr "忘记了密码？不用担心！只需告诉我们你的用户名或电子邮件，我们就会帮你重置。你将会在注册 Ripple 的邮箱中收到一封邮件，只需点击右键内的链接，即可进行密码重置。"
 
 msgid "You look pretty banned/locked here."
 msgstr "看来你已经被封禁/锁定了。"
@@ -576,7 +576,7 @@ msgid "It has now evolved into the largest available osu! private server, with m
 msgstr "现在已经发展成为最大的 osu! 私服，拥有超过 70,000 个注册用户。 <a href=\"/register\">注册</a> Ripple 不会导致你的 osu! 账号被封禁，所以还在等什么？！加入我们吧！%s"
 
 msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://zxq.co/ripple/ripple\">source code</a> Ripple is running on."
-msgstr "如果你想确保 Ripple 不会对你的数据做任何可疑的事情，欢迎检查 Ripple 正在运行的<a href=\"https://zxq.co/ripple/ripple\">开源代码</a>！
+msgstr "如果你想确保 Ripple 不会对你的数据做任何可疑的事情，欢迎检查 Ripple 正在运行的<a href=\"https://zxq.co/ripple/ripple\">开源代码</a>！"
 
 # changelog.html
 msgid "This is the changelog. Changes are published here as soon as they hit the production status (as in, live on the website)."
@@ -835,7 +835,7 @@ msgid "Again, just like in osu!, you will get a <b>donor badge</b> on your profi
 msgstr "没错，又像 osu! 官方服务器一样，你会在个人资料上获得一个<b>捐助者徽章</b>来向所有人展示你对我们的支持。"
 
 msgid "You get to be able to create your <b>own personal badge</b>, with custom text and icon, to show off on your profile! Let the world know you're an anchor. Or prank people showing a spinnin' wheel with \"Loading...\"! Up to you."
-msgstr "你可以创建属于自己的<b>个人徽章</b>，带有自定义文字和图标！让所有人知道你想表达什么，或是一个带有恶作剧的"正在加载"动态徽章...由你决定！"
+msgstr "你可以创建属于自己的<b>个人徽章</b>，带有自定义文字和图标！让所有人知道你想表达什么，或是一个带有恶作剧的\"正在加载\"动态徽章...由你决定！"
 
 msgid "<b>Competing with friends</b> is really cool, you can play on the leaderboard with someone more or less on your level, without getting crippling depression and RSI for not beating that pro!"
 msgstr "<b>和朋友竞争</b>真的很酷，你可以在排行榜上与或多或少与你级别相同的人一起对抗，不用因为没打过职业选手而抑郁。"
@@ -932,13 +932,13 @@ msgid "Save"
 msgstr "保存"
 
 msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord. If you want to change your nickname, you can use the <code>/nick</code> command. To set or edit your <b>custom role</b> name and colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\"_blank\">here</a>, it's the one that starts with '#'. You can change your role name and colour <b>whenever you want!</b>"
-msgstr "你的 Discord 已连接到 Ripple 帐户。<b>欢迎来到 Donors Club 并再次感谢你的支持！</b>你现在可以在我们的官方 Discord 服务器上访问 #donators 频道！你还可以设置自定义身份组名称和颜色，并在 Discord 上更改昵称。如果你想修改你的昵称，请使用 <code>/nick</code> 命令。如果你想修改你的<b>自定义身份组</b>名称和颜色，请使用 <code>!role HEX_COLOUR ROLE_NAME</code> 命令，你可以在<a href=\"http://www.colorpicker.com/\" target=\"_blank\">这里</a>找到你想要的 HEX 颜色代码，他通常以 "#" 开头。你可以随时更改它们。"
+msgstr "你的 Discord 已连接到 Ripple 帐户。<b>欢迎来到 Donors Club 并再次感谢你的支持！</b>你现在可以在我们的官方 Discord 服务器上访问 #donators 频道！你还可以设置自定义身份组名称和颜色，并在 Discord 上更改昵称。如果你想修改你的昵称，请使用 <code>/nick</code> 命令。如果你想修改你的<b>自定义身份组</b>名称和颜色，请使用 <code>!role HEX_COLOUR ROLE_NAME</code> 命令，你可以在<a href=\"http://www.colorpicker.com/\" target=\"_blank\">这里</a>找到你想要的 HEX 颜色代码，他通常以 \"#\" 开头。你可以随时更改它们。"
 
 msgid "Thank you for supporting us and have fun on Ripple!"
 msgstr "感谢你的支持，在 Ripple 上玩得开心！"
 
 msgid "Donors get special privileges on our Discord server too!"
-msgstr "捐助者也可以在我们的 Discord 服务器上获得特殊权限！""
+msgstr "捐助者也可以在我们的 Discord 服务器上获得特殊权限！"
 
 msgid "Discord is a chatroom with text and voice channels, bots and lots of other cool features. You can <b>download Discord for free <a href=\"http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
 msgstr "我们在 Discord 上创建了一个聊天室，具有聊天和语音频道，机器人和许多其他很酷的功能。你可以<b>免费下载<a href=\"http://discord.gg/\" target=\"_blank\"> Discord </a></b> 并<b>加入我们的 <a href=\"%s\" target=\"_blank\">Discord 官方服务器</a></b>。（注意：Discord 无法在中国大陆访问）"
