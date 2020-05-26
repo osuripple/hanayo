@@ -687,7 +687,7 @@ msgid "<b>%s</b> is a Ripple player from <b>%s</b>."
 msgstr "<b>%s</b> 是一位来自 <b>%s</b> 的 Ripple 玩家。"
 
 msgid "Last seen: %s."
-msgstr "上次登录："
+msgstr "上次登录： %s."
 
 msgid "They signed up on Ripple %s."
 msgstr "在 %s 来到了 Ripple。"
