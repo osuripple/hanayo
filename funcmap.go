@@ -259,6 +259,15 @@ var funcMap = template.FuncMap{
 			"osu!mania",
 		}
 	},
+	// dbModes returns an array containing all the modes (in their string db representation).
+	"dbModes": func() []string {
+		return []string{
+			"std",
+			"taiko",
+			"ctb",
+			"mania",
+		}
+	},
 	// _or is like or, but has only false and nil as its "falsey" values
 	"_or": func(args ...interface{}) interface{} {
 		for _, a := range args {

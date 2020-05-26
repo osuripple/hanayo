@@ -1,0 +1,41 @@
+{{/*###
+Handler=/settings/score_overwrite
+TitleBar=Score overwrite
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+    <div class="ui stackable grid">
+        {{ template "settingsSidebar" . }}
+        <div class="twelve wide column">
+            <div class="ui warning message">
+                <b>These settings only apply to classic mode. Relax mode always prioritizes PP.</b>
+            </div>
+            <div class="ui segment">
+                {{ $d := .Get "users/self/score_overwrite" }}
+                {{ $csrf := csrfGenerate .Context.User.ID }}
+                <form class="ui form" method="post">
+                    <h3 class="ui header">Overwrite my scores prioritizing...</h3>
+                    {{ range $k, $v := modes }}
+                        <div class="field" id="favourite-mode">
+                            <label>{{ $v }}</label>
+                            <select class="ui dropdown" name="overwrite" data-cast="int">
+                                <option value="0" {{ if eq (int (index $d.overwrite (index dbModes $k))) 0 }}selected{{ end }}>PP (default)</a>
+                                <option value="1" {{ if eq (int (index $d.overwrite (index dbModes $k))) 1 }}selected{{ end }}>Score</a>
+                            </select>
+                        </div>
+                    {{ end }}
+                    <div class="ui divider"></div>
+                    <div style="text-align: right">
+						<button type="submit" class="ui blue button">{{ $.T "Save" }}</button>
+                    </div>
+                    {{ $csrf }}
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
