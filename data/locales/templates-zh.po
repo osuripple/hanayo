@@ -693,7 +693,7 @@ msgid "They signed up on Ripple %s."
 msgstr "在 %s 来到了 Ripple。"
 
 msgid "They play with %s."
-msgstr "惯用 %。"
+msgstr "惯用 %s。"
 
 msgid "Mouse"
 msgstr "鼠标"
