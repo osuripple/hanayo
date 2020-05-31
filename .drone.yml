@@ -12,6 +12,7 @@ steps:
       GIT_PASSWORD:
         from_secret: git_password
     commands:
+      - git submodule update --init --recursive
       - mkdir -p /cache/${DRONE_REPO}/docker
       - git clone https://$GIT_USERNAME:$GIT_PASSWORD@zxq.co/ripple/dockerfiles /dockerfiles
       - grep "const version" doc.go | cut -d'"' -f 2 | cut -c 2- | tr -d '\n' > .tags
