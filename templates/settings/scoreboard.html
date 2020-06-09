@@ -1,0 +1,115 @@
+{{/*###
+Handler=/settings/scoreboard
+TitleBar=In-game settings
+KyutGrill=settings2.jpg
+Include=menu.html
+MinPrivileges=2
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+    <div class="ui stackable grid">
+        {{ template "settingsSidebar" . }}
+        <div class="twelve wide column">
+            <div class="ui segment">
+                {{ $d := .Get "users/self/scoreboard" }}
+                <form class="ui form" method="post">
+
+                    <h3 class="ui header">
+                        {{ .T "In-game beatmap scoreboards display" }}
+                    </h3>
+                    <div class="field">
+                        <label>
+                            {{ .T "Submode" }}
+                            <span data-tooltip="{{ .T `You can also change this setting in-game with '!relax' and '!classic'` }}" data-position="top left" data-inverted>
+                                <i class="info circle grey icon"></i>
+                            </span>
+                        </label>
+                        <select class="ui dropdown" name="scoreboard.mode" data-cast="int">
+                            <option value="0" {{ if eq (int $d.scoreboard.mode) 0 }}selected{{ end }}>{{ .T "Classic" }}</a>
+                            <option value="1" {{ if eq (int $d.scoreboard.mode) 1 }}selected{{ end }}>{{ .T "Relax" }}</a>
+                        </select>
+                    </div>
+                    
+                    <div class="two fields">
+                        <div class="field">
+                            <label>
+                                {{ .T "Classic" }} : {{ .T "order by" }}
+                                <span data-tooltip="{{ .T `You can also change this setting in-game with '!display classic pp' and '!display classic score'` }}" data-position="top left" data-inverted>
+                                    <i class="info circle grey icon"></i>
+                                </span>
+                            </label>
+                            <select class="ui dropdown" name="scoreboard.display.classic" data-cast="int">
+                                <option value="0" {{ if eq (int $d.scoreboard.display.classic) 0 }}selected{{ end }}>Score (default)</a>
+                                <option value="1" {{ if eq (int $d.scoreboard.display.classic) 1 }}selected{{ end }}>PP</a>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>
+                                {{ .T "Relax" }} : {{ .T "order by" }}
+                                <span data-tooltip="{{ .T `You can also change this setting in-game with '!display relax pp' and '!display relax score'` }}" data-position="top right" data-inverted>
+                                    <i class="info circle grey icon"></i>
+                                </span>
+                            </label>
+                            <select class="ui dropdown" name="scoreboard.display.relax" data-cast="int">
+                                <option value="0" {{ if eq (int $d.scoreboard.display.relax) 0 }}selected{{ end }}>Score (default)</a>
+                                <option value="1" {{ if eq (int $d.scoreboard.display.relax) 1 }}selected{{ end }}>PP</a>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <h3 class="ui header">
+                        {{ .T "Overwrite classic mode scores prioritizing..." }}
+                    </h3>
+                    <div class="ui warning message">
+                        {{ .T "The settings this section apply to only classic mode. Relax mode always prioritizes PP. Changing these setting is not retroactive." }}
+                    </div>
+                    <div class="four fields">
+                        {{ range $k, $v := modes }}
+                            <div class="field">
+                                <label>{{ $v }}</label>
+                                <select class="ui dropdown" name="overwrite.{{ index dbModes $k }}" data-cast="int">
+                                    <option value="0" {{ if eq (int (index $d.overwrite (index dbModes $k))) 0 }}selected{{ end }}>{{ $.T "PP" }} ({{ $.T "default"}} )</a>
+                                    <option value="1" {{ if eq (int (index $d.overwrite (index dbModes $k))) 1 }}selected{{ end }}>{{ $.T "Score" }}</a>
+                                </select>
+                            </div>
+                        {{ end }}
+                    </div>
+
+                    <div class="ui divider"></div>
+                    <h3 class="ui header">
+                        {{ .T "Auto !last" }}
+                    </h3>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>{{ .T "Classic" }}</label>
+                            <select class="ui dropdown" name="auto_last.classic" data-cast="int">
+                                <option value="0" {{ if eq (int $d.auto_last.classic) 0 }}selected{{ end }}>{{ .T "Off" }} ({{ .T "default" }})</a>
+                                <option value="1" {{ if eq (int $d.auto_last.classic) 1 }}selected{{ end }}>{{ .T "Chat message" }}</a>
+                                <option value="2" {{ if eq (int $d.auto_last.classic) 2 }}selected{{ end }}>{{ .T "Notification" }}</a>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>{{ .T "Relax" }}</label>
+                            <select class="ui dropdown" name="auto_last.relax" data-cast="int">
+                                <option value="0" {{ if eq (int $d.auto_last.relax) 0 }}selected{{ end }}>{{ .T "Off" }} ({{ .T "default" }})</a>
+                                <option value="1" {{ if eq (int $d.auto_last.relax) 1 }}selected{{ end }}>{{ .T "Chat message" }}</a>
+                                <option value="2" {{ if eq (int $d.auto_last.relax) 2 }}selected{{ end }}>{{ .T "Notification" }}</a>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ui divider"></div>
+                    <div style="text-align: right">
+						<button type="submit" class="ui blue button">{{ $.T "Save" }}</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

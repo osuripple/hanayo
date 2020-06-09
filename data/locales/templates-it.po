@@ -688,7 +688,7 @@ msgstr "download (senza video)"
 
 # 2fa_gateway.html
 msgid "Two Factor Authentication"
-msgstr "Verifica in Due Passaggi"
+msgstr "Verifica in due passaggi"
 
 msgid ""
 "Before proceding further on Ripple, we require you to use your Google "
@@ -1277,7 +1277,7 @@ msgid ""
 "To enable Telegram Two Factor Authentication, click this button, then click "
 "\"start\" on Telegram:"
 msgstr ""
-"Per abilitare la Verifica in Due Passaggi con Telegram, clicca questo "
+"Per abilitare la verifica in due passaggi con Telegram, clicca questo "
 "pulsante, quindi premi \"avvia\" su Telegram:"
 
 msgid "Enable Telegram 2FA"
@@ -1308,7 +1308,7 @@ msgid ""
 "At the moment you currently have set up Telegram Two Factor Authentication. "
 "Should you wish to disable it, please fill out the following form:"
 msgstr ""
-"Al momento hai abilitato la Verifica in Due Passaggi con Telegram. Se "
+"Al momento hai abilitato la verifica in due passaggi con Telegram. Se "
 "desideri disabilitarla, completa questo modulo:"
 
 msgid ""
@@ -1316,7 +1316,7 @@ msgid ""
 "Two Factor Authentication. Should you wish to disable it, please fill out "
 "the following form:"
 msgstr ""
-"Al momento hai abilitato la Verifica in Due Passaggi con Google "
+"Al momento hai abilitato la verifica in due passaggi con Google "
 "Authenticator (TOTP). Se desideri disabilitarla, completa questo modulo:"
 
 msgid "Disable Telegram 2FA"
@@ -1942,3 +1942,46 @@ msgstr "<b>Abbiamo cambiato il nostro sistema di badge personalizzati.</b> Ora p
 
 msgid "Pick an emoji"
 msgstr "Scegli un'emoji"
+
+msgid "In-game settings"
+msgstr "Impostazioni in gioco"
+
+msgid "Submode"
+msgstr "Sottomodalità"
+
+msgid "In-game beatmap scoreboards display"
+msgstr "Visualizzazione classifiche beatmap nel gioco"
+
+msgid "You can also change this setting in-game with '!relax' and '!classic'"
+msgstr "Puoi anche cambiare questa imposazione dal gioco con '!relax' e '!classic'"
+
+msgid "order by"
+msgstr "ordina per"
+
+msgid "You can also change this setting in-game with '!display classic pp' and '!display classic score'"
+msgstr "Puoi anche cambiare questa imposazione dal gioco con '!display classic pp' e '!display classic score'"
+
+msgid "You can also change this setting in-game with '!display relax pp' and '!display relax score'"
+msgstr "Puoi anche cambiare questa imposazione dal gioco con '!display relax pp' e '!display relax score'"
+
+msgid "Overwrite classic mode scores prioritizing..."
+msgstr "Sovrascrivi punteggi modalità classica prioritizzando..."
+
+msgid "The settings this section apply to only classic mode. Relax mode always prioritizes PP. Changing these setting is not retroactive."
+msgstr "Le imposazioni di questa sezione si applicano solo alla modalità classica. La modalità relax prioritizza sempre i PP. Cambiare queste impostazioni non è retroattivo."
+
+msgid "default"
+msgstr "predefinito"
+
+msgid "Auto !last"
+msgstr "!last automatico"
+
+# Like on/off
+msgid "Off"
+msgstr "Off"
+
+msgid "Chat message"
+msgstr "Messaggio in chat"
+
+msgid "Notification"
+msgstr "Notifica"

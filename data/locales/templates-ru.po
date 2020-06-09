@@ -1927,3 +1927,46 @@ msgstr ""
 
 msgid "Pick an emoji"
 msgstr ""
+
+msgid "In-game settings"
+msgstr ""
+
+msgid "Submode"
+msgstr ""
+
+msgid "In-game beatmap scoreboards display"
+msgstr ""
+
+msgid "You can also change this setting in-game with '!relax' and '!classic'"
+msgstr ""
+
+msgid "order by"
+msgstr ""
+
+msgid "You can also change this setting in-game with '!display classic pp' and '!display classic score'"
+msgstr ""
+
+msgid "You can also change this setting in-game with '!display relax pp' and '!display relax score'"
+msgstr ""
+
+msgid "Overwrite classic mode scores prioritizing..."
+msgstr ""
+
+msgid "The settings this section apply to only classic mode. Relax mode always prioritizes PP. Changing these setting is not retroactive."
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "Auto !last"
+msgstr ""
+
+# Like on/off
+msgid "Off"
+msgstr ""
+
+msgid "Chat message"
+msgstr ""
+
+msgid "Notification"
+msgstr ""

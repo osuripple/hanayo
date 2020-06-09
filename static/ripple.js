@@ -269,6 +269,21 @@ var singlePageSnippets = {
       });
   },
 
+  "/settings/scoreboard": function() {
+    console.log('ciao!')
+    $("form")
+    .submit(function(e) {
+      e.preventDefault();
+      var obj = formToObject($(this));
+      var f = $(this);
+      api("users/self/scoreboard", obj, function(data) {
+        showMessage("success", "Your new settings have been saved.");
+        f.removeClass("loading");
+      }, true);
+      return false;
+    });
+  },
+
   "/settings/userpage" : function() {
     var lastTimeout = null;
     $("textarea[name='data']")
