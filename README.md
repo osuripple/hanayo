@@ -1,4 +1,4 @@
-# Hanayo ![build status](https://ci.zxq.co/api/badges/ripple/hanayo/status.svg)
+# Hanayo [![Build Status](https://drone.nyodev.xyz/api/badges/ripple/hanayo/status.svg)](https://drone.nyodev.xyz/ripple/hanayo)
 
 This repository has a mirror [here](https://github.com/osuripple/hanayo). The original repo is still [here](https://zxq.co/ripple/hanayo).
 

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "i18next": "^7.1.2",
+    "i18next-conv": "^10.0.2",
     "i18next-xhr-backend": "^1.4.1",
     "semantic-ui": "^2.2.6"
   },
