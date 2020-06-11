@@ -34,9 +34,11 @@ MinPrivileges=2
                         <div class="field">
                             <label>
                                 {{ .T "Classic" }} : {{ .T "order by" }}
+                                <!-- 
                                 <span data-tooltip="{{ .T `You can also change this setting in-game with '!display classic pp' and '!display classic score'` }}" data-position="top left" data-inverted>
                                     <i class="info circle grey icon"></i>
                                 </span>
+                                -->
                             </label>
                             <select class="ui dropdown" name="scoreboard.display.classic" data-cast="int">
                                 <option value="0" {{ if eq (int $d.scoreboard.display.classic) 0 }}selected{{ end }}>Score (default)</a>
@@ -47,9 +49,11 @@ MinPrivileges=2
                         <div class="field">
                             <label>
                                 {{ .T "Relax" }} : {{ .T "order by" }}
+                                <!-- 
                                 <span data-tooltip="{{ .T `You can also change this setting in-game with '!display relax pp' and '!display relax score'` }}" data-position="top right" data-inverted>
                                     <i class="info circle grey icon"></i>
                                 </span>
+                                -->
                             </label>
                             <select class="ui dropdown" name="scoreboard.display.relax" data-cast="int">
                                 <option value="0" {{ if eq (int $d.scoreboard.display.relax) 0 }}selected{{ end }}>Score (default)</a>
