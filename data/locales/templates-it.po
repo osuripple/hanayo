@@ -1976,7 +1976,7 @@ msgstr "predefinito"
 msgid "Auto !last"
 msgstr "!last automatico"
 
-# Like on/off
+# On/off
 msgid "Off"
 msgstr "Off"
 

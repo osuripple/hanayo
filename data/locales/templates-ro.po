@@ -1983,7 +1983,7 @@ msgstr ""
 msgid "Auto !last"
 msgstr ""
 
-# Like on/off
+# On/off
 msgid "Off"
 msgstr ""
 
