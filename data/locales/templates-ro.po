@@ -1962,7 +1962,7 @@ msgstr ""
 msgid "You can also change this setting in-game with '!relax' and '!classic'"
 msgstr ""
 
-msgid "order by"
+msgid "display and order by"
 msgstr ""
 
 msgid "You can also change this setting in-game with '!display classic pp' and '!display classic score'"

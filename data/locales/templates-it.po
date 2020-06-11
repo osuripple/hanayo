@@ -1955,8 +1955,8 @@ msgstr "Visualizzazione classifiche beatmap nel gioco"
 msgid "You can also change this setting in-game with '!relax' and '!classic'"
 msgstr "Puoi anche cambiare questa imposazione dal gioco con '!relax' e '!classic'"
 
-msgid "order by"
-msgstr "ordina per"
+msgid "display and order by"
+msgstr "visualizza e ordina per"
 
 msgid "You can also change this setting in-game with '!display classic pp' and '!display classic score'"
 msgstr "Puoi anche cambiare questa imposazione dal gioco con '!display classic pp' e '!display classic score'"
