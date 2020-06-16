@@ -519,7 +519,7 @@ $(document)
               r.results.push({
                 title : item.username,
                 url : "/u/" + item.id,
-                image : hanayoConf.avatars + "/" + item.id,
+                image : hanayoConf.avatars + "/" + item.id + "?" + avatarsVersion,
               });
             });
             return r;
