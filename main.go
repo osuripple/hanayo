@@ -28,7 +28,7 @@ import (
 	"zxq.co/ripple/hanayo/routers/pagemappings"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
-	"zxq.co/ripple/schiavolib"
+	schiavo "zxq.co/ripple/schiavolib"
 	"zxq.co/x/rs"
 )
 
@@ -52,6 +52,7 @@ var (
 
 		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
 		AvatarsFolder    string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
+		VarnishURL       string
 
 		CookieSecret string
 
