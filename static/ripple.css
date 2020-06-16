@@ -76,6 +76,7 @@ a.inherit:hover {
 }
 
 .footer {
+	background-color: white;
 	border-top: 1px solid #bbb;
 	padding: 10px 20px;
 }
@@ -447,4 +448,18 @@ img.locked-achievement:hover {
 
 .lsx-emojipicker-container {
 	top: -290px !important;
+}
+
+.ui.full.height.main.wrapper::before {
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
 }
