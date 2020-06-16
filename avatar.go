@@ -65,10 +65,18 @@ func avatarSubmit(c *gin.Context) {
 		}
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil || resp.StatusCode != 200 {
-			m = errorMessage{T(c, "We were not able to purge the avatar cache.")}
+			m = errorMessage{T(c, "We were not able to purge the avatars cache.")}
 			c.Error(err)
 			return
 		}
 	}
+
+	// Purge local avatars cache
+	sess := getSession(c)
+	ctx.AvatarsVersion++
+	sess.Set("avatars_version", ctx.AvatarsVersion)
+	sess.Save()
+	c.Set("context", ctx)
+
 	m = successMessage{T(c, "Your avatar was successfully changed. It may take some time to properly update. To force a cache refresh, you can use CTRL+F5.")}
 }

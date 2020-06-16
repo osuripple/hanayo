@@ -16,7 +16,7 @@ KyutGrill=team2.jpg
 				{{ .T "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community." }}<br>
 				{{ .T "They take care of our Discord server and reply to emails sent to the support services (email and support.ripple.moe). Community Managers have a red name in the in-game chat." | html }}
 			</p>
-			{{ template "userGroup" (.Get "badges/members?id=%d" 4) }}
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 4)) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Developers" }}</h1>
@@ -24,21 +24,21 @@ KyutGrill=team2.jpg
 				{{ .T "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance." }}<br>
 				{{ .T "They don't do anything related to the community. Developers have a blue name in the in-game chat." }}
 			</p>
-			{{ template "userGroup" (.Get "badges/members?id=%d" 2) }}
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 2)) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Chat Moderators" }}</h1>
 			<p>
 				{{ .T "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected." | html }}
 			</p>
-			{{ template "userGroup" (.Get "badges/members?id=%d" 30) }}
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 30)) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "BATs" }}</h1>
 			<p>
 				{{ .T "BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not." }}
 			</p>
-			{{ template "userGroup" (.Get "badges/members?id=%d" 5) }}
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 5)) }}
 		</div>
 	</div>
 	<div class="ui segments">
@@ -76,7 +76,7 @@ KyutGrill=team2.jpg
 					{{ range .users }}
 						<div class="column">
 							<h4 class="ui image header">
-								<img src="{{ config "AvatarURL" }}/{{ .id }}" class="ui micro rounded image">
+								<img src="{{ avatarURL $.Context (int .id) }}" class="ui micro rounded image">
 								<div class="content">
 									<a href="/u/{{ .id }}">{{ .username }}</a>
 								</div>

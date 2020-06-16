@@ -2,7 +2,8 @@
 NoCompile=true
 */}}
 {{ define "userGroup" }}
-{{ with . }}
+{{ $ := index . 0 }}
+{{ with index . 1 }}
 	<div class="ui five column center aligned stackable grid">
 		{{ $teamJSON := teamJSON }}
 		{{ range .members }}
@@ -12,7 +13,7 @@ NoCompile=true
 				<div class="column">
 					<div class="ui left aligned fluid card">
 						<div class="image">
-							<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="Avatar">
+							<img src="{{ avatarURL $.Context (int .id) }}" alt="Avatar">
 						</div>
 						<div class="content">
 							<a class="header" href="/u/{{ .id }}">{{ country .country false }}{{ .username }}</a>

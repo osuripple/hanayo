@@ -63,6 +63,13 @@ func sessionInitializer() func(c *gin.Context) {
 			}
 		}
 
+		if v, ok := sess.Get("avatars_version").(uint64); ok {
+			ctx.AvatarsVersion = v
+		} else {
+			ctx.AvatarsVersion = 0
+			sess.Set("avatars_version", 0)
+		}
+
 		var addBannedMessage bool
 		if ctx.User.ID != 0 && (ctx.User.Privileges&common.UserPrivilegeNormal == 0) {
 			ctx = context{}

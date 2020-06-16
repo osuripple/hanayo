@@ -518,6 +518,9 @@ var funcMap = template.FuncMap{
 		var now = time.Now()
 		return now.Month() == time.December || now.Month() == time.January
 	},
+	"avatarURL": func(ctx context, userID int) string {
+		return fmt.Sprintf("%s/%d?%d", config.AvatarURL, userID, ctx.AvatarsVersion)
+	},
 }
 
 var localeLanguages = []string{"de", "pl", "it", "es", "ru", "fr", "nl", "ro", "fi", "sv", "vi", "ko", "th", "zh"}

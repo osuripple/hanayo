@@ -19,7 +19,7 @@ KyutGrill=friends.jpg
 					{{ range .friends }}
 						<div class="ui column">
 							<h4 class="ui image header">
-								<img src="{{ config "AvatarURL" }}/{{ .id }}" class="ui mini rounded image"{{ if not (has .privileges 1) }} style="opacity: 0.5"{{ end }}>
+								<img src="{{ avatarURL $.Context (int .id) }}" class="ui mini rounded image"{{ if not (has .privileges 1) }} style="opacity: 0.5"{{ end }}>
 								<div class="content">
 									<a href="/u/{{ .id }}"{{ if not (has .privileges 1) }} style="opacity: 0.5"{{ end }}>{{ .username }}</a>
 									<div class="sub header">

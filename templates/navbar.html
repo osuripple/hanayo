@@ -58,7 +58,7 @@
 			</div>
 			{{ if .Context.User.Username }}
 				<div class="ui dropdown item">
-					<img id="avatar" class="ui avatar image" src="{{ config "AvatarURL" }}/{{ .Context.User.ID }}">
+					<img id="avatar" class="ui avatar image" src="{{ avatarURL .Context .Context.User.ID }}">
 					<span>{{ .Context.User.Username }}</span>
 					<div class="menu">
 						{{ navbarItem .Path (.T "Profile") (printf "/u/%d" .Context.User.ID) }}

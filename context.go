@@ -8,9 +8,10 @@ import (
 )
 
 type context struct {
-	User     sessionUser
-	Token    string
-	Language string
+	User           sessionUser
+	Token          string
+	Language       string
+	AvatarsVersion uint64
 }
 type sessionUser struct {
 	ID         int
