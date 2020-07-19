@@ -81,6 +81,11 @@ a.inherit:hover {
 	padding: 10px 20px;
 }
 
+.footer.dark {
+	background-color: #353535;
+	border-color: grey;
+}
+
 .top.right.icon {
 	cursor: pointer;
 	position: absolute;

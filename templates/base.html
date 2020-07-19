@@ -114,7 +114,7 @@
 
 		</div>
 
-		<div class="footer">
+		<div class="footer {{ if $ds }}dark{{ end }}">
 			{{ .T "&copy; 2015-%d Ripple, using Hanayo %s." (curryear) (version) | html }}
 			<a href="/team" title="{{ .T "Who is working on this thing?" }}"><i class="users icon"></i>{{ .T "Team" }}</a> |
 			<a href="https://docs.ripple.moe" title="59 6f 75 27 72 65 20 73 6f 20 31 33 33 37 2e"><i class="wrench icon"></i>{{ .T "Developer docs" }}</a> |
