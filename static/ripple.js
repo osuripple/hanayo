@@ -194,7 +194,15 @@ var singlePageSnippets = {
     $('#memoji').lsxEmojiPicker({
       twemoji: true,
       onSelect: function(emoji) {
-        var e = twemoji.convert.fromCodePoint(emoji.value.replace('&#x', ''));
+        // Flag emojis support,
+        // convert each code point and concatenate everything
+        var e = '';
+        emoji.value.split('&#x').forEach(function(x) {
+          if (x.length > 0) {
+            e += twemoji.convert.fromCodePoint(x.replace('&#x', ''))
+          }
+        });
+        
         $("input[name='custom_badge.icon']").val(e);
         $("#custom-badge-fields .badge>.twemoji").text(e);
         twemoji.parse($("#custom-badge-fields .badge")[0]);
