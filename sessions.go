@@ -19,7 +19,9 @@ func sessionInitializer() func(c *gin.Context) {
 
 		var passwordChanged bool
 		userid := sess.Get("userid")
+		var hasUser bool
 		if userid, ok := userid.(int); ok {
+			hasUser = true
 			ctx.User.ID = userid
 			var (
 				pRaw     int64
@@ -63,11 +65,13 @@ func sessionInitializer() func(c *gin.Context) {
 			}
 		}
 
-		if v, ok := sess.Get("avatars_version").(uint64); ok {
-			ctx.AvatarsVersion = v
-		} else {
-			ctx.AvatarsVersion = 0
-			sess.Set("avatars_version", 0)
+		if hasUser {
+			if v, ok := sess.Get("avatars_version").(uint64); ok {
+				ctx.AvatarsVersion = v
+			} else {
+				ctx.AvatarsVersion = 0
+				sess.Set("avatars_version", 0)
+			}
 		}
 
 		var addBannedMessage bool
