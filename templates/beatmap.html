@@ -70,9 +70,8 @@
 			// defaults to 0
 			var currentMode = {{ atoi (.Gin.Query "mode") }};
 			var currentRelax = {{ atoi (.Gin.Query "relax") }};
-			var currentModeChanged = false;
 			var favMode = parseInt({{ $favModeRaw.favourite_mode }}) || 0;
-			var favRelax = parseInt({{ if (.Gin.Query "relax") }}{{ .Gin.Query "relax" }}{{ else }}{{ $favRelax }}{{ end }}) || 0;
+			var favRelax = parseInt({{ $favRelax }}) || 0;
 		</script>
 
 		<div class="ui four item menu" id="mode-menu">

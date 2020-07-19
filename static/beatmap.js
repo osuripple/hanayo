@@ -1,5 +1,4 @@
 (function() {
-  var currentRelax = favRelax;
   var mapset = {};
   setData.ChildrenBeatmaps.forEach(function(diff) {
     mapset[diff.BeatmapID] = diff;
@@ -64,17 +63,26 @@
 
     // hide mode for non-std maps
     if (diff.Mode != 0) {
-      currentMode = (currentModeChanged ? currentMode : favMode);
+      // Non-std! Force right game mode
+      currentMode = diff.Mode;
       $("#mode-menu").hide();
     } else {
-      currentMode = diff.Mode;
+      // Std, all modes supported
+      // Choose fav if no mode qs param was provided
+      if (currentMode === null) {
+        currentMode = favMode;
+      }
       $("#mode-menu").show();
       $("#relax-menu").show();
     }
 
     // hide classic/relax switcher for mania only-maps
     if (diff.Mode == 3) {
+      currentRelax = 0;
       $("#relax-menu").hide();
+    } else if (currentRelax === null) {
+      // Chose fav if no relax qs param was provided
+      currentRelax = favRelax;
     }
 
     // update mode menu
@@ -83,7 +91,6 @@
 
     // brico meiser
     $("#relax-menu>[data-relax=" + favRelax + "]").addClass("active");
-
     loadLeaderboard(bid, currentMode, currentRelax);
   }
   window.loadLeaderboard = loadLeaderboard;
@@ -110,7 +117,6 @@
         $("#relax-menu>[data-relax=1]").removeClass("disabled");
       }
       loadLeaderboard(beatmapID, currentMode, currentRelax);
-      currentModeChanged = true;
     });
   $("#relax-menu .item")
     .click(function(e) {
