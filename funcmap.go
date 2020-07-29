@@ -440,8 +440,25 @@ var funcMap = template.FuncMap{
 	// systemSetting retrieves some information from the table system_settings
 	"systemSettings": systemSettings,
 	// authCodeURL gets the auth code for discord
-	"authCodeURL": func(u int) string {
-		return getDiscord().AuthCodeURL(mustCSRFGenerate(u))
+	"authCodeURL": func(u int) *string {
+		d, err := http.Get(
+			fmt.Sprintf(
+				config.OldFrontend+"/discord/oauth.php?k=%s&uid=%d",
+				config.DonorBotSecret, u,
+			),
+		)
+		if err != nil {
+			return nil
+		}
+		x := make(map[string]interface{})
+		data, _ := ioutil.ReadAll(d.Body)
+		json.Unmarshal(data, &x)
+		var s string
+		var ok bool
+		if s, ok = x["url"].(string); !ok {
+			return nil
+		}
+		return &s
 	},
 	// perc returns a percentage
 	"perc": func(i, total float64) string {

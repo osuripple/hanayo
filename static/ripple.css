@@ -468,3 +468,13 @@ img.locked-achievement:hover {
     will-change: transform;
     z-index: -1;
 }
+
+.minicolors-theme-default .minicolors-swatch {
+	top: 25% !important;
+}
+.minicolors-theme-default .minicolors-input {
+	height: 100% !important;
+}
+.minicolors-theme-default.minicolors {
+	width: 100% !important;
+}

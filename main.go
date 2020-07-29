@@ -80,6 +80,8 @@ var (
 		DonorBotURL        string
 		DonorBotSecret     string
 
+		OldFrontend string
+
 		CoinbaseAPIKey    string
 		CoinbaseAPISecret string
 
@@ -309,6 +311,7 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/2fa/disable", disable2fa)
 	r.POST("/settings/2fa/totp", totpSetup)
 	r.GET("/settings/discord/finish", discordFinish)
+	r.GET("/settings/discord/unlink", discordUnlink)
 	r.POST("/settings/profbackground/:type", profBackground)
 
 	r.POST("/dev/tokens/create", createAPIToken)
