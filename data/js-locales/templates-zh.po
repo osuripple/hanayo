@@ -92,7 +92,7 @@ msgstr "达成日期"
 
 # Game mode, like osu! standard, not like HR
 msgid "Mode"
-msgstr ""
+msgstr "模式"
 
 # (No mods used)
 msgid "None"

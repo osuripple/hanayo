@@ -21,7 +21,7 @@
     day: "1天",
     days: "%d天",
     month: "大约1个月",
-    months: "%d月",
+    months: "%d个月",
     year: "大约1年",
     years: "%d年",
     numbers: [],

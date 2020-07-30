@@ -79,10 +79,10 @@ msgid "Remember: this seems like it's your second account! Do not multiaccount, 
 msgstr "请记住：这似乎是你的第二个帐户！请勿开小号，否则你可能会遭到封禁！"
 
 msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
-msgstr "用户名 (2-15个英文或数字，空格。可用<code>_[]-</code>)"
+msgstr "用户名（2-15个英文或数字，空格。可用<code>_[]-</code>）"
 
 msgid "Password (at least 8 characters)"
-msgstr "密码 (至少8个字符)"
+msgstr "密码（至少8个字符）"
 
 msgid "Email"
 msgstr "邮箱"
@@ -268,11 +268,11 @@ msgid "Log in"
 msgstr "登录"
 
 msgid "Username (or email)"
-msgstr "用户名 (或邮箱)"
+msgstr "用户名（或邮箱）"
 
 # in relationship to a password
 msgid "(forgot?)"
-msgstr "(忘了？)"
+msgstr "（忘记密码？）"
 
 msgid "Username or password not set."
 msgstr "用户名或密码未设置。"
@@ -375,7 +375,7 @@ msgid "Welcome to Ripple."
 msgstr "欢迎来到 Ripple"
 
 msgid "Ripple is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://zxq.co/ripple/ripple'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>"
-msgstr "Ripple 是一个 osu! 私服，拥有多人游戏，PP，一个非常活跃的社区以及一支开发团队。<a href='/about'>你可以在这里了解 Ripple 的全部功能</a>。它也有一个非常友好的社区，并且<a href='https://zxq.co/ripple/ripple'>开放源码</a>！<b>我们已经拥有 %s 个在线玩家以及超过 %s 位注册用户！</b>"
+msgstr "Ripple 是一个 osu! 私服，拥有多人游戏，PP，一个非常活跃的社区以及一支开发团队。<a href='/about'>你可以在这里了解 Ripple 的全部功能</a>。它也有一个非常友好的社区，并且<a href='https://zxq.co/ripple/ripple'>开放源码</a>！<b>我们拥有 %s 个在线玩家以及 %s 位注册用户！</b>"
 
 msgid "What are you waiting for? Join Ripple! It's risk-free: you won't get your account banned on the official server if you play on Ripple.<br>You can also switch anytime between the official osu! server and Ripple!"
 msgstr "还在等什么？加入 Ripple！它是无风险的：你在 Ripple 上游玩不会影响到你的官方服务器账户。你也可以随时在 Ripple 服务器和 osu! 官方服务器之间切换！"
@@ -384,7 +384,7 @@ msgid "Howdy, %s!"
 msgstr "你好，%s！"
 
 msgid "Welcome back to Ripple. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?"
-msgstr "欢迎回到 Ripple。目前，我们有<b> %s 个在线玩家和超过 %s 位注册用户。</b>美好的一天，从刷pp开始，不是吗？"
+msgstr "欢迎回到 Ripple。目前，我们拥有<b> %s 个在线玩家和 %s 位注册用户。</b>美好的一天，从刷pp开始，不是吗？"
 
 msgid "Latest news from our blog"
 msgstr "来自我们博客的最新消息"
@@ -613,7 +613,7 @@ msgstr "好像没有关于此实例的帮助文档！"
 
 # friends.html
 msgid "On this page you can see all of your friends, and unfriend them as you see fit."
-msgstr "你可以看到你所有已添加的好友，并在你可以在合适的时时候删掉一些好友。人生有梦，各自精彩！"
+msgstr "你可以看到你所有已添加的好友，并在合适的时候删掉他们。人生有梦，各自精彩！"
 
 msgid "Mutual"
 msgstr "Mutual"
