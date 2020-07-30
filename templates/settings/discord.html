@@ -12,7 +12,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 		{{ template "settingsSidebar" . }}
 		<div class="twelve wide column">
 			<div class="ui segment">
-				{{ $q := qb "SELECT discordid FROM discord_roles WHERE userid = ? LIMIT 1" .Context.User.ID }}
+				{{ $q := qb "SELECT discordid, name, colour FROM discord_roles WHERE userid = ? LIMIT 1" .Context.User.ID }}
 				{{ if $q.discordid }}
 				<p>
 					{{ .T "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord." | html }}
@@ -21,11 +21,11 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 					{{ csrfGenerate .Context.User.ID }}
 					<div class="ui field">
 						<label>{{ .T "Custom role name" }}</a></label>
-						<input type="text" name="name" required>
+						<input type="text" name="name" value="{{ $q.name }}" required>
 					</div>
 					<div class="ui field">
 						<label>{{ .T "Colour" }}</a></label>
-						<input type="text" value="#dabeef" id="colorpicker" name="colour" required>
+						<input type="text" value="#{{ $q.colour }}" id="colorpicker" name="colour" required>
 					</div>
 					<div class="ui divider"></div>
 					<div style="text-align: right;">
