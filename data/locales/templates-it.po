@@ -1970,3 +1970,6 @@ msgstr "Nome del ruolo personalizzato"
 
 msgid "Colour"
 msgstr "Colore"
+
+msgid "Donor"
+msgstr "Donatore"

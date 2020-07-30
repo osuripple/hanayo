@@ -1342,3 +1342,6 @@ msgstr ""
 
 msgid "Colour"
 msgstr ""
+
+msgid "Donor"
+msgstr ""
