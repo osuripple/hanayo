@@ -27,7 +27,8 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 					</div>
 					<div class="ui field">
 						<label>{{ .T "Colour" }}</a></label>
-						<input type="text" value="#{{ $q.colour }}" id="colorpicker" name="colour" required>
+						<input type="text" value="#{{ $q.colour }}" id="colorpicker" name="colour" required
+							autocomplete="off">
 					</div>
 					<div class="ui divider"></div>
 					<div style="text-align: right;">
