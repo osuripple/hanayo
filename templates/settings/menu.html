@@ -18,13 +18,11 @@ NoCompile=true
 
 		{{ navbarItem .Path (.T "Authorized applications") "/settings/authorized_applications" }}
 
+		{{ $d := printf `<div class="ui violet horizontal mini label">%s</div>` (.T "Donor") }}
 		{{/* Stuff for donators */}}
-		{{ if has .Context.User.Privileges 4 }}
-			{{ navbarItem .Path (.T "Discord donor") "/settings/discord" }}
+		{{ navbarItem .Path (printf "%s %s" (.T "Discord donor") $d) "/settings/discord" }}
 
-			{{ navbarItem .Path (.T "Profile background") "/settings/profbackground" }}
-
-		{{ end }}
+		{{ navbarItem .Path (printf "%s %s" (.T "Profile background") $d) "/settings/profbackground" }}
 	</div>
 </div>
 {{ end }}

@@ -3,7 +3,6 @@ Handler=/settings/discord
 TitleBar=Discord donor
 KyutGrill=settings2.jpg
 Include=menu.html
-MinPrivileges=6
 AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jquery.minicolors.min.js
 */}}
 {{ define "tpl" }}
@@ -12,6 +11,9 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 		{{ template "settingsSidebar" . }}
 		<div class="twelve wide column">
 			<div class="ui segment">
+				{{ if not (has .Context.User.Privileges 4) }}
+				{{ template "donor_locked" }}
+				{{ else }}
 				{{ $q := qb "SELECT discordid, IFNULL(name, '') AS name, IFNULL(colour, '') AS colour FROM discord_roles WHERE userid = ? LIMIT 1" .Context.User.ID }}
 				{{ if $q.discordid }}
 				<p>
@@ -61,6 +63,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 					<a tabindex="1" class="ui red labeled icon button" href="{{ authCodeURL .Context.User.ID }}"><i
 							class="heart icon"></i> {{ .T "Get Discord donor privileges" }}</a>
 				</p>
+				{{ end }}
 				{{ end }}
 			</div>
 		</div>

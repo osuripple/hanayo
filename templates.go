@@ -26,6 +26,7 @@ var baseTemplates = [...]string{
 	"templates/base.html",
 	"templates/navbar.html",
 	"templates/simplepag.html",
+	"templates/donor_locked.html",
 }
 var simplePages []templateConfig
 
