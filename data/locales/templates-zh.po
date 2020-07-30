@@ -931,8 +931,8 @@ msgstr "选择文件"
 msgid "Save"
 msgstr "保存"
 
-msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord. If you want to change your nickname, you can use the <code>/nick</code> command. To set or edit your <b>custom role</b> name and colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\"_blank\">here</a>, it's the one that starts with '#'. You can change your role name and colour <b>whenever you want!</b>"
-msgstr "你的 Discord 已连接到 Ripple 帐户。<b>欢迎来到 Donors Club 并再次感谢你的支持！</b>你现在可以在我们的官方 Discord 服务器上访问 #donators 频道！你还可以设置自定义身份组名称和颜色，并在 Discord 上更改昵称。如果你想修改你的昵称，请使用 <code>/nick</code> 命令。如果你想修改你的<b>自定义身份组</b>名称和颜色，请使用 <code>!role HEX_COLOUR ROLE_NAME</code> 命令，你可以在<a href=\"http://www.colorpicker.com/\" target=\"_blank\">这里</a>找到你想要的 HEX 颜色代码，他通常以 \"#\" 开头。你可以随时更改它们。"
+msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord."
+msgstr ""
 
 msgid "Thank you for supporting us and have fun on Ripple!"
 msgstr "感谢你的支持，在 Ripple 上玩得开心！"
@@ -1331,4 +1331,10 @@ msgid "Chat message"
 msgstr ""
 
 msgid "Notification"
+msgstr ""
+
+msgid "Custom role name"
+msgstr ""
+
+msgid "Colour"
 msgstr ""

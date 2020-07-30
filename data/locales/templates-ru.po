@@ -1970,3 +1970,9 @@ msgstr ""
 
 msgid "Notification"
 msgstr ""
+
+msgid "Custom role name"
+msgstr ""
+
+msgid "Colour"
+msgstr ""

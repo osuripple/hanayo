@@ -1289,18 +1289,7 @@ msgstr ""
 
 msgid "Save"
 msgstr ""
-
-msgid ""
-"Your discord account has been linked to this Ripple account. <b>Welcome to "
-"the donors club and thank you for supporting us!</b> You have now access to "
-"the #donators text and voice channels on our official Discord server! You "
-"can also set a custom role name and username colour and change your nickname "
-"on Discord. If you want to change your nickname, you can use the "
-"<code>/nick</code> command. To set or edit your <b>custom role</b> name and "
-"colour, use the command <code>!role HEX_COLOUR ROLE_NAME</code>. You can "
-"pick your HEX colour <a href=\"http://www.colorpicker.com/\" target=\""
-"_blank\">here</a>, it's the one that starts with '#'. You can change your "
-"role name and colour <b>whenever you want!</b>"
+msgid "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord."
 msgstr ""
 
 msgid "Thank you for supporting us and have fun on Ripple!"
@@ -1769,4 +1758,10 @@ msgid "Chat message"
 msgstr ""
 
 msgid "Notification"
+msgstr ""
+
+msgid "Custom role name"
+msgstr ""
+
+msgid "Colour"
 msgstr ""
