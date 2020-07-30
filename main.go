@@ -75,12 +75,12 @@ var (
 		RecaptchaSite    string
 		RecaptchaPrivate string
 
-		DiscordOAuthID     string
-		DiscordOAuthSecret string
-		DonorBotURL        string
+		DiscordOAuthID     string `description:"Deprecated, leave empty"`
+		DiscordOAuthSecret string `description:"Deprecated, leave empty"`
+		DonorBotURL        string `description:"Deprecated, leave empty"`
 		DonorBotSecret     string
 
-		OldFrontend string
+		OldFrontend string `description:"Used for new DonorBot"`
 
 		CoinbaseAPIKey    string
 		CoinbaseAPISecret string
