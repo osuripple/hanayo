@@ -2,6 +2,11 @@
 NoCompile=true
 */}}
 {{ define "settingsSidebar" }}
+{{ $ds := band (.ClientFlags) 1 }}
+{{ $dCol := "violet" }}
+{{ if $ds }}
+{{ $dCol = "blue" }}
+{{ end }}
 <div class="four wide column">
 	<div class="ui fluid vertical menu">
 		{{ navbarItem .Path (.T "Profile") "/settings" }}
@@ -17,12 +22,11 @@ NoCompile=true
 		{{ navbarItem .Path (.T "Two Factor Authentication") "/settings/2fa" }}
 
 		{{ navbarItem .Path (.T "Authorized applications") "/settings/authorized_applications" }}
+		{{ $d := printf `<div class="ui %s horizontal mini label">%s</div>` ($dCol) (.T "Donor") }}
+	{{/* Stuff for donators */}}
+	{{ navbarItem .Path (printf "%s %s" (.T "Discord donor") $d) "/settings/discord" }}
 
-		{{ $d := printf `<div class="ui violet horizontal mini label">%s</div>` (.T "Donor") }}
-		{{/* Stuff for donators */}}
-		{{ navbarItem .Path (printf "%s %s" (.T "Discord donor") $d) "/settings/discord" }}
-
-		{{ navbarItem .Path (printf "%s %s" (.T "Profile background") $d) "/settings/profbackground" }}
-	</div>
+	{{ navbarItem .Path (printf "%s %s" (.T "Profile background") $d) "/settings/profbackground" }}
+</div>
 </div>
 {{ end }}

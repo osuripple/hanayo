@@ -1341,3 +1341,9 @@ msgstr ""
 
 msgid "Donor"
 msgstr ""
+
+msgid "This feature is available only to donors"
+msgstr ""
+
+msgid "<a href='/donate'>Purchase donor</a> to support us and unlock this feature, and many more!"
+msgstr ""

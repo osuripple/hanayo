@@ -1973,3 +1973,9 @@ msgstr "Colore"
 
 msgid "Donor"
 msgstr "Donatore"
+
+msgid "This feature is available only to donors"
+msgstr "Questa funzionalità è disponibile soltanto per i donatori"
+
+msgid "<a href='/donate'>Acquista il donor</a> per supportarci e sbloccare questa funzionalità, e molte altre!"
+msgstr ""

@@ -7,6 +7,7 @@ MinPrivileges=2
 AdditionalJS=/static/jquery.lsxemojipicker.js
 */}}
 {{ define "tpl" }}
+{{ $ds := band (.ClientFlags) 1 }}
 <div class="ui container">
 	<div class="ui stackable grid">
 		{{ template "settingsSidebar" . }}
@@ -52,10 +53,12 @@ AdditionalJS=/static/jquery.lsxemojipicker.js
 					</div>
 					<h3 class="ui header">
 						{{ .T "Custom badge" }}
-						<div class="ui violet horizontal mini label">{{ .T "Donor" }}</div>
+						<div class="ui {{ if $ds }}blue{{ else }}violet{{ end }} horizontal mini label">
+							{{ .T "Donor" }}
+						</div>
 					</h3>
 					{{ if not (has .Context.User.Privileges 4) }}
-					{{ template "donor_locked" }}
+					{{ template "donor_locked" . }}
 					{{ else }}
 					<div class="ui warning message">
 						{{ .T "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore." | html}}

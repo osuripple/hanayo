@@ -13,7 +13,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 		<div class="twelve wide column">
 			<div class="ui {{ if $isDonor }}center aligned{{ end }}  segment">
 				{{ if not $isDonor}}
-				{{ template "donor_locked" }}
+				{{ template "donor_locked" . }}
 				{{ else }}
 				{{ $d := qb "SELECT type, value FROM profile_backgrounds WHERE uid = ? LIMIT 1" .Context.User.ID }}
 				{{ $type  := or $d.type.Int -1 }}

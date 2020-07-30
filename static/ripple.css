@@ -478,3 +478,6 @@ img.locked-achievement:hover {
 .minicolors-theme-default.minicolors {
 	width: 100% !important;
 }
+.black.ds {
+	color: white !important;
+}

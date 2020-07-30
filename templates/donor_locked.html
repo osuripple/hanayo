@@ -1,13 +1,13 @@
 {{ define "donor_locked" }}
-<div class="ui icon message">
+{{ $ds := band (.ClientFlags) 1 }}
+<div class="ui icon message {{ if $ds }}black ds{{ end }}">
     <i class="lock icon"></i>
     <div class="content">
         <div class="header">
-            This feature is available only to donors
+            {{ .T "This feature is available only to donors" }}
         </div>
         <p>
-            <a href="/donate">Purchase donor</a>
-            to support us and unlock this feature, and many more!
+            {{ .T "<a href='/donate'>Purchase donor</a> to support us and unlock this feature, and many more!" | html }}
         </p>
     </div>
 </div>
