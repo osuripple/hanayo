@@ -45,7 +45,6 @@ var (
 		BaseURL         string
 		API             string
 		BanchoAPI       string `description:"Bancho base url (without /api) that hanayo will use to contact bancho"`
-		BanchoAPIPublic string `description:"same as above but this will be put in js files and used by clients. Must be publicly accessible. Leave empty to set to BanchoAPI"`
 		CheesegullAPI   string
 		APISecret       string
 		Offline         bool `description:"If this is true, files will be served from the local server instead of the CDN."`
@@ -213,11 +212,6 @@ func main() {
 
 	conf.Export(config, "hanayo.conf")
 
-	// default BanchoAPIPublic to BanchoAPI if not set
-	// we must do this after exporting the config
-	if config.BanchoAPIPublic == "" {
-		config.BanchoAPIPublic = config.BanchoAPI
-	}
 	configMap = structs.Map(config)
 
 	fmt.Println("Intialisation:", time.Since(startTime))

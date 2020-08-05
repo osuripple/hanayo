@@ -569,22 +569,6 @@ $(document)
         document.cookie = "language=" + lang + ";path=/;max-age=31536000";
         window.location.reload();
       });
-
-    // Color navbar avatar (if we're logged in) based on our bancho status
-    // (propritize bancho over irc)
-    if (isLoggedIn()) {
-      banchoAPI('clients/' + currentUserID, {}, function (resp) {
-        var onlineClass = "offline";
-        resp.clients.forEach(function (el) {
-          if (el.type === 0) {
-            onlineClass = "online";
-          } else if (el.type === 1 && onlineClass !== "online") {
-            onlineClass = "irc";
-          }
-        });
-        $("#avatar").addClass(onlineClass);
-      })
-    }
   });
 
 function closeClosestMessage() {
@@ -649,18 +633,6 @@ function _api(base, endpoint, data, success, failure, post, handleAllFailures) {
 
 function api(endpoint, data, success, failure, post, handleAllFailures) {
   return _api(hanayoConf.baseAPI + "/api/v1/", endpoint, data, success, failure, post, handleAllFailures);
-}
-
-function banchoAPI(endpoint, data, success, failure, post, handleAllFailures) {
-  // By default, ignore all bancho api failures (do not display messages on the website)
-  if (typeof failure === "undefined") {
-    handleAllFailures = true;
-    failure = function (data) {
-      console.warn("Silently failing.");
-      console.warn(data);
-    };
-  }
-  return _api(hanayoConf.banchoAPI + "/api/v2/", endpoint, data, success, failure, post, handleAllFailures);
 }
 
 var modes = {
