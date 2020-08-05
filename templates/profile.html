@@ -76,10 +76,12 @@
 								{{ $global.T "(aka <b>%s</b>)" (.username_aka | htmlescaper) | html }}
 							</div>
 						{{ end }}
-						<div id="online" class="subtitle">
-							<i class="circle notched loading icon"></i>
-							<span></span>
-						</div>
+						{{ with bgetv1 "isOnline?id=%.0f" .id }}
+							<div class="subtitle">
+								<i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
+								{{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }}
+							</div>
+						{{ end }}
 					</div>
 				</div>
 				<div class="magic table floating right">
