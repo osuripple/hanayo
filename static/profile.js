@@ -83,77 +83,78 @@ function formatOnlineStatusBeatmap(a) {
 
 function loadOnlineStatus() {
 	// load in-game status through delta api
-	banchoAPI('clients/' + userID, {}, function(resp) {
+	banchoAPI('clients/' + currentUserID, {}, function(resp) {
 
 		var client = null;
 		resp.clients.forEach(function (el) {
 			if (el.type === 0 || client === null) {
 				client = el
 			}
-		});
-		if (client !== null) {
-			var icon;
-			var text;
-			switch (client.type) {
-				case 1: {
-					// irc
-					icon = 'blue comment';
-					text = 'Online through IRC';
-				}; break;
-				case 0: {
-					// bancho
-					switch (client.action.id) {
-						case 1: {
-							icon = 'bed';
-							text = 'AFK';
-						}; break
-						case 2: {
-							icon = 'teal play circle';
-							text = "Playing " + formatOnlineStatusBeatmap(client.action);
-						}; break
-						case 3: {
-							icon = 'orange paint brush';
-							text = "Editing " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						case 4: {
-							icon = 'violet paint brush';
-							text = "Modding " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						case 5: {
-							icon = 'olive gamepad';
-							text = "In Multiplayer Match";
-						}; break;
-						case 12: {
-							icon = 'green play circle';
-							text = "Multiplaying " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						case 11: {
-							icon = 'orange map signs';
-							text = "In Multiplayer Lobby";
-						}; break;
-						case 6: {
-							icon = 'pink eye';
-							text = "Spectating " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						default: {
-							icon = 'green circle';
-							text = 'Online';
-						};
-					}
-				}; break;
-				case 2: {
-					// ws
-					icon = 'green cogs';
-					text = 'Online';
-				}; break
+			if (client !== null) {
+				console.log(client);
+				var icon;
+				var text;
+				switch (client.type) {
+					case 1: {
+						// irc
+						icon = 'blue comment';
+						text = 'Online through IRC';
+					}; break;
+					case 0: {
+						// bancho
+						switch (client.action.id) {
+							case 1: {
+								icon = 'bed';
+								text = 'AFK';
+							}; break
+							case 2: {
+								icon = 'teal play circle';
+								text = "Playing " + formatOnlineStatusBeatmap(client.action);
+							}; break
+							case 3: {
+								icon = 'orange paint brush';
+								text = "Editing " + formatOnlineStatusBeatmap(client.action);
+							}; break;
+							case 4: {
+								icon = 'violet paint brush';
+								text = "Modding " + formatOnlineStatusBeatmap(client.action);
+							}; break;
+							case 5: {
+								icon = 'olive gamepad';
+								text = "Multiplayer";
+							}; break;
+							case 5: {
+								icon = 'green play circle';
+								text = "Multiplaying " + formatOnlineStatusBeatmap(client.action);
+							}; break;
+							case 11: {
+								icon = 'orange map signs';
+								text = "In Multiplayer Lobby";
+							}; break;
+							case 5: {
+								icon = 'pink eye';
+								text = "Spectating " + formatOnlineStatusBeatmap(client.action);
+							}; break;
+							default: {
+								icon = 'green circle';
+								text = 'Online';
+							};
+						}
+					}; break;
+					case 2: {
+						// ws
+						icon = 'green cogs';
+						text = 'Online';
+					}; break
+				}
+			} else {
+				// offline
+				icon = 'circle';
+				text = 'Offline'
 			}
-		} else {
-			// offline
-			icon = 'circle';
-			text = 'Offline'
-		}
-		$('#online>.icon').attr('class', icon + ' icon');
-		$('#online>span').html(text);
+			$('#online>.icon').attr('class', icon + ' icon');
+			$('#online>span').html(text);
+		})
 	});
 }
 
