@@ -153,7 +153,18 @@
 		</script>
 		{{/* If we got some more scripts to print, print'em */}}
 		<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2"></script>
-		<script src="/static/dist.min.js?{{ unixNano }}"></script>
+
+		<!-- CDN scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.5/jquery.timeago.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/15.0.9/i18next.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/2.0.1/i18nextXHRBackend.min.js"></script>
+
+		<!-- Local scripts -->
+		<script src="/static/semantic.min.js?{{ unixNano }}"></script>
+		<script src="/static/key_plural.js?{{ unixNano }}"></script>
+		<script src="/static/ripple.js?{{ unixNano }}"></script>
+
 		{{ with $lang }}
 			<script src="/static/timeago-locale/jquery.timeago.{{ . }}.js"></script>
 		{{ end }}
