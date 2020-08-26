@@ -21,9 +21,6 @@ steps:
       - name: cache
         path: /cache
     secrets: [git_username, git_password]
-    when:
-      event:
-        - push
 
   - name: package-docker
     image: plugins/docker
@@ -59,6 +56,9 @@ steps:
       target:
         - production
 
+image_pull_secrets:
+  - docker_registry_credentials
+
 volumes:
   - name: cache
     host:
@@ -66,3 +66,4 @@ volumes:
   - name: docker
     host:
       path: /var/cache/${DRONE_REPO}/docker
+
