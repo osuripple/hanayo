@@ -20,7 +20,7 @@ steps:
     volumes:
       - name: cache
         path: /cache
-    secrets: [ git_username, git_password ]
+    secrets: [git_username, git_password]
 
   - name: package-docker
     image: plugins/docker
@@ -33,10 +33,25 @@ steps:
       repo: d.nyodev.xyz/ripple/hanayo
       use_cache: true
       purge: false
-    secrets: [ docker_username, docker_password ]
+    secrets: [docker_username, docker_password]
     volumes:
       - name: docker
         path: /var/lib/docker
+
+  - name: deploy
+    image: d.nyodev.xyz/ripple-drone/deploy
+    settings:
+      service: hanayo
+      secret:
+        from_secret: deploy_secret
+      url:
+        from_secret: deploy_url
+    secrets: [deploy_secret, deploy_url]
+    when:
+      event:
+        - promote
+      target:
+        - production
 
 volumes:
   - name: cache
