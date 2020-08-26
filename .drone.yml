@@ -21,6 +21,9 @@ steps:
       - name: cache
         path: /cache
     secrets: [git_username, git_password]
+    when:
+      event:
+        - push
 
   - name: package-docker
     image: plugins/docker
@@ -37,6 +40,9 @@ steps:
     volumes:
       - name: docker
         path: /var/lib/docker
+    when:
+      event:
+        - push
 
   - name: deploy
     image: d.nyodev.xyz/ripple-drone/deploy
