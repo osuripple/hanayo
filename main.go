@@ -87,6 +87,8 @@ var (
 		SentryDSN string
 
 		IP_API string
+
+		FathomID string
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
