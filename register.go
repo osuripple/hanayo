@@ -11,7 +11,7 @@ import (
 
 	"github.com/asaskevich/govalidator"
 	"github.com/gin-gonic/gin"
-	"github.com/ripple-shit/api/common"
+	"github.com/kawata-wip/api/common"
 	schiavo "zxq.co/ripple/schiavolib"
 )
 

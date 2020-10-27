@@ -21,12 +21,12 @@ import (
 	"github.com/thehowl/qsql"
 	"golang.org/x/oauth2"
 	discordoauth "zxq.co/ripple/go-discord-oauth"
-	"github.com/ripple-shit/hanayo/modules/bbcode"
-	"github.com/ripple-shit/hanayo/modules/btcaddress"
-	"github.com/ripple-shit/hanayo/modules/doc"
-	fasuimappings "github.com/ripple-shit/hanayo/modules/fa-semantic-mappings"
+	"github.com/kawata-wip/hanayo/modules/bbcode"
+	"github.com/kawata-wip/hanayo/modules/btcaddress"
+	"github.com/kawata-wip/hanayo/modules/doc"
+	fasuimappings "github.com/kawata-wip/hanayo/modules/fa-semantic-mappings"
 	"zxq.co/ripple/playstyle"
-	"github.com/ripple-shit/api/common"
+	"github.com/kawata-wip/api/common"
 )
 
 // funcMap contains useful functions for the various templates.

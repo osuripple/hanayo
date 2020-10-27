@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/ripple-shit/api/common"
+	"github.com/kawata-wip/api/common"
 	"zxq.co/x/rs"
 )
 

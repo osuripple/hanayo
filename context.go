@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ripple-shit/api/common"
+	"github.com/kawata-wip/api/common"
 )
 
 type context struct {

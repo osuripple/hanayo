@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ripple-shit/hanayo/modules/bbcode"
-	tp "github.com/ripple-shit/hanayo/modules/top-passwords"
+	"github.com/kawata-wip/hanayo/modules/bbcode"
+	tp "github.com/kawata-wip/hanayo/modules/top-passwords"
 )
 
 //go:generate go run scripts/generate_mappings.go -g

@@ -1,4 +1,4 @@
-module zxq.co/ripple/hanayo
+module github.com/kawata-wip/hanayo
 
 go 1.14
 
@@ -40,8 +40,8 @@ require (
 	github.com/pkg/errors v0.8.0 // indirect
 	github.com/pquerna/otp v1.0.0
 	github.com/rcrowley/goagain v0.0.0-20140424170347-f2f192b5d1a9
-	github.com/ripple-shit/api v0.0.0-20200815195604-776aec62b029
-	github.com/ripple-shit/hanayo v1.8.6
+	github.com/kawata-wip/api v0.0.0-20200815195604-776aec62b029
+	github.com/kawata-wip/hanayo v1.8.6
 	github.com/rjeczalik/notify v0.0.0-20180103131905-27b537f07230
 	github.com/russross/blackfriday v2.0.0+incompatible
 	github.com/shurcooL/sanitized_anchor_name v0.0.0-20170918181015-86672fcb3f95 // indirect

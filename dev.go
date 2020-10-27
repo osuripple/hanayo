@@ -18,7 +18,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/nfnt/resize"
-	"github.com/ripple-shit/api/common"
+	"github.com/kawata-wip/api/common"
 	"zxq.co/x/rs"
 )
 
