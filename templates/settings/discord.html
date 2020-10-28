@@ -17,7 +17,7 @@ AdditionalJS=https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.2.4/jque
 				{{ $q := qb "SELECT discordid, IFNULL(name, '') AS name, IFNULL(colour, '') AS colour FROM discord_roles WHERE userid = ? LIMIT 1" .Context.User.ID }}
 				{{ if $q.discordid }}
 				<p>
-					{{ .T "Your discord account has been linked to this Ripple account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord." | html }}
+					{{ .T "Your discord account has been linked to this Kawata account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord." | html }}
 				</p>
 				<form action="/settings/discord" method="post" class="little top margin ui form">
 					{{ csrfGenerate .Context.User.ID }}

@@ -5,7 +5,7 @@
 <div class="ui secondary fixed-height stackable white background main menu no margin bottom{{ if .DisableHH }} dropped{{ end }}" id="navbar">
 	<div class="ui container">
 		<div class="item">
-			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text{{ if $ds }}-neg{{ end }}.svg" alt="Ripple"></a></b>
+			<b><a href="/" title="{{ .T "Home page" }}"><img class="ripple logo" src="/static/logos/text{{ if $ds }}-neg{{ end }}.svg" alt="Kawata"></a></b>
 		</div>
 		{{ if $isRAP }}
 			{{/*
@@ -19,8 +19,8 @@
 			<div class="ui dropdown item">
 				<span>{{ .T "Community" }}</span>
 				<div class="menu">
-					{{ navbarItem .Path (.T "Multiplayer listing") "https://vinse.ripple.moe" }}
-					{{/* {{ navbarItem .Path (.T "Tournaments") "https://tourn.ripple.moe" }} */}}
+					{{ navbarItem .Path (.T "Multiplayer listing") "https://vinse.kawata.pw" }}
+					{{/* {{ navbarItem .Path (.T "Tournaments") "https://tourn.kawata.pw" }} */}}
 					<div class="divider"></div>
 					{{ navbarItem .Path (.T "Discord Server") .Conf.DiscordServer }}
 				</div>
@@ -33,7 +33,7 @@
 					{{ navbarItem .Path (.T "Documentation") "/doc" }}
 					{{ navbarItem .Path (.T "Server switcher") "https://mu.nyodev.xyz/upd.php?id=18" }}
 					<div class="divider"></div>
-					{{ navbarItem .Path (.T "Contact support") "https://support.ripple.moe" }}
+					{{ navbarItem .Path (.T "Contact support") "mailto:accounts@kawata.pw" }}
 				</div>
 			</div>
 			{{ if .Context.User.Username }}
@@ -45,7 +45,7 @@
 			</div>
 			{{ end }}
 			{{ navbarItem .Path (.T "Donate" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
-			{{ if $isAdmin }}{{ navbarItem .Path (.T "RAP" | printf "<b>%s</b>") "https://old.ripple.moe/index.php?p=100" }}{{ end }}
+			{{ if $isAdmin }}{{ navbarItem .Path (.T "RAP" | printf "<b>%s</b>") "https://old.kawata.pw/index.php?p=100" }}{{ end }}
 		{{ end }}
 		<div class="firetrucking-right-menu">
 			<div class="item">

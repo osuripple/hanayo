@@ -106,7 +106,7 @@
 								</a>
 							{{ end }}
 							{{ if hasAdmin $global.Context.User.Privileges }}
-								<a href="https://old.ripple.moe/index.php?p=103&id={{ $global.UserID }}"
+								<a href="https://old.kawata.pw/index.php?p=103&id={{ $global.UserID }}"
 									target="_blank" title="Quick edit" class="ui circular mini blue icon button">
 									<i class="folder open outline icon"></i>
 								</a>
@@ -129,8 +129,8 @@
 				<div class="ui three column divided stackable grid">
 					<div class="row">
 						<div class="column">
-							{{ $global.T "<b>%s</b> is a Ripple player from <b>%s</b>." .username (country .country true) | html }}
-							<br>{{ $global.T "They signed up on Ripple %s." (time $user.registered_on) | html }}
+							{{ $global.T "<b>%s</b> is a Kawata player from <b>%s</b>." .username (country .country true) | html }}
+							<br>{{ $global.T "They signed up on Kawata %s." (time $user.registered_on) | html }}
 							<br>{{ $global.T "Last seen: %s." (time $user.latest_activity) | html }}
 							<br>{{ with playstyle .play_style $global }}{{ $global.T "They play with %s." . }}{{ end }}
 						</div>

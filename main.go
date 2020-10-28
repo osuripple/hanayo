@@ -340,5 +340,5 @@ func generateEngine() *gin.Engine {
 }
 
 const alwaysRespondText = `Ooops! Looks like something went really wrong while trying to process your request.
-Perhaps report this to a Ripple developer?
+Perhaps report this to a Kawata developer?
 Retrying doing again what you were trying to do might work, too.`

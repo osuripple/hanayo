@@ -8,13 +8,13 @@ KyutGrill=team2.jpg
 <div class="ui container">
 	<div class="ui segments">
 		<div class="ui center aligned segment">
-			<h3>{{ .T "This is a list of the wonderful people who keep Ripple up and running and deal with its community." }}</h3>
+			<h3>{{ .T "This is a list of the wonderful people who keep Kawata up and running and deal with its community." }}</h3>
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Community Managers" }}</h1>
 			<p>
 				{{ .T "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community." }}<br>
-				{{ .T "They take care of our Discord server and reply to emails sent to the support services (email and support.ripple.moe). Community Managers have a red name in the in-game chat." | html }}
+				{{ .T "They take care of our Discord server and reply to emails sent to the support services (accounts@kawata.pw). Community Managers have a red name in the in-game chat." | html }}
 			</p>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 4)) }}
 		</div>
@@ -44,30 +44,30 @@ KyutGrill=team2.jpg
 	<div class="ui segments">
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Special thanks" }}</h1>
-			<p>{{ .T "Here's a list of people who helped with Ripple." }}</p>
+			<p>{{ .T "Here's a list of people who helped with Kawata." }}</p>
 		</div>
 		<div class="ui segment">
 			<ul class="ui list">
 				<li>
 					{{ .T "<b>Franc[e]sco/lolisamurai</b>, for <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp calculator." | html }}<br>
-					oppai is licensed under GPL v3. Our implementation can be found <a href="https://zxq.co/ripple/lets/src/master/pp/rippoppai.py">here</a>.
+					oppai is licensed under GPL v3. Our implementation can be found <a href="https://github.com/kawatapw/lets/src/master/pp/rippoppai.py">here</a>.
 				</li>
 				<li>
 					{{ .T "<b>Tom94</b>, for <a href='https://github.com/ppy/osu-performance'>osu-performance</a>, used as a reference for our mania pp calculator." | html }}<br>
-					osu-performance is licensed under AGPL v3. Our implementation can be found <a href="https://zxq.co/ripple/lets/src/master/pp/wifipiano2.py">here</a>.
+					osu-performance is licensed under AGPL v3. Our implementation can be found <a href="https://github.com/kawatapw/lets/src/master/pp/wifipiano2.py">here</a>.
 				</li>
 				<li>
 					{{ .T "<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-pp</a>, used as catch the beat pp calculator." | html }}<br>
-					catch-the-pp is licensed under GPL v3. Our implementation can be found <a href="https://github.com/osuripple/catch-the-pp">here</a>.
+					catch-the-pp is licensed under GPL v3. Our implementation can be found <a href="https://github.com/kawatapw/catch-the-pp">here</a>.
 				</li>
-				<li>{{ .T "<b>Avail</b>, for having hosted Ripple on his server." | html }}</li>
-				<li>{{ .T "<b>Angela Guerra</b>, for designing the Ripple logo." | html }}</li>
-				<li>{{ .T "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people." | html }}</li>
+				<li>{{ .T "<b>Avail</b>, for having hosted Kawata on his server." | html }}</li>
+				<li>{{ .T "<b>Angela Guerra</b>, for designing the Kawata logo." | html }}</li>
+				<li>{{ .T "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Kawata project by donating or inviting other people." | html }}</li>
 			</ul>
 		</div>
 	</div>
 	{{ $ := . }}
-	{{ .T "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>." | html }}
+	{{ .T "Looking for how you should contact our team? Check out <a href='mailto:accounts@kawata.pw'>this page</a>." | html }}
 	<div class="ui modal">
 		<div class="header"><h2 class="ui header">{{ .T "They told me these are very cool people." }}</h2></div>
 		{{ with .Get "users?sort=donor_expire,desc&l=52" }}
