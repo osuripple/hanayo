@@ -531,10 +531,6 @@ var funcMap = template.FuncMap{
 	"hhmm": func(seconds float64) string {
 		return fmt.Sprintf("%02dh %02dm", int(math.Floor(seconds/3600)), int(math.Floor(seconds/60))%60)
 	},
-	"hasSnow": func() bool {
-		var now = time.Now()
-		return now.Month() == time.December || now.Month() == time.January
-	},
 	"avatarURL": func(ctx context, userID int) string {
 		return fmt.Sprintf("%s/%d?%d", config.AvatarURL, userID, ctx.AvatarsVersion)
 	},
