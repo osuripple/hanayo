@@ -386,9 +386,6 @@ msgstr ""
 msgid "Welcome back to Kawata. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?"
 msgstr ""
 
-msgid "Latest news from our blog"
-msgstr ""
-
 # base.html
 msgid "Kawata's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being."
 msgstr ""
@@ -415,9 +412,6 @@ msgid "See what changed!"
 msgstr ""
 
 msgid "Changelog"
-msgstr ""
-
-msgid "Blog"
 msgstr ""
 
 msgid "What's going on under the hood?"
@@ -1264,9 +1258,6 @@ msgid "Multiplayer listing"
 msgstr ""
 
 msgid "Discord Server"
-msgstr ""
-
-msgid "Read more"
 msgstr ""
 
 msgid "Connection guide"

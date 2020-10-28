@@ -59,31 +59,5 @@ KyutGrill=homepage2.jpg
 			{{ end }}
 		</div>
 	</div>
-	{{ with (.Get "blog/posts?l=5") }}
-		<div class="ui segments">
-			<div class="ui segment">
-				<h1 class="ui center aligned header">
-					{{ $.T "Latest news from our blog" | html }}
-				</h1>
-			</div>
-			{{ range $i, $v := .posts }}
-				<div class="ui segment">
-					<h1 class="ui header no top margin">
-						<a href="https://blog.kawata.pw/{{ $v.unique_slug }}" class="inherit">{{ html $v.title }}</a>
-						<div class="sub header"><a href="https://blog.kawata.pw/@{{ $v.creator.username }}">{{ $v.creator.name }}</a>, {{ time $v.created_at }}</div>
-					</h1>
-					<p>
-						{{ $v.snippet }}
-					</p>
-				</div>
-			{{ end }}
-			<div class="ui bottom attached pink center aligned segment">
-				<a class="ui pink button" href="https://blog.kawata.pw">
-					<i class="book icon"></i>
-					{{ $.T "Read more" }}
-				</a>
-			</div>
-		</div>
-	{{ end }}
 </div>
 {{ end }}

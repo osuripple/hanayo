@@ -84,32 +84,3 @@ func mustCSRFGenerate(u int) string {
 	}
 	return v
 }
-
-var blogRedirectMap = map[string]string{
-	"/posts/moving-to-a-new-server":                                      "https://blog.ripple.moe/moving-to-a-new-server-11155949edca",
-	"/posts/ripple-qa-3":                                                 "https://blog.ripple.moe/ripple-q-a-3-28c9851f42b3",
-	"/posts/hanayo-is-now-the-ripple-website":                            "https://blog.ripple.moe/hanayo-is-now-the-ripple-website-3bcfaab60c4f",
-	"/posts/ripple-qa-2":                                                 "https://blog.ripple.moe/ripple-q-a-2-1204be5ffeef",
-	"/posts/hanayo-is-live":                                              "https://blog.ripple.moe/hanayo-is-live-still-not-replacing-the-official-site-f2b751a5baf7",
-	"/posts/ripple-qa-1":                                                 "https://blog.ripple.moe/ripple-q-a-1-51181dd8df65",
-	"/posts/why-am-i-randomly-gaining-losing-pp":                         "https://blog.ripple.moe/why-am-i-randomly-gaining-losing-pp-595aedfdc5db",
-	"/posts/more-love-for-donors":                                        "https://blog.ripple.moe/more-love-for-donors-96c889a9d95f",
-	"/posts/happy-birthday-ripple":                                       "https://blog.ripple.moe/happy-birthday-ripple-fbc4bbc47936",
-	"/posts/going-back-open-source":                                      "https://blog.ripple.moe/going-back-open-source-a53469e15658",
-	"/posts/the-useless-things-we-make-during-weekends-series-continues": "https://blog.ripple.moe/the-useless-things-we-make-during-weekends-series-continues-1a06671ff5c2",
-	"/posts/performance-points-pp":                                       "https://blog.ripple.moe/performance-points-pp-d02e0353ad81",
-	"/posts/why-are-you-introducing-so-many-bugs-its-not-like-we-asked-for-them": "https://blog.ripple.moe/why-are-you-introducing-so-many-bugs-its-not-like-we-asked-for-them-c650a8ea9667",
-	"/posts/going-closed-source":       "https://blog.ripple.moe/going-closed-source-5c0a991f581f",
-	"/posts/changes-in-administration": "https://blog.ripple.moe/changes-in-administration-983114dc6332",
-	"/posts/its-dangerous-to-go-alone": "https://blog.ripple.moe/its-dangerous-to-go-alone-ef7fa98f2975",
-	"/posts/we-got-a-blog":             "https://blog.ripple.moe/we-got-a-blog-81a0af62b410",
-}
-
-func blogRedirect(c *gin.Context) {
-	a := c.Param("url")
-	red := blogRedirectMap[a]
-	if red == "" {
-		red = "https://blog.ripple.moe"
-	}
-	c.Redirect(301, red)
-}

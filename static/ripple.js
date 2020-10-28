@@ -868,7 +868,7 @@ function T(s, settings) {
 
 var apiPrivileges = [
   "ReadConfidential", "Write", "ManageBadges", "BetaKeys", "ManageSettings",
-  "ViewUserAdvanced", "ManageUser", "ManageRoles", "ManageAPIKeys", "Blog",
+  "ViewUserAdvanced", "ManageUser", "ManageRoles", "ManageAPIKeys",
   "APIMeta", "Beatmap", "Bancho"
 ];
 
