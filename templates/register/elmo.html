@@ -9,7 +9,6 @@ HeadingOnRight=true
 	<div class="ui raised segments">
 		<div class="ui segment">
 			{{ $username := .RequestInfo.Username }}
-			<img src="/static/jack_black.jpg" class="ui small right floated image" alt="Jack black">
 
 			<p>{{ .T "We see that you're trying to sign up while having already signed up as %s! Please note that multiaccounting is punishable, and can lead to a one month restriction!" $username }}</p>
 
