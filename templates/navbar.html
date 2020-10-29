@@ -17,23 +17,23 @@
 		{{ else }}
 			{{ navbarItem .Path (.T "Leaderboard") "/leaderboard" }}
 			<div class="ui dropdown item">
-				<span>{{ .T "Community" }}</span>
-				<div class="menu">
-					{{ navbarItem .Path (.T "Multiplayer listing") "https://vinse.kawata.pw" }}
-					{{/* {{ navbarItem .Path (.T "Tournaments") "https://tourn.kawata.pw" }} */}}
-					<div class="divider"></div>
-					{{ navbarItem .Path (.T "Discord Server") .Conf.DiscordServer }}
-				</div>
-			</div>
-			<div class="ui dropdown item">
-				<span>{{ .T "Help" }}</span>
+				<span>{{ .T "Docs" }}</span>
 				<div class="menu">
 					{{ navbarItem .Path (.T "About") "/about" }}
 					{{ navbarItem .Path (.T "Rules") "/doc/rules" }}
 					{{ navbarItem .Path (.T "Documentation") "/doc" }}
-					{{ navbarItem .Path (.T "Server switcher") "https://mu.nyodev.xyz/upd.php?id=18" }}
 					<div class="divider"></div>
-					{{ navbarItem .Path (.T "Contact support") "mailto:accounts@kawata.pw" }}
+					{{ navbarItem .Path (.T "Server switcher") "https://mu.nyodev.xyz/upd.php?id=18" }}
+				</div>
+			</div>
+			<div class="ui dropdown item">
+				<span>{{ .T "Social" }}</span>
+				<div class="menu">
+					{{ navbarItem .Path (.T "Discord Server") .Conf.DiscordServer }}
+					<div class="divider"></div>
+					{{ navbarItem .Path (.T "Twitter") "https://twitter.com/osukawata" }}
+					{{ navbarItem .Path (.T "YouTube Channel") "https://www.youtube.com/channel/UCBFmWxbdVDbwQWtP-L6cU2g" }}
+					{{ navbarItem .Path (.T "Reddit") "https://www.reddit.com/r/kawata" }}
 				</div>
 			</div>
 			{{ if .Context.User.Username }}
@@ -44,8 +44,8 @@
 				</div>
 			</div>
 			{{ end }}
-			{{ navbarItem .Path (.T "Donate" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
-			{{ if $isAdmin }}{{ navbarItem .Path (.T "RAP" | printf "<b>%s</b>") "https://old.kawata.pw/index.php?p=100" }}{{ end }}
+			{{ navbarItem .Path (.T "" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
+			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://old.kawata.pw" }}{{end}}
 		{{ end }}
 		<div class="firetrucking-right-menu">
 			<div class="item">
@@ -57,16 +57,21 @@
 				</div>
 			</div>
 			{{ if .Context.User.Username }}
-				<div class="ui dropdown item">
-					<img id="avatar" class="ui avatar image" src="{{ avatarURL .Context .Context.User.ID }}">
-					<span>{{ .Context.User.Username }}</span>
-					<div class="menu">
-						{{ navbarItem .Path (.T "Profile") (printf "/u/%d" .Context.User.ID) }}
-						{{ navbarItem .Path (.T "Friends") "/friends" }}
-						{{ navbarItem .Path (.T "Settings") "/settings" }}
-						{{ navbarItem .Path (.T "Log out") (printf "/logout?k=%s" (.Session.Get "logout")) }}
+			<div class="ui dropdown item top right">
+				<img class="ui avatar image" src="{{ config "AvatarURL" }}/{{ .Context.User.ID }}">
+				<div class="menu" id="userdropdown">
+					<div id="userinfo">
+						{{ $userInfo := . }}
+							{{ with (.Get "users/full?id=%d" .Context.User.ID) }}
+								<h2><img class="ui avatar image" src="{{ config "AvatarURL" }}/{{ $userInfo.Context.User.ID }}">{{ $userInfo.Context.User.Username }}</h2>							
+						{{ end }}
 					</div>
+					{{ navbarItem .Path (.T "Profile" | printf "<i class=\" user icon\"></i>%s") (printf "/u/%d" .Context.User.ID) }}
+					{{ navbarItem .Path (.T "Friends" | printf "<i class=\" users icon\"></i>%s") "/friends" }}
+					{{ navbarItem .Path (.T "Settings" | printf "<i class=\" cogs icon\"></i>%s") "/settings" }}
+					{{ navbarItem .Path (.T "Log out" | printf "<i class=\" window close icon\"></i>%s") (printf "/logout?k=%s" (.Session.Get "logout")) }}
 				</div>
+			</div>
 			{{ else }}
 				{{ navbarItem .Path (.T "Log in") "/login" }}
 				{{ navbarItem .Path (.T "Register") "/register" }}
