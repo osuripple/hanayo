@@ -1,0 +1,54 @@
+body.ds .white.background {
+    background-color: rgba(247, 247, 247, 0.4) !important;
+}
+
+body {
+    background: url("/static/assets/background/bg-light.png");
+}
+
+.ui.vertical.menu {
+    background: #f5f5f57d;
+}
+
+.ui.menu .dropdown.item .menu{
+    background: url("/static/assets/background/bg-light.png");
+}
+
+.ui.modal>.content {
+    background: #f8f8f8;
+}
+
+.ui.table {
+    background: #ffffff00;
+}
+
+.ui.table thead th {
+    background: #eeeeee;
+}
+
+.ui.table tr td {
+    background: #fafafac4;
+}
+
+.ui.table tfoot th {
+    background: #eeeeee;
+}
+
+.ui.menu {
+    background: #f7f7f7;
+}
+
+.ui.search>.results {
+    background: #e6e6e6;
+    box-shadow: 0 0 10px 8px #cacaca;
+}
+
+.ui.card {
+    background: #f8f8f8;
+    box-shadow: 0 0 20px 7px rgb(255, 255, 255);
+}
+
+.huge.heading h1 {
+    color: black;
+    text-shadow: 0 0 0px #000;
+}
