@@ -79,3 +79,7 @@ p {
     font-weight: 700;
     text-transform: capitalize;
 }
+
+.footer {
+    background: transparent;
+}
