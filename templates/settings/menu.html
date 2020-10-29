@@ -24,7 +24,6 @@ NoCompile=true
 		{{ navbarItem .Path (.T "Authorized applications") "/settings/authorized_applications" }}
 		{{ $d := printf `<div class="ui %s horizontal mini label">%s</div>` ($dCol) (.T "Donor") }}
 	{{/* Stuff for donators */}}
-	{{ navbarItem .Path (printf "%s %s" (.T "Discord donor") $d) "/settings/discord" }}
 
 	{{ navbarItem .Path (printf "%s %s" (.T "Profile background") $d) "/settings/profbackground" }}
 </div>

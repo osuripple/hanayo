@@ -298,9 +298,9 @@ func generateEngine() *gin.Engine {
 	r.POST("/settings/avatar", avatarSubmit)
 	r.POST("/settings/2fa/disable", disable2fa)
 	r.POST("/settings/2fa/totp", totpSetup)
-	r.POST("/settings/discord", discordSubmit)
-	r.GET("/settings/discord/finish", discordLinkFinish)
-	r.GET("/settings/discord/unlink", discordUnlink)
+	// r.POST("/settings/discord", discordSubmit)
+	// r.GET("/settings/discord/finish", discordLinkFinish)
+	// r.GET("/settings/discord/unlink", discordUnlink)
 	r.POST("/settings/profbackground/:type", profBackground)
 
 	r.POST("/dev/tokens/create", createAPIToken)
