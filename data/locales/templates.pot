@@ -994,7 +994,7 @@ msgstr ""
 msgid "Revoke"
 msgstr ""
 
-msgid "Dark site"
+msgid "Light site"
 msgstr ""
 
 msgid "Preferences"

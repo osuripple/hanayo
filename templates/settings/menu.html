@@ -4,7 +4,7 @@ NoCompile=true
 {{ define "settingsSidebar" }}
 {{ $ds := band (.ClientFlags) 1 }}
 {{ $dCol := "violet" }}
-{{ if $ds }}
+{{ if not $ds }}
 {{ $dCol = "blue" }}
 {{ end }}
 <div class="four wide column">

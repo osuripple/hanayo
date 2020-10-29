@@ -1,6 +1,6 @@
 {{ define "donor_locked" }}
 {{ $ds := band (.ClientFlags) 1 }}
-<div class="ui icon message {{ if $ds }}black ds{{ end }}">
+<div class="ui icon message {{ if not $ds }}black ds{{ end }}">
     <i class="lock icon"></i>
     <div class="content">
         <div class="header">

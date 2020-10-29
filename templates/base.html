@@ -12,7 +12,7 @@
 
 		<link rel="icon" href="/static/favicon.ico" />
 
-		<link rel="stylesheet" type="text/css" href="/static/{{ if $ds }}dark/{{ end }}semantic.min.css?{{ unixNano }}">
+		<link rel="stylesheet" type="text/css" href="/static/{{ if not $ds }}dark/{{ end }}semantic.min.css?{{ unixNano }}">
 		<link rel="stylesheet" type="text/css" href="/static/ripple.css?{{ unixNano }}">
 		<link rel="stylesheet" type="text/css" href="/static/jquery.lsxemojipicker.css?{{ unixNano }}">
 		{{ if and .DisableHH .KyutGrill }}
@@ -23,7 +23,7 @@
 		</style>
 		{{ end }}
 	</head>
-	<body {{ if $ds }} class="ds"{{ end }}>
+	<body {{ if not $ds }} class="ds"{{ end }}>
 		{{/*
 			If we're asked to disable the hugeheading, but a KyutGrill is set, it will become the background of the page.
 			This is mainly used in user profiles, allowing users to set their profile background.
@@ -83,7 +83,7 @@
 
 		</div>
 
-		<div class="footer {{ if $ds }}dark{{ end }}">
+		<div class="footer {{ if not $ds }}dark{{ end }}">
 			{{ .T "&copy; 2018-%d osu!Kawata, powered by Ripple." (curryear) | html }}
 			<a href="/team" title="{{ .T "Who is working on this thing?" }}"><i class="users icon"></i>{{ .T "Team" }}</a> |
 			<a href="https://github.com/kawatapw" title="{{ .T "What's going on under the hood?"}}{{/*'"*/}}"><i class="github icon"></i></a>

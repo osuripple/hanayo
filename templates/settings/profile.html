@@ -52,7 +52,7 @@ AdditionalJS=/static/jquery.lsxemojipicker.js
 					</div>
 					<h3 class="ui header">
 						{{ .T "Custom badge" }}
-						<div class="ui {{ if $ds }}blue{{ else }}violet{{ end }} horizontal mini label">
+						<div class="ui {{ if not $ds }}blue{{ else }}violet{{ end }} horizontal mini label">
 							{{ .T "Donor" }}
 						</div>
 					</h3>
@@ -108,7 +108,7 @@ AdditionalJS=/static/jquery.lsxemojipicker.js
 					{{ $ds := band .ClientFlags 1 }}
 					<div class="ui checkbox">
 						<input type="checkbox" {{ if $ds }}checked{{ end }} id="dark-site">
-						<label>{{ .T "Dark site" }}</label>
+						<label>{{ .T "Light site" }}</label>
 					</div>
 					<div class="ui divider"></div>
 					<div style="text-align: right">
