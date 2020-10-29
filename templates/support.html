@@ -146,15 +146,6 @@ name="business" value="me@nyodev.xyz">
 							<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 						</form>
 					</div>
-					<div class="column">
-						<h2 class="ui header">
-							<i class="bitcoin icon"></i>
-							{{ $.T "Bitcoin" }}
-						</h2>
-						<p><b>{{ $.T "Send %s BTC to this Bitcoin address:" "<span id=\"bitcoin-amt\"></span>" | html }}</b></p>
-						<p><code>{{ getBitcoinAddress }}</code></p>
-						<p>{{ $.T "Afterwards, <b>please send an email to <a href=\"mailto:howl@kawata.pw\">howl@kawata.pw</a></b> containing the transaction hash!" | html }}</p>
-					</div>
 				</div>
 				<h4 class="ui horizontal divider header">
 					{{ $.T "I've donated, now what?" }}

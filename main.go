@@ -22,8 +22,6 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/agplwarning"
-	"github.com/kawata-wip/hanayo/modules/btcaddress"
-	"github.com/kawata-wip/hanayo/modules/btcconversions"
 	"github.com/kawata-wip/hanayo/routers/oauth"
 	"github.com/kawata-wip/hanayo/routers/pagemappings"
 	"github.com/kawata-wip/hanayo/services"
@@ -178,11 +176,6 @@ func main() {
 	// initialise oauth
 	setUpOauth()
 
-	// initialise btcaddress
-	btcaddress.Redis = rd
-	btcaddress.APIKey = config.CoinbaseAPIKey
-	btcaddress.APISecret = config.CoinbaseAPISecret
-
 	// initialise schiavo
 	schiavo.Prefix = "hanayo"
 	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
@@ -322,8 +315,6 @@ func generateEngine() *gin.Engine {
 	r.POST("/oauth/authorize", oauth.Authorize)
 	r.GET("/oauth/token", oauth.Token)
 	r.POST("/oauth/token", oauth.Token)
-
-	r.GET("/donate/rates", btcconversions.GetRates)
 
 	r.GET("/help", func(c *gin.Context) {
 		c.Redirect(301, "https://support.ripple.moe")

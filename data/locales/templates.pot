@@ -822,15 +822,6 @@ msgstr ""
 msgid "User:"
 msgstr ""
 
-msgid "Bitcoin"
-msgstr ""
-
-msgid "Send %s BTC to this Bitcoin address:"
-msgstr ""
-
-msgid "Afterwards, <b>please send an email to <a href=\"mailto:howl@kawata.pw\">howl@kawata.pw</a></b> containing the transaction hash!"
-msgstr ""
-
 msgid "I've donated, now what?"
 msgstr ""
 
