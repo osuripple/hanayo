@@ -192,9 +192,6 @@ msgstr ""
 msgid "Server switcher"
 msgstr ""
 
-msgid "Status"
-msgstr ""
-
 msgid "Discord"
 msgstr ""
 
@@ -396,7 +393,7 @@ msgstr ""
 msgid "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Kawata's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>."
 msgstr ""
 
-msgid "&copy; 2015-%d Kawata, using Hanayo %s."
+msgid "&copy; 2018-%d osu!Kawata, powered by Ripple."
 msgstr ""
 
 msgid "Team"
@@ -405,22 +402,10 @@ msgstr ""
 msgid "Who is working on this thing?"
 msgstr ""
 
-msgid "Developer docs"
-msgstr ""
-
-msgid "See what changed!"
-msgstr ""
-
-msgid "Changelog"
-msgstr ""
-
 msgid "What's going on under the hood?"
 msgstr ""
 
 msgid "Follow us on Twitter!"
-msgstr ""
-
-msgid "Share irrelevant opinions on reddit!"
 msgstr ""
 
 msgid "Language"
