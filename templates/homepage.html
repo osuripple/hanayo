@@ -7,56 +7,45 @@ TitleBar=Home Page
 {{ $ds := band $cf 1 }}
 {{ $   := . }}
 <div class="ui container">
-	<div class="ui center aligned segment">
-		<img id="san" src="/static/logos/logo.png">
-	</div>
 	{{ $set := systemSettings "website_home_alert" }}
 	{{ with $set.website_home_alert.String }}
 		<div class="ui warning message">
 			{{ . | html }}
 		</div>
 	{{ end }}
-	{{/* Not logged in block */}}
 
-	<div class="ui raised segment">
-		{{ if not .Context.User.ID }}
-			<h1 class="ui header">{{ .T "Welcome to Kawata." }}</h1>
-			<p>
-				{{ .T "You look new here. Allow us to introduce you to what Kawata is." }}
-			</p>
-			<p>
-				{{ .T "Kawata is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://github.com/kawatapw'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
-			</p>
-			<h3 class="ui header center aligned">{{ .T "What are you waiting for? Join Kawata! It's risk-free: you won't get your account banned on the official server if you play on Kawata.<br>You can also switch anytime between the official osu! server and Kawata!" | html }}</h3>
-		{{ else }}
-			<h1 class="ui header">{{ .T "Howdy, %s!" .Context.User.Username }}</h1>
-			<p>
-				{{ .T "Welcome back to Kawata. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?" (rediget "ripple:online_users") (rediget "ripple:registered_users") | html }}
-			</p>
-		{{ end }}
-		<div class="ui center aligned basic segment">
-			{{ if not .Context.User.ID }}
-				<a class="ui pink button" href="/register">
-					<i class="plus square icon"></i>
-					{{ $.T "Register" }}
-				</a>
-			{{ end }}
-			<a class="ui pink button" href="https://switcher.kawata.pw">
-				<i class="download icon"></i>
-				{{ $.T "Download the server switcher" }}
-			</a>
-			{{ if .Context.User.ID }}
-				<a class="ui pink inverted button" href="/doc/connection_guide">
-					<i class="book icon"></i>
-					{{ $.T "Connection guide" }}
-				</a>
-			{{ else }}
-				<a class="ui pink button" href="/login">
-					<i class="sign in icon"></i>
-					{{ $.T "Log in" }}
-				</a>
-			{{ end }}
+<div class="ui container">
+	<div class="ui container">
+		<div class="ui segment penis-block" style="height: 500px; overflow: hidden;">
+			<div class="gameplay-video js-scale">
+				<video autoplay="" loop="" muted="" src="/static/assets/game.m4v" class="disappearplease" style="height: 100%; width: 100%; filter: blur(2px);"></video>
+			</div>
+			<div class="hifumi"></div>
+			<div class="gameplay-above">
+				<div class="welcome-kawata">Welcome to Kawata</div>
+					
+					<div class="welcome-bio">
+						<p>Kawata is the first and only osu! private server that allows Hacking. Things such as better relax, HD remover, and DT remover!</p>
+					</div>
+					{{ if .Context.User.Username }}
+					<span class="buttons">
+						<button class="btn-hover color-2" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
+					</span>
+					{{ else }}
+					<span class="buttons">
+						<button class="btn-hover color-2" onclick="window.location.href='/register'">Sign up!</button>
+					</span>
+					{{ end }}
+					<span class="buttons">
+						<button class="btn-hover color-1" onclick="window.location.href='/doc/rules'">Read the Rules</button>
+					</span>
+					<span class="buttons">
+						<button class="btn-hover color-3" onclick="location.href='https://discord.gg/4CzsqkK'">Discord Server</button>
+					</span>
+			</div>
 		</div>
 	</div>
+</div>
+
 </div>
 {{ end }}

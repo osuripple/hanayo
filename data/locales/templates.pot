@@ -359,21 +359,6 @@ msgstr ""
 msgid "Home Page"
 msgstr ""
 
-msgid "Welcome to Kawata."
-msgstr ""
-
-msgid "Kawata is a private osu! server, featuring multiplayer, PP, a very active community and a development team going strong implementing new features and squashing bugs. <a href='/about'>You can check out even more features here.</a> It has also a very friendly community, and it's <a href='https://github.com/kawatapw'>open source!</a> Just so you know, <b>we currently have %s users online and %s registered users!</b>"
-msgstr ""
-
-msgid "What are you waiting for? Join Kawata! It's risk-free: you won't get your account banned on the official server if you play on Kawata.<br>You can also switch anytime between the official osu! server and Kawata!"
-msgstr ""
-
-msgid "Howdy, %s!"
-msgstr ""
-
-msgid "Welcome back to Kawata. We currently have <b>%s online users and %s total registered users.</b> Nice day to farm a few maps, isn't it?"
-msgstr ""
-
 # base.html
 msgid "Kawata's score submission is currently in maintenance mode. You will not be allowed to submit scores for the time being."
 msgstr ""
@@ -1088,9 +1073,6 @@ msgstr ""
 msgid "If you truly have understood what's written above and you have understood that creating a multiaccount will lead to a restriction on your main account, you can click here and you'll be brought to the sign up page."
 msgstr ""
 
-msgid "You look new here. Allow us to introduce you to what Kawata is."
-msgstr ""
-
 # PAY ATTENTION! This is Log in *with* Kawata, not *on* Kawata. This is for
 # oauth.
 msgid "Log in with Kawata"
@@ -1228,9 +1210,6 @@ msgid "Popularity does not mean rankable"
 msgstr ""
 
 msgid "Discord Server"
-msgstr ""
-
-msgid "Connection guide"
 msgstr ""
 
 msgid "Classic"

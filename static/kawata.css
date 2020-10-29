@@ -83,3 +83,91 @@ p {
 .footer {
     background: transparent;
 }
+
+
+
+
+.welcome-kawata {
+    text-shadow:0 1px 8px rgba(0,0,0,.75);
+    color:rgba(255,255,255,.93)!important;
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size:5em;
+    position:relative
+}
+
+.welcome-bio {
+text-shadow:0 1px 8px rgba(0,0,0,.75);
+color:rgba(255,255,255,.93)!important;
+font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size:18px;
+font-weight:lighter;
+font-style:italic
+}
+
+.gameplay-above {
+position:absolute;
+font-family:aller regular,sans-serif;
+text-align:center;
+width:100%;
+bottom:0;
+line-height:normal;
+top:33%;
+margin-bottom:auto
+;margin-top:auto
+}
+
+.hifumi {
+transform:translateZ(0);
+position:absolute;
+left:0;
+right:0;
+top:50px;
+margin-right:auto!important;
+margin-left:auto!important;
+height:600px;
+width:calc(100% - 100px);
+max-width:900px;
+background-size:contain;
+background-position:center;
+background-image:url(/static/assets/hifumi.png);
+background-repeat:no-repeat!important;
+transition:all 1s;
+filter:brightness(.6)
+}
+
+@media (max-width:991px) {
+.disappearplease {
+    display:none!important
+}
+
+.gameplay-above {
+top:38%
+}
+}
+
+@media(max-width:596px) {
+.hifumi {
+    display:none
+}
+
+.welcome-kawata {
+font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size:3em
+}
+
+.welcome-bio {
+font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size:16px
+}
+}
+
+.ui.segment.penis-block {
+    padding:0!important;
+    margin:0!important;
+    border-radius:0!important
+}
+
+.gameplay-video {
+position:absolute;
+left:0;top:0
+}
