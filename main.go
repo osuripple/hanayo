@@ -22,7 +22,7 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/agplwarning"
-	"github.com/kawata-wip/hanayo/routers/oauth"
+	// "github.com/kawata-wip/hanayo/routers/oauth"
 	"github.com/kawata-wip/hanayo/routers/pagemappings"
 	"github.com/kawata-wip/hanayo/services"
 	"github.com/kawata-wip/hanayo/services/cieca"
@@ -298,18 +298,18 @@ func generateEngine() *gin.Engine {
 	// r.GET("/settings/discord/unlink", discordUnlink)
 	r.POST("/settings/profbackground/:type", profBackground)
 
-	r.POST("/dev/tokens/create", createAPIToken)
-	r.POST("/dev/tokens/delete", deleteAPIToken)
-	r.POST("/dev/tokens/edit", editAPIToken)
-	r.GET("/dev/apps", getOAuthApplications)
-	r.GET("/dev/apps/edit", editOAuthApplication)
-	r.POST("/dev/apps/edit", editOAuthApplicationSubmit)
-	r.POST("/dev/apps/delete", deleteOAuthApplication)
+	// r.POST("/dev/tokens/create", createAPIToken)
+	// r.POST("/dev/tokens/delete", deleteAPIToken)
+	// r.POST("/dev/tokens/edit", editAPIToken)
+	// r.GET("/dev/apps", getOAuthApplications)
+	// r.GET("/dev/apps/edit", editOAuthApplication)
+	// r.POST("/dev/apps/edit", editOAuthApplicationSubmit)
+	// r.POST("/dev/apps/delete", deleteOAuthApplication)
 
-	r.GET("/oauth/authorize", oauth.Authorize)
-	r.POST("/oauth/authorize", oauth.Authorize)
-	r.GET("/oauth/token", oauth.Token)
-	r.POST("/oauth/token", oauth.Token)
+	// r.GET("/oauth/authorize", oauth.Authorize)
+	// r.POST("/oauth/authorize", oauth.Authorize)
+	// r.GET("/oauth/token", oauth.Token)
+	// r.POST("/oauth/token", oauth.Token)
 
 	r.GET("/help", func(c *gin.Context) {
 		c.Redirect(301, "https://support.ripple.moe")
