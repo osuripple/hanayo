@@ -477,60 +477,7 @@ msgid "Ooops! Looks like something went really wrong while trying to process you
 msgstr ""
 
 # about.html
-msgid "Welcome to Kawata."
-msgstr ""
-
-msgid "Kawata is a private osu! server."
-msgstr ""
-
-msgid "There are many like it, but this one is ours."
-msgstr ""
-
-# %s is eggplant emoji
-msgid "Don't you like %s?"
-msgstr ""
-
-msgid "We have leaderboards."
-msgstr ""
-
-msgid "Online user listing."
-msgstr ""
-
-msgid "Free osu!direct."
-msgstr ""
-
-msgid "Global leaderboards."
-msgstr ""
-
-msgid "and PP for all game modes, including Relax and Autopilot!"
-msgstr ""
-
-msgid "Ranking queue for unranked beatmaps."
-msgstr ""
-
-msgid "Spectator."
-msgstr ""
-
-msgid "Multiplayer."
-msgstr ""
-
-msgid "FokaBot, our chat bot"
-msgstr ""
-
-msgid "with plenty of functions for just about anything, <a href=\"/doc/4\">check it out!</a>"
-msgstr ""
-
-msgid "And a lot more to come!"
-msgstr ""
-
-msgid "Kawata is the result of the hard work of two Italian developers, who got tired about the whole osu! ecosystem, and also because they wanted to play with a few banned friends."
-msgstr ""
-
-# %s is wink emoji
-msgid "It has now evolved into the largest available osu! private server, with more than 70,000 registered users. <a href=\"/register\">Signing up</a> on Kawata won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
-msgstr ""
-
-msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://github.com/kawatapw\">source code</a> Kawata is running on."
+msgid "WIP"
 msgstr ""
 
 # changelog.html
