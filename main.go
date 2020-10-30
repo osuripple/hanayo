@@ -26,7 +26,6 @@ import (
 	"github.com/kawata-wip/hanayo/routers/pagemappings"
 	"github.com/kawata-wip/hanayo/services"
 	"github.com/kawata-wip/hanayo/services/cieca"
-	schiavo "zxq.co/ripple/schiavolib"
 	"zxq.co/x/rs"
 )
 
@@ -175,10 +174,6 @@ func main() {
 
 	// initialise oauth
 	setUpOauth()
-
-	// initialise schiavo
-	schiavo.Prefix = "hanayo"
-	schiavo.Bunker.Send(fmt.Sprintf("STARTUATO, mode: %s", gin.Mode()))
 
 	// even if it's not release, we say that it's release
 	// so that gin doesn't spam

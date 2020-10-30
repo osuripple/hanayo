@@ -46,6 +46,5 @@ require (
 	zxq.co/ripple/agplwarning v0.0.0-20180204130109-bd4406595c7e
 	zxq.co/ripple/go-discord-oauth v0.0.0-20161117211055-348e08feccb5
 	zxq.co/ripple/playstyle v0.0.0-20200414151848-19a867db35bf
-	zxq.co/ripple/schiavolib v0.0.0-20161109210250-9cdc674dad07
 	zxq.co/x/rs v0.0.0-20160912144010-8b39b068a155
 )
