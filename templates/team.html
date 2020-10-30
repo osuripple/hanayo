@@ -36,7 +36,7 @@ Include=user_group.html
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Moderators" }}</h1>
 			<p>
-				{{ .T "Our moderators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." }}
+				{{ .T "Our moderators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." | html }}
 			</p>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 30)) }}
 		</div>
