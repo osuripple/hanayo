@@ -7,28 +7,36 @@ Include=user_group.html
 <div class="ui container">
 	<div class="ui segments">
 		<div class="ui center aligned segment">
-			<h3>{{ .T "This is a list of the wonderful people who keep Kawata up and running and deal with its community." }}</h3>
+			<h3>{{ .T "This is a list of the wonderful people who keep Kawata up and running and deal with our <b>amazing</b> community." | html }}</h3>
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">{{ .T "Community Managers" }}</h1>
+			<h1 class="ui heading">{{ .T "Owners" }}</h1>
 			<p>
-				{{ .T "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community." }}<br>
-				{{ .T "They take care of our Discord server and reply to emails sent to the support services (accounts@kawata.pw). Community Managers have a red name in the in-game chat." | html }}
+				{{ .T "They created Kawata, they are the ones who run the server and manage many things." }}<br>
 			</p>
-			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 4)) }}
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 38)) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Developers" }}</h1>
 			<p>
-				{{ .T "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance." }}<br>
-				{{ .T "They don't do anything related to the community. Developers have a blue name in the in-game chat." }}
+				{{ .T "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance. Without them, the server wouldn't be running at all!" }}<br>
 			</p>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 2)) }}
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">{{ .T "Chat Moderators" }}</h1>
+			<h1 class="ui heading">{{ .T "Administrators and Community Managers" }}</h1>
 			<p>
-				{{ .T "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected." | html }}
+				{{ .T "Our Community Managers are here to take care of our social networks. Our Administrators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, they are in charge of the Moderator." | html }}
+			</p>
+			<h1 class="ui heading">{{ .T "Administrators" }}</h1>
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 39)) }}
+			<h1 class="ui heading">{{ .T "Community Managers" }}</h1>
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 4)) }}
+		</div>
+		<div class="ui center aligned segment">
+			<h1 class="ui heading">{{ .T "Moderators" }}</h1>
+			<p>
+				{{ .T "Our moderators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." }}
 			</p>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 30)) }}
 		</div>
@@ -59,14 +67,13 @@ Include=user_group.html
 					{{ .T "<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-pp</a>, used as catch the beat pp calculator." | html }}<br>
 					catch-the-pp is licensed under GPL v3. Our implementation can be found <a href="https://github.com/kawatapw/catch-the-pp">here</a>.
 				</li>
-				<li>{{ .T "<b>Avail</b>, for having hosted Kawata on his server." | html }}</li>
-				<li>{{ .T "<b>Angela Guerra</b>, for designing the Kawata logo." | html }}</li>
-				<li>{{ .T "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Kawata project by donating or inviting other people." | html }}</li>
+				<li>{{ .T "<b><a id='everyone' class='clickable'>All our donors</a></b> and Discord Boosters who are supporting Kawata." | html }}</li>
+				<li>{{ .T "Everybody playing on our server!" | html }}</li>
 			</ul>
 		</div>
 	</div>
 	{{ $ := . }}
-	{{ .T "Looking for how you should contact our team? Check out <a href='mailto:accounts@kawata.pw'>this page</a>." | html }}
+	{{ .T "Looking for how you should contact our team? The best way to contact us is to send an email to the following address: <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>, and let us know the team member you would like to contact." | html }}
 	<div class="ui modal">
 		<div class="header"><h2 class="ui header">{{ .T "They told me these are very cool people." }}</h2></div>
 		{{ with .Get "users?sort=donor_expire,desc&l=52" }}

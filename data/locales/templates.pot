@@ -1006,31 +1006,40 @@ msgstr ""
 
 # Team page
 
-msgid "This is a list of the wonderful people who keep Kawata up and running and deal with its community."
+msgid "This is a list of the wonderful people who keep Kawata up and running and deal with our <b>amazing</b> community."
 msgstr ""
 
-msgid "Community Managers"
+msgid "Owners"
 msgstr ""
 
-msgid "Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community."
-msgstr ""
-
-msgid "They take care of our Discord server and reply to emails sent to the support services (accounts@kawata.pw). Community Managers have a red name in the in-game chat."
+msgid "They created Kawata, they are the ones who run the server and manage many things."
 msgstr ""
 
 msgid "Developers"
 msgstr ""
 
-msgid "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance."
+msgid "Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance. Without them, the server wouldn't be running at all!"
 msgstr ""
 
-msgid "They don't do anything related to the community. Developers have a blue name in the in-game chat."
+msgid "Administrators and Community Managers"
 msgstr ""
 
-msgid "Chat Moderators"
+msgid "Our Community Managers are here to take care of our social networks. Our Administrators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, they are in charge of the Moderator."
 msgstr ""
 
-msgid "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected."
+msgid "Administrators"
+msgstr ""
+
+msgid "Community Managers"
+msgstr ""
+
+msgid "Moderators"
+msgstr ""
+
+msgid "Our moderators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, and take action if necessary."
+msgstr ""
+
+msgid "BATs"
 msgstr ""
 
 msgid "BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not."
@@ -1051,19 +1060,16 @@ msgstr ""
 msgid "<b>Sunpy</b>, for <a href='https://github.com/osufx/catch-the-pp'>catch-the-pp</a>, used as catch the beat pp calculator."
 msgstr ""
 
-msgid "<b>Avail</b>, for having hosted Kawata on his server."
+msgid "<b><a id='everyone' class='clickable'>All our donors</a></b> and Discord Boosters who are supporting Kawata."
 msgstr ""
 
-msgid "<b>Angela Guerra</b>, for designing the Kawata logo."
-msgstr ""
-
-msgid "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Kawata project by donating or inviting other people."
+msgid "Everybody playing on our server!"
 msgstr ""
 
 msgid "They told me these are very cool people."
 msgstr ""
 
-msgid "Looking for how you should contact our team? Check out <a href='mailto:accounts@kawata.pw'>this page</a>."
+msgid "Looking for how you should contact our team? The best way to contact us is to send an email to the following address: <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>, and let us know the team member you would like to contact."
 msgstr ""
 
 msgid "And more..."
