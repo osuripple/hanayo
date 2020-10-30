@@ -850,39 +850,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-msgid "Your discord account has been linked to this Kawata account. <b>Welcome to the donors club and thank you for supporting us!</b> You have now access to the #donators text and voice channels on our official Discord server! You can also set a custom role name and username colour and change your nickname on Discord."
-msgstr ""
-
-msgid "Thank you for supporting us and have fun on Kawata!"
-msgstr ""
-
-msgid "Donors get special privileges on our Discord server too!"
-msgstr ""
-
-msgid "Discord is a chatroom with text and voice channels, bots and lots of other cool features. You can <b>download Discord for free <a href=\"http://discord.gg/\" target=\"_blank\">here</a></b> and you can <b>join our official Discord server <a href=\"%s\" target=\"_blank\">here</a></b>."
-msgstr ""
-
-msgid "Here's what you get if you link your Discord account:"
-msgstr ""
-
-msgid "Access to /nick command, to change your Discord nickname"
-msgstr ""
-
-msgid "Access to #donators text and voice channels"
-msgstr ""
-
-msgid "Username on donors list"
-msgstr ""
-
-msgid "Custom role with custom username"
-msgstr ""
-
-msgid "To get these perks, first of all <a href=\"%s\" target=\"_blank\">join our Discord server</a>, then click this fancy button:"
-msgstr ""
-
-msgid "Get Discord donor privileges"
-msgstr ""
-
 msgid "New password (leave blank if you don't want to change it)"
 msgstr ""
 
