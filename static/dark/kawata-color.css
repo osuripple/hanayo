@@ -51,3 +51,7 @@ body {
 .huge.heading h1 {
     color: white;
 }
+
+.ui.segment {
+    background: #0e0e0e;
+}
