@@ -121,6 +121,9 @@ msgstr ""
 msgid "Whoops, an error slipped in. You might have been registered, though. I don't know."
 msgstr ""
 
+msgid "Important notice: While cheating here can be fun, it is totally prohibited on Bancho and other servers. Cheating on legit servers is bad! We recommend using another osu! cilent solely for playing on Kawata."
+msgstr ""
+
 # register/verify.html
 msgid "Verify account"
 msgstr ""
