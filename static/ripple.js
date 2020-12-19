@@ -759,7 +759,7 @@ function getScoreMods(m, noplus) {
 var modsString = [
   "NF",
   "EZ",
-  "NV",
+  "TD", // Previously used for NV
   "HD",
   "HR",
   "SD",
