@@ -85,6 +85,10 @@ p {
     text-align: center;
 }
 
+.margined.container {
+	margin: 3rem;
+}
+
 
 
 
