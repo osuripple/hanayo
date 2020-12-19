@@ -381,6 +381,9 @@ msgstr ""
 msgid "Follow us on Twitter!"
 msgstr ""
 
+msgid "Privacy Policy"
+msgstr ""
+
 msgid "Language"
 msgstr ""
 

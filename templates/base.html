@@ -90,7 +90,9 @@
 			{{ .T "&copy; 2018-%d osu!Kawata, powered by Ripple." (curryear) | html }}
 			<a href="/team" title="{{ .T "Who is working on this thing?" }}"><i class="users icon"></i>{{ .T "Team" }}</a> |
 			<a href="https://github.com/kawatapw" title="{{ .T "What's going on under the hood?"}}{{/*'"*/}}"><i class="github icon"></i></a>
-			<a href="https://twitter.com/osukawata" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a>
+			<a href="https://twitter.com/osukawata" title="{{ .T "Follow us on Twitter!" }}"><i class="twitter icon"></i></a> |
+			<a href="https://hifumi.eu/privacy" title="{{ .T "Privacy Policy" }}"><i class="shield icon"></i>{{ .T "Privacy Policy" }}</a> |
+			<a href="https://hifumi.eu" title="{{ .T "Hifumi" }}">{{ .T "Hifumi" }}</a> |
 			<div class="ui scrolling dropdown" style="margin-left: 5px;" id="language-selector">
 				{{ $lang := .Context.Language }}
 				{{ with $lang }}
