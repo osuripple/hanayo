@@ -43,7 +43,10 @@
 				</div>
 			</div>
 			{{ end }}
-			{{ navbarItem .Path (.T "" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
+			{{ $settings := systemSettings "accept_donations" }}
+			{{ if $settings.accept_donations.Int }}
+				{{ navbarItem .Path (.T "" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
+			{{ end }}
 			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://old.kawata.pw" }}{{end}}
 		{{ end }}
 		<div class="firetrucking-right-menu">
