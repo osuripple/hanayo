@@ -23,11 +23,12 @@ TitleBar=
 			</div>
 			<div class="hifumi"></div>
 			<div class="gameplay-above">
-				<div class="welcome-kawata">Welcome to Kawata</div>
+				<div class="welcome-kawata">Welcome to Kawata</div><br>
 					
 					<div class="welcome-bio">
 						<p>Kawata is the first and only osu! private server that allows Hacking. Things such as better relax, HD remover, and DT remover!</p>
 					</div>
+					<br><br>
 					{{ if .Context.User.Username }}
 					<span class="buttons">
 						<button class="btn-hover color-2" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
