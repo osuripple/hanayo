@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kawata-wip/hanayo/routers/oauth"
+	"github.com/kawatapw/hanayo/routers/oauth"
 )
 
 type oauthRequestHandler struct{}

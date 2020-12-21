@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/kawata-wip/api/common"
+	"github.com/kawatapw/api/common"
 	"zxq.co/x/rs"
 )
 

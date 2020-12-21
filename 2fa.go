@@ -14,7 +14,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/pquerna/otp"
 	"github.com/pquerna/otp/totp"
-	"github.com/kawata-wip/api/common"
+	"github.com/kawatapw/api/common"
 	"zxq.co/x/rs"
 )
 

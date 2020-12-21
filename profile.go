@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kawata-wip/api/common"
+	"github.com/kawatapw/api/common"
 )
 
 // TODO: replace with simple ResponseInfo containing userid

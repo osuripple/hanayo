@@ -1,4 +1,4 @@
-module github.com/kawata-wip/hanayo
+module github.com/kawatapw/hanayo
 
 go 1.15
 
@@ -22,7 +22,7 @@ require (
 	github.com/gorilla/sessions v1.2.1 // indirect
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/johnniedoe/contrib v0.0.0-20150821124612-d553224621be
-	github.com/kawata-wip/api v0.0.0-20201027213734-bbc1de67149a
+	github.com/kawatapw/api v0.0.0-20201027213734-bbc1de67149a
 	github.com/microcosm-cc/bluemonday v1.0.4
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
 	github.com/osuripple/cheesegull v2.1.0+incompatible

@@ -12,7 +12,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
-	"github.com/kawata-wip/api/common"
+	"github.com/kawatapw/api/common"
 	"zxq.co/x/rs"
 )
 

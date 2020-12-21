@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kawata-wip/api/common"
+	"github.com/kawatapw/api/common"
 )
 
 func ircGenToken(c *gin.Context) {

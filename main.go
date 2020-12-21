@@ -22,10 +22,10 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
 	"zxq.co/ripple/agplwarning"
-	// "github.com/kawata-wip/hanayo/routers/oauth"
-	"github.com/kawata-wip/hanayo/routers/pagemappings"
-	"github.com/kawata-wip/hanayo/services"
-	"github.com/kawata-wip/hanayo/services/cieca"
+	// "github.com/kawatapw/hanayo/routers/oauth"
+	"github.com/kawatapw/hanayo/routers/pagemappings"
+	"github.com/kawatapw/hanayo/services"
+	"github.com/kawatapw/hanayo/services/cieca"
 	"zxq.co/x/rs"
 )
 

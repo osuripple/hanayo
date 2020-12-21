@@ -176,8 +176,8 @@ github.com/json-iterator/go v1.1.9/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/u
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
 github.com/jstemmer/go-junit-report v0.9.1/go.mod h1:Brl9GWCQeLvo8nXZwPNNblvFj/XSXhF0NWZEnDohbsk=
 github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfVYBRgL+9YlvaHOwJU=
-github.com/kawata-wip/api v0.0.0-20201027213734-bbc1de67149a h1:Jthl2eEsoEW5bOaSxyBuLUUB/WQOh+4FIUcaP1zGPgQ=
-github.com/kawata-wip/api v0.0.0-20201027213734-bbc1de67149a/go.mod h1:kCcxz3k5L0amc63RtRO1gqylFOs/XF2FyzlALeSu4Ds=
+github.com/kawatapw/api v0.0.0-20201027213734-bbc1de67149a h1:Jthl2eEsoEW5bOaSxyBuLUUB/WQOh+4FIUcaP1zGPgQ=
+github.com/kawatapw/api v0.0.0-20201027213734-bbc1de67149a/go.mod h1:kCcxz3k5L0amc63RtRO1gqylFOs/XF2FyzlALeSu4Ds=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/klauspost/compress v1.2.2-0.20170114130832-461e8fd8397a h1:ecqXXp3gkAsll6ttp8n5lu41qpvA4rA3n34Hxmh3q/k=
 github.com/klauspost/compress v1.2.2-0.20170114130832-461e8fd8397a/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0guNDohfE1A=
