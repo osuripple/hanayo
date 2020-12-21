@@ -43,7 +43,7 @@ require (
 	gopkg.in/mailgun/mailgun-go.v1 v1.1.1
 	gopkg.in/redis.v5 v5.2.9
 	gopkg.in/yaml.v2 v2.3.0
-	zxq.co/ripple/agplwarning v0.0.0-20180204130109-bd4406595c7e
+	github.com/kawatapw/agplwarning v0.0.0-20180204130109-bd4406595c7e
 	zxq.co/ripple/go-discord-oauth v0.0.0-20161117211055-348e08feccb5
 	zxq.co/ripple/playstyle v0.0.0-20200414151848-19a867db35bf
 	zxq.co/x/rs v0.0.0-20160912144010-8b39b068a155

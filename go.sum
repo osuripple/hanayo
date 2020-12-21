@@ -524,9 +524,9 @@ honnef.co/go/tools v0.0.1-2020.1.4/go.mod h1:X/FiERA/W4tHapMX5mGpAtMSVEeEUOyHaw9
 rsc.io/binaryregexp v0.2.0/go.mod h1:qTv7/COck+e2FymRvadv62gMdZztPaShugOCi3I+8D8=
 rsc.io/quote/v3 v3.1.0/go.mod h1:yEA65RcK8LyAZtP9Kv3t0HmxON59tX3rD+tICJqUlj0=
 rsc.io/sampler v1.3.0/go.mod h1:T1hPZKmBbMNahiBKFy5HrXp6adAjACjK9JXDnKaTXpA=
-zxq.co/ripple/agplwarning v0.0.0-20180204104638-d3a3d0ee424f/go.mod h1:sshTr/Z/WGWO+mj1Q/cCwFXwqa1FlWVGpYe1db98+G0=
-zxq.co/ripple/agplwarning v0.0.0-20180204130109-bd4406595c7e h1:jL9hVyEmpKHoOsebng/CbZafya5zOgTG0bFJsG8EFck=
-zxq.co/ripple/agplwarning v0.0.0-20180204130109-bd4406595c7e/go.mod h1:sshTr/Z/WGWO+mj1Q/cCwFXwqa1FlWVGpYe1db98+G0=
+github.com/kawatapw/agplwarning v0.0.0-20180204104638-d3a3d0ee424f/go.mod h1:sshTr/Z/WGWO+mj1Q/cCwFXwqa1FlWVGpYe1db98+G0=
+github.com/kawatapw/agplwarning v0.0.0-20180204130109-bd4406595c7e h1:jL9hVyEmpKHoOsebng/CbZafya5zOgTG0bFJsG8EFck=
+github.com/kawatapw/agplwarning v0.0.0-20180204130109-bd4406595c7e/go.mod h1:sshTr/Z/WGWO+mj1Q/cCwFXwqa1FlWVGpYe1db98+G0=
 zxq.co/ripple/go-discord-oauth v0.0.0-20161117211055-348e08feccb5 h1:/lJ07q0+yA/HNC70eFQBecKFQ7OdPSEVKmlrJ8ZYI7c=
 zxq.co/ripple/go-discord-oauth v0.0.0-20161117211055-348e08feccb5/go.mod h1:TMubb2ioFfnSJYY7QDUSa3tgMzmlvNy1I0Gbw4sDYy4=
 zxq.co/ripple/ocl v0.0.0-20160518155525-b499c4fc6bcd/go.mod h1:YagunUAfVRcfr3+9WSusjzwj7qno8fDwan+my3WrGM0=

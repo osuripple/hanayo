@@ -21,7 +21,7 @@ import (
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
-	"zxq.co/ripple/agplwarning"
+	"github.com/kawatapw/agplwarning"
 	// "github.com/kawatapw/hanayo/routers/oauth"
 	"github.com/kawatapw/hanayo/routers/pagemappings"
 	"github.com/kawatapw/hanayo/services"
