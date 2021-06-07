@@ -367,6 +367,7 @@ var singlePageSnippets = {
       api("beatmaps/rank_requests/status", {}, updateRankRequestPage);
     }, 10000);
     var re = /^https?:\/\/osu.ppy.sh\/(s|b)\/(\d+)$/gi;
+    var re_new = /^https?:\/\/osu.ppy.sh\/(beatmapsets)\/(\d+)#(osu|ctb|taiko|mania)\/(\d+)$/gi;
     $("#b-form")
       .submit(function (e) {
         e.preventDefault();
@@ -374,16 +375,20 @@ var singlePageSnippets = {
         var reData = re.exec(v);
         re.exec(); // apparently this is always null, idk
         console.log(v, reData);
+        // fallback to new osu links
+        if (reData === null) 
+          reData = re_new.exec(v);
+
         if (reData === null) {
           showMessage(
             "error",
             "Please provide a valid link, in the form " +
-            "of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt;.");
+            "of either https://osu.ppy.sh/s/&lt;ID&gt; or https://osu.ppy.sh/b/&lt;ID&gt; or https://osu.ppy.sh/beatmapsets/&lt;ID&gt;#osu/&lt;ID&gt; .");
           $(this).removeClass("loading");
           return false;
         }
         var postData = {};
-        if (reData[1] == "s")
+        if (reData[1] == "s" || reData[1] == "beatmapsets")
           postData.set_id = +reData[2];
         else
           postData.id = +reData[2];
