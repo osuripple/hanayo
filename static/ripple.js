@@ -367,7 +367,7 @@ var singlePageSnippets = {
       api("beatmaps/rank_requests/status", {}, updateRankRequestPage);
     }, 10000);
     var re = /^https?:\/\/osu.ppy.sh\/(s|b)\/(\d+)$/gi;
-    var re_new = /^https?:\/\/osu.ppy.sh\/(beatmapsets)\/(\d+)#(osu|ctb|taiko|mania)\/(\d+)$/gi;
+    var re_new = /^https?:\/\/osu.ppy.sh\/(beatmapsets)\/(\d+)#(osu|ctb|taiko|mania)?\/(\d+)$/gi;
     $("#b-form")
       .submit(function (e) {
         e.preventDefault();
