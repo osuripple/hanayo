@@ -141,12 +141,8 @@
 								<div class="ui grid">
 									{{ range .badges }}
 										<div class="eight wide centered column">
-											<div>
-												<div class="badge">
-													<div class="twemoji">{{ .icon }}</div>
-												</div>
-												<b>{{ .name }}</b>
-											</div>
+											<i class="circular {{ faIcon .icon }} big icon"></i><br>
+											<b>{{ .name }}</b>
 										</div>
 									{{ end }}
 									{{ with .custom_badge }}
