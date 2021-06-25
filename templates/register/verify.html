@@ -2,25 +2,24 @@
 <div class="ui container">
 	<div class="ui segment">
 		<img src="/static/assets/check.png" class="center">
-		<h3 align="center">{{ .T "Thank you, your account has been successfully created!" }}</h3>
+		<h3 align="center">{{ .T "Congratulations, your account has been successfully created!" }}</h3>
 		<br>
-		<p align="center">{{ .T "Your account is currently pending activation. In order to activate your account, you have to switch into our server, then log into osu! using your Kawata account." }}</p>
+		<p align="center">{{ .T "Your account is currently pending activation. In order to activate your account, you have to connect to our server, then log into osu! using your Kawata account." }}</p>
 	</div>
 	<div class="ui centered error  message">
 		<b class='big text'>{{ .T "Do not let anyone except yourself log into your Kawata account!" }}</b><br> 
 	</div>
 	<div class="ui segment">
-		<h1 class="ui heading">{{ .T "Wondering how to connect?" }}</h1>
+		<h1 class="ui heading">{{ .T "What now?" }}</h1>
 		<ol class="ui list">
 
 			<p>{{ .T "Worry not, it's very simple!" }}</p>
-
-			<li><a href="https://github.com/kawatapw/Kawata-Switcher/releases/download/1/KawataSwitcher.exe"><b>{{ .T "Download our server switcher" }}</b></a></li>
-			<li>{{ .T "Turn off your antivirus, then execute <i>kawata-server-switcher.exe</i> <b>as administrator</b> (don't worry, this isn't any malware!)" | html }}</li>
-			<li>{{ .T "Click on <b>'Connect to Kawata'</b>" | html }}</li>
-			<li>{{ .T "Connect to the server in-game using the <b>name and password of the account you've just created" |html }}</b></li>
+			<p>{{ .T "You can check out our short video tutorial explaining how to connect to our server:" }}</p>
+			<p align="center"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/imdQcbwOoi0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 		</ol>
 		<p>
+			{{ .T "If you prefer, we have a textual guide available at <a href='/doc/connection_guide' target='blank'>How to play on Kawata</a>!" | html }}
+			<br>
 			{{ .T "Having trouble? Please have a look at our <a href='/doc/faq' target='blank'>FAQ</a>!" | html }}
 		</p>
 	</div>
