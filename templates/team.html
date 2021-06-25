@@ -26,7 +26,7 @@ Include=user_group.html
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Administrators and Community Managers" }}</h1>
 			<p>
-				{{ .T "Our Community Managers are here to take care of our social networks. Our Administrators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, they are in charge of the Moderator." | html }}
+				{{ .T "Our Community Managers are here to take care of our social networks. Our Administrators manage the chat, and the game, making sure the <a href='/doc/rules' target='_blank'></a>rules are respected, they are in charge of the Moderator." | html }}
 			</p>
 			<h1 class="ui heading">{{ .T "Administrators" }}</h1>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 39)) }}
@@ -36,7 +36,7 @@ Include=user_group.html
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">{{ .T "Moderators" }}</h1>
 			<p>
-				{{ .T "Our moderators manage the chat, and the game, making sure the <a href='https://kawata.pw/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." | html }}
+				{{ .T "Our moderators manage the chat, and the game, making sure the <a href='/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." | html }}
 			</p>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 30)) }}
 		</div>
