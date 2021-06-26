@@ -29,6 +29,15 @@ TitleBar=
 						<p>Kawata is the first and only osu! private server that allows Hacking. Things such as better relax, HD remover, and DT remover!</p>
 					</div>
 					<br><br>
+					<div class="onlineplayers">
+						<span>
+							<span style="color: #4287f5;"> {{ .T "%s" (rediget "ripple:registered_users")}} </span> total users
+						</span>
+						<span style="margin-left: 16px;">
+							<span style="color: #eb4034;"> {{ .T "%s" (rediget "ripple:online_users")}} </span> online users
+						</span>
+					</div>
+					<br><br>
 					{{ if .Context.User.Username }}
 					<span class="buttons">
 						<button class="btn-hover color-2" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
