@@ -68,4 +68,6 @@ volumes:
   - name: docker
     host:
       path: /var/cache/${DRONE_REPO}/docker
-
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
