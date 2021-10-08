@@ -59,9 +59,6 @@ AdditionalJS=/static/jquery.lsxemojipicker.js
 					{{ if not (has .Context.User.Privileges 4) }}
 					{{ template "donor_locked" . }}
 					{{ else }}
-					// <div class="ui warning message">
-					//	{{ .T "<b>Do not use offensive badges and do not pretend to be someone else with your badge.</b> If you abuse the badges system, you'll be silenced and you won't be able to edit your custom badge anymore." | html}}
-					// </div>
 					<div class="ui negative message">
 						{{ .T "<b>Custom Badges are currently not working.</b> We decided to disable them until they are fixed!" | html}}
 					</div>
