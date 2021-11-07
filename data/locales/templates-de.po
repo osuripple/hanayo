@@ -2009,3 +2009,24 @@ msgstr ""
 
 msgid "<a href='/donate'>Purchase donor</a> to support us and unlock this feature, and many more!"
 msgstr ""
+
+msgid "Old connection method (server switcher)"
+msgstr ""
+
+msgid "New connection method (\"shortcut method\", recommended)"
+msgstr ""
+
+msgid "<a href='/doc/connection_guide' target='_blank'>The Guide</a>. TL;DR version below."
+msgstr ""
+
+msgid "Make a new <b>osu! shortcut</b> (you can copy your existing one if you have it)"
+msgstr ""
+
+msgid "Rename it to \"Ripple\""
+msgstr ""
+
+msgid "Add <code>-devserver ripple.moe</code> at the end of the <b>\"Target\"</b> field"
+msgstr ""
+
+msgid "Please read the entirety of this page to confirm your ability to understand what is written here."
+msgstr ""

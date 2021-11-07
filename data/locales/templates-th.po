@@ -133,8 +133,8 @@ msgstr "บัญชีของคุณได้ถูกสร้างแล
 msgid "<b class='big text'>Do not let anyone except yourself log into your Ripple account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting."
 msgstr "<b class='big text'>อย่าให้ใครยกเว้นตัวเองเข้าบัญชี Ripple ของคุณ!</b><br> ไปที่ <a href='%s'>เซิร์ฟเวอร์ Discord</a> ห้อง #help แทน (ถ้าคุณลองทำตามเว๊ปที่เว๊ปนี้บอกแล้วอะนะ) เพื่อที่จะให้เราช่วยเหลือคุณในการเชื่อมต่อ"
 
-msgid "The Guide (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>). TL;DR version below."
-msgstr "วิธีเข้า (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>) ฉบับย่อๆ"
+msgid "The Guide (<a href='/doc/legacy_connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>). TL;DR version below."
+msgstr "วิธีเข้า (<a href='/doc/legacy_connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>) ฉบับย่อๆ"
 
 msgid "Download the server switcher"
 msgstr "ดาวน์โหลดตัวสลับเซิร์ฟเวอร์"
@@ -1350,4 +1350,25 @@ msgid "This feature is available only to donors"
 msgstr ""
 
 msgid "<a href='/donate'>Purchase donor</a> to support us and unlock this feature, and many more!"
+msgstr ""
+
+msgid "Old connection method (server switcher)"
+msgstr ""
+
+msgid "New connection method (\"shortcut method\", recommended)"
+msgstr ""
+
+msgid "<a href='/doc/connection_guide' target='_blank'>The Guide</a>. TL;DR version below."
+msgstr ""
+
+msgid "Make a new <b>osu! shortcut</b> (you can copy your existing one if you have it)"
+msgstr ""
+
+msgid "Rename it to \"Ripple\""
+msgstr ""
+
+msgid "Add <code>-devserver ripple.moe</code> at the end of the <b>\"Target\"</b> field"
+msgstr ""
+
+msgid "Please read the entirety of this page to confirm your ability to understand what is written here."
 msgstr ""

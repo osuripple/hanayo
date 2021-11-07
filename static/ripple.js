@@ -179,6 +179,9 @@ var singlePageSnippets = {
   },
 
   "/register/verify": function () {
+    $(document).ready(function() {
+      $('.ui.accordion').accordion();
+    })
     var qu = query("u");
     setInterval(function () {
       $.getJSON(hanayoConf.banchoAPI + "/api/v1/verifiedStatus?u=" + qu,

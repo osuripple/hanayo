@@ -6,15 +6,39 @@
 	<div class="ui centered error  message">
 		{{ .T "<b class='big text'>Do not let anyone except yourself log into your Ripple account!</b><br> Get on our <a href='%s'>Discord server's</a> #help channel instead (after following the steps on this page) so that we can help you out if you have trouble connecting." (config "DiscordServer") | html }}
 	</div>
+	<div class="segment">
+		<div class="ui styled fluid accordion">
+			<div class="active title">
+				<i class="dropdown icon"></i>
+				{{ .T "New connection method (\"shortcut method\", recommended)" }}
+			</div>
+			<div class="active content">
+				<h3 class="ui heading">{{ .T "<a href='/doc/connection_guide' target='_blank'>The Guide</a>. TL;DR version below." | html }}</h3>
+				<ol class="ui list">
+					<li>{{ .T "Make a new <b>osu! shortcut</b> (you can copy your existing one if you have it)" | html }}</li>
+					<li>{{ .T "Rename it to \"Ripple\"" }}</li>
+					<li>{{ .T "Add <code>-devserver ripple.moe</code> at the end of the <b>\"Target\"</b> field" | html }}</li>
+					<li>{{ .T "<b>Launch osu!</b> from the new shortcut and you'll be connected to Ripple" | html }}</li>
+				</ol>
+			</div>
+
+			<div class="title">
+				<i class="dropdown icon"></i>
+				{{ .T "Old connection method (server switcher)" }}
+			</div>
+			<div class="content">
+				<h3 class="ui heading">{{ .T "The Guide (<a href='/doc/legacy_connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>). TL;DR version below." | html }}</h3>
+				<ol class="ui list">
+					<li><a href="https://switcher.ripple.moe"><b>{{ .T "Download the server switcher" }}</b></a></li>
+					<li>{{ .T "Extract it, disable your antivirus, execute <i>RippleServerSwitcher.exe</i> <b>as administrator</b>" | html }}</li>
+					<li>{{ .T "Click on <b>Connect to Ripple</b>, then <b>Ok/Yes</b>" | html }}</li>
+					<li>{{ .T "Make sure the switcher says you're connected to <b>Ripple</b>" | html }}</li>
+					<li>{{ .T "If it says something about read-only mode, go to <code>C:\\Windows\\System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure it's not set to \"Read only\"." | html }}</li>
+				</ol>
+			</div>
+		</div>
+	</div>
 	<div class="ui segment">
-		<h1 class="ui heading">{{ .T "The Guide (<a href='/doc/connection_guide' target='_blank'>Windows</a>, <a href='/doc/linux' target='_blank'>Linux</a>). TL;DR version below." | html }}</h1>
-		<ol class="ui list">
-			<li><a href="https://mu.nyodev.xyz/upd.php?id=18"><b>{{ .T "Download the server switcher" }}</b></a></li>
-			<li>{{ .T "Extract it, disable your antivirus, execute <i>RippleServerSwitcher.exe</i> <b>as administrator</b>" | html }}</li>
-			<li>{{ .T "Click on <b>Connect to Ripple</b>, then <b>Ok/Yes</b>" | html }}</li>
-			<li>{{ .T "Make sure the switcher says you're connected to <b>Ripple</b>" | html }}</li>
-			<li>{{ .T "If it says something about read-only mode, go to <code>C:\\Windows\\System32\\Drivers\\etc</code>, open the hosts' file Properties and make sure it's not set to \"Read only\"." | html }}</li>
-		</ol>
 		<p>
 			{{ .T "If you're still having trouble, then again, get on our <a href='%s'>Discord server's</a> #help channel. To have a better chance to be answered, say \"strawberry\" anywhere in your messages so that we know you have actually read this." (config "DiscordServer") | html }}
 		</p>
