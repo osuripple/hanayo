@@ -37,6 +37,8 @@ steps:
     volumes:
       - name: docker
         path: /var/lib/docker
+      - name: docker_sock
+        path: /var/run/docker.sock
     when:
       event:
         - push
@@ -66,4 +68,6 @@ volumes:
   - name: docker
     host:
       path: /var/cache/${DRONE_REPO}/docker
-
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
