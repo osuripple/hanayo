@@ -403,8 +403,8 @@ img.achievement {
 	filter: drop-shadow(0 5px 5px #777);
 }
 img.locked-achievement {
-	-webkit-filter: brightness(0) drop-shadow(0 5px 5px #777);
-	filter: brightness(0) drop-shadow(0 5px 5px #777);
+	-webkit-filter: brightness(0.3) drop-shadow(0 5px 5px #777);
+	filter: brightness(0.3) drop-shadow(0 5px 5px #777);
 	-webkit-transition: all 500ms ;
     -moz-transition: all 500ms ;
     -ms-transition: all 500ms ;
