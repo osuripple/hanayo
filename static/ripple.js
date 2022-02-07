@@ -85,7 +85,7 @@ var singlePageSnippets = {
                 "'>(lv. " + v.chosen_mode.level.toFixed(0) +
                 ")</i>")));
           });
-          disableSimplepagButtons(data.users.length < 50);
+          disableSimplepagButtons(data.users.length < 52);
         });
     }
     function scoreOrPP(s, pp) {
