@@ -64,6 +64,7 @@ AdditionalJS=/static/jquery.lsxemojipicker.js
 					</div>
 					<div class="ui info message">
 						{{ .T "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!" | html}}
+					</div>
 					<div class="ui toggle checkbox">
 						<input type="checkbox" name="custom_badge.show" {{ if $d.custom_badge.show }}checked{{ end }}>
 						<label>{{ .T "Enable" }}</label>
