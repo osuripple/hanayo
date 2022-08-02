@@ -34,10 +34,13 @@ Include=user_group.html
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 4)) }}
 		</div>
 		<div class="ui center aligned segment">
-			<h1 class="ui heading">{{ .T "Moderators" }}</h1>
+			<h1 class="ui heading">{{ .T "Gestion and Support Team" }}</h1>
 			<p>
-				{{ .T "Our moderators manage the chat, and the game, making sure the <a href='/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." | html }}
+				{{ .T "Our Gestion Team manages the staff team with the help of the Administration team, they are also part of the Support team. Our Support Team manage the chat, and the game, making sure the <a href='/doc/rules' target='_blank'></a>rules are respected, and take action if necessary." | html }}
 			</p>
+			<h1 class="ui heading">{{ .T "Gestion Team" }}</h1>
+			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 60)) }}
+			<h1 class="ui heading">{{ .T "Support Team" }}</h1>
 			{{ template "userGroup" (slice . (.Get "badges/members?id=%d" 30)) }}
 		</div>
 		<div class="ui center aligned segment">
