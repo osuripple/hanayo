@@ -76,7 +76,7 @@ Include=user_group.html
 		</div>
 	</div>
 	{{ $ := . }}
-	{{ .T "Looking for how you should contact our team? The best way to contact us is to send an email to the following address: <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>, and let us know the team member you would like to contact." | html }}
+	{{ .T "Looking for how you should contact our team? The best way to contact us is to send an email to the following address: <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>. If you wish to contact a specfic team member, we recommend you try to message them on our <a href="https://discord.gg/4CzsqkK">Discord server</a> or check their userpage." | html }}
 	<div class="ui modal">
 		<div class="header"><h2 class="ui header">{{ .T "They told me these are very cool people." }}</h2></div>
 		{{ with .Get "users?sort=donor_expire,desc&l=52" }}
