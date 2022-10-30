@@ -69,8 +69,8 @@ KyutGrill=homepage2.jpg
 			{{ range $i, $v := .posts }}
 				<div class="ui segment">
 					<h1 class="ui header no top margin">
-						<a href="https://blog.ripple.moe/{{ $v.unique_slug }}" class="inherit">{{ html $v.title }}</a>
-						<div class="sub header"><a href="https://blog.ripple.moe/@{{ $v.creator.username }}">{{ $v.creator.name }}</a>, {{ time $v.created_at }}</div>
+						<a href="{{ $v.imported_url }}" class="inherit">{{ html $v.title }}</a>
+						<div class="sub header">{{ $v.creator.name }}, {{ time $v.created_at }}</div>
 					</h1>
 					<p>
 						{{ $v.snippet }}
