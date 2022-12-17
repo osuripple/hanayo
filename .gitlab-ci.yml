@@ -74,7 +74,7 @@ deploy:
     DEPLOY_URL: https://deploy.ripple.moe
     DEPLOY_SECRET: $DEPLOY_SECRET
   script:
-    - tag-image-with-version
+    - tag-image-with-version $TAG
     - deploy $SERVICE $TAG
   rules:
     - if: $CI_COMMIT_BRANCH == $PRODUCTION_BRANCH
