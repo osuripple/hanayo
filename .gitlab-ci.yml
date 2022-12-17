@@ -9,53 +9,22 @@ default:
     - TAG=$(grep "const version" doc.go | cut -d'"' -f 2 | cut -c 2- | tr -d '\n')
 
 stages:
-  - test
   - build-docker
   - release
   - deploy
 
-test:
-  stage: test
-  image: python:3.7
-  services:
-    - mariadb:10.3-bionic
-    - redis:7-alpine
-  variables:
-    DB_HOST: mariadb
-    DB_USERNAME: root
-    DB_PASSWORD: root
-    TEST_DB_NAME: test
-    REDIS_HOST: redis
-    REDIS_PORT: "6379"
-    USE_UVLOOP: "1"
-    ENABLE_GEOLOC: "0"
-    JWT_SECRET: thisisuselessdontpanic
-  script:
-    - git config submodule.common.url https://${GIT_USERNAME:-gitlab-ci-token}:${GIT_PASSWORD:-$CI_JOB_TOKEN}@zxq.co/ripple/dotto.git
-    - git config submodule.tests/bdzr.url https://${GIT_USERNAME:-gitlab-ci-token}:${GIT_PASSWORD:-$CI_JOB_TOKEN}@zxq.co/ripple/bdzr.git
-    - git submodule update --init --recursive
-
-    - pip install -r requirements.txt
-    - pip install -r requirements-dev.txt
-    - >
-      echo '{"database": {"host": "mariadb", "username": "root", "password": "root", "database": "test"}}' > config.json
-    - python3 tests/bdzr/migrate.py
-    - py.test
-  rules:
-    - if: $CI_COMMIT_BRANCH != $PRODUCTION_BRANCH
-
 build-docker:
   stage: build-docker
-  needs: ["test"]
   image: docker:20
   services:
     - docker:20-dind
   variables:
-    DOCKERFILE: delta.Dockerfile.slim
+    DOCKERFILE: hanayo.Dockerfile
   before_script:
     # prep steps
     - docker info
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD $REGISTRY
+
     # fetches the latest image for this branch (not failing if image is not found)
     - BRANCH_FOR_DOCKER=$(echo $CI_COMMIT_BRANCH | sed s#/#__#g)
     - docker pull $REGISTRY/$IMAGE:$BRANCH_FOR_DOCKER || true
