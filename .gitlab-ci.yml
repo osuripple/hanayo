@@ -3,6 +3,7 @@ variables:
   SERVICE: hanayo
   IMAGE: ripple/$SERVICE
   PRODUCTION_BRANCH: production
+  GIT_SUBMODULE_STRATEGY: recursive
 
 default:
   before_script:
