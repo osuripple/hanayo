@@ -19,6 +19,7 @@ type beatmapPageData struct {
 	Beatmap    models.Beatmap
 	Beatmapset models.Set
 	SetJSON    string
+	MapID      string
 }
 
 func beatmapInfo(c *gin.Context) {
@@ -29,6 +30,11 @@ func beatmapInfo(c *gin.Context) {
 	if _, err := strconv.Atoi(b); err != nil {
 		c.Error(err)
 	} else {
+		data.MapID = c.Param("bid")
+		if err != nil {
+            c.Error(err)
+			return
+		}
 		data.Beatmap, err = getBeatmapData(b)
 		if err != nil {
 			c.Error(err)

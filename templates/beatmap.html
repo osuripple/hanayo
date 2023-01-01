@@ -1,6 +1,13 @@
 {{ define "tpl" }}
 	<div class="ui container">
 	{{ $ := . }}
+	{{if eq .Beatmapset.ID 0 }}
+    <div class="ui centered segment">
+        {{ .T "We're sorry, but we were unable to find the content you were looking for!" }}
+        <div class="ui divider"></div>
+        <a class="ui pink button" href="https://osu.ppy.sh/b/{{ .MapID }}">{{ .T "View on osu! website" }}</a>
+    </div>
+	{{ else }}
 	{{ if ne .Beatmapset.ID 0 }}
 		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
@@ -50,7 +57,7 @@
 									<a href="http://storage.kawata.pw/d/{{ .Beatmapset.ID }}?novideo" class="ui gray labeled icon button"><i class="download icon"></i>{{ $.T "download (no video)" }}</a>
 								{{ end }}
 								{{ if has $.Context.User.Privileges 256 }}
-									<a href="https://admin.kawata.pw/index.php?p=124&bsid={{ .Beatmapset.ID }}" class="ui violet labeled icon button"><i class="thumbs up icon"></i>{{ $.T "Rank in RAP"}}</a>
+									<a href="https://kap.kawata.pw/rank/{{ .Beatmapset.ID }}" class="ui violet labeled icon button"><i class="thumbs up icon"></i>{{ $.T "Rank in RAP"}}</a>
 								{{ end }}
 							</div>
 						</div>
@@ -100,6 +107,7 @@
 			<tbody>
 			</tbody>
 		</table>
+	{{ end }}
 	{{ end }}
 	</div>
 {{ end }}
