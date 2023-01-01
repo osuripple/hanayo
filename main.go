@@ -312,7 +312,7 @@ func generateEngine() *gin.Engine {
 	// r.POST("/oauth/token", oauth.Token)
 
 	r.GET("/help", func(c *gin.Context) {
-		c.Redirect(301, "https://support.ripple.moe")
+		c.Redirect(301, "https://support.kawata.pw")
 	})
 
 	loadSimplePages(r)
