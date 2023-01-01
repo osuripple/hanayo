@@ -125,7 +125,7 @@ func resp(c *gin.Context, statusCode int, tpl string, data interface{}) {
 	if err != nil {
 		c.String(
 			200,
-			"An error occurred while trying to render the page, and we have now been notified about it.",
+			"An error occurred while trying to render the page, Please notify a Developer and provide the url you are attempting to view.",
 		)
 		c.Error(err)
 		return
