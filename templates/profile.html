@@ -18,7 +18,7 @@
 		{{ end }}
 
 		{{ $global := . }}
-		{{ with (.Get "users/full?id=%d&relax=-1" .UserID) }}
+		{{ with ($global.Get "users/full?id=%d&relax=-1" .UserID) }}
 			{{ $favouritemode := (int .favourite_mode) }}
 			{{ $favouriteRelax := (int .favourite_relax) }}
 			{{ if $hasMode }}{{ $favouritemode = $gqm }}{{ end }}
