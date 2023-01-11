@@ -16,6 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// Monkey-patch twemoji.parse with a new base cdn.
+// See https://github.com/twitter/twemoji/issues/580 for more info.
+// Temporary until twemoj base url is fixed.
+const twemojiBaseURL = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/';
+originalTwemojiParse = twemoji.parse;
+twemoji.parse = function (s, opts) {
+  opts = opts || {};
+  originalTwemojiParse(s, Object.assign(
+    opts,
+    { base: twemojiBaseURL }
+  ));
+}
+
 // this object contains tiny snippets that were deemed too small to be worth
 // their own file.
 var singlePageSnippets = {
@@ -179,7 +192,7 @@ var singlePageSnippets = {
   },
 
   "/register/verify": function () {
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.ui.accordion').accordion();
     })
     var qu = query("u");
@@ -421,7 +434,7 @@ var singlePageSnippets = {
         re.exec(); // apparently this is always null, idk
         console.log(v, reData);
         // fallback to new osu links
-        if (reData === null) 
+        if (reData === null)
           reData = re_new.exec(v);
 
         if (reData === null) {
