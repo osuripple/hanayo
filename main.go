@@ -17,11 +17,12 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/johnniedoe/contrib/gzip"
+	"github.com/kawatapw/agplwarning"
 	"github.com/thehowl/conf"
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
-	"github.com/kawatapw/agplwarning"
+
 	// "github.com/kawatapw/hanayo/routers/oauth"
 	"github.com/kawatapw/hanayo/routers/pagemappings"
 	"github.com/kawatapw/hanayo/services"
@@ -34,21 +35,23 @@ var startTime = time.Now()
 var (
 	config struct {
 		// Essential configuration that must be always checked for every environment.
-		ListenTo        string `description:"ip:port from which to take requests."`
-		Unix            bool   `description:"Whether ListenTo is an unix socket."`
-		DSN             string `description:"MySQL server DSN"`
-		RedisEnable     bool
-		AvatarURL       string
-		BaseURL         string
-		API             string
-		BanchoAPI       string `description:"Bancho base url (without /api) that hanayo will use to contact bancho"`
-		CheesegullAPI   string
-		APISecret       string
-		Offline         bool `description:"If this is true, files will be served from the local server instead of the CDN."`
+		ListenTo      string `description:"ip:port from which to take requests."`
+		Unix          bool   `description:"Whether ListenTo is an unix socket."`
+		DSN           string `description:"MySQL server DSN"`
+		RedisEnable   bool
+		AvatarURL     string
+		BaseURL       string
+		API           string
+		BanchoAPI     string `description:"Bancho base url (without /api) that hanayo will use to contact bancho"`
+		CheesegullAPI string
+		APISecret     string
+		Offline       bool `description:"If this is true, files will be served from the local server instead of the CDN."`
 
-		MainRippleFolder string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
-		AvatarsFolder    string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
-		VarnishURL       string
+		MainRippleFolder  string `description:"Folder where all the non-go projects are contained, such as old-frontend, lets, ci-system. Used for changelog."`
+		AvatarsFolder     string `description:"location folder of avatars, used for placing the avatars from the avatar change page."`
+		ClanAvatarsFolder string `description:"location folder of clan avatars, used for placing the clan avatars from the clan avatar change page."`
+
+		VarnishURL string
 
 		CookieSecret string
 
@@ -84,7 +87,6 @@ var (
 		SentryDSN string
 
 		IP_API string
-
 	}
 	configMap map[string]interface{}
 	db        *sqlx.DB
@@ -270,6 +272,12 @@ func generateEngine() *gin.Engine {
 	r.GET("/register/verify", verifyAccount)
 	r.GET("/register/welcome", welcome)
 
+	r.GET("/clans/create", ccreate)
+	r.POST("/clans/create", ccreateSubmit)
+	r.GET("/c/:cid", clanPage)
+	r.POST("/c/:cid", leaveClan)
+	r.GET("/clans/invite/:inv", clanInvite)
+
 	r.GET("/u/:user", userProfile)
 	r.GET("/b/:bid", beatmapInfo)
 
@@ -297,6 +305,9 @@ func generateEngine() *gin.Engine {
 	// r.GET("/settings/discord/finish", discordLinkFinish)
 	// r.GET("/settings/discord/unlink", discordUnlink)
 	r.POST("/settings/profbackground/:type", profBackground)
+
+	r.POST("/settings/clansettings", createInvite)
+	r.POST("/settings/clansettings/k", clanKick)
 
 	// r.POST("/dev/tokens/create", createAPIToken)
 	// r.POST("/dev/tokens/delete", deleteAPIToken)

@@ -73,7 +73,7 @@ func CheckRedirect(c *gin.Context) {
 		mapped := pageMappings[i]
 		if mapped == nil {
 			u := c.Request.URL
-			u.Host = "admin.kawata.pw"
+			u.Host = "kap.lokiverse.com"
 			c.Redirect(302, u.String())
 			return
 		}

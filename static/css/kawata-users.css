@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Color */
+
+.user.loki {
+    font-family: 'aAntaraDistance';
+    background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+    color: rgba(0,240,0,.2);
+    display:inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+   }
+
+.user.donor {
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    background:url("http://resources.guild-hosting.net/201604011348/themes/core/images/tag_fx/sparkle_yellow.gif");
+    color:#FFFF00;
+    display:inline-block;
+}
+
+.profile-tag {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 500;
+    background-size: cover;
+    font-size: 13px;
+    margin-top: 12px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.12);
+    padding-bottom: 4px;
+    border-radius: 10px;
+}
+
+.profile-tag.owner {
+    background-color: #990000;
+    box-shadow: 0px 4px 0 0px #800000;
+}
+
+.profile-tag.dev {
+    background-color: rgb(0, 190, 190);
+    box-shadow: 0px 4px 0 0px #00FFFF50;
+}
+
+.profile-tag.admin {
+    background-color: #700000;
+    box-shadow: 0px 4px 0 0px #600000;
+}
+
+.profile-tag.cm {
+    background-color: #e27030;
+    box-shadow: 0px 4px 0 0px #903b1a;
+}
+
+.profile-tag.mod {
+    background-color: #79b852;
+    box-shadow: 0px 4px 0 0px #056a08;
+}
+
+.profile-tag.bat {
+    background-color: #30e2bf;
+    box-shadow: 0px 4px 0 0px #00a786;
+}
+
+.profile-tag.alumni {
+    background-color: #303030;
+    box-shadow: 0px 4px 0 0px #202020;
+}
+
+.profile-tag.contributor {
+    background-color: #e27030;
+    box-shadow: 0px 4px 0 0px #903b1a;
+}
+
+.ui.header.dev {
+    border:none;
+    margin:calc(2rem - .14285em) 0 1rem;
+    padding:0;
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight:700;
+    line-height:1.2857em;
+    text-transform:none;
+    background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+    color: rgba(0,240,0,.2);
+    display:inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+   
+.ui.header.admin {
+    border:none;
+    margin:calc(2rem - .14285em) 0 1rem;
+    padding:0;
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight:700;
+    line-height:1.2857em;
+    text-transform:none;
+    background:url("https://cdn.lowgif.com/full/1e6cf8b9e5434f3d-glitter-sparkle-valee1215-valee1215-glitter-sparkle-animated.gif");
+    color:#FF0000;
+    display:inline-block;
+    animation: colorRotate 6s linear 0s infinite;
+   }
+   
+   @keyframes colorRotate {
+     from {
+       color: #6666ff;
+     }
+     10% {
+       color: #0099ff;
+     }
+     50% {
+       color: #00ff00;
+     }
+     75% {
+       color: #ff3399;
+     }
+     100% {
+       color: #6666ff;
+     }
+   }
+   
+.ui.image.avat.bordered {
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: hsl(var(--base), 80%, 80%);
+ }
+
+.tag {
+    font-size: 1.28rem
+}
+
+.emeralddonor {
+    background: url(https://i.imgur.com/skMrJae.gif);
+    color: #01DF01;
+    font-family: 'Moonstar';
+    font-weight: bold;
+    text-shadow: 2px 0px 11px #04B404;
+    display:inline-block;
+    }
+    
+.diamonddonor {
+    background: url(http://i.imgur.com/ejTlAK7.gif);
+    color: #6E6E6E;
+    font-family: 'Spaceage';
+    font-weight: bold;
+    text-shadow: 2px 0px 11px #FAFAFA;
+    }
+
+    @font-face {
+        font-family: 'Payback';
+        src: 
+            local('Payback'),
+            local('Payback'),
+            url('fonts/Payback.ttf')
+            format('truetype');
+    }
+
+    @font-face {
+        font-family: 'PalmBeach';
+        src: 
+            local('PalmBeach'),
+            local('PalmBeach'),
+            url('fonts/PalmBeach.ttf')
+            format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Moonstar';
+        src: 
+            local('Moonstar'),
+            local('Moonstar'),
+            url('fonts/Moonstar.ttf')
+            format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Spaceage';
+        src: 
+            local('Spaceage'),
+            local('Spaceage'),
+            url('fonts/Spaceage.ttf')
+            format('truetype');
+    }
+
+.glitchdonor {
+    font-family: 'Payback';
+    font-weight: bold;
+    color: white;
+    animation: glitch 2s steps(100) infinite;
+ }
+    
+    /* GLITCH EFFECT */
+    @keyframes glitch {
+      0% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      4% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      5% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      10% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      11% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      15% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      16% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      20% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      21% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      30% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      31% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      40% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      41% {text-shadow: 50px 0 0 blue, -50px 0 0 lime;}
+      42% {text-shadow: 0 0 0 blue, 0 0 0 lime;}
+      43% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      46% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      47% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      50% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      51% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      55% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      56% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      60% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      61% {text-shadow: 30px 0 0 red, -30px 0 0 lime;}
+      62% {text-shadow: 0 0 0 red, 0 0 0 lime;}
+      63% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+      66% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+      67% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      70% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      71% {text-shadow: 70px 0 0 red, -70px 0 0 blue;}
+      72% {text-shadow: 0 0 0 red, 0 0 0 blue;}
+      73% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      76% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      77% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      80% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      81% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      85% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      86% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      90% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      91% {text-shadow: 60px 0 0 lime, -60px 0 0 blue;}
+      92% {text-shadow: 0 0 0 lime, 0 0 0 blue;}
+      92% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      95% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      96% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      99% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      100% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+    }
+
+    i.gay.icon {
+        color:#FF0000;
+        animation: gaycolorRotate 6s linear 0s infinite;
+    }
+    
+    @keyframes gaycolorRotate {
+      from {
+        color: #d04b36;
+      }
+      10% {
+        color: #e36511;
+      }
+      20% {
+        color: #ffba00;
+      }
+      30% {
+        color: #00b180;
+      }
+      40% {
+        color: #147aab;
+      }
+      50% {
+       color: #675997;
+      }
+      60% {
+        color: #675997;
+      }
+      70% {
+        color: #147aab;
+      }
+      80% {
+        color: #00b180;
+      }
+      90% {
+        color: #ffba00;
+      }
+      100% {
+        color: #e36511;
+      }
+    }
+    
+    .ui.header.loki {
+     border:none;
+     margin:calc(2rem - .14285em) 0 1rem;
+     padding:0;
+     font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+     font-weight:700;
+     line-height:1.2857em;
+     text-transform:none;
+     background:url("https://cdn.lowgif.com/small/ef0b748489d251e9-colorful-planets-tumblr-page-2-pics-about-space.gif");
+     color: rgba(0,240,0,.2);
+     display:inline-block;
+     background-clip: text;
+     -webkit-background-clip: text;
+    }
+    
+    .ui.header.admin {
+     border:none;
+     margin:calc(2rem - .14285em) 0 1rem;
+     padding:0;
+     font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+     font-weight:700;
+     line-height:1.2857em;
+     text-transform:none;
+     background:url("https://cdn.lowgif.com/full/1e6cf8b9e5434f3d-glitter-sparkle-valee1215-valee1215-glitter-sparkle-animated.gif");
+     color:#FF0000;
+     display:inline-block;
+     animation: colorRotate 6s linear 0s infinite;
+    }
+    
+    @keyframes colorRotate {
+      from {
+        color: #6666ff;
+      }
+      10% {
+        color: #0099ff;
+      }
+      50% {
+        color: #00ff00;
+      }
+      75% {
+        color: #ff3399;
+      }
+      100% {
+        color: #6666ff;
+      }
+    }

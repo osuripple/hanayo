@@ -19,6 +19,9 @@ NoCompile=true
 
 		{{ navbarItem .Path (.T "Password") "/settings/password" }}
 
+		{{ navbarItem .Path (.T "Clan") "/settings/clansettings" }}
+
+
 		{{ navbarItem .Path (.T "Two Factor Authentication") "/settings/2fa" }}
 
 		{{ $d := printf `<div class="ui %s horizontal mini label">%s</div>` ($dCol) (.T "Donor") }}

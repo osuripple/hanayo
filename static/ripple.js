@@ -52,14 +52,14 @@ var singlePageSnippets = {
         '', document.title,
         wl.pathname + "?mode=" + favouriteMode + "&p=" + page +
         (country != "" ? "&country=" + encodeURI(country) : "") +
-        "&relax=" + favouriteRelax +
+        "&rx=" + favouriteRelax +
         wl.hash);
       api("leaderboard", {
         mode: favouriteMode,
         p: page,
         l: 50,
         country: country,
-        relax: favouriteRelax,
+        rx: favouriteRelax,
       },
         function (data) {
           var tb = $(".ui.table tbody");

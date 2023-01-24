@@ -1,0 +1,77 @@
+{{/*###
+Handler=/settings/clansettings
+TitleBar=Clan Settings
+Include=menu.html
+*/}}
+{{ define "tpl" }}
+<div class="ui container">
+	<div class="ui stackable grid">
+		{{ template "settingsSidebar" . }}
+		<div class="twelve wide column">
+			<div class="ui segment">
+				{{ $d := qb "SELECT user, clan, perms FROM user_clans WHERE user = ? AND perms = 8 LIMIT 1" .Context.User.ID }}
+				{{ $g := or $d.clan.Int -1 }}
+				{{ if $d }}
+				<font size="6">Clan Settings</font>
+				<br>
+				<br>
+				<div class="ui center aligned segment">
+				{{ $o := (.Get "clans/isclan?uid=%d" .Context.User.ID).clan.clan }}
+					{{ $c := qb "SELECT * FROM clans WHERE id = ? LIMIT 1" $o }}
+					{{ $tag := or $c.tag.String "" }}
+					{{ $desc := or $c.description.String "" }}
+					{{ $icon := or $c.icon.String "" }}
+					<form id="register-form" class="ui form" method="post" action="/settings/clansettings">
+						<div class="field">
+							<label class="left aligned">{{ "Clantag (2 to 6 characters)" }}</label>
+							<input tabindex="1" type="text" name="tag" placeholder="{{ "Clantag" }}" value="{{ $tag }}" pattern="^[A-Za-z0-9 _-]{2,6}$">
+						</div>
+						<div class="field">
+							<label class="left aligned">{{ "Description (optional)" }}</label>
+							<input tabindex="2" type="text" name="password" placeholder="{{ "Description" }}" value="{{ $desc}}">
+						</div>
+						<div class="field">
+							<label class="left aligned">{{ "Icon [URL] (optional)" }}</label>
+							<input tabindex="3" type="url" name="email" placeholder="{{ "Icon URL" }}" value="{{ $icon }}">
+						</div>
+						{{ ieForm .Gin }}
+					</form>
+				
+					<br>
+						<button tabindex="4" class="ui primary button" type="submit" form="register-form">{{ .T "Save" }}</button>
+					</div>
+					<br>
+				<font size="6">Invite</font>
+				<br>
+				<br><center><div class="ui two item menu" id="join-menu">
+				{{ $d := qb "SELECT invite FROM user_clans INNER JOIN clans ON user_clans.clan = clans.id INNER JOIN clans_invites ON clans.id = clans_invites.clan WHERE user_clans.user = ?" .Context.User.ID }}
+				{{ $invite := or $d.invite.String "" }}
+					<input class="item" type="text" value="https://kawata.pw/clans/invite/{{ $invite }}" style="background-color:rgba(0,0,0,.6)" disabled></input>				</div>
+				<br><form action="/settings/clansettings" method="POST">
+						{{ ieForm .Gin }}
+						<button type="submit" class="ui right green button">
+							{{ .T "Generate a new invite!" }}
+						</button>
+					</form>
+				<br>
+				<br>
+				
+				{{ range (.Get "clans/members?id=%d&r=%d" $g 1).members }}
+				<form id="kick-form" class="ui form" method="post" action="/settings/clansettings/k">
+					<div class="column">
+					<div class="ui left aligned fluid card">
+						<div class="content">
+							<a href="/u/{{ .id }}"><a class="header" href="/u/{{ .id }}">{{ country .country false }}{{ .username }}</a> <button name="member" value="{{ .id }}" class="ui right green button" style="float:right; display:block; margin-right:0px; clear:left; width: 40%;"> Kick </button></a>
+						</div>
+					</div>
+				</div>
+				</form>
+				{{ end }}
+				{{ else }}
+				<font size="3">You haven't joined a clan yet, or you aren't the owner of your current one.</font>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}

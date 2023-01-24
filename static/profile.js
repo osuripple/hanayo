@@ -9,7 +9,7 @@ $(document).ready(function() {
 		var rel = $("#relax-menu>.item.active");
 		var r = 0;
 		if (rel.length > 0) {
-			r = rel.data("relax");
+			r = rel.data("rx");
 		}
 		$("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
 		$("[data-mode=" + m + "][data-relax=" + r + "]:not(.item)").removeAttr("hidden");
@@ -23,7 +23,7 @@ $(document).ready(function() {
 			initialiseScores(needsLoad, m, r);
 		else
 			currentPage[0][m].mostPlayed = mostPlayed.data("page");
-		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + "&relax=" + r + wl.hash);
+		window.history.replaceState('', document.title, wl.pathname + "?mode=" + m + "&rx=" + r + wl.hash);
 	}
 
 	var wl = window.location;
@@ -357,7 +357,7 @@ function loadScoresPage(type, mode, relax) {
 		p: page,
 		l: limit,
 		id: userID,
-		relax: relax,
+		rx: relax,
 	}, function(r) {
 		if (r.scores == null) {
 			disableLoadMoreButton(type, mode);

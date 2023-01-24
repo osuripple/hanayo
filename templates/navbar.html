@@ -37,6 +37,19 @@
 					{{ navbarItem .Path (.T "Reddit") "https://www.reddit.com/r/kawata" }}
 				</div>
 			</div>
+			<div class="ui dropdown item">
+				<span>{{ .T "Clans" }}</span>
+				<div class="menu">
+				{{ navbarItem .Path (.T "Leaderboard") "/clans?mode=0" }}
+				{{ $d := qb "SELECT user, clan, perms FROM user_clans WHERE user = ? AND perms = 8 LIMIT 1" .Context.User.ID }}
+
+				{{ if $d }}
+					<a class="item hvr-bounce-in" href="/c/{{ $d.clan }}">My Clan</a>
+				{{ else }}
+					{{ navbarItem .Path (.T "Create") "/clans/create" }}
+				{{ end }}
+			</div>
+			</div>
 			{{ if .Context.User.Username }}
 			<div class="ui dropdown item">
 				<span>{{ .T "Beatmaps" }}</span>
@@ -49,7 +62,7 @@
 			{{ if $settings.accept_donations.Int }}
 				{{ navbarItem .Path (.T "" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
 			{{ end }}
-			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://admin.kawata.pw" }}{{end}}
+			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://kap.lokiverse.com" }}{{end}}
 		{{ end }}
 		<div class="firetrucking-right-menu">
 			<div class="item">
