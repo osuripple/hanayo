@@ -1,0 +1,159 @@
+.profile-tag.owner {
+    background-color: rgba(153,0,0,1);
+    box-shadow: 0px 4px 0 0px rgba(153,0,0,0.6);
+}
+
+.profile-tag.dev {
+    background-color: rgba(0, 190, 190, 1);
+    box-shadow: 0px 4px 0 0px rgba(0,190,190,0.6);
+}
+
+.profile-tag.admin {
+    background-color: rgba(112,0,0,1);
+    box-shadow: 0px 4px 0 0px rgba(112,0,0,0.6);
+}
+
+.profile-tag.cm {
+    background-color: rgba(226,112,48,1);
+    box-shadow: 0px 4px 0 0px rgba(226,112,48,0.6);
+}
+
+.profile-tag.gestion {
+    background-color: rgba(103,58,183,1);
+    box-shadow: 0px 4px 0 0px rgba(103,58,183,0.6);
+}
+
+.profile-tag.support {
+  background-color: rgba(156,39,176,1);
+  box-shadow: 0px 4px 0 0px rgba(156,39,176,0.6);
+}
+
+.profile-tag.bn {
+    background-color: rgba(48,226,191,1);
+    box-shadow: 0px 4px 0 0px rgba(48,226,191,0.6);
+}
+
+.profile-tag.alumni {
+    background-color: rgba(48,48,48,1);
+    box-shadow: 0px 4px 0 0px rgba(48,48,48,0.6);
+}
+
+.profile-tag.contributor {
+    background-color: rgba(226,112,48,1);
+    box-shadow: 0px 4px 0 0px rgba(225,113,48,0.6);
+}
+
+.tag.emeralddonor {
+    background: url(https://i.imgur.com/skMrJae.gif);
+    color: #01DF01;
+    font-family: 'Moonstar';
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 2px 0px 11px #04B404;
+    display:inline-block;
+  }
+    
+.tag.diamonddonor {
+    background: url(http://i.imgur.com/ejTlAK7.gif);
+    color: #6E6E6E;
+    font-family: 'Spaceage';
+    font-weight: bold;
+    text-shadow: 2px 0px 11px #FAFAFA;
+    }
+
+.tag.glitchdonor {
+    font-family: 'Payback';
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    animation: glitch 2s steps(100) infinite;
+ }
+    
+/* GLITCH EFFECT */
+@keyframes glitch {
+  0% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+  4% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+  5% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  10% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  11% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+  15% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+  16% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+  20% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+  21% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+  30% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+  31% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+  40% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+  41% {text-shadow: 50px 0 0 blue, -50px 0 0 lime;}
+  42% {text-shadow: 0 0 0 blue, 0 0 0 lime;}
+  43% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+  46% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+  47% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+  50% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+  51% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+  55% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+  56% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  60% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  61% {text-shadow: 30px 0 0 red, -30px 0 0 lime;}
+  62% {text-shadow: 0 0 0 red, 0 0 0 lime;}
+  63% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+  66% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+  67% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  70% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  71% {text-shadow: 70px 0 0 red, -70px 0 0 blue;}
+  72% {text-shadow: 0 0 0 red, 0 0 0 blue;}
+  73% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+  76% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+  77% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  80% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+  81% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+  85% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+  86% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+  90% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+  91% {text-shadow: 60px 0 0 lime, -60px 0 0 blue;}
+  92% {text-shadow: 0 0 0 lime, 0 0 0 blue;}
+  92% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+  95% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+  96% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+  99% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+  100% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+}
+i.gay.icon {
+    color:#FF0000;
+    animation: gaycolorRotate 6s linear 0s infinite;
+}
+
+@keyframes gaycolorRotate {
+  from {
+    color: #d04b36;
+  }
+  10% {
+    color: #e36511;
+  }
+  20% {
+    color: #ffba00;
+  }
+  30% {
+    color: #00b180;
+  }
+  40% {
+    color: #147aab;
+  }
+  50% {
+   color: #675997;
+  }
+  60% {
+    color: #675997;
+  }
+  70% {
+    color: #147aab;
+  }
+  80% {
+    color: #00b180;
+  }
+  90% {
+    color: #ffba00;
+  }
+  100% {
+    color: #e36511;
+  }
+}
