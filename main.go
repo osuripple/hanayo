@@ -9,6 +9,7 @@ import (
 	"encoding/gob"
 	"fmt"
 	"time"
+	"strconv"
 
 	"github.com/fatih/structs"
 	"github.com/getsentry/raven-go"
@@ -57,6 +58,7 @@ var (
 
 		RedisMaxConnections int
 		RedisNetwork        string
+		RedisDB             int
 		RedisAddress        string
 		RedisPassword       string
 
@@ -172,6 +174,7 @@ func main() {
 	rd = redis.NewClient(&redis.Options{
 		Addr:     config.RedisAddress,
 		Password: config.RedisPassword,
+		DB:       config.RedisDB,
 	})
 
 	// initialise oauth
@@ -228,8 +231,9 @@ func generateEngine() *gin.Engine {
 		store, err = sessions.NewRedisStore(
 			config.RedisMaxConnections,
 			config.RedisNetwork,
+			strconv.Itoa(config.RedisDB),
 			config.RedisAddress,
-			config.RedisPassword,
+			[]byte(config.RedisPassword),
 			[]byte(config.CookieSecret),
 		)
 		if err != nil {
