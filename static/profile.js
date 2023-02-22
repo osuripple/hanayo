@@ -9,7 +9,7 @@ $(document).ready(function() {
 		var rel = $("#relax-menu>.item.active");
 		var r = 0;
 		if (rel.length > 0) {
-			r = rel.data("rx");
+			r = rel.data("relax");
 		}
 		$("[data-mode]:not(.item):not([hidden])").attr("hidden", "");
 		$("[data-mode=" + m + "][data-relax=" + r + "]:not(.item)").removeAttr("hidden");
