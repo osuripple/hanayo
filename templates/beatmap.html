@@ -9,6 +9,7 @@
     </div>
 	{{ else }}
 	{{ if ne .Beatmapset.ID 0 }}
+	{{ $global := . }}
 		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
 			<span class="text">
@@ -51,6 +52,7 @@
 						</div>
 						<div class="full-centered column">
 							<div class="ui vertical buttons">
+								<a class="ui pink button" href="https://osu.ppy.sh/b/{{ .MapID }}">{{ .T "View on osu! website" }}</a>
 								<a href="osu://dl/{{ .Beatmapset.ID }}" class="ui pink labeled icon button"><i class="download icon"></i>{{ $.T "osu!direct" }}</a>
 								<a href="http://storage.kawata.pw/d/{{ .Beatmapset.ID }}" class="ui green labeled icon button"><i class="download icon"></i>{{ $.T "download" }}</a>
 								{{ if .Beatmapset.HasVideo }}
