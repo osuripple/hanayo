@@ -50,10 +50,6 @@
 			{{ end }}
 		{{ end }}
 		{{ $user := . }}
-	<!-- Defining Badge/Permissions Custom CSS-->
-		{{ $loki := has .id 1488 }}
-		{{ $lokialt := has .id 420 }}
-		{{ $chatmod  := has .privileges 2883911 }}
 	<div class="profile-sidebar">			
 		<div class="profile-name">
 			{{ if eq $global.UserID $global.Context.User.ID }}
@@ -67,42 +63,20 @@
 				<div class="table element">
 					<h1 class="ui header">
 						<a title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</a>
+						<!-- Function to set username css based off badges. -->
+						{{ $matched := false }}
 						{{ range .badges }}
-							{{ if ne .class ""}}
-								{{if eq (int .priority) 10}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 9}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 8}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 7}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 6}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 5}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 4}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 3}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 2}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 1}}
-									<div class="user {{ .class }}">
-									{{break}}
-								{{ else if eq (int .priority) 0}}
-									<div class="user {{ .class }}">
-								{{ end }}
-							{{ end }}
+						    {{ if ne .class "" }}
+						        {{ if eq (int .usercss) 1 }}
+						            <div class="user {{ .class }}">
+						            {{ $matched = true }}
+						            {{break}}
+						        {{ end }}
+						    {{ end }}
+						{{ end }}
+									
+						{{ if not $matched }}
+						    <div class="user">
 						{{ end }}
 						<a href="/c/{{ $user.clan.id }}?mode=0">{{ $user.clan.tag }} </a>{{ .username }}
 						</div>
@@ -116,6 +90,7 @@
 						<div class="subtitle">
 							<i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
 							{{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }}
+							<!-- Type 0 Default Badge Location -->
 							<b>
 								{{ range $fullUser.badges }}
 									{{ if eq (int .type) 0 }}
@@ -163,6 +138,7 @@
 				</div>
 			</div>
 			<div class="center aligned sixteen wide column">
+				<!-- New Custom Badge Type Location -->
 				{{ range .badges }}
 					{{ if eq (int .type) 1 }}
 							<div class="profile-tag {{ .class }}"><span><b>{{ .name }}</b></span> <i class="fas {{ .icon }}"></i></div>
