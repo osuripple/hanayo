@@ -6,13 +6,13 @@
   function loadLeaderboard(b, m, r) {
     var wl = window.location;
     window.history.replaceState('', document.title,
-      "/b/" + b + "?mode=" + m + "&relax=" + r + wl.hash);
+      "/b/" + b + "?mode=" + m + "&rx=" + r + wl.hash);
     api("scores?sort=score,desc&sort=id,asc", {
       mode : m,
       b : b,
       p : 1,
       l : 50,
-      relax: r,
+      rx: r,
     },
     function(data) {
       var tb = $(".ui.table tbody");
