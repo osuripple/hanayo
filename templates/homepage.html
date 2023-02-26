@@ -42,16 +42,11 @@ KyutGrill=homepage2.jpg
 					{{ $.T "Register" }}
 				</a>
 			{{ end }}
-			<a class="ui pink button" href="https://switcher.ripple.moe">
-				<i class="download icon"></i>
-				{{ $.T "Download the server switcher" }}
+			<a class="ui pink inverted button" href="/doc/connection_guide">
+				<i class="book icon"></i>
+				{{ $.T "Connection guide" }}
 			</a>
-			{{ if .Context.User.ID }}
-				<a class="ui pink inverted button" href="/doc/connection_guide">
-					<i class="book icon"></i>
-					{{ $.T "Connection guide" }}
-				</a>
-			{{ else }}
+			{{ if not .Context.User.ID }}
 				<a class="ui pink button" href="/login">
 					<i class="sign in icon"></i>
 					{{ $.T "Log in" }}
