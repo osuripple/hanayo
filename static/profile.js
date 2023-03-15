@@ -132,36 +132,35 @@ function initialiseAchievements() {
 		}
 
 		var displayAchievements = function(limit, achievedOnly) {
-			var $ach = $("#achievements").empty();
+			var $ach = $("<div class='ui two wide computer eight wide mobile centered column'>");
 			limit = limit < 0 ? achievements.length : limit;
 			var shown = 0;
 			for (var i = 0; i < achievements.length; i++) {
-				var ach = achievements[i];
-				if (shown >= limit || (achievedOnly && !ach.achieved)) {
-					continue;
-				}
-				shown++;
-				$ach.append(
-					$("<div class='ui two wide computer eight wide mobile centered column'>").append(
-						$("<img src='https://s.ripple.moe/images/medals-" +
-							"client/" + ach.icon + ".png' alt='" + ach.name +
-							"' class='" +
-							(!ach.achieved ? "locked-achievement" : "achievement") +
-							"'>").popup({
-							title: ach.name,
-							content: ach.description,
-							position: "bottom center",
-							distanceAway: 10
-						})
-					)
-				);
+			  var ach = achievements[i];
+			  if (shown >= limit || (achievedOnly && !ach.achieved)) {
+				continue;
+			  }
+			  shown++;
+			  var $achievement = $("<img src='https://s.ripple.moe/images/medals-" +
+			    "client/" + ach.icon + ".png' alt='" + ach.name +
+			    "' class='" +
+			    (!ach.achieved ? "locked-achievement" : "achievement") +
+			    "'>").popup({
+			    title: ach.name,
+			    content: ach.description,
+			    position: "bottom center",
+			    distanceAway: 10
+			  });
+			  $ach.append($achievement);
 			}
 			// if we've shown nothing, and achievedOnly is enabled, try again
 			// this time disabling it.
 			if (shown == 0 && achievedOnly) {
-				displayAchievements(limit, false);
+			  displayAchievements(limit, false);
 			}
-		};
+			$("#achievements").empty().append($ach);
+		  };
+		  
 
 		// only 8 achievements - we can remove the button completely, because
 		// it won't be used (no more achievements).
