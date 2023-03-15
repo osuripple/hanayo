@@ -12,7 +12,7 @@
 			Note:
 				RAP navbar will be completely different from standard navbar,
 				meaning it will have the buttons and all the stuff that are in
-				the current RAP's sidebar.
+				the current RAP''s sidebar.
 			*/}}
 		{{ else }}
 			{{ navbarItem .Path (.T "Leaderboard") "/leaderboard" }}
@@ -62,7 +62,7 @@
 			{{ if $settings.accept_donations.Int }}
 				{{ navbarItem .Path (.T "" | printf "<i class=\"red heart icon\"></i>%s") "/donate" }}
 			{{ end }}
-			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://kap.lokiverse.com" }}{{end}}
+			{{ if $isAdmin }}{{ navbarItem .Path (.T "" | printf "<i class=\"blue shield alternate icon\"></i>%s") "https://kap.kawata.pw" }}{{end}}
 		{{ end }}
 		<div class="firetrucking-right-menu">
 			<div class="item">
@@ -80,7 +80,24 @@
 					<div id="userinfo">
 						{{ $userInfo := . }}
 							{{ with (.Get "users/full?id=%d" .Context.User.ID) }}
-								<h2><img class="ui avatar image" src="{{ config "AvatarURL" }}/{{ $userInfo.Context.User.ID }}">{{ $userInfo.Context.User.Username }}</h2>							
+								<h2>
+									<img class="ui avatar image" src="{{ config "AvatarURL" }}/{{ $userInfo.Context.User.ID }}">
+									{{ $matched := false }}
+									{{ range .badges }}
+									    {{ if ne .class "" }}
+									        {{ if eq (int .usercss) 1 }}
+									            <div class="user {{ .class }}">
+									            {{ $matched = true }}
+									            {{break}}
+									        {{ end }}
+									    {{ end }}
+									{{ end }}
+									{{ if not $matched }}
+									    <div>
+									{{ end }}
+									{{ $userInfo.Context.User.Username }}
+										</div>
+								</h2>
 						{{ end }}
 					</div>
 					{{ navbarItem .Path (.T "Profile" | printf "<i class=\" user icon\"></i>%s") (printf "/u/%d" .Context.User.ID) }}
