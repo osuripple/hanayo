@@ -7,19 +7,59 @@ import (
 	"net/http"
 	"sort"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/osuripple/cheesegull/models"
+	//"github.com/osuripple/cheesegull/models"
 )
 
 type beatmapPageData struct {
 	baseTemplateData
 
-	Found      bool
-	Beatmap    models.Beatmap
-	Beatmapset models.Set
-	SetJSON    string
-	MapID      string
+	Found        bool
+	Beatmap      Beatmap
+	Beatmapset   Set
+	SetJSON      string
+	MapJSON      string
+	MapID        string
+}
+
+type Beatmap struct {
+	ID               int `json:"BeatmapID"`
+	ParentSetID      int
+	DiffName         string
+	FileMD5          string
+	Mode             int
+	BPM              float64
+	AR               float32
+	OD               float32
+	CS               float32
+	HP               float32
+	TotalLength      int
+	HitLength        int
+	Playcount        int
+	Passcount        int
+	MaxCombo         int
+	DifficultyRating float64
+	Status           int
+}
+
+type Set struct {
+	ID               int `json:"SetID"`
+	ChildrenBeatmaps []Beatmap
+	RankedStatus     int
+	ApprovedDate     time.Time
+	LastUpdate       time.Time
+	LastChecked      time.Time
+	Artist           string
+	Title            string
+	Creator          string
+	Source           string
+	Tags             string
+	HasVideo         bool
+	Genre            int
+	Language         int
+	Favourites       int
 }
 
 func beatmapInfo(c *gin.Context) {
@@ -69,11 +109,19 @@ func beatmapInfo(c *gin.Context) {
 		data.SetJSON = "[]"
 	}
 
+	mapJSON, err := json.Marshal(data.Beatmap)
+	if err == nil {
+		data.MapJSON = string(mapJSON)
+	} else {
+		data.MapJSON = "[]"
+	}
+
 	data.TitleBar = T(c, "%s - %s", data.Beatmapset.Artist, data.Beatmapset.Title)
 	data.Scripts = append(data.Scripts, "/static/tablesort.js", "/static/beatmap.js")
 }
 
-func getBeatmapData(b string) (beatmap models.Beatmap, err error) {
+func getBeatmapData(b string) (beatmap Beatmap, err error) {
+	// Get beatmap data from Cheesegull API
 	resp, err := http.Get(config.CheesegullAPI + "/b/" + b)
 	if err != nil {
 		return beatmap, err
@@ -84,15 +132,44 @@ func getBeatmapData(b string) (beatmap models.Beatmap, err error) {
 		return beatmap, err
 	}
 
+	// Unmarshal beatmap data
 	err = json.Unmarshal(body, &beatmap)
 	if err != nil {
 		return beatmap, err
 	}
 
+	// Get beatmap data from Kawata API to get approved value
+	APIResp, err := http.Get(config.BaseURL + "/api/v1/get_beatmaps?b=" + b)
+	if err != nil {
+		return beatmap, err
+	}
+	defer APIResp.Body.Close()
+	APIBody, err := ioutil.ReadAll(APIResp.Body)
+	if err != nil {
+		return beatmap, err
+	}
+
+	// Unmarshal API response to get approved value
+	var apiBeatmap []struct {
+		Approved string `json:"approved"`
+	}
+	err = json.Unmarshal(APIBody, &apiBeatmap)
+	if err != nil {
+		return beatmap, err
+	}
+
+	// Set approved value in beatmap object
+	if len(apiBeatmap) > 0 {
+		approved, err := strconv.Atoi(apiBeatmap[0].Approved)
+		if err == nil {
+			beatmap.Status = approved
+		}
+	}
+
 	return beatmap, nil
 }
 
-func getBeatmapSetData(beatmap models.Beatmap) (bset models.Set, err error) {
+func getBeatmapSetData(beatmap Beatmap) (bset Set, err error) {
 	resp, err := http.Get(config.CheesegullAPI + "/s/" + strconv.Itoa(beatmap.ParentSetID))
 	if err != nil {
 		return bset, err
@@ -106,6 +183,37 @@ func getBeatmapSetData(beatmap models.Beatmap) (bset models.Set, err error) {
 	err = json.Unmarshal(body, &bset)
 	if err != nil {
 		return bset, err
+	}
+
+	for i := range bset.ChildrenBeatmaps {
+		childBeatmap := &bset.ChildrenBeatmaps[i]
+		// Get beatmap data from Kawata API to get approved value
+		APIResp, err := http.Get(config.BaseURL + "/api/v1/get_beatmaps?b=" + strconv.Itoa(childBeatmap.ID))
+		if err != nil {
+			return bset, err
+		}
+		defer APIResp.Body.Close()
+		APIBody, err := ioutil.ReadAll(APIResp.Body)
+		if err != nil {
+			return bset, err
+		}
+
+		// Unmarshal API response to get approved value
+		var apiBeatmap []struct {
+			Approved string `json:"approved"`
+		}
+		err = json.Unmarshal(APIBody, &apiBeatmap)
+		if err != nil {
+			return bset, err
+		}
+
+		// Set approved value in child beatmap object
+		if len(apiBeatmap) > 0 {
+			approved, err := strconv.Atoi(apiBeatmap[0].Approved)
+			if err == nil {
+				childBeatmap.Status = approved
+			}
+		}
 	}
 
 	return bset, nil
