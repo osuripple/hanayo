@@ -13,14 +13,30 @@
 		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
 			<span class="text">
-				<i class="attention icon"></i>
+				{{ if eq (int .Beatmap.Status) 1 }}
+					<i class="status ranked"></i>
+				{{ else if eq (int .Beatmap.Status) 2 }}
+					<i class="status approved"></i>
+				{{ else if eq (int .Beatmap.Status) 4 }}
+					<span class="status loved"></span>
+				{{ else }}
+					<span class="status graveyard"></span>
+				{{end}}
 				{{ .Beatmap.DiffName }}
 				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .Beatmap.DifficultyRating }})
 			</span>
 			<div class="menu">
 				{{ range .Beatmapset.ChildrenBeatmaps }}
 				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ .ID }}">
-					<i class="attention icon"></i>
+					{{ if eq (int .Status) 1 }}
+						<i class="status ranked"></i>
+					{{ else if eq (int .Status) 2 }}
+						<i class="status approved"></i>
+					{{ else if eq (int .Status) 4 }}
+						<span class="status loved"></span>
+					{{ else }}
+						<span class="status graveyard"></span>
+					{{end}}
 					{{ .DiffName }}
       				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .DifficultyRating }})
 				</a>
@@ -59,7 +75,7 @@
 									<a href="http://storage.kawata.pw/d/{{ .Beatmapset.ID }}?novideo" class="ui gray labeled icon button"><i class="download icon"></i>{{ $.T "download (no video)" }}</a>
 								{{ end }}
 								{{ if has $.Context.User.Privileges 256 }}
-									<a href="https://kap.lokiverse.com/rank/{{ .Beatmapset.ID }}" class="ui blue labeled icon button"><i class="thumbs up icon"></i>{{ $.T "Rank in KAP"}}</a>
+									<a href="https://kap.kawata.pw/rank/{{ .Beatmapset.ID }}" class="ui blue labeled icon button"><i class="thumbs up icon"></i>{{ $.T "Rank in KAP"}}</a>
 								{{ end }}
 							</div>
 						</div>
