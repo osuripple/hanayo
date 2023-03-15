@@ -193,7 +193,7 @@ left:0;top:0
 
 .profile-sidebar {
     background: #0e0e0e;
-    width: 40%;
+    width: 30%;
     padding: 1.25em;
     margin: 0;
     height: fit-content;
@@ -204,7 +204,7 @@ left:0;top:0
 }
 
 .profile-content {
-    width: calc(60% - 1em);
+    width: calc(70% - 1em);
 }
 
 .profile-user-avatar {
@@ -255,4 +255,36 @@ left:0;top:0
     .profile-content {
         width:100%;
     }
+}
+
+.status.ranked {
+    background-image: url('/static/assets/map-ranking/ranked.png');
+    background-size: 100%;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.status.loved {
+    background-image: url('/static/assets/map-ranking/loved.png');
+    background-size: 100%;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.status.approved {
+    background-image: url('/static/assets/map-ranking/approved.png');
+    background-size: 100%;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.status.graveyard {
+    background-image: url('/static/assets/map-ranking/question.png');
+    background-size: 100%;
+    width: 8.9px;
+    height: 14px;
+    display: inline-block;
 }
