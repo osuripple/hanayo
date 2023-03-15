@@ -52,7 +52,7 @@
 
 			<div class="h-container">
 				<div class="ui margined container" id="messages-container">
-				<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
+				<noscript>Research has proven this website works 10000% better if you have JavaScript enabled, as in literally most of the site will be broken without it.</noscript>
 				{{ if and .Context.User.Username (not (has .Context.User.Privileges 1)) }}
 					<div class="ui warning message">
 						{{ $.T "Your account is currently in restricted mode. You will not be able to do certain actions, and your profile can only be seen by you and by Kawata's staff. If you believe we have mistaken putting you in restricted mode, or a month has passed since you first saw this, then you can send an appeal at <a href='mailto:accounts@kawata.pw'>accounts@kawata.pw</a>." | html }}
