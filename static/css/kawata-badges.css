@@ -1,13 +1,12 @@
 .user.loki {
   border:none;
-  margin:calc(2rem - .14285em) 0 1rem;
   padding:0;
   font-family: 'aAntaraDistance';
   font-size: 1.28em;
   font-weight:700;
   line-height:1.2857em;
   text-transform:none;
-  background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+  background:url("/static/assets/css/wavydevpurple.gif");
   color: rgba(0,240,0,.2);
   display:inline-block;
   background-clip: text;
@@ -16,20 +15,19 @@
 
 .user.donor {
     font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-    background:url("http://resources.guild-hosting.net/201604011348/themes/core/images/tag_fx/sparkle_yellow.gif");
+    background:url("/static/assets/css/donoruserstyle3.gif");
     color:#FFFF00;
     display:inline-block;
 }
 
 .user.dev {
   border:none;
-  margin:calc(2rem - .14285em) 0 1rem;
   padding:0;
   font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight:700;
   line-height:1.2857em;
   text-transform:none;
-  background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+  background:url("/static/assets/css/wavydevpurple.gif");
   color: rgba(0,240,0,.2);
   display:inline-block;
   background-clip: text;
@@ -38,16 +36,31 @@
  
 .user.admin {
  border:none;
- margin:calc(2rem - .14285em) 0 1rem;
  padding:0;
  font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
  font-weight:700;
  line-height:1.2857em;
  text-transform:none;
- background:url("https://cdn.lowgif.com/full/1e6cf8b9e5434f3d-glitter-sparkle-valee1215-valee1215-glitter-sparkle-animated.gif");
+ background:url("/static/assets/css/adminuserstyle.gif");
  color:#FF0000;
  display:inline-block;
  animation: colorRotate 6s linear 0s infinite;
+}
+
+.user.alumni {
+  border:none;
+  padding:0;
+  font-family: 'aAntaraDistance';
+  font-size: 1.28em;
+  font-weight:700;
+  line-height:1.2857em;
+  text-transform:none;
+  background: url("/static/assets/css/alumniuserstyle1.gif");
+  color: rgba(0, 0, 0, 0.2);
+  display:inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 100%;
 }
 
 @keyframes colorRotate {
@@ -114,7 +127,7 @@
 }
 
 .tag.emeralddonor {
-    background: url(https://i.imgur.com/skMrJae.gif);
+    background: url(/static/assets/css/emeralddonorstyle1.gif);
     color: #01DF01;
     font-family: 'Moonstar';
     font-size: 26px;
@@ -124,7 +137,7 @@
   }
     
 .tag.diamonddonor {
-    background: url(http://i.imgur.com/ejTlAK7.gif);
+    background: url(/static/assets/css/diamonddonorstyle1.gif);
     color: #6E6E6E;
     font-family: 'Spaceage';
     font-weight: bold;
