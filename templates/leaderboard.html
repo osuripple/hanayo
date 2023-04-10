@@ -22,8 +22,8 @@ TitleBar=Leaderboard
 	</div>
 	<div class="ui two item menu" id="relax-menu">
 		<a class="{{ if eq (int $favRelax) 0 }}active{{ end }} item" data-relax="0">{{ .T "Classic" }}</a>
-		<a class="{{ if eq (int $favRelax) 1 }}active{{ end }} item" data-relax="1">{{ .T "Relax" }}<div class="ui pink horizontal mini label">{{ .T "New!" }}</div></a>
-	</div>
+		<a class="{{ if eq (int $favRelax) 1 }}active{{ end }} item" data-relax="1">{{ .T "Relax" }}</a>
+		
 	<div class="ui twelve item stackable menu">
 		{{ range countryList 11 }}
 			<a class="item lb-country" data-country="{{ . }}"><i class="{{ . }} flag nopad"></i></a>
