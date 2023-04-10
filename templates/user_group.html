@@ -17,24 +17,25 @@ NoCompile=true
 						</div>
 						<div class="content">
 							<a class="header" href="/u/{{ .id }}">{{ country .country false }}
-								{{ $user := . }}
-								{{ $loki := has .id 1488 }}
-								{{ $OG := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 72" $user.id }}
-								{{ $donor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 31" $user.id }}
-								{{ if $loki }}
-								<div class="user loki">
-								{{ else if $OG }}
-								<div class="user og">
-								{{ else if $donor }}
-								<div class="user donor">
-								{{ else }}
-								<div>
+								{{ $matched := false }}
+								{{ range .badges }}
+								    {{ if ne .class "" }}
+								        {{ if eq (int .usercss) 1 }}
+								            <div class="user {{ .class }}">
+								            {{ $matched = true }}
+								            {{break}}
+								        {{ end }}
+								    {{ end }}
+								{{ end }}
+								{{ if not $matched }}
+								    <div class="user">
 								{{ end }}{{ .username }}</div></a>
 							{{ with $tj.real_name }}
 								<div class="meta">
 									<a>{{ . }}</a>
 								</div>
 							{{ end }}
+							<div>{{ .badges }}</div>
 							{{ with $tj.role }}
 								<div class="description">
 									{{ . }}

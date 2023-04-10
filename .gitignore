@@ -8,3 +8,4 @@ semantic/gulpfile.tmp.*.js
 /_
 static/oauth-apps/*
 !static/oauth-apps/.keep
+templates/profile.old.html
