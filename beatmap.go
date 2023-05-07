@@ -4,9 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"sort"
 	"strconv"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/osuripple/cheesegull/models"
@@ -25,10 +27,32 @@ func beatmapInfo(c *gin.Context) {
 	data := new(beatmapPageData)
 	defer resp(c, 200, "beatmap.html", data)
 
-	b := c.Param("bid")
-	if _, err := strconv.Atoi(b); err != nil {
-		c.Error(err)
-	} else {
+	sid := c.Param("sid")
+	b := ""
+	// in this scenario, a sid looks like "<numbers>#[osu|taiko|fruits|mania]"
+	// where the #<mode> is optional
+	// we need to split the mode from the sid
+
+	// if the sid is just numbers, it's a beatmapset id
+	// if the sid is numbers followed by a # and a mode, there is a beatmap id
+
+	for _, mode := range []string{"osu", "taiko", "fruits", "mania"} {
+		if strings.HasSuffix(sid, "#"+mode) {
+			sid = strings.TrimSuffix(sid, "#"+mode)
+			b = c.Param("bid")
+			break
+		}
+	}
+
+	if b == "" {
+		b = c.Param("bid")
+	}
+
+
+	log.Println("beatmapInfo", b, sid)
+
+	if _, err := strconv.Atoi(b); err == nil {
+		// try beatmap id first
 		data.Beatmap, err = getBeatmapData(b)
 		if err != nil {
 			c.Error(err)
@@ -45,6 +69,21 @@ func beatmapInfo(c *gin.Context) {
 			}
 			return data.Beatmapset.ChildrenBeatmaps[i].DifficultyRating < data.Beatmapset.ChildrenBeatmaps[j].DifficultyRating
 		})
+	} else if sidNum, err := strconv.Atoi(sid); err == nil {
+		// fallback to set id
+		data.Beatmapset, err = getBeatmapSetData(models.Beatmap{ParentSetID: sidNum})
+		if err != nil {
+			c.Error(err)
+			return
+		}
+		sort.Slice(data.Beatmapset.ChildrenBeatmaps, func(i, j int) bool {
+			if data.Beatmapset.ChildrenBeatmaps[i].Mode != data.Beatmapset.ChildrenBeatmaps[j].Mode {
+				return data.Beatmapset.ChildrenBeatmaps[i].Mode < data.Beatmapset.ChildrenBeatmaps[j].Mode
+			}
+			return data.Beatmapset.ChildrenBeatmaps[i].DifficultyRating < data.Beatmapset.ChildrenBeatmaps[j].DifficultyRating
+		})
+
+		data.Beatmap = data.Beatmapset.ChildrenBeatmaps[0]
 	}
 
 	if data.Beatmapset.ID == 0 {
