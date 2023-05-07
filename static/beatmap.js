@@ -6,7 +6,7 @@
   function loadLeaderboard(b, m, r) {
     var wl = window.location;
     window.history.replaceState('', document.title,
-      "/b/" + b + "?mode=" + m + "&relax=" + r + wl.hash);
+      "/b/" + b + "?mode=" + m + "&relax=" + r);
     api("scores?sort=score,desc&sort=id,asc", {
       mode : m,
       b : b,

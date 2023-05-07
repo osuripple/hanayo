@@ -43,6 +43,16 @@ func beatmapInfo(c *gin.Context) {
 		}
 	}
 
+	// its posible for the string to be in the format of
+	// /beatmapsets/1162388#/2424768
+	// try one more time to split the string
+
+	if strings.HasSuffix(sid, "#") {
+		sid = strings.TrimSuffix(sid, "#")
+		b = c.Param("bid")
+	}
+	
+
 	if b == "" {
 		b = c.Param("bid")
 	}

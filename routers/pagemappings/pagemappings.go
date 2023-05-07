@@ -43,17 +43,16 @@ var pageMappings = map[int]interface{}{
 	28: "/", // user lookup
 	29: "/2fa_gateway",
 	30: "/settings/2fa",
-	31: "/beatmaps/rank_request",
+	31: "/rank_request",
 	32: "/dev/applications",
 	33: "/dev/applications", // Theorically, this should be something like /dev/applications/<id>, but no-one ever used that page so who gives a fuck.
 	34: "/donate",
 	35: "/team",
 	36: "/irc",
-	37: "/beatmaps",
-	38: "/register/verify",
-	39: "/register/welcome",
-	40: "/settings/discord",
-	41: "/register", // elmo
+	37: "/register/verify",
+	38: "/register/welcome",
+	39: "/settings/discord",
+	40: "/register", // elmo
 }
 
 // CheckRedirect checks if the request is to be redirected to another page.
