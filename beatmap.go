@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"sort"
 	"strconv"
@@ -47,9 +46,6 @@ func beatmapInfo(c *gin.Context) {
 	if b == "" {
 		b = c.Param("bid")
 	}
-
-
-	log.Println("beatmapInfo", b, sid)
 
 	if _, err := strconv.Atoi(b); err == nil {
 		// try beatmap id first
