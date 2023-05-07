@@ -21,6 +21,7 @@ import (
 	"github.com/thehowl/qsql"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"gopkg.in/redis.v5"
+	"zxq.co/ripple/agplwarning"
 	"zxq.co/ripple/hanayo/modules/btcaddress"
 	"zxq.co/ripple/hanayo/modules/btcconversions"
 	"zxq.co/ripple/hanayo/routers/oauth"
@@ -103,13 +104,10 @@ var (
 )
 
 func main() {
-	/*
 	err := agplwarning.Warn("ripple", "Hanayo")
 	if err != nil {
 		fmt.Println(err)
 	}
-	*/
-	var err error
 
 	fmt.Println("hanayo " + version)
 
