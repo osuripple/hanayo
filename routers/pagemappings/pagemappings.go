@@ -49,10 +49,12 @@ var pageMappings = map[int]interface{}{
 	34: "/donate",
 	35: "/team",
 	36: "/irc",
-	37: "/register/verify",
-	38: "/register/welcome",
-	39: "/settings/discord",
-	40: "/register", // elmo
+	37: "/beatmaps",
+	38: "/register/verify",
+	39: "/register/welcome",
+	40: "/settings/discord",
+	41: "/register", // elmo
+
 }
 
 // CheckRedirect checks if the request is to be redirected to another page.

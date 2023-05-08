@@ -26,40 +26,14 @@ func beatmapInfo(c *gin.Context) {
 	data := new(beatmapPageData)
 	defer resp(c, 200, "beatmap.html", data)
 
-	sid := c.Param("sid")
-	b := ""
-	// in this scenario, a sid looks like "<numbers>#[osu|taiko|fruits|mania]"
-	// where the #<mode> is optional
-	// we need to split the mode from the sid
+	parts := strings.SplitN(c.Param("sid"), "#", 1)
+	sid := parts[0]
 
-	// if the sid is just numbers, it's a beatmapset id
-	// if the sid is numbers followed by a # and a mode, there is a beatmap id
+	bid := c.Param("bid")
 
-	for _, mode := range []string{"osu", "taiko", "fruits", "mania"} {
-		if strings.HasSuffix(sid, "#"+mode) {
-			sid = strings.TrimSuffix(sid, "#"+mode)
-			b = c.Param("bid")
-			break
-		}
-	}
-
-	// its posible for the string to be in the format of
-	// /beatmapsets/1162388#/2424768
-	// try one more time to split the string
-
-	if strings.HasSuffix(sid, "#") {
-		sid = strings.TrimSuffix(sid, "#")
-		b = c.Param("bid")
-	}
-	
-
-	if b == "" {
-		b = c.Param("bid")
-	}
-
-	if _, err := strconv.Atoi(b); err == nil {
+	if _, err := strconv.Atoi(bid); err == nil {
 		// try beatmap id first
-		data.Beatmap, err = getBeatmapData(b)
+		data.Beatmap, err = getBeatmapData(bid)
 		if err != nil {
 			c.Error(err)
 			return
