@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"sort"
 	"strconv"
-	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/osuripple/cheesegull/models"
@@ -26,9 +25,7 @@ func beatmapInfo(c *gin.Context) {
 	data := new(beatmapPageData)
 	defer resp(c, 200, "beatmap.html", data)
 
-	parts := strings.SplitN(c.Param("sid"), "#", 1)
-	sid := parts[0]
-
+	sid := c.Param("sid")
 	bid := c.Param("bid")
 
 	if _, err := strconv.Atoi(bid); err == nil {
