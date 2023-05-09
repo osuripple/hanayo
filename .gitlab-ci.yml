@@ -17,7 +17,7 @@ stages:
   - deploy
 
 .go-cache:
-  image: golang:1.20.4-stretch
+  image: golang:1.20.4-bullseye
   variables:
     GOPATH: $CI_PROJECT_DIR/.go/path
     GOCACHE: $CI_PROJECT_DIR/.go/cache
