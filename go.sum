@@ -30,7 +30,6 @@ github.com/felipeweb/osin-mysql v0.0.0-20170620113854-269603eb06cf h1:hHEmQVsDJ0
 github.com/felipeweb/osin-mysql v0.0.0-20170620113854-269603eb06cf/go.mod h1:3VP9CJQjBxJhiuufdgOX5MG9inXLaeoaqV2IMC1TnEU=
 github.com/frustra/bbcode v0.0.0-20150429195712-e3d2906cb269 h1:vy2ST2Oei+ufQbK6MzbraeuHkn/2sS0Q1zNF8u8xr/8=
 github.com/frustra/bbcode v0.0.0-20150429195712-e3d2906cb269/go.mod h1:0QBxkXxN+o4FyZgLI9FHY/oUizheze3+bNY/kgCKL+4=
-github.com/fsnotify/fsnotify v1.4.7 h1:IXs+QLmnXW2CcXuY+8Mzv/fWEsPGWxqefPtCP5CnV9I=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/garyburd/redigo v1.4.0 h1:PlMIyh8f7og1DRVAZiU1I6VR8R5vFbWch3ddfv1ICvY=
 github.com/garyburd/redigo v1.4.0/go.mod h1:NR3MbYisc3/PwhQ00EMzDiPmrwpPxAn5GI05/YaO1SY=
