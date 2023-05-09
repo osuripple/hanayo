@@ -35,6 +35,8 @@ test:
   script:
     - go mod download -x
     - go test -cover ./...
+  rules:
+    - if: $CI_COMMIT_BRANCH != $PRODUCTION_BRANCH
 
 build-docker:
   stage: build-docker
