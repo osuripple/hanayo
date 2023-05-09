@@ -25,11 +25,12 @@ func beatmapInfo(c *gin.Context) {
 	data := new(beatmapPageData)
 	defer resp(c, 200, "beatmap.html", data)
 
-	b := c.Param("bid")
-	if _, err := strconv.Atoi(b); err != nil {
-		c.Error(err)
-	} else {
-		data.Beatmap, err = getBeatmapData(b)
+	sid := c.Param("sid")
+	bid := c.Param("bid")
+
+	if _, err := strconv.Atoi(bid); err == nil {
+		// try beatmap id first
+		data.Beatmap, err = getBeatmapData(bid)
 		if err != nil {
 			c.Error(err)
 			return
@@ -45,6 +46,23 @@ func beatmapInfo(c *gin.Context) {
 			}
 			return data.Beatmapset.ChildrenBeatmaps[i].DifficultyRating < data.Beatmapset.ChildrenBeatmaps[j].DifficultyRating
 		})
+	} else if sidNum, err := strconv.Atoi(sid); err == nil {
+		// fallback to set id
+		data.Beatmapset, err = getBeatmapSetData(models.Beatmap{ParentSetID: sidNum})
+		if err != nil {
+			c.Error(err)
+			return
+		}
+		sort.Slice(data.Beatmapset.ChildrenBeatmaps, func(i, j int) bool {
+			if data.Beatmapset.ChildrenBeatmaps[i].Mode != data.Beatmapset.ChildrenBeatmaps[j].Mode {
+				return data.Beatmapset.ChildrenBeatmaps[i].Mode < data.Beatmapset.ChildrenBeatmaps[j].Mode
+			}
+			return data.Beatmapset.ChildrenBeatmaps[i].DifficultyRating < data.Beatmapset.ChildrenBeatmaps[j].DifficultyRating
+		})
+
+		if len(data.Beatmapset.ChildrenBeatmaps) > 0 {
+			data.Beatmap = data.Beatmapset.ChildrenBeatmaps[0]
+		}
 	}
 
 	if data.Beatmapset.ID == 0 {

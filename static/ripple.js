@@ -398,7 +398,7 @@ var singlePageSnippets = {
       });
   },
 
-  "/beatmaps/rank_request": function () {
+  "/rank_request": function () {
     function updateRankRequestPage(data) {
       $("#queue-info").html(data.submitted + "/" + data.queue_size);
 
