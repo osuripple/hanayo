@@ -2,6 +2,7 @@ variables:
   REGISTRY: d.nyodev.xyz
   SERVICE: hanayo
   IMAGE: ripple/$SERVICE
+  SOURCE_BRANCH: master
   PRODUCTION_BRANCH: production
   GIT_SUBMODULE_STRATEGY: recursive
 
@@ -10,12 +11,34 @@ default:
     - TAG=$(grep "const version" doc.go | cut -d'"' -f 2 | cut -c 2- | tr -d '\n')
 
 stages:
+  - test
   - build-docker
   - release
   - deploy
 
+.go-cache:
+  image: golang:1.20.4-stretch
+  variables:
+    GOPATH: $CI_PROJECT_DIR/.go/path
+    GOCACHE: $CI_PROJECT_DIR/.go/cache
+    CGO_ENABLED: 0
+  before_script:
+    - mkdir -p .go/path .go/cache
+  cache:
+    paths:
+      - .go/path/pkg/mod/
+      - .go/cache
+
+test:
+  stage: test
+  extends: .go-cache
+  script:
+    - go mod download -x
+    - go test -cover ./...
+
 build-docker:
   stage: build-docker
+  needs: ["test"]
   image: docker:20
   services:
     - docker:20-dind
@@ -54,7 +77,7 @@ build-docker:
     - docker push $REGISTRY/$IMAGE:$CI_COMMIT_SHA
     - docker push $REGISTRY/$IMAGE:$BRANCH_FOR_DOCKER
   rules:
-    - if: $CI_COMMIT_BRANCH != $PRODUCTION_BRANCH
+    - if: $CI_COMMIT_BRANCH == $SOURCE_BRANCH
 
 release:
   stage: release
@@ -63,7 +86,7 @@ release:
   script:
     - merge-into-production
   rules:
-    - if: $CI_COMMIT_BRANCH != $PRODUCTION_BRANCH
+    - if: $CI_COMMIT_BRANCH == $SOURCE_BRANCH
   when: manual
 
 deploy:
