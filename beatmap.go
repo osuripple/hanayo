@@ -60,7 +60,9 @@ func beatmapInfo(c *gin.Context) {
 			return data.Beatmapset.ChildrenBeatmaps[i].DifficultyRating < data.Beatmapset.ChildrenBeatmaps[j].DifficultyRating
 		})
 
-		data.Beatmap = data.Beatmapset.ChildrenBeatmaps[0]
+		if len(data.Beatmapset.ChildrenBeatmaps) > 0 {
+			data.Beatmap = data.Beatmapset.ChildrenBeatmaps[0]
+		}
 	}
 
 	if data.Beatmapset.ID == 0 {
