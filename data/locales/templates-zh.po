@@ -507,7 +507,7 @@ msgid "Google Authenticator passcode"
 msgstr "两步验证代码"
 
 msgid "Hey, %s."
-msgstr "嗨，％s。"
+msgstr "嗨，%s。"
 
 msgid "You need to complete the 2fa challenge first."
 msgstr "你需要先完成两步验证。"
@@ -529,11 +529,11 @@ msgid "Ripple is a private osu! server."
 msgstr "Ripple 是一个 osu! 私服。"
 
 msgid "There are many like it, but this one is ours."
-msgstr "虽然有很多类似的服务器，但 Ripple 永远是我们的。"
+msgstr "虽然有很多类似的服务器，但 Ripple 就是 Ripple。"
 
 # %s is eggplant emoji
 msgid "Don't you like %s?"
-msgstr "你不喜欢 %s 吗？"
+msgstr "你喜欢 %s 吗？"
 
 msgid "We have leaderboards."
 msgstr "我们拥有排行榜"
@@ -554,7 +554,7 @@ msgid "Ranking queue for unranked beatmaps."
 msgstr "谱面 Rank 申请队列"
 
 msgid "Spectator."
-msgstr "观看"
+msgstr "旁观"
 
 msgid "Multiplayer."
 msgstr "多人游戏"
@@ -569,11 +569,11 @@ msgid "And a lot more to come!"
 msgstr "还有更多！"
 
 msgid "Ripple is the result of the hard work of two Italian developers, who got tired about the whole osu! ecosystem, and also because they wanted to play with a few banned friends."
-msgstr "Ripple 是两个意大利开发者辛勤工作的结果，他们对整个 osu! 生态系统感到厌倦！，也因为他们想和一些被封禁的朋友一起游玩。"
+msgstr "Ripple 是两个意大利开发者辛勤工作的结果，他们对整个 osu! 生态系统感到厌倦，也因为他们想和被封禁的朋友们一起游玩。"
 
 # %s is wink emoji
 msgid "It has now evolved into the largest available osu! private server, with more than 70,000 registered users. <a href=\"/register\">Signing up</a> on Ripple won't result in getting your account on osu! restricted, so what are you waiting for?! Come join us! %s"
-msgstr "现在已经发展成为最大的 osu! 私服，拥有超过 70,000 个注册用户。 <a href=\"/register\">注册</a> Ripple 不会导致你的 osu! 账号被封禁，所以还在等什么？！加入我们吧！%s"
+msgstr "现在 Ripple 已经发展成为最大的 osu! 私服，拥有超过 70,000 个注册用户。 <a href=\"/register\">注册</a> Ripple 不会导致你的 osu! 账号被封禁，所以还在等什么？！加入我们吧！%s"
 
 msgid "In case you want to make sure we're not doing shady stuff with your data, you can also check the <a href=\"https://zxq.co/ripple/ripple\">source code</a> Ripple is running on."
 msgstr "如果你想确保 Ripple 不会对你的数据做任何可疑的事情，欢迎检查 Ripple 正在运行的<a href=\"https://zxq.co/ripple/ripple\">开源代码</a>！"
@@ -606,14 +606,14 @@ msgstr "查看所有文档"
 
 # doc.html
 msgid "Need some help getting around? Look no further! From here you will be able to view our documentation, which is basically a very simplistic wiki."
-msgstr "需要一些帮助吗？别再迷茫了！你可以从这里查看我们的帮助文档，该文档算是一个非常简单的 Wiki。"
+msgstr "需要帮助吗？不用再迷茫了！你可以从这里查看我们的帮助文档，这些文档算是一个非常简单的 Wiki。"
 
 msgid "Looks like there is no documentation on this ripple instance!"
 msgstr "好像没有关于此实例的帮助文档！"
 
 # friends.html
 msgid "On this page you can see all of your friends, and unfriend them as you see fit."
-msgstr "你可以看到你所有已添加的好友，并在合适的时候删掉他们。人生有梦，各自精彩！"
+msgstr "这里是你所有已添加的好友。人生有梦，各自精彩，你可以随时删掉你不需要的好友！"
 
 msgid "Mutual"
 msgstr "Mutual"
@@ -775,7 +775,7 @@ msgid "Ripple is not cheap to run."
 msgstr "保持 Ripple 运行并不廉价。"
 
 msgid "While we provide this service for free, we still have to pay for it, and if we always took the money out of our own pockets, 1. we would be broke, 2. we wouldn't be able to upgrade our hardware to accomodate our users. While we do have loads of software optimisations that allow us to have Ripple run crazy fast while still being on not so high-end hardware, the more users we have, the higher-end our hardware needs to be. So we are asking you for help on this :)."
-msgstr "虽然我们免费提供这些服务器，但我们仍然需要付费，如果我们总是自掏腰包：1.我们很快就会破产，2.我们将无法升级硬件来满足我们的用户。尽管我们确实进行了大量软硬件优化，使我们能够在仍然没有那么多高端硬件的情况下使 Ripple 疯狂运行，但拥有的用户越多，硬件需要就越高。因此，我们正在寻求你的帮助 :)"
+msgstr "虽然我们免费提供这些服务器，但我们仍然需要付费，如果我们总是自掏腰包：1. 我们很快就会破产，2. 我们将无法升级硬件来满足我们的用户。尽管我们确实进行了大量软硬件优化，使我们能够在仍然没有那么多高端硬件的情况下使 Ripple 疯狂运行，但拥有的用户越多，硬件需要就越高。因此，我们正在寻求你的帮助 :)"
 
 msgid "We are still students."
 msgstr "我们还只是学生。"
@@ -829,25 +829,25 @@ msgid "More to come!"
 msgstr "还有更多！"
 
 msgid "Just like in osu!, you get a <b>shiny yellow username</b> in the in-game chat to show everyone you're a really cool dude who has helped us pay the server bills."
-msgstr "就像 osu! 官方服务器一样，你会在游戏里得到<b>闪亮的黄色用户名</b>，来向所有人显示你是一个非常酷的家伙，他帮助我们支付了服务器账单。"
+msgstr "就像 osu! 官方服务器一样，你会在游戏里得到<b>闪亮的黄色用户名</b>，来告诉所有人你是一个非常棒的哥们儿，帮助我们支付了服务器账单！"
 
 msgid "Again, just like in osu!, you will get a <b>donor badge</b> on your profile, to show everyone you're supporting us."
 msgstr "没错，又像 osu! 官方服务器一样，你会在个人资料上获得一个<b>捐助者徽章</b>来向所有人展示你对我们的支持。"
 
 msgid "You get to be able to create your <b>own personal badge</b>, with custom text and icon, to show off on your profile! Let the world know you're an anchor. Or prank people showing a spinnin' wheel with \"Loading...\"! Up to you."
-msgstr "你可以创建属于自己的<b>个人徽章</b>，带有自定义文字和图标！让所有人知道你想表达什么，或是一个带有恶作剧的\"正在加载\"动态徽章...由你决定！"
+msgstr "这次有点不一样！你可以创建属于自己的<b>个人徽章</b>，带有自定义文字和图标！让所有人知道你想表达什么，或是一个恶作剧，比如显示为\"正在加载\"的徽章...由你决定！"
 
 msgid "<b>Competing with friends</b> is really cool, you can play on the leaderboard with someone more or less on your level, without getting crippling depression and RSI for not beating that pro!"
-msgstr "<b>和朋友竞争</b>真的很酷，你可以在排行榜上与或多或少与你级别相同的人一起对抗，不用因为没打过职业选手而抑郁。"
+msgstr "<b>和朋友们竞争</b>真的很不错，你可以在排行榜上与同你级别相同的人一起对抗，不用因为没打过 Top 而看不起自己。"
 
 msgid "You'll get exclusive access to the <b>\"#donators\"</b> text and voice channels, you'll be able to change your discord nickname and you'll get a custom role with custom username colour!"
-msgstr "你将拥有<b>\"#donators\"</b>文本和语音通道的独​访问权，你也可以改变你的 Discord 服务器名称，并获得具有自定义用户名颜色的自定义角色！"
+msgstr "你将拥有<b>\"#donators\"</b>文本和语音通道的独家访问权，你也可以改变你的 Discord 服务器名称，并获得具有自定义用户名和颜色的身份组！"
 
-msgid "考虑<b>用一些茄子来给你的个人资料增加乐趣吗</b>？只要拥有捐助者标签，你就可以更改个人资料背景。"
-msgstr ""
+msgid "Think about <b>spicing your profile up with some eggplants</b>? Got you covered! Having donor privileges, you get to be able to change your profile background."
+msgstr "考虑<b>用一些装饰给你的个人资料增添些许乐趣</b>？只要拥有捐助者标签，你就可以随意更改个人资料背景！"
 
 msgid "Want to start over one more time? With donor you can! Normally you can only <a href='https://support.ripple.moe' target='_blank'>request an account wipe</a> once, but having donated you'll be able to do it once again."
-msgstr "因为准确率太低而沮丧？想要重新开始？通常，你只能<a href='https://support.ripple.moe' target='_blank'>请求清除</a>一次帐户，但捐赠后就可以再次进行一次。"
+msgstr "因为准确率太低而沮丧？想要重开？通常，你只能<a href='https://support.ripple.moe' target='_blank'>请求清除</a>一次帐户，但捐赠后就可以再来一次。"
 
 msgid "<b>Who knows</b> what we could implement next? You could be able to do even <i>more</i> stuff for donors once we implement it."
 msgstr "<b>没人知道</b>我们下一步会实装什么...但是一旦实装，你就可以通过捐助来做更多酷炫的事情！"
@@ -868,10 +868,10 @@ msgid "User:"
 msgstr "用户名："
 
 msgid "Bitcoin"
-msgstr ""
+msgstr "Bitcoin"
 
 msgid "Send %s BTC to this Bitcoin address:"
-msgstr "发送 %s BTC 到这个 Bitcoin   地址："
+msgstr "发送 %s BTC 到这个 Bitcoin 地址："
 
 msgid "Afterwards, <b>please send an email to <a href=\"mailto:howl@ripple.moe\">howl@ripple.moe</a></b> containing the transaction hash!"
 msgstr "然后，<b>请发送电子邮件至 <a href=\"mailto:howl@ripple.moe\">howl@ripple.moe</a></b>，请包含你的转账哈希值！"
@@ -1162,7 +1162,7 @@ msgstr "拒绝"
 # Team page
 
 msgid "This is a list of the wonderful people who keep Ripple up and running and deal with its community."
-msgstr "这里是使 Ripple 正常运行并与社区打交道的人士的列表。"
+msgstr "这里是使 Ripple 正常运作并与社区打交道的人们。"
 
 msgid "Community Managers"
 msgstr "社区经理"
@@ -1183,19 +1183,19 @@ msgid "They don't do anything related to the community. Developers have a blue n
 msgstr "他们不做任何与社区有关的事情。开发者在游戏内的聊天室中使用蓝色名称。"
 
 msgid "Chat Moderators"
-msgstr "聊天管理员"
+msgstr "频道管理员"
 
 msgid "Chat moderators manage the chat to make sure The Law&trade; (the rules) is respected."
-msgstr "聊天版主管理聊天，确保任何人都能得到尊重。"
+msgstr "管理员会管理游戏内频道的聊天内容，确保所有人都能得到应有的尊重。"
 
 msgid "BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not."
-msgstr "BAT 们审核谱面 Rank 队列中的申请是否有资格在 Ripple 中得到 Ranked。"
+msgstr "BAT 们审核谱面 Rank 队列中的申请是否有资格在 Ripple 中 Ranked。"
 
 msgid "Special thanks"
 msgstr "特别感谢"
 
 msgid "Here's a list of people who helped with Ripple."
-msgstr "以下是为 Ripple 提供帮助的朋友们。"
+msgstr "以下是为 Ripple 提供过帮助的朋友们。"
 
 msgid "<b>Franc[e]sco/lolisamurai</b>, for <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>, used as standard pp calculator."
 msgstr "<b>Franc[e]sco/lolisamurai</b>，使用 <a href='https://github.com/Francesco149/oppai-ng'>oppai-ng</a>，作为 std 的 pp 算法。"
@@ -1213,10 +1213,10 @@ msgid "<b>Angela Guerra</b>, for designing the Ripple logo."
 msgstr "<b>Angela Guerra</b>，设计了 Ripple 的 logo。"
 
 msgid "<b><a id='everyone' class='clickable'>Everyone</a></b> who has supported the Ripple project by donating or inviting other people."
-msgstr "<b><a id='everyone' class='clickable'>Everyone</a></b>，通过捐赠和邀请其他人来支持 Ripple 项目。"
+msgstr "<b><a id='everyone' class='clickable'>还有你们</a></b>，通过捐赠和邀请其他人来支持 Ripple 项目。"
 
 msgid "They told me these are very cool people."
-msgstr "这些人很酷。"
+msgstr "这些人很棒。"
 
 msgid "Looking for how you should contact our team? Check out <a href='https://support.ripple.moe/'>this page</a>."
 msgstr "想要联系我们的支持团队？请点 <a href='https://support.ripple.moe/'>这里</a>。"
@@ -1234,7 +1234,7 @@ msgid "(You get other cool perks too)"
 msgstr "（你也会得到其他很棒的补贴）"
 
 msgid "The Ripple API is the system through which developers can create applications to interact with Ripple. <b>If you're asked to fill out an API token from this page, be wary and only actually create the token if you really trust the owner of the application.</b>"
-msgstr "Ripple API 是开发者用来创造能与 Ripple 交互的应用程序的系统。<b>如果有人要求你填写此页面的 API Key，请当心，只有你真正信任的的情况下，才可以那么做。</b>"
+msgstr "Ripple API 是开发者用来创造能与 Ripple 交互的应用程序的系统。<b>如果有人要求你填写此页面的 API Key，请当心，只有你真正信任他们的情况下，才可以那么做。</b>"
 
 msgid "The 'Ranking Criteria' are as follows:"
 msgstr "Ranking Criteria 如下："
@@ -1246,7 +1246,7 @@ msgid "No clear abuse of any systems (pp/stars)"
 msgstr "没有明显的滥用任何系统 (pp/星级)"
 
 msgid "No speedup or re-upload of existing maps"
-msgstr "没有加速或重新上传的现有地图"
+msgstr "不是加速或重传现有谱面的谱面"
 
 msgid "No Jump/Stream Training Compilations"
 msgstr "不是大跳/连打训练合集"
@@ -1273,10 +1273,10 @@ msgid "Connection guide"
 msgstr "连接教程"
 
 msgid "Classic"
-msgstr "经典"
+msgstr "标准模式"
 
 msgid "Relax"
-msgstr "Relax"
+msgstr "Relax 模式"
 
 msgid "New!"
 msgstr "全新！"
@@ -1285,86 +1285,86 @@ msgid "Total Play Time"
 msgstr "总游玩时长"
 
 msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
-msgstr "<b>我们更改了自定义徽章系统。</b>你现在可以将 Emoji 用作图标了！快去试试吧！"
+msgstr "<b>我们更改了自定义徽章系统。</b>你现在可以将 Emoji 用作图标了！来试试吧！"
 
 msgid "Pick an emoji"
 msgstr "选择一个 Emoji"
 
 msgid "In-game settings"
-msgstr ""
+msgstr "游戏内设置"
 
 msgid "Submode"
-msgstr ""
+msgstr "子模式"
 
 msgid "In-game beatmap scoreboards display"
-msgstr ""
+msgstr "游戏内排行榜设置"
 
 msgid "You can also change this setting in-game with '!relax' and '!classic'"
-msgstr ""
+msgstr "你可以在游戏内使用 '!relax' 和 '!classic' 命令手动修改这些设置"
 
 msgid "display and order by"
-msgstr ""
+msgstr "显示并排序为"
 
 msgid "You can also change this setting in-game with '!display classic pp' and '!display classic score'"
-msgstr ""
+msgstr "你可以在游戏内使用 '!display classic pp' 和 '!display classic score' 命令手动修改这些设置"
 
 msgid "You can also change this setting in-game with '!display relax pp' and '!display relax score'"
-msgstr ""
+msgstr "你可以在游戏内使用 '!display relax pp' 和 '!display relax score' 命令手动修改这些设置"
 
 msgid "Overwrite classic mode scores prioritizing..."
-msgstr ""
+msgstr "标准模式下显示优先级"
 
 msgid "The settings this section apply to only classic mode. Relax mode always prioritizes PP. Changing these setting is not retroactive."
-msgstr ""
+msgstr "这些设置只会影响标准模式，Relax 模式总是优先显示 PP。这些设置不含追溯性。"
 
 msgid "default"
-msgstr ""
+msgstr "默认"
 
 msgid "Auto !last"
-msgstr ""
+msgstr "自动 !last"
 
 # On/off
 msgid "Off"
-msgstr ""
+msgstr "关闭"
 
 msgid "Chat message"
-msgstr ""
+msgstr "私信"
 
 msgid "Notification"
-msgstr ""
+msgstr "游戏内通知（弹窗）"
 
 msgid "Custom role name"
-msgstr ""
+msgstr "自定义身份组"
 
 msgid "Colour"
-msgstr ""
+msgstr "颜色"
 
 msgid "Donor"
-msgstr ""
+msgstr "捐助者"
 
 msgid "This feature is available only to donors"
-msgstr ""
+msgstr "此功能仅限捐助者使用"
 
 msgid "<a href='/donate'>Purchase donor</a> to support us and unlock this feature, and many more!"
-msgstr ""
+msgstr "<a href='/donate'>捐助</a>我们来解锁次功能，可不止这一个哦！"
 
 msgid "Old connection method (server switcher)"
-msgstr ""
+msgstr "旧连接方式（服务器切换器）"
 
 msgid "New connection method (\"shortcut method\", recommended)"
-msgstr ""
+msgstr "新连接方式（启动项，推荐！）"
 
 msgid "<a href='/doc/connection_guide' target='_blank'>The Guide</a>. TL;DR version below."
-msgstr ""
+msgstr "<a href='/doc/connection_guide' target='_blank'>这是教程</a>。*太长不看*版本在下面"
 
 msgid "Make a new <b>osu! shortcut</b> (you can copy your existing one if you have it)"
-msgstr ""
+msgstr "建立一个新的 <b>osu! 快捷方式</b>（如果你已经有了可以复制一个新的）"
 
 msgid "Rename it to \"Ripple\""
-msgstr ""
+msgstr "重命名为 \"Ripple\""
 
 msgid "Add <code>-devserver ripple.moe</code> at the end of the <b>\"Target\"</b> field"
-msgstr ""
+msgstr "在 <b>\"目标\"</b> 结尾添加 <code>-devserver ripple.moe</code>"
 
 msgid "Please read the entirety of this page to confirm your ability to understand what is written here."
-msgstr ""
+msgstr "请阅读本页面的全部内容，以确认你清楚你自己写下了什么启动项。"

@@ -11,7 +11,7 @@
   jQuery.timeago.settings.strings = {
     prefixAgo: null,
     prefixFromNow: null,
-    suffixAgo: "之前",
+    suffixAgo: "前",
     suffixFromNow: "之后",
     seconds: "不到1分钟",
     minute: "大约1分钟",
