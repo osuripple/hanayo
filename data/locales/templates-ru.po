@@ -1875,134 +1875,134 @@ msgid "I have read and understood everything on this page."
 msgstr "Я прочитал и понял все вышеуказанное."
 
 msgid "The 'Ranking Criteria' are as follows:"
-msgstr ""
+msgstr "Критерии для ранка карт следующие:"
 
 msgid "Follow the <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Bancho Ranking Criteria</a> to some extend"
-msgstr ""
+msgstr "Придерживайтесь <a href='https://osu.ppy.sh/help/wiki/Ranking_Criteria/'>Критериям ранга на Bancho</a>"
 
 msgid "No clear abuse of any systems (pp/stars)"
-msgstr ""
+msgstr "Никакого явного злоупотребления какими-либо системами (пп/звезды)"
 
 msgid "No speedup or re-upload of existing maps"
-msgstr ""
+msgstr "Никаких ускоренных версий или перезаливов существующих карт"
 
 msgid "No Jump/Stream Training Compilations"
-msgstr ""
+msgstr "Никаких Джамп/Стрим подборок"
 
 msgid "At least 66% Completion for 7+ Minute songs, anything else completely mapped"
-msgstr ""
+msgstr "Необходимо замаппать как минимум 66% карты если она идет дольше чем 7 минут, мапы короче должны быть замаппаны полностью "
 
 msgid "Popularity does not mean rankable"
-msgstr ""
+msgstr "Популярность карты не означает, что она ранкабельна"
 
 msgid "Community"
-msgstr ""
+msgstr "Комьюнити"
 
 msgid "Multiplayer listing"
-msgstr ""
+msgstr "Список мультиплееров"
 
 msgid "Discord Server"
-msgstr ""
+msgstr "Discord сервер"
 
 msgid "Read more"
-msgstr ""
+msgstr "Прочитать дальше"
 
 msgid "Connection guide"
-msgstr ""
+msgstr "Гайд по подключению"
 
 msgid "Classic"
-msgstr ""
+msgstr "Классик"
 
 msgid "Relax"
-msgstr ""
+msgstr "Релакс"
 
 msgid "New!"
-msgstr ""
+msgstr "Новое!"
 
 msgid "Total Play Time"
-msgstr ""
+msgstr "Времени в игре"
 
 msgid "<b>We have changed our custom badge system.</b> You can now use emojis as icons! Check it out!"
-msgstr ""
+msgstr "<b>Мы изменили нашу кастомную систему значков.</b> Теперь вы можете использовать эмодзи как иконки! Проверьте сами!"
 
 msgid "Pick an emoji"
-msgstr ""
+msgstr "Выберите эмодзи"
 
 msgid "In-game settings"
-msgstr ""
+msgstr "Внутриигровые настройки"
 
 msgid "Submode"
-msgstr ""
+msgstr "Сабмод"
 
 msgid "In-game beatmap scoreboards display"
-msgstr ""
+msgstr "Отображение таблицы лидеров карты в игре "
 
 msgid "You can also change this setting in-game with '!relax' and '!classic'"
-msgstr ""
+msgstr "Вы так же можете изменить эту настройку в игре с помощью '!relax' или '!classic'"
 
 msgid "display and order by"
-msgstr ""
+msgstr "отображать и сортировать по "
 
 msgid "You can also change this setting in-game with '!display classic pp' and '!display classic score'"
-msgstr ""
+msgstr "Вы так же можете изменить эту настройку в игре с помощью '!display classic pp' или '!display classic score'"
 
 msgid "You can also change this setting in-game with '!display relax pp' and '!display relax score'"
-msgstr ""
+msgstr "Вы так же можете изменить эту настройку в игре с помощью '!display relax pp' или '!display relax score"
 
 msgid "Overwrite classic mode scores prioritizing..."
-msgstr ""
+msgstr "Перезаписывать результаты в классическом режиме с приоритетом на..."
 
 msgid "The settings this section apply to only classic mode. Relax mode always prioritizes PP. Changing these setting is not retroactive."
-msgstr ""
+msgstr "Эти настройки применяются только к классическому режиму. Релакс всегда приоритезирует PP. Изменение этих настроек не будет иметь никакого эффекта."
 
 msgid "default"
-msgstr ""
+msgstr "дефолт"
 
 msgid "Auto !last"
-msgstr ""
+msgstr "Автоматический вывод !last"
 
 # On/off
 msgid "Off"
-msgstr ""
+msgstr "Выключить"
 
 msgid "Chat message"
-msgstr ""
+msgstr "Сообщение в чате"
 
 msgid "Notification"
-msgstr ""
+msgstr "Уведомления"
 
 msgid "Custom role name"
-msgstr ""
+msgstr "Кастомное имя роли"
 
 msgid "Colour"
-msgstr ""
+msgstr "Цвет"
 
 msgid "Donor"
-msgstr ""
+msgstr "Донор"
 
 msgid "This feature is available only to donors"
-msgstr ""
+msgstr "Эта функция доступна только для доноров"
 
 msgid "<a href='/donate'>Purchase donor</a> to support us and unlock this feature, and many more!"
-msgstr ""
+msgstr "<a href='/donate'>Купите донора </a> чтобы поддержать нас и разблокировать эту и не только функцию!"
 
 msgid "Old connection method (server switcher)"
-msgstr ""
+msgstr "Старые метод подключения (server switcher)"
 
 msgid "New connection method (\"shortcut method\", recommended)"
-msgstr ""
+msgstr "Новый метод подключения (\"shortcut method", рекомендованный)"
 
 msgid "<a href='/doc/connection_guide' target='_blank'>The Guide</a>. TL;DR version below."
-msgstr ""
+msgstr "<a href='/doc/connection_guide' target='_blank'>Гайд</a>. Краткое изложение указано ниже."
 
 msgid "Make a new <b>osu! shortcut</b> (you can copy your existing one if you have it)"
-msgstr ""
+msgstr "Создайте новый ярлык для osu! (можете скопировать уже существующий, если он есть)"
 
 msgid "Rename it to \"Ripple\""
-msgstr ""
+msgstr "Переименуйте его в \"Ripple"\"
 
 msgid "Add <code>-devserver ripple.moe</code> at the end of the <b>\"Target\"</b> field"
-msgstr ""
+msgstr "Добавьте <code>-devserver ripple.moe</code> в конце поля <b>\"Объект"\</b>"
 
 msgid "Please read the entirety of this page to confirm your ability to understand what is written here."
-msgstr ""
+msgstr "Пожалуйста, ознакомьтесь со всем содержанием этой страницы, чтобы подтвердить, что вы понимаете написанное здесь."
