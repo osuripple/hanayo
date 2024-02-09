@@ -20,7 +20,7 @@ import (
 
 // DefaultAddress is the address used if the package is not set up to refresh
 // from coinbase.
-const DefaultAddress = "1CKGzZqrVwKoXwHEWpTobWqqtkYuqoFNro"
+const DefaultAddress = "COINBASE IS GARBAGE AND THIS DOESN'T WORK, SORRY"
 
 // AccountName is the name the account on coinbase must have to be considered as
 // the actual account.
