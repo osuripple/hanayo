@@ -1,4 +1,5 @@
-// +build windows
+//go:build windows || darwin
+// +build windows darwin
 
 package main
 
@@ -12,7 +13,7 @@ import (
 
 var l net.Listener
 
-func startuato(engine *gin.Engine) {
+func startuato(engine *gin.Engine) bool {
 	var err error
 
 	// Listen on a TCP or a UNIX domain socket (TCP here).
@@ -25,5 +26,10 @@ func startuato(engine *gin.Engine) {
 		log.Fatalln(err)
 	}
 
-	http.Serve(l, engine)
+	if err := http.Serve(l, engine); err != nil {
+		log.Fatalln(err)
+	}
+
+	// what the fuck is this
+	return true
 }
