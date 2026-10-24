@@ -12,10 +12,10 @@ require (
 	github.com/getsentry/raven-go v0.0.0-20180121060056-563b81fc02b7
 	github.com/gin-gonic/contrib v0.0.0-20180124033040-dccbb4a462e9
 	github.com/gin-gonic/gin v1.1.5-0.20170702092826-d459835d2b07
-	github.com/go-sql-driver/mysql v1.3.0
+	github.com/go-sql-driver/mysql v1.3.1-0.20161224121019-2e00b5cd7039
 	github.com/jmoiron/sqlx v0.0.0-20180124204410-05cef0741ade
 	github.com/johnniedoe/contrib v0.0.0-20150821124612-d553224621be
-	github.com/microcosm-cc/bluemonday v0.0.0-20171222152607-542fd4642604
+	github.com/microcosm-cc/bluemonday v1.0.21
 	github.com/nfnt/resize v0.0.0-20160724205520-891127d8d1b5
 	github.com/osuripple/cheesegull v2.0.5-0.20171027211637-3f168dff833b+incompatible
 	github.com/pariz/gountries v0.0.0-20171019111738-adb00f6513a3
@@ -33,15 +33,15 @@ require (
 	gopkg.in/yaml.v2 v2.2.4
 	zxq.co/ripple/agplwarning v0.0.0-20180204104638-d3a3d0ee424f
 	zxq.co/ripple/go-discord-oauth v0.0.0-20161117211055-348e08feccb5
-	zxq.co/ripple/playstyle v0.0.0-20161106144235-198984a13cb6
+	zxq.co/ripple/playstyle v0.0.0-20200414151848-19a867db35bf
 	zxq.co/ripple/rippleapi v0.0.0-20190720104919-34f24b8de68b
 	zxq.co/ripple/schiavolib v0.0.0-20161109210250-9cdc674dad07
-	zxq.co/x/rs v0.0.0-20160912144010-8b39b068a155
 )
 
 require (
 	github.com/DataDog/datadog-go v0.0.0-20170427165718-0ddda6bee211 // indirect
 	github.com/ansel1/merry v1.0.2 // indirect
+	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/boj/redistore v0.0.0-20160128113310-fc113767cd6b // indirect
 	github.com/boombuler/barcode v1.0.0 // indirect
 	github.com/certifi/gocertifi v0.0.0-20180118203423-deb3ae2ef261 // indirect
@@ -53,9 +53,10 @@ require (
 	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7 // indirect
 	github.com/golang/protobuf v1.2.0 // indirect
 	github.com/gorilla/context v0.0.0-20160226214623-1ea25387ff6f // indirect
+	github.com/gorilla/css v1.0.0 // indirect
 	github.com/gorilla/securecookie v0.0.0-20160422134519-667fe4e3466a // indirect
 	github.com/gorilla/sessions v0.0.0-20160922145804-ca9ada445741 // indirect
-	github.com/klauspost/compress v1.2.1 // indirect
+	github.com/klauspost/compress v1.2.2-0.20170114130832-461e8fd8397a // indirect
 	github.com/klauspost/cpuid v0.0.0-20170728055534-ae7887de9fa5 // indirect
 	github.com/klauspost/crc32 v0.0.0-20161016154125-cb6bfca970f6 // indirect
 	github.com/lib/pq v1.3.0 // indirect
@@ -68,14 +69,22 @@ require (
 	github.com/pkg/errors v0.8.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v0.0.0-20170918181015-86672fcb3f95 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
-	github.com/stretchr/testify v1.5.1 // indirect
+	github.com/stretchr/testify v1.8.2 // indirect
 	github.com/ugorji/go v0.0.0-20180112141927-9831f2c3ac10 // indirect
-	github.com/valyala/fasthttp v0.0.0-20160617101304-d42167fd04f6 // indirect
-	golang.org/x/net v0.0.0-20190311183353-d8887717615a // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasthttp v0.0.0-20170118172047-2ada93a6dff4 // indirect
+	golang.org/x/net v0.0.0-20221002022538-bcab6841153b // indirect
 	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
-	golang.org/x/sys v0.0.0-20191120155948-bd437916bb0e // indirect
+	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
 	google.golang.org/appengine v1.0.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 )
+
+// zxq.co is behind a bot challenge (Anubis) that also blocks the ?go-get=1
+// lookup, so neither the go command nor proxy.golang.org can resolve new
+// versions of zxq.co modules. Fetch rippleapi from its GitHub mirror instead;
+// the import path stays zxq.co/ripple/rippleapi. Remove this once zxq.co
+// serves go-import meta tags to the go tool again.
+replace zxq.co/ripple/rippleapi => github.com/osuripple/api v0.0.0-20261024122643-5d4284d75630

@@ -77,14 +77,6 @@ func parseBBCode(c *gin.Context) {
 	c.String(200, d)
 }
 
-func mustCSRFGenerate(u int) string {
-	v, err := CSRF.Generate(u)
-	if err != nil {
-		panic(err)
-	}
-	return v
-}
-
 var blogRedirectMap = map[string]string{
 	"/posts/moving-to-a-new-server":                                      "https://blog.ripple.moe/moving-to-a-new-server-11155949edca",
 	"/posts/ripple-qa-3":                                                 "https://blog.ripple.moe/ripple-q-a-3-28c9851f42b3",

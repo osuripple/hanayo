@@ -19,7 +19,6 @@ import (
 	"github.com/pquerna/otp"
 	"github.com/pquerna/otp/totp"
 	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 )
 
 var allowedPaths = [...]string{
@@ -127,9 +126,11 @@ func tfaGateway(c *gin.Context) {
 		err := db.QueryRow("SELECT 1 FROM 2fa WHERE userid = ? AND ip = ? AND expire > ?",
 			i, clientIP(c), time.Now().Unix()).Scan(new(int))
 		if err != nil {
-			db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
-				i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
-			http.Get("http://127.0.0.1:8888/update")
+			if err := new2faToken(i, c); err != nil {
+				c.Error(err)
+				resp500(c)
+				return
+			}
 		}
 	}
 
@@ -148,6 +149,19 @@ func clientIP(c *gin.Context) string {
 		return ff
 	}
 	return c.ClientIP()
+}
+
+// new2faToken creates a new Telegram 2fa token for the user and asks for it
+// to be sent.
+func new2faToken(user int, c *gin.Context) error {
+	token, err := common.RandomLetters(8)
+	if err != nil {
+		return err
+	}
+	db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
+		user, strings.ToUpper(token), clientIP(c), time.Now().Add(time.Hour).Unix())
+	http.Get("http://127.0.0.1:8888/update")
+	return nil
 }
 
 func clear2fa(c *gin.Context) {
@@ -180,10 +194,12 @@ func verify2fa(c *gin.Context) {
 			return
 		}
 		if time.Now().After(time.Time(expire)) {
+			if err := new2faToken(i, c); err != nil {
+				c.Error(err)
+				c.String(500, "Internal server error")
+				return
+			}
 			c.String(200, "1")
-			db.Exec("INSERT INTO 2fa(userid, token, ip, expire, sent) VALUES (?, ?, ?, ?, 0);",
-				i, strings.ToUpper(rs.String(8)), clientIP(c), time.Now().Add(time.Hour).Unix())
-			http.Get("http://127.0.0.1:8888/update")
 			return
 		}
 	case 2:
@@ -276,13 +292,16 @@ func recover2faSubmit(c *gin.Context) {
 
 // deletes expired 2fa confirmation tokens. gets current confirmation token.
 // if it does not exist, generates one.
-func get2faConfirmationToken(user int) (token string) {
+func get2faConfirmationToken(user int) (token string, err error) {
 	db.Exec("DELETE FROM 2fa_confirmation WHERE expire < ?", time.Now().Unix())
 	db.Get(&token, "SELECT token FROM 2fa_confirmation WHERE userid = ? LIMIT 1", user)
 	if token != "" {
 		return
 	}
-	token = rs.String(32)
+	token, err = common.RandomLetters(32)
+	if err != nil {
+		return "", err
+	}
 	db.Exec("INSERT INTO 2fa_confirmation (userid, token, expire) VALUES (?, ?, ?)",
 		user, token, time.Now().Add(time.Hour).Unix())
 	return
@@ -362,18 +381,28 @@ func totpSetup(c *gin.Context) {
 		return
 	}
 
-	codes, _ := json.Marshal(generateRecoveryCodes())
+	recoveryCodes, err := generateRecoveryCodes()
+	if err != nil {
+		c.Error(err)
+		addMessage(c, errorMessage{T(c, "An error occurred. Please try again.")})
+		return
+	}
+	codes, _ := json.Marshal(recoveryCodes)
 	db.Exec("UPDATE 2fa_totp SET recovery = ?, enabled = 1 WHERE userid = ?", string(codes), ctx.User.ID)
 
 	addMessage(c, successMessage{T(c, "TOTP-based 2FA has been enabled on your account.")})
 }
 
-func generateRecoveryCodes() []string {
+func generateRecoveryCodes() ([]string, error) {
 	x := make([]string, 8)
 	for i := range x {
-		x[i] = rs.StringFromChars(6, "QWERTYUIOPASDFGHJKLZXCVBNM1234567890")
+		var err error
+		x[i], err = common.RandomStringFromChars(6, "QWERTYUIOPASDFGHJKLZXCVBNM1234567890")
+		if err != nil {
+			return nil, err
+		}
 	}
-	return x
+	return x, nil
 }
 
 func generateKey(ctx context) *otp.Key {

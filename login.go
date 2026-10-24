@@ -13,7 +13,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 )
 
 func loginSubmit(c *gin.Context) {
@@ -115,7 +114,13 @@ func loginSubmit(c *gin.Context) {
 
 	sess.Set("userid", data.ID)
 	sess.Set("pw", cmd5(data.Password))
-	sess.Set("logout", rs.String(15))
+	logoutKey, err := common.RandomLetters(15)
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
+	sess.Set("logout", logoutKey)
 
 	tfaEnabled := is2faEnabled(data.ID)
 	if tfaEnabled == 0 {
@@ -169,7 +174,7 @@ func logout(c *gin.Context) {
 	}
 	sess := getSession(c)
 	s, _ := sess.Get("logout").(string)
-	if s != c.Query("k") {
+	if s == "" || s != c.Query("k") {
 		// todo: return "are you sure you want to log out?" page
 		respEmpty(c, "Log out", warningMessage{T(c, "Your session has expired. Please try redoing what you were trying to do.")})
 		return
@@ -186,8 +191,11 @@ func logout(c *gin.Context) {
 }
 
 func generateToken(id int, c *gin.Context) (string, error) {
-	tok := common.RandomString(32)
-	_, err := db.Exec(
+	tok, err := common.RandomString(32)
+	if err != nil {
+		return "", err
+	}
+	_, err = db.Exec(
 		`INSERT INTO tokens(user, privileges, description, token, private)
 					VALUES (   ?,        '0',           ?,     ?,     '1');`,
 		id, clientIP(c), cmd5(tok))

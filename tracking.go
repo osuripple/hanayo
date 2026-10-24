@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"zxq.co/x/rs"
 	"github.com/gin-gonic/gin"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 func setYCookie(userID int, c *gin.Context) {
@@ -25,7 +25,12 @@ func setYCookie(userID int, c *gin.Context) {
 		return
 	}
 	for {
-		token = fmt.Sprintf("%x", sha256.Sum256([]byte(rs.String(32))))
+		s, err := common.RandomLetters(32)
+		if err != nil {
+			c.Error(err)
+			return
+		}
+		token = fmt.Sprintf("%x", sha256.Sum256([]byte(s)))
 		if db.QueryRow("SELECT 1 FROM identity_tokens WHERE token = ? LIMIT 1", token).Scan(new(int)) == sql.ErrNoRows {
 			break
 		}

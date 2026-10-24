@@ -6,7 +6,7 @@ import (
 
 	"github.com/thehowl/cieca"
 	"zxq.co/ripple/hanayo/services"
-	"zxq.co/x/rs"
+	"zxq.co/ripple/rippleapi/common"
 )
 
 // NewCSRF creates a new CSRF service as described in the services.CSRF
@@ -24,7 +24,11 @@ type ciecaCSRF struct {
 func (c *ciecaCSRF) Generate(u int) (string, error) {
 	var s string
 	for {
-		s = rs.String(10)
+		var err error
+		s, err = common.RandomLetters(10)
+		if err != nil {
+			return "", err
+		}
 		_, e := c.GetWithExist(s)
 		if !e {
 			break

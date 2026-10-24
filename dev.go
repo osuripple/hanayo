@@ -19,7 +19,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/nfnt/resize"
 	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 )
 
 func createAPIToken(c *gin.Context) {
@@ -49,11 +48,17 @@ func createAPIToken(c *gin.Context) {
 	)
 
 	for {
-		tokenStr = common.RandomString(32)
+		var err error
+		tokenStr, err = common.RandomString(32)
+		if err != nil {
+			c.Error(err)
+			resp500(c)
+			return
+		}
 		tokenMD5 = fmt.Sprintf("%x", md5.Sum([]byte(tokenStr)))
 
 		var id int
-		err := db.QueryRow("SELECT id FROM tokens WHERE token = ? LIMIT 1", tokenMD5).Scan(&id)
+		err = db.QueryRow("SELECT id FROM tokens WHERE token = ? LIMIT 1", tokenMD5).Scan(&id)
 		if err == sql.ErrNoRows {
 			break
 		}
@@ -288,8 +293,19 @@ func editOAuthApplicationSubmit(c *gin.Context) {
 	})
 
 	if id == "new" {
-		id = rs.StringFromChars(32, oAuthRandomChars)
-		secret := rs.StringFromChars(64, oAuthRandomChars)
+		newID, err := common.RandomStringFromChars(32, oAuthRandomChars)
+		if err != nil {
+			c.Error(err)
+			resp500(c)
+			return
+		}
+		secret, err := common.RandomStringFromChars(64, oAuthRandomChars)
+		if err != nil {
+			c.Error(err)
+			resp500(c)
+			return
+		}
+		id = newID
 		secretSha := fmt.Sprintf("%x", sha256.Sum256([]byte(secret)))
 		db.Exec("INSERT INTO osin_client(id, secret, extra, redirect_uri) VALUES (?, ?, ?, ?)", id, secretSha, string(extra), redirectURI)
 		db.Exec("INSERT INTO osin_client_user(client_id, user) VALUES (?, ?)", id, ctx.User.ID)
@@ -320,7 +336,11 @@ func storeNewAvatar(file multipart.File) (string, error) {
 		return "", err
 	}
 	img = resize.Thumbnail(256, 256, img, resize.Bilinear)
-	newFilename := rs.StringFromChars(32, oAuthRandomChars) + ".png"
+	newFilename, err := common.RandomStringFromChars(32, oAuthRandomChars)
+	if err != nil {
+		return "", err
+	}
+	newFilename += ".png"
 	f, err := os.Create(fmt.Sprintf("static/oauth-apps/%s", newFilename))
 	defer f.Close()
 	if err != nil {

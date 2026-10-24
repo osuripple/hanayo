@@ -28,8 +28,8 @@ import (
 	"zxq.co/ripple/hanayo/routers/pagemappings"
 	"zxq.co/ripple/hanayo/services"
 	"zxq.co/ripple/hanayo/services/cieca"
+	"zxq.co/ripple/rippleapi/common"
 	schiavo "zxq.co/ripple/schiavolib"
-	"zxq.co/x/rs"
 )
 
 var startTime = time.Now()
@@ -123,9 +123,14 @@ func main() {
 		panic(err)
 	}
 
+	defaultCookieSecret, err := common.RandomLetters(46)
+	if err != nil {
+		panic(err)
+	}
+
 	var configDefaults = map[*string]string{
 		&config.ListenTo:         ":45221",
-		&config.CookieSecret:     rs.String(46),
+		&config.CookieSecret:     defaultCookieSecret,
 		&config.AvatarURL:        "https://a.ripple.moe",
 		&config.BaseURL:          "https://ripple.moe",
 		&config.BanchoAPI:        "https://c.ripple.moe",

@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 )
 
 func sessionInitializer() func(c *gin.Context) {
@@ -33,7 +32,12 @@ func sessionInitializer() func(c *gin.Context) {
 				c.Error(err)
 			}
 			if sess.Get("logout") == nil {
-				sess.Set("logout", rs.String(15))
+				// on failure, the key is left unset and generated again on the next request
+				if k, err := common.RandomLetters(15); err != nil {
+					c.Error(err)
+				} else {
+					sess.Set("logout", k)
+				}
 			}
 			ctx.User.Privileges = common.UserPrivileges(pRaw)
 			db.Exec("UPDATE users SET latest_activity = ? WHERE id = ?", time.Now().Unix(), userid)

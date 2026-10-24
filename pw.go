@@ -8,7 +8,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mailgun/mailgun-go.v1"
 	"zxq.co/ripple/rippleapi/common"
-	"zxq.co/x/rs"
 )
 
 func passwordReset(c *gin.Context) {
@@ -53,7 +52,12 @@ func passwordReset(c *gin.Context) {
 	}
 
 	// generate key
-	key := rs.String(50)
+	key, err := common.RandomLetters(50)
+	if err != nil {
+		c.Error(err)
+		resp500(c)
+		return
+	}
 
 	// TODO: WHY THE FUCK DOES THIS USE USERNAME AND NOT ID PLEASE WRITE MIGRATION
 	_, err = db.Exec("INSERT INTO password_recovery(k, u) VALUES (?, ?)", key, username)

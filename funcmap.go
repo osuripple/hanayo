@@ -430,12 +430,20 @@ var funcMap = template.FuncMap{
 	// get2faConfirmationToken retrieves the current confirmation token for a certain user.
 	"get2faConfirmationToken": get2faConfirmationToken,
 	// csrfGenerate creates a csrf token input
-	"csrfGenerate": func(u int) template.HTML {
-		return template.HTML(`<input type="hidden" name="csrf" value="` + mustCSRFGenerate(u) + `">`)
+	"csrfGenerate": func(u int) (template.HTML, error) {
+		v, err := CSRF.Generate(u)
+		if err != nil {
+			return "", err
+		}
+		return template.HTML(`<input type="hidden" name="csrf" value="` + v + `">`), nil
 	},
 	// csrfURL creates a CSRF token for GET requests.
-	"csrfURL": func(u int) template.URL {
-		return template.URL("csrf=" + mustCSRFGenerate(u))
+	"csrfURL": func(u int) (template.URL, error) {
+		v, err := CSRF.Generate(u)
+		if err != nil {
+			return "", err
+		}
+		return template.URL("csrf=" + v), nil
 	},
 	// systemSetting retrieves some information from the table system_settings
 	"systemSettings": systemSettings,
