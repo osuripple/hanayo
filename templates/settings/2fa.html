@@ -28,7 +28,7 @@ MinPrivileges=2
 						</h1>
 							{{ $k := generateKey .Context }}
 						<div class="ui compact centered segment" style="margin: 0 auto; display: table">
-							<img src="https://chart.googleapis.com/chart?chs=256x256&cht=qr&chl=otpauth://totp/{{ $k.AccountName }}%3Fsecret={{ $k.Secret }}%26issuer={{ $k.Issuer }}">
+							<img src="{{ totpQRCode $k }}" width="256" height="256">
 						</div>
 						<p class="little top margin">
 							{{ .T "Scan this from <a href=\"https://support.google.com/accounts/answer/1066447?hl=en\">Google Authenticator</a>, or if you're not able to, provide to Google Authenticator this key: <code>%s</code>. Once you've done, fill out the following form with the code you get on Google Authenticator and click on enter to enable TOTP-based two factor authentication." $k.Secret | html }}

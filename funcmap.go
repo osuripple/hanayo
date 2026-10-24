@@ -483,6 +483,7 @@ var funcMap = template.FuncMap{
 		return version
 	},
 	"generateKey": generateKey,
+	"totpQRCode":  totpQRCode,
 	// getKeys gets the recovery 2fa keys for an user
 	"getKeys": func(id int) []string {
 		var keyRaw string

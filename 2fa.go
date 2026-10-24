@@ -1,9 +1,13 @@
 package main
 
 import (
+	"bytes"
 	"database/sql"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
+	"html/template"
+	"image/png"
 	"net/http"
 	"net/url"
 	"strings"
@@ -382,4 +386,22 @@ func generateKey(ctx context) *otp.Key {
 	}
 	db.Exec("INSERT INTO 2fa_totp(userid, secret) VALUES (?, ?) ON DUPLICATE KEY UPDATE secret = VALUES(secret)", ctx.User.ID, k.Secret())
 	return k
+}
+
+// totpQRCode renders the key's otpauth:// URL as a QR code PNG, as a data URL
+// for an <img> tag. Generated locally so the secret isn't sent to a third party
+// (the Google Image Charts API previously used for this has been shut down).
+func totpQRCode(k *otp.Key) template.URL {
+	if k == nil {
+		return ""
+	}
+	img, err := k.Image(256, 256)
+	if err != nil {
+		return ""
+	}
+	var buf bytes.Buffer
+	if err := png.Encode(&buf, img); err != nil {
+		return ""
+	}
+	return template.URL("data:image/png;base64," + base64.StdEncoding.EncodeToString(buf.Bytes()))
 }
